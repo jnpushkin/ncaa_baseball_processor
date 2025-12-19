@@ -639,7 +639,16 @@
       }
     ],
     "stolen_bases": [
-      "Wells Sykes (1)"
+      {
+        "player": "Wells Sykes",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Aaron Walton",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [
       "Brendan Summerhill (1)"

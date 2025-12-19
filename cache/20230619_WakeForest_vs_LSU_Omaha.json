@@ -623,7 +623,11 @@
       }
     ],
     "triples": [
-      "Tre' Morgan (1) 2B: Danny Corona (1)"
+      {
+        "player": "Tre' Morgan",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "home_runs": [],
     "stolen_bases": [],

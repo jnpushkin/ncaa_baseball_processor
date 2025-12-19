@@ -944,10 +944,34 @@
         "player": "Perez, Christian",
         "game_count": 1,
         "season_total": 1
+      },
+      {
+        "player": "Jimmy Pelletier",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "stolen_bases": [
-      "Christiansen, Ryan (1) Totals 41 11 13 11 9 13 14"
+      {
+        "player": "Christiansen, Ryan",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Kenny DeCelle",
+        "game_count": 1,
+        "season_total": 2
+      },
+      {
+        "player": "Jordan Lewis",
+        "game_count": 1,
+        "season_total": 2
+      },
+      {
+        "player": "Patrick Keighran",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [
       "Poturnak, Jakob (1)"

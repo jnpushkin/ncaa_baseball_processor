@@ -749,13 +749,41 @@
         "player": "Handron,Max",
         "game_count": 1,
         "season_total": 1
+      },
+      {
+        "player": "Wolff, K.",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Garcia, E.",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Johnson, G.",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Cimini, V.",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "Ragsdale, J. (1)",
-      "Toomey, J. (1) SH: Moutzouridis,PJ (1)"
+      {
+        "player": "Ragsdale, J.",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Toomey, J.",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [],
     "hit_by_pitch": [

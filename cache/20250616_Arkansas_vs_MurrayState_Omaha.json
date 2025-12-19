@@ -510,10 +510,26 @@
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "Charles Davalan (1)",
-      "Wehiwa Aloy (1)",
-      "Ryder Helfrick (1)",
-      "Justin"
+      {
+        "player": "Charles Davalan",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Wehiwa Aloy",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Ryder Helfrick",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Justin",
+        "game_count": 1,
+        "season_total": null
+      }
     ],
     "caught_stealing": [
       "Justin Thomas Jr. (1)"

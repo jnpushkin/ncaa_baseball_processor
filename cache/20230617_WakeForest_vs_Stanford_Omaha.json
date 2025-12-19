@@ -669,7 +669,11 @@
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "Carter Graham (1) SH: Justin Johnson (1)"
+      {
+        "player": "Carter Graham",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [],
     "hit_by_pitch": [

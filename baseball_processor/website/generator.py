@@ -655,10 +655,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                     <th>R</th>
                                                     <th>H</th>
                                                     <th>2B</th>
+                                                    <th>3B</th>
                                                     <th>HR</th>
                                                     <th>RBI</th>
                                                     <th>BB</th>
                                                     <th>K</th>
+                                                    <th>SB</th>
                                                 </>
                                             ) : (
                                                 <>
@@ -683,10 +685,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                         <td className="text-center">{{g.r}}</td>
                                                         <td className="text-center">{{g.h}}</td>
                                                         <td className="text-center">{{g.doubles || 0}}</td>
+                                                        <td className="text-center">{{g.triples || 0}}</td>
                                                         <td className="text-center">{{g.hr || 0}}</td>
                                                         <td className="text-center">{{g.rbi}}</td>
                                                         <td className="text-center">{{g.bb}}</td>
                                                         <td className="text-center">{{g.k}}</td>
+                                                        <td className="text-center">{{g.sb || 0}}</td>
                                                     </>
                                                 ) : (
                                                     <>
@@ -805,10 +809,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                     <SortableHeader label="R" sortKey="R" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="H" sortKey="H" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="2B" sortKey="2B" sortConfig={{sortConfig}} onSort={{requestSort}} />
+                                    <SortableHeader label="3B" sortKey="3B" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="HR" sortKey="HR" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="RBI" sortKey="RBI" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="BB" sortKey="BB" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="K" sortKey="K" sortConfig={{sortConfig}} onSort={{requestSort}} />
+                                    <SortableHeader label="SB" sortKey="SB" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="AVG" sortKey="AVG" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="OBP" sortKey="OBP" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="SLG" sortKey="SLG" sortConfig={{sortConfig}} onSort={{requestSort}} />
@@ -825,10 +831,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                         <td className="text-center">{{b.R}}</td>
                                         <td className="text-center">{{b.H}}</td>
                                         <td className="text-center">{{b['2B']}}</td>
+                                        <td className="text-center">{{b['3B']}}</td>
                                         <td className="text-center">{{b.HR}}</td>
                                         <td className="text-center">{{b.RBI}}</td>
                                         <td className="text-center">{{b.BB}}</td>
                                         <td className="text-center">{{b.K}}</td>
+                                        <td className="text-center">{{b.SB}}</td>
                                         <td className="text-center">{{b.AVG}}</td>
                                         <td className="text-center">{{b.OBP}}</td>
                                         <td className="text-center">{{b.SLG}}</td>

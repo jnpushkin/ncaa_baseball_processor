@@ -677,7 +677,11 @@
     "double_plays": {},
     "doubles": [],
     "triples": [
-      "Zion Rose (1)"
+      {
+        "player": "Zion Rose",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "home_runs": [],
     "stolen_bases": [],

@@ -722,8 +722,16 @@
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "HENDRICKSON, Carter (1) HR: Nati, Jimmy (1)",
-      "Reynolds, Brady (1)"
+      {
+        "player": "HENDRICKSON, Carter",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Reynolds, Brady",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [],
     "hit_by_pitch": [

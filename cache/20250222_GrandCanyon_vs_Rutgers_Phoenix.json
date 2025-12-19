@@ -576,7 +576,11 @@
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "Trevor Cohen (1) HR: Pelc, Eddy (2)"
+      {
+        "player": "Trevor Cohen",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [],
     "hit_by_pitch": [

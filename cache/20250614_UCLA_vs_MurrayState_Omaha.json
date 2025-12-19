@@ -701,12 +701,26 @@
         "player": "Dan Tauken",
         "game_count": 1,
         "season_total": 1
+      },
+      {
+        "player": "AJ Salgado",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Cashel Dugger",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "Dean West (1)"
+      {
+        "player": "Dean West",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [],
     "hit_by_pitch": [

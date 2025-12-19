@@ -37,14 +37,79 @@ def format_innings_pitched(ip: float) -> str:
     return f"{whole}.{outs}"
 
 
-def generate_batting_table(players: list, team_name: str) -> str:
+def normalize_name_for_matching(name: str) -> str:
+    """Normalize a player name for matching (lowercase, remove punctuation)."""
+    import re
+    # Convert to lowercase
+    name = name.lower()
+    # Remove common suffixes like ", J." or ", PJ"
+    name = re.sub(r',\s*[a-z\.]+$', '', name)
+    # Remove periods and extra spaces
+    name = re.sub(r'\.', '', name)
+    name = re.sub(r'\s+', ' ', name).strip()
+    return name
+
+
+def get_hr_counts_for_players(players: list, home_runs: list) -> dict:
+    """
+    Map home run counts from game_notes to players.
+
+    Args:
+        players: List of player dicts from batting lineup
+        home_runs: List of HR entries from game_notes (dicts with 'player', 'game_count')
+
+    Returns:
+        Dict mapping player name (normalized) to HR count in this game
+    """
+    hr_counts = {}
+
+    for hr in home_runs:
+        if isinstance(hr, dict):
+            player_name = hr.get('player', '')
+            game_count = hr.get('game_count', 1)
+        else:
+            player_name = str(hr)
+            game_count = 1
+
+        # Normalize the name for matching
+        normalized = normalize_name_for_matching(player_name)
+        hr_counts[normalized] = game_count
+
+    return hr_counts
+
+
+def match_player_hr(player: dict, hr_counts: dict) -> int:
+    """Find HR count for a player by matching names."""
+    # Get player name from either full_name or name field
+    player_name = player.get('full_name') or player.get('name', '')
+    normalized = normalize_name_for_matching(player_name)
+
+    # Direct match
+    if normalized in hr_counts:
+        return hr_counts[normalized]
+
+    # Try last name only match
+    last_name = normalized.split()[-1] if normalized else ''
+    for hr_name, count in hr_counts.items():
+        # Check if last names match
+        hr_last = hr_name.split()[-1] if hr_name else ''
+        if last_name and hr_last and last_name == hr_last:
+            return count
+
+    return 0
+
+
+def generate_batting_table(players: list, team_name: str, home_runs: list = None) -> str:
     """Generate HTML batting table for a team."""
     if not players:
         return ""
 
+    # Build HR lookup from game notes
+    hr_counts = get_hr_counts_for_players(players, home_runs or [])
+
     rows = []
     totals = {
-        'ab': 0, 'r': 0, 'h': 0, 'rbi': 0, 'bb': 0, 'k': 0, 'po': 0, 'a': 0, 'lob': 0
+        'ab': 0, 'r': 0, 'h': 0, 'rbi': 0, 'bb': 0, 'k': 0, 'hr': 0, 'po': 0, 'a': 0, 'lob': 0
     }
 
     for p in players:
@@ -60,6 +125,7 @@ def generate_batting_table(players: list, team_name: str) -> str:
         rbi = p.get('rbi', 0)
         bb = p.get('walks', 0)
         k = p.get('strikeouts', 0)
+        hr = match_player_hr(p, hr_counts)
         po = p.get('put_outs', 0)
         a = p.get('assists', 0)
         lob = p.get('left_on_base', 0)
@@ -71,6 +137,7 @@ def generate_batting_table(players: list, team_name: str) -> str:
         totals['rbi'] += rbi
         totals['bb'] += bb
         totals['k'] += k
+        totals['hr'] += hr
         totals['po'] += po
         totals['a'] += a
         totals['lob'] += lob
@@ -86,6 +153,7 @@ def generate_batting_table(players: list, team_name: str) -> str:
                 <td class="stat-cell">{ab}</td>
                 <td class="stat-cell">{r}</td>
                 <td class="stat-cell">{h}</td>
+                <td class="stat-cell">{hr}</td>
                 <td class="stat-cell">{rbi}</td>
                 <td class="stat-cell">{bb}</td>
                 <td class="stat-cell">{k}</td>
@@ -104,6 +172,7 @@ def generate_batting_table(players: list, team_name: str) -> str:
             <td class="stat-cell"><strong>{totals['ab']}</strong></td>
             <td class="stat-cell"><strong>{totals['r']}</strong></td>
             <td class="stat-cell"><strong>{totals['h']}</strong></td>
+            <td class="stat-cell"><strong>{totals['hr']}</strong></td>
             <td class="stat-cell"><strong>{totals['rbi']}</strong></td>
             <td class="stat-cell"><strong>{totals['bb']}</strong></td>
             <td class="stat-cell"><strong>{totals['k']}</strong></td>
@@ -125,6 +194,7 @@ def generate_batting_table(players: list, team_name: str) -> str:
                     <th class="stat-cell">AB</th>
                     <th class="stat-cell">R</th>
                     <th class="stat-cell">H</th>
+                    <th class="stat-cell">HR</th>
                     <th class="stat-cell">RBI</th>
                     <th class="stat-cell">BB</th>
                     <th class="stat-cell">K</th>
@@ -645,8 +715,8 @@ def generate_html_page(game_data: dict) -> str:
             {generate_line_score(game_data)}
 
             <div class="box-scores">
-                {generate_batting_table(box_score.get('away_batting', []), away_team)}
-                {generate_batting_table(box_score.get('home_batting', []), home_team)}
+                {generate_batting_table(box_score.get('away_batting', []), away_team, game_data.get('game_notes', {}).get('home_runs', []))}
+                {generate_batting_table(box_score.get('home_batting', []), home_team, game_data.get('game_notes', {}).get('home_runs', []))}
             </div>
 
             <div class="pitching-section">

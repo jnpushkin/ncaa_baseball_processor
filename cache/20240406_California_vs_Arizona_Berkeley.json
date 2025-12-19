@@ -574,6 +574,11 @@
         "player": "Esquer, Xavier",
         "game_count": 1,
         "season_total": 1
+      },
+      {
+        "player": "Moutzouridis,PJ",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [],
@@ -585,8 +590,16 @@
       }
     ],
     "stolen_bases": [
-      "Summerhill, Brendan (1)",
-      "Corona, Emilio (1) Becerra,Christian p 0 0 0 0 0 0 0"
+      {
+        "player": "Summerhill, Brendan",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Corona, Emilio",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [
       "Summerhill, Brendan (1) Totals 33 0 7 0 0 11 6"

@@ -761,11 +761,25 @@
     "double_plays": {},
     "doubles": [],
     "triples": [
-      "Kodama,Ethan (1)"
+      {
+        "player": "Kodama,Ethan",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "home_runs": [
       {
         "player": "KWON,J.",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Moutzouridis,PJ",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Campbell,Cade",
         "game_count": 1,
         "season_total": 1
       }

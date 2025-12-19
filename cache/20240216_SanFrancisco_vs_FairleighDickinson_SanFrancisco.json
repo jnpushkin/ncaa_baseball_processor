@@ -586,9 +586,21 @@
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "D'AMATO, Hunter (1)",
-      "HARDEN, Brelon (2) HBP: AMARAL, JT (1)",
-      "RAMPPEN, Zack (1)"
+      {
+        "player": "D'AMATO, Hunter",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "HARDEN, Brelon",
+        "game_count": 1,
+        "season_total": 2
+      },
+      {
+        "player": "RAMPPEN, Zack",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [
       "WILL, Zack (1) PO: CAMPAGNA, Michael (1)"

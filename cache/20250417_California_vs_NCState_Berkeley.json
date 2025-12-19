@@ -631,7 +631,11 @@
       }
     ],
     "stolen_bases": [
-      "Chris McHugh (1)"
+      {
+        "player": "Chris McHugh",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [],
     "hit_by_pitch": [

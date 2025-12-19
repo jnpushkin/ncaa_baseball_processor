@@ -587,9 +587,21 @@
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "Eddie Park (1)",
-      "Carter Graham (1)",
-      "Braden Montgomery (1)"
+      {
+        "player": "Eddie Park",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Carter Graham",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Braden Montgomery",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [
       "Maui Ahuna (1)"

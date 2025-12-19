@@ -23,13 +23,23 @@ def build_extra_base_lookup(game_notes: Dict[str, Any]) -> Dict[str, Dict[str, i
     lookup = {}
 
     def normalize_lookup_name(name: str) -> str:
-        """Normalize player name for matching (lowercase, remove punctuation)."""
+        """Normalize player name for matching (lowercase, extract last name).
+
+        Game notes use format "LastName,First" (e.g., "Moutzouridis,PJ").
+        We extract just the last name for matching against full names.
+        """
         if not name:
             return ""
         # Remove parenthetical content like "(19)" and common suffixes
         name = re.sub(r'\s*\([^)]*\)\s*', '', name)
         name = re.sub(r'\s*\d+\s*$', '', name)  # Remove trailing numbers
-        return name.lower().strip().replace(',', '').replace('.', '')
+        name = name.strip()
+
+        # If it's in "LastName,First" format, extract just the last name
+        if ',' in name:
+            name = name.split(',')[0]
+
+        return name.lower().strip().replace('.', '')
 
     def add_to_lookup(name: str, stat: str, count: int):
         """Add a stat count to the lookup for a player."""

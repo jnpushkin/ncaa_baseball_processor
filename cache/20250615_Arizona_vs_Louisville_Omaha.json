@@ -609,7 +609,11 @@
       }
     ],
     "stolen_bases": [
-      "Mihalakis, Maddox (1) SH: Alex Alicea (1)"
+      {
+        "player": "Mihalakis, Maddox",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [],
     "hit_by_pitch": [

@@ -181,9 +181,10 @@ def extract_game_notes(text: str) -> dict:
     stat_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|3B|HR)\b'
     doubles_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|3B|HR)\b'
 
-    doubles_match = re.search(r'^2B\s*[-:]\s*(.+?)$', text, re.MULTILINE)
-    if doubles_match:
-        for item in doubles_match.group(1).split(';'):
+    # Use findall to capture ALL 2B lines (there may be multiple, one per team)
+    doubles_matches = re.findall(r'^2B\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    for doubles_line in doubles_matches:
+        for item in doubles_line.split(';'):
             item = item.strip()
             # Skip items that are clearly not doubles
             if item and not re.match(doubles_prefixes, item, re.IGNORECASE):
@@ -200,20 +201,31 @@ def extract_game_notes(text: str) -> dict:
                 elif item and not re.match(doubles_prefixes, item, re.IGNORECASE):
                     notes["doubles"].append({"player": item, "game_count": 1, "season_total": None})
 
-    # Extract triples: 3B - Player (season) ;
+    # Extract triples: 3B - Player count (season) ;
+    # Use findall to capture ALL 3B lines (there may be multiple, one per team)
     triples_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|2B|HR)\b'
-    triples_match = re.search(r'^3B\s*[-:]\s*(.+?)$', text, re.MULTILINE)
-    if triples_match:
-        for item in triples_match.group(1).split(';'):
+    triples_matches = re.findall(r'^3B\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    for triples_line in triples_matches:
+        for item in triples_line.split(';'):
             item = item.strip()
             if item and not re.match(triples_prefixes, item, re.IGNORECASE):
-                notes["triples"].append(item)
+                match = re.match(r'([^(]+?)(?:\s*(\d+))?\s*\((\d+)\)', item)
+                if match:
+                    player_name = match.group(1).strip()
+                    if not re.match(triples_prefixes, player_name, re.IGNORECASE):
+                        notes["triples"].append({
+                            "player": player_name,
+                            "game_count": int(match.group(2)) if match.group(2) else 1,
+                            "season_total": int(match.group(3))
+                        })
+                elif item and not re.match(triples_prefixes, item, re.IGNORECASE):
+                    notes["triples"].append({"player": item, "game_count": 1, "season_total": None})
 
     # Extract home runs: HR - Player count (season) ; or HR: Player (count)
-    # Use ^ anchor and MULTILINE to only match lines starting with HR
-    hr_match = re.search(r'^HR\s*[-:]\s*(.+?)$', text, re.MULTILINE)
-    if hr_match:
-        for item in hr_match.group(1).split(';'):
+    # Use findall to capture ALL HR lines (there may be multiple, one per team)
+    hr_matches = re.findall(r'^HR\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    for hr_line in hr_matches:
+        for item in hr_line.split(';'):
             item = item.strip()
             # Skip items that are clearly not home runs (SH, SF, HBP, CS, SB, etc.)
             # Use word boundary \b to catch formats like "HBP - Player" or "SF Player"
@@ -230,13 +242,25 @@ def extract_game_notes(text: str) -> dict:
                             "season_total": int(match.group(3))
                         })
 
-    # Extract stolen bases: SB - Player ; (single line only)
-    sb_match = re.search(r'^SB\s*[-:]\s*(.+?)$', text, re.MULTILINE)
-    if sb_match:
-        for item in sb_match.group(1).split(';'):
+    # Extract stolen bases: SB - Player count (season) ;
+    # Use findall to capture ALL SB lines (there may be multiple, one per team)
+    sb_prefixes = r'^(CS|GDP|LOB|DP|WP|PB|BK|IBB|E)\b'
+    sb_matches = re.findall(r'^SB\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    for sb_line in sb_matches:
+        for item in sb_line.split(';'):
             item = item.strip()
-            if item and 'CS' not in item:
-                notes["stolen_bases"].append(item)
+            if item and 'CS' not in item and not re.match(sb_prefixes, item, re.IGNORECASE):
+                match = re.match(r'([^(]+?)(?:\s*(\d+))?\s*\((\d+)\)', item)
+                if match:
+                    player_name = match.group(1).strip()
+                    if not re.match(sb_prefixes, player_name, re.IGNORECASE):
+                        notes["stolen_bases"].append({
+                            "player": player_name,
+                            "game_count": int(match.group(2)) if match.group(2) else 1,
+                            "season_total": int(match.group(3))
+                        })
+                elif item and not re.match(sb_prefixes, item, re.IGNORECASE):
+                    notes["stolen_bases"].append({"player": item, "game_count": 1, "season_total": None})
 
     # Extract caught stealing: CS - Player (count) ; (single line only)
     cs_match = re.search(r'^CS\s*[-:]\s*(.+?)$', text, re.MULTILINE)

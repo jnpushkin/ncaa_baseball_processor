@@ -713,9 +713,21 @@
       }
     ],
     "stolen_bases": [
-      "Kenny DeCelle (2)",
-      "TJ Rogers (1)",
-      "JT Amaral (2)"
+      {
+        "player": "Kenny DeCelle",
+        "game_count": 1,
+        "season_total": 2
+      },
+      {
+        "player": "TJ Rogers",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "JT Amaral",
+        "game_count": 1,
+        "season_total": 2
+      }
     ],
     "caught_stealing": [
       "LEWIS, Jared (1) DP: 1"

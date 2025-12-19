@@ -524,12 +524,26 @@
         "player": "PELLETIER, C.E.",
         "game_count": 1,
         "season_total": 1
+      },
+      {
+        "player": "BERRING, JonJon",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "MANZO, Efrain",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [],
     "home_runs": [],
     "stolen_bases": [
-      "MANZO, Efrain (1)"
+      {
+        "player": "MANZO, Efrain",
+        "game_count": 1,
+        "season_total": 1
+      }
     ],
     "caught_stealing": [
       "BERRING, JonJon (1)"
