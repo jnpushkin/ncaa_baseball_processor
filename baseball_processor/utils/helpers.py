@@ -5,6 +5,14 @@ Helper utility functions.
 import re
 from typing import Any, Optional
 
+# Import shared utilities to avoid duplication
+from utils.names import (
+    format_innings_pitched,
+    parse_innings_pitched,
+    normalize_team_name,
+    UPPERCASE_TEAMS,
+)
+
 
 def safe_int(value: Any, default: int = 0) -> int:
     """Safely convert value to int."""
@@ -69,37 +77,6 @@ def normalize_name(name: str) -> str:
     return name
 
 
-def format_innings_pitched(ip: float) -> str:
-    """Format innings pitched (5.1 means 5 and 1/3)."""
-    whole = int(ip)
-    fraction = ip - whole
-
-    if fraction < 0.15:
-        outs = 0
-    elif fraction < 0.4:
-        outs = 1
-    else:
-        outs = 2
-
-    return f"{whole}.{outs}"
-
-
-def parse_innings_pitched(ip_str: str) -> float:
-    """Parse innings pitched string to float (5.1 -> 5.333...)."""
-    if not ip_str:
-        return 0.0
-
-    try:
-        if '.' in str(ip_str):
-            parts = str(ip_str).split('.')
-            whole = int(parts[0])
-            outs = int(parts[1]) if len(parts) > 1 else 0
-            return whole + (outs / 3.0)
-        return float(ip_str)
-    except (ValueError, TypeError):
-        return 0.0
-
-
 def calculate_batting_average(hits: int, at_bats: int) -> str:
     """Calculate batting average."""
     if at_bats == 0:
@@ -122,36 +99,6 @@ def calculate_whip(walks: int, hits: int, innings_pitched: float) -> str:
         return '-'
     whip = (walks + hits) / innings_pitched
     return f"{whip:.2f}"
-
-
-# Teams that should remain uppercase (acronyms)
-UPPERCASE_TEAMS = {'VMI', 'TCU', 'LSU', 'LMU', 'UCLA', 'USC', 'UCF', 'SMU', 'BYU', 'UNLV',
-                   'UIC', 'UTSA', 'ETSU', 'NJIT', 'UMBC', 'FIU', 'FAU', 'UAB', 'USF',
-                   'FGCU', 'CSUN', 'PFW', 'NIU', 'UIW', 'VCU', 'LIU'}
-
-
-def normalize_team_name(name: str) -> str:
-    """Normalize team name capitalization.
-
-    - Converts all-caps names to title case (UTAH -> Utah)
-    - Preserves acronyms like VMI, TCU, LSU, UCLA, etc.
-    - Handles special cases like "San Francisco", "Oral Roberts"
-    """
-    if not name:
-        return name
-
-    name = name.strip()
-
-    # Check if it's a known acronym that should stay uppercase
-    if name.upper() in UPPERCASE_TEAMS:
-        return name.upper()
-
-    # If all uppercase and not a known acronym, convert to title case
-    if name.isupper() and len(name) > 3:
-        return name.title()
-
-    # If mixed case already, return as-is
-    return name
 
 
 def parse_date_for_sort(date_str: str) -> str:
