@@ -1,0 +1,304 @@
+{
+  "team_name": "2017 Rutgers Scarlet Knights",
+  "team_id": "b6e47cd8",
+  "year": "2017",
+  "players": [
+    {
+      "name": "Luke Bowerbank",
+      "bref_id": "bowerb001luk",
+      "first_name": "Luke",
+      "last_name": "Bowerbank",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Christian Campbell",
+      "bref_id": "campbe004chr",
+      "first_name": "Christian",
+      "last_name": "Campbell",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Mike Carter",
+      "bref_id": "carter000mik",
+      "first_name": "Mike",
+      "last_name": "Carter",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Chris Folinusz",
+      "bref_id": "folinu000chr",
+      "first_name": "Chris",
+      "last_name": "Folinusz",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Milo Freeman",
+      "bref_id": "freema000mil",
+      "first_name": "Milo",
+      "last_name": "Freeman",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "AJ Gallagher",
+      "bref_id": "gallag000aj-",
+      "first_name": "AJ",
+      "last_name": "Gallagher",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Tommy Genuario",
+      "bref_id": "genuar000tom",
+      "first_name": "Tommy",
+      "last_name": "Genuario",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Kyle Gerace",
+      "bref_id": "gerace000kyl",
+      "first_name": "Kyle",
+      "last_name": "Gerace",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Anthony Greco",
+      "bref_id": "greco-001ant",
+      "first_name": "Anthony",
+      "last_name": "Greco",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Jawuan Harris",
+      "bref_id": "harris000jaw",
+      "first_name": "Jawuan",
+      "last_name": "Harris",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Tom Marcinczyk",
+      "bref_id": "marcin000tom",
+      "first_name": "Tom",
+      "last_name": "Marcinczyk",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Mike Martinez",
+      "bref_id": "martin009mik",
+      "first_name": "Mike",
+      "last_name": "Martinez",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Nick Matera",
+      "bref_id": "matera000nic",
+      "first_name": "Nick",
+      "last_name": "Matera",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Tyler McNamara",
+      "bref_id": "mcnama000tyl",
+      "first_name": "Tyler",
+      "last_name": "McNamara",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Gaby Rosa",
+      "bref_id": "rosa--001gab",
+      "first_name": "Gaby",
+      "last_name": "Rosa",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Carmen Sclafani",
+      "bref_id": "sclafa000car",
+      "first_name": "Carmen",
+      "last_name": "Sclafani",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Kyle Walker",
+      "bref_id": "walker002kyl",
+      "first_name": "Kyle",
+      "last_name": "Walker",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Kevin Welsh",
+      "bref_id": "welsh-000kev",
+      "first_name": "Kevin",
+      "last_name": "Welsh",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Colin Bohnert",
+      "bref_id": "bohner000col",
+      "first_name": "Colin",
+      "last_name": "Bohnert",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Serafino Brito",
+      "bref_id": "brito-000ser",
+      "first_name": "Serafino",
+      "last_name": "Brito",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Kyle Driscoll",
+      "bref_id": "drisco000kyl",
+      "first_name": "Kyle",
+      "last_name": "Driscoll",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Ryan Fleming",
+      "bref_id": "flemin002rya",
+      "first_name": "Ryan",
+      "last_name": "Fleming",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Max Herrmann",
+      "bref_id": "herrma000max",
+      "first_name": "Max",
+      "last_name": "Herrmann",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Kyle Muller",
+      "bref_id": "muller001kyl",
+      "first_name": "Kyle",
+      "last_name": "Muller",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Tevin Murray",
+      "bref_id": "murray000tev",
+      "first_name": "Tevin",
+      "last_name": "Murray",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Joe Neglia",
+      "bref_id": "neglia000joe",
+      "first_name": "Joe",
+      "last_name": "Neglia",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "John O'Reilly",
+      "bref_id": "oreill004joh",
+      "first_name": "John",
+      "last_name": "O'Reilly",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Eric Reardon",
+      "bref_id": "reardo000eri",
+      "first_name": "Eric",
+      "last_name": "Reardon",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Kevin Romero",
+      "bref_id": "romero000kev",
+      "first_name": "Kevin",
+      "last_name": "Romero",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Dante Scafidi",
+      "bref_id": "scafid000dan",
+      "first_name": "Dante",
+      "last_name": "Scafidi",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "James Torres",
+      "bref_id": "torres001jam",
+      "first_name": "James",
+      "last_name": "Torres",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Ryan Wares",
+      "bref_id": "wares-000rya",
+      "first_name": "Ryan",
+      "last_name": "Wares",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    },
+    {
+      "name": "Jake Yanez",
+      "bref_id": "yanez-000jak",
+      "first_name": "Jake",
+      "last_name": "Yanez",
+      "position": null,
+      "number": null,
+      "year": "2017"
+    }
+  ]
+}

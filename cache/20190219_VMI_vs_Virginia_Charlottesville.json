@@ -1,0 +1,1131 @@
+{
+  "metadata": {
+    "date": "2/19/2019",
+    "venue": "Disharoon Park (Charlottesville, Va.)",
+    "stadium": "Disharoon Park",
+    "city": "Charlottesville, Va.",
+    "away_team": "VMI",
+    "away_team_rank": null,
+    "away_team_record": "2-3",
+    "away_team_score": 0,
+    "home_team": "Virginia",
+    "home_team_rank": null,
+    "home_team_record": "1-3",
+    "home_team_score": 9,
+    "attendance": 2648,
+    "duration": "2:42",
+    "start_time": "3:00 PM",
+    "weather": "32, overcast, NNE 5 mph",
+    "umpires": {
+      "home_plate": "Tony Carilli",
+      "first_base": "Jeff Doy",
+      "second_base": "Greg Howard",
+      "third_base": "Mike Goleski"
+    },
+    "_teams_swapped": false
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "7",
+        "name": "Nuccio",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 2,
+        "assists": 1,
+        "left_on_base": 3,
+        "bref_id": "nuccio000cal",
+        "full_name": "Callen Nuccio",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "38",
+        "name": "Whitmore",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "whitmo000ree",
+        "full_name": "Reeves Whitmore",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "26",
+        "name": "Smoot",
+        "position": "c",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 6,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "smoot-000rya",
+        "full_name": "Ryan Smoot",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "9",
+        "name": "Huggins",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 12,
+        "assists": 1,
+        "left_on_base": 0,
+        "bref_id": "huggin000jak",
+        "full_name": "Jake Huggins",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "22",
+        "name": "Loyd",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "loyd--000nat",
+        "full_name": "Nathan Loyd",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "5",
+        "name": "Cook",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "cook--000noa",
+        "full_name": "Noah Cook",
+        "match_confidence": 0.4
+      },
+      {
+        "number": "27",
+        "name": "Hollifield",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 1,
+        "assists": 4,
+        "left_on_base": 3,
+        "bref_id": "hollif000jos",
+        "full_name": "Josh Hollifield",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "23",
+        "name": "Warner",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 2,
+        "put_outs": 1,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "warner000cod",
+        "full_name": "Cody Warner",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "1",
+        "name": "Diodato",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 4,
+        "left_on_base": 0,
+        "bref_id": "diodat000mic",
+        "full_name": "Michael Diodato",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "16",
+        "name": "Keane",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "keane-000mat",
+        "full_name": "Matt Keane",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "10",
+        "name": "Ebersole",
+        "position": "cf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "eberso000jor",
+        "full_name": "Jordan Ebersole",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "29",
+        "name": "Hatten",
+        "position": "ph/rf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "hatten000rya",
+        "full_name": "Ryan Hatten",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "18",
+        "name": "Gelof, Z.",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 1,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "gelof-000zac",
+        "full_name": "Zack Gelof",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "7",
+        "name": "Ortiz, D.",
+        "position": "3b",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 2,
+        "left_on_base": 0,
+        "bref_id": "ortiz-001dev",
+        "full_name": "Devin Ortiz",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "22",
+        "name": "Richardson",
+        "position": "cf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "richar000cay",
+        "full_name": "Cayman Richardson",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "10",
+        "name": "Morris, T.",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 1,
+        "assists": 2,
+        "left_on_base": 0,
+        "bref_id": "morris000tan",
+        "full_name": "Tanner Morris",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "20",
+        "name": "Simmons, C.",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "simmon000cam",
+        "full_name": "Cameron Simmons",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "8",
+        "name": "Rivoli, B.",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "rivoli000bre",
+        "full_name": "Brendan Rivoli",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "32",
+        "name": "Eikhoff, N.",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 3,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 7,
+        "assists": 2,
+        "left_on_base": 0,
+        "bref_id": "eikhof000nat",
+        "full_name": "Nate Eikhoff",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "9",
+        "name": "Dragum, J.",
+        "position": "2b",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "dragum000jac",
+        "full_name": "Jack Dragum",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "4",
+        "name": "Kent, N.",
+        "position": "2b",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 3,
+        "left_on_base": 0,
+        "bref_id": "kent--000nic",
+        "full_name": "Nic Kent",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "12",
+        "name": "Michaels, L.",
+        "position": "c",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 14,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "michae001log",
+        "full_name": "Logan Michaels",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "5",
+        "name": "Hamrock, D.",
+        "position": "c",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 1,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hamroc000dre",
+        "full_name": "Drew Hamrock",
+        "match_confidence": 0.85
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "14",
+        "name": "Clines",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 3,
+        "strikeouts": 0,
+        "batters_faced": 8,
+        "at_bats": 2,
+        "pitches": 28,
+        "bref_id": "clines000jon",
+        "full_name": "Jon Clines",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "24",
+        "name": "Ewald",
+        "innings_pitched": 3.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 9,
+        "at_bats": 9,
+        "pitches": 29,
+        "bref_id": "ewald-000sam",
+        "full_name": "Sam Ewald",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "39",
+        "name": "Nichols",
+        "innings_pitched": 0.2,
+        "hits": 5,
+        "runs": 5,
+        "earned_runs": 5,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 9,
+        "at_bats": 6,
+        "pitches": 22,
+        "bref_id": "nichol000set",
+        "full_name": "Seth Nichols",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "31",
+        "name": "Light",
+        "innings_pitched": 3.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 5,
+        "batters_faced": 11,
+        "at_bats": 10,
+        "pitches": 43,
+        "bref_id": "light-000nat",
+        "full_name": "Nathan Light",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "34",
+        "name": "Sperling, E.",
+        "innings_pitched": 4.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 4,
+        "strikeouts": 9,
+        "batters_faced": 19,
+        "at_bats": 14,
+        "pitches": 84,
+        "bref_id": "sperli000eva",
+        "full_name": "Evan Sperling",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "29",
+        "name": "Messinger",
+        "innings_pitched": 3.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 2,
+        "strikeouts": 5,
+        "batters_faced": 12,
+        "at_bats": 10,
+        "pitches": 51,
+        "bref_id": "messin000zac",
+        "full_name": "Zach Messinger",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "35",
+        "name": "Bales, B.",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 9,
+        "bref_id": "bales-000bla",
+        "full_name": "Blake Bales",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "27",
+        "name": "Harrington C",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 10,
+        "bref_id": "harrin000che",
+        "full_name": "Chesdin Harrington",
+        "match_confidence": 0.85
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "home_innings": []
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Gelof, Z."
+    ],
+    "double_plays": {
+      "VMI": 0,
+      "Virginia": 0
+    },
+    "doubles": [],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [],
+    "caught_stealing": [],
+    "hit_by_pitch": [],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [
+      "Messinger 2 (4)",
+      "Nichols 2 (4)",
+      "Light (2)",
+      "Sperling, E. (2)",
+      "SFA - Clines"
+    ],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Messinger",
+      "record": "1-0"
+    },
+    "loss": {
+      "player": "Clines",
+      "record": "1-1"
+    },
+    "save": {
+      "player": "None.\nWP - Messinger 2",
+      "count": 4
+    }
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Nuccio out at first 1b to p (1-1 KB). VMI 0 0 0 3",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Smoot hit by pitch (0-0). VA 4 1 0 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Huggins walked (3-2 BKKBBFB); Smoot advanced to second.",
+          "pitch_count": "3-2 BKKBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Loyd struck out looking (3-2 BFKBBK).",
+          "pitch_count": "3-2 BFKBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Knight walked (3-1 BBBKB); Huggins advanced to second; Smoot advanced to third.",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Hollifield struck out swinging (1-2 BFFS).",
+          "pitch_count": "1-2 BFFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Gelof, Z. walked (3-2 BBKFBB).",
+          "pitch_count": "3-2 BBKFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Richardson grounded out to p, SAC, bunt (0-0); Gelof, Z. advanced to second.",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Morris, T. hit by pitch (0-1 F).",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Simmons, C. walked (3-1 BBBKB); Morris, T. advanced to second; Gelof, Z. advanced to third.",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Rivoli, B. flied out to rf, SF, RBI (0-1 K); Morris, T. advanced to third; Gelof, Z. scored.",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "Tappen, A. walked (3-1 BFBBB); Simmons, C. advanced to second.",
+          "pitch_count": "3-1 BFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Eikhoff, N. doubled down the lf line, 3 RBI (1-2 KFB); Tappen, A. scored; Simmons, C. scored; Morris, T.",
+          "pitch_count": "1-2 KFB",
+          "rbi": 3
+        },
+        {
+          "description": "scored.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dragum, J. fouled out to 1b (2-0 BB).",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Warner struck out swinging (3-2 BKBFBS). VMI 0 0 0 0",
+          "pitch_count": "3-2 BKBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Diodato struck out looking (2-2 BBSSK). VA 0 0 0 0",
+          "pitch_count": "2-2 BBSSK",
+          "rbi": 0
+        },
+        {
+          "description": "Ebersole struck out looking (3-2 BSFBBK).",
+          "pitch_count": "3-2 BSFBBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ewald to p for Clines.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Michaels, L. grounded out to ss (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Gelof, Z. grounded out to 3b (1-2 BFS).",
+          "pitch_count": "1-2 BFS",
+          "rbi": 0
+        },
+        {
+          "description": "Richardson grounded out to ss (1-0 B).",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Kent, N. to 2b for Dragum, J.. VMI 0 0 0 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nuccio struck out swinging (0-2 KSS). VA 0 0 0 0",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        },
+        {
+          "description": "Smoot walked (3-2 FBBBFB).",
+          "pitch_count": "3-2 FBBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Huggins popped up to 3b (2-0 BB).",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Loyd out at first 1b to p (1-2 FSB).",
+          "pitch_count": "1-2 FSB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Morris, T. popped up to 2b (3-2 BFFBB).",
+          "pitch_count": "3-2 BFFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Simmons, C. grounded out to 3b (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Rivoli, B. struck out swinging (1-2 FFFFBFS).",
+          "pitch_count": "1-2 FFFFBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Knight struck out looking (1-2 FBSK). VMI 0 1 1 3",
+          "pitch_count": "1-2 FBSK",
+          "rbi": 0
+        },
+        {
+          "description": "Hollifield singled through the right side (1-1 BK). VA 0 0 0 0",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Warner walked (3-0 BBBB); Hollifield advanced to second.",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Diodato reached on a throwing error by 3b, bunt (2-1 BKB); Warner advanced to second; Hollifield advanced to third.",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        },
+        {
+          "description": "Ebersole struck out swinging (1-2 KBSS).",
+          "pitch_count": "1-2 KBSS",
+          "rbi": 0
+        },
+        {
+          "description": "Nuccio struck out swinging (3-2 BSBBKS).",
+          "pitch_count": "3-2 BSBBKS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Tappen, A. grounded out to ss (1-0 B).",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Eikhoff, N. grounded out to 1b unassisted (2-2 BKFB).",
+          "pitch_count": "2-2 BKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Kent, N. grounded out to ss (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Messinger to p for Sperling, E.. VMI 0 0 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Smoot grounded out to 2b (2-2 KBFBF). VA 5 5 0 3",
+          "pitch_count": "2-2 KBFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Huggins grounded out to ss (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Loyd struck out looking (2-2 BSKBK).",
+          "pitch_count": "2-2 BSKBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Nichols to p for Ewald.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Michaels, L. singled to left field (1-1 BK).",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "VMI challenged the call of safe at second, call was upheld.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gelof, Z. singled to shortstop (0-2 KF); Michaels, L. advanced to second.",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "Richardson out at first 1b to 2b, SAC, bunt (1-0 B); Gelof, Z. advanced to second; Michaels, L. advanced to third.",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Morris, T. doubled to right center, 2 RBI (2-1 BFB); Gelof, Z. scored; Michaels, L. scored.",
+          "pitch_count": "2-1 BFB",
+          "rbi": 2
+        },
+        {
+          "description": "Simmons, C. grounded out to 2b (2-1 BFB); Morris, T. advanced to third.",
+          "pitch_count": "2-1 BFB",
+          "rbi": 0
+        },
+        {
+          "description": "Rivoli, B. doubled down the rf line, RBI (0-0); Morris, T. scored.",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Tappen, A. doubled to left field, RBI (0-0); Rivoli, B. scored.",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Eikhoff, N. hit by pitch (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Kent, N. hit by pitch (1-1 BF); Eikhoff, N. advanced to second; Tappen, A. advanced to third.",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "Light to p for Nichols.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Michaels, L. hit by pitch, RBI (0-2 KK); Kent, N. advanced to second; Eikhoff, N. advanced to third; Tappen, A.",
+          "pitch_count": "0-2 KK",
+          "rbi": 1
+        },
+        {
+          "description": "scored.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gelof, Z. struck out looking (0-2 KSK).",
+          "pitch_count": "0-2 KSK",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Knight singled up the middle (1-2 BFF). VMI 0 1 0 2",
+          "pitch_count": "1-2 BFF",
+          "rbi": 0
+        },
+        {
+          "description": "Hollifield struck out looking (1-2 BFKFK). VA 0 0 0 0",
+          "pitch_count": "1-2 BFKFK",
+          "rbi": 0
+        },
+        {
+          "description": "Warner walked (3-2 KFBFBBB); Knight advanced to second.",
+          "pitch_count": "3-2 KFBFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Diodato struck out swinging (0-2 KKS).",
+          "pitch_count": "0-2 KKS",
+          "rbi": 0
+        },
+        {
+          "description": "Hatten pinch hit for Ebersole.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Warner advanced to second; Knight advanced to third on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hatten struck out swinging (2-2 BFKBS).",
+          "pitch_count": "2-2 BFKBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Knight to cf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hatten to rf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Richardson struck out swinging (3-2 BFBFBS).",
+          "pitch_count": "3-2 BFBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Morris, T. flied out to cf (1-2 KBK).",
+          "pitch_count": "1-2 KBK",
+          "rbi": 0
+        },
+        {
+          "description": "Simmons, C. grounded out to 3b (1-0 B).",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Nuccio walked (3-1 FBBBB). VMI 0 0 0 1",
+          "pitch_count": "3-1 FBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Smoot popped up to ss (0-1 K). VA 0 0 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Huggins struck out swinging (1-2 KKFBS); Nuccio advanced to second on a wild pitch.",
+          "pitch_count": "1-2 KKFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Cook pinch hit for Loyd.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cook grounded out to 2b (0-2 KK).",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Rivoli, B. flied out to lf (0-1 F).",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Tappen, A. struck out swinging (2-2 BBSFS).",
+          "pitch_count": "2-2 BBSFS",
+          "rbi": 0
+        },
+        {
+          "description": "Eikhoff, N. fouled out to 3b (2-2 KBSFB).",
+          "pitch_count": "2-2 KBSFB",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Ortiz, D. to 3b for Gelof, Z.. VMI 0 0 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hamrock, D. to c for Michaels, L.. VA 0 0 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bales, B. to p for Messinger.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Knight fouled out to rf (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Hollifield grounded out to 3b (1-2 KBK).",
+          "pitch_count": "1-2 KBK",
+          "rbi": 0
+        },
+        {
+          "description": "Warner struck out swinging (1-2 SBKS).",
+          "pitch_count": "1-2 SBKS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Kent, N. struck out swinging (1-2 BKFS).",
+          "pitch_count": "1-2 BKFS",
+          "rbi": 0
+        },
+        {
+          "description": "Hamrock, D. grounded out to 3b (2-1 FBB).",
+          "pitch_count": "2-1 FBB",
+          "rbi": 0
+        },
+        {
+          "description": "Ortiz, D. struck out swinging (1-2 KBFS).",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Harrington C to p for Bales, B.. VMI 0 0 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Keane pinch hit for Diodato.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Keane grounded out to 3b (0-1 K).",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Hatten grounded out to ss (1-0 B).",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Whitmore pinch hit for Nuccio.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Whitmore grounded out to 2b (3-2 BKBBK).",
+          "pitch_count": "3-2 BKBBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_a"
+}

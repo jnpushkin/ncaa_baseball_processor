@@ -1,0 +1,1041 @@
+{
+  "metadata": {
+    "date": "2/22/2025",
+    "venue": "GCU Ballpark (Phoenix, Ariz.)",
+    "stadium": "GCU Ballpark",
+    "city": "Phoenix, Ariz.",
+    "away_team": "Rutgers",
+    "away_team_rank": null,
+    "away_team_record": "2-3",
+    "away_team_score": 3,
+    "home_team": "Grand Canyon",
+    "home_team_rank": null,
+    "home_team_record": "4-2",
+    "home_team_score": 10,
+    "attendance": 649,
+    "duration": "1:55",
+    "start_time": "1:05 pm",
+    "weather": "74 degrees, sunny",
+    "umpires": {
+      "list": "Home Plate: Alex Ortiz First: Troy Hodack Third Base: Matt McMahon"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Trevor Cohen",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "cohen-000tre",
+        "full_name": "Trevor Cohen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Brennan Hyde",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hyde--000bre",
+        "full_name": "Brennan Hyde",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ty Doucette",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "doucet000ty-",
+        "full_name": "Ty Doucette",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Peyton Bonds",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bonds-000pey",
+        "full_name": "Peyton Bonds",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Nick Tomasetto",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "tomase001nic",
+        "full_name": "Nick Tomasetto",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "JT Thompson",
+        "position": "ss",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "thomps001jt-",
+        "full_name": "JT Thompson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Pablo Santos",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "santos000pab",
+        "full_name": "Pablo Santos",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "RJ Johnson Jr.",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "johnso000rj-",
+        "full_name": "RJ Johnson",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "JD Jones",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "jones-000jd-",
+        "full_name": "JD Jones",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Landon Mack",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mack--000lan",
+        "full_name": "Landon Mack",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dillon Ryan",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ryan--001dil",
+        "full_name": "Dillon Ryan",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Connor Grotyohann",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "grotyo000con",
+        "full_name": "Connor Grotyohann",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Barreras, Emilio",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "barrer000emi",
+        "full_name": "Emilio Barreras",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Sanders, Troy",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 3,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "sander000tro",
+        "full_name": "Troy Sanders",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Pelc, Eddy",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 3,
+        "hits": 2,
+        "rbi": 5,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pelc--000edd",
+        "full_name": "Eddy Pelc",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Yorke, Zach",
+        "position": "1b",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "yorke-000zac",
+        "full_name": "Zach Yorke",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Paton, Eli",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "paton-000eli",
+        "full_name": "Eli Paton",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Huff, Kade",
+        "position": "dh",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "huff--000kad",
+        "full_name": "Kade Huff",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Sanko, Jake",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "sanko-000jak",
+        "full_name": "Jake Sanko",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Diaz, Michael",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "diaz--007mic",
+        "full_name": "Michael Diaz",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ohland, Carson",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ohland000car",
+        "full_name": "Carson Ohland",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Galvan, Marcus",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "galvan001mar",
+        "full_name": "Marcus Galvan",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ahern, Garrett",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ahern-000gar",
+        "full_name": "Garrett Ahern",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Skaugrud, Barrett",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "skaugr000bar",
+        "full_name": "Barrett Skaugrud",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Landon Mack",
+        "innings_pitched": 4.0,
+        "hits": 6,
+        "runs": 5,
+        "earned_runs": 4,
+        "walks": 1,
+        "strikeouts": 3,
+        "batters_faced": 19,
+        "at_bats": 17,
+        "pitches": 59,
+        "bref_id": "mack--000lan",
+        "full_name": "Landon Mack",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dillon Ryan",
+        "innings_pitched": 0.1,
+        "hits": 2,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 4,
+        "strikeouts": 1,
+        "batters_faced": 7,
+        "at_bats": 3,
+        "pitches": 32,
+        "bref_id": "ryan--001dil",
+        "full_name": "Dillon Ryan",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Connor Grotyohann",
+        "innings_pitched": 1.2,
+        "hits": 2,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 7,
+        "at_bats": 6,
+        "pitches": 29,
+        "bref_id": "grotyo000con",
+        "full_name": "Connor Grotyohann",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Ahern, Garrett",
+        "innings_pitched": 6.0,
+        "hits": 8,
+        "runs": 3,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 5,
+        "batters_faced": 28,
+        "at_bats": 26,
+        "pitches": 85,
+        "bref_id": "ahern-000gar",
+        "full_name": "Garrett Ahern",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Skaugrud, Barrett",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 14,
+        "bref_id": "skaugr000bar",
+        "full_name": "Barrett Skaugrud",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        1,
+        0,
+        3,
+        1,
+        3,
+        2,
+        0,
+        10,
+        10
+      ],
+      "home_innings": []
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Pablo Santos (1) E: Barreras, Emilio (1)",
+      "Pelc, E. scored. 0 1\nPaton, E. struck out swinging (0-2 FFFS). 0 1\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 1\nRutgers - Top of 2nd RU GCU\nP. Bonds grounded out to ss (0-0). 0 1\nN. Tomasetto struck out swinging (2-2 KBBFS). 0 1\nJT Thompson walked (3-1 BBBKB). 0 1\nP. Santos singled to right center (0-1 S)",
+      "JT Thompson advanced to third. 0 1\nRJ Johnson singled up the middle, RBI (0-0)",
+      "P. Santos advanced to third",
+      "JT Thompson scored. 1 1\nJD Jones grounded out to 1b unassisted (0-2 KK). 1 1\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 2\nGrand Canyon - Bottom of 2nd RU GCU\nHuff, K. grounded out to 2b (2-2 KBBF). 1 1\nDiaz, M. grounded out to 2b (0-0). 1 1\nOhland, C. struck out swinging (1-2 KKBFS). 1 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nRutgers - Top of 3rd RU GCU\nT. Cohen singled through the right side (0-0). 1 1\nT. Cohen stole second. 1 1\nB. Hyde struck out looking (2-2 KSBBK). 1 1\nT. Doucette reached on a fielding error by ss (2-0 BB). 1 1\nP. Bonds reached on a fielder's choice to third base (0-2 KK)",
+      "T. Doucette advanced to second",
+      "T. Cohen out\nat third 3b unassisted. 1 1\nN. Tomasetto singled to right field, RBI (0-0)",
+      "P. Bonds advanced to second",
+      "T. Doucette scored, unearned. 2 1\nJT Thompson struck out swinging (1-2 FFBFS). 2 1\nRuns: 1 Hits: 2 Errors: 1 Left On Base: 2\nGrand Canyon - Bottom of 3rd RU GCU\nGalvan, M. singled up the middle (1-1 KB). 2 1\nBarreras, E. flied out to lf (0-2 FK). 2 1\nSanders, T. singled through the right side (2-0 BB)",
+      "Galvan, M. advanced to second. 2 1\nPelc, E. homered to right field, 3 RBI (1-0 B)",
+      "Sanders, T. scored",
+      "Galvan, M. scored. 2 4\nYorke, Z. walked (3-1 BBKBB). 2 4\nPaton, E. grounded into double play 1b to ss to 1b (0-0)",
+      "Yorke, Z. out on the play. 2 4\nRuns: 3 Hits: 3 Errors: 0 Left On Base: 0\nRutgers - Top of 4th RU GCU\nP. Santos struck out swinging (1-2 BFFFS). 2 4\nRJ Johnson singled to pitcher, advanced to second on a throwing error by p (2-2 BKBFF). 2 4\nJD Jones grounded out to 2b (0-0)",
+      "RJ Johnson advanced to third. 2 4\nT. Cohen grounded out to 1b unassisted (0-0). 2 4\nRuns: 0 Hits: 1 Errors: 1 Left On Base: 1\nGrand Canyon - Bottom of 4th RU GCU\nHuff, K. singled up the middle (1-0 B). 2 4\nDiaz, M. reached on a fielding error by 2b (0-0)",
+      "Huff, K. advanced to second. 2 4\nDiaz, M. advanced to second on a balk",
+      "Huff, K. advanced to third on a balk. 2 4\nOhland, C. struck out looking (0-2 KKK). 2 4\nGalvan, M. flied out to lf (1-1 FB). 2 4\nBarreras, E. singled through the right side, RBI (1-1 KB)",
+      "Diaz, M. advanced to third, out at home rf to c",
+      "Huff, K. scored, unearned. 2 5\nRuns: 1 Hits: 2 Errors: 1 Left On Base: 1\nRutgers - Top of 5th RU GCU\nB. Hyde grounded out to ss (0-0). 2 5\nT. Doucette singled to shortstop (1-0 B). 2 5\nP. Bonds singled to center field (2-1 KBB)",
+      "T. Doucette advanced to second. 2 5\nP. Bonds advanced to second on a wild pitch",
+      "T. Doucette advanced to third on a wild pitch. 2 5\nN. Tomasetto grounded out to ss, RBI (1-2 BFF)",
+      "P. Bonds advanced to third",
+      "T. Doucette scored. 3 5\nJT Thompson grounded out to 2b (1-0 B). 3 5\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nGrand Canyon - Bottom of 5th RU GCU\nD. Ryan to p for L. Mack. 3 5\nSanders, T. singled to center field (0-1 K). 3 5\nPelc, E. struck out looking (2-2 KBKFFBK). 3 5\nYorke, Z. walked (3-1 BBBKB)",
+      "Sanders, T. advanced to second. 3 5\nPaton, E. walked (3-0 BBBB)",
+      "Yorke, Z. advanced to second",
+      "Sanders, T. advanced to third. 3 5\nHuff, K. walked, RBI (3-2 SSBBBB)",
+      "Paton, E. advanced to second",
+      "Yorke, Z. advanced to third",
+      "Sanders, T.\nscored. 3 6\nDiaz, M. singled through the left side, RBI (2-1 KBB)",
+      "Huff, K. advanced to second",
+      "Paton, E. advanced to\nthird",
+      "Yorke, Z. scored. 3 7\nDiaz, M. advanced to second on a wild pitch",
+      "Huff, K. advanced to third on a wild pitch",
+      "Paton, E. scored on\na wild pitch. 3 8\nOhland, C. walked (3-0 BBBB). 3 8\nC.Grotyohann to p for D. Ryan. 3 8\nGalvan, M. fouled out to c (0-0). 3 8\nBarreras, E. grounded out to 1b unassisted (2-1 BKB). 3 8\nRuns: 3 Hits: 2 Errors: 0 Left On Base: 3\nRutgers - Top of 6th RU GCU\nP. Santos grounded out to 2b (0-1 F). 3 8\nRJ Johnson grounded out to 2b (3-1 BBFB). 3 8\nJD Jones singled through the left side (0-0). 3 8\nT. Cohen grounded out to ss (1-0 B). 3 8\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nGrand Canyon - Bottom of 6th RU GCU\nSanders, T. walked (3-0 BBBB). 3 8\nPelc, E. homered to right field, 2 RBI (3-2 BBKKB)",
+      "Sanders, T. scored. 3 10\nYorke, Z. singled down the rf line, out at second rf to ss (1-0 B). 3 10\nPaton, E. popped up to 3b (3-2 BKFBB). 3 10\nSanko, J. pinch hit for Huff, K.. 3 10\nSanko, J. struck out swinging (3-2 KBFBBS). 3 10\nRuns: 2 Hits: 2 Errors: 0 Left On Base: 0\nRutgers - Top of 7th RU GCU\nSanko, J. to dh. 3 10\nSkaugrud, B. to p for Ahern, G.. 3 10\nB. Hyde flied out to lf to left center (2-2 KBBF). 3 10\nT. Doucette struck out swinging, out at first c to 1b (1-2 KBSS). 3 10\nP. Bonds struck out swinging (2-2 FBBFS). 3 10\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nGrand Canyon - Bottom of 7th RU GCU\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [
+      "Trevor Cohen (1) HR: Pelc, Eddy (2)"
+    ],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Landon Mack"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Ahern, Garrett",
+      "record": "2-0"
+    },
+    "loss": {
+      "player": "Landon Mack",
+      "record": "0-1"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "T. Cohen walked (3-2 BFFFFBBFFB). 0 0",
+          "pitch_count": "3-2 BFFFFBBFFB",
+          "rbi": 0
+        },
+        {
+          "description": "T. Cohen out at first c to 1b, picked off. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Hyde struck out swinging (0-2 KKS). 0 0",
+          "pitch_count": "0-2 KKS",
+          "rbi": 0
+        },
+        {
+          "description": "T. Doucette lined out to 2b (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Barreras, E. flied out to lf (1-1 BK). 0 0",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Sanders, T. grounded out to ss (1-0 B). 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Pelc, E. hit by pitch (1-2 BKF). 0 0",
+          "pitch_count": "1-2 BKF",
+          "rbi": 0
+        },
+        {
+          "description": "Yorke, Z. singled to center field, RBI, advanced to second on the throw (1-2 KFFFB); Pelc, E. scored. 0 1",
+          "pitch_count": "1-2 KFFFB",
+          "rbi": 1
+        },
+        {
+          "description": "Paton, E. struck out swinging (0-2 FFFS). 0 1",
+          "pitch_count": "0-2 FFFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "P. Bonds grounded out to ss (0-0). 0 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "N. Tomasetto struck out swinging (2-2 KBBFS). 0 1",
+          "pitch_count": "2-2 KBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "JT Thompson walked (3-1 BBBKB). 0 1",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "P. Santos singled to right center (0-1 S); JT Thompson advanced to third. 0 1",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "RJ Johnson singled up the middle, RBI (0-0); P. Santos advanced to third; JT Thompson scored. 1 1",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "JD Jones grounded out to 1b unassisted (0-2 KK). 1 1",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Huff, K. grounded out to 2b (2-2 KBBF). 1 1",
+          "pitch_count": "2-2 KBBF",
+          "rbi": 0
+        },
+        {
+          "description": "Diaz, M. grounded out to 2b (0-0). 1 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Ohland, C. struck out swinging (1-2 KKBFS). 1 1",
+          "pitch_count": "1-2 KKBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "T. Cohen singled through the right side (0-0). 1 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "T. Cohen stole second. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Hyde struck out looking (2-2 KSBBK). 1 1",
+          "pitch_count": "2-2 KSBBK",
+          "rbi": 0
+        },
+        {
+          "description": "T. Doucette reached on a fielding error by ss (2-0 BB). 1 1",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "P. Bonds reached on a fielder's choice to third base (0-2 KK); T. Doucette advanced to second; T. Cohen out",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "at third 3b unassisted. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Tomasetto singled to right field, RBI (0-0); P. Bonds advanced to second; T. Doucette scored, unearned. 2 1",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "JT Thompson struck out swinging (1-2 FFBFS). 2 1",
+          "pitch_count": "1-2 FFBFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Galvan, M. singled up the middle (1-1 KB). 2 1",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Barreras, E. flied out to lf (0-2 FK). 2 1",
+          "pitch_count": "0-2 FK",
+          "rbi": 0
+        },
+        {
+          "description": "Sanders, T. singled through the right side (2-0 BB); Galvan, M. advanced to second. 2 1",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Pelc, E. homered to right field, 3 RBI (1-0 B); Sanders, T. scored; Galvan, M. scored. 2 4",
+          "pitch_count": "1-0 B",
+          "rbi": 3
+        },
+        {
+          "description": "Yorke, Z. walked (3-1 BBKBB). 2 4",
+          "pitch_count": "3-1 BBKBB",
+          "rbi": 0
+        },
+        {
+          "description": "Paton, E. grounded into double play 1b to ss to 1b (0-0); Yorke, Z. out on the play. 2 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "P. Santos struck out swinging (1-2 BFFFS). 2 4",
+          "pitch_count": "1-2 BFFFS",
+          "rbi": 0
+        },
+        {
+          "description": "RJ Johnson singled to pitcher, advanced to second on a throwing error by p (2-2 BKBFF). 2 4",
+          "pitch_count": "2-2 BKBFF",
+          "rbi": 0
+        },
+        {
+          "description": "JD Jones grounded out to 2b (0-0); RJ Johnson advanced to third. 2 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "T. Cohen grounded out to 1b unassisted (0-0). 2 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Huff, K. singled up the middle (1-0 B). 2 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Diaz, M. reached on a fielding error by 2b (0-0); Huff, K. advanced to second. 2 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Diaz, M. advanced to second on a balk; Huff, K. advanced to third on a balk. 2 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ohland, C. struck out looking (0-2 KKK). 2 4",
+          "pitch_count": "0-2 KKK",
+          "rbi": 0
+        },
+        {
+          "description": "Galvan, M. flied out to lf (1-1 FB). 2 4",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Barreras, E. singled through the right side, RBI (1-1 KB); Diaz, M. advanced to third, out at home rf to c;",
+          "pitch_count": "1-1 KB",
+          "rbi": 1
+        },
+        {
+          "description": "Huff, K. scored, unearned. 2 5",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "B. Hyde grounded out to ss (0-0). 2 5",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "T. Doucette singled to shortstop (1-0 B). 2 5",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "P. Bonds singled to center field (2-1 KBB); T. Doucette advanced to second. 2 5",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "P. Bonds advanced to second on a wild pitch; T. Doucette advanced to third on a wild pitch. 2 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Tomasetto grounded out to ss, RBI (1-2 BFF); P. Bonds advanced to third; T. Doucette scored. 3 5",
+          "pitch_count": "1-2 BFF",
+          "rbi": 1
+        },
+        {
+          "description": "JT Thompson grounded out to 2b (1-0 B). 3 5",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "D. Ryan to p for L. Mack. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sanders, T. singled to center field (0-1 K). 3 5",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Pelc, E. struck out looking (2-2 KBKFFBK). 3 5",
+          "pitch_count": "2-2 KBKFFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Yorke, Z. walked (3-1 BBBKB); Sanders, T. advanced to second. 3 5",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Paton, E. walked (3-0 BBBB); Yorke, Z. advanced to second; Sanders, T. advanced to third. 3 5",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Huff, K. walked, RBI (3-2 SSBBBB); Paton, E. advanced to second; Yorke, Z. advanced to third; Sanders, T.",
+          "pitch_count": "3-2 SSBBBB",
+          "rbi": 1
+        },
+        {
+          "description": "scored. 3 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Diaz, M. singled through the left side, RBI (2-1 KBB); Huff, K. advanced to second; Paton, E. advanced to",
+          "pitch_count": "2-1 KBB",
+          "rbi": 1
+        },
+        {
+          "description": "third; Yorke, Z. scored. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Diaz, M. advanced to second on a wild pitch; Huff, K. advanced to third on a wild pitch; Paton, E. scored on",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "a wild pitch. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ohland, C. walked (3-0 BBBB). 3 8",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "C.Grotyohann to p for D. Ryan. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Galvan, M. fouled out to c (0-0). 3 8",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Barreras, E. grounded out to 1b unassisted (2-1 BKB). 3 8",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "P. Santos grounded out to 2b (0-1 F). 3 8",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "RJ Johnson grounded out to 2b (3-1 BBFB). 3 8",
+          "pitch_count": "3-1 BBFB",
+          "rbi": 0
+        },
+        {
+          "description": "JD Jones singled through the left side (0-0). 3 8",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "T. Cohen grounded out to ss (1-0 B). 3 8",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Sanders, T. walked (3-0 BBBB). 3 8",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Pelc, E. homered to right field, 2 RBI (3-2 BBKKB); Sanders, T. scored. 3 10",
+          "pitch_count": "3-2 BBKKB",
+          "rbi": 2
+        },
+        {
+          "description": "Yorke, Z. singled down the rf line, out at second rf to ss (1-0 B). 3 10",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Paton, E. popped up to 3b (3-2 BKFBB). 3 10",
+          "pitch_count": "3-2 BKFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Sanko, J. pinch hit for Huff, K.. 3 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sanko, J. struck out swinging (3-2 KBFBBS). 3 10",
+          "pitch_count": "3-2 KBFBBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Sanko, J. to dh. 3 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Skaugrud, B. to p for Ahern, G.. 3 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Hyde flied out to lf to left center (2-2 KBBF). 3 10",
+          "pitch_count": "2-2 KBBF",
+          "rbi": 0
+        },
+        {
+          "description": "T. Doucette struck out swinging, out at first c to 1b (1-2 KBSS). 3 10",
+          "pitch_count": "1-2 KBSS",
+          "rbi": 0
+        },
+        {
+          "description": "P. Bonds struck out swinging (2-2 FBBFS). 3 10",
+          "pitch_count": "2-2 FBBFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

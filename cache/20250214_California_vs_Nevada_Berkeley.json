@@ -1,0 +1,1378 @@
+{
+  "metadata": {
+    "date": "2/14/2025",
+    "venue": "Stu Gordon Stadium (Berkeley, CA)",
+    "stadium": "Stu Gordon Stadium",
+    "city": "Berkeley, CA",
+    "away_team": "Nevada",
+    "away_team_rank": null,
+    "away_team_record": "0-1",
+    "away_team_score": 1,
+    "home_team": "California",
+    "home_team_rank": null,
+    "home_team_record": "1-0",
+    "home_team_score": 14,
+    "attendance": 483,
+    "duration": "3:29",
+    "start_time": "6:06 PM",
+    "weather": "52 Clear WNW 10mph",
+    "umpires": {
+      "list": "Home Plate: Adam Dowdy First: Greg Charles Second Base: Allen Alvarez Third Base: Robert Hansen"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "WALLER,J.",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "waller000jac",
+        "full_name": "Jackson Waller",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "BALL,M.",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ball--002mic",
+        "full_name": "Michael Ball",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "KWON,J.",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "kwon--001jun",
+        "full_name": "Jun Hyuk Kwon",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "KEMMERER,J.",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kemmer001jac",
+        "full_name": "Jackson Kemmerer",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "METCHO,J.",
+        "position": "2b",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "metcho000jac",
+        "full_name": "Jack Metcho",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "HOLDER,T.",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "holder000tay",
+        "full_name": "Taylor Holder",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "HARVEY,J.",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "harvey002jak",
+        "full_name": "Jake Harvey",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "YAMAGUCHI,S.",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "yamagu000sea",
+        "full_name": "Sean Yamaguchi",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "RATFIELD,D.",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "ratfie000don",
+        "full_name": "Donovan Ratfield",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "HAM,B.",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ham---000bil",
+        "full_name": "Billy Ham",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "DOYLE,J.",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "doyle-008jac",
+        "full_name": "Jacob Doyle",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "DOBIE,J.",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "dobie-000jay",
+        "full_name": "Jayce Dobie",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "FOSHER,P.",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "fosher000pey",
+        "full_name": "Peyton Fosher",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "KOTTINGER,C.",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kottin000cae",
+        "full_name": "Caedon Kottinger",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "DESCH,D.",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "desch-000dom",
+        "full_name": "Dom Desch",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "CUMMING,J.",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "cummin000jak",
+        "full_name": "Jake Cumming",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Advincula,Jarren",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "advinc000jar",
+        "full_name": "Jarren Advincula",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Moutzouridis,PJ",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 3,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "moutzo000pj-",
+        "full_name": "P.J. Moutzouridis",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Handron,Max",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "handro000max",
+        "full_name": "Max Handron",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Clayton,Elijah",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "clayto000eli",
+        "full_name": "Elijah Clayton",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tayman,Ryan",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "tayman001rya",
+        "full_name": "Ryan Tayman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Smaldino,Dominic",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "smaldi000dom",
+        "full_name": "Dominic Smaldino",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "French,Jacob",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "french004jac",
+        "full_name": "Jacob French",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kodama,Ethan",
+        "position": "pr/lf",
+        "at_bats": 1,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kodama000eth",
+        "full_name": "Ethan Kodama",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Thomas,Matthew",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "thomas003che",
+        "full_name": "Chewy Thomas",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Birge,Alex",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "birge-000ale",
+        "full_name": "Alex Birge",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Button,Nico",
+        "position": "c",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "button000nic",
+        "full_name": "Nico Button",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Campbell,Cade",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 3,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "campbe001cad",
+        "full_name": "Cade Campbell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gwynn,Seth",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "gwynn-000set",
+        "full_name": "Seth Gwynn",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Turkington,Austin",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "turkin000aus",
+        "full_name": "Austin Turkington",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Shaw,David",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "shaw--000dav",
+        "full_name": "David Shaw",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dessart,Spencer",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "dessar000spe",
+        "full_name": "Spencer Dessart",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "FOSHER,P.",
+        "innings_pitched": 5.1,
+        "hits": 6,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 2,
+        "strikeouts": 9,
+        "batters_faced": 23,
+        "at_bats": 21,
+        "pitches": 85,
+        "bref_id": "fosher000pey",
+        "full_name": "Peyton Fosher",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "KOTTINGER,C.",
+        "innings_pitched": 0.2,
+        "hits": 1,
+        "runs": 3,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 5,
+        "at_bats": 4,
+        "pitches": 20,
+        "bref_id": "kottin000cae",
+        "full_name": "Caedon Kottinger",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "DESCH,D.",
+        "innings_pitched": 0.1,
+        "hits": 3,
+        "runs": 2,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 13,
+        "bref_id": "desch-000dom",
+        "full_name": "Dom Desch",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "CUMMING,J.",
+        "innings_pitched": 1.2,
+        "hits": 3,
+        "runs": 6,
+        "earned_runs": 6,
+        "walks": 3,
+        "strikeouts": 1,
+        "batters_faced": 10,
+        "at_bats": 7,
+        "pitches": 44,
+        "bref_id": "cummin000jak",
+        "full_name": "Jake Cumming",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Turkington,Austin",
+        "innings_pitched": 3.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 2,
+        "strikeouts": 4,
+        "batters_faced": 12,
+        "at_bats": 10,
+        "pitches": 62,
+        "bref_id": "turkin000aus",
+        "full_name": "Austin Turkington",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Shaw,David",
+        "innings_pitched": 3.0,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 1,
+        "strikeouts": 7,
+        "batters_faced": 12,
+        "at_bats": 11,
+        "pitches": 54,
+        "bref_id": "shaw--000dav",
+        "full_name": "David Shaw",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dessart,Spencer",
+        "innings_pitched": 1.2,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 2,
+        "strikeouts": 2,
+        "batters_faced": 7,
+        "at_bats": 5,
+        "pitches": 25,
+        "bref_id": "dessar000spe",
+        "full_name": "Spencer Dessart",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Bougie,Tucker",
+        "innings_pitched": 1.1,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 5,
+        "at_bats": 5,
+        "pitches": 15,
+        "bref_id": "bougie000tuc",
+        "full_name": "Tucker Bougie",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        8,
+        3,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "METCHO,J. (1)",
+      "YAMAGUCHI,S. (1) 2B: Advincula,Jarren (1)",
+      "French,Jacob (1)",
+      "Gwynn,Seth (1)\n3B: Kodama,Ethan (1)\nHR: Moutzouridis,PJ (1)",
+      "Campbell,Cade (1)\nCS: Kodama,Ethan (1)\nPO: French,Jacob (1)\nNevada IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nFOSHER,P. (L, 0-1) 5.1 6 3 3 2 9 0 0 0 0 21 23 5 1 85\nKOTTINGER,C. 0.2 1 3 2 1 0 0 0 0 0 4 5 1 1 20\nDESCH,D. 0.1 3 2 1 0 1 0 0 0 0 4 4 0 0 13\nCUMMING,J. 1.2 3 6 6 3 1 1 0 0 0 7 10 2 1 44\nTotals 13 14 12 6 11 1 0 0 0 36 42 8 3 162\nCalifornia IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nTurkington,Austin (W, 1-0) 3.0 1 0 0 2 4 0 0 0 0 10 12 3 2 62\nShaw,David 3.0 2 1 1 1 7 1 0 0 0 11 12 2 0 54\nDessart,Spencer 1.2 0 0 0 2 2 2 0 0 0 5 7 2 1 25\nBougie,Tucker 1.1 1 0 0 0 2 0 0 0 0 5 5 0 2 15\nTotals 4 1 1 5 15 3 0 0 0 31 36 7 5 156\nWin: Turkington,Austin (1-0)\nLoss: FOSHER,P. (0-1)\nHBP: None\nPB: None\nUmpires: Home Plate: Adam Dowdy First: Greg Charles Second Base: Allen Alvarez Third Base: Robert Hansen\nStart: 6:06 PM Time: 3:29 Attendance: 483 Weather: 52 Clear WNW 10mph\nGame notes:\n-KOTTINGER,C. faced 3 batters in the 7th.\nPlay By Play\nNevada - Top of 1st NEV CAL\nWALLER,J. flied out to lf (2-2 FKBFB). 0 0\nBALL,M. singled to left field (0-0). 0 0\nKWON,J. struck out swinging (2-2 BSBKFFS). 0 0\nHOLDER,T. struck out swinging (1-2 BKFFS). 0 0\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 1st NEV CAL\nAdvincula,J struck out swinging (1-2 BKKS). 0 0\nMoutzouridis homered to left field, RBI (0-0). 0 1\nHandron,M singled to right field (1-0 B). 0 1\nSmaldino,D struck out swinging (1-2 KBFS). 0 1\nFrench,J struck out swinging (0-2 SFS). 0 1\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nNevada - Top of 2nd NEV CAL\nHARVEY,J. grounded out to ss (1-2 BKKF). 0 1\nYAMAGUCHI,S. lined out to lf (3-1 FBBB). 0 1\nRATFIELD,D. grounded out to 3b (3-2 KBBFFBF). 0 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCalifornia - Bottom of 2nd NEV CAL\nThomas,M struck out swinging (1-2 BKSS). 0 1\nBirge,A struck out swinging (2-2 KBSBS). 0 1\nCampbell,C fouled out to ss (1-0 B). 0 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nNevada - Top of 3rd NEV CAL\nHAM,B. walked (3-1 BBBKB). 0 1\nDOYLE,J. struck out swinging (1-2 FBSFK). 0 1\nWALLER,J. walked (3-2 BBKKFBB)",
+      "HAM,B. advanced to second. 0 1\nBALL,M. infield fly to 2b (1-1 BK). 0 1\nKWON,J. struck out swinging (2-2 BSBFS). 0 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 2\nCalifornia - Bottom of 3rd NEV CAL\nGwynn,S singled to shortstop (0-0). 0 1\nAdvincula,J lined out to lf (0-1 K). 0 1\nMoutzouridis struck out swinging (3-2 FKBBBS). 0 1\nHandron,M struck out swinging (3-2 SSFBFBBS). 0 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nNevada - Top of 4th NEV CAL\nShaw,D to p for Turkington,A. 0 1\nHOLDER,T. singled to left field (1-2 BKF). 0 1\nHARVEY,J. struck out swinging (2-2 BKBKS). 0 1\nYAMAGUCHI,S. struck out swinging (1-2 BSKS). 0 1\nRATFIELD,D. struck out looking (1-2 SKBK). 0 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 4th NEV CAL\nSmaldino,D lined out to 3b (0-0). 0 1\nFrench,J walked (3-2 BBSBFB). 0 1\nThomas,M struck out looking (0-2 SFK). 0 1\nFrench,J out at first p to 1b, picked off. 0 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nNevada - Top of 5th NEV CAL\nPickoff play call on the field was reviewed and confirmed. 0 1\nHAM,B. struck out swinging (2-2 BKBSS). 0 1\nDOYLE,J. struck out swinging, out at first c to 1b (1-2 FBSS). 0 1\nWALLER,J. struck out looking (3-2 BBBKSK). 0 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCalifornia - Bottom of 5th NEV CAL\nBirge,A flied out to cf (1-0 B). 0 1\nCampbell,C struck out looking (3-2 KBFBBK). 0 1\nGwynn,S doubled to right center (2-1 BSB). 0 1\nAdvincula,J doubled to center field, RBI (0-1 S)",
+      "Gwynn,S scored. 0 2\nMoutzouridis grounded out to ss (3-2 SBBFB). 0 2\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nNevada - Top of 6th NEV CAL\nBALL,M. flied out to cf (1-1 SB). 0 2\nKWON,J. homered to right center, RBI (2-2 KBSB). 1 2\nHOLDER,T. walked (3-1 BBBKB). 1 2\nHARVEY,J. struck out swinging (1-2 BKFFS). 1 2\nHOLDER,T. advanced to second on a wild pitch. 1 2\nYAMAGUCHI,S. popped up to ss (1-2 FBS). 1 2\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 6th NEV CAL\nHandron,M popped up to ss (2-0 BB). 1 2\nSmaldino,D walked (3-1 KBBBB). 1 2\nFrench,J doubled down the lf line, RBI (1-1 BF)",
+      "Smaldino,D scored. 1 3\nKOTTINGER,C. to p for FOSHER,P.. 1 3\nThomas,M flied out to rf (0-0)",
+      "French,J advanced to third. 1 3\nFrench tag up to third base was reviewed, call on field stands. 1 3\nBirge,A out at first 1b to p (3-2 KBKBB). 1 3\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 1\nNevada - Top of 7th NEV CAL\nDessart,S to p for Shaw,D. 1 3\nRATFIELD,D. walked (3-1 BBBKB). 1 3\nHAM,B. flied out to lf (0-0). 1 3\nRATFIELD,D. advanced to second on a wild pitch. 1 3\nDOYLE,J. lined out to lf (0-0). 1 3\nRATFIELD,D. advanced to third on a wild pitch. 1 3\nWALLER,J. struck out swinging (3-2 BBBFFS). 1 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 7th NEV CAL\nCampbell,C reached on an error by 3b (0-1 S). 1 3\nGwynn,S walked (3-2 BFBBFB)",
+      "Campbell,C advanced to second. 1 3\nAdvincula,J singled to left field (1-2 FBFF)",
+      "Gwynn,S advanced to second",
+      "Campbell,C advanced to third. 1 3\nDESCH,D. to p for KOTTINGER,C.. 1 3\nMoutzouridis singled through the right side, RBI (1-0 B)",
+      "Advincula,J advanced to second",
+      "Gwynn,S\nadvanced to third",
+      "Campbell,C scored, unearned. 1 4\nHandron,M singled through the right side, advanced to second on the throw, 2 RBI (3-1 BBBK)",
+      "Moutzouridis advanced to third",
+      "Advincula,J scored",
+      "Gwynn,S scored. 1 6\nPlay at the plate on Moutzouridis reviewed, call on field stands. 1 6\nClayton,E pinch ran for Handron,M. 1 6\nSmaldino,D struck out swinging (1-2 KSBS). 1 6\nFrench,J singled to center field, RBI (0-1 K)",
+      "Clayton,E advanced to third",
+      "Moutzouridis scored. 1 7\nCUMMING,J. to p for DESCH,D.. 1 7\nKodama,E pinch ran for French,J. 1 7\nKodama,E out at second c to 2b, caught stealing. 1 7\nCall on Kodama stolen base attempt reviewed and confirmed. 1 7\nThomas,M walked (3-2 KKBBBB)",
+      "Clayton,E scored on a wild pitch, unearned. 1 8\nBirge,A walked (3-2 SBFBBB)",
+      "Thomas,M advanced to second. 1 8\nCampbell,C homered to left center, 3 RBI, team unearned (2-2 KKBFBFF)",
+      "Birge,A scored, team unearned",
+      "Thomas,M scored, team unearned. 1 11\nGwynn,S struck out swinging (1-2 KBSS). 1 11\nRuns: 8 Hits: 5 Errors: 1 Left On Base: 0\nNevada - Top of 8th NEV CAL\nKodama,E to lf. 1 11\nBALL,M. grounded out to ss (0-1 K). 1 11\nKWON,J. walked (3-2 BBBFKB). 1 11\nKEMMERER,J. pinch ran for KWON,J.. 1 11\nHOLDER,T. struck out swinging (1-2 SBSS). 1 11\nBougie,T to p for Dessart,S. 1 11\nHARVEY,J. singled to third base (0-2 KS)",
+      "KEMMERER,J. advanced to second. 1 11\nYAMAGUCHI,S. reached on a fielder's choice (1-1 BS)",
+      "HARVEY,J. out at second ss to 2b. 1 11\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nCalifornia - Bottom of 8th NEV CAL\nMETCHO,J. to 2b for KEMMERER,J.. 1 11\nAdvincula,J popped up to ss (0-1 F). 1 11\nMoutzouridis walked (3-1 KBBBB). 1 11\nTayman,R pinch hit for Clayton,E. 1 11\nTayman,R fouled out to ss (0-0). 1 11\nSmaldino,D singled to center field (2-1 KBB)",
+      "Moutzouridis advanced to second. 1 11\nKodama,E tripled to center field, 2 RBI, scored on a throwing error by 2b (2-0 BB)",
+      "Smaldino,D scored",
+      "Moutzouridis scored. 1 14\nThomas,M grounded out to 3b (2-2 BSBS). 1 14\nRuns: 3 Hits: 2 Errors: 1 Left On Base: 0\nNevada - Top of 9th NEV CAL\nButton,N to c for Birge,A. 1 14\nRATFIELD,D. struck out swinging (0-2 KSFS). 1 14\nHAM,B. struck out swinging (0-2 KKS). 1 14\nDOBIE,J. pinch hit for DOYLE,J.. 1 14\nDOBIE,J. grounded out to 3b (1-0 B). 1 14\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCalifornia - Bottom of 9th NEV CAL\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {},
+    "doubles": [],
+    "triples": [
+      "Kodama,Ethan (1)"
+    ],
+    "home_runs": [
+      {
+        "player": "KWON,J.",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [],
+    "caught_stealing": [
+      "Kodama,Ethan (1)"
+    ],
+    "hit_by_pitch": [
+      "None"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Turkington,Austin",
+      "record": "1-0"
+    },
+    "loss": {
+      "player": "FOSHER,P.",
+      "record": "0-1"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "WALLER,J. flied out to lf (2-2 FKBFB). 0 0",
+          "pitch_count": "2-2 FKBFB",
+          "rbi": 0
+        },
+        {
+          "description": "BALL,M. singled to left field (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "KWON,J. struck out swinging (2-2 BSBKFFS). 0 0",
+          "pitch_count": "2-2 BSBKFFS",
+          "rbi": 0
+        },
+        {
+          "description": "HOLDER,T. struck out swinging (1-2 BKFFS). 0 0",
+          "pitch_count": "1-2 BKFFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Advincula,J struck out swinging (1-2 BKKS). 0 0",
+          "pitch_count": "1-2 BKKS",
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis homered to left field, RBI (0-0). 0 1",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Handron,M singled to right field (1-0 B). 0 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D struck out swinging (1-2 KBFS). 0 1",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        },
+        {
+          "description": "French,J struck out swinging (0-2 SFS). 0 1",
+          "pitch_count": "0-2 SFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "HARVEY,J. grounded out to ss (1-2 BKKF). 0 1",
+          "pitch_count": "1-2 BKKF",
+          "rbi": 0
+        },
+        {
+          "description": "YAMAGUCHI,S. lined out to lf (3-1 FBBB). 0 1",
+          "pitch_count": "3-1 FBBB",
+          "rbi": 0
+        },
+        {
+          "description": "RATFIELD,D. grounded out to 3b (3-2 KBBFFBF). 0 1",
+          "pitch_count": "3-2 KBBFFBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Thomas,M struck out swinging (1-2 BKSS). 0 1",
+          "pitch_count": "1-2 BKSS",
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A struck out swinging (2-2 KBSBS). 0 1",
+          "pitch_count": "2-2 KBSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,C fouled out to ss (1-0 B). 0 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "HAM,B. walked (3-1 BBBKB). 0 1",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "DOYLE,J. struck out swinging (1-2 FBSFK). 0 1",
+          "pitch_count": "1-2 FBSFK",
+          "rbi": 0
+        },
+        {
+          "description": "WALLER,J. walked (3-2 BBKKFBB); HAM,B. advanced to second. 0 1",
+          "pitch_count": "3-2 BBKKFBB",
+          "rbi": 0
+        },
+        {
+          "description": "BALL,M. infield fly to 2b (1-1 BK). 0 1",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "KWON,J. struck out swinging (2-2 BSBFS). 0 1",
+          "pitch_count": "2-2 BSBFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Gwynn,S singled to shortstop (0-0). 0 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J lined out to lf (0-1 K). 0 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis struck out swinging (3-2 FKBBBS). 0 1",
+          "pitch_count": "3-2 FKBBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M struck out swinging (3-2 SSFBFBBS). 0 1",
+          "pitch_count": "3-2 SSFBFBBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Shaw,D to p for Turkington,A. 0 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HOLDER,T. singled to left field (1-2 BKF). 0 1",
+          "pitch_count": "1-2 BKF",
+          "rbi": 0
+        },
+        {
+          "description": "HARVEY,J. struck out swinging (2-2 BKBKS). 0 1",
+          "pitch_count": "2-2 BKBKS",
+          "rbi": 0
+        },
+        {
+          "description": "YAMAGUCHI,S. struck out swinging (1-2 BSKS). 0 1",
+          "pitch_count": "1-2 BSKS",
+          "rbi": 0
+        },
+        {
+          "description": "RATFIELD,D. struck out looking (1-2 SKBK). 0 1",
+          "pitch_count": "1-2 SKBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Smaldino,D lined out to 3b (0-0). 0 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "French,J walked (3-2 BBSBFB). 0 1",
+          "pitch_count": "3-2 BBSBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Thomas,M struck out looking (0-2 SFK). 0 1",
+          "pitch_count": "0-2 SFK",
+          "rbi": 0
+        },
+        {
+          "description": "French,J out at first p to 1b, picked off. 0 1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Pickoff play call on the field was reviewed and confirmed. 0 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HAM,B. struck out swinging (2-2 BKBSS). 0 1",
+          "pitch_count": "2-2 BKBSS",
+          "rbi": 0
+        },
+        {
+          "description": "DOYLE,J. struck out swinging, out at first c to 1b (1-2 FBSS). 0 1",
+          "pitch_count": "1-2 FBSS",
+          "rbi": 0
+        },
+        {
+          "description": "WALLER,J. struck out looking (3-2 BBBKSK). 0 1",
+          "pitch_count": "3-2 BBBKSK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Birge,A flied out to cf (1-0 B). 0 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,C struck out looking (3-2 KBFBBK). 0 1",
+          "pitch_count": "3-2 KBFBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S doubled to right center (2-1 BSB). 0 1",
+          "pitch_count": "2-1 BSB",
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J doubled to center field, RBI (0-1 S); Gwynn,S scored. 0 2",
+          "pitch_count": "0-1 S",
+          "rbi": 1
+        },
+        {
+          "description": "Moutzouridis grounded out to ss (3-2 SBBFB). 0 2",
+          "pitch_count": "3-2 SBBFB",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "BALL,M. flied out to cf (1-1 SB). 0 2",
+          "pitch_count": "1-1 SB",
+          "rbi": 0
+        },
+        {
+          "description": "KWON,J. homered to right center, RBI (2-2 KBSB). 1 2",
+          "pitch_count": "2-2 KBSB",
+          "rbi": 1
+        },
+        {
+          "description": "HOLDER,T. walked (3-1 BBBKB). 1 2",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "HARVEY,J. struck out swinging (1-2 BKFFS). 1 2",
+          "pitch_count": "1-2 BKFFS",
+          "rbi": 0
+        },
+        {
+          "description": "HOLDER,T. advanced to second on a wild pitch. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "YAMAGUCHI,S. popped up to ss (1-2 FBS). 1 2",
+          "pitch_count": "1-2 FBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Handron,M popped up to ss (2-0 BB). 1 2",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D walked (3-1 KBBBB). 1 2",
+          "pitch_count": "3-1 KBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "French,J doubled down the lf line, RBI (1-1 BF); Smaldino,D scored. 1 3",
+          "pitch_count": "1-1 BF",
+          "rbi": 1
+        },
+        {
+          "description": "KOTTINGER,C. to p for FOSHER,P.. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas,M flied out to rf (0-0); French,J advanced to third. 1 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "French tag up to third base was reviewed, call on field stands. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A out at first 1b to p (3-2 KBKBB). 1 3",
+          "pitch_count": "3-2 KBKBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Dessart,S to p for Shaw,D. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RATFIELD,D. walked (3-1 BBBKB). 1 3",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "HAM,B. flied out to lf (0-0). 1 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "RATFIELD,D. advanced to second on a wild pitch. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DOYLE,J. lined out to lf (0-0). 1 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "RATFIELD,D. advanced to third on a wild pitch. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WALLER,J. struck out swinging (3-2 BBBFFS). 1 3",
+          "pitch_count": "3-2 BBBFFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Campbell,C reached on an error by 3b (0-1 S). 1 3",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S walked (3-2 BFBBFB); Campbell,C advanced to second. 1 3",
+          "pitch_count": "3-2 BFBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J singled to left field (1-2 FBFF); Gwynn,S advanced to second; Campbell,C advanced to third. 1 3",
+          "pitch_count": "1-2 FBFF",
+          "rbi": 0
+        },
+        {
+          "description": "DESCH,D. to p for KOTTINGER,C.. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis singled through the right side, RBI (1-0 B); Advincula,J advanced to second; Gwynn,S",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "advanced to third; Campbell,C scored, unearned. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M singled through the right side, advanced to second on the throw, 2 RBI (3-1 BBBK);",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 2
+        },
+        {
+          "description": "Moutzouridis advanced to third; Advincula,J scored; Gwynn,S scored. 1 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Play at the plate on Moutzouridis reviewed, call on field stands. 1 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Clayton,E pinch ran for Handron,M. 1 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D struck out swinging (1-2 KSBS). 1 6",
+          "pitch_count": "1-2 KSBS",
+          "rbi": 0
+        },
+        {
+          "description": "French,J singled to center field, RBI (0-1 K); Clayton,E advanced to third; Moutzouridis scored. 1 7",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "CUMMING,J. to p for DESCH,D.. 1 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kodama,E pinch ran for French,J. 1 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kodama,E out at second c to 2b, caught stealing. 1 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on Kodama stolen base attempt reviewed and confirmed. 1 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas,M walked (3-2 KKBBBB); Clayton,E scored on a wild pitch, unearned. 1 8",
+          "pitch_count": "3-2 KKBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A walked (3-2 SBFBBB); Thomas,M advanced to second. 1 8",
+          "pitch_count": "3-2 SBFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,C homered to left center, 3 RBI, team unearned (2-2 KKBFBFF); Birge,A scored, team unearned;",
+          "pitch_count": "2-2 KKBFBFF",
+          "rbi": 3
+        },
+        {
+          "description": "Thomas,M scored, team unearned. 1 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S struck out swinging (1-2 KBSS). 1 11",
+          "pitch_count": "1-2 KBSS",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Kodama,E to lf. 1 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BALL,M. grounded out to ss (0-1 K). 1 11",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "KWON,J. walked (3-2 BBBFKB). 1 11",
+          "pitch_count": "3-2 BBBFKB",
+          "rbi": 0
+        },
+        {
+          "description": "KEMMERER,J. pinch ran for KWON,J.. 1 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HOLDER,T. struck out swinging (1-2 SBSS). 1 11",
+          "pitch_count": "1-2 SBSS",
+          "rbi": 0
+        },
+        {
+          "description": "Bougie,T to p for Dessart,S. 1 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARVEY,J. singled to third base (0-2 KS); KEMMERER,J. advanced to second. 1 11",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        },
+        {
+          "description": "YAMAGUCHI,S. reached on a fielder's choice (1-1 BS); HARVEY,J. out at second ss to 2b. 1 11",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "METCHO,J. to 2b for KEMMERER,J.. 1 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J popped up to ss (0-1 F). 1 11",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis walked (3-1 KBBBB). 1 11",
+          "pitch_count": "3-1 KBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Tayman,R pinch hit for Clayton,E. 1 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tayman,R fouled out to ss (0-0). 1 11",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D singled to center field (2-1 KBB); Moutzouridis advanced to second. 1 11",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "Kodama,E tripled to center field, 2 RBI, scored on a throwing error by 2b (2-0 BB); Smaldino,D scored;",
+          "pitch_count": "2-0 BB",
+          "rbi": 2
+        },
+        {
+          "description": "Moutzouridis scored. 1 14",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas,M grounded out to 3b (2-2 BSBS). 1 14",
+          "pitch_count": "2-2 BSBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Button,N to c for Birge,A. 1 14",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RATFIELD,D. struck out swinging (0-2 KSFS). 1 14",
+          "pitch_count": "0-2 KSFS",
+          "rbi": 0
+        },
+        {
+          "description": "HAM,B. struck out swinging (0-2 KKS). 1 14",
+          "pitch_count": "0-2 KKS",
+          "rbi": 0
+        },
+        {
+          "description": "DOBIE,J. pinch hit for DOYLE,J.. 1 14",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DOBIE,J. grounded out to 3b (1-0 B). 1 14",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

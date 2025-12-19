@@ -1,0 +1,1378 @@
+{
+  "metadata": {
+    "date": "5/15/2025",
+    "venue": "Stu Gordon Stadium (Berkeley, CA)",
+    "stadium": "Stu Gordon Stadium",
+    "city": "Berkeley, CA",
+    "away_team": "Boston College",
+    "away_team_rank": null,
+    "away_team_record": "25-27, 10-18 ACC",
+    "away_team_score": 6,
+    "home_team": "California",
+    "home_team_rank": null,
+    "home_team_record": "21-29, 8-20 ACC",
+    "home_team_score": 8,
+    "attendance": 531,
+    "duration": "3:20",
+    "start_time": "6:03 pm",
+    "weather": "67F, Partly Cloudy, WSW 12 mph",
+    "umpires": {
+      "list": "Home Plate: Al Lostaglio First: Frank Pflugradt Second Base: Ryan Bleiberg Third Base: Phil Cundall"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Roche, P.",
+        "position": "3b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "roche-000pat",
+        "full_name": "Pat Roche",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Ragsdale, J.",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 3,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ragsda002jos",
+        "full_name": "Josiah Ragsdale",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Toomey, J.",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "toomey000jac",
+        "full_name": "Jack Toomey",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Wolff, K.",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "wolff-001kyl",
+        "full_name": "Kyle Wolff",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Frederking,N",
+        "position": "dh",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "freder001nat",
+        "full_name": "Nathanael Frederking",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Garcia, E.",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "garcia000est",
+        "full_name": "Esteban Garcia",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Johnson, G.",
+        "position": "c",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 3,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "johnso003gun",
+        "full_name": "Gunnar Johnson",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Magpoc, A. 2b/lf",
+        "position": "",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "magpoc000ada",
+        "full_name": "Adam Magpoc",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Cimini, V.",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "cimini000vin",
+        "full_name": "Vince Cimini",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Larson, C.",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "larson002col",
+        "full_name": "Colin Larson",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Milner, B.",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "milner000bec",
+        "full_name": "Beck Milner",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Solier, J.",
+        "position": "2b",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "solier000jul",
+        "full_name": "Julio Solier",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "McNulty, S.",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mcnult000sam",
+        "full_name": "Sam McNulty",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Colarusso, A",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "colaru000aj-",
+        "full_name": "A.J. Colarusso",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Ogden, J.",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ogden-000jd-",
+        "full_name": "J.D. Ogden",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Soares, G.",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "soares000gav",
+        "full_name": "Gavin Soares",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Advincula,Jarren",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "advinc000jar",
+        "full_name": "Jarren Advincula",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Schmidt,Carl rf/lf",
+        "position": "",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "schmid004car",
+        "full_name": "Carl Schmidt",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Smaldino,Dominic",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "smaldi000dom",
+        "full_name": "Dominic Smaldino",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "French,Jacob cf/rf",
+        "position": "",
+        "at_bats": 5,
+        "runs": 3,
+        "hits": 3,
+        "rbi": 3,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "french004jac",
+        "full_name": "Jacob French",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Moutzouridis,PJ",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "moutzo000pj-",
+        "full_name": "P.J. Moutzouridis",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Handron,Max",
+        "position": "dh",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 4,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "handro000max",
+        "full_name": "Max Handron",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Campbell,Cade",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "campbe001cad",
+        "full_name": "Cade Campbell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Birge,Alex",
+        "position": "c",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "birge-000ale",
+        "full_name": "Alex Birge",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gwynn,Seth",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "gwynn-000set",
+        "full_name": "Seth Gwynn",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Applefield,Kalen",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "applef000kal",
+        "full_name": "Kalen Applefield",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kodama,Ethan",
+        "position": "cf",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kodama000eth",
+        "full_name": "Ethan Kodama",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tremain,Cole",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "tremai000col",
+        "full_name": "Cole Tremain",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Foley,Ethan",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "foley-001eth",
+        "full_name": "Ethan Foley",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Piper,Logan",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "piper-001log",
+        "full_name": "Logan Piper",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Lopez,Jordy",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lopez-013jor",
+        "full_name": "Jordy Lopez",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Colarusso, A",
+        "innings_pitched": 3.0,
+        "hits": 4,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 14,
+        "at_bats": 12,
+        "pitches": 56,
+        "bref_id": "colaru000aj-",
+        "full_name": "A.J. Colarusso",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Ogden, J.",
+        "innings_pitched": 2.2,
+        "hits": 4,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 4,
+        "batters_faced": 14,
+        "at_bats": 12,
+        "pitches": 54,
+        "bref_id": "ogden-000jd-",
+        "full_name": "J.D. Ogden",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Soares, G.",
+        "innings_pitched": 2.2,
+        "hits": 5,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 1,
+        "strikeouts": 5,
+        "batters_faced": 14,
+        "at_bats": 13,
+        "pitches": 52,
+        "bref_id": "soares000gav",
+        "full_name": "Gavin Soares",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Tremain,Cole",
+        "innings_pitched": 1.0,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 5,
+        "at_bats": 4,
+        "pitches": 22,
+        "bref_id": "tremai000col",
+        "full_name": "Cole Tremain",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Foley,Ethan",
+        "innings_pitched": 3.0,
+        "hits": 4,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 14,
+        "at_bats": 11,
+        "pitches": 48,
+        "bref_id": "foley-001eth",
+        "full_name": "Ethan Foley",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Piper,Logan",
+        "innings_pitched": 2.0,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 9,
+        "at_bats": 8,
+        "pitches": 32,
+        "bref_id": "piper-001log",
+        "full_name": "Logan Piper",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Lopez,Jordy",
+        "innings_pitched": 3.0,
+        "hits": 3,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 13,
+        "at_bats": 12,
+        "pitches": 49,
+        "bref_id": "lopez-013jor",
+        "full_name": "Jordy Lopez",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        3,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "home_innings": [
+        0,
+        2,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        4
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Roche, P. advanced to second. 0 0\nToomey, J. grounded out to 3b, SAC, bunt (0-1 K)",
+      "Ragsdale, J. advanced to second",
+      "Roche, P. advanced to\nthird. 0 0\nWolff, K. struck out swinging (3-2 BBKFFFFBS). 0 0\nJohnson, G. struck out swinging (1-2 KBFS). 0 0\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2\nCalifornia - Bottom of 1st BC CAL\nAdvincula,J grounded out to ss (0-2 FS). 0 0\nSchmidt,C struck out swinging (1-2 FFFBFS). 0 0\nSmaldino,D lined out to cf (2-2 BSBF). 0 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nBoston College - Top of 2nd BC CAL\nFoley,E to p for Tremain,C. 0 0\nMagpoc, A. grounded out to 2b (0-1 K). 0 0\nCimini, V. fouled out to 1b (2-2 BSKB). 0 0\nLarson, C. struck out looking (3-2 BKBBKK). 0 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCalifornia - Bottom of 2nd BC CAL\nFrench,J doubled down the rf line (0-0). 0 0\nMoutzouridis grounded out to 3b, SAC, bunt (1-0 B)",
+      "French,J advanced to third. 0 0\nHandron,M doubled to left center, RBI (2-2 BKFB)",
+      "French,J scored. 0 1\nCampbell,C singled down the lf line, RBI (1-0 B)",
+      "Handron,M scored. 0 2\nBirge,A flied out to cf (1-0 B). 0 2\nGwynn,S popped up to ss (2-2 BKFB). 0 2\nRuns: 2 Hits: 3 Errors: 0 Left On Base: 1\nBoston College - Top of 3rd BC CAL\nMcNulty, S. singled to pitcher (0-0). 0 2\nRoche, P. grounded into double play ss to 2b to 1b (1-1 BK)",
+      "McNulty, S. out on the play. 0 2\nUmpire's review on fourth pitch to Ragsdale on fair of foul on ball over fe. 0 2\nRagsdale, J. walked (3-2 KBFFBFBB). 0 2\nToomey, J. singled to right center (2-2 KSBBF)",
+      "Ragsdale, J. advanced to third. 0 2\nToomey, J. advanced to second on a wild pitch",
+      "Ragsdale, J. scored on a wild pitch. 1 2\nWolff, K. walked (3-1 FBBBB). 1 2\nWolff, K. advanced to second on a wild pitch",
+      "Toomey, J. advanced to third on a wild pitch. 1 2\nJohnson, G. doubled to right center, 2 RBI (3-1 BBSB)",
+      "Wolff, K. scored",
+      "Toomey, J. scored. 3 2\nMagpoc, A. lined out to cf (0-0). 3 2\nRuns: 3 Hits: 3 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 3rd BC CAL\nAdvincula,J singled to center field (2-2 BKBFFFF). 3 2\nSchmidt,C walked (3-2 BBKFFBFFFFFB)",
+      "Advincula,J advanced to second. 3 2\nSmaldino,D infield fly to 1b (0-1 K). 3 2\nFrench,J lined out to lf (0-0). 3 2\nMoutzouridis reached on a fielder's choice (0-1 K)",
+      "Schmidt,C advanced to second",
+      "Advincula,J out at third\nss to 3b. 3 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nBoston College - Top of 4th BC CAL\nCimini, V. doubled to right center (0-0). 3 2\nLarson, C. grounded out to 3b, SAC, bunt (0-0)",
+      "Cimini, V. advanced to third. 3 2\nMcNulty, S. reached on a fielder's choice, bunt (0-0)",
+      "Cimini, V. out at home p to c. 3 2\nRoche, P. grounded out to ss (0-2 KK). 3 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 4th BC CAL\nOgden, J. to p for Colarusso, A. 3 2\nHandron,M struck out looking (1-2 BKSK). 3 2\nCampbell,C doubled down the rf line (0-2 FF). 3 2\nBirge,A walked (3-2 BBSBSB). 3 2\nGwynn,S flied out to rf (3-2 FSBBB)",
+      "Campbell,C advanced to third. 3 2\nAdvincula,J grounded out to ss (0-2 KS). 3 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nBoston College - Top of 5th BC CAL\nPiper,L to p for Foley,E. 3 2\nRagsdale, J. walked (3-1 BBBKB). 3 2\nToomey, J. reached on a fielder's choice (0-2 KS)",
+      "Ragsdale, J. advanced to second. 3 2\nToomey, J. stole second",
+      "Ragsdale, J. stole third. 3 2\nWolff, K. struck out looking (1-2 SBFK). 3 2\nJohnson, G. singled to left field, RBI (0-1 F)",
+      "Toomey, J. advanced to third",
+      "Ragsdale, J. scored. 4 2\nMagpoc, A. popped into double play 2b to 3b, bunt (0-1 F)",
+      "Toomey, J. out on the play. 4 2\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 5th BC CAL\nSchmidt,C doubled down the lf line (0-0). 4 2\nSmaldino,D flied out to cf (1-1 BK)",
+      "Schmidt,C advanced to third. 4 2\nFrench,J singled through the left side, RBI (0-1 F)",
+      "Schmidt,C scored. 4 3\nMoutzouridis grounded out to 2b (0-1 K)",
+      "French,J advanced to second. 4 3\nHandron,M singled to left field, RBI, advanced to second on a fielding error by c (2-2 FKBB)",
+      "French,J\nscored. 4 4\nCampbell,C struck out swinging (1-2 BSFS). 4 4\nRuns: 2 Hits: 3 Errors: 1 Left On Base: 1\nBoston College - Top of 6th BC CAL\nCimini, V. singled to left center (2-2 FBKB). 4 4\nLarson, C. popped up to 3b, bunt (1-0 B). 4 4\nCimini, V. advanced to second on a balk. 4 4\nCimini, V. advanced to third on a wild pitch. 4 4\nMcNulty, S. struck out looking (2-2 BBSKK). 4 4\nRoche, P. flied out to rf (3-0 BBB). 4 4\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 6th BC CAL\nBirge,A walked (3-2 FBKBBB). 4 4\nGwynn,S struck out swinging, bunt (2-2 BBFFS). 4 4\nBirge,A advanced to second on a wild pitch. 4 4\nAdvincula,J struck out swinging (1-2 KBSS). 4 4\nSoares, G. to p for Ogden, J.. 4 4\nSchmidt,C singled to shortstop (2-2 BBFF)",
+      "Birge,A advanced to third. 4 4\nSmaldino,D walked (3-0 BBBB)",
+      "Schmidt,C advanced to second. 4 4\nFrench,J struck out swinging (3-2 BSFBBS). 4 4\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 3\nBoston College - Top of 7th BC CAL\nLopez,J to p for Piper,L. 4 4\nRagsdale, J. fouled out to 3b (1-0 B). 4 4\nToomey, J. popped up to 1b (0-0). 4 4\nWolff, K. doubled to right center (3-2 BBKKB). 4 4\nFrederking,N to dh for Wolff, K.. 4 4\nJohnson, G. flied out to cf (1-2 BSKF). 4 4\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 7th BC CAL\nMoutzouridis struck out looking (1-2 SSBK). 4 4\nHandron,M flied out to cf (2-2 FBFB). 4 4\nCampbell,C flied out to rf (0-1 K). 4 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nBoston College - Top of 8th BC CAL\nMagpoc, A. struck out swinging (1-2 KBSS). 4 4\nCimini, V. flied out to rf (2-1 BSB). 4 4\nMilner, B. pinch hit for Larson, C.. 4 4\nMilner, B. struck out swinging (1-2 FSBS). 4 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCalifornia - Bottom of 8th BC CAL\nMagpoc, A. to lf. 4 4\nSolier, J. to 2b for Milner, B.. 4 4\nBirge,A struck out swinging (1-2 KSFBFFFS). 4 4\nApplefield,K pinch hit for Gwynn,S. 4 4\nApplefield,K struck out swinging (1-2 SKBS). 4 4\nAdvincula,J flied out to cf (0-1 F). 4 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nBoston College - Top of 9th BC CAL\nSchmidt,C to lf. 4 4\nFrench,J to rf. 4 4\nKodama,E to cf for Applefield,K. 4 4\nMcNulty, S. flied out to cf (1-0 B). 4 4\nRoche, P. singled through the left side (2-0 BB). 4 4\nRagsdale, J. reached on a fielder's choice (0-1 K)",
+      "Roche, P. out at second 2b to ss. 4 4\nToomey, J. walked (3-2 BFKFBFFBB)",
+      "Ragsdale, J. advanced to second. 4 4\nGarcia, E. pinch hit for Frederking,N. 4 4\nGarcia, E. doubled to right center, 2 RBI (3-1 BBBK)",
+      "Toomey, J. scored",
+      "Ragsdale, J. scored. 6 4\nJohnson, G. flied out to rf (1-0 B). 6 4\nRuns: 2 Hits: 2 Errors: 0 Left On Base: 1\nCalifornia - Bottom of 9th BC CAL\nSchmidt,C struck out swinging (2-2 KFBBS). 6 4\nSmaldino,D singled to right field (0-1 K). 6 4\nFrench,J homered to left center, 2 RBI (1-0 B)",
+      "Smaldino,D scored. 6 6\nMoutzouridis singled up the middle (0-0). 6 6\nHandron,M homered to right center, 2 RBI (0-1 K)",
+      "Moutzouridis scored. 6 8\nRuns: 4 Hits: 4 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {
+      "count": 2
+    },
+    "doubles": [
+      {
+        "player": "Schmidt,Carl",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "French,Jacob",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Handron,Max",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [
+      "Ragsdale, J. (1)",
+      "Toomey, J. (1) SH: Moutzouridis,PJ (1)"
+    ],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "None"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Lopez,Jordy",
+      "record": "1-0"
+    },
+    "loss": {
+      "player": "Soares, G.",
+      "record": "3-1"
+    },
+    "save": null,
+    "sacrifice_hits": [
+      "Toomey, J. (1)",
+      "Larson, C. (1) HR: French,Jacob (1)",
+      "Handron,Max (1)"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Roche, P. singled up the middle (2-2 BKFB). 0 0",
+          "pitch_count": "2-2 BKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Ragsdale, J. singled to left field (0-1 K); Roche, P. advanced to second. 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Toomey, J. grounded out to 3b, SAC, bunt (0-1 K); Ragsdale, J. advanced to second; Roche, P. advanced to",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "third. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wolff, K. struck out swinging (3-2 BBKFFFFBS). 0 0",
+          "pitch_count": "3-2 BBKFFFFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Johnson, G. struck out swinging (1-2 KBFS). 0 0",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Advincula,J grounded out to ss (0-2 FS). 0 0",
+          "pitch_count": "0-2 FS",
+          "rbi": 0
+        },
+        {
+          "description": "Schmidt,C struck out swinging (1-2 FFFBFS). 0 0",
+          "pitch_count": "1-2 FFFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D lined out to cf (2-2 BSBF). 0 0",
+          "pitch_count": "2-2 BSBF",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Foley,E to p for Tremain,C. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Magpoc, A. grounded out to 2b (0-1 K). 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Cimini, V. fouled out to 1b (2-2 BSKB). 0 0",
+          "pitch_count": "2-2 BSKB",
+          "rbi": 0
+        },
+        {
+          "description": "Larson, C. struck out looking (3-2 BKBBKK). 0 0",
+          "pitch_count": "3-2 BKBBKK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "French,J doubled down the rf line (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis grounded out to 3b, SAC, bunt (1-0 B); French,J advanced to third. 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M doubled to left center, RBI (2-2 BKFB); French,J scored. 0 1",
+          "pitch_count": "2-2 BKFB",
+          "rbi": 1
+        },
+        {
+          "description": "Campbell,C singled down the lf line, RBI (1-0 B); Handron,M scored. 0 2",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "Birge,A flied out to cf (1-0 B). 0 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S popped up to ss (2-2 BKFB). 0 2",
+          "pitch_count": "2-2 BKFB",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "McNulty, S. singled to pitcher (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Roche, P. grounded into double play ss to 2b to 1b (1-1 BK); McNulty, S. out on the play. 0 2",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Umpire's review on fourth pitch to Ragsdale on fair of foul on ball over fe. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ragsdale, J. walked (3-2 KBFFBFBB). 0 2",
+          "pitch_count": "3-2 KBFFBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Toomey, J. singled to right center (2-2 KSBBF); Ragsdale, J. advanced to third. 0 2",
+          "pitch_count": "2-2 KSBBF",
+          "rbi": 0
+        },
+        {
+          "description": "Toomey, J. advanced to second on a wild pitch; Ragsdale, J. scored on a wild pitch. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wolff, K. walked (3-1 FBBBB). 1 2",
+          "pitch_count": "3-1 FBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Wolff, K. advanced to second on a wild pitch; Toomey, J. advanced to third on a wild pitch. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Johnson, G. doubled to right center, 2 RBI (3-1 BBSB); Wolff, K. scored; Toomey, J. scored. 3 2",
+          "pitch_count": "3-1 BBSB",
+          "rbi": 2
+        },
+        {
+          "description": "Magpoc, A. lined out to cf (0-0). 3 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Advincula,J singled to center field (2-2 BKBFFFF). 3 2",
+          "pitch_count": "2-2 BKBFFFF",
+          "rbi": 0
+        },
+        {
+          "description": "Schmidt,C walked (3-2 BBKFFBFFFFFB); Advincula,J advanced to second. 3 2",
+          "pitch_count": "3-2 BBKFFBFFFFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D infield fly to 1b (0-1 K). 3 2",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "French,J lined out to lf (0-0). 3 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis reached on a fielder's choice (0-1 K); Schmidt,C advanced to second; Advincula,J out at third",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "ss to 3b. 3 2",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Cimini, V. doubled to right center (0-0). 3 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Larson, C. grounded out to 3b, SAC, bunt (0-0); Cimini, V. advanced to third. 3 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "McNulty, S. reached on a fielder's choice, bunt (0-0); Cimini, V. out at home p to c. 3 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Roche, P. grounded out to ss (0-2 KK). 3 2",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ogden, J. to p for Colarusso, A. 3 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M struck out looking (1-2 BKSK). 3 2",
+          "pitch_count": "1-2 BKSK",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,C doubled down the rf line (0-2 FF). 3 2",
+          "pitch_count": "0-2 FF",
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A walked (3-2 BBSBSB). 3 2",
+          "pitch_count": "3-2 BBSBSB",
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S flied out to rf (3-2 FSBBB); Campbell,C advanced to third. 3 2",
+          "pitch_count": "3-2 FSBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J grounded out to ss (0-2 KS). 3 2",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Piper,L to p for Foley,E. 3 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ragsdale, J. walked (3-1 BBBKB). 3 2",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Toomey, J. reached on a fielder's choice (0-2 KS); Ragsdale, J. advanced to second. 3 2",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        },
+        {
+          "description": "Toomey, J. stole second; Ragsdale, J. stole third. 3 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wolff, K. struck out looking (1-2 SBFK). 3 2",
+          "pitch_count": "1-2 SBFK",
+          "rbi": 0
+        },
+        {
+          "description": "Johnson, G. singled to left field, RBI (0-1 F); Toomey, J. advanced to third; Ragsdale, J. scored. 4 2",
+          "pitch_count": "0-1 F",
+          "rbi": 1
+        },
+        {
+          "description": "Magpoc, A. popped into double play 2b to 3b, bunt (0-1 F); Toomey, J. out on the play. 4 2",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Schmidt,C doubled down the lf line (0-0). 4 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D flied out to cf (1-1 BK); Schmidt,C advanced to third. 4 2",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "French,J singled through the left side, RBI (0-1 F); Schmidt,C scored. 4 3",
+          "pitch_count": "0-1 F",
+          "rbi": 1
+        },
+        {
+          "description": "Moutzouridis grounded out to 2b (0-1 K); French,J advanced to second. 4 3",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M singled to left field, RBI, advanced to second on a fielding error by c (2-2 FKBB); French,J",
+          "pitch_count": "2-2 FKBB",
+          "rbi": 1
+        },
+        {
+          "description": "scored. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,C struck out swinging (1-2 BSFS). 4 4",
+          "pitch_count": "1-2 BSFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Cimini, V. singled to left center (2-2 FBKB). 4 4",
+          "pitch_count": "2-2 FBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Larson, C. popped up to 3b, bunt (1-0 B). 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Cimini, V. advanced to second on a balk. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cimini, V. advanced to third on a wild pitch. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McNulty, S. struck out looking (2-2 BBSKK). 4 4",
+          "pitch_count": "2-2 BBSKK",
+          "rbi": 0
+        },
+        {
+          "description": "Roche, P. flied out to rf (3-0 BBB). 4 4",
+          "pitch_count": "3-0 BBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Birge,A walked (3-2 FBKBBB). 4 4",
+          "pitch_count": "3-2 FBKBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S struck out swinging, bunt (2-2 BBFFS). 4 4",
+          "pitch_count": "2-2 BBFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A advanced to second on a wild pitch. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J struck out swinging (1-2 KBSS). 4 4",
+          "pitch_count": "1-2 KBSS",
+          "rbi": 0
+        },
+        {
+          "description": "Soares, G. to p for Ogden, J.. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schmidt,C singled to shortstop (2-2 BBFF); Birge,A advanced to third. 4 4",
+          "pitch_count": "2-2 BBFF",
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D walked (3-0 BBBB); Schmidt,C advanced to second. 4 4",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "French,J struck out swinging (3-2 BSFBBS). 4 4",
+          "pitch_count": "3-2 BSFBBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Lopez,J to p for Piper,L. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ragsdale, J. fouled out to 3b (1-0 B). 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Toomey, J. popped up to 1b (0-0). 4 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Wolff, K. doubled to right center (3-2 BBKKB). 4 4",
+          "pitch_count": "3-2 BBKKB",
+          "rbi": 0
+        },
+        {
+          "description": "Frederking,N to dh for Wolff, K.. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Johnson, G. flied out to cf (1-2 BSKF). 4 4",
+          "pitch_count": "1-2 BSKF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Moutzouridis struck out looking (1-2 SSBK). 4 4",
+          "pitch_count": "1-2 SSBK",
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M flied out to cf (2-2 FBFB). 4 4",
+          "pitch_count": "2-2 FBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,C flied out to rf (0-1 K). 4 4",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Magpoc, A. struck out swinging (1-2 KBSS). 4 4",
+          "pitch_count": "1-2 KBSS",
+          "rbi": 0
+        },
+        {
+          "description": "Cimini, V. flied out to rf (2-1 BSB). 4 4",
+          "pitch_count": "2-1 BSB",
+          "rbi": 0
+        },
+        {
+          "description": "Milner, B. pinch hit for Larson, C.. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Milner, B. struck out swinging (1-2 FSBS). 4 4",
+          "pitch_count": "1-2 FSBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Magpoc, A. to lf. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Solier, J. to 2b for Milner, B.. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A struck out swinging (1-2 KSFBFFFS). 4 4",
+          "pitch_count": "1-2 KSFBFFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Applefield,K pinch hit for Gwynn,S. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Applefield,K struck out swinging (1-2 SKBS). 4 4",
+          "pitch_count": "1-2 SKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J flied out to cf (0-1 F). 4 4",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Schmidt,C to lf. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "French,J to rf. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kodama,E to cf for Applefield,K. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McNulty, S. flied out to cf (1-0 B). 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Roche, P. singled through the left side (2-0 BB). 4 4",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Ragsdale, J. reached on a fielder's choice (0-1 K); Roche, P. out at second 2b to ss. 4 4",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Toomey, J. walked (3-2 BFKFBFFBB); Ragsdale, J. advanced to second. 4 4",
+          "pitch_count": "3-2 BFKFBFFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Garcia, E. pinch hit for Frederking,N. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Garcia, E. doubled to right center, 2 RBI (3-1 BBBK); Toomey, J. scored; Ragsdale, J. scored. 6 4",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 2
+        },
+        {
+          "description": "Johnson, G. flied out to rf (1-0 B). 6 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Schmidt,C struck out swinging (2-2 KFBBS). 6 4",
+          "pitch_count": "2-2 KFBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D singled to right field (0-1 K). 6 4",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "French,J homered to left center, 2 RBI (1-0 B); Smaldino,D scored. 6 6",
+          "pitch_count": "1-0 B",
+          "rbi": 2
+        },
+        {
+          "description": "Moutzouridis singled up the middle (0-0). 6 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M homered to right center, 2 RBI (0-1 K); Moutzouridis scored. 6 8",
+          "pitch_count": "0-1 K",
+          "rbi": 2
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}

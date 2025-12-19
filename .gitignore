@@ -1,0 +1,38 @@
+# OS files
+.DS_Store
+.DS_Store?
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude Code
+.claude/
+
+# Generated output (can be regenerated)
+*.xlsx
+*.html
+output/
+html_output/
+
+# Cache (optional - can be regenerated)
+# cache/
+
+# PDF source files (large, not tracked)
+pdfs/
+
+# Test files
+test_*.json
+test_*.html

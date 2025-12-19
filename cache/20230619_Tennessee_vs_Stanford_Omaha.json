@@ -1,0 +1,1115 @@
+{
+  "metadata": {
+    "date": "6/19/2023",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Tennessee",
+    "away_team_rank": null,
+    "away_team_record": "44-21",
+    "away_team_score": 6,
+    "home_team": "Stanford",
+    "home_team_rank": null,
+    "home_team_record": "44-20",
+    "home_team_score": 4,
+    "attendance": 23886,
+    "duration": "3:07",
+    "start_time": "1:07 pm",
+    "weather": "87 - Sunny - W: 11 MPH S",
+    "umpires": {
+      "list": "Home Plate: Brandon Cooper First: Jeff Head Second Base: Angel Campos Third Base: Ramon Armenderiz"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Maui Ahuna",
+        "position": "ss",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 3,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ahuna-000mau",
+        "full_name": "Maui Ahuna",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hunter Ensley",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ensley000hun",
+        "full_name": "Hunter Ensley",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jared Dickey",
+        "position": "lf",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 3,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "dickey000jar",
+        "full_name": "Jared Dickey",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Griffin Merritt",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "merrit000gri",
+        "full_name": "Griffin Merritt",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Christian Moore",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "moore-008chr",
+        "full_name": "Christian Moore",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blake Burke",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "burke-000bla",
+        "full_name": "Blake Burke",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Zane Denton",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "denton000zan",
+        "full_name": "Zane Denton",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Christian Scott",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "scott-006chr",
+        "full_name": "Christian Scott",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cal Stark",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "stark-001cal",
+        "full_name": "Cal Stark",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Chase Dollander",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "dollan000cha",
+        "full_name": "Chase Dollander",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Chase Burns",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "burns-008cha",
+        "full_name": "Chase Burns",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Brandt Pancer",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pancer000bra",
+        "full_name": "Brandt Pancer",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Eddie Park",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "park--000edd",
+        "full_name": "Eddie Park",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tommy Troy",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "troy--000tom",
+        "full_name": "Tommy Troy",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Carter Graham",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "graham000car",
+        "full_name": "Carter Graham",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Braden Montgomery",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "montgo002bra",
+        "full_name": "Braden Montgomery",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Alberto Rios",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "rios--000alb",
+        "full_name": "Alberto Rios",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Malcolm Moore",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "moore-003mal",
+        "full_name": "Malcolm Moore",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Drew Bowser",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bowser000dre",
+        "full_name": "Drew Bowser",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Owen Cobb",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "cobb--000owe",
+        "full_name": "Owen Cobb",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Temo Becerra",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "becerr000tem",
+        "full_name": "Temo Becerra",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Quinn Mathews",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mathew000qui",
+        "full_name": "Quinn Mathews",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Drew Dowd",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "dowd--001dre",
+        "full_name": "Drew Dowd",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Chase Dollander",
+        "innings_pitched": 3.0,
+        "hits": 4,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 2,
+        "strikeouts": 2,
+        "batters_faced": 16,
+        "at_bats": 12,
+        "pitches": 58,
+        "bref_id": "dollan000cha",
+        "full_name": "Chase Dollander",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Chase Burns",
+        "innings_pitched": 6.0,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 9,
+        "batters_faced": 20,
+        "at_bats": 20,
+        "pitches": 73,
+        "bref_id": "burns-008cha",
+        "full_name": "Chase Burns",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Quinn Mathews",
+        "innings_pitched": 4.2,
+        "hits": 10,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 1,
+        "strikeouts": 6,
+        "batters_faced": 24,
+        "at_bats": 22,
+        "pitches": 89,
+        "bref_id": "mathew000qui",
+        "full_name": "Quinn Mathews",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Drew Dowd",
+        "innings_pitched": 1.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 6,
+        "at_bats": 4,
+        "pitches": 27,
+        "bref_id": "dowd--001dre",
+        "full_name": "Drew Dowd",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Matt Scott",
+        "innings_pitched": 0.1,
+        "hits": 1,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 2,
+        "pitches": 14,
+        "bref_id": "scott-006mat",
+        "full_name": "Matt Scott",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Brandt Pancer",
+        "innings_pitched": 2.2,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 8,
+        "at_bats": 8,
+        "pitches": 33,
+        "bref_id": "pancer000bra",
+        "full_name": "Brandt Pancer",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        2,
+        0,
+        0
+      ],
+      "home_innings": [
+        2,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Cal Stark (1) SF: Alberto Rios (1)\nSB: Eddie Park (1)",
+      "Carter Graham (1)",
+      "Ahuna advanced to third. 0 0\nMerritt flied into double play lf to c (3-2 BBFBF)",
+      "Ahuna out on the play. 0 0\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 1\nStanford - Bottom of 1st UT STA\nPark lined out to ss (1-0 B). 0 0\nTroy flied out to cf (1-1 SB). 0 0\nGraham walked (3-2 BFKBBB). 0 0\nMontgomery singled to left field (1-0 B)",
+      "Graham advanced to second. 0 0\nMontgomery stole second",
+      "Graham stole third, scored on a throwing error by c. 0 1\nRios doubled down the lf line, RBI (3-1 BBBK)",
+      "Montgomery scored. 0 2\nM. Moore flied out to lf (1-2 KBS). 0 2\nRuns: 2 Hits: 2 Errors: 1 Left On Base: 1\nTennessee - Top of 2nd UT STA\nMoore popped up to ss to center field (1-0 B). 0 2\nBurke singled through the left side (0-1 F). 0 2\nDenton singled to left field (0-1 K)",
+      "Burke advanced to second. 0 2\nScott struck out swinging (2-2 BKBSS). 0 2\nStark struck out swinging (3-2 FBBBKS). 0 2\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2\nStanford - Bottom of 2nd UT STA\nBowser struck out swinging (1-2 BSKS). 0 2\nCobb flied out to lf (1-2 BFFF). 0 2\nBecerra grounded out to ss (1-2 SSB). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nTennessee - Top of 3rd UT STA\nAhuna struck out swinging (1-2 BSFS). 0 2\nEnsley grounded out to ss (2-2 KFBB). 0 2\nDickey flied out to rf (0-0). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nStanford - Bottom of 3rd UT STA\nPark hit by pitch (0-0). 0 2\nPark stole second. 0 2\nTroy walked (3-2 BBKSFBB). 0 2\nGraham struck out swinging (2-2 FBFBS). 0 2\nMontgomery singled up the middle, RBI (0-1 K)",
+      "Troy advanced to third",
+      "Park scored. 0 3\nRios flied out to cf, SF, RBI (2-1 FBB)",
+      "Troy scored. 0 4\nM. Moore grounded out to p (0-0). 0 4\nRuns: 2 Hits: 1 Errors: 0 Left On Base: 1\nTennessee - Top of 4th UT STA\nMerritt struck out swinging (3-2 KBBFBS). 0 4\nMoore flied out to lf (0-1 K). 0 4\nBurke struck out swinging (2-2 KBFFFBS). 0 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nStanford - Bottom of 4th UT STA\nBowser singled up the middle (0-2 SS). 0 4\nBurns to p for Dollander. 0 4\nCobb fouled out to c, bunt (1-0 B). 0 4\nBecerra struck out looking (2-2 KKBBK). 0 4\nPark flied out to cf (1-0 B). 0 4\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nTennessee - Top of 5th UT STA\nDenton singled to center field (0-0). 0 4\nScott struck out swinging (1-2 FBKS). 0 4\nStark singled to left field (1-0 B)",
+      "Denton advanced to second. 0 4\nAhuna singled to left field (1-0 B)",
+      "Stark advanced to second",
+      "Denton advanced to third. 0 4\nEnsley flied out to lf, SF, RBI (2-1 BFB)",
+      "Denton scored. 1 4\nAppeal on SF to see if runner left early - Call Upheld. 1 4\nStanford challenges call at the plate and leaving third early. 1 4\nCall on the field was confirmed, Stanford lost one challenge. 1 4\nDickey singled to center field, RBI (3-2 SFFBBBF)",
+      "Ahuna advanced to second",
+      "Stark scored. 2 4\nMerritt singled to left field (0-1 S)",
+      "Dickey advanced to second",
+      "Ahuna advanced to third. 2 4\nMoore singled up the middle, 2 RBI (1-2 FSBF)",
+      "Merritt advanced to second",
+      "Dickey scored",
+      "Ahuna scored. 4 4\nBurke walked (3-0 BBBB)",
+      "Moore advanced to second",
+      "Merritt advanced to third. 4 4\nDowd to p for Mathews. 4 4\nDenton struck out swinging (3-2 BBKBKFFFS). 4 4\nRuns: 4 Hits: 6 Errors: 0 Left On Base: 3\nStanford - Bottom of 5th UT STA\nTroy struck out swinging (3-2 FBKBBS). 4 4\nGraham popped up to 2b (0-2 SS). 4 4\nMontgomery struck out swinging (3-2 BBFBFFS). 4 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nTennessee - Top of 6th UT STA\nScott flied out to lf (1-0 B). 4 4\nStark hit by pitch (1-0 B). 4 4\nAhuna struck out looking (2-2 KBBKK). 4 4\nEnsley hit by pitch (1-0 B)",
+      "Stark advanced to second. 4 4\nDickey fouled out to rf (2-2 FSBBFF). 4 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 2\nStanford - Bottom of 6th UT STA\nRios singled to left field (1-2 SBFF). 4 4\nM. Moore struck out swinging (2-2 KBKBFFFS). 4 4\nNo play. 4 4\nBowser struck out looking (1-2 FKBK). 4 4\nCobb singled to third base, bunt (0-0)",
+      "Rios advanced to second. 4 4\nBecerra lined out to lf (1-0 B). 4 4\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2\nTennessee - Top of 7th UT STA\nScott to p for Dowd. 4 4\nMerritt walked (3-2 FBBBFB). 4 4\nMoore lined out to cf (3-2 BBSFB). 4 4\nBurke doubled to left field (1-0 B)",
+      "Merritt advanced to third. 4 4\nPancer to p for Scott. 4 4\nDenton grounded out to ss, RBI (1-0 B)",
+      "Burke advanced to third",
+      "Merritt scored. 5 4\nBurke scored on a wild pitch. 6 4\nScott struck out looking (3-2 FBBFBK). 6 4\nRuns: 2 Hits: 1 Errors: 0 Left On Base: 0\nStanford - Bottom of 7th UT STA\nPark grounded out to 2b (1-1 KB). 6 4\nTroy grounded out to ss (1-2 BKS). 6 4\nGraham struck out swinging (0-2 KSS). 6 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nTennessee - Top of 8th UT STA\nStark flied out to rf (1-1 BF). 6 4\nAhuna singled through the left side (3-2 SBBFBF). 6 4\nEnsley popped up to rf (0-2 KFFF). 6 4\nAhuna out at second c to ss, caught stealing. 6 4\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nStanford - Bottom of 8th UT STA\nMontgomery struck out swinging, out at first c to 1b (1-2 KKBS). 6 4\nRios struck out swinging (1-2 SBFS). 6 4\nM. Moore lined out to rf (0-0). 6 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nTennessee - Top of 9th UT STA\nDickey singled to right field (1-0 B). 6 4\nMerritt grounded into double play ss to 2b to 1b (2-1 BKB)",
+      "Dickey out on the play. 6 4\nMoore struck out looking (0-2 SKK). 6 4\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nStanford - Bottom of 9th UT STA\nBowser struck out looking (3-2 BKKBBK). 6 4\nCobb fouled out to 1b (0-0). 6 4\nBecerra flied out to cf (1-0 B). 6 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {
+      "count": 2
+    },
+    "doubles": [
+      {
+        "player": "Blake Burke",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [
+      "Eddie Park (1)",
+      "Carter Graham (1)",
+      "Braden Montgomery (1)"
+    ],
+    "caught_stealing": [
+      "Maui Ahuna (1)"
+    ],
+    "hit_by_pitch": [
+      "Hunter Ensley (1)",
+      "Cal Stark (1) 2B: Alberto Rios (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Chase Burns",
+      "record": "5-3"
+    },
+    "loss": {
+      "player": "Matt Scott",
+      "record": "5-5"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Ahuna singled to right center (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Ensley lined out to rf (1-2 FKB). 0 0",
+          "pitch_count": "1-2 FKB",
+          "rbi": 0
+        },
+        {
+          "description": "Dickey singled down the rf line (1-2 KFB); Ahuna advanced to third. 0 0",
+          "pitch_count": "1-2 KFB",
+          "rbi": 0
+        },
+        {
+          "description": "Merritt flied into double play lf to c (3-2 BBFBF); Ahuna out on the play. 0 0",
+          "pitch_count": "3-2 BBFBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Park lined out to ss (1-0 B). 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Troy flied out to cf (1-1 SB). 0 0",
+          "pitch_count": "1-1 SB",
+          "rbi": 0
+        },
+        {
+          "description": "Graham walked (3-2 BFKBBB). 0 0",
+          "pitch_count": "3-2 BFKBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Montgomery singled to left field (1-0 B); Graham advanced to second. 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Montgomery stole second; Graham stole third, scored on a throwing error by c. 0 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rios doubled down the lf line, RBI (3-1 BBBK); Montgomery scored. 0 2",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 1
+        },
+        {
+          "description": "M. Moore flied out to lf (1-2 KBS). 0 2",
+          "pitch_count": "1-2 KBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Moore popped up to ss to center field (1-0 B). 0 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Burke singled through the left side (0-1 F). 0 2",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Denton singled to left field (0-1 K); Burke advanced to second. 0 2",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Scott struck out swinging (2-2 BKBSS). 0 2",
+          "pitch_count": "2-2 BKBSS",
+          "rbi": 0
+        },
+        {
+          "description": "Stark struck out swinging (3-2 FBBBKS). 0 2",
+          "pitch_count": "3-2 FBBBKS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Bowser struck out swinging (1-2 BSKS). 0 2",
+          "pitch_count": "1-2 BSKS",
+          "rbi": 0
+        },
+        {
+          "description": "Cobb flied out to lf (1-2 BFFF). 0 2",
+          "pitch_count": "1-2 BFFF",
+          "rbi": 0
+        },
+        {
+          "description": "Becerra grounded out to ss (1-2 SSB). 0 2",
+          "pitch_count": "1-2 SSB",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Ahuna struck out swinging (1-2 BSFS). 0 2",
+          "pitch_count": "1-2 BSFS",
+          "rbi": 0
+        },
+        {
+          "description": "Ensley grounded out to ss (2-2 KFBB). 0 2",
+          "pitch_count": "2-2 KFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Dickey flied out to rf (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Park hit by pitch (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Park stole second. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Troy walked (3-2 BBKSFBB). 0 2",
+          "pitch_count": "3-2 BBKSFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Graham struck out swinging (2-2 FBFBS). 0 2",
+          "pitch_count": "2-2 FBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Montgomery singled up the middle, RBI (0-1 K); Troy advanced to third; Park scored. 0 3",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "Rios flied out to cf, SF, RBI (2-1 FBB); Troy scored. 0 4",
+          "pitch_count": "2-1 FBB",
+          "rbi": 1
+        },
+        {
+          "description": "M. Moore grounded out to p (0-0). 0 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Merritt struck out swinging (3-2 KBBFBS). 0 4",
+          "pitch_count": "3-2 KBBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Moore flied out to lf (0-1 K). 0 4",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Burke struck out swinging (2-2 KBFFFBS). 0 4",
+          "pitch_count": "2-2 KBFFFBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Bowser singled up the middle (0-2 SS). 0 4",
+          "pitch_count": "0-2 SS",
+          "rbi": 0
+        },
+        {
+          "description": "Burns to p for Dollander. 0 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cobb fouled out to c, bunt (1-0 B). 0 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Becerra struck out looking (2-2 KKBBK). 0 4",
+          "pitch_count": "2-2 KKBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Park flied out to cf (1-0 B). 0 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Denton singled to center field (0-0). 0 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Scott struck out swinging (1-2 FBKS). 0 4",
+          "pitch_count": "1-2 FBKS",
+          "rbi": 0
+        },
+        {
+          "description": "Stark singled to left field (1-0 B); Denton advanced to second. 0 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Ahuna singled to left field (1-0 B); Stark advanced to second; Denton advanced to third. 0 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Ensley flied out to lf, SF, RBI (2-1 BFB); Denton scored. 1 4",
+          "pitch_count": "2-1 BFB",
+          "rbi": 1
+        },
+        {
+          "description": "Appeal on SF to see if runner left early - Call Upheld. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Stanford challenges call at the plate and leaving third early. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was confirmed, Stanford lost one challenge. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dickey singled to center field, RBI (3-2 SFFBBBF); Ahuna advanced to second; Stark scored. 2 4",
+          "pitch_count": "3-2 SFFBBBF",
+          "rbi": 1
+        },
+        {
+          "description": "Merritt singled to left field (0-1 S); Dickey advanced to second; Ahuna advanced to third. 2 4",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "Moore singled up the middle, 2 RBI (1-2 FSBF); Merritt advanced to second; Dickey scored; Ahuna scored. 4 4",
+          "pitch_count": "1-2 FSBF",
+          "rbi": 2
+        },
+        {
+          "description": "Burke walked (3-0 BBBB); Moore advanced to second; Merritt advanced to third. 4 4",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Dowd to p for Mathews. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Denton struck out swinging (3-2 BBKBKFFFS). 4 4",
+          "pitch_count": "3-2 BBKBKFFFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Troy struck out swinging (3-2 FBKBBS). 4 4",
+          "pitch_count": "3-2 FBKBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Graham popped up to 2b (0-2 SS). 4 4",
+          "pitch_count": "0-2 SS",
+          "rbi": 0
+        },
+        {
+          "description": "Montgomery struck out swinging (3-2 BBFBFFS). 4 4",
+          "pitch_count": "3-2 BBFBFFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Scott flied out to lf (1-0 B). 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Stark hit by pitch (1-0 B). 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Ahuna struck out looking (2-2 KBBKK). 4 4",
+          "pitch_count": "2-2 KBBKK",
+          "rbi": 0
+        },
+        {
+          "description": "Ensley hit by pitch (1-0 B); Stark advanced to second. 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Dickey fouled out to rf (2-2 FSBBFF). 4 4",
+          "pitch_count": "2-2 FSBBFF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Rios singled to left field (1-2 SBFF). 4 4",
+          "pitch_count": "1-2 SBFF",
+          "rbi": 0
+        },
+        {
+          "description": "M. Moore struck out swinging (2-2 KBKBFFFS). 4 4",
+          "pitch_count": "2-2 KBKBFFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Bowser struck out looking (1-2 FKBK). 4 4",
+          "pitch_count": "1-2 FKBK",
+          "rbi": 0
+        },
+        {
+          "description": "Cobb singled to third base, bunt (0-0); Rios advanced to second. 4 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Becerra lined out to lf (1-0 B). 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Scott to p for Dowd. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Merritt walked (3-2 FBBBFB). 4 4",
+          "pitch_count": "3-2 FBBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Moore lined out to cf (3-2 BBSFB). 4 4",
+          "pitch_count": "3-2 BBSFB",
+          "rbi": 0
+        },
+        {
+          "description": "Burke doubled to left field (1-0 B); Merritt advanced to third. 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Pancer to p for Scott. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Denton grounded out to ss, RBI (1-0 B); Burke advanced to third; Merritt scored. 5 4",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "Burke scored on a wild pitch. 6 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Scott struck out looking (3-2 FBBFBK). 6 4",
+          "pitch_count": "3-2 FBBFBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Park grounded out to 2b (1-1 KB). 6 4",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Troy grounded out to ss (1-2 BKS). 6 4",
+          "pitch_count": "1-2 BKS",
+          "rbi": 0
+        },
+        {
+          "description": "Graham struck out swinging (0-2 KSS). 6 4",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Stark flied out to rf (1-1 BF). 6 4",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "Ahuna singled through the left side (3-2 SBBFBF). 6 4",
+          "pitch_count": "3-2 SBBFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Ensley popped up to rf (0-2 KFFF). 6 4",
+          "pitch_count": "0-2 KFFF",
+          "rbi": 0
+        },
+        {
+          "description": "Ahuna out at second c to ss, caught stealing. 6 4",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Montgomery struck out swinging, out at first c to 1b (1-2 KKBS). 6 4",
+          "pitch_count": "1-2 KKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Rios struck out swinging (1-2 SBFS). 6 4",
+          "pitch_count": "1-2 SBFS",
+          "rbi": 0
+        },
+        {
+          "description": "M. Moore lined out to rf (0-0). 6 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Dickey singled to right field (1-0 B). 6 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Merritt grounded into double play ss to 2b to 1b (2-1 BKB); Dickey out on the play. 6 4",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        },
+        {
+          "description": "Moore struck out looking (0-2 SKK). 6 4",
+          "pitch_count": "0-2 SKK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Bowser struck out looking (3-2 BKKBBK). 6 4",
+          "pitch_count": "3-2 BKKBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Cobb fouled out to 1b (0-0). 6 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Becerra flied out to cf (1-0 B). 6 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}

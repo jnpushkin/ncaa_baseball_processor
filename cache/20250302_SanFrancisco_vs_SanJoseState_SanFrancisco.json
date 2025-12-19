@@ -1,0 +1,1277 @@
+{
+  "metadata": {
+    "date": "3/2/2025",
+    "venue": "Benedetti Diamond (San Francisco, CA)",
+    "stadium": "Benedetti Diamond",
+    "city": "San Francisco, CA",
+    "away_team": "San Jose State",
+    "away_team_rank": null,
+    "away_team_record": "8-3",
+    "away_team_score": 3,
+    "home_team": "San Francisco",
+    "home_team_rank": null,
+    "home_team_record": "6-6",
+    "home_team_score": 7,
+    "attendance": 187,
+    "duration": "2:42",
+    "start_time": "1:05 PM",
+    "weather": "Sunny w/ Slight Breeze",
+    "umpires": {
+      "list": "Home Plate: Harrison Silverman First: John Bostwick Third Base: Aaron Higgins"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "LEWIS, Jeriah",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lewis-008jer",
+        "full_name": "Jeriah Lewis",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "FERNANDES, Alex",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "fernan018ale",
+        "full_name": "Alex Fernandes",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CHAMIZO, Zach",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "chamiz000zac",
+        "full_name": "Zach Chamizo",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "OSORIO-AGARD, JC",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "osorio000jc-",
+        "full_name": "JC Osorio-Agard",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "NANEZ, Antonio",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "nanez-000ant",
+        "full_name": "Antonio Nanez",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "MCCOY, Jake",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mccoy-002jak",
+        "full_name": "Jake McCoy",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "LEWIS, Jared",
+        "position": "dh",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lewis-001jar",
+        "full_name": "Jared Lewis",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "JANSEN, Neil",
+        "position": "ph/dh",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "jansen000nei",
+        "full_name": "Neil Jansen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "GIANNINI, Drew",
+        "position": "1b",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "gianni000dre",
+        "full_name": "Drew Giannini",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "FABIAN JR., Raoul",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "fabian000rao",
+        "full_name": "Raoul Fabian",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CAMPAGNA, Jacob",
+        "position": "c",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "campag000jac",
+        "full_name": "Jacob Campagna",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "MENDOZA, Matteo",
+        "position": "c",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mendoz001mat",
+        "full_name": "Matteo Mendoza",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "TALLERMAN, Zach",
+        "position": "ph/1b",
+        "at_bats": 1,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "taller000zac",
+        "full_name": "Zach Tallerman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "SCOTT, Win",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "scott-000win",
+        "full_name": "Win Scott",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "GEORGE, Nolan",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "george000nol",
+        "full_name": "Nolan George",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Kenny DeCelle",
+        "position": "cf",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "decell000ken",
+        "full_name": "Kenny DeCelle",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jordan Lewis",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lewis-005jor",
+        "full_name": "Jordan Lewis",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "TJ Rogers",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "rogers001tj-",
+        "full_name": "T.J. Rogers",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Patrick Keighran 3b/1b",
+        "position": "",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "keighr000pat",
+        "full_name": "Patrick Keighran",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Trevor Harmon",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "harmon001tre",
+        "full_name": "Trevor Harmon",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Eddison Esquivel",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "esquiv000edd",
+        "full_name": "Eddison Esquivel",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Matty Fung pr/2b",
+        "position": "",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "fung--000mat",
+        "full_name": "Matty Fung",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Zack Ramppen",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ramppe000zac",
+        "full_name": "Zack Ramppen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "JT Amaral",
+        "position": "rf",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "amaral000joh",
+        "full_name": "JT Amaral",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tyler Harries",
+        "position": "ss",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "harrie000tyl",
+        "full_name": "Tyler Harries",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kody Watanabe 2b/3b",
+        "position": "",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "watana000kod",
+        "full_name": "Kody Watanabe",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Aidan Risse",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "risse-000aid",
+        "full_name": "Aidan Risse",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hunter Holzemer",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "holzem000hun",
+        "full_name": "Hunter Holzemer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dylan Brown",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "brown-010dyl",
+        "full_name": "Dylan Brown",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "ALBANESE, Tyler",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "albane000tyl",
+        "full_name": "Tyler Albanese",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "SCOTT, Win",
+        "innings_pitched": 2.1,
+        "hits": 4,
+        "runs": 6,
+        "earned_runs": 4,
+        "walks": 4,
+        "strikeouts": 2,
+        "batters_faced": 16,
+        "at_bats": 12,
+        "pitches": 69,
+        "bref_id": "scott-000win",
+        "full_name": "Win Scott",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "GEORGE, Nolan",
+        "innings_pitched": 4.0,
+        "hits": 3,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 1,
+        "strikeouts": 5,
+        "batters_faced": 15,
+        "at_bats": 13,
+        "pitches": 59,
+        "bref_id": "george000nol",
+        "full_name": "Nolan George",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "ALBANESE, Tyler",
+        "innings_pitched": 1.2,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 7,
+        "at_bats": 6,
+        "pitches": 33,
+        "bref_id": "albane000tyl",
+        "full_name": "Tyler Albanese",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Aidan Risse",
+        "innings_pitched": 5.0,
+        "hits": 4,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 18,
+        "at_bats": 17,
+        "pitches": 65,
+        "bref_id": "risse-000aid",
+        "full_name": "Aidan Risse",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hunter Holzemer",
+        "innings_pitched": 2.0,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 8,
+        "at_bats": 7,
+        "pitches": 39,
+        "bref_id": "holzem000hun",
+        "full_name": "Hunter Holzemer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dylan Brown",
+        "innings_pitched": 2.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 8,
+        "at_bats": 7,
+        "pitches": 27,
+        "bref_id": "brown-010dyl",
+        "full_name": "Dylan Brown",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "home_innings": [
+        2,
+        3,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "MENDOZA, Matteo (1)\nSan Jose State IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nSCOTT, Win (L, 0-1) 2.1 4 6 4 4 2 0 0 0 0 12 16 2 3 69\nGEORGE, Nolan 4.0 3 1 1 1 5 0 0 0 0 13 15 3 4 59\nALBANESE, Tyler 1.2 2 0 0 1 1 0 1 0 0 6 7 1 2 33\nTotals 9 7 5 6 8 0 1 0 0 31 38 6 9 161\nSan Francisco IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nAidan Risse (W, 2-0) 5.0 4 2 2 1 2 0 0 0 0 17 18 2 9 65\nHunter Holzemer 2.0 2 1 0 1 2 0 0 0 0 7 8 1 2 39\nDylan Brown 2.0 0 0 0 1 2 0 0 0 0 7 8 2 2 27\nTotals 6 3 2 3 6 0 0 0 0 31 34 5 13 131\nWin: Aidan Risse (2-0)\nLoss: SCOTT, Win (0-1)\nHBP: None\nPB: None\nUmpires: Home Plate: Harrison Silverman First: John Bostwick Third Base: Aaron Higgins\nStart: 1:05 PM Time: 2:42 Attendance: 187 Weather: Sunny w/ Slight Breeze\nPlay By Play\nSan Jose State - Top of 1st SJ USF\nLewis, Je. grounded out to p (2-2 BSBS). 0 0\nFernandes flied out to cf to left center (2-2 FFBBFF). 0 0\nChamizo homered to right center, RBI (2-0 BB). 1 0\nOsorio-Agard grounded out to ss (1-0 B). 1 0\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 1st SJ USF\nDECELLE singled to right center (2-2 BFBSF). 1 0\nLEWIS struck out swinging (2-2 BKBKS). 1 0\nDECELLE stole second. 1 0\nROGERS walked (3-2 SSBBBB)",
+      "DECELLE stole third. 1 0\nKEIGHRAN reached on a fielder's choice, RBI (0-0)",
+      "ROGERS out at second 3b to 2b",
+      "DECELLE scored. 1 1\nHARMON singled through the left side (1-1 BS)",
+      "KEIGHRAN advanced to second. 1 1\nRAMPPEN singled to right center, RBI (0-2 KS)",
+      "HARMON advanced to second",
+      "KEIGHRAN scored. 1 2\nAMARAL lined out to 2b (0-2 SFF). 1 2\nRuns: 2 Hits: 3 Errors: 0 Left On Base: 2\nSan Jose State - Top of 2nd SJ USF\nNanez grounded out to ss (1-1 KB). 1 2\nMcCoy struck out swinging (0-2 FFS). 1 2\nLewis, Ja. singled to center field (1-2 KBK). 1 2\nLewis, Ja. out at second c to ss, caught stealing. 1 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 2nd SJ USF\nHARRIES walked (3-1 BBKBB). 1 2\nWATANABE reached on a fielder's choice (2-2 FBFB)",
+      "HARRIES out at second ss to 2b. 1 2\nDECELLE homered to left field, 2 RBI (0-0)",
+      "WATANABE scored. 1 4\nLEWIS walked (3-2 BKFBFBB). 1 4\nROGERS reached on a fielder's choice (0-1 K)",
+      "LEWIS out at second 3b to 2b. 1 4\nROGERS stole second. 1 4\nKEIGHRAN reached on a fielding error by rf, advanced to second (3-2 KBBFFFB)",
+      "ROGERS scored, unearned. 1 5\nHARMON struck out swinging, out at first c to 1b (0-2 SKS). 1 5\nRuns: 3 Hits: 1 Errors: 1 Left On Base: 1\nSan Jose State - Top of 3rd SJ USF\nGiannini singled up the middle (0-1 S). 1 5\nMendoza grounded out to 2b (2-0 BB)",
+      "Giannini advanced to second. 1 5\nLewis, Je. grounded out to 2b (2-0 BB)",
+      "Giannini advanced to third. 1 5\nFernandes doubled to right center, RBI",
+      "Giannini scored. 2 5\nChamizo struck out looking (1-2 SSFBK). 2 5\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 3rd SJ USF\nRAMPPEN popped up to 2b to right field (0-1 F). 2 5\nAMARAL walked (3-2 BFBSFBB). 2 5\nGeorge to p for Scott. 2 5\nAMARAL stole second. 2 5\nHARRIES struck out swinging, grounded out to c unassisted (1-2 KFBFS). 2 5\nAMARAL stole third, scored on a throwing error by c, unearned. 2 6\nWATANABE singled to center field (3-2 BKBFB). 2 6\nWATANABE out at second c to 2b, caught stealing. 2 6\nRuns: 1 Hits: 1 Errors: 1 Left On Base: 0\nSan Jose State - Top of 4th SJ USF\nOsorio-Agard grounded out to 3b (2-1 BBK). 2 6\nNanez grounded out to 2b (1-1 SB). 2 6\nMcCoy grounded out to p (0-0). 2 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 4th SJ USF\nDECELLE popped up to 1b (2-2 BKKB). 2 6\nLEWIS grounded out to ss (1-2 BKK). 2 6\nROGERS struck out swinging (1-2 FBFS). 2 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Jose State - Top of 5th SJ USF\nLewis, Ja. walked (3-2 KBBKBB). 2 6\nGiannini lined into double play ss to 1b (3-1 BBFB)",
+      "Lewis, Ja. out on the play. 2 6\nMendoza grounded out to 1b unassisted (0-1 K). 2 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 5th SJ USF\nKEIGHRAN struck out swinging (1-2 KBSS). 2 6\nHARMON struck out looking (2-2 BBFKK). 2 6\nRAMPPEN grounded out to ss (0-0). 2 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Jose State - Top of 6th SJ USF\nHOLZEMER to p for RISSE. 2 6\nLewis, Je. struck out swinging (1-2 KSBFS). 2 6\nFernandes singled to right center, out at second cf to ss (3-2 KBBFBF). 2 6\nChamizo out at first 1b to p (1-2 SKBF). 2 6\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 6th SJ USF\nAMARAL singled to left center (0-0). 2 6\nHARRIES grounded out to c, SAC, bunt (0-0)",
+      "AMARAL advanced to second. 2 6\nWATANABE flied out to cf to right center (2-1 KBB). 2 6\nDECELLE popped up to 2b (1-1 FB). 2 6\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nSan Jose State - Top of 7th SJ USF\nOsorio-Agard flied out to rf to right center (1-2 BFF). 2 6\nNanez struck out looking (2-2 KKBFBFK). 2 6\nMcCoy walked (3-2 BBFBSB). 2 6\nJansen pinch hit for Lewis, Ja.. 2 6\nJansen grounded out to ss (1-0 B). 2 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 7th SJ USF\nLEWIS walked (3-2 BBFSBB). 2 6\nROGERS struck out swinging (0-2 FFS). 2 6\nKEIGHRAN singled through the left side (2-1 BBK)",
+      "LEWIS advanced to second. 2 6\nESQUIVEL pinch hit for HARMON. 2 6\nAlbanese to p for George. 2 6\nESQUIVEL singled to right field (0-0)",
+      "KEIGHRAN advanced to second",
+      "LEWIS advanced to third. 2 6\nFUNG pinch ran for ESQUIVEL. 2 6\nRAMPPEN struck out swinging (0-2 SSS). 2 6\nFUNG advanced to second on a balk",
+      "KEIGHRAN advanced to third on a balk",
+      "LEWIS scored on a balk. 2 7\nAMARAL walked (3-2 BSBBKB). 2 7\nHARRIES reached on a fielder's choice (0-2 KS)",
+      "AMARAL out at second ss to 2b. 2 7\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 3\nSan Jose State - Top of 8th SJ USF\nKEIGHRAN to 1b. 2 7\nFUNG to 2b. 2 7\nWATANABE to 3b. 2 7\nFabian Jr. pinch hit for Giannini. 2 7\nFabian Jr. singled to right center (1-1 FB). 2 7\nJansen to dh. 2 7\nTallerman pinch hit for Mendoza. 2 7\nBROWN to p for HOLZEMER. 2 7\nTallerman reached on a fielder's choice (1-2 KBS)",
+      "Fabian Jr. out at second ss to 2b. 2 7\nLewis, Je. struck out swinging (1-2 BSSS). 2 7\nFernandes walked (3-2 BKBBKB)",
+      "Tallerman advanced to second. 2 7\nChamizo reached on a fielding error by 2b (0-0)",
+      "Fernandes advanced to third",
+      "Tallerman scored, unearned. 3 7\nOsorio-Agard lined out to ss (1-1 BS). 3 7\nRuns: 1 Hits: 1 Errors: 1 Left On Base: 2\nSan Francisco - Bottom of 8th SJ USF\nCampagna to c for Fabian Jr.. 3 7\nTallerman to 1b. 3 7\nWATANABE flied out to lf (3-1 BKBB). 3 7\nDECELLE grounded out to ss (1-1 BK). 3 7\nLEWIS singled to center field (2-2 KSBFFBF). 3 7\nLEWIS out at second c to 2b, caught stealing. 3 7\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nSan Jose State - Top of 9th SJ USF\nNanez flied out to cf to right center (0-0). 3 7\nMcCoy struck out swinging (1-2 BKFS). 3 7\nJansen grounded out to ss (3-0 BBB). 3 7\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 9th SJ USF\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "FERNANDES, Alex",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Kody Watanabe",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "CHAMIZO, Zach",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [
+      "Kenny DeCelle (2)",
+      "TJ Rogers (1)",
+      "JT Amaral (2)"
+    ],
+    "caught_stealing": [
+      "LEWIS, Jared (1) DP: 1"
+    ],
+    "hit_by_pitch": [
+      "None"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Aidan Risse",
+      "record": "2-0"
+    },
+    "loss": {
+      "player": "SCOTT, Win",
+      "record": "0-1"
+    },
+    "save": null,
+    "sacrifice_hits": [
+      "Tyler Harries (1)"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Lewis, Je. grounded out to p (2-2 BSBS). 0 0",
+          "pitch_count": "2-2 BSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Fernandes flied out to cf to left center (2-2 FFBBFF). 0 0",
+          "pitch_count": "2-2 FFBBFF",
+          "rbi": 0
+        },
+        {
+          "description": "Chamizo homered to right center, RBI (2-0 BB). 1 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 1
+        },
+        {
+          "description": "Osorio-Agard grounded out to ss (1-0 B). 1 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "DECELLE singled to right center (2-2 BFBSF). 1 0",
+          "pitch_count": "2-2 BFBSF",
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS struck out swinging (2-2 BKBKS). 1 0",
+          "pitch_count": "2-2 BKBKS",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE stole second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS walked (3-2 SSBBBB); DECELLE stole third. 1 0",
+          "pitch_count": "3-2 SSBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN reached on a fielder's choice, RBI (0-0); ROGERS out at second 3b to 2b; DECELLE scored. 1 1",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "HARMON singled through the left side (1-1 BS); KEIGHRAN advanced to second. 1 1",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN singled to right center, RBI (0-2 KS); HARMON advanced to second; KEIGHRAN scored. 1 2",
+          "pitch_count": "0-2 KS",
+          "rbi": 1
+        },
+        {
+          "description": "AMARAL lined out to 2b (0-2 SFF). 1 2",
+          "pitch_count": "0-2 SFF",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Nanez grounded out to ss (1-1 KB). 1 2",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "McCoy struck out swinging (0-2 FFS). 1 2",
+          "pitch_count": "0-2 FFS",
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Ja. singled to center field (1-2 KBK). 1 2",
+          "pitch_count": "1-2 KBK",
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Ja. out at second c to ss, caught stealing. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "HARRIES walked (3-1 BBKBB). 1 2",
+          "pitch_count": "3-1 BBKBB",
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE reached on a fielder's choice (2-2 FBFB); HARRIES out at second ss to 2b. 1 2",
+          "pitch_count": "2-2 FBFB",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE homered to left field, 2 RBI (0-0); WATANABE scored. 1 4",
+          "pitch_count": "0-0",
+          "rbi": 2
+        },
+        {
+          "description": "LEWIS walked (3-2 BKFBFBB). 1 4",
+          "pitch_count": "3-2 BKFBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS reached on a fielder's choice (0-1 K); LEWIS out at second 3b to 2b. 1 4",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS stole second. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN reached on a fielding error by rf, advanced to second (3-2 KBBFFFB); ROGERS scored, unearned. 1 5",
+          "pitch_count": "3-2 KBBFFFB",
+          "rbi": 0
+        },
+        {
+          "description": "HARMON struck out swinging, out at first c to 1b (0-2 SKS). 1 5",
+          "pitch_count": "0-2 SKS",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Giannini singled up the middle (0-1 S). 1 5",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "Mendoza grounded out to 2b (2-0 BB); Giannini advanced to second. 1 5",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Je. grounded out to 2b (2-0 BB); Giannini advanced to third. 1 5",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Fernandes doubled to right center, RBI; Giannini scored. 2 5",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Chamizo struck out looking (1-2 SSFBK). 2 5",
+          "pitch_count": "1-2 SSFBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "RAMPPEN popped up to 2b to right field (0-1 F). 2 5",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL walked (3-2 BFBSFBB). 2 5",
+          "pitch_count": "3-2 BFBSFBB",
+          "rbi": 0
+        },
+        {
+          "description": "George to p for Scott. 2 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL stole second. 2 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES struck out swinging, grounded out to c unassisted (1-2 KFBFS). 2 5",
+          "pitch_count": "1-2 KFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL stole third, scored on a throwing error by c, unearned. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE singled to center field (3-2 BKBFB). 2 6",
+          "pitch_count": "3-2 BKBFB",
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE out at second c to 2b, caught stealing. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Osorio-Agard grounded out to 3b (2-1 BBK). 2 6",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "Nanez grounded out to 2b (1-1 SB). 2 6",
+          "pitch_count": "1-1 SB",
+          "rbi": 0
+        },
+        {
+          "description": "McCoy grounded out to p (0-0). 2 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "DECELLE popped up to 1b (2-2 BKKB). 2 6",
+          "pitch_count": "2-2 BKKB",
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS grounded out to ss (1-2 BKK). 2 6",
+          "pitch_count": "1-2 BKK",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (1-2 FBFS). 2 6",
+          "pitch_count": "1-2 FBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Lewis, Ja. walked (3-2 KBBKBB). 2 6",
+          "pitch_count": "3-2 KBBKBB",
+          "rbi": 0
+        },
+        {
+          "description": "Giannini lined into double play ss to 1b (3-1 BBFB); Lewis, Ja. out on the play. 2 6",
+          "pitch_count": "3-1 BBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Mendoza grounded out to 1b unassisted (0-1 K). 2 6",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "KEIGHRAN struck out swinging (1-2 KBSS). 2 6",
+          "pitch_count": "1-2 KBSS",
+          "rbi": 0
+        },
+        {
+          "description": "HARMON struck out looking (2-2 BBFKK). 2 6",
+          "pitch_count": "2-2 BBFKK",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN grounded out to ss (0-0). 2 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "HOLZEMER to p for RISSE. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Je. struck out swinging (1-2 KSBFS). 2 6",
+          "pitch_count": "1-2 KSBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Fernandes singled to right center, out at second cf to ss (3-2 KBBFBF). 2 6",
+          "pitch_count": "3-2 KBBFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Chamizo out at first 1b to p (1-2 SKBF). 2 6",
+          "pitch_count": "1-2 SKBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "AMARAL singled to left center (0-0). 2 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES grounded out to c, SAC, bunt (0-0); AMARAL advanced to second. 2 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE flied out to cf to right center (2-1 KBB). 2 6",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE popped up to 2b (1-1 FB). 2 6",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Osorio-Agard flied out to rf to right center (1-2 BFF). 2 6",
+          "pitch_count": "1-2 BFF",
+          "rbi": 0
+        },
+        {
+          "description": "Nanez struck out looking (2-2 KKBFBFK). 2 6",
+          "pitch_count": "2-2 KKBFBFK",
+          "rbi": 0
+        },
+        {
+          "description": "McCoy walked (3-2 BBFBSB). 2 6",
+          "pitch_count": "3-2 BBFBSB",
+          "rbi": 0
+        },
+        {
+          "description": "Jansen pinch hit for Lewis, Ja.. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jansen grounded out to ss (1-0 B). 2 6",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "LEWIS walked (3-2 BBFSBB). 2 6",
+          "pitch_count": "3-2 BBFSBB",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (0-2 FFS). 2 6",
+          "pitch_count": "0-2 FFS",
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN singled through the left side (2-1 BBK); LEWIS advanced to second. 2 6",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL pinch hit for HARMON. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Albanese to p for George. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL singled to right field (0-0); KEIGHRAN advanced to second; LEWIS advanced to third. 2 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG pinch ran for ESQUIVEL. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN struck out swinging (0-2 SSS). 2 6",
+          "pitch_count": "0-2 SSS",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG advanced to second on a balk; KEIGHRAN advanced to third on a balk; LEWIS scored on a balk. 2 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL walked (3-2 BSBBKB). 2 7",
+          "pitch_count": "3-2 BSBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES reached on a fielder's choice (0-2 KS); AMARAL out at second ss to 2b. 2 7",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "KEIGHRAN to 1b. 2 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FUNG to 2b. 2 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE to 3b. 2 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fabian Jr. pinch hit for Giannini. 2 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fabian Jr. singled to right center (1-1 FB). 2 7",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Jansen to dh. 2 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tallerman pinch hit for Mendoza. 2 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BROWN to p for HOLZEMER. 2 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tallerman reached on a fielder's choice (1-2 KBS); Fabian Jr. out at second ss to 2b. 2 7",
+          "pitch_count": "1-2 KBS",
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Je. struck out swinging (1-2 BSSS). 2 7",
+          "pitch_count": "1-2 BSSS",
+          "rbi": 0
+        },
+        {
+          "description": "Fernandes walked (3-2 BKBBKB); Tallerman advanced to second. 2 7",
+          "pitch_count": "3-2 BKBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Chamizo reached on a fielding error by 2b (0-0); Fernandes advanced to third; Tallerman scored, unearned. 3 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Osorio-Agard lined out to ss (1-1 BS). 3 7",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Campagna to c for Fabian Jr.. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tallerman to 1b. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE flied out to lf (3-1 BKBB). 3 7",
+          "pitch_count": "3-1 BKBB",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE grounded out to ss (1-1 BK). 3 7",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS singled to center field (2-2 KSBFFBF). 3 7",
+          "pitch_count": "2-2 KSBFFBF",
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS out at second c to 2b, caught stealing. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Nanez flied out to cf to right center (0-0). 3 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "McCoy struck out swinging (1-2 BKFS). 3 7",
+          "pitch_count": "1-2 BKFS",
+          "rbi": 0
+        },
+        {
+          "description": "Jansen grounded out to ss (3-0 BBB). 3 7",
+          "pitch_count": "3-0 BBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

@@ -1,0 +1,286 @@
+{
+  "team_name": "2025 Oral Roberts Golden Eagles",
+  "team_id": "53917398",
+  "year": "2025",
+  "players": [
+    {
+      "name": "Matt Brandt",
+      "bref_id": "brandt001mat",
+      "first_name": "Matt",
+      "last_name": "Brandt",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Tyler Brodrick",
+      "bref_id": "brodri000tyl",
+      "first_name": "Tyler",
+      "last_name": "Brodrick",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Keaton Campbell",
+      "bref_id": "campbe000kea",
+      "first_name": "Keaton",
+      "last_name": "Campbell",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Owen Coil",
+      "bref_id": "coil--000owe",
+      "first_name": "Owen",
+      "last_name": "Coil",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Cooper Combs",
+      "bref_id": "combs-000coo",
+      "first_name": "Cooper",
+      "last_name": "Combs",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Martell Davis",
+      "bref_id": "davis-024mar",
+      "first_name": "Martell",
+      "last_name": "Davis",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Will Edmunson",
+      "bref_id": "edmuns000wil",
+      "first_name": "Will",
+      "last_name": "Edmunson",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Ethan Fender",
+      "bref_id": "fender000eth",
+      "first_name": "Ethan",
+      "last_name": "Fender",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Wailele Kane-Yates",
+      "bref_id": "kane-y000wai",
+      "first_name": "Wailele",
+      "last_name": "Kane-Yates",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Matthew Mainord",
+      "bref_id": "mainor000mat",
+      "first_name": "Matthew",
+      "last_name": "Mainord",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Cooper Moore",
+      "bref_id": "moore-003coo",
+      "first_name": "Cooper",
+      "last_name": "Moore",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Jack Schark",
+      "bref_id": "schark000jac",
+      "first_name": "Jack",
+      "last_name": "Schark",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Makani Tanaka",
+      "bref_id": "tanaka000mak",
+      "first_name": "Makani",
+      "last_name": "Tanaka",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Dawson Walls",
+      "bref_id": "walls-000daw",
+      "first_name": "Dawson",
+      "last_name": "Walls",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Dylan Wipperman",
+      "bref_id": "wipper000dyl",
+      "first_name": "Dylan",
+      "last_name": "Wipperman",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Price Allman",
+      "bref_id": "allman000pri",
+      "first_name": "Price",
+      "last_name": "Allman",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Brendan Asher",
+      "bref_id": "asher-000bre",
+      "first_name": "Brendan",
+      "last_name": "Asher",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Conner Floyd",
+      "bref_id": "floyd-001con",
+      "first_name": "Conner",
+      "last_name": "Floyd",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Hudson Hart",
+      "bref_id": "hart--000hud",
+      "first_name": "Hudson",
+      "last_name": "Hart",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Jack Hill",
+      "bref_id": "hill--006jac",
+      "first_name": "Jack",
+      "last_name": "Hill",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Conner Johnson",
+      "bref_id": "johnso012con",
+      "first_name": "Conner",
+      "last_name": "Johnson",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Nathan Love",
+      "bref_id": "love--002nat",
+      "first_name": "Nathan",
+      "last_name": "Love",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Brayden Mackey",
+      "bref_id": "mackey000bra",
+      "first_name": "Brayden",
+      "last_name": "Mackey",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Trent Martin",
+      "bref_id": "martin014tre",
+      "first_name": "Trent",
+      "last_name": "Martin",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Dalton Patten",
+      "bref_id": "patten000dal",
+      "first_name": "Dalton",
+      "last_name": "Patten",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Luke Puffinbarger",
+      "bref_id": "puffin000luk",
+      "first_name": "Luke",
+      "last_name": "Puffinbarger",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Weston Rouse",
+      "bref_id": "rouse-000wes",
+      "first_name": "Weston",
+      "last_name": "Rouse",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Keaton Ruthardt",
+      "bref_id": "ruthar000kea",
+      "first_name": "Keaton",
+      "last_name": "Ruthardt",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Braydon Sanford",
+      "bref_id": "sanfor002bra",
+      "first_name": "Braydon",
+      "last_name": "Sanford",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Easton Teel",
+      "bref_id": "teel--000eas",
+      "first_name": "Easton",
+      "last_name": "Teel",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Jared Ure",
+      "bref_id": "ure---000jar",
+      "first_name": "Jared",
+      "last_name": "Ure",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    }
+  ]
+}

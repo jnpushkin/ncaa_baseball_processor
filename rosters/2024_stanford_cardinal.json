@@ -1,0 +1,268 @@
+{
+  "team_name": "2024 Stanford Cardinal",
+  "team_id": "0850eabf",
+  "year": "2024",
+  "players": [
+    {
+      "name": "Temo Becerra",
+      "bref_id": "becerr000tem",
+      "first_name": "Temo",
+      "last_name": "Becerra",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Brett Blair",
+      "bref_id": "blair-000bre",
+      "first_name": "Brett",
+      "last_name": "Blair",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Saborn Campbell",
+      "bref_id": "campbe000sab",
+      "first_name": "Saborn",
+      "last_name": "Campbell",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Owen Cobb",
+      "bref_id": "cobb--000owe",
+      "first_name": "Owen",
+      "last_name": "Cobb",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Champ Hampton",
+      "bref_id": "hampto001cha",
+      "first_name": "Champ",
+      "last_name": "Hampton",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Trevor Haskins",
+      "bref_id": "haskin000tre",
+      "first_name": "Trevor",
+      "last_name": "Haskins",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ethan Hott",
+      "bref_id": "hott--000eth",
+      "first_name": "Ethan",
+      "last_name": "Hott",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Brandon Larson",
+      "bref_id": "larson003bra",
+      "first_name": "Brandon",
+      "last_name": "Larson",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Luke Lavin",
+      "bref_id": "lavin-001luk",
+      "first_name": "Luke",
+      "last_name": "Lavin",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Cort MacDonald",
+      "bref_id": "macdon001cor",
+      "first_name": "Cort",
+      "last_name": "MacDonald",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Malcolm Moore",
+      "bref_id": "moore-003mal",
+      "first_name": "Malcolm",
+      "last_name": "Moore",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jimmy Nati",
+      "bref_id": "nati--000jim",
+      "first_name": "Jimmy",
+      "last_name": "Nati",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Brady Reynolds",
+      "bref_id": "reynol003bra",
+      "first_name": "Brady",
+      "last_name": "Reynolds",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jake Sapien",
+      "bref_id": "sapien000jak",
+      "first_name": "Jake",
+      "last_name": "Sapien",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Charlie Saum",
+      "bref_id": "saum--000cha",
+      "first_name": "Charlie",
+      "last_name": "Saum",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Gabe Springer",
+      "bref_id": "spring000gab",
+      "first_name": "Gabe",
+      "last_name": "Springer",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jaden Bruno",
+      "bref_id": "bruno-000jad",
+      "first_name": "Jaden",
+      "last_name": "Bruno",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Nick Dugan",
+      "bref_id": "dugan-000nic",
+      "first_name": "Nick",
+      "last_name": "Dugan",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Nate Fleischli",
+      "bref_id": "fleisc000nat",
+      "first_name": "Nate",
+      "last_name": "Fleischli",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Aidan Keenan",
+      "bref_id": "keenan001aid",
+      "first_name": "Aidan",
+      "last_name": "Keenan",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Christian Lim",
+      "bref_id": "lim---000chr",
+      "first_name": "Christian",
+      "last_name": "Lim",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Trevor Moore",
+      "bref_id": "moore-003tre",
+      "first_name": "Trevor",
+      "last_name": "Moore",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Gavin Nalu",
+      "bref_id": "nalu--000gav",
+      "first_name": "Gavin",
+      "last_name": "Nalu",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Toran O'Harran",
+      "bref_id": "oharra000tor",
+      "first_name": "Toran",
+      "last_name": "O'Harran",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ben Reimers",
+      "bref_id": "reimer000ben",
+      "first_name": "Ben",
+      "last_name": "Reimers",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Matt Scott",
+      "bref_id": "scott-006mat",
+      "first_name": "Matt",
+      "last_name": "Scott",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ryan Speshyock",
+      "bref_id": "speshy000rya",
+      "first_name": "Ryan",
+      "last_name": "Speshyock",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Kassius Thomas",
+      "bref_id": "thomas000kas",
+      "first_name": "Kassius",
+      "last_name": "Thomas",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Joey Volchko",
+      "bref_id": "volchk000joe",
+      "first_name": "Joey",
+      "last_name": "Volchko",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    }
+  ]
+}

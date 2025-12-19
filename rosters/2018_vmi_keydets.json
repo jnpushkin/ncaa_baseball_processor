@@ -1,0 +1,277 @@
+{
+  "team_name": "2018 VMI Keydets",
+  "team_id": "50053476",
+  "year": "2018",
+  "players": [
+    {
+      "name": "Noah Cook",
+      "bref_id": "cook--000noa",
+      "first_name": "Noah",
+      "last_name": "Cook",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Michael Diodato",
+      "bref_id": "diodat000mic",
+      "first_name": "Michael",
+      "last_name": "Diodato",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Matt Dunlevy",
+      "bref_id": "dunlev000mat",
+      "first_name": "Matt",
+      "last_name": "Dunlevy",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Nate Eaton",
+      "bref_id": "eaton-000nat",
+      "first_name": "Nate",
+      "last_name": "Eaton",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Jordan Ebersole",
+      "bref_id": "eberso000jor",
+      "first_name": "Jordan",
+      "last_name": "Ebersole",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Collin Fleischer",
+      "bref_id": "fleisc000col",
+      "first_name": "Collin",
+      "last_name": "Fleischer",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Ryan Hatten",
+      "bref_id": "hatten000rya",
+      "first_name": "Ryan",
+      "last_name": "Hatten",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Josh Hollifield",
+      "bref_id": "hollif000jos",
+      "first_name": "Josh",
+      "last_name": "Hollifield",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Jake Huggins",
+      "bref_id": "huggin000jak",
+      "first_name": "Jake",
+      "last_name": "Huggins",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Jacob Jaye",
+      "bref_id": "jaye--000jac",
+      "first_name": "Jacob",
+      "last_name": "Jaye",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Nathan Loyd",
+      "bref_id": "loyd--000nat",
+      "first_name": "Nathan",
+      "last_name": "Loyd",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Peyton Maddox",
+      "bref_id": "maddox000pey",
+      "first_name": "Peyton",
+      "last_name": "Maddox",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Will Malbon",
+      "bref_id": "malbon000wil",
+      "first_name": "Will",
+      "last_name": "Malbon",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Callen Nuccio",
+      "bref_id": "nuccio000cal",
+      "first_name": "Callen",
+      "last_name": "Nuccio",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Matt Pita",
+      "bref_id": "pita--000mat",
+      "first_name": "Matt",
+      "last_name": "Pita",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Ryan Smoot",
+      "bref_id": "smoot-000rya",
+      "first_name": "Ryan",
+      "last_name": "Smoot",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Cody Warner",
+      "bref_id": "warner000cod",
+      "first_name": "Cody",
+      "last_name": "Warner",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Brandon Barbery",
+      "bref_id": "barber000bra",
+      "first_name": "Brandon",
+      "last_name": "Barbery",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Eric Byrd",
+      "bref_id": "byrd--000eri",
+      "first_name": "Eric",
+      "last_name": "Byrd",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Jon Clines",
+      "bref_id": "clines000jon",
+      "first_name": "Jon",
+      "last_name": "Clines",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Matt Eagle",
+      "bref_id": "eagle-000mat",
+      "first_name": "Matt",
+      "last_name": "Eagle",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Sam Ewald",
+      "bref_id": "ewald-000sam",
+      "first_name": "Sam",
+      "last_name": "Ewald",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Michael Geary",
+      "bref_id": "geary-000mic",
+      "first_name": "Michael",
+      "last_name": "Geary",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Corey Johnston",
+      "bref_id": "johnst000cor",
+      "first_name": "Corey",
+      "last_name": "Johnston",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Zak Kent",
+      "bref_id": "kent--000zak",
+      "first_name": "Zak",
+      "last_name": "Kent",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Seth Nichols",
+      "bref_id": "nichol000set",
+      "first_name": "Seth",
+      "last_name": "Nichols",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Kyle Staats",
+      "bref_id": "staats000kyl",
+      "first_name": "Kyle",
+      "last_name": "Staats",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Derek Tremblay",
+      "bref_id": "trembl000der",
+      "first_name": "Derek",
+      "last_name": "Tremblay",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Brady Watts",
+      "bref_id": "watts-002bra",
+      "first_name": "Brady",
+      "last_name": "Watts",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    },
+    {
+      "name": "Josh Winder",
+      "bref_id": "winder000jos",
+      "first_name": "Josh",
+      "last_name": "Winder",
+      "position": null,
+      "number": null,
+      "year": "2018"
+    }
+  ]
+}

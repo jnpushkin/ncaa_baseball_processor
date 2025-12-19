@@ -1,0 +1,1246 @@
+{
+  "metadata": {
+    "date": "6/14/2025",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Murray State",
+    "away_team_rank": null,
+    "away_team_record": "44-16",
+    "away_team_score": 4,
+    "home_team": "UCLA",
+    "home_team_rank": "#15",
+    "home_team_record": "48-16",
+    "home_team_score": 6,
+    "attendance": 24346,
+    "duration": "3:02",
+    "start_time": "1:10 pm",
+    "weather": "86-Cloudy-W: 7 MPH S/SE-H:57%",
+    "umpires": {
+      "list": "Home Plate: Casey Moser First: Clint Fagan Second Base: Brian deBrauwere Third Base: Gregory Street"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Jonathan Hogart",
+        "position": "cf",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 3,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hogart000jon",
+        "full_name": "Jonathan Hogart",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dustin Mercer",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mercer000dus",
+        "full_name": "Dustin Mercer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Carson Garner",
+        "position": "3b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "garner000car",
+        "full_name": "Carson Garner",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dominic Decker",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "decker000dom",
+        "full_name": "Dom Decker",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Luke Mistone",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "miston000luk",
+        "full_name": "Luke Mistone",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Will Vierling",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "vierli000wil",
+        "full_name": "Will Vierling",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dan Tauken",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "tauken002dan",
+        "full_name": "Dan Tauken",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Nico Bermeo",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bermeo000nic",
+        "full_name": "Nico Bermeo",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Charlie Jury",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "jury--000cha",
+        "full_name": "Charlie Jury",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Conner Cunningham",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "cunnin001con",
+        "full_name": "Conner Cunningham",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Nic Schutte",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "schutt000nic",
+        "full_name": "Nic Schutte",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dylan Zentko",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "zentko000dyl",
+        "full_name": "Dylan Zentko",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Reese Oakley",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "oakley000ree",
+        "full_name": "Reese Oakley",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Easton Hawk",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hawk--000eas",
+        "full_name": "Easton Hawk",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Dean West",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "west--000dea",
+        "full_name": "Dean West",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Roch Cholowsky",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "cholow000roc",
+        "full_name": "Roch Cholowsky",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Mulivai Levu",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "levu--000mul",
+        "full_name": "Mulivai Levu",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Roman Martin",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "martin008rom",
+        "full_name": "Roman Martin",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "AJ Salgado",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "salgad000aj-",
+        "full_name": "AJ Salgado",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Payton Brennan",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "brenna000pay",
+        "full_name": "Payton Brennan",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blake Balsz",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 7,
+        "bref_id": "balsz-000bla",
+        "full_name": "Blake Balsz",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cashel Dugger",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "dugger000cas",
+        "full_name": "Cashel Dugger",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Phoenix Call",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "call--000pho",
+        "full_name": "Phoenix Call",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Michael Barnett",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "barnet003mic",
+        "full_name": "Michael Barnett",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wylan Moss",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "moss--000wyl",
+        "full_name": "Wylan Moss",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ian May",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "may---000ian",
+        "full_name": "Ian May",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jack O'Connor",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "oconno008jac",
+        "full_name": "Jack O'Connor",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Nic Schutte",
+        "innings_pitched": 5.0,
+        "hits": 8,
+        "runs": 6,
+        "earned_runs": 6,
+        "walks": 4,
+        "strikeouts": 3,
+        "batters_faced": 28,
+        "at_bats": 20,
+        "pitches": 90,
+        "bref_id": "schutt000nic",
+        "full_name": "Nic Schutte",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dylan Zentko",
+        "innings_pitched": 2.2,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 9,
+        "at_bats": 9,
+        "pitches": 30,
+        "bref_id": "zentko000dyl",
+        "full_name": "Dylan Zentko",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Reese Oakley",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 1,
+        "at_bats": 1,
+        "pitches": 1,
+        "bref_id": "oakley000ree",
+        "full_name": "Reese Oakley",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Michael Barnett",
+        "innings_pitched": 4.2,
+        "hits": 3,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 4,
+        "strikeouts": 4,
+        "batters_faced": 20,
+        "at_bats": 16,
+        "pitches": 77,
+        "bref_id": "barnet003mic",
+        "full_name": "Michael Barnett",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wylan Moss",
+        "innings_pitched": 0.1,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 5,
+        "bref_id": "moss--000wyl",
+        "full_name": "Wylan Moss",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ian May",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 4,
+        "at_bats": 3,
+        "pitches": 13,
+        "bref_id": "may---000ian",
+        "full_name": "Ian May",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jack O'Connor",
+        "innings_pitched": 0.2,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 14,
+        "bref_id": "oconno008jac",
+        "full_name": "Jack O'Connor",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "August Souza",
+        "innings_pitched": 1.1,
+        "hits": 1,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 6,
+        "at_bats": 5,
+        "pitches": 21,
+        "bref_id": "souza-000aug",
+        "full_name": "August Souza",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Easton Hawk",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 18,
+        "bref_id": "hawk--000eas",
+        "full_name": "Easton Hawk",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0
+      ],
+      "home_innings": [
+        1,
+        1,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "H:57%\nGame notes:\n-Moss faced 1 batter in the 6th.\nPlay By Play\nMurray State - Top of 1st MUR UCL\nHogart struck out swinging (3-2 BKBFBS). 0 0\nMercer walked (3-1 SBBBB). 0 0\nGarner struck out swinging (3-2 BKBSBS). 0 0\nDecker walked (3-2 SBBKBFB)",
+      "Mercer advanced to second. 0 0\nMistone reached on a fielder's choice to second base (2-1 BFB)",
+      "Decker out at second 2b to ss. 0 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 2\nUCLA - Bottom of 1st MUR UCL\nWest walked (3-1 KBBBB). 0 0\nWest stole second. 0 0\nCholowsky walked (3-2 BFBFBB). 0 0\nLevu singled to right field (0-1 F)",
+      "Cholowsky advanced to second",
+      "West advanced to third. 0 0\nMartin walked, RBI (3-1 BBBKB)",
+      "Levu advanced to second",
+      "Cholowsky advanced to third",
+      "West scored. 0 1\nSalgado struck out looking (0-2 FSK). 0 1\nBrennan struck out swinging (2-2 BKSBS). 0 1\nBalsz grounded out to 1b unassisted (1-2 KBK). 0 1\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 3\nMurray State - Top of 2nd MUR UCL\nVierling struck out swinging (1-2 SSBS). 0 1\nTauken walked (3-0 BBBB). 0 1\nBermeo grounded into double play 2b to ss to 1b (0-1 F)",
+      "Tauken out on the play. 0 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nUCLA - Bottom of 2nd MUR UCL\nDugger doubled to left center (1-1 KB). 0 1\nCall out at first 3b to 2b, SAC, bunt (1-0 B)",
+      "Dugger advanced to third. 0 1\nWest singled to right field, out at first rf to 1b, RBI (2-1 FBB)",
+      "Dugger scored. 0 2\nCholowsky lined out to 2b (2-1 BBF). 0 2\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 0\nMurray State - Top of 3rd MUR UCL\nCunningham struck out swinging (3-2 KBBBFS). 0 2\nHogart singled to left field (0-0). 0 2\nMercer singled to left field (0-0)",
+      "Hogart advanced to second. 0 2\nGarner popped up to lf down the lf line (3-2 BFBFB). 0 2\nDecker lined out to lf (0-1 F). 0 2\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2\nUCLA - Bottom of 3rd MUR UCL\nLevu popped up to ss (0-0). 0 2\nMartin grounded out to ss (0-1 K). 0 2\nSalgado walked (3-2 BBFFBFB). 0 2\nBrennan singled to left center (0-0)",
+      "Salgado advanced to third. 0 2\nBalsz lined out to lf (2-0 BB). 0 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nMurray State - Top of 4th MUR UCL\nMistone flied out to rf (1-1 FB). 0 2\nVierling grounded out to 2b (1-1 SB). 0 2\nTauken flied out to cf to left center (2-2 BFBF). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nUCLA - Bottom of 4th MUR UCL\nDugger lined out to cf (3-1 BBBK). 0 2\nCall singled to right field (0-0). 0 2\nWest singled to center field (1-2 KBF)",
+      "Call advanced to third. 0 2\nCholowsky grounded out to p, SAC, bunt, RBI (0-0)",
+      "West advanced to second",
+      "Call scored. 0 3\nLevu hit by pitch (0-0). 0 3\nMartin singled to center field, advanced to second on the throw, RBI (0-0)",
+      "Levu advanced to third",
+      "West\nscored. 0 4\nSalgado doubled down the rf line, 2 RBI (0-0)",
+      "Martin scored",
+      "Levu scored. 0 6\nCall on the field was a ball, UCLA Challenged for HBP. 0 6\nCall overturned, UCLA retains two challenges and batter goes to first. 0 6\nBrennan hit by pitch (0-2 FF). 0 6\nBalsz struck out swinging (0-2 KFS). 0 6\nRuns: 4 Hits: 4 Errors: 0 Left On Base: 2\nMurray State - Top of 5th MUR UCL\nBermeo lined out to rf (1-1 KB). 0 6\nCunningham grounded out to 1b unassisted (1-2 FBK). 0 6\nHogart singled up the middle (0-0). 0 6\nMercer walked (3-0 BBBB)",
+      "Hogart advanced to second. 0 6\nMoss to p for Barnett. 0 6\nGarner singled to right field, RBI (0-1 K)",
+      "Mercer advanced to second",
+      "Hogart scored. 1 6\nDecker lined out to lf (0-1 K). 1 6\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 2\nUCLA - Bottom of 5th MUR UCL\nDugger flied out to lf (0-1 K). 1 6\nCall fouled out to 1b (3-2 KBKBB). 1 6\nWest flied out to lf (3-1 BBKB). 1 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nMurray State - Top of 6th MUR UCL\nMistone singled to shortstop (0-0). 1 6\nMay to p for Moss. 1 6\nVierling singled to right field (0-0)",
+      "Mistone advanced to third. 1 6\nTauken flied out to cf to left center, SF, RBI (0-0)",
+      "Mistone scored. 2 6\nBermeo reached on a fielder's choice to third base (3-1 KBBB)",
+      "Vierling out at second 3b to 2b. 2 6\nCunningham struck out swinging (3-2 KSBBBS). 2 6\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nUCLA - Bottom of 6th MUR UCL\nZentko to p for Schutte. 2 6\nCholowsky grounded out to ss (2-0 BB). 2 6\nLevu flied out to rf to right center (1-2 KBF). 2 6\nMartin flied out to cf (2-0 BB). 2 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nMurray State - Top of 7th MUR UCL\nO'Connor to p for May. 2 6\nHogart singled through the left side (1-1 KB). 2 6\nMercer singled to center field (1-1 FB)",
+      "Hogart advanced to second. 2 6\nGarner flied out to cf to left center (3-2 BBKBK). 2 6\nDecker flied out to rf (1-0 B)",
+      "Hogart advanced to third. 2 6\nSouza to p for O'Connor. 2 6\nMistone lined out to cf (1-0 B). 2 6\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2\nUCLA - Bottom of 7th MUR UCL\nNo play. 2 6\nSalgado struck out swinging, grounded out to c unassisted (1-2 SBFFS). 2 6\nBrennan flied out to cf (0-1 F). 2 6\nBalsz grounded out to ss (0-0). 2 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nMurray State - Top of 8th MUR UCL\nVierling walked (3-2 FBBBFB). 2 6\nTauken doubled down the lf line (0-0)",
+      "Vierling advanced to third. 2 6\nJury pinch hit for Bermeo. 2 6\nJury grounded out to 2b, RBI (0-1 S)",
+      "Tauken advanced to third",
+      "Vierling scored. 3 6\nCunningham grounded out to 2b, RBI (3-1 KBBB)",
+      "Tauken scored. 4 6\nHogart struck out swinging (2-2 KBFBS). 4 6\nRuns: 2 Hits: 1 Errors: 0 Left On Base: 0\nUCLA - Bottom of 8th MUR UCL\nDugger flied out to cf (0-2 KFFF). 4 6\nCall singled to second base (1-1 FB). 4 6\nWest grounded out to p (1-2 KBF)",
+      "Call advanced to second. 4 6\nOakley to p for Zentko. 4 6\nCholowsky popped up to ss (0-0). 4 6\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nMurray State - Top of 9th MUR UCL\nHawk to p for Souza. 4 6\nMercer struck out swinging (3-2 BBFKBS). 4 6\nGarner grounded out to ss (1-2 KBF). 4 6\nDecker struck out swinging (3-2 KBBKFBFS). 4 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nUCLA - Bottom of 9th MUR UCL\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "Dan Tauken",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [
+      "Dean West (1)"
+    ],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Mulivai Levu (1)",
+      "Payton Brennan (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Ian May",
+      "record": "8-3"
+    },
+    "loss": {
+      "player": "Nic Schutte",
+      "record": "8-5"
+    },
+    "save": {
+      "player": "Easton Hawk",
+      "count": 8
+    },
+    "sacrifice_hits": [
+      "Roch Cholowsky (1)",
+      "Phoenix Call (1)"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Hogart struck out swinging (3-2 BKBFBS). 0 0",
+          "pitch_count": "3-2 BKBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Mercer walked (3-1 SBBBB). 0 0",
+          "pitch_count": "3-1 SBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Garner struck out swinging (3-2 BKBSBS). 0 0",
+          "pitch_count": "3-2 BKBSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Decker walked (3-2 SBBKBFB); Mercer advanced to second. 0 0",
+          "pitch_count": "3-2 SBBKBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Mistone reached on a fielder's choice to second base (2-1 BFB); Decker out at second 2b to ss. 0 0",
+          "pitch_count": "2-1 BFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "West walked (3-1 KBBBB). 0 0",
+          "pitch_count": "3-1 KBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "West stole second. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cholowsky walked (3-2 BFBFBB). 0 0",
+          "pitch_count": "3-2 BFBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Levu singled to right field (0-1 F); Cholowsky advanced to second; West advanced to third. 0 0",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Martin walked, RBI (3-1 BBBKB); Levu advanced to second; Cholowsky advanced to third; West scored. 0 1",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 1
+        },
+        {
+          "description": "Salgado struck out looking (0-2 FSK). 0 1",
+          "pitch_count": "0-2 FSK",
+          "rbi": 0
+        },
+        {
+          "description": "Brennan struck out swinging (2-2 BKSBS). 0 1",
+          "pitch_count": "2-2 BKSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Balsz grounded out to 1b unassisted (1-2 KBK). 0 1",
+          "pitch_count": "1-2 KBK",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Vierling struck out swinging (1-2 SSBS). 0 1",
+          "pitch_count": "1-2 SSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Tauken walked (3-0 BBBB). 0 1",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Bermeo grounded into double play 2b to ss to 1b (0-1 F); Tauken out on the play. 0 1",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Dugger doubled to left center (1-1 KB). 0 1",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Call out at first 3b to 2b, SAC, bunt (1-0 B); Dugger advanced to third. 0 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "West singled to right field, out at first rf to 1b, RBI (2-1 FBB); Dugger scored. 0 2",
+          "pitch_count": "2-1 FBB",
+          "rbi": 1
+        },
+        {
+          "description": "Cholowsky lined out to 2b (2-1 BBF). 0 2",
+          "pitch_count": "2-1 BBF",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Cunningham struck out swinging (3-2 KBBBFS). 0 2",
+          "pitch_count": "3-2 KBBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Hogart singled to left field (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Mercer singled to left field (0-0); Hogart advanced to second. 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Garner popped up to lf down the lf line (3-2 BFBFB). 0 2",
+          "pitch_count": "3-2 BFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Decker lined out to lf (0-1 F). 0 2",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Levu popped up to ss (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Martin grounded out to ss (0-1 K). 0 2",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Salgado walked (3-2 BBFFBFB). 0 2",
+          "pitch_count": "3-2 BBFFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Brennan singled to left center (0-0); Salgado advanced to third. 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Balsz lined out to lf (2-0 BB). 0 2",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Mistone flied out to rf (1-1 FB). 0 2",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Vierling grounded out to 2b (1-1 SB). 0 2",
+          "pitch_count": "1-1 SB",
+          "rbi": 0
+        },
+        {
+          "description": "Tauken flied out to cf to left center (2-2 BFBF). 0 2",
+          "pitch_count": "2-2 BFBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Dugger lined out to cf (3-1 BBBK). 0 2",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Call singled to right field (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "West singled to center field (1-2 KBF); Call advanced to third. 0 2",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        },
+        {
+          "description": "Cholowsky grounded out to p, SAC, bunt, RBI (0-0); West advanced to second; Call scored. 0 3",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Levu hit by pitch (0-0). 0 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Martin singled to center field, advanced to second on the throw, RBI (0-0); Levu advanced to third; West",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "scored. 0 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Salgado doubled down the rf line, 2 RBI (0-0); Martin scored; Levu scored. 0 6",
+          "pitch_count": "0-0",
+          "rbi": 2
+        },
+        {
+          "description": "Call on the field was a ball, UCLA Challenged for HBP. 0 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call overturned, UCLA retains two challenges and batter goes to first. 0 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Brennan hit by pitch (0-2 FF). 0 6",
+          "pitch_count": "0-2 FF",
+          "rbi": 0
+        },
+        {
+          "description": "Balsz struck out swinging (0-2 KFS). 0 6",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Bermeo lined out to rf (1-1 KB). 0 6",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Cunningham grounded out to 1b unassisted (1-2 FBK). 0 6",
+          "pitch_count": "1-2 FBK",
+          "rbi": 0
+        },
+        {
+          "description": "Hogart singled up the middle (0-0). 0 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Mercer walked (3-0 BBBB); Hogart advanced to second. 0 6",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Moss to p for Barnett. 0 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Garner singled to right field, RBI (0-1 K); Mercer advanced to second; Hogart scored. 1 6",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "Decker lined out to lf (0-1 K). 1 6",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Dugger flied out to lf (0-1 K). 1 6",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Call fouled out to 1b (3-2 KBKBB). 1 6",
+          "pitch_count": "3-2 KBKBB",
+          "rbi": 0
+        },
+        {
+          "description": "West flied out to lf (3-1 BBKB). 1 6",
+          "pitch_count": "3-1 BBKB",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Mistone singled to shortstop (0-0). 1 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "May to p for Moss. 1 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Vierling singled to right field (0-0); Mistone advanced to third. 1 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Tauken flied out to cf to left center, SF, RBI (0-0); Mistone scored. 2 6",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Bermeo reached on a fielder's choice to third base (3-1 KBBB); Vierling out at second 3b to 2b. 2 6",
+          "pitch_count": "3-1 KBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Cunningham struck out swinging (3-2 KSBBBS). 2 6",
+          "pitch_count": "3-2 KSBBBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Zentko to p for Schutte. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cholowsky grounded out to ss (2-0 BB). 2 6",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Levu flied out to rf to right center (1-2 KBF). 2 6",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        },
+        {
+          "description": "Martin flied out to cf (2-0 BB). 2 6",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "O'Connor to p for May. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hogart singled through the left side (1-1 KB). 2 6",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Mercer singled to center field (1-1 FB); Hogart advanced to second. 2 6",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Garner flied out to cf to left center (3-2 BBKBK). 2 6",
+          "pitch_count": "3-2 BBKBK",
+          "rbi": 0
+        },
+        {
+          "description": "Decker flied out to rf (1-0 B); Hogart advanced to third. 2 6",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Souza to p for O'Connor. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mistone lined out to cf (1-0 B). 2 6",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Salgado struck out swinging, grounded out to c unassisted (1-2 SBFFS). 2 6",
+          "pitch_count": "1-2 SBFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Brennan flied out to cf (0-1 F). 2 6",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Balsz grounded out to ss (0-0). 2 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Vierling walked (3-2 FBBBFB). 2 6",
+          "pitch_count": "3-2 FBBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Tauken doubled down the lf line (0-0); Vierling advanced to third. 2 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Jury pinch hit for Bermeo. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jury grounded out to 2b, RBI (0-1 S); Tauken advanced to third; Vierling scored. 3 6",
+          "pitch_count": "0-1 S",
+          "rbi": 1
+        },
+        {
+          "description": "Cunningham grounded out to 2b, RBI (3-1 KBBB); Tauken scored. 4 6",
+          "pitch_count": "3-1 KBBB",
+          "rbi": 1
+        },
+        {
+          "description": "Hogart struck out swinging (2-2 KBFBS). 4 6",
+          "pitch_count": "2-2 KBFBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Dugger flied out to cf (0-2 KFFF). 4 6",
+          "pitch_count": "0-2 KFFF",
+          "rbi": 0
+        },
+        {
+          "description": "Call singled to second base (1-1 FB). 4 6",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "West grounded out to p (1-2 KBF); Call advanced to second. 4 6",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        },
+        {
+          "description": "Oakley to p for Zentko. 4 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cholowsky popped up to ss (0-0). 4 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Hawk to p for Souza. 4 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mercer struck out swinging (3-2 BBFKBS). 4 6",
+          "pitch_count": "3-2 BBFKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Garner grounded out to ss (1-2 KBF). 4 6",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        },
+        {
+          "description": "Decker struck out swinging (3-2 KBBKFBFS). 4 6",
+          "pitch_count": "3-2 KBBKFBFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

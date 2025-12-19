@@ -1,0 +1,295 @@
+{
+  "team_name": "2024 Fairleigh Dickinson Knights",
+  "team_id": "23d98a1e",
+  "year": "2024",
+  "players": [
+    {
+      "name": "Ben Avila",
+      "bref_id": "avila-000ben",
+      "first_name": "Ben",
+      "last_name": "Avila",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "JR Bozek",
+      "bref_id": "bozek-000jr-",
+      "first_name": "JR",
+      "last_name": "Bozek",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jeremy Cheeseman",
+      "bref_id": "cheese000jer",
+      "first_name": "Jeremy",
+      "last_name": "Cheeseman",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Anthony Chiappetta",
+      "bref_id": "chiapp000ant",
+      "first_name": "Anthony",
+      "last_name": "Chiappetta",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Hunter D'Amato",
+      "bref_id": "damato000hun",
+      "first_name": "Hunter",
+      "last_name": "D'Amato",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Joey DiMotta",
+      "bref_id": "dimott000joe",
+      "first_name": "Joey",
+      "last_name": "DiMotta",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Nate Dudeck",
+      "bref_id": "dudeck000nat",
+      "first_name": "Nate",
+      "last_name": "Dudeck",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Pat Gardner",
+      "bref_id": "gardne002pat",
+      "first_name": "Pat",
+      "last_name": "Gardner",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Franklin Gomez",
+      "bref_id": "gomez-007fra",
+      "first_name": "Franklin",
+      "last_name": "Gomez",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Brelon Harden",
+      "bref_id": "harden000bre",
+      "first_name": "Brelon",
+      "last_name": "Harden",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Thomas Iaquinto",
+      "bref_id": "iaquin000tho",
+      "first_name": "Thomas",
+      "last_name": "Iaquinto",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jimmy Mantuano",
+      "bref_id": "mantua000jim",
+      "first_name": "Jimmy",
+      "last_name": "Mantuano",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Nick Quagliato",
+      "bref_id": "quagli000nic",
+      "first_name": "Nick",
+      "last_name": "Quagliato",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Luke Russo",
+      "bref_id": "russo-001luk",
+      "first_name": "Luke",
+      "last_name": "Russo",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Brian Sanders",
+      "bref_id": "sander003bri",
+      "first_name": "Brian",
+      "last_name": "Sanders",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Justin Sierra",
+      "bref_id": "sierra000jus",
+      "first_name": "Justin",
+      "last_name": "Sierra",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Joan Sosa",
+      "bref_id": "sosa--000joa",
+      "first_name": "Joan",
+      "last_name": "Sosa",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Tommy Verga",
+      "bref_id": "verga-000tom",
+      "first_name": "Tommy",
+      "last_name": "Verga",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "TJ Werner",
+      "bref_id": "werner000tj-",
+      "first_name": "TJ",
+      "last_name": "Werner",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Zack Will",
+      "bref_id": "will--000zac",
+      "first_name": "Zack",
+      "last_name": "Will",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ian Barrett",
+      "bref_id": "barret001ian",
+      "first_name": "Ian",
+      "last_name": "Barrett",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Zac Capps",
+      "bref_id": "capps-001zac",
+      "first_name": "Zac",
+      "last_name": "Capps",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Vladimir Ceverino",
+      "bref_id": "ceveri000vla",
+      "first_name": "Vladimir",
+      "last_name": "Ceverino",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jason Diaz",
+      "bref_id": "diaz--003jas",
+      "first_name": "Jason",
+      "last_name": "Diaz",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Dante Edwardi",
+      "bref_id": "edward004dan",
+      "first_name": "Dante",
+      "last_name": "Edwardi",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Nick Feretic",
+      "bref_id": "fereti000nic",
+      "first_name": "Nick",
+      "last_name": "Feretic",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Joey Kosowsky",
+      "bref_id": "kosows000joe",
+      "first_name": "Joey",
+      "last_name": "Kosowsky",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Chris Mattioli",
+      "bref_id": "mattio000chr",
+      "first_name": "Chris",
+      "last_name": "Mattioli",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ben Pika",
+      "bref_id": "pika--000ben",
+      "first_name": "Ben",
+      "last_name": "Pika",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jake Simon",
+      "bref_id": "simon-003jak",
+      "first_name": "Jake",
+      "last_name": "Simon",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Cole Vida",
+      "bref_id": "vida--000col",
+      "first_name": "Cole",
+      "last_name": "Vida",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Brian Yadlon",
+      "bref_id": "yadlon000bri",
+      "first_name": "Brian",
+      "last_name": "Yadlon",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    }
+  ]
+}

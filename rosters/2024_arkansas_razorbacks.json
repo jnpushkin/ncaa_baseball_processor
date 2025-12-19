@@ -1,0 +1,304 @@
+{
+  "team_name": "2024 Arkansas Razorbacks",
+  "team_id": "3b857718",
+  "year": "2024",
+  "players": [
+    {
+      "name": "Wehiwa Aloy",
+      "bref_id": "aloy--000weh",
+      "first_name": "Wehiwa",
+      "last_name": "Aloy",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Kendall Diggs",
+      "bref_id": "diggs-000ken",
+      "first_name": "Kendall",
+      "last_name": "Diggs",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Will Edmunson",
+      "bref_id": "edmuns000wil",
+      "first_name": "Will",
+      "last_name": "Edmunson",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ryder Helfrick",
+      "bref_id": "helfri000ryd",
+      "first_name": "Ryder",
+      "last_name": "Helfrick",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Peyton Holt",
+      "bref_id": "holt--000pey",
+      "first_name": "Peyton",
+      "last_name": "Holt",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jayson Jones",
+      "bref_id": "jones-005jay",
+      "first_name": "Jayson",
+      "last_name": "Jones",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ross Lovich",
+      "bref_id": "lovich000ros",
+      "first_name": "Ross",
+      "last_name": "Lovich",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ben McLaughlin",
+      "bref_id": "mclaug000ben",
+      "first_name": "Ben",
+      "last_name": "McLaughlin",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Hudson Polk",
+      "bref_id": "polk--000hud",
+      "first_name": "Hudson",
+      "last_name": "Polk",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Parker Rowland",
+      "bref_id": "rowlan000par",
+      "first_name": "Parker",
+      "last_name": "Rowland",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Nolan Souza",
+      "bref_id": "souza-000nol",
+      "first_name": "Nolan",
+      "last_name": "Souza",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jared Sprague-Lott",
+      "bref_id": "spragu000jar",
+      "first_name": "Jared",
+      "last_name": "Sprague-Lott",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Peyton Stovall",
+      "bref_id": "stoval000pey",
+      "first_name": "Peyton",
+      "last_name": "Stovall",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jack Wagner",
+      "bref_id": "wagner001jac",
+      "first_name": "Jack",
+      "last_name": "Wagner",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Hudson White",
+      "bref_id": "white-000hud",
+      "first_name": "Hudson",
+      "last_name": "White",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ty Wilmsmeyer",
+      "bref_id": "wilmsm000ty-",
+      "first_name": "Ty",
+      "last_name": "Wilmsmeyer",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Ben Bybee",
+      "bref_id": "bybee-000ben",
+      "first_name": "Ben",
+      "last_name": "Bybee",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Dylan Carter",
+      "bref_id": "carter002dyl",
+      "first_name": "Dylan",
+      "last_name": "Carter",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Parker Coil",
+      "bref_id": "coil--000par",
+      "first_name": "Parker",
+      "last_name": "Coil",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Hunter Dietz",
+      "bref_id": "dietz-000hun",
+      "first_name": "Hunter",
+      "last_name": "Dietz",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Cooper Dossett",
+      "bref_id": "dosset000coo",
+      "first_name": "Cooper",
+      "last_name": "Dossett",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Jake Faherty",
+      "bref_id": "fahert000jak",
+      "first_name": "Jake",
+      "last_name": "Faherty",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Colin Fisher",
+      "bref_id": "fisher003col",
+      "first_name": "Colin",
+      "last_name": "Fisher",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Christian Foutch",
+      "bref_id": "foutch000chr",
+      "first_name": "Christian",
+      "last_name": "Foutch",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Koty Frank",
+      "bref_id": "frank-000kot",
+      "first_name": "Koty",
+      "last_name": "Frank",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Gabe Gaeckle",
+      "bref_id": "gaeckl000gab",
+      "first_name": "Gabe",
+      "last_name": "Gaeckle",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Stone Hewlett",
+      "bref_id": "hewlet000sto",
+      "first_name": "Stone",
+      "last_name": "Hewlett",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Will McEntire",
+      "bref_id": "mcenti002wil",
+      "first_name": "Will",
+      "last_name": "McEntire",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Tate McGuire",
+      "bref_id": "mcguir000tat",
+      "first_name": "Tate",
+      "last_name": "McGuire",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Mason Molina",
+      "bref_id": "molina000mas",
+      "first_name": "Mason",
+      "last_name": "Molina",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Hagen Smith",
+      "bref_id": "smith-000hag",
+      "first_name": "Hagen",
+      "last_name": "Smith",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Brady Tygart",
+      "bref_id": "tygart000bra",
+      "first_name": "Brady",
+      "last_name": "Tygart",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    },
+    {
+      "name": "Gage Wood",
+      "bref_id": "wood--000gag",
+      "first_name": "Gage",
+      "last_name": "Wood",
+      "position": null,
+      "number": null,
+      "year": "2024"
+    }
+  ]
+}

@@ -1,0 +1,911 @@
+{
+  "metadata": {
+    "date": "2/24/2017",
+    "venue": "Davenport Field (Charlottesville, Va.)",
+    "stadium": "Davenport Field",
+    "city": "Charlottesville, Va.",
+    "away_team": "Rutgers",
+    "away_team_rank": null,
+    "away_team_record": "1-3",
+    "away_team_score": 3,
+    "home_team": "Virginia",
+    "home_team_rank": "#13",
+    "home_team_record": "5-0",
+    "home_team_score": 7,
+    "attendance": 3276,
+    "duration": "3:12",
+    "start_time": null,
+    "weather": "75*, partly sunny, WNW 5 mph.",
+    "umpires": {
+      "home_plate": "Frank Sylvester",
+      "first_base": "Bobby Walker",
+      "second_base": "Craig Alden",
+      "third_base": "Anthony Carilli"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Harris",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 2,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "harris000jaw",
+        "full_name": "Jawuan Harris",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Carter",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "carter000mik",
+        "full_name": "Mike Carter",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Campbell",
+        "position": "1b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 9,
+        "assists": 2,
+        "left_on_base": 0,
+        "bref_id": "campbe004chr",
+        "full_name": "Christian Campbell",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Marcinczyk",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 2,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "marcin000tom",
+        "full_name": "Tom Marcinczyk",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Freeman",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 3,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 2,
+        "assists": 5,
+        "left_on_base": 0,
+        "bref_id": "freema000mil",
+        "full_name": "Milo Freeman",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Bowerbank",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 5,
+        "bref_id": "bowerb001luk",
+        "full_name": "Luke Bowerbank",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Folinusz",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "folinu000chr",
+        "full_name": "Chris Folinusz",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Rosa",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 2,
+        "assists": 3,
+        "left_on_base": 0,
+        "bref_id": "rosa--001gab",
+        "full_name": "Gaby Rosa",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Welsh",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 5,
+        "assists": 3,
+        "left_on_base": 0,
+        "bref_id": "welsh-000kev",
+        "full_name": "Kevin Welsh",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Clement, E.",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 4,
+        "assists": 2,
+        "left_on_base": 0,
+        "bref_id": "clemen000ern",
+        "full_name": "Ernie Clement",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "McCarthy, J.",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 4,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mccart005jac",
+        "full_name": "Jake McCarthy",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Haseley, A.",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 4,
+        "rbi": 5,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 3,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hasele000ada",
+        "full_name": "Adam Haseley",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Smith, P.",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 8,
+        "assists": 1,
+        "left_on_base": 4,
+        "bref_id": "smith-000pav",
+        "full_name": "Pavin Smith",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Coman, R.",
+        "position": "c",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 4,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 7,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "coman-000rob",
+        "full_name": "Robbie Coman",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Eikhoff, N.",
+        "position": "dh",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "eikhof000nat",
+        "full_name": "Nate Eikhoff",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Simmons, C.",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 1,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "simmon000cam",
+        "full_name": "Cameron Simmons",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Novak, J.",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 2,
+        "left_on_base": 0,
+        "bref_id": "novak-000jus",
+        "full_name": "Justin Novak",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Richardson",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 3,
+        "left_on_base": 2,
+        "bref_id": "richar000cay",
+        "full_name": "Cayman Richardson",
+        "match_confidence": 0.85
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "O'Reilly",
+        "name": "",
+        "innings_pitched": 5.0,
+        "hits": 9,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 27,
+        "at_bats": 24,
+        "pitches": 84,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "Reardon",
+        "name": "",
+        "innings_pitched": 1.0,
+        "hits": 2,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 6,
+        "at_bats": 5,
+        "pitches": 26,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "Fleming",
+        "name": "",
+        "innings_pitched": 2.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 9,
+        "at_bats": 7,
+        "pitches": 31,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "home_pitching": [],
+    "line_score": {
+      "away_innings": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        2,
+        1,
+        1,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Rosa"
+    ],
+    "double_plays": {
+      "Rutgers": 1,
+      "Virginia": 1
+    },
+    "doubles": [],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [],
+    "caught_stealing": [],
+    "hit_by_pitch": [],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [
+      "O'Reilly (3)",
+      "Fleming 2 (2)"
+    ],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Lynch, D.",
+      "record": "2-0"
+    },
+    "loss": {
+      "player": "O'Reilly",
+      "record": "0-2"
+    },
+    "save": {
+      "player": "None.\nWP - O'Reilly",
+      "count": 3
+    }
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "No play",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Harris flied out to rf (1-1)",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "Carter doubled to right center (0-1)",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell singled to left field, RBI (0-1); Carter scored",
+          "pitch_count": "0-1",
+          "rbi": 1
+        },
+        {
+          "description": "Marcinczyk doubled down the rf line (2-1); Campbell advanced to third.; Freeman struck out swinging (0-2).; Bowerbank flied out to lf (1-2).;",
+          "pitch_count": "2-1",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Clement, E. flied out to rf (0-2)",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "McCarthy, J. hit by pitch (1-1)",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "Haseley, A. homered to left field, 2 RBI (1-2); McCarthy, J. scored",
+          "pitch_count": "1-2",
+          "rbi": 2
+        },
+        {
+          "description": "Smith,",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. singled up the middle (1-1).; Coman, R. singled to left field (3-2); Smith, P. advanced to second.; Eikhoff, N. reached on a fielder's choice (0-1);",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "Coman, R. out at second ss to 2b; Smith, P. advanced to third.; Simmons, C. lined out to ss (0-0).;",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Folinusz flied out to 2b (0-1)",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "Rosa flied out to lf (2-0)",
+          "pitch_count": "2-0",
+          "rbi": 0
+        },
+        {
+          "description": "Welsh flied out to 2b (2-0)",
+          "pitch_count": "2-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Novak, J. grounded out to 2b (0-0)",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Richardson grounded out to 3b (0-1)",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "Clement, E. singled through the right side (2-2)",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "McCarthy, J",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "singled to right field (1-2); Clement, E. advanced to third.; Haseley, A. singled up the middle, RBI (2-0); McCarthy, J. advanced to third; Clement,",
+          "pitch_count": "1-2",
+          "rbi": 1
+        },
+        {
+          "description": "E. scored.; Haseley, A. advanced to second on a wild pitch.; Smith, P. out at first 1b to p (1-1).;",
+          "pitch_count": "1-1",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Harris grounded out to 3b (3-2)",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Carter walked (3-2)",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell flied out to lf (2-1)",
+          "pitch_count": "2-1",
+          "rbi": 0
+        },
+        {
+          "description": "Marcinczyk walked (3-2); Carter advanced to second",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Freeman singled up the middle, RBI (0-1); Marcinczyk advanced to second; Carter scored.; Bowerbank grounded out to 2b (1-2).;",
+          "pitch_count": "0-1",
+          "rbi": 1
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Coman, R. homered to left field, RBI (0-0)",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Eikhoff, N. grounded out to 1b unassisted (0-1)",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "Simmons, C. hit by pitch (1-1)",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "Novak, J",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "grounded into double play 3b to 2b to 1b (0-0); Simmons, C. out on the play.;",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Folinusz struck out swinging (1-2)",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "Rosa flied out to lf (0-2)",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "Welsh grounded out to ss (0-1)",
+          "pitch_count": "0-1",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Richardson grounded out to 2b (3-1)",
+          "pitch_count": "3-1",
+          "rbi": 0
+        },
+        {
+          "description": "Clement, E. grounded out to ss (1-2)",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "McCarthy, J. singled through the right side (3-1)",
+          "pitch_count": "3-1",
+          "rbi": 0
+        },
+        {
+          "description": "McCarthy, J",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "stole second.; Haseley, A. walked (3-0).; Smith, P. fouled out to 3b (0-1).;",
+          "pitch_count": "3-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Harris walked (3-2)",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Carter grounded out to ss (1-2); Harris advanced to second",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell singled through the right side, RBI (0-1);",
+          "pitch_count": "0-1",
+          "rbi": 1
+        },
+        {
+          "description": "Harris scored.; Marcinczyk flied out to cf (2-2).; Freeman singled up the middle (1-2); Campbell advanced to second.; Bowerbank singled to second",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "base (0-0); Freeman advanced to second; Campbell advanced to third.; Folinusz struck out swinging (2-2).;",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Coman, R. singled through the left side (2-1)",
+          "pitch_count": "2-1",
+          "rbi": 0
+        },
+        {
+          "description": "Eikhoff, N. flied out to 3b (2-1)",
+          "pitch_count": "2-1",
+          "rbi": 0
+        },
+        {
+          "description": "Simmons, C. reached on a fielder's choice (0-2); Coman, R. out",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "at second 3b to 2b.; Novak, J. reached on a fielder's choice (0-0); Simmons, C. advanced to second on a throwing error by ss.; Richardson flied out to",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "rf (2-1).;",
+          "pitch_count": "2-1",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Rosa grounded out to p (1-1)",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "Welsh walked (3-1)",
+          "pitch_count": "3-1",
+          "rbi": 0
+        },
+        {
+          "description": "Bettinger, A to p for Lynch, D",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Harris flied out to cf (1-0)",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "Carter singled to right field (1-",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "2); Welsh advanced to third.; Carter out at second p to 1b to 2b, caught stealing, picked off.;",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Reardon to p for O'Reilly",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Clement, E. flied out to cf (0-1)",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "McCarthy, J. walked (3-2)",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Haseley, A. homered to left center, 2 RBI (0-0);",
+          "pitch_count": "0-0",
+          "rbi": 2
+        },
+        {
+          "description": "McCarthy, J. scored.; Smith, P. flied out to cf (0-0).; Coman, R. homered to left field, RBI (3-2).; Eikhoff, N. grounded out to 3b (2-2).;",
+          "pitch_count": "0-0",
+          "rbi": 1
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Campbell flied out to cf (0-0)",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Marcinczyk struck out swinging (3-2)",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Freeman singled to left field (0-1)",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "Bowerbank struck out swinging (2-2)",
+          "pitch_count": "2-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Fleming to p for Reardon",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Simmons, C. grounded out to 3b (0-0)",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Novak, J. grounded out to ss (1-1)",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "Richardson out at first 1b to p (2-1)",
+          "pitch_count": "2-1",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Folinusz grounded out to ss (1-1)",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "Rosa struck out looking (3-2)",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Welsh struck out swinging (3-2)",
+          "pitch_count": "3-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Clement, E. flied out to 2b (2-2)",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "McCarthy, J. hit by pitch (0-1)",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "McCarthy, J. stole second, failed pickoff attempt",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Haseley, A. singled to left",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "field (3-1); McCarthy, J. advanced to third.; Smith, P. hit by pitch (1-0); Haseley, A. advanced to second.; Coman, R. infield fly to 2b (1-2).; Eikhoff, N.",
+          "pitch_count": "3-1",
+          "rbi": 0
+        },
+        {
+          "description": "flied out to ss (2-2).;",
+          "pitch_count": "2-2",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Doyle, T. to p for Bettinger, A",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Harris grounded out to 1b unassisted (2-2)",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "Carter singled to second base (0-0)",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell grounded into",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "double play 3b to 2b to 1b (1-1); Carter out on the play.;",
+          "pitch_count": "1-1",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_a_no_num"
+}

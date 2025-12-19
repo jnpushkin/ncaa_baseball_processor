@@ -1,0 +1,295 @@
+{
+  "team_name": "2023 Oral Roberts Golden Eagles",
+  "team_id": "6c5e4d2f",
+  "year": "2023",
+  "players": [
+    {
+      "name": "Preston Baumgartner",
+      "bref_id": "baumga000pre",
+      "first_name": "Preston",
+      "last_name": "Baumgartner",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Ryan Blackwell",
+      "bref_id": "blackw000rya",
+      "first_name": "Ryan",
+      "last_name": "Blackwell",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Holden Breeze",
+      "bref_id": "breeze000hol",
+      "first_name": "Holden",
+      "last_name": "Breeze",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Blaze Brothers",
+      "bref_id": "brothe000bla",
+      "first_name": "Blaze",
+      "last_name": "Brothers",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Garrett Casey",
+      "bref_id": "casey-001gar",
+      "first_name": "Garrett",
+      "last_name": "Casey",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Jonah Cox",
+      "bref_id": "cox---000jon",
+      "first_name": "Jonah",
+      "last_name": "Cox",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Jacob Godman",
+      "bref_id": "godman000jac",
+      "first_name": "Jacob",
+      "last_name": "Godman",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Matt Hogan",
+      "bref_id": "hogan-000mat",
+      "first_name": "Matt",
+      "last_name": "Hogan",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Max Lucas",
+      "bref_id": "lucas-000max",
+      "first_name": "Max",
+      "last_name": "Lucas",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Mac McCroskey",
+      "bref_id": "mccros000mac",
+      "first_name": "Mac",
+      "last_name": "McCroskey",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Jake McMurray",
+      "bref_id": "mcmurr002jak",
+      "first_name": "Jake",
+      "last_name": "McMurray",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Dalton Patten",
+      "bref_id": "patten000dal",
+      "first_name": "Dalton",
+      "last_name": "Patten",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Justin Quinn",
+      "bref_id": "quinn-000jus",
+      "first_name": "Justin",
+      "last_name": "Quinn",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Drew Stahl",
+      "bref_id": "stahl-001dre",
+      "first_name": "Drew",
+      "last_name": "Stahl",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Sam Thompson",
+      "bref_id": "thomps006sam",
+      "first_name": "Sam",
+      "last_name": "Thompson",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Dawson Walls",
+      "bref_id": "walls-000daw",
+      "first_name": "Dawson",
+      "last_name": "Walls",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Parker Ward",
+      "bref_id": "ward--001par",
+      "first_name": "Parker",
+      "last_name": "Ward",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Dylan Wipperman",
+      "bref_id": "wipper000dyl",
+      "first_name": "Dylan",
+      "last_name": "Wipperman",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Price Allman",
+      "bref_id": "allman000pri",
+      "first_name": "Price",
+      "last_name": "Allman",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Josh Caravalho",
+      "bref_id": "carava000jos",
+      "first_name": "Josh",
+      "last_name": "Caravalho",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Cade Denton",
+      "bref_id": "denton000cad",
+      "first_name": "Cade",
+      "last_name": "Denton",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Conner Floyd",
+      "bref_id": "floyd-001con",
+      "first_name": "Conner",
+      "last_name": "Floyd",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Brooks Fowler",
+      "bref_id": "fowler000bro",
+      "first_name": "Brooks",
+      "last_name": "Fowler",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Harley Gollert",
+      "bref_id": "goller001har",
+      "first_name": "Harley",
+      "last_name": "Gollert",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Jakob Hall",
+      "bref_id": "hall--010jak",
+      "first_name": "Jakob",
+      "last_name": "Hall",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Hudson Hart",
+      "bref_id": "hart--000hud",
+      "first_name": "Hudson",
+      "last_name": "Hart",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Caleb Isaacs",
+      "bref_id": "isaacs000cal",
+      "first_name": "Caleb",
+      "last_name": "Isaacs",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Evan Kowalski",
+      "bref_id": "kowals000eva",
+      "first_name": "Evan",
+      "last_name": "Kowalski",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Andrew Roach",
+      "bref_id": "roach-001and",
+      "first_name": "Andrew",
+      "last_name": "Roach",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Reed Ronan",
+      "bref_id": "ronan-000ree",
+      "first_name": "Reed",
+      "last_name": "Ronan",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Ryan Tressler",
+      "bref_id": "tressl000rya",
+      "first_name": "Ryan",
+      "last_name": "Tressler",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    },
+    {
+      "name": "Jacob Widener",
+      "bref_id": "widene000jac",
+      "first_name": "Jacob",
+      "last_name": "Widener",
+      "position": null,
+      "number": null,
+      "year": "2023"
+    }
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "team_name": "2025 Santa Clara Broncos",
+  "team_id": "2c607e5b",
+  "year": "2025",
+  "players": [
+    {
+      "name": "Koen Carston",
+      "bref_id": "carsto000koe",
+      "first_name": "Koen",
+      "last_name": "Carston",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Ben Cleary",
+      "bref_id": "cleary000ben",
+      "first_name": "Ben",
+      "last_name": "Cleary",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Kai Cunningham",
+      "bref_id": "cunnin000kai",
+      "first_name": "Kai",
+      "last_name": "Cunningham",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Luke Devine",
+      "bref_id": "devine000luk",
+      "first_name": "Luke",
+      "last_name": "Devine",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Thomas Ferroggiaro",
+      "bref_id": "ferrog000tho",
+      "first_name": "Thomas",
+      "last_name": "Ferroggiaro",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Deuce Filter",
+      "bref_id": "filter002rus",
+      "first_name": "Deuce",
+      "last_name": "Filter",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Mateo Garcia",
+      "bref_id": "garcia012mat",
+      "first_name": "Mateo",
+      "last_name": "Garcia",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Thomas Gould",
+      "bref_id": "gould-000tho",
+      "first_name": "Thomas",
+      "last_name": "Gould",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Dylan Joyce",
+      "bref_id": "joyce-000dyl",
+      "first_name": "Dylan",
+      "last_name": "Joyce",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Hayden Jung-Goldberg",
+      "bref_id": "jung-g000hay",
+      "first_name": "Hayden",
+      "last_name": "Jung-Goldberg",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Payton Lambert",
+      "bref_id": "lamber000pay",
+      "first_name": "Payton",
+      "last_name": "Lambert",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Johnny Luetzow",
+      "bref_id": "luetzo000joh",
+      "first_name": "Johnny",
+      "last_name": "Luetzow",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Tate Medicoff",
+      "bref_id": "medico000tat",
+      "first_name": "Tate",
+      "last_name": "Medicoff",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Niko Olson",
+      "bref_id": "olson-000nik",
+      "first_name": "Niko",
+      "last_name": "Olson",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Andrew Rayment",
+      "bref_id": "raymen000and",
+      "first_name": "Andrew",
+      "last_name": "Rayment",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Max Ross",
+      "bref_id": "ross--003max",
+      "first_name": "Max",
+      "last_name": "Ross",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Conner Smith",
+      "bref_id": "smith-025con",
+      "first_name": "Conner",
+      "last_name": "Smith",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Caden Thompson",
+      "bref_id": "thomps002cad",
+      "first_name": "Caden",
+      "last_name": "Thompson",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Malcolm Williams",
+      "bref_id": "willia001mal",
+      "first_name": "Malcolm",
+      "last_name": "Williams",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Tyler Alleman",
+      "bref_id": "allema000tyl",
+      "first_name": "Tyler",
+      "last_name": "Alleman",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Max Bayles",
+      "bref_id": "bayles000max",
+      "first_name": "Max",
+      "last_name": "Bayles",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Vincent Braga",
+      "bref_id": "braga-000vin",
+      "first_name": "Vincent",
+      "last_name": "Braga",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Nick Fontaine",
+      "bref_id": "fontai000nic",
+      "first_name": "Nick",
+      "last_name": "Fontaine",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Davis Franklin",
+      "bref_id": "frankl002dav",
+      "first_name": "Davis",
+      "last_name": "Franklin",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Jace Gillmore",
+      "bref_id": "gillmo000jac",
+      "first_name": "Jace",
+      "last_name": "Gillmore",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Brandon Gomez",
+      "bref_id": "gomez-007bra",
+      "first_name": "Brandon",
+      "last_name": "Gomez",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Andrew Habermann",
+      "bref_id": "haberm000and",
+      "first_name": "Andrew",
+      "last_name": "Habermann",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Josh Johnson",
+      "bref_id": "johnso027jos",
+      "first_name": "Josh",
+      "last_name": "Johnson",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Cooper Lanz",
+      "bref_id": "lanz--000coo",
+      "first_name": "Cooper",
+      "last_name": "Lanz",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Jack Lazark",
+      "bref_id": "lazark000jac",
+      "first_name": "Jack",
+      "last_name": "Lazark",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Victor Martinez",
+      "bref_id": "martin016vic",
+      "first_name": "Victor",
+      "last_name": "Martinez",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "RJ Meyn",
+      "bref_id": "meyn--000rj-",
+      "first_name": "RJ",
+      "last_name": "Meyn",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Bryce Padilla",
+      "bref_id": "padill002bry",
+      "first_name": "Bryce",
+      "last_name": "Padilla",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Sebastian Schreiber",
+      "bref_id": "schrei000seb",
+      "first_name": "Sebastian",
+      "last_name": "Schreiber",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Henry Stewart",
+      "bref_id": "stewar002hen",
+      "first_name": "Henry",
+      "last_name": "Stewart",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Caden Wooster",
+      "bref_id": "wooste000cad",
+      "first_name": "Caden",
+      "last_name": "Wooster",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    }
+  ]
+}

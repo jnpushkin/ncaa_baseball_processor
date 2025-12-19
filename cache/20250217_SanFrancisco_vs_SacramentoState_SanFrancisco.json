@@ -1,0 +1,1772 @@
+{
+  "metadata": {
+    "date": "2/17/2025",
+    "venue": "Benedetti Diamond (San Francisco, CA)",
+    "stadium": "Benedetti Diamond",
+    "city": "San Francisco, CA",
+    "away_team": "Sacramento State",
+    "away_team_rank": null,
+    "away_team_record": "2-2",
+    "away_team_score": 19,
+    "home_team": "San Francisco",
+    "home_team_rank": null,
+    "home_team_record": "2-2",
+    "home_team_score": 11,
+    "attendance": 185,
+    "duration": "3:43",
+    "start_time": "2:05 PM",
+    "weather": "Slightly Cloudy Skies",
+    "umpires": {
+      "list": "Home Plate: Christopher Presley- First: Alex Nash Third Base: Ron Adams"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "White, Tyler",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 3,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 3,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "white-009tyl",
+        "full_name": "Tyler White",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Christiansen, Ryan",
+        "position": "rf",
+        "at_bats": 5,
+        "runs": 3,
+        "hits": 3,
+        "rbi": 3,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "christ008rya",
+        "full_name": "Ryan Christiansen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Smith, JP",
+        "position": "1b",
+        "at_bats": 5,
+        "runs": 3,
+        "hits": 2,
+        "rbi": 4,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "smith-000jp-",
+        "full_name": "JP Smith",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kligman, Elie",
+        "position": "c",
+        "at_bats": 6,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kligma000eli",
+        "full_name": "Elie Kligman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Poturnak, Jakob",
+        "position": "3b",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "poturn000jak",
+        "full_name": "Jakob Poturnak",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Masciangelo, Matt",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 3,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mascia001mat",
+        "full_name": "Matt Masciangelo",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Walton, Myles",
+        "position": "ph/lf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "walton000myl",
+        "full_name": "Myles Walton",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Perez, Christian",
+        "position": "dh",
+        "at_bats": 6,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "perez-021chr",
+        "full_name": "Christian Perez",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Oyler, Luke",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "oyler-000luk",
+        "full_name": "Luke Oyler",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Perazzo, Michael",
+        "position": "ss",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "perazz001mic",
+        "full_name": "Michael Perazzo",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Pimentel-Guerrero, L",
+        "position": "2b",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "piment003lui",
+        "full_name": "Luis Pimentel-Guerrero",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Sewell, Cameron",
+        "position": "2b",
+        "at_bats": 2,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "sewell001cam",
+        "full_name": "Cameron Sewell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Lay, Ethan",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lay---000eth",
+        "full_name": "Ethan Lay",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Halverson, Jackson",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "halver000jac",
+        "full_name": "Jackson Halverson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Lucchesi, Noah",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lucche000noa",
+        "full_name": "Noah Lucchesi",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Latimer, Carson",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "latime001car",
+        "full_name": "Carson Latimer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Brown, Kade",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "brown-002kad",
+        "full_name": "Kade Brown",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Miles Durvasula",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "durvas000mil",
+        "full_name": "Miles Durvasula",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Kenny DeCelle",
+        "position": "cf",
+        "at_bats": 5,
+        "runs": 3,
+        "hits": 4,
+        "rbi": 3,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "decell000ken",
+        "full_name": "Kenny DeCelle",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jordan Lewis",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 3,
+        "rbi": 2,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lewis-005jor",
+        "full_name": "Jordan Lewis",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "TJ Rogers",
+        "position": "dh",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 6,
+        "bref_id": "rogers001tj-",
+        "full_name": "T.J. Rogers",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Patrick Keighran",
+        "position": "1b",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 3,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "keighr000pat",
+        "full_name": "Patrick Keighran",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Trevor Harmon",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "harmon001tre",
+        "full_name": "Trevor Harmon",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tyler Harries",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "harrie000tyl",
+        "full_name": "Tyler Harries",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jimmy Pelletier",
+        "position": "pr/ss",
+        "at_bats": 2,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "pellet000cha",
+        "full_name": "Charles-Etienne Pelletier",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "JT Amaral",
+        "position": "rf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "amaral000joh",
+        "full_name": "JT Amaral",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tyvon Moore",
+        "position": "pr/rf",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "moore-000tyv",
+        "full_name": "Tyvon Moore",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Nick Walsh",
+        "position": "3b",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "walsh-002nic",
+        "full_name": "Nick Walsh",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Zack Ramppen",
+        "position": "c",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ramppe000zac",
+        "full_name": "Zack Ramppen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Matty Fung",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "fung--000mat",
+        "full_name": "Matty Fung",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kevin Shea",
+        "position": "ph/2b",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "shea--002kev",
+        "full_name": "Kevin Shea",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cal Amborn",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "amborn000cal",
+        "full_name": "Cal Amborn",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wesley Harwell",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "harwel000wes",
+        "full_name": "Wesley Harwell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dylan Brown",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "brown-010dyl",
+        "full_name": "Dylan Brown",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gabriel Barrett",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "barret000gab",
+        "full_name": "Gabe Barrett",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Lay, Ethan",
+        "innings_pitched": 3.1,
+        "hits": 6,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 4,
+        "strikeouts": 3,
+        "batters_faced": 20,
+        "at_bats": 16,
+        "pitches": 82,
+        "bref_id": "lay---000eth",
+        "full_name": "Ethan Lay",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Halverson, Jackson",
+        "innings_pitched": 0.2,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 4,
+        "at_bats": 2,
+        "pitches": 18,
+        "bref_id": "halver000jac",
+        "full_name": "Jackson Halverson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Lucchesi, Noah",
+        "innings_pitched": 1.2,
+        "hits": 4,
+        "runs": 5,
+        "earned_runs": 5,
+        "walks": 2,
+        "strikeouts": 2,
+        "batters_faced": 12,
+        "at_bats": 10,
+        "pitches": 48,
+        "bref_id": "lucche000noa",
+        "full_name": "Noah Lucchesi",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Latimer, Carson",
+        "innings_pitched": 0.0,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 2,
+        "strikeouts": 0,
+        "batters_faced": 4,
+        "at_bats": 2,
+        "pitches": 17,
+        "bref_id": "latime001car",
+        "full_name": "Carson Latimer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Brown, Kade",
+        "innings_pitched": 3.1,
+        "hits": 1,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 8,
+        "batters_faced": 12,
+        "at_bats": 11,
+        "pitches": 47,
+        "bref_id": "brown-002kad",
+        "full_name": "Kade Brown",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Cal Amborn",
+        "innings_pitched": 1.0,
+        "hits": 4,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 3,
+        "strikeouts": 1,
+        "batters_faced": 10,
+        "at_bats": 7,
+        "pitches": 36,
+        "bref_id": "amborn000cal",
+        "full_name": "Cal Amborn",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wesley Harwell",
+        "innings_pitched": 0.2,
+        "hits": 3,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 4,
+        "strikeouts": 1,
+        "batters_faced": 9,
+        "at_bats": 5,
+        "pitches": 43,
+        "bref_id": "harwel000wes",
+        "full_name": "Wesley Harwell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dylan Brown",
+        "innings_pitched": 2.1,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "batters_faced": 8,
+        "at_bats": 8,
+        "pitches": 37,
+        "bref_id": "brown-010dyl",
+        "full_name": "Dylan Brown",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gabriel Barrett",
+        "innings_pitched": 1.1,
+        "hits": 5,
+        "runs": 5,
+        "earned_runs": 3,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 9,
+        "at_bats": 8,
+        "pitches": 25,
+        "bref_id": "barret000gab",
+        "full_name": "Gabe Barrett",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gavin Pacheco",
+        "innings_pitched": 1.2,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 6,
+        "at_bats": 6,
+        "pitches": 22,
+        "bref_id": "pachec000gav",
+        "full_name": "Gavin Pacheco",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Miles Durvasula",
+        "innings_pitched": 1.0,
+        "hits": 3,
+        "runs": 5,
+        "earned_runs": 5,
+        "walks": 3,
+        "strikeouts": 1,
+        "batters_faced": 9,
+        "at_bats": 6,
+        "pitches": 29,
+        "bref_id": "durvas000mil",
+        "full_name": "Miles Durvasula",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Austin Cupic",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 14,
+        "bref_id": "cupic-000aus",
+        "full_name": "Austin Cupic",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        4,
+        4,
+        0,
+        0,
+        1,
+        5,
+        0,
+        5,
+        0
+      ],
+      "home_innings": [
+        1,
+        0,
+        0,
+        3,
+        1,
+        5,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Kenny DeCelle (1)",
+      "White advanced to second. 0 0\nSmith, JP advanced to second on a wild pitch",
+      "White advanced to third on a wild pitch. 0 0\nKligman, E singled to left center, 2 RBI (0-1 K)",
+      "Smith, JP scored",
+      "White scored. 2 0\nPoturnak singled through the left side (0-1 K)",
+      "Kligman, E advanced to second. 2 0\nMasciangelo singled up the middle, RBI (0-0)",
+      "Poturnak advanced to second",
+      "Kligman, E scored. 3 0\nPerez grounded out to 1b unassisted (0-2 FK)",
+      "Masciangelo advanced to second",
+      "Poturnak advanced to\nthird. 3 0\nOyler walked (3-2 BFBFBFB). 3 0\nPimentel-Gue walked, RBI (3-1 BBKBB)",
+      "Oyler advanced to second",
+      "Masciangelo advanced to third",
+      "Poturnak scored. 4 0\nWhite lined out to p (1-1 BF). 4 0\nRuns: 4 Hits: 4 Errors: 0 Left On Base: 3\nSan Francisco - Bottom of 1st SAC USF\nDECELLE singled to left field (0-0). 4 0\nLEWIS doubled down the lf line, RBI (1-0 B)",
+      "DECELLE scored. 4 1\nROGERS grounded out to 3b (0-1 K). 4 1\nKEIGHRAN walked (3-1 BBSBB). 4 1\nHARRIES lined out to ss (0-2 KK). 4 1\nKEIGHRAN stole second",
+      "LEWIS stole third. 4 1\nAMARAL struck out swinging (2-2 FKFBBS). 4 1\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 2\nSacramento State - Top of 2nd SAC USF\nHARWELL to p for AMBORN. 4 1\nChristiansen singled to center field (1-0 B). 4 1\nChristiansen stole second. 4 1\nSmith, JP walked (3-2 SBBFBB). 4 1\nKligman, E singled through the left side (0-0)",
+      "Smith, JP advanced to second",
+      "Christiansen advanced to\nthird. 4 1\nPoturnak walked, RBI (3-0 BBBB)",
+      "Kligman, E advanced to second",
+      "Smith, JP advanced to third",
+      "Christiansen scored. 5 1\nMasciangelo singled to right center, RBI (1-0 B)",
+      "Poturnak advanced to second",
+      "Kligman, E advanced to\nthird",
+      "Smith, JP scored. 6 1\nPerez struck out swinging (2-2 BBFFS). 6 1\nOyler reached on a fielder's choice, RBI (2-2 KBFBFFFF)",
+      "Masciangelo out at second 3b to 2b",
+      "Poturnak\nadvanced to third",
+      "Kligman, E scored. 7 1\nOyler advanced to second on a wild pitch. 7 1\nPimentel-Gue walked (3-1 BBBKB). 7 1\nWhite walked, RBI (3-2 BBKKBFB)",
+      "Pimentel-Gue advanced to second",
+      "Oyler advanced to third",
+      "Poturnak\nscored. 8 1\nBROWN to p for HARWELL. 8 1\nChristiansen struck out swinging (2-2 BBSFS). 8 1\nRuns: 4 Hits: 3 Errors: 0 Left On Base: 3\nSan Francisco - Bottom of 2nd SAC USF\nWALSH walked (3-2 BBFFBB). 8 1\nRAMPPEN popped up to 2b (2-1 BBF). 8 1\nFUNG grounded out to 2b (3-2 KBBBF)",
+      "WALSH advanced to second. 8 1\nDECELLE singled to shortstop (1-1 BK)",
+      "WALSH advanced to third. 8 1\nDECELLE stole second. 8 1\nLEWIS walked (3-2 KSBBBB). 8 1\nROGERS struck out swinging (0-2 FFS). 8 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 3\nSacramento State - Top of 3rd SAC USF\nSmith, JP grounded out to 3b (3-1 BBSB). 8 1\nKligman, E struck out swinging (2-2 KBFBS). 8 1\nPoturnak grounded out to ss (2-1 BBF). 8 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 3rd SAC USF\nKEIGHRAN popped up to 3b (1-0 B). 8 1\nHARRIES grounded out to ss (2-2 FKBB). 8 1\nAMARAL walked (3-1 KBBBB). 8 1\nWALSH struck out swinging, out at first c to 1b (2-2 BFBFS). 8 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nSacramento State - Top of 4th SAC USF\nMasciangelo singled to left center (0-2 KK). 8 1\nPerez struck out swinging (1-2 BSSS). 8 1\nMasciangelo failed pickoff attempt, advanced to second on an error by p. 8 1\nOyler flied out to cf (2-1 KBB). 8 1\nPimentel-Gue singled through the left side (2-2 KFBFB)",
+      "Masciangelo advanced to third, out at home lf to c. 8 1\nRuns: 0 Hits: 2 Errors: 1 Left On Base: 1\nSan Francisco - Bottom of 4th SAC USF\nRAMPPEN lined out to lf (0-1 K). 8 1\nFUNG doubled to right center (2-1 BBK). 8 1\nDECELLE singled to left field, RBI (2-2 BFBK)",
+      "FUNG scored. 8 2\nLEWIS singled through the left side (2-2 BFBK)",
+      "DECELLE advanced to second. 8 2\nHalverson to p for Lay. 8 2\nLEWIS advanced to second on a wild pitch",
+      "DECELLE advanced to third on a wild pitch. 8 2\nROGERS hit by pitch (0-2 SK). 8 2\nKEIGHRAN walked, RBI (3-1 BBKBB)",
+      "ROGERS advanced to second",
+      "LEWIS advanced to third",
+      "DECELLE\nscored. 8 3\nHARRIES out at first 1b to p, RBI (2-2 BKKB)",
+      "KEIGHRAN advanced to second",
+      "ROGERS advanced to third",
+      "LEWIS scored. 8 4\nAMARAL popped up to 2b (2-2 KSBB). 8 4\nRuns: 3 Hits: 3 Errors: 0 Left On Base: 2\nSacramento State - Top of 5th SAC USF\nBARRETT to p for BROWN. 8 4\nWhite doubled down the rf line (3-1 FBBB). 8 4\nChristiansen singled, bunt (0-0)",
+      "White advanced to third. 8 4\nSmith, JP grounded into double play ss to 2b to 1b (0-1 K)",
+      "Christiansen out on the play",
+      "White scored. 9 4\nKligman, E lined out to lf (1-0 B). 9 4\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 5th SAC USF\nSewell to 2b for Pimentel-Gue. 9 4\nLucchesi to p for Halverson. 9 4\nWALSH popped up to 2b to right field (2-1 FBB). 9 4\nRAMPPEN singled to center field (0-0). 9 4\nFUNG struck out swinging (1-2 BKFS). 9 4\nDECELLE doubled to left center, RBI (2-1 BSB)",
+      "RAMPPEN scored. 9 5\nLEWIS walked (3-2 SBBBKB). 9 5\nLEWIS stole second",
+      "DECELLE stole third. 9 5\nROGERS lined out to 3b (1-1 BK). 9 5\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 2\nSacramento State - Top of 6th SAC USF\nPoturnak struck out swinging (0-2 SSS). 9 5\nWalton pinch hit for Masciangelo. 9 5\nWalton singled up the middle (2-2 BBKK). 9 5\nPerez singled to center field, advanced to second on a fielding error by cf, advanced to third (1-1 BS)",
+      "Walton scored, unearned. 10 5\nOyler hit by pitch (1-0 B). 10 5\nSewell singled to right field, RBI (1-0 B)",
+      "Oyler advanced to second",
+      "Perez scored, unearned. 11 5\nPACHECO to p for BARRETT. 11 5\nWhite struck out looking (1-2 FBFK). 11 5\nChristiansen homered to right field, 3 RBI (1-0 B)",
+      "Sewell scored",
+      "Oyler scored. 14 5\nSmith, JP grounded out to ss (2-0 BB). 14 5\nRuns: 5 Hits: 4 Errors: 1 Left On Base: 0\nSan Francisco - Bottom of 6th SAC USF\nWalton to lf. 14 5\nKEIGHRAN lined out to lf to left center (3-2 KBBBK). 14 5\nHARRIES singled up the middle (0-1 K). 14 5\nPELLETIER pinch ran for HARRIES. 14 5\nAMARAL walked (3-2 BFBFBB)",
+      "PELLETIER advanced to second. 14 5\nMOORE pinch ran for AMARAL. 14 5\nWALSH singled through the left side, RBI (0-0)",
+      "MOORE advanced to second",
+      "PELLETIER scored. 14 6\nRAMPPEN struck out swinging (2-2 SSBBS). 14 6\nFUNG reached on a fielder's choice (2-2 KBBK)",
+      "WALSH advanced to second",
+      "MOORE advanced to third. 14 6\nLatimer to p for Lucchesi. 14 6\nDECELLE walked, RBI (3-1 BBKBB)",
+      "FUNG advanced to second",
+      "WALSH advanced to third",
+      "MOORE scored. 14 7\nLEWIS singled to shortstop, RBI (2-2 FBSB)",
+      "DECELLE advanced to second",
+      "FUNG advanced to third",
+      "WALSH scored. 14 8\nROGERS singled up the middle, 2 RBI (2-0 BB)",
+      "LEWIS advanced to second",
+      "DECELLE scored",
+      "FUNG scored. 14 10\nKEIGHRAN walked (3-0 BBBB)",
+      "ROGERS advanced to second",
+      "LEWIS advanced to third. 14 10\nBrown, Ka to p for Latimer. 14 10\nPELLETIER flied out to rf (1-0 B). 14 10\nRuns: 5 Hits: 4 Errors: 0 Left On Base: 3\nSacramento State - Top of 7th SAC USF\nPELLETIER to ss. 14 10\nMOORE to rf. 14 10\nKligman, E popped up to 3b (1-2 BKK). 14 10\nPoturnak singled to second base (0-2 KS). 14 10\nWalton struck out swinging (3-2 KBFBBS)",
+      "Poturnak out at second c to 2b, caught stealing. 14 10\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 7th SAC USF\nMOORE struck out swinging, out at first c to 1b (1-2 BSKFS). 14 10\nWALSH struck out swinging, out at first c to 1b (0-2 SSS). 14 10\nRAMPPEN struck out swinging, out at first c to 1b (1-2 KSBS). 14 10\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSacramento State - Top of 8th SAC USF\nDURVASULA to p for PACHECO. 14 10\nPerez homered to right field, RBI (1-0 B). 15 10\nOyler grounded out to 3b (0-0). 15 10\nSewell walked (3-1 BKBBB). 15 10\nWhite walked (3-1 KBBBB)",
+      "Sewell advanced to second. 15 10\nChristiansen walked (3-1 BBBKB)",
+      "White advanced to second",
+      "Sewell advanced to third. 15 10\nSmith, JP homered to left field, 4 RBI (0-2 SF)",
+      "Christiansen scored",
+      "White scored",
+      "Sewell scored. 19 10\nKligman, E struck out looking (1-2 SFBK). 19 10\nPoturnak singled down the lf line (0-0). 19 10\nWalton flied out to rf (1-1 BF). 19 10\nRuns: 5 Hits: 3 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 8th SAC USF\nPerazzo to ss for Oyler. 19 10\nSHEA pinch hit for FUNG. 19 10\nSHEA hit by pitch (3-1 BBKB). 19 10\nDECELLE struck out swinging (3-2 BBSBFS). 19 10\nLEWIS struck out looking (1-2 KSBK). 19 10\nSHEA advanced to second. 19 10\nROGERS struck out swinging (0-2 SSS). 19 10\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nSacramento State - Top of 9th SAC USF\nSHEA to 2b. 19 10\nCUPIC to p for DURVASULA. 19 10\nPerez out at first 1b to p (0-0). 19 10\nPerazzo grounded out to 2b (2-2 KSFBBFF). 19 10\nSewell struck out swinging (2-2 BFFBK). 19 10\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 9th SAC USF\nHARMON pinch hit for KEIGHRAN. 19 10\nHARMON struck out looking (2-2 SSBBFK). 19 10\nPELLETIER homered to left field, RBI (0-1 F). 19 11\nMOORE grounded out to ss (1-2 SBS). 19 11\nWALSH struck out swinging (0-2 KFS). 19 11\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "White, Tyler",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "Christiansen, Ryan",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Smith, JP",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Perez, Christian",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [
+      "Christiansen, Ryan (1) Totals 41 11 13 11 9 13 14"
+    ],
+    "caught_stealing": [
+      "Poturnak, Jakob (1)"
+    ],
+    "hit_by_pitch": [
+      "Oyler, Luke (1) 2B: Kenny DeCelle (1)",
+      "Jordan Lewis (1)",
+      "Matty Fung (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Lucchesi, Noah",
+      "record": "1-0"
+    },
+    "loss": {
+      "player": "Cal Amborn",
+      "record": "0-1"
+    },
+    "save": {
+      "player": "Brown, Kade",
+      "count": 2
+    }
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "White walked (3-1 BBBKB). 0 0",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Christiansen struck out swinging (0-2 SKS). 0 0",
+          "pitch_count": "0-2 SKS",
+          "rbi": 0
+        },
+        {
+          "description": "Smith, JP singled to left field (1-1 FB); White advanced to second. 0 0",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Smith, JP advanced to second on a wild pitch; White advanced to third on a wild pitch. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kligman, E singled to left center, 2 RBI (0-1 K); Smith, JP scored; White scored. 2 0",
+          "pitch_count": "0-1 K",
+          "rbi": 2
+        },
+        {
+          "description": "Poturnak singled through the left side (0-1 K); Kligman, E advanced to second. 2 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Masciangelo singled up the middle, RBI (0-0); Poturnak advanced to second; Kligman, E scored. 3 0",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Perez grounded out to 1b unassisted (0-2 FK); Masciangelo advanced to second; Poturnak advanced to",
+          "pitch_count": "0-2 FK",
+          "rbi": 0
+        },
+        {
+          "description": "third. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Oyler walked (3-2 BFBFBFB). 3 0",
+          "pitch_count": "3-2 BFBFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Pimentel-Gue walked, RBI (3-1 BBKBB); Oyler advanced to second; Masciangelo advanced to third;",
+          "pitch_count": "3-1 BBKBB",
+          "rbi": 1
+        },
+        {
+          "description": "Poturnak scored. 4 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White lined out to p (1-1 BF). 4 0",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "DECELLE singled to left field (0-0). 4 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS doubled down the lf line, RBI (1-0 B); DECELLE scored. 4 1",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "ROGERS grounded out to 3b (0-1 K). 4 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN walked (3-1 BBSBB). 4 1",
+          "pitch_count": "3-1 BBSBB",
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES lined out to ss (0-2 KK). 4 1",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN stole second; LEWIS stole third. 4 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL struck out swinging (2-2 FKFBBS). 4 1",
+          "pitch_count": "2-2 FKFBBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "HARWELL to p for AMBORN. 4 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Christiansen singled to center field (1-0 B). 4 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Christiansen stole second. 4 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Smith, JP walked (3-2 SBBFBB). 4 1",
+          "pitch_count": "3-2 SBBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Kligman, E singled through the left side (0-0); Smith, JP advanced to second; Christiansen advanced to",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "third. 4 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Poturnak walked, RBI (3-0 BBBB); Kligman, E advanced to second; Smith, JP advanced to third;",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 1
+        },
+        {
+          "description": "Christiansen scored. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Masciangelo singled to right center, RBI (1-0 B); Poturnak advanced to second; Kligman, E advanced to",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "third; Smith, JP scored. 6 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Perez struck out swinging (2-2 BBFFS). 6 1",
+          "pitch_count": "2-2 BBFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Oyler reached on a fielder's choice, RBI (2-2 KBFBFFFF); Masciangelo out at second 3b to 2b; Poturnak",
+          "pitch_count": "2-2 KBFBFFFF",
+          "rbi": 1
+        },
+        {
+          "description": "advanced to third; Kligman, E scored. 7 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Oyler advanced to second on a wild pitch. 7 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pimentel-Gue walked (3-1 BBBKB). 7 1",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "White walked, RBI (3-2 BBKKBFB); Pimentel-Gue advanced to second; Oyler advanced to third; Poturnak",
+          "pitch_count": "3-2 BBKKBFB",
+          "rbi": 1
+        },
+        {
+          "description": "scored. 8 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BROWN to p for HARWELL. 8 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Christiansen struck out swinging (2-2 BBSFS). 8 1",
+          "pitch_count": "2-2 BBSFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "WALSH walked (3-2 BBFFBB). 8 1",
+          "pitch_count": "3-2 BBFFBB",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN popped up to 2b (2-1 BBF). 8 1",
+          "pitch_count": "2-1 BBF",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG grounded out to 2b (3-2 KBBBF); WALSH advanced to second. 8 1",
+          "pitch_count": "3-2 KBBBF",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE singled to shortstop (1-1 BK); WALSH advanced to third. 8 1",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE stole second. 8 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS walked (3-2 KSBBBB). 8 1",
+          "pitch_count": "3-2 KSBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (0-2 FFS). 8 1",
+          "pitch_count": "0-2 FFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Smith, JP grounded out to 3b (3-1 BBSB). 8 1",
+          "pitch_count": "3-1 BBSB",
+          "rbi": 0
+        },
+        {
+          "description": "Kligman, E struck out swinging (2-2 KBFBS). 8 1",
+          "pitch_count": "2-2 KBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Poturnak grounded out to ss (2-1 BBF). 8 1",
+          "pitch_count": "2-1 BBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "KEIGHRAN popped up to 3b (1-0 B). 8 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES grounded out to ss (2-2 FKBB). 8 1",
+          "pitch_count": "2-2 FKBB",
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL walked (3-1 KBBBB). 8 1",
+          "pitch_count": "3-1 KBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "WALSH struck out swinging, out at first c to 1b (2-2 BFBFS). 8 1",
+          "pitch_count": "2-2 BFBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Masciangelo singled to left center (0-2 KK). 8 1",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "Perez struck out swinging (1-2 BSSS). 8 1",
+          "pitch_count": "1-2 BSSS",
+          "rbi": 0
+        },
+        {
+          "description": "Masciangelo failed pickoff attempt, advanced to second on an error by p. 8 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Oyler flied out to cf (2-1 KBB). 8 1",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "Pimentel-Gue singled through the left side (2-2 KFBFB); Masciangelo advanced to third, out at home lf to c. 8 1",
+          "pitch_count": "2-2 KFBFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "RAMPPEN lined out to lf (0-1 K). 8 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG doubled to right center (2-1 BBK). 8 1",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE singled to left field, RBI (2-2 BFBK); FUNG scored. 8 2",
+          "pitch_count": "2-2 BFBK",
+          "rbi": 1
+        },
+        {
+          "description": "LEWIS singled through the left side (2-2 BFBK); DECELLE advanced to second. 8 2",
+          "pitch_count": "2-2 BFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Halverson to p for Lay. 8 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS advanced to second on a wild pitch; DECELLE advanced to third on a wild pitch. 8 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS hit by pitch (0-2 SK). 8 2",
+          "pitch_count": "0-2 SK",
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN walked, RBI (3-1 BBKBB); ROGERS advanced to second; LEWIS advanced to third; DECELLE",
+          "pitch_count": "3-1 BBKBB",
+          "rbi": 1
+        },
+        {
+          "description": "scored. 8 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES out at first 1b to p, RBI (2-2 BKKB); KEIGHRAN advanced to second; ROGERS advanced to third;",
+          "pitch_count": "2-2 BKKB",
+          "rbi": 1
+        },
+        {
+          "description": "LEWIS scored. 8 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL popped up to 2b (2-2 KSBB). 8 4",
+          "pitch_count": "2-2 KSBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "BARRETT to p for BROWN. 8 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White doubled down the rf line (3-1 FBBB). 8 4",
+          "pitch_count": "3-1 FBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Christiansen singled, bunt (0-0); White advanced to third. 8 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Smith, JP grounded into double play ss to 2b to 1b (0-1 K); Christiansen out on the play; White scored. 9 4",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Kligman, E lined out to lf (1-0 B). 9 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Sewell to 2b for Pimentel-Gue. 9 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lucchesi to p for Halverson. 9 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WALSH popped up to 2b to right field (2-1 FBB). 9 4",
+          "pitch_count": "2-1 FBB",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN singled to center field (0-0). 9 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG struck out swinging (1-2 BKFS). 9 4",
+          "pitch_count": "1-2 BKFS",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE doubled to left center, RBI (2-1 BSB); RAMPPEN scored. 9 5",
+          "pitch_count": "2-1 BSB",
+          "rbi": 1
+        },
+        {
+          "description": "LEWIS walked (3-2 SBBBKB). 9 5",
+          "pitch_count": "3-2 SBBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS stole second; DECELLE stole third. 9 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS lined out to 3b (1-1 BK). 9 5",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Poturnak struck out swinging (0-2 SSS). 9 5",
+          "pitch_count": "0-2 SSS",
+          "rbi": 0
+        },
+        {
+          "description": "Walton pinch hit for Masciangelo. 9 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walton singled up the middle (2-2 BBKK). 9 5",
+          "pitch_count": "2-2 BBKK",
+          "rbi": 0
+        },
+        {
+          "description": "Perez singled to center field, advanced to second on a fielding error by cf, advanced to third (1-1 BS);",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        },
+        {
+          "description": "Walton scored, unearned. 10 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Oyler hit by pitch (1-0 B). 10 5",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Sewell singled to right field, RBI (1-0 B); Oyler advanced to second; Perez scored, unearned. 11 5",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "PACHECO to p for BARRETT. 11 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White struck out looking (1-2 FBFK). 11 5",
+          "pitch_count": "1-2 FBFK",
+          "rbi": 0
+        },
+        {
+          "description": "Christiansen homered to right field, 3 RBI (1-0 B); Sewell scored; Oyler scored. 14 5",
+          "pitch_count": "1-0 B",
+          "rbi": 3
+        },
+        {
+          "description": "Smith, JP grounded out to ss (2-0 BB). 14 5",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Walton to lf. 14 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN lined out to lf to left center (3-2 KBBBK). 14 5",
+          "pitch_count": "3-2 KBBBK",
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES singled up the middle (0-1 K). 14 5",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER pinch ran for HARRIES. 14 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL walked (3-2 BFBFBB); PELLETIER advanced to second. 14 5",
+          "pitch_count": "3-2 BFBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "MOORE pinch ran for AMARAL. 14 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WALSH singled through the left side, RBI (0-0); MOORE advanced to second; PELLETIER scored. 14 6",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "RAMPPEN struck out swinging (2-2 SSBBS). 14 6",
+          "pitch_count": "2-2 SSBBS",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG reached on a fielder's choice (2-2 KBBK); WALSH advanced to second; MOORE advanced to third. 14 6",
+          "pitch_count": "2-2 KBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Latimer to p for Lucchesi. 14 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE walked, RBI (3-1 BBKBB); FUNG advanced to second; WALSH advanced to third; MOORE scored. 14 7",
+          "pitch_count": "3-1 BBKBB",
+          "rbi": 1
+        },
+        {
+          "description": "LEWIS singled to shortstop, RBI (2-2 FBSB); DECELLE advanced to second; FUNG advanced to third;",
+          "pitch_count": "2-2 FBSB",
+          "rbi": 1
+        },
+        {
+          "description": "WALSH scored. 14 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS singled up the middle, 2 RBI (2-0 BB); LEWIS advanced to second; DECELLE scored; FUNG scored. 14 10",
+          "pitch_count": "2-0 BB",
+          "rbi": 2
+        },
+        {
+          "description": "KEIGHRAN walked (3-0 BBBB); ROGERS advanced to second; LEWIS advanced to third. 14 10",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Brown, Ka to p for Latimer. 14 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER flied out to rf (1-0 B). 14 10",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "PELLETIER to ss. 14 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MOORE to rf. 14 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kligman, E popped up to 3b (1-2 BKK). 14 10",
+          "pitch_count": "1-2 BKK",
+          "rbi": 0
+        },
+        {
+          "description": "Poturnak singled to second base (0-2 KS). 14 10",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        },
+        {
+          "description": "Walton struck out swinging (3-2 KBFBBS); Poturnak out at second c to 2b, caught stealing. 14 10",
+          "pitch_count": "3-2 KBFBBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "MOORE struck out swinging, out at first c to 1b (1-2 BSKFS). 14 10",
+          "pitch_count": "1-2 BSKFS",
+          "rbi": 0
+        },
+        {
+          "description": "WALSH struck out swinging, out at first c to 1b (0-2 SSS). 14 10",
+          "pitch_count": "0-2 SSS",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN struck out swinging, out at first c to 1b (1-2 KSBS). 14 10",
+          "pitch_count": "1-2 KSBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "DURVASULA to p for PACHECO. 14 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Perez homered to right field, RBI (1-0 B). 15 10",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "Oyler grounded out to 3b (0-0). 15 10",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Sewell walked (3-1 BKBBB). 15 10",
+          "pitch_count": "3-1 BKBBB",
+          "rbi": 0
+        },
+        {
+          "description": "White walked (3-1 KBBBB); Sewell advanced to second. 15 10",
+          "pitch_count": "3-1 KBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Christiansen walked (3-1 BBBKB); White advanced to second; Sewell advanced to third. 15 10",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Smith, JP homered to left field, 4 RBI (0-2 SF); Christiansen scored; White scored; Sewell scored. 19 10",
+          "pitch_count": "0-2 SF",
+          "rbi": 4
+        },
+        {
+          "description": "Kligman, E struck out looking (1-2 SFBK). 19 10",
+          "pitch_count": "1-2 SFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Poturnak singled down the lf line (0-0). 19 10",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Walton flied out to rf (1-1 BF). 19 10",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Perazzo to ss for Oyler. 19 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SHEA pinch hit for FUNG. 19 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SHEA hit by pitch (3-1 BBKB). 19 10",
+          "pitch_count": "3-1 BBKB",
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE struck out swinging (3-2 BBSBFS). 19 10",
+          "pitch_count": "3-2 BBSBFS",
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS struck out looking (1-2 KSBK). 19 10",
+          "pitch_count": "1-2 KSBK",
+          "rbi": 0
+        },
+        {
+          "description": "SHEA advanced to second. 19 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (0-2 SSS). 19 10",
+          "pitch_count": "0-2 SSS",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "SHEA to 2b. 19 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CUPIC to p for DURVASULA. 19 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Perez out at first 1b to p (0-0). 19 10",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Perazzo grounded out to 2b (2-2 KSFBBFF). 19 10",
+          "pitch_count": "2-2 KSFBBFF",
+          "rbi": 0
+        },
+        {
+          "description": "Sewell struck out swinging (2-2 BFFBK). 19 10",
+          "pitch_count": "2-2 BFFBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "HARMON pinch hit for KEIGHRAN. 19 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON struck out looking (2-2 SSBBFK). 19 10",
+          "pitch_count": "2-2 SSBBFK",
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER homered to left field, RBI (0-1 F). 19 11",
+          "pitch_count": "0-1 F",
+          "rbi": 1
+        },
+        {
+          "description": "MOORE grounded out to ss (1-2 SBS). 19 11",
+          "pitch_count": "1-2 SBS",
+          "rbi": 0
+        },
+        {
+          "description": "WALSH struck out swinging (0-2 KFS). 19 11",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}

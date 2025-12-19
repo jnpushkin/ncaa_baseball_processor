@@ -1,0 +1,1361 @@
+{
+  "metadata": {
+    "date": "2/21/2025",
+    "venue": "Phoenix Muni Stadium (Phoenix, Ariz.)",
+    "stadium": "Phoenix Muni Stadium",
+    "city": "Phoenix, Ariz.",
+    "away_team": "Oral Roberts",
+    "away_team_rank": null,
+    "away_team_record": "4-0",
+    "away_team_score": 8,
+    "home_team": "Arizona State",
+    "home_team_rank": null,
+    "home_team_record": "4-1",
+    "home_team_score": 7,
+    "attendance": 2805,
+    "duration": "3:08",
+    "start_time": "6:35 pm",
+    "weather": "Charlie, here comes the deuce.",
+    "umpires": {
+      "list": "Home Plate: Scott Letendre First: Angel Campos Second Base: Mike Lusky Third Base: Ramon Armendariz"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Will Edmunson",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 1,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "edmuns000wil",
+        "full_name": "Will Edmunson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Makani Tanaka",
+        "position": "cf",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "tanaka000mak",
+        "full_name": "Makani Tanaka",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wailele Kane-Yates",
+        "position": "c",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kane-y000wai",
+        "full_name": "Wailele Kane-Yates",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cooper Combs",
+        "position": "lf",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "combs-000coo",
+        "full_name": "Cooper Combs",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ethan Fender",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "fender000eth",
+        "full_name": "Ethan Fender",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jack Schark",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "schark000jac",
+        "full_name": "Jack Schark",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tyler Brodrick",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "brodri000tyl",
+        "full_name": "Tyler Brodrick",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Keaton Campbell",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "campbe000kea",
+        "full_name": "Keaton Campbell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Martell Davis",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "davis-024mar",
+        "full_name": "Martell Davis",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Weston Rouse",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "rouse-000wes",
+        "full_name": "Weston Rouse",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jared Ure",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ure---000jar",
+        "full_name": "Jared Ure",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jack Hill",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hill--006jac",
+        "full_name": "Jack Hill",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dalton Patten",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "patten000dal",
+        "full_name": "Dalton Patten",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kelly, Lucas",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kelly-000luc",
+        "full_name": "Lucas Kelly",
+        "match_confidence": 1.0
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Contrades, Nu'u",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "contra000nuu",
+        "full_name": "Nu'u Contrades",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Vu, Kien",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "vu----000kie",
+        "full_name": "Kien Vu",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Compton, Brandon",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 3,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "compto003bra",
+        "full_name": "Brandon Compton",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tobias, Jacob",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "tobias000jac",
+        "full_name": "Jacob Tobias",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cromwick, Josiah",
+        "position": "c",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "cromwi000jos",
+        "full_name": "Josiah Cromwick",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jackson, Isaiah",
+        "position": "cf",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "jackso003isa",
+        "full_name": "Isaiah Jackson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hernandez, Jonathon",
+        "position": "dh",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hernan007jon",
+        "full_name": "Jonathon Hernandez",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hairston, Landon",
+        "position": "ph/dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hairst000lan",
+        "full_name": "Landon Hairston",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "McGary, Ky",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mcgary000ky-",
+        "full_name": "Ky McGary",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ryan, Jax",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "ryan--000jax",
+        "full_name": "Jax Ryan",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Walker, Kyle",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "walker005kyl",
+        "full_name": "Kyle Walker",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jacobs, Ben",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "jacobs002ben",
+        "full_name": "Ben Jacobs",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Giblin, Jonah",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "giblin000jon",
+        "full_name": "Jonah Giblin",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Weston Rouse",
+        "innings_pitched": 4.1,
+        "hits": 4,
+        "runs": 7,
+        "earned_runs": 7,
+        "walks": 4,
+        "strikeouts": 3,
+        "batters_faced": 22,
+        "at_bats": 17,
+        "pitches": 90,
+        "bref_id": "rouse-000wes",
+        "full_name": "Weston Rouse",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jared Ure",
+        "innings_pitched": 2.2,
+        "hits": 4,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "batters_faced": 13,
+        "at_bats": 13,
+        "pitches": 33,
+        "bref_id": "ure---000jar",
+        "full_name": "Jared Ure",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jack Hill",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 5,
+        "at_bats": 3,
+        "pitches": 24,
+        "bref_id": "hill--006jac",
+        "full_name": "Jack Hill",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dalton Patten",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 5,
+        "at_bats": 4,
+        "pitches": 20,
+        "bref_id": "patten000dal",
+        "full_name": "Dalton Patten",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Jacobs, Ben",
+        "innings_pitched": 5.0,
+        "hits": 4,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 1,
+        "strikeouts": 11,
+        "batters_faced": 20,
+        "at_bats": 19,
+        "pitches": 82,
+        "bref_id": "jacobs002ben",
+        "full_name": "Ben Jacobs",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Giblin, Jonah",
+        "innings_pitched": 1.2,
+        "hits": 3,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 8,
+        "at_bats": 8,
+        "pitches": 24,
+        "bref_id": "giblin000jon",
+        "full_name": "Jonah Giblin",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Fitzpatrick, Sean",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 1,
+        "at_bats": 1,
+        "pitches": 4,
+        "bref_id": "fitzpa001sea",
+        "full_name": "Sean Fitzpatrick",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kelly, Lucas",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 12,
+        "bref_id": "kelly-000luc",
+        "full_name": "Lucas Kelly",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Koger, Will",
+        "innings_pitched": 1.0,
+        "hits": 2,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 3,
+        "strikeouts": 1,
+        "batters_faced": 8,
+        "at_bats": 5,
+        "pitches": 39,
+        "bref_id": "koger-000wil",
+        "full_name": "Will Koger",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        1,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        3
+      ],
+      "home_innings": [
+        0,
+        1,
+        3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Wailele Kane-Yates (1)",
+      "Ethan Fender (1)",
+      "Jack Hill (1) 2B: Tobias, Jacob (1)\nHR: Cromwick, Josiah (1)\nSB: Vu, Kien (3)",
+      "Compton, Brandon (2)",
+      "Jackson, Isaiah (2)",
+      "McGary, Ky (1)",
+      "Walker, Kyle (2)\nHBP: Tobias, Jacob (1)\nOral Roberts IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nWeston Rouse 4.1 4 7 7 4 3 0 0 1 0 17 22 5 5 90\nJared Ure 2.2 4 0 0 0 3 0 0 0 0 13 13 2 3 33\nJack Hill (W, 1-0) 1.0 0 0 0 2 1 1 0 0 1 3 5 2 0 24\nDalton Patten (S, 2) 1.0 1 0 0 1 1 0 0 0 0 4 5 2 0 20\nTotals 9 7 7 7 8 1 0 1 1 37 45 11 8 167\nArizona State IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nJacobs, Ben 5.0 4 3 3 1 11 0 0 0 0 19 20 1 3 82\nGiblin, Jonah 1.2 3 2 2 0 1 0 0 0 0 8 8 2 2 24\nFitzpatrick, Sean 0.1 0 0 0 0 0 1 0 0 0 1 1 0 1 4\nKelly, Lucas 1.0 0 0 0 0 0 0 0 0 0 3 3 1 2 12\nKoger, Will (L, 0-1) 1.0 2 3 3 3 1 1 0 0 0 5 8 1 1 39\nTotals 9 8 8 4 13 2 0 0 0 36 40 5 9 161\nWin: Jack Hill (1-0)\nLoss: Koger, Will (0-1)\nSave: Dalton Patten (2)\nHBP: Weston Rouse\nPB: None\nUmpires: Home Plate: Scott Letendre First: Angel Campos Second Base: Mike Lusky Third Base: Ramon Armendariz\nStart: 6:35 pm Time: 3:08 Attendance: 2,805 Weather: Charlie, here comes the deuce.\nPlay By Play\nOral Roberts - Top of 1st ORU ASU\nW. Edmunson homered to left center, RBI (1-2 BKKF). 1 0\nM. Tanaka struck out looking (3-2 KKBFBBFK). 1 0\nW. Kane-Yate struck out looking (1-2 SBSFK). 1 0\nC. Combs flied out to cf (3-2 KFBFFBB). 1 0\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0\nArizona State - Bottom of 1st ORU ASU\nContrades, N lined out to ss (2-2 SBFBF). 1 0\nVu, Kien grounded out to ss (0-0). 1 0\nCompton, B. grounded out to 2b (1-1 BK). 1 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nOral Roberts - Top of 2nd ORU ASU\nE. Fender struck out swinging (0-2 KSS). 1 0\nJ. Schark struck out swinging (1-2 BKKS). 1 0\nT. Brodrick struck out swinging (0-2 KFS). 1 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArizona State - Bottom of 2nd ORU ASU\nTobias, J. lined out to 1b (2-2 FBFFB). 1 0\nCromwick, J. homered to left field, RBI (1-1 BK). 1 1\nJackson, I. struck out swinging (1-2 SBKS). 1 1\nHernandez,J. struck out looking (2-2 BSSBFK). 1 1\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0\nOral Roberts - Top of 3rd ORU ASU\nK. Campbell struck out swinging (1-2 KFBS). 1 1\nM. Davis struck out swinging (1-2 KSBFS). 1 1\nW. Edmunson singled up the middle (1-2 KBF). 1 1\nM. Tanaka grounded out to ss (0-1 K). 1 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nArizona State - Bottom of 3rd ORU ASU\nRyan, Jax singled through the left side (2-2 KBBK). 1 1\nWalker, Kyle reached on a fielder's choice to shortstop (1-0 B)",
+      "Ryan, Jax out at second ss to 2b. 1 1\nWalker, Kyle stole second. 1 1\nWalker, Kyle stole third. 1 1\nContrades, N walked (3-0 BBBB). 1 1\nVu, Kien reached on a fielder's choice to second base, RBI (1-1 KB)",
+      "Contrades, N out at second 2b to ss",
+      "Walker, Kyle scored. 1 2\nVu, Kien stole second, advanced to third on a throwing error by c. 1 2\nCompton, B. walked (3-2 BBKBKFB). 1 2\nCompton, B. stole second",
+      "Vu, Kien stole home. 1 3\nTobias, J. doubled to right field, RBI (1-2 BSK)",
+      "Compton, B. scored. 1 4\nCromwick, J. grounded out to ss (0-2 KS). 1 4\nRuns: 3 Hits: 2 Errors: 1 Left On Base: 1\nOral Roberts - Top of 4th ORU ASU\nW. Kane-Yate struck out looking (2-2 BFSBK). 1 4\nC. Combs struck out swinging (0-2 SFS). 1 4\nE. Fender struck out swinging (1-2 KSBS). 1 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArizona State - Bottom of 4th ORU ASU\nJackson, I. singled to left center (1-1 BF). 1 4\nHernandez,J. flied out to rf (1-2 KBSFF). 1 4\nRyan, Jax flied out to rf (0-0). 1 4\nJackson, I. stole second. 1 4\nWalker, Kyle popped up to ss (2-2 BSSB). 1 4\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nOral Roberts - Top of 5th ORU ASU\nJ. Schark homered to left field, RBI (1-0 B). 2 4\nT. Brodrick grounded out to 1b unassisted (2-1 BBF). 2 4\nK. Campbell grounded out to 2b (2-2 KBKB). 2 4\nM. Davis homered to left field, RBI (2-1 FBB). 3 4\nW. Edmunson walked (3-0 BBBB). 3 4\nW. Edmunson stole second. 3 4\nM. Tanaka struck out swinging. 3 4\nRuns: 2 Hits: 2 Errors: 0 Left On Base: 1\nArizona State - Bottom of 5th ORU ASU\nContrades, N struck out looking (1-2 FKBK). 3 4\nVu, Kien walked (3-0 BBBB). 3 4\nCompton, B. walked (3-2 BBBKKB)",
+      "Vu, Kien advanced to second. 3 4\nVu, Kien stole third. 3 4\nTobias, J. hit by pitch (2-1 KBB)",
+      "Compton, B. advanced to second. 3 4\nJ. Ure to p for W. Rouse. 3 4\nCromwick, J. struck out swinging (1-2 SSBS). 3 4\nJackson, I. singled up the middle, 2 RBI (0-0)",
+      "Tobias, J. advanced to third",
+      "Compton, B. scored",
+      "Vu, Kien\nscored. 3 6\nHairston, L. pinch hit for Hernandez,J.. 3 6\nHairston, L. singled through the left side, RBI (0-0)",
+      "Jackson, I. advanced to second",
+      "Tobias, J. scored. 3 7\nRyan, Jax flied out to lf (1-0 B). 3 7\nRuns: 3 Hits: 2 Errors: 0 Left On Base: 2\nOral Roberts - Top of 6th ORU ASU\nGiblin, J. to p for Jacobs, Ben. 3 7\nW. Kane-Yate doubled to left center (0-0). 3 7\nC. Combs homered to left field, 2 RBI (0-0)",
+      "W. Kane-Yate scored. 5 7\nE. Fender flied out to rf (1-1 BK). 5 7\nJ. Schark struck out swinging (2-2 BKKBS). 5 7\nT. Brodrick grounded out to ss (2-2 BSBF). 5 7\nRuns: 2 Hits: 2 Errors: 0 Left On Base: 0\nArizona State - Bottom of 6th ORU ASU\nWalker, Kyle grounded out to ss (1-2 BSK). 5 7\nContrades, N struck out swinging (2-2 BKFBFS). 5 7\nVu, Kien singled to right field (0-1 F). 5 7\nCompton, B. singled to center field (0-0)",
+      "Vu, Kien advanced to second. 5 7\nTobias, J. grounded out to 2b (0-1 K). 5 7\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2\nOral Roberts - Top of 7th ORU ASU\nK. Campbell out at first 1b to p (0-0). 5 7\nM. Davis lined out to ss (2-1 BBF). 5 7\nW. Edmunson singled to center field (2-1 BKB). 5 7\nFitzpatrick to p for Giblin, J.. 5 7\nW. Edmunson advanced to second on a wild pitch. 5 7\nM. Tanaka grounded out to 2b (2-1 BFB). 5 7\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nArizona State - Bottom of 7th ORU ASU\nCromwick, J. struck out looking (0-2 KSFFFK). 5 7\nJackson, I. reached on a fielding error by 1b (0-0). 5 7\nHairston, L. to dh. 5 7\nHairston, L. flied out to rf (0-0). 5 7\nJackson, I. stole second. 5 7\nRyan, Jax grounded out to 3b (0-1 F). 5 7\nRuns: 0 Hits: 0 Errors: 1 Left On Base: 1\nOral Roberts - Top of 8th ORU ASU\nKelly, Lucas to p for Fitzpatrick. 5 7\nW. Kane-Yate flied out to rf (0-2 KF). 5 7\nC. Combs grounded out to ss (2-1 SBB). 5 7\nE. Fender grounded out to 2b (1-2 KBSF). 5 7\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArizona State - Bottom of 8th ORU ASU\nJ. Hill to p for J. Ure. 5 7\nWalker, Kyle flied out to cf (2-1 BBK). 5 7\nContrades, N walked (3-1 BFBBB). 5 7\nContrades, N advanced to second on a throwing error by p, failed pickoff attempt. 5 7\nVu, Kien flied out to lf (1-2 BFFF). 5 7\nContrades, N advanced to third on a wild pitch. 5 7\nCompton, B. intentionally walked (3-1 BKBB). 5 7\nCompton, B. stole second. 5 7\nTobias, J. struck out swinging (2-2 KKBBFS). 5 7\nRuns: 0 Hits: 0 Errors: 1 Left On Base: 2\nOral Roberts - Top of 9th ORU ASU\nKoger, Will to p for Kelly, Lucas. 5 7\nJ. Schark walked (3-2 FBBFBB). 5 7\nT. Brodrick struck out swinging (2-2 FFFFBBS). 5 7\nK. Campbell grounded out to 3b (2-1 KBB)",
+      "J. Schark advanced to second. 5 7\nM. Davis walked (3-1 BFBBB). 5 7\nM. Davis advanced to second on a wild pitch",
+      "J. Schark advanced to third on a wild pitch. 5 7\nW. Edmunson walked (3-2 KKBBBB). 5 7\nM. Tanaka singled to center field, 2 RBI (2-0 BB)",
+      "W. Edmunson advanced to second",
+      "M. Davis scored",
+      "J.\nSchark scored. 7 7\nW. Kane-Yate singled to center field, RBI (0-1 S)",
+      "M. Tanaka advanced to second",
+      "W. Edmunson scored. 8 7\nC. Combs flied out to cf (2-2 BKFFB). 8 7\nRuns: 3 Hits: 2 Errors: 0 Left On Base: 2\nArizona State - Bottom of 9th ORU ASU\nD. Patten to p for J. Hill. 8 7\nCromwick, J. lined out to cf (3-2 BBBKF). 8 7\nJackson, I. struck out swinging (0-2 SFS). 8 7\nHairston, L. singled to right field (0-2 SF). 8 7\nMcGary, Ky pinch ran for Hairston, L.. 8 7\nMcGary, Ky stole second. 8 7\nRyan, Jax walked (3-2 KKBBBFB). 8 7\nWalker, Kyle fouled out to lf (0-0). 8 7\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2"
+    ],
+    "double_plays": {},
+    "doubles": [
+      {
+        "player": "Wailele Kane-Yates",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "Will Edmunson",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Cooper Combs",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Jack Schark",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [
+      "Will Edmunson (1)"
+    ],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Tobias, Jacob (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Jack Hill",
+      "record": "1-0"
+    },
+    "loss": {
+      "player": "Koger, Will",
+      "record": "0-1"
+    },
+    "save": {
+      "player": "Dalton Patten",
+      "count": 2
+    }
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "W. Edmunson homered to left center, RBI (1-2 BKKF). 1 0",
+          "pitch_count": "1-2 BKKF",
+          "rbi": 1
+        },
+        {
+          "description": "M. Tanaka struck out looking (3-2 KKBFBBFK). 1 0",
+          "pitch_count": "3-2 KKBFBBFK",
+          "rbi": 0
+        },
+        {
+          "description": "W. Kane-Yate struck out looking (1-2 SBSFK). 1 0",
+          "pitch_count": "1-2 SBSFK",
+          "rbi": 0
+        },
+        {
+          "description": "C. Combs flied out to cf (3-2 KFBFFBB). 1 0",
+          "pitch_count": "3-2 KFBFFBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Contrades, N lined out to ss (2-2 SBFBF). 1 0",
+          "pitch_count": "2-2 SBFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Vu, Kien grounded out to ss (0-0). 1 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Compton, B. grounded out to 2b (1-1 BK). 1 0",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "E. Fender struck out swinging (0-2 KSS). 1 0",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        },
+        {
+          "description": "J. Schark struck out swinging (1-2 BKKS). 1 0",
+          "pitch_count": "1-2 BKKS",
+          "rbi": 0
+        },
+        {
+          "description": "T. Brodrick struck out swinging (0-2 KFS). 1 0",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Tobias, J. lined out to 1b (2-2 FBFFB). 1 0",
+          "pitch_count": "2-2 FBFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Cromwick, J. homered to left field, RBI (1-1 BK). 1 1",
+          "pitch_count": "1-1 BK",
+          "rbi": 1
+        },
+        {
+          "description": "Jackson, I. struck out swinging (1-2 SBKS). 1 1",
+          "pitch_count": "1-2 SBKS",
+          "rbi": 0
+        },
+        {
+          "description": "Hernandez,J. struck out looking (2-2 BSSBFK). 1 1",
+          "pitch_count": "2-2 BSSBFK",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "K. Campbell struck out swinging (1-2 KFBS). 1 1",
+          "pitch_count": "1-2 KFBS",
+          "rbi": 0
+        },
+        {
+          "description": "M. Davis struck out swinging (1-2 KSBFS). 1 1",
+          "pitch_count": "1-2 KSBFS",
+          "rbi": 0
+        },
+        {
+          "description": "W. Edmunson singled up the middle (1-2 KBF). 1 1",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        },
+        {
+          "description": "M. Tanaka grounded out to ss (0-1 K). 1 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ryan, Jax singled through the left side (2-2 KBBK). 1 1",
+          "pitch_count": "2-2 KBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Walker, Kyle reached on a fielder's choice to shortstop (1-0 B); Ryan, Jax out at second ss to 2b. 1 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Walker, Kyle stole second. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walker, Kyle stole third. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Contrades, N walked (3-0 BBBB). 1 1",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Vu, Kien reached on a fielder's choice to second base, RBI (1-1 KB); Contrades, N out at second 2b to ss;",
+          "pitch_count": "1-1 KB",
+          "rbi": 1
+        },
+        {
+          "description": "Walker, Kyle scored. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Vu, Kien stole second, advanced to third on a throwing error by c. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Compton, B. walked (3-2 BBKBKFB). 1 2",
+          "pitch_count": "3-2 BBKBKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Compton, B. stole second; Vu, Kien stole home. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tobias, J. doubled to right field, RBI (1-2 BSK); Compton, B. scored. 1 4",
+          "pitch_count": "1-2 BSK",
+          "rbi": 1
+        },
+        {
+          "description": "Cromwick, J. grounded out to ss (0-2 KS). 1 4",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "W. Kane-Yate struck out looking (2-2 BFSBK). 1 4",
+          "pitch_count": "2-2 BFSBK",
+          "rbi": 0
+        },
+        {
+          "description": "C. Combs struck out swinging (0-2 SFS). 1 4",
+          "pitch_count": "0-2 SFS",
+          "rbi": 0
+        },
+        {
+          "description": "E. Fender struck out swinging (1-2 KSBS). 1 4",
+          "pitch_count": "1-2 KSBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jackson, I. singled to left center (1-1 BF). 1 4",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "Hernandez,J. flied out to rf (1-2 KBSFF). 1 4",
+          "pitch_count": "1-2 KBSFF",
+          "rbi": 0
+        },
+        {
+          "description": "Ryan, Jax flied out to rf (0-0). 1 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Jackson, I. stole second. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walker, Kyle popped up to ss (2-2 BSSB). 1 4",
+          "pitch_count": "2-2 BSSB",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "J. Schark homered to left field, RBI (1-0 B). 2 4",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "T. Brodrick grounded out to 1b unassisted (2-1 BBF). 2 4",
+          "pitch_count": "2-1 BBF",
+          "rbi": 0
+        },
+        {
+          "description": "K. Campbell grounded out to 2b (2-2 KBKB). 2 4",
+          "pitch_count": "2-2 KBKB",
+          "rbi": 0
+        },
+        {
+          "description": "M. Davis homered to left field, RBI (2-1 FBB). 3 4",
+          "pitch_count": "2-1 FBB",
+          "rbi": 1
+        },
+        {
+          "description": "W. Edmunson walked (3-0 BBBB). 3 4",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "W. Edmunson stole second. 3 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "M. Tanaka struck out swinging. 3 4",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Contrades, N struck out looking (1-2 FKBK). 3 4",
+          "pitch_count": "1-2 FKBK",
+          "rbi": 0
+        },
+        {
+          "description": "Vu, Kien walked (3-0 BBBB). 3 4",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Compton, B. walked (3-2 BBBKKB); Vu, Kien advanced to second. 3 4",
+          "pitch_count": "3-2 BBBKKB",
+          "rbi": 0
+        },
+        {
+          "description": "Vu, Kien stole third. 3 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tobias, J. hit by pitch (2-1 KBB); Compton, B. advanced to second. 3 4",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "J. Ure to p for W. Rouse. 3 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cromwick, J. struck out swinging (1-2 SSBS). 3 4",
+          "pitch_count": "1-2 SSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Jackson, I. singled up the middle, 2 RBI (0-0); Tobias, J. advanced to third; Compton, B. scored; Vu, Kien",
+          "pitch_count": "0-0",
+          "rbi": 2
+        },
+        {
+          "description": "scored. 3 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hairston, L. pinch hit for Hernandez,J.. 3 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hairston, L. singled through the left side, RBI (0-0); Jackson, I. advanced to second; Tobias, J. scored. 3 7",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Ryan, Jax flied out to lf (1-0 B). 3 7",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Giblin, J. to p for Jacobs, Ben. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "W. Kane-Yate doubled to left center (0-0). 3 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "C. Combs homered to left field, 2 RBI (0-0); W. Kane-Yate scored. 5 7",
+          "pitch_count": "0-0",
+          "rbi": 2
+        },
+        {
+          "description": "E. Fender flied out to rf (1-1 BK). 5 7",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "J. Schark struck out swinging (2-2 BKKBS). 5 7",
+          "pitch_count": "2-2 BKKBS",
+          "rbi": 0
+        },
+        {
+          "description": "T. Brodrick grounded out to ss (2-2 BSBF). 5 7",
+          "pitch_count": "2-2 BSBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Walker, Kyle grounded out to ss (1-2 BSK). 5 7",
+          "pitch_count": "1-2 BSK",
+          "rbi": 0
+        },
+        {
+          "description": "Contrades, N struck out swinging (2-2 BKFBFS). 5 7",
+          "pitch_count": "2-2 BKFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Vu, Kien singled to right field (0-1 F). 5 7",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Compton, B. singled to center field (0-0); Vu, Kien advanced to second. 5 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Tobias, J. grounded out to 2b (0-1 K). 5 7",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "K. Campbell out at first 1b to p (0-0). 5 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "M. Davis lined out to ss (2-1 BBF). 5 7",
+          "pitch_count": "2-1 BBF",
+          "rbi": 0
+        },
+        {
+          "description": "W. Edmunson singled to center field (2-1 BKB). 5 7",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        },
+        {
+          "description": "Fitzpatrick to p for Giblin, J.. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "W. Edmunson advanced to second on a wild pitch. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "M. Tanaka grounded out to 2b (2-1 BFB). 5 7",
+          "pitch_count": "2-1 BFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Cromwick, J. struck out looking (0-2 KSFFFK). 5 7",
+          "pitch_count": "0-2 KSFFFK",
+          "rbi": 0
+        },
+        {
+          "description": "Jackson, I. reached on a fielding error by 1b (0-0). 5 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Hairston, L. to dh. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hairston, L. flied out to rf (0-0). 5 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Jackson, I. stole second. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ryan, Jax grounded out to 3b (0-1 F). 5 7",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Kelly, Lucas to p for Fitzpatrick. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "W. Kane-Yate flied out to rf (0-2 KF). 5 7",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "C. Combs grounded out to ss (2-1 SBB). 5 7",
+          "pitch_count": "2-1 SBB",
+          "rbi": 0
+        },
+        {
+          "description": "E. Fender grounded out to 2b (1-2 KBSF). 5 7",
+          "pitch_count": "1-2 KBSF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "J. Hill to p for J. Ure. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walker, Kyle flied out to cf (2-1 BBK). 5 7",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "Contrades, N walked (3-1 BFBBB). 5 7",
+          "pitch_count": "3-1 BFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Contrades, N advanced to second on a throwing error by p, failed pickoff attempt. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Vu, Kien flied out to lf (1-2 BFFF). 5 7",
+          "pitch_count": "1-2 BFFF",
+          "rbi": 0
+        },
+        {
+          "description": "Contrades, N advanced to third on a wild pitch. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Compton, B. intentionally walked (3-1 BKBB). 5 7",
+          "pitch_count": "3-1 BKBB",
+          "rbi": 0
+        },
+        {
+          "description": "Compton, B. stole second. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tobias, J. struck out swinging (2-2 KKBBFS). 5 7",
+          "pitch_count": "2-2 KKBBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Koger, Will to p for Kelly, Lucas. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Schark walked (3-2 FBBFBB). 5 7",
+          "pitch_count": "3-2 FBBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "T. Brodrick struck out swinging (2-2 FFFFBBS). 5 7",
+          "pitch_count": "2-2 FFFFBBS",
+          "rbi": 0
+        },
+        {
+          "description": "K. Campbell grounded out to 3b (2-1 KBB); J. Schark advanced to second. 5 7",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "M. Davis walked (3-1 BFBBB). 5 7",
+          "pitch_count": "3-1 BFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "M. Davis advanced to second on a wild pitch; J. Schark advanced to third on a wild pitch. 5 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "W. Edmunson walked (3-2 KKBBBB). 5 7",
+          "pitch_count": "3-2 KKBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "M. Tanaka singled to center field, 2 RBI (2-0 BB); W. Edmunson advanced to second; M. Davis scored; J.",
+          "pitch_count": "2-0 BB",
+          "rbi": 2
+        },
+        {
+          "description": "Schark scored. 7 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "W. Kane-Yate singled to center field, RBI (0-1 S); M. Tanaka advanced to second; W. Edmunson scored. 8 7",
+          "pitch_count": "0-1 S",
+          "rbi": 1
+        },
+        {
+          "description": "C. Combs flied out to cf (2-2 BKFFB). 8 7",
+          "pitch_count": "2-2 BKFFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "D. Patten to p for J. Hill. 8 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cromwick, J. lined out to cf (3-2 BBBKF). 8 7",
+          "pitch_count": "3-2 BBBKF",
+          "rbi": 0
+        },
+        {
+          "description": "Jackson, I. struck out swinging (0-2 SFS). 8 7",
+          "pitch_count": "0-2 SFS",
+          "rbi": 0
+        },
+        {
+          "description": "Hairston, L. singled to right field (0-2 SF). 8 7",
+          "pitch_count": "0-2 SF",
+          "rbi": 0
+        },
+        {
+          "description": "McGary, Ky pinch ran for Hairston, L.. 8 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McGary, Ky stole second. 8 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ryan, Jax walked (3-2 KKBBBFB). 8 7",
+          "pitch_count": "3-2 KKBBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Walker, Kyle fouled out to lf (0-0). 8 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}

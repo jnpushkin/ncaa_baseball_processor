@@ -1,0 +1,1040 @@
+{
+  "metadata": {
+    "date": "3/30/2024",
+    "venue": "Benedetti Diamond (San Francisco, CA)",
+    "stadium": "Benedetti Diamond",
+    "city": "San Francisco, CA",
+    "away_team": "Santa Clara",
+    "away_team_rank": null,
+    "away_team_record": "15-10",
+    "away_team_score": 2,
+    "home_team": "San Francisco",
+    "home_team_rank": null,
+    "home_team_record": "15-13",
+    "home_team_score": 0,
+    "attendance": 282,
+    "duration": "2:10",
+    "start_time": "1:45 PM",
+    "weather": "Partly Cloudy",
+    "umpires": {
+      "list": "Home Plate: Tyler Schmidt First: Neil Turner Second Base: Heath Jones Third Base: Cody Alanbrand"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "BERRING, JonJon",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "berrin000jon",
+        "full_name": "JonJon Berring",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "BRIGMAN, Coleman",
+        "position": "cf",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "brigma000col",
+        "full_name": "Coleman Brigman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "O'HARA, Michael",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ohara-002mic",
+        "full_name": "Michael O'Hara",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "MANZO, Efrain 3b/1b",
+        "position": "",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "manzo-000efr",
+        "full_name": "Efrain Manzo",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "STECK, Ben",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "steck-000ben",
+        "full_name": "Ben Steck",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "WILLIAMS, Malcolm",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "willia001mal",
+        "full_name": "Malcolm Williams",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "JOYCE, Dylan",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "joyce-000dyl",
+        "full_name": "Dylan Joyce",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "FERROGGIARO, Thomas",
+        "position": "3b",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ferrog000tho",
+        "full_name": "Thomas Ferroggiaro",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "THOMPSON, Caden",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "thomps002cad",
+        "full_name": "Caden Thompson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CLEARY, Ben",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "cleary000ben",
+        "full_name": "Ben Cleary",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "KITCHEN, Cole",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kitche000col",
+        "full_name": "Cole Kitchen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "BAYLES, Max",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bayles000max",
+        "full_name": "Max Bayles",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "WATANABE, Kody",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "watana000kod",
+        "full_name": "Kody Watanabe",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "RAMPPEN, Zack",
+        "position": "dh",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ramppe000zac",
+        "full_name": "Zack Ramppen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "FUNG, Matty",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 3,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "fung--000mat",
+        "full_name": "Matty Fung",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CAMPAGNA, Michael",
+        "position": "c",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "campag002mik",
+        "full_name": "Mike Campagna",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "KEIGHRAN, Patrick",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "keighr000pat",
+        "full_name": "Patrick Keighran",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "ROGERS, TJ",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "rogers001tj-",
+        "full_name": "T.J. Rogers",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "LEAX, Logan",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "leax--000log",
+        "full_name": "Logan Leax",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "PELLETIER, C.E.",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pellet000cha",
+        "full_name": "Charles-Etienne Pelletier",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "AMARAL, JT",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "amaral000joh",
+        "full_name": "JT Amaral",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "SOBERON, Joe",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "sobero000joe",
+        "full_name": "Joe Soberon",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CALIA, Kolby",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "calia-000kol",
+        "full_name": "Kolby Calia",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "KITCHEN, Cole",
+        "innings_pitched": 5.0,
+        "hits": 7,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 3,
+        "batters_faced": 24,
+        "at_bats": 22,
+        "pitches": 72,
+        "bref_id": "kitche000col",
+        "full_name": "Cole Kitchen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "BAYLES, Max",
+        "innings_pitched": 4.0,
+        "hits": 4,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 4,
+        "batters_faced": 16,
+        "at_bats": 16,
+        "pitches": 55,
+        "bref_id": "bayles000max",
+        "full_name": "Max Bayles",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "SOBERON, Joe",
+        "innings_pitched": 6.0,
+        "hits": 5,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 3,
+        "strikeouts": 3,
+        "batters_faced": 24,
+        "at_bats": 20,
+        "pitches": 87,
+        "bref_id": "sobero000joe",
+        "full_name": "Joe Soberon",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CALIA, Kolby",
+        "innings_pitched": 3.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 3,
+        "batters_faced": 11,
+        "at_bats": 9,
+        "pitches": 38,
+        "bref_id": "calia-000kol",
+        "full_name": "Kolby Calia",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "FUNG, Matty",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "PELLETIER, C.E.",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [
+      "MANZO, Efrain (1)"
+    ],
+    "caught_stealing": [
+      "BERRING, JonJon (1)"
+    ],
+    "hit_by_pitch": [
+      "KITCHEN, Cole"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "KITCHEN, Cole",
+      "record": "3-1"
+    },
+    "loss": {
+      "player": "SOBERON, Joe",
+      "record": "2-4"
+    },
+    "save": {
+      "player": "BAYLES, Max",
+      "count": 2
+    },
+    "sacrifice_hits": [
+      "BRIGMAN, Coleman (2) DP: 1"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "BERRING doubled down the lf line (2-2 KSBBF). 0 0",
+          "pitch_count": "2-2 KSBBF",
+          "rbi": 0
+        },
+        {
+          "description": "BRIGMAN grounded out to 3b, SAC, bunt (0-0); BERRING advanced to third. 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "O'HARA singled to center field, RBI (0-1 K); BERRING scored. 1 0",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "MANZO grounded into double play 2b to ss to 1b (0-2 KF); O'HARA out on the play. 1 0",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "WATANABE flied out to lf down the lf line (1-1 KB). 1 0",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN flied out to rf (2-1 FBB). 1 0",
+          "pitch_count": "2-1 FBB",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG singled to left field (2-0 BB). 1 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA struck out looking (1-2 FBFK). 1 0",
+          "pitch_count": "1-2 FBFK",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "STECK popped up to ss (2-1 BSB). 1 0",
+          "pitch_count": "2-1 BSB",
+          "rbi": 0
+        },
+        {
+          "description": "WILLIAMS singled through the left side (0-0). 1 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "JOYCE grounded out to 3b (2-0 BB); WILLIAMS advanced to second. 1 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "THOMPSON singled through the right side, RBI (2-2 KFBB); WILLIAMS scored. 2 0",
+          "pitch_count": "2-2 KFBB",
+          "rbi": 1
+        },
+        {
+          "description": "CLEARY struck out swinging (2-2 BSFBFS). 2 0",
+          "pitch_count": "2-2 BSFBFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "KEIGHRAN flied out to cf (1-1 BK). 2 0",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS singled to right center (1-0 B). 2 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "LEAX struck out looking (0-2 FKK). 2 0",
+          "pitch_count": "0-2 FKK",
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER singled to center field (0-0); ROGERS advanced to second. 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER advanced to second on a wild pitch; ROGERS advanced to third on a wild pitch. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL flied out to rf (2-1 BBK). 2 0",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "BERRING walked (3-1 BSBBB). 2 0",
+          "pitch_count": "3-1 BSBBB",
+          "rbi": 0
+        },
+        {
+          "description": "BERRING out at second c to ss, caught stealing. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BRIGMAN walked (3-0 BBBB). 2 0",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "O'HARA flied out to rf to right center (0-1 K). 2 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "MANZO flied out to cf to right center (0-1 S). 2 0",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "WATANABE walked (3-1 BBFBB). 2 0",
+          "pitch_count": "3-1 BBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN reached on a fielder's choice (1-0 B); WATANABE out at second ss to 2b. 2 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG doubled through the right side (1-2 KFFB); RAMPPEN advanced to third. 2 0",
+          "pitch_count": "1-2 KFFB",
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA struck out swinging (3-2 BBBKKS). 2 0",
+          "pitch_count": "3-2 BBBKKS",
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN popped up to c (2-1 BKB). 2 0",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "STECK grounded out to 3b (0-1 K). 2 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "WILLIAMS grounded out to ss (1-1 BF). 2 0",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "JOYCE lined out to 1b (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "ROGERS grounded out to ss (1-1 KB). 2 0",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "LEAX singled to center field (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER popped up to 1b (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL singled to left field (0-1 F); LEAX advanced to second. 2 0",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE grounded out to p (3-1 FBBB). 2 0",
+          "pitch_count": "3-1 FBBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "THOMPSON grounded out to 3b (3-2 BBFKB). 2 0",
+          "pitch_count": "3-2 BBFKB",
+          "rbi": 0
+        },
+        {
+          "description": "CLEARY struck out looking (3-2 KBKBBK). 2 0",
+          "pitch_count": "3-2 KBKBBK",
+          "rbi": 0
+        },
+        {
+          "description": "BERRING walked (3-2 BBBKFB). 2 0",
+          "pitch_count": "3-2 BBBKFB",
+          "rbi": 0
+        },
+        {
+          "description": "BRIGMAN reached on a fielder's choice (1-1 BF); BERRING out at second ss to 2b. 2 0",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "RAMPPEN popped up to 2b to right field (0-1 F). 2 0",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG hit by pitch (1-1 FB). 2 0",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA singled through the left side (0-0); FUNG advanced to second. 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN flied out to lf (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS flied out to cf to right center (0-2 FF). 2 0",
+          "pitch_count": "0-2 FF",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "O'HARA flied out to cf (2-2 BKFB). 2 0",
+          "pitch_count": "2-2 BKFB",
+          "rbi": 0
+        },
+        {
+          "description": "MANZO doubled to center field (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "STECK grounded out to ss (0-1 K); MANZO advanced to third. 2 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "WILLIAMS struck out swinging (3-2 BBSBSFS). 2 0",
+          "pitch_count": "3-2 BBSBSFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "BAYLES to p for KITCHEN. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LEAX grounded out to 2b (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER struck out swinging (0-2 KFS). 2 0",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL flied out to lf to left center (1-1 BS). 2 0",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "CALIA to p for SOBERON. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "JOYCE grounded out to 1b unassisted (3-2 BFBFB). 2 0",
+          "pitch_count": "3-2 BFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "THOMPSON lined out to ss (3-2 SKFBBB). 2 0",
+          "pitch_count": "3-2 SKFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "CLEARY struck out swinging (0-2 SSS). 2 0",
+          "pitch_count": "0-2 SSS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "WATANABE grounded out to 2b (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN singled to center field (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG singled through the right side (1-2 SBFF); RAMPPEN advanced to second. 2 0",
+          "pitch_count": "1-2 SBFF",
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA flied out to lf (3-2 BFBBF). 2 0",
+          "pitch_count": "3-2 BFBBF",
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN reached on a fielder's choice (2-1 BBK); FUNG advanced to second; RAMPPEN out at third 3b",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "unassisted. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "BERRING singled to shortstop (1-2 BFF). 2 0",
+          "pitch_count": "1-2 BFF",
+          "rbi": 0
+        },
+        {
+          "description": "BRIGMAN out at first 1b to 2b, SAC, bunt (1-0 B); BERRING advanced to second. 2 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "O'HARA grounded out to 2b (0-2 KF); BERRING advanced to third. 2 0",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "MANZO intentionally walked (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "MANZO stole second. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "STECK struck out swinging (2-2 KBBKS). 2 0",
+          "pitch_count": "2-2 KBBKS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "ROGERS flied out to cf to right center (1-1 BF). 2 0",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "LEAX grounded out to ss (2-1 BKB). 2 0",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER doubled down the lf line (1-2 KSB). 2 0",
+          "pitch_count": "1-2 KSB",
+          "rbi": 0
+        },
+        {
+          "description": "PELLETIER advanced to third on a wild pitch. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL struck out swinging (3-2 BSBKBS). 2 0",
+          "pitch_count": "3-2 BSBKBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "WILLIAMS struck out swinging (0-2 KFS). 2 0",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        },
+        {
+          "description": "JOYCE grounded out to 2b (1-0 B). 2 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "THOMPSON flied out to cf (1-0 B). 2 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "MANZO to 1b. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FERROGGIARO to 3b for JOYCE. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE singled to pitcher (1-2 KFFB). 2 0",
+          "pitch_count": "1-2 KFFB",
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN struck out swinging (0-2 KSS). 2 0",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        },
+        {
+          "description": "FUNG struck out swinging (0-2 SFS). 2 0",
+          "pitch_count": "0-2 SFS",
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA grounded out to ss (2-0 BB). 2 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}

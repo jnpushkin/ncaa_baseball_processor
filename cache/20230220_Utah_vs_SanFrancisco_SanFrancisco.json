@@ -1,0 +1,1116 @@
+{
+  "metadata": {
+    "date": "2/20/2023",
+    "venue": "Benedetti Diamond (San Francisco, CA)",
+    "stadium": "Benedetti Diamond",
+    "city": "San Francisco, CA",
+    "away_team": "UTAH",
+    "away_team_rank": null,
+    "away_team_record": "1-3",
+    "away_team_score": 0,
+    "home_team": "San Francisco",
+    "home_team_rank": null,
+    "home_team_record": "3-1",
+    "home_team_score": 3,
+    "attendance": 417,
+    "duration": "2:43",
+    "start_time": "1:00 pm",
+    "weather": "59 degrees and Slightly Cloudy",
+    "umpires": {
+      "list": "Home Plate: Heath Jones First: Michael Goebel Third Base: Nick Stevens"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Webster, Beuer",
+        "position": "ss",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "webste000bru",
+        "full_name": "Bruer Webster",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Frei, Landon",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "frei--000lan",
+        "full_name": "Landon Frei",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Roberts, Kai",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "robert000kai",
+        "full_name": "Kai Roberts",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Clarkson, TJ",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "clarks000tre",
+        "full_name": "T.J. Clarkson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cop, Davis",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "cop---000dav",
+        "full_name": "Davis Cop",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hammill, Elijha",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hammil000eli",
+        "full_name": "Eli Hammill",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gish, Jake",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "gish--000jak",
+        "full_name": "Jake Gish",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gurney, Cameron",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "gurney000cam",
+        "full_name": "Cam Gurney",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Bodily, Karson",
+        "position": "cf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "bodily000kar",
+        "full_name": "Karson Bodily",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Duffalo, Dakota",
+        "position": "ph/cf",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "duffal000dak",
+        "full_name": "Dakota Duffalo",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Van Sickle, Bryson",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "vansic000bry",
+        "full_name": "Bryson Van Sickle",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jones, Merit",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "jones-000mer",
+        "full_name": "Merit Jones",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Ashman, Micah",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ashman002mic",
+        "full_name": "Micah Ashman",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "WILLIAMS III, Harris",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "willia016har",
+        "full_name": "Harris Williams",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "AMARAL, J.T.",
+        "position": "rf",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "amaral000joh",
+        "full_name": "JT Amaral",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "DEMERA, Mario",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "demera000mar",
+        "full_name": "Mario DeMera",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "STAPLETON, Christian",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "staple000chr",
+        "full_name": "Christian Stapleton",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "ROGERS, T.J.",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "rogers001tj-",
+        "full_name": "T.J. Rogers",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CAMPAGNA, Michael",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "campag002mik",
+        "full_name": "Mike Campagna",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "GRIFFIN, Zach",
+        "position": "dh",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "griffi000zac",
+        "full_name": "Zach Griffin",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "ASBY, Will",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "asby--000wil",
+        "full_name": "Will Asby",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "PITTS, Blake",
+        "position": "lf",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pitts-000bla",
+        "full_name": "Blake Pitts",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "MARTINEZ, Ryan",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "martin009rya",
+        "full_name": "Ryan Martinez",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "JONES, Max",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "jones-001max",
+        "full_name": "Max Jones",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "WITTMAN, Blake",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "wittma000bla",
+        "full_name": "Blake Wittman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "HOLZEMER, Hunter",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "holzem000hun",
+        "full_name": "Hunter Holzemer",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Van Sickle, Bryson",
+        "innings_pitched": 5.0,
+        "hits": 4,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 5,
+        "batters_faced": 20,
+        "at_bats": 18,
+        "pitches": 81,
+        "bref_id": "vansic000bry",
+        "full_name": "Bryson Van Sickle",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jones, Merit",
+        "innings_pitched": 1.2,
+        "hits": 1,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 7,
+        "at_bats": 6,
+        "pitches": 32,
+        "bref_id": "jones-000mer",
+        "full_name": "Merit Jones",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Ashman, Micah",
+        "innings_pitched": 1.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 4,
+        "at_bats": 3,
+        "pitches": 18,
+        "bref_id": "ashman002mic",
+        "full_name": "Micah Ashman",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "JONES, Max",
+        "innings_pitched": 3.0,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 12,
+        "at_bats": 11,
+        "pitches": 57,
+        "bref_id": "jones-001max",
+        "full_name": "Max Jones",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "WITTMAN, Blake",
+        "innings_pitched": 2.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 7,
+        "at_bats": 7,
+        "pitches": 36,
+        "bref_id": "wittma000bla",
+        "full_name": "Blake Wittman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "HOLZEMER, Hunter",
+        "innings_pitched": 3.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 3,
+        "batters_faced": 11,
+        "at_bats": 9,
+        "pitches": 36,
+        "bref_id": "holzem000hun",
+        "full_name": "Hunter Holzemer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "LEPE, Oscar",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 9,
+        "bref_id": "lepe--000osc",
+        "full_name": "Oscar Lepe",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Jones, Merit (1) HBP: AMARAL, J.T. (1)\nPO: AMARAL, J.T. (1)",
+      "STAPLETON, Christian (1)",
+      "ROGERS, T.J. (1)\nE: ROGERS, T.J. (1)\nUTAH IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nVan Sickle, Bryson (L, 0-1) 5.0 4 2 2 2 5 0 0 0 0 18 20 7 2 81\nJones, Merit 1.2 1 1 1 1 2 2 0 0 0 6 7 3 0 32\nAshman, Micah 1.1 0 0 0 0 2 0 0 1 0 3 4 0 1 18\nTotals 5 3 3 3 9 2 0 1 0 27 31 10 3 131\nSan Francisco IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nJONES, Max 3.0 2 0 0 0 1 0 0 1 0 11 12 3 4 57\nWITTMAN, Blake (W, 1-0) 2.0 1 0 0 0 1 0 0 0 0 7 7 2 3 36\nHOLZEMER, Hunter 3.0 1 0 0 1 3 1 0 1 0 9 11 0 5 36\nLEPE, Oscar (S, 1) 1.0 0 0 0 0 0 0 0 0 0 3 3 1 2 9\nTotals 4 0 0 1 5 1 0 2 0 30 33 6 14 138\nWin: WITTMAN, Blake (1-0)\nLoss: Van Sickle, Bryson (0-1)\nSave: LEPE, Oscar (1)\nHBP: Ashman, Micah, JONES, Max, HOLZEMER, Hunter\nPB: None\nUmpires: Home Plate: Heath Jones First: Michael Goebel Third Base: Nick Stevens\nStart: 1:00 pm Time: 2:43 Attendance: 417 Weather: 59 degrees and Slightly Cloudy\nPlay By Play\nUTAH - Top of 1st UTA USF\nWebster, B. hit by pitch (0-0). 0 0\nFrei, L. out at first 1b to p (1-2)",
+      "Webster, B. advanced to second. 0 0\nRoberts, K. popped up to 3b (0-2). 0 0\nClarkson, TJ flied out to lf to left center (0-1). 0 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 1st UTA USF\nWILLIAMS III struck out swinging (2-2). 0 0\nAMARAL walked (3-1). 0 0\nDEMERA doubled to left field (3-2)",
+      "AMARAL advanced to third. 0 0\nSTAPLETON doubled down the rf line, 2 RBI (0-2)",
+      "DEMERA scored",
+      "AMARAL scored. 0 2\nROGERS struck out swinging (2-2). 0 2\nSTAPLETON out at second p to 2b, picked off. 0 2\nRuns: 2 Hits: 2 Errors: 0 Left On Base: 0\nUTAH - Top of 2nd UTA USF\nCop, D. singled to left field (3-2). 0 2\nHammill, E. flied out to rf to left center (1-0). 0 2\nCop, D. out at second c to 2b, caught stealing. 0 2\nGish, J. reached on an error by ss (2-2). 0 2\nGurney, C. singled to right field (1-2)",
+      "Gish, J. advanced to second. 0 2\nBodily, K. out at first 1b to p (2-2). 0 2\nRuns: 0 Hits: 2 Errors: 1 Left On Base: 2\nSan Francisco - Bottom of 2nd UTA USF\nCAMPAGNA singled to left field (0-2). 0 2\nGRIFFIN struck out looking (3-2). 0 2\nPITTS walked (3-2)",
+      "CAMPAGNA advanced to second. 0 2\nMARTINEZ flied out to rf (1-2). 0 2\nWILLIAMS III flied out to cf (0-2). 0 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nUTAH - Top of 3rd UTA USF\nWebster, B. grounded out to ss (3-2). 0 2\nFrei, L. struck out looking (3-2). 0 2\nRoberts, K. grounded out to 2b (2-2). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 3rd UTA USF\nAMARAL flied out to cf (3-2). 0 2\nDEMERA singled to center field (0-0). 0 2\nSTAPLETON struck out swinging (1-2). 0 2\nROGERS flied out to cf. 0 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nUTAH - Top of 4th UTA USF\nWITTMAN to p for JONES. 0 2\nClarkson, TJ grounded out to 2b (2-0). 0 2\nCop, D. struck out swinging (2-2). 0 2\nHammill, E. grounded out to 2b (1-2). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 4th UTA USF\nCAMPAGNA flied out to cf to left center (2-1). 0 2\nGRIFFIN grounded out to 2b (0-0). 0 2\nPITTS flied out to rf to right center (1-0). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nUTAH - Top of 5th UTA USF\nGish, J. flied out to ss (2-1). 0 2\nGurney, C. grounded out to 3b (1-2). 0 2\nBodily, K. doubled to right field (3-2). 0 2\nWebster, B. flied out to cf (2-2). 0 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 5th UTA USF\nMARTINEZ flied out to cf (0-0). 0 2\nWILLIAMS III grounded out to 2b (0-2). 0 2\nAMARAL struck out looking (3-2). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nUTAH - Top of 6th UTA USF\nHOLZEMER to p for WITTMAN. 0 2\nFrei, L. struck out swinging, out at first c to 1b (1-2). 0 2\nRoberts, K. out at first p to 2b to 1b (1-2). 0 2\nClarkson, TJ grounded out to 2b (1-0). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 6th UTA USF\nJones, M. to p for Van Sickle. 0 2\nDEMERA singled to right field (0-1). 0 2\nDEMERA advanced to second on a wild pitch. 0 2\nSTAPLETON flied out to lf (1-0)",
+      "DEMERA advanced to third. 0 2\nROGERS struck out, reached first on a wild pitch (1-2)",
+      "DEMERA scored on a wild pitch. 0 3\nCAMPAGNA flied out to cf (1-0). 0 3\nASBY pinch hit for GRIFFIN. 0 3\nROGERS out at second p to 1b to ss, picked off, caught stealing. 0 3\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0\nUTAH - Top of 7th UTA USF\nCop, D. grounded out to p, bunt (0-0). 0 3\nHammill, E. walked (3-2). 0 3\nGish, J. singled to left center (1-0)",
+      "Hammill, E. advanced to second. 0 3\nGurney, C. grounded into double play 2b to ss to 1b (0-0)",
+      "Gish, J. out on the play. 0 3\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 7th UTA USF\nASBY struck out swinging (3-2). 0 3\nPITTS walked (3-2). 0 3\nPITTS advanced to second on an error by p. 0 3\nMARTINEZ flied out to lf to left center (2-0). 0 3\nAshman, M. to p for Jones, M.. 0 3\nWILLIAMS III grounded out to 3b (0-0). 0 3\nRuns: 0 Hits: 0 Errors: 1 Left On Base: 1\nUTAH - Top of 8th UTA USF\nDuffalo, D. pinch hit for Bodily, K.. 0 3\nDuffalo, D. grounded out to ss (2-1). 0 3\nWebster, B. hit by pitch (0-0). 0 3\nWebster, B. advanced to second on a wild pitch. 0 3\nFrei, L. struck out swinging (1-2). 0 3\nRoberts, K. struck out swinging (2-2). 0 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 8th UTA USF\nDuffalo, D. to cf. 0 3\nAMARAL hit by pitch (3-2). 0 3\nDEMERA struck out swinging (1-2). 0 3\nSTAPLETON struck out swinging (0-2). 0 3\nAMARAL out at second p to 1b to ss to 1b to 2b, picked off. 0 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nUTAH - Top of 9th UTA USF\nLEPE to p for HOLZEMER. 0 3\nClarkson, TJ grounded out to 2b (2-2). 0 3\nCop, D. flied out to lf to left center (0-1). 0 3\nHammill, E. grounded out to ss (1-0). 0 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 9th UTA USF\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {},
+    "doubles": [
+      {
+        "player": "Bodily, Karson",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [],
+    "caught_stealing": [
+      "Cop, Davis (1) 2B: DEMERA, Mario (1)",
+      "STAPLETON, Christian (1)"
+    ],
+    "hit_by_pitch": [
+      "Webster, Beuer (2) CS: ROGERS, T.J. (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "WITTMAN, Blake",
+      "record": "1-0"
+    },
+    "loss": {
+      "player": "Van Sickle, Bryson",
+      "record": "0-1"
+    },
+    "save": {
+      "player": "LEPE, Oscar",
+      "count": 1
+    }
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Webster, B. hit by pitch (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Frei, L. out at first 1b to p (1-2); Webster, B. advanced to second. 0 0",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "Roberts, K. popped up to 3b (0-2). 0 0",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "Clarkson, TJ flied out to lf to left center (0-1). 0 0",
+          "pitch_count": "0-1",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "WILLIAMS III struck out swinging (2-2). 0 0",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL walked (3-1). 0 0",
+          "pitch_count": "3-1",
+          "rbi": 0
+        },
+        {
+          "description": "DEMERA doubled to left field (3-2); AMARAL advanced to third. 0 0",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "STAPLETON doubled down the rf line, 2 RBI (0-2); DEMERA scored; AMARAL scored. 0 2",
+          "pitch_count": "0-2",
+          "rbi": 2
+        },
+        {
+          "description": "ROGERS struck out swinging (2-2). 0 2",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "STAPLETON out at second p to 2b, picked off. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Cop, D. singled to left field (3-2). 0 2",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Hammill, E. flied out to rf to left center (1-0). 0 2",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "Cop, D. out at second c to 2b, caught stealing. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gish, J. reached on an error by ss (2-2). 0 2",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "Gurney, C. singled to right field (1-2); Gish, J. advanced to second. 0 2",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "Bodily, K. out at first 1b to p (2-2). 0 2",
+          "pitch_count": "2-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "CAMPAGNA singled to left field (0-2). 0 2",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "GRIFFIN struck out looking (3-2). 0 2",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "PITTS walked (3-2); CAMPAGNA advanced to second. 0 2",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "MARTINEZ flied out to rf (1-2). 0 2",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "WILLIAMS III flied out to cf (0-2). 0 2",
+          "pitch_count": "0-2",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Webster, B. grounded out to ss (3-2). 0 2",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Frei, L. struck out looking (3-2). 0 2",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Roberts, K. grounded out to 2b (2-2). 0 2",
+          "pitch_count": "2-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "AMARAL flied out to cf (3-2). 0 2",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "DEMERA singled to center field (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "STAPLETON struck out swinging (1-2). 0 2",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS flied out to cf. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "WITTMAN to p for JONES. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Clarkson, TJ grounded out to 2b (2-0). 0 2",
+          "pitch_count": "2-0",
+          "rbi": 0
+        },
+        {
+          "description": "Cop, D. struck out swinging (2-2). 0 2",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "Hammill, E. grounded out to 2b (1-2). 0 2",
+          "pitch_count": "1-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "CAMPAGNA flied out to cf to left center (2-1). 0 2",
+          "pitch_count": "2-1",
+          "rbi": 0
+        },
+        {
+          "description": "GRIFFIN grounded out to 2b (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "PITTS flied out to rf to right center (1-0). 0 2",
+          "pitch_count": "1-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Gish, J. flied out to ss (2-1). 0 2",
+          "pitch_count": "2-1",
+          "rbi": 0
+        },
+        {
+          "description": "Gurney, C. grounded out to 3b (1-2). 0 2",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "Bodily, K. doubled to right field (3-2). 0 2",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Webster, B. flied out to cf (2-2). 0 2",
+          "pitch_count": "2-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "MARTINEZ flied out to cf (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "WILLIAMS III grounded out to 2b (0-2). 0 2",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL struck out looking (3-2). 0 2",
+          "pitch_count": "3-2",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "HOLZEMER to p for WITTMAN. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Frei, L. struck out swinging, out at first c to 1b (1-2). 0 2",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "Roberts, K. out at first p to 2b to 1b (1-2). 0 2",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "Clarkson, TJ grounded out to 2b (1-0). 0 2",
+          "pitch_count": "1-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jones, M. to p for Van Sickle. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DEMERA singled to right field (0-1). 0 2",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "DEMERA advanced to second on a wild pitch. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "STAPLETON flied out to lf (1-0); DEMERA advanced to third. 0 2",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out, reached first on a wild pitch (1-2); DEMERA scored on a wild pitch. 0 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA flied out to cf (1-0). 0 3",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "ASBY pinch hit for GRIFFIN. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS out at second p to 1b to ss, picked off, caught stealing. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Cop, D. grounded out to p, bunt (0-0). 0 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Hammill, E. walked (3-2). 0 3",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "Gish, J. singled to left center (1-0); Hammill, E. advanced to second. 0 3",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "Gurney, C. grounded into double play 2b to ss to 1b (0-0); Gish, J. out on the play. 0 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "ASBY struck out swinging (3-2). 0 3",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "PITTS walked (3-2). 0 3",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "PITTS advanced to second on an error by p. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MARTINEZ flied out to lf to left center (2-0). 0 3",
+          "pitch_count": "2-0",
+          "rbi": 0
+        },
+        {
+          "description": "Ashman, M. to p for Jones, M.. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WILLIAMS III grounded out to 3b (0-0). 0 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Duffalo, D. pinch hit for Bodily, K.. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Duffalo, D. grounded out to ss (2-1). 0 3",
+          "pitch_count": "2-1",
+          "rbi": 0
+        },
+        {
+          "description": "Webster, B. hit by pitch (0-0). 0 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Webster, B. advanced to second on a wild pitch. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Frei, L. struck out swinging (1-2). 0 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "Roberts, K. struck out swinging (2-2). 0 3",
+          "pitch_count": "2-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Duffalo, D. to cf. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL hit by pitch (3-2). 0 3",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "DEMERA struck out swinging (1-2). 0 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "STAPLETON struck out swinging (0-2). 0 3",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL out at second p to 1b to ss to 1b to 2b, picked off. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "LEPE to p for HOLZEMER. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Clarkson, TJ grounded out to 2b (2-2). 0 3",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "Cop, D. flied out to lf to left center (0-1). 0 3",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "Hammill, E. grounded out to ss (1-0). 0 3",
+          "pitch_count": "1-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

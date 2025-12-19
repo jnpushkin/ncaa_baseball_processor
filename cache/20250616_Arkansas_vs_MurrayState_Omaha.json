@@ -1,0 +1,1006 @@
+{
+  "metadata": {
+    "date": "6/16/2025",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Arkansas",
+    "away_team_rank": "#3",
+    "away_team_record": "49-14",
+    "away_team_score": 3,
+    "home_team": "Murray State",
+    "home_team_rank": null,
+    "home_team_record": "44-17",
+    "home_team_score": 0,
+    "attendance": 24074,
+    "duration": "2:31",
+    "start_time": "1:08 pm",
+    "weather": "86-Sunny-W:9 S/SW-H:56%",
+    "umpires": {
+      "list": "Home Plate: Brian deBrauwere First: Gregory Street Second Base: Casey Moser Third Base: Clint Fagan"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Charles Davalan",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "davala000cha",
+        "full_name": "Charles Davalan",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wehiwa Aloy",
+        "position": "ss",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "aloy--000weh",
+        "full_name": "Wehiwa Aloy",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Logan Maxwell",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "maxwel001log",
+        "full_name": "Logan Maxwell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kendall Diggs",
+        "position": "pr/rf",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "diggs-000ken",
+        "full_name": "Kendall Diggs",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ryder Helfrick",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "helfri000ryd",
+        "full_name": "Ryder Helfrick",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cam Kozeal",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kozeal000cam",
+        "full_name": "Cam Kozeal",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kuhio Aloy",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "aloy--000kuh",
+        "full_name": "Kuhio Aloy",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Brent Iredale",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "iredal000bre",
+        "full_name": "Brent Iredale",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Reese Robinett",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "robine000ree",
+        "full_name": "Reese Robinett",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Justin Thomas Jr.",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 4,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "thomas009jus",
+        "full_name": "Justin Thomas",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gage Wood",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "wood--000gag",
+        "full_name": "Gage Wood",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Jonathan Hogart",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hogart000jon",
+        "full_name": "Jonathan Hogart",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dustin Mercer",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mercer000dus",
+        "full_name": "Dustin Mercer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Carson Garner",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "garner000car",
+        "full_name": "Carson Garner",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dominic Decker",
+        "position": "2b",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "decker000dom",
+        "full_name": "Dom Decker",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Luke Mistone",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "miston000luk",
+        "full_name": "Luke Mistone",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Will Vierling",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "vierli000wil",
+        "full_name": "Will Vierling",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dan Tauken",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "tauken002dan",
+        "full_name": "Dan Tauken",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Charlie Jury",
+        "position": "dh",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "jury--000cha",
+        "full_name": "Charlie Jury",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Nico Bermeo",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bermeo000nic",
+        "full_name": "Nico Bermeo",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Conner Cunningham",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "cunnin001con",
+        "full_name": "Conner Cunningham",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Isaac Silva",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "silva-001isa",
+        "full_name": "Isaac Silva",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Gage Wood",
+        "innings_pitched": 9.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 19,
+        "batters_faced": 28,
+        "at_bats": 27,
+        "pitches": 119,
+        "bref_id": "wood--000gag",
+        "full_name": "Gage Wood",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Isaac Silva",
+        "innings_pitched": 6.0,
+        "hits": 6,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 2,
+        "strikeouts": 7,
+        "batters_faced": 26,
+        "at_bats": 24,
+        "pitches": 90,
+        "bref_id": "silva-001isa",
+        "full_name": "Isaac Silva",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Graham Kelham",
+        "innings_pitched": 3.0,
+        "hits": 4,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 0,
+        "strikeouts": 4,
+        "batters_faced": 13,
+        "at_bats": 11,
+        "pitches": 53,
+        "bref_id": "kelham000gra",
+        "full_name": "Graham Kelham",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "home_innings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Dustin Mercer (1)\nSB: Charles Davalan (1)",
+      "Wehiwa Aloy (1)",
+      "Ryder Helfrick (1)",
+      "Justin\nThomas Jr. (1)\nCS: Justin Thomas Jr. (1)\nArkansas IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nGage Wood (W, 4-1) 9.0 0 0 0 0 19 0 0 1 0 27 28 3 5 119\nTotals 0 0 0 0 19 0 0 1 0 27 28 3 5 119\nMurray State IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nIsaac Silva (L, 9-3) 6.0 6 1 1 2 7 0 0 0 0 24 26 8 3 90\nGraham Kelham 3.0 4 2 2 0 4 0 0 0 0 11 13 2 2 53\nTotals 10 3 3 2 11 0 0 0 0 35 39 10 5 143\nWin: Gage Wood (4-1)\nLoss: Isaac Silva (9-3)\nHBP: Gage Wood\nPB: None\nUmpires: Home Plate: Brian deBrauwere First: Gregory Street Second Base: Casey Moser Third Base: Clint Fagan\nStart: 1:08 pm Time: 2:31 Attendance: 24,074 Weather: 86-Sunny-W:9 S/SW-H:56%\nPlay By Play\nArkansas - Top of 1st ARK MUR\nNo play. 0 0\nDavalan struck out swinging (2-2 KBBFS). 0 0\nAloy, W. singled through the left side (0-1 K). 0 0\nMaxwell flied out to lf (2-1 KBB). 0 0\nHelfrick struck out swinging (1-2 KBFS). 0 0\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nMurray State - Bottom of 1st ARK MUR\nHogart flied out to rf down the rf line (1-2 KBS). 0 0\nMercer struck out swinging (2-2 BKFBS). 0 0\nGarner struck out swinging (1-2 KBFS). 0 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArkansas - Top of 2nd ARK MUR\nKozeal grounded out to 2b (1-0 B). 0 0\nAloy, K. struck out swinging (0-2 KKS). 0 0\nIredale flied out to rf (0-0). 0 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nMurray State - Bottom of 2nd ARK MUR\nDecker struck out looking (0-2 SSK). 0 0\nMistone grounded out to 2b (0-1 K). 0 0\nVierling flied out to rf (2-2 BFFBF). 0 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArkansas - Top of 3rd ARK MUR\nNo play. 0 0\nRobinett doubled to right center (1-1 KB). 0 0\nThomas Jr. singled to pitcher (0-2 FS)",
+      "Robinett advanced to third. 0 0\nDavalan singled to left center, RBI (0-0)",
+      "Thomas Jr. advanced to third",
+      "Robinett scored. 1 0\nDavalan stole second. 1 0\nAloy, W. lined out to ss (2-2 FBBS). 1 0\nMaxwell popped up to rf (0-0). 1 0\nHelfrick struck out swinging (2-2 BSSFBS). 1 0\nRuns: 1 Hits: 3 Errors: 0 Left On Base: 2\nMurray State - Bottom of 3rd ARK MUR\nTauken struck out swinging (1-2 KKBS). 1 0\nJury struck out looking (0-2 SKFK). 1 0\nCunningham struck out swinging (3-2 KKBBBS). 1 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArkansas - Top of 4th ARK MUR\nKozeal flied out to lf (0-1 S). 1 0\nAloy, K. flied out to lf (2-2 SBFB). 1 0\nIredale popped up to cf (2-2 SKBB). 1 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nMurray State - Bottom of 4th ARK MUR\nHogart struck out swinging (2-2 BBFSS). 1 0\nMercer struck out swinging (2-2 FBBKS). 1 0\nGarner struck out looking (2-2 KSBBK). 1 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArkansas - Top of 5th ARK MUR\nRobinett struck out looking (3-2 BFSFBFBK). 1 0\nThomas Jr. singled to third base (1-0 B). 1 0\nThomas Jr. stole second. 1 0\nDavalan walked (3-0 BBBB). 1 0\nAloy, W. reached on a fielder's choice to second base (1-0 B)",
+      "Davalan out at second 2b to ss",
+      "Thomas Jr.\nadvanced to third. 1 0\nCall on the field was double play, Arkansas challenged the call. 1 0\nCall was overturned, runner safe at first. Arkansas retains both challenges. 1 0\nAloy, W. stole second. 1 0\nMaxwell grounded out to 2b (1-0 B). 1 0\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nMurray State - Bottom of 5th ARK MUR\nDecker struck out looking (2-2 BKKBK). 1 0\nMistone grounded out to p unassisted (1-1 KB). 1 0\nVierling struck out looking (2-2 BSBFK). 1 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArkansas - Top of 6th ARK MUR\nHelfrick singled down the lf line (1-0 B). 1 0\nHelfrick stole second. 1 0\nKozeal popped up to rf (2-0 BB). 1 0\nAloy, K. walked (3-2 KBBSBB). 1 0\nIredale struck out swinging (0-2 KFS). 1 0\nRobinett struck out swinging (3-2 KSBBBS). 1 0\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nMurray State - Bottom of 6th ARK MUR\nTauken grounded out to p (0-1 K). 1 0\nJury struck out swinging (1-2 BKSS). 1 0\nCunningham struck out swinging (3-2 BBBKFS). 1 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArkansas - Top of 7th ARK MUR\nKelham to p for Silva. 1 0\nThomas Jr. singled to left center (2-1 BBK). 1 0\nDavalan singled up the middle (0-0)",
+      "Thomas Jr. advanced to third. 1 0\nAloy, W. doubled down the lf line, RBI (1-2 BSS)",
+      "Davalan advanced to third",
+      "Thomas Jr. scored. 2 0\nMaxwell reached on a fielding error by rf, SF, RBI (1-2 BKSF)",
+      "Davalan scored. 3 0\nDiggs pinch ran for Maxwell. 3 0\nHelfrick grounded out to 3b, SAC, bunt (0-0)",
+      "Diggs advanced to second",
+      "Aloy, W. advanced to third. 3 0\nKozeal struck out looking (3-2 BFBFBK). 3 0\nAloy, K. flied out to rf (1-2 KFBF). 3 0\nRuns: 2 Hits: 3 Errors: 1 Left On Base: 2\nMurray State - Bottom of 7th ARK MUR\nDiggs to rf. 3 0\nHogart struck out swinging (2-2 KBBFS). 3 0\nMercer grounded out to ss (2-2 KBFBF). 3 0\nGarner grounded out to 1b unassisted (0-0). 3 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nArkansas - Top of 8th ARK MUR\nIredale flied out to rf to right center (0-1 F). 3 0\nRobinett struck out looking (2-2 BSBKK). 3 0\nThomas Jr. singled to right center (3-2 BBBKF). 3 0\nThomas Jr. out at second c to ss, caught stealing. 3 0\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nMurray State - Bottom of 8th ARK MUR\nDecker hit by pitch (2-2 BSBF). 3 0\nMistone fouled out to c (0-2 KF). 3 0\nVierling struck out swinging (0-2 SSS). 3 0\nTauken struck out swinging (0-2 SSFS). 3 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nArkansas - Top of 9th ARK MUR\nDavalan struck out swinging (1-2 SFFBS). 3 0\nAloy, W. grounded out to ss (1-1 BK). 3 0\nDiggs struck out swinging (2-2 KKBBS). 3 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nMurray State - Bottom of 9th ARK MUR\nBermeo pinch hit for Jury. 3 0\nBermeo struck out looking (1-2 FFBFK). 3 0\nCall on the field is HBP, Arkansas challenged the call. 3 0\nCall on the field is overturned, batter is out. Ark retains 2 challenges. 3 0\nCunningham struck out swinging (2-2 KBBSS). 3 0\nHogart struck out looking (1-2 BFKK). 3 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {},
+    "doubles": [
+      {
+        "player": "Wehiwa Aloy",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Reese Robinett",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [
+      "Charles Davalan (1)",
+      "Wehiwa Aloy (1)",
+      "Ryder Helfrick (1)",
+      "Justin"
+    ],
+    "caught_stealing": [
+      "Justin Thomas Jr. (1)"
+    ],
+    "hit_by_pitch": [
+      "Gage Wood"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Gage Wood",
+      "record": "4-1"
+    },
+    "loss": {
+      "player": "Isaac Silva",
+      "record": "9-3"
+    },
+    "save": null,
+    "sacrifice_hits": [
+      "Ryder Helfrick (1) HBP: Dominic Decker (1)"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Davalan struck out swinging (2-2 KBBFS). 0 0",
+          "pitch_count": "2-2 KBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, W. singled through the left side (0-1 K). 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Maxwell flied out to lf (2-1 KBB). 0 0",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "Helfrick struck out swinging (1-2 KBFS). 0 0",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hogart flied out to rf down the rf line (1-2 KBS). 0 0",
+          "pitch_count": "1-2 KBS",
+          "rbi": 0
+        },
+        {
+          "description": "Mercer struck out swinging (2-2 BKFBS). 0 0",
+          "pitch_count": "2-2 BKFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Garner struck out swinging (1-2 KBFS). 0 0",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Kozeal grounded out to 2b (1-0 B). 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, K. struck out swinging (0-2 KKS). 0 0",
+          "pitch_count": "0-2 KKS",
+          "rbi": 0
+        },
+        {
+          "description": "Iredale flied out to rf (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Decker struck out looking (0-2 SSK). 0 0",
+          "pitch_count": "0-2 SSK",
+          "rbi": 0
+        },
+        {
+          "description": "Mistone grounded out to 2b (0-1 K). 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Vierling flied out to rf (2-2 BFFBF). 0 0",
+          "pitch_count": "2-2 BFFBF",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Robinett doubled to right center (1-1 KB). 0 0",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Thomas Jr. singled to pitcher (0-2 FS); Robinett advanced to third. 0 0",
+          "pitch_count": "0-2 FS",
+          "rbi": 0
+        },
+        {
+          "description": "Davalan singled to left center, RBI (0-0); Thomas Jr. advanced to third; Robinett scored. 1 0",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Davalan stole second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, W. lined out to ss (2-2 FBBS). 1 0",
+          "pitch_count": "2-2 FBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Maxwell popped up to rf (0-0). 1 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Helfrick struck out swinging (2-2 BSSFBS). 1 0",
+          "pitch_count": "2-2 BSSFBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Tauken struck out swinging (1-2 KKBS). 1 0",
+          "pitch_count": "1-2 KKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Jury struck out looking (0-2 SKFK). 1 0",
+          "pitch_count": "0-2 SKFK",
+          "rbi": 0
+        },
+        {
+          "description": "Cunningham struck out swinging (3-2 KKBBBS). 1 0",
+          "pitch_count": "3-2 KKBBBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Kozeal flied out to lf (0-1 S). 1 0",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, K. flied out to lf (2-2 SBFB). 1 0",
+          "pitch_count": "2-2 SBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Iredale popped up to cf (2-2 SKBB). 1 0",
+          "pitch_count": "2-2 SKBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hogart struck out swinging (2-2 BBFSS). 1 0",
+          "pitch_count": "2-2 BBFSS",
+          "rbi": 0
+        },
+        {
+          "description": "Mercer struck out swinging (2-2 FBBKS). 1 0",
+          "pitch_count": "2-2 FBBKS",
+          "rbi": 0
+        },
+        {
+          "description": "Garner struck out looking (2-2 KSBBK). 1 0",
+          "pitch_count": "2-2 KSBBK",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Robinett struck out looking (3-2 BFSFBFBK). 1 0",
+          "pitch_count": "3-2 BFSFBFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Thomas Jr. singled to third base (1-0 B). 1 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Thomas Jr. stole second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davalan walked (3-0 BBBB). 1 0",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, W. reached on a fielder's choice to second base (1-0 B); Davalan out at second 2b to ss; Thomas Jr.",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "advanced to third. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was double play, Arkansas challenged the call. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call was overturned, runner safe at first. Arkansas retains both challenges. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, W. stole second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Maxwell grounded out to 2b (1-0 B). 1 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Decker struck out looking (2-2 BKKBK). 1 0",
+          "pitch_count": "2-2 BKKBK",
+          "rbi": 0
+        },
+        {
+          "description": "Mistone grounded out to p unassisted (1-1 KB). 1 0",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Vierling struck out looking (2-2 BSBFK). 1 0",
+          "pitch_count": "2-2 BSBFK",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Helfrick singled down the lf line (1-0 B). 1 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Helfrick stole second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kozeal popped up to rf (2-0 BB). 1 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, K. walked (3-2 KBBSBB). 1 0",
+          "pitch_count": "3-2 KBBSBB",
+          "rbi": 0
+        },
+        {
+          "description": "Iredale struck out swinging (0-2 KFS). 1 0",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        },
+        {
+          "description": "Robinett struck out swinging (3-2 KSBBBS). 1 0",
+          "pitch_count": "3-2 KSBBBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Tauken grounded out to p (0-1 K). 1 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Jury struck out swinging (1-2 BKSS). 1 0",
+          "pitch_count": "1-2 BKSS",
+          "rbi": 0
+        },
+        {
+          "description": "Cunningham struck out swinging (3-2 BBBKFS). 1 0",
+          "pitch_count": "3-2 BBBKFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Kelham to p for Silva. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas Jr. singled to left center (2-1 BBK). 1 0",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "Davalan singled up the middle (0-0); Thomas Jr. advanced to third. 1 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, W. doubled down the lf line, RBI (1-2 BSS); Davalan advanced to third; Thomas Jr. scored. 2 0",
+          "pitch_count": "1-2 BSS",
+          "rbi": 1
+        },
+        {
+          "description": "Maxwell reached on a fielding error by rf, SF, RBI (1-2 BKSF); Davalan scored. 3 0",
+          "pitch_count": "1-2 BKSF",
+          "rbi": 1
+        },
+        {
+          "description": "Diggs pinch ran for Maxwell. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Helfrick grounded out to 3b, SAC, bunt (0-0); Diggs advanced to second; Aloy, W. advanced to third. 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Kozeal struck out looking (3-2 BFBFBK). 3 0",
+          "pitch_count": "3-2 BFBFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, K. flied out to rf (1-2 KFBF). 3 0",
+          "pitch_count": "1-2 KFBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Diggs to rf. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hogart struck out swinging (2-2 KBBFS). 3 0",
+          "pitch_count": "2-2 KBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Mercer grounded out to ss (2-2 KBFBF). 3 0",
+          "pitch_count": "2-2 KBFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Garner grounded out to 1b unassisted (0-0). 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Iredale flied out to rf to right center (0-1 F). 3 0",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Robinett struck out looking (2-2 BSBKK). 3 0",
+          "pitch_count": "2-2 BSBKK",
+          "rbi": 0
+        },
+        {
+          "description": "Thomas Jr. singled to right center (3-2 BBBKF). 3 0",
+          "pitch_count": "3-2 BBBKF",
+          "rbi": 0
+        },
+        {
+          "description": "Thomas Jr. out at second c to ss, caught stealing. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Decker hit by pitch (2-2 BSBF). 3 0",
+          "pitch_count": "2-2 BSBF",
+          "rbi": 0
+        },
+        {
+          "description": "Mistone fouled out to c (0-2 KF). 3 0",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "Vierling struck out swinging (0-2 SSS). 3 0",
+          "pitch_count": "0-2 SSS",
+          "rbi": 0
+        },
+        {
+          "description": "Tauken struck out swinging (0-2 SSFS). 3 0",
+          "pitch_count": "0-2 SSFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Davalan struck out swinging (1-2 SFFBS). 3 0",
+          "pitch_count": "1-2 SFFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Aloy, W. grounded out to ss (1-1 BK). 3 0",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Diggs struck out swinging (2-2 KKBBS). 3 0",
+          "pitch_count": "2-2 KKBBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Bermeo pinch hit for Jury. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bermeo struck out looking (1-2 FFBFK). 3 0",
+          "pitch_count": "1-2 FFBFK",
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field is HBP, Arkansas challenged the call. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field is overturned, batter is out. Ark retains 2 challenges. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cunningham struck out swinging (2-2 KBBSS). 3 0",
+          "pitch_count": "2-2 KBBSS",
+          "rbi": 0
+        },
+        {
+          "description": "Hogart struck out looking (1-2 BFKK). 3 0",
+          "pitch_count": "1-2 BFKK",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}

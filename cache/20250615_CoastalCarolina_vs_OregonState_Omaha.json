@@ -1,0 +1,1156 @@
+{
+  "metadata": {
+    "date": "6/15/2025",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Coastal Carolina",
+    "away_team_rank": "#13",
+    "away_team_record": "55-11",
+    "away_team_score": 6,
+    "home_team": "Oregon State",
+    "home_team_rank": "#8",
+    "home_team_record": "48-15-1",
+    "home_team_score": 2,
+    "attendance": 24490,
+    "duration": "3:08",
+    "start_time": "6:08 pm",
+    "weather": "88-Sunny-W: 7 MPH S/SE-H: 49%",
+    "umpires": {
+      "list": "Home Plate: Scott Letendre First: Kellen Levy Second Base: Angel Campos Third Base: Jeff Head"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Caden Bodine",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bodine000cad",
+        "full_name": "Caden Bodine",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Sebastian Alexander",
+        "position": "lf",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "alexan000seb",
+        "full_name": "Sebastian Alexander",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blake Barthol",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "bartho000bla",
+        "full_name": "Blake Barthol",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Walker Mitchell",
+        "position": "3b",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mitche003wal",
+        "full_name": "Walker Mitchell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blagen Pado",
+        "position": "rf",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "pado--000bla",
+        "full_name": "Blagen Pado",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Colby Thorndyke",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 3,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "thornd000col",
+        "full_name": "Colby Thorndyke",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dean Mihos",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "mihos-000dea",
+        "full_name": "Dean Mihos",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ty Dooley",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "dooley000ty-",
+        "full_name": "Ty Dooley",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wells Sykes",
+        "position": "cf",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "sykes-000wel",
+        "full_name": "Wells Sykes",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jacob Morrison",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "morris011jac",
+        "full_name": "Jacob Morrison",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hayden Johnson",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "johnso001hay",
+        "full_name": "Hayden Johnson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ryan Lynch",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lynch-004rya",
+        "full_name": "Ryan Lynch",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Trent Caraway",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "carawa000tre",
+        "full_name": "Trent Caraway",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Aiva Arquette",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "arquet000aiv",
+        "full_name": "Aiva Arquette",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Gavin Turley",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "turley000gav",
+        "full_name": "Gavin Turley",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wilson Weber",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "weber-002wil",
+        "full_name": "Wilson Weber",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "AJ Singer",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "singer000aj-",
+        "full_name": "AJ Singer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tyce Peterson",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "peters000tyc",
+        "full_name": "Tyce Peterson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jacob Krieg",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "krieg-000jac",
+        "full_name": "Jacob Krieg",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Canon Reeder",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "reeder000can",
+        "full_name": "Canon Reeder",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Easton Talt",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "talt--000eas",
+        "full_name": "Easton Talt",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ethan Kleinschmit",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kleins000eth",
+        "full_name": "Ethan Kleinschmit",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Zach Kmatz",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kmatz-000zac",
+        "full_name": "Zach Kmatz",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Laif Palmer",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "palmer000lai",
+        "full_name": "Laif Palmer",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Jacob Morrison",
+        "innings_pitched": 7.2,
+        "hits": 5,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 7,
+        "batters_faced": 28,
+        "at_bats": 28,
+        "pitches": 109,
+        "bref_id": "morris011jac",
+        "full_name": "Jacob Morrison",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hayden Johnson",
+        "innings_pitched": 1.0,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 6,
+        "at_bats": 5,
+        "pitches": 20,
+        "bref_id": "johnso001hay",
+        "full_name": "Hayden Johnson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ryan Lynch",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 1,
+        "at_bats": 1,
+        "pitches": 5,
+        "bref_id": "lynch-004rya",
+        "full_name": "Ryan Lynch",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Ethan Kleinschmit",
+        "innings_pitched": 4.2,
+        "hits": 3,
+        "runs": 6,
+        "earned_runs": 2,
+        "walks": 3,
+        "strikeouts": 7,
+        "batters_faced": 24,
+        "at_bats": 18,
+        "pitches": 103,
+        "bref_id": "kleins000eth",
+        "full_name": "Ethan Kleinschmit",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Zach Kmatz",
+        "innings_pitched": 1.0,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 7,
+        "at_bats": 5,
+        "pitches": 29,
+        "bref_id": "kmatz-000zac",
+        "full_name": "Zach Kmatz",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Laif Palmer",
+        "innings_pitched": 1.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 15,
+        "bref_id": "palmer000lai",
+        "full_name": "Laif Palmer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Zach Edwards",
+        "innings_pitched": 2.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 3,
+        "batters_faced": 7,
+        "at_bats": 5,
+        "pitches": 25,
+        "bref_id": "edward007zac",
+        "full_name": "Zach Edwards",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        3,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Aiva Arquette (1)",
+      "AJ Singer (1)\nE: Sebastian Alexander (1)\nCoastal Carolina IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nJacob Morrison (W, 12-0) 7.2 5 1 1 0 7 0 0 0 0 28 28 6 10 109\nHayden Johnson 1.0 2 1 1 1 2 0 0 0 0 5 6 1 0 20\nRyan Lynch (S, 9) 0.1 0 0 0 0 1 0 0 0 0 1 1 0 0 5\nTotals 7 2 2 1 10 0 0 0 0 34 35 7 10 134\nOregon State IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nEthan Kleinschmit (L, 8-5) 4.2 3 6 2 3 7 1 1 2 0 18 24 3 4 103\nZach Kmatz 1.0 2 0 0 2 1 0 0 0 0 5 7 1 1 29\nLaif Palmer 1.1 0 0 0 0 1 0 0 0 0 4 4 2 1 15\nZach Edwards 2.0 0 0 0 1 3 1 0 0 0 5 7 0 3 25\nTotals 5 6 2 6 12 2 1 2 0 32 42 6 9 172\nWin: Jacob Morrison (12-0)\nLoss: Ethan Kleinschmit (8-5)\nSave: Ryan Lynch (9)\nHBP: Ethan Kleinschmit\nPB: None\nUmpires: Home Plate: Scott Letendre First: Kellen Levy Second Base: Angel Campos Third Base: Jeff Head\nStart: 6:08 pm Time: 3:08 Attendance: 24,490 Weather: 88-Sunny-W: 7 MPH S/SE-H: 49%\nPlay By Play\nCoastal Carolina - Top of 1st CCU OSU\nNo play. 0 0\nBodine reached on a throwing error by ss (1-1 FB). 0 0\nBodine advanced to second on a balk. 0 0\nAlexander struck out looking (0-2 FFK). 0 0\nBarthol walked (3-1 BBBKB). 0 0\nMitchell hit by pitch (1-0 B)",
+      "Barthol advanced to second",
+      "Bodine advanced to third. 0 0\nPado struck out looking (3-2 BKBFBK). 0 0\nRuling on the field was the batter intentionally moved to be hit. 0 0\nCCU Challenged the call. 0 0\nNo play. 0 0\nCall on the field was confirmed. CCU loses its first challenge. 0 0\nThorndyke doubled to right center, 3 RBI (1-1 BS)",
+      "Mitchell scored, unearned",
+      "Barthol scored, unearned",
+      "Bodine scored, unearned. 3 0\nMihos struck out looking (1-2 BSSFFK). 3 0\nRuns: 3 Hits: 1 Errors: 1 Left On Base: 1\nOregon State - Bottom of 1st CCU OSU\nCaraway lined out to cf (1-2 FBK). 3 0\nArquette fouled out to c (0-1 F). 3 0\nTurley singled to left field (3-2 BBSKBF). 3 0\nWeber grounded out to p (1-1 BS). 3 0\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nCoastal Carolina - Top of 2nd CCU OSU\nDooley walked (3-2 BBKFBB). 3 0\nSykes grounded out to 3b, SAC, bunt (0-0)",
+      "Dooley advanced to second. 3 0\nBodine reached on a fielder's choice to shortstop (2-0 BB)",
+      "Dooley out at third ss to 3b. 3 0\nAlexander struck out swinging (2-2 BFKBS). 3 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nOregon State - Bottom of 2nd CCU OSU\nSinger struck out swinging (3-2 KBBBFS). 3 0\nPeterson singled to left field, advanced to second on a fielding error by lf (1-2 KFB). 3 0\nKrieg grounded out to 2b (0-1 F)",
+      "Peterson advanced to third. 3 0\nReeder grounded out to ss (3-2 BFBBFF). 3 0\nRuns: 0 Hits: 1 Errors: 1 Left On Base: 1\nCoastal Carolina - Top of 3rd CCU OSU\nNo play. 3 0\nBarthol struck out swinging (2-2 KSBBFS). 3 0\nMitchell grounded out to 3b (2-2 BKFB). 3 0\nPado singled to second base (1-1 SB). 3 0\nThorndyke reached on a fielder's choice to second base (0-0)",
+      "Pado out at second 2b to ss. 3 0\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nOregon State - Bottom of 3rd CCU OSU\nTalt homered to right center, RBI (2-1 BBK). 3 1\nCaraway struck out looking (0-2 KFK). 3 1\nArquette flied out to rf to right center (1-2 KFBF). 3 1\nTurley flied out to lf (0-1 K). 3 1\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0\nCoastal Carolina - Top of 4th CCU OSU\nMihos singled to left center (0-1 F). 3 1\nDooley fouled out to c, bunt (3-1 BBFB). 3 1\nSykes walked (3-1 BBKBB)",
+      "Mihos advanced to second. 3 1\nBodine reached on a fielder's choice to second base (1-2 BKS)",
+      "Sykes advanced to second on a fielding error\nby 2b, advanced to third on the error",
+      "Mihos advanced to third, scored on the error. 4 1\nBodine advanced to second on a wild pitch",
+      "Sykes scored on a wild pitch, unearned. 5 1\nAlexander flied out to lf to left center (2-2 BBFSF). 5 1\nBarthol struck out swinging (2-2 FSBBS). 5 1\nRuns: 2 Hits: 1 Errors: 1 Left On Base: 1\nOregon State - Bottom of 4th CCU OSU\nWeber grounded out to ss (2-2 BKFB). 5 1\nSinger grounded out to 3b, bunt (1-1 BK). 5 1\nPeterson lined out to lf (0-0). 5 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCoastal Carolina - Top of 5th CCU OSU\nMitchell lined out to cf to right center (3-1 BFBB). 5 1\nPado struck out looking (3-2 SFBBFBK). 5 1\nThorndyke hit by pitch (3-2 FBSBB). 5 1\nKmatz to p for Kleinschmit. 5 1\nMihos doubled to left center, RBI (2-0 BB)",
+      "Thorndyke scored. 6 1\nDooley grounded out to 3b (1-2 KBF). 6 1\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 1\nOregon State - Bottom of 5th CCU OSU\nKrieg grounded out to ss (0-1 F). 6 1\nReeder out at first 1b to p (3-2 BBKFB). 6 1\nTalt struck out swinging (1-2 KBFS). 6 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCoastal Carolina - Top of 6th CCU OSU\nSykes flied out to rf (2-2 BBKF). 6 1\nBodine walked (3-0 BBBB). 6 1\nAlexander singled to right field (0-0)",
+      "Bodine advanced to second. 6 1\nBarthol struck out swinging (2-2 BSFFBS). 6 1\nMitchell walked (3-2 BSBFBB)",
+      "Alexander advanced to second",
+      "Bodine advanced to third. 6 1\nPalmer to p for Kmatz. 6 1\nPado lined out to rf (0-1 K). 6 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 3\nOregon State - Bottom of 6th CCU OSU\nCaraway struck out swinging (0-2 FFFS). 6 1\nArquette flied out to cf to left center (2-1 SBB). 6 1\nTurley struck out swinging (0-2 KKS). 6 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCoastal Carolina - Top of 7th CCU OSU\nThorndyke grounded out to 2b (0-0). 6 1\nMihos struck out swinging (3-2 BBKBFS). 6 1\nDooley flied out to lf (3-2 KBBBF). 6 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nOregon State - Bottom of 7th CCU OSU\nWeber grounded out to 3b (0-2 KS). 6 1\nSinger grounded out to ss (2-2 KBBKFF). 6 1\nPeterson struck out swinging (0-2 SKS). 6 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCoastal Carolina - Top of 8th CCU OSU\nNo play. 6 1\nEdwards to p for Palmer. 6 1\nSykes grounded out to 2b (1-1 BS). 6 1\nBodine struck out swinging (1-2 KSBS). 6 1\nAlexander out at first 1b to p (0-0). 6 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nOregon State - Bottom of 8th CCU OSU\nKrieg grounded out to 3b (3-2 SBBFFB). 6 1\nReeder singled to center field (0-0). 6 1\nTalt struck out swinging (1-2 SFFFBS). 6 1\nCaraway singled to center field (0-0)",
+      "Reeder advanced to third. 6 1\nJohnson to p for Morrison. 6 1\nArquette fouled out to rf down the rf line (1-0 B). 6 1\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2\nCoastal Carolina - Top of 9th CCU OSU\nBarthol walked (3-2 BBKSBFB). 6 1\nMitchell grounded out to p, SAC, bunt (0-0)",
+      "Barthol advanced to second. 6 1\nPado struck out swinging (0-2 KSS). 6 1\nBarthol advanced to third on a wild pitch. 6 1\nThorndyke struck out swinging (3-2 SFBBBS). 6 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nOregon State - Bottom of 9th CCU OSU\nTurley homered to left field, RBI (0-1 F). 6 2\nWeber struck out swinging, out at first c to 1b (1-2 KBFS). 6 2\nSinger singled to right center (0-2 KF). 6 2\nPeterson struck out swinging (0-2 KSS). 6 2\nKrieg walked (3-2 BKBSBB)",
+      "Singer advanced to second. 6 2\nLynch to p for Johnson. 6 2\nReeder struck out swinging (2-2 SBSBS). 6 2\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 2"
+    ],
+    "double_plays": {},
+    "doubles": [
+      {
+        "player": "Colby Thorndyke",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Dean Mihos",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Walker Mitchell (1)",
+      "Colby Thorndyke (1) E: Aiva Arquette (1)",
+      "AJ Singer (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Jacob Morrison",
+      "record": "12-0"
+    },
+    "loss": {
+      "player": "Ethan Kleinschmit",
+      "record": "8-5"
+    },
+    "save": {
+      "player": "Ryan Lynch",
+      "count": 9
+    },
+    "sacrifice_hits": [
+      "Walker Mitchell (1)",
+      "Wells Sykes (1) HR: Gavin Turley (1)",
+      "Easton Talt (1)"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Bodine reached on a throwing error by ss (1-1 FB). 0 0",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Bodine advanced to second on a balk. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander struck out looking (0-2 FFK). 0 0",
+          "pitch_count": "0-2 FFK",
+          "rbi": 0
+        },
+        {
+          "description": "Barthol walked (3-1 BBBKB). 0 0",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell hit by pitch (1-0 B); Barthol advanced to second; Bodine advanced to third. 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Pado struck out looking (3-2 BKBFBK). 0 0",
+          "pitch_count": "3-2 BKBFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Ruling on the field was the batter intentionally moved to be hit. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CCU Challenged the call. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was confirmed. CCU loses its first challenge. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke doubled to right center, 3 RBI (1-1 BS); Mitchell scored, unearned; Barthol scored, unearned;",
+          "pitch_count": "1-1 BS",
+          "rbi": 3
+        },
+        {
+          "description": "Bodine scored, unearned. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihos struck out looking (1-2 BSSFFK). 3 0",
+          "pitch_count": "1-2 BSSFFK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Caraway lined out to cf (1-2 FBK). 3 0",
+          "pitch_count": "1-2 FBK",
+          "rbi": 0
+        },
+        {
+          "description": "Arquette fouled out to c (0-1 F). 3 0",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Turley singled to left field (3-2 BBSKBF). 3 0",
+          "pitch_count": "3-2 BBSKBF",
+          "rbi": 0
+        },
+        {
+          "description": "Weber grounded out to p (1-1 BS). 3 0",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Dooley walked (3-2 BBKFBB). 3 0",
+          "pitch_count": "3-2 BBKFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Sykes grounded out to 3b, SAC, bunt (0-0); Dooley advanced to second. 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Bodine reached on a fielder's choice to shortstop (2-0 BB); Dooley out at third ss to 3b. 3 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Alexander struck out swinging (2-2 BFKBS). 3 0",
+          "pitch_count": "2-2 BFKBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Singer struck out swinging (3-2 KBBBFS). 3 0",
+          "pitch_count": "3-2 KBBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Peterson singled to left field, advanced to second on a fielding error by lf (1-2 KFB). 3 0",
+          "pitch_count": "1-2 KFB",
+          "rbi": 0
+        },
+        {
+          "description": "Krieg grounded out to 2b (0-1 F); Peterson advanced to third. 3 0",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Reeder grounded out to ss (3-2 BFBBFF). 3 0",
+          "pitch_count": "3-2 BFBBFF",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Barthol struck out swinging (2-2 KSBBFS). 3 0",
+          "pitch_count": "2-2 KSBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell grounded out to 3b (2-2 BKFB). 3 0",
+          "pitch_count": "2-2 BKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Pado singled to second base (1-1 SB). 3 0",
+          "pitch_count": "1-1 SB",
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke reached on a fielder's choice to second base (0-0); Pado out at second 2b to ss. 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Talt homered to right center, RBI (2-1 BBK). 3 1",
+          "pitch_count": "2-1 BBK",
+          "rbi": 1
+        },
+        {
+          "description": "Caraway struck out looking (0-2 KFK). 3 1",
+          "pitch_count": "0-2 KFK",
+          "rbi": 0
+        },
+        {
+          "description": "Arquette flied out to rf to right center (1-2 KFBF). 3 1",
+          "pitch_count": "1-2 KFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Turley flied out to lf (0-1 K). 3 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Mihos singled to left center (0-1 F). 3 1",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Dooley fouled out to c, bunt (3-1 BBFB). 3 1",
+          "pitch_count": "3-1 BBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Sykes walked (3-1 BBKBB); Mihos advanced to second. 3 1",
+          "pitch_count": "3-1 BBKBB",
+          "rbi": 0
+        },
+        {
+          "description": "Bodine reached on a fielder's choice to second base (1-2 BKS); Sykes advanced to second on a fielding error",
+          "pitch_count": "1-2 BKS",
+          "rbi": 0
+        },
+        {
+          "description": "by 2b, advanced to third on the error; Mihos advanced to third, scored on the error. 4 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine advanced to second on a wild pitch; Sykes scored on a wild pitch, unearned. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander flied out to lf to left center (2-2 BBFSF). 5 1",
+          "pitch_count": "2-2 BBFSF",
+          "rbi": 0
+        },
+        {
+          "description": "Barthol struck out swinging (2-2 FSBBS). 5 1",
+          "pitch_count": "2-2 FSBBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Weber grounded out to ss (2-2 BKFB). 5 1",
+          "pitch_count": "2-2 BKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Singer grounded out to 3b, bunt (1-1 BK). 5 1",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Peterson lined out to lf (0-0). 5 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Mitchell lined out to cf to right center (3-1 BFBB). 5 1",
+          "pitch_count": "3-1 BFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Pado struck out looking (3-2 SFBBFBK). 5 1",
+          "pitch_count": "3-2 SFBBFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke hit by pitch (3-2 FBSBB). 5 1",
+          "pitch_count": "3-2 FBSBB",
+          "rbi": 0
+        },
+        {
+          "description": "Kmatz to p for Kleinschmit. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihos doubled to left center, RBI (2-0 BB); Thorndyke scored. 6 1",
+          "pitch_count": "2-0 BB",
+          "rbi": 1
+        },
+        {
+          "description": "Dooley grounded out to 3b (1-2 KBF). 6 1",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Krieg grounded out to ss (0-1 F). 6 1",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Reeder out at first 1b to p (3-2 BBKFB). 6 1",
+          "pitch_count": "3-2 BBKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Talt struck out swinging (1-2 KBFS). 6 1",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Sykes flied out to rf (2-2 BBKF). 6 1",
+          "pitch_count": "2-2 BBKF",
+          "rbi": 0
+        },
+        {
+          "description": "Bodine walked (3-0 BBBB). 6 1",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Alexander singled to right field (0-0); Bodine advanced to second. 6 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Barthol struck out swinging (2-2 BSFFBS). 6 1",
+          "pitch_count": "2-2 BSFFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell walked (3-2 BSBFBB); Alexander advanced to second; Bodine advanced to third. 6 1",
+          "pitch_count": "3-2 BSBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Palmer to p for Kmatz. 6 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pado lined out to rf (0-1 K). 6 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Caraway struck out swinging (0-2 FFFS). 6 1",
+          "pitch_count": "0-2 FFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Arquette flied out to cf to left center (2-1 SBB). 6 1",
+          "pitch_count": "2-1 SBB",
+          "rbi": 0
+        },
+        {
+          "description": "Turley struck out swinging (0-2 KKS). 6 1",
+          "pitch_count": "0-2 KKS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Thorndyke grounded out to 2b (0-0). 6 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Mihos struck out swinging (3-2 BBKBFS). 6 1",
+          "pitch_count": "3-2 BBKBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Dooley flied out to lf (3-2 KBBBF). 6 1",
+          "pitch_count": "3-2 KBBBF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Weber grounded out to 3b (0-2 KS). 6 1",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        },
+        {
+          "description": "Singer grounded out to ss (2-2 KBBKFF). 6 1",
+          "pitch_count": "2-2 KBBKFF",
+          "rbi": 0
+        },
+        {
+          "description": "Peterson struck out swinging (0-2 SKS). 6 1",
+          "pitch_count": "0-2 SKS",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Edwards to p for Palmer. 6 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sykes grounded out to 2b (1-1 BS). 6 1",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        },
+        {
+          "description": "Bodine struck out swinging (1-2 KSBS). 6 1",
+          "pitch_count": "1-2 KSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Alexander out at first 1b to p (0-0). 6 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Krieg grounded out to 3b (3-2 SBBFFB). 6 1",
+          "pitch_count": "3-2 SBBFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Reeder singled to center field (0-0). 6 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Talt struck out swinging (1-2 SFFFBS). 6 1",
+          "pitch_count": "1-2 SFFFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Caraway singled to center field (0-0); Reeder advanced to third. 6 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Johnson to p for Morrison. 6 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette fouled out to rf down the rf line (1-0 B). 6 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Barthol walked (3-2 BBKSBFB). 6 1",
+          "pitch_count": "3-2 BBKSBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell grounded out to p, SAC, bunt (0-0); Barthol advanced to second. 6 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Pado struck out swinging (0-2 KSS). 6 1",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        },
+        {
+          "description": "Barthol advanced to third on a wild pitch. 6 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke struck out swinging (3-2 SFBBBS). 6 1",
+          "pitch_count": "3-2 SFBBBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Turley homered to left field, RBI (0-1 F). 6 2",
+          "pitch_count": "0-1 F",
+          "rbi": 1
+        },
+        {
+          "description": "Weber struck out swinging, out at first c to 1b (1-2 KBFS). 6 2",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Singer singled to right center (0-2 KF). 6 2",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "Peterson struck out swinging (0-2 KSS). 6 2",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        },
+        {
+          "description": "Krieg walked (3-2 BKBSBB); Singer advanced to second. 6 2",
+          "pitch_count": "3-2 BKBSBB",
+          "rbi": 0
+        },
+        {
+          "description": "Lynch to p for Johnson. 6 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder struck out swinging (2-2 SBSBS). 6 2",
+          "pitch_count": "2-2 SBSBS",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}

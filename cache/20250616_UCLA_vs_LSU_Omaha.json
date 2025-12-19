@@ -1,0 +1,1417 @@
+{
+  "metadata": {
+    "date": "6/16/2025",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "UCLA",
+    "away_team_rank": "#15",
+    "away_team_record": "48-17",
+    "away_team_score": 5,
+    "home_team": "LSU",
+    "home_team_rank": "#6",
+    "home_team_record": "50-15",
+    "home_team_score": 9,
+    "attendance": 24623,
+    "duration": "3:41",
+    "start_time": "6:08 pm",
+    "weather": "90-Sunny-W:12 MPH S-H:48%",
+    "umpires": {
+      "list": "Home Plate: Kellen Levy First: Angel Campos Second Base: Jeff Head Third Base: Scott Letendre"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Dean West",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "west--000dea",
+        "full_name": "Dean West",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Roch Cholowsky",
+        "position": "ss",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "cholow000roc",
+        "full_name": "Roch Cholowsky",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Mulivai Levu",
+        "position": "1b",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "levu--000mul",
+        "full_name": "Mulivai Levu",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Roman Martin",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "martin008rom",
+        "full_name": "Roman Martin",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "AJ Salgado",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "salgad000aj-",
+        "full_name": "AJ Salgado",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Payton Brennan",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "brenna000pay",
+        "full_name": "Payton Brennan",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blake Balsz",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "balsz-000bla",
+        "full_name": "Blake Balsz",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cashel Dugger",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "dugger000cas",
+        "full_name": "Cashel Dugger",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Phoenix Call",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "call--000pho",
+        "full_name": "Phoenix Call",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Landon Stump",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "stump-000lan",
+        "full_name": "Landon Stump",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Chris Grothues",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "grothu000chr",
+        "full_name": "Chris Grothues",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wylan Moss",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "moss--000wyl",
+        "full_name": "Wylan Moss",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cal Randall",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "randal000cal",
+        "full_name": "Cal Randall",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ian May",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "may---000ian",
+        "full_name": "Ian May",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jack O'Connor",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "oconno008jac",
+        "full_name": "Jack O'Connor",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "August Souza",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "souza-000aug",
+        "full_name": "August Souza",
+        "match_confidence": 1.0
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Derek Curiel",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "curiel000der",
+        "full_name": "Derek Curiel",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ethan Frey",
+        "position": "dh",
+        "at_bats": 2,
+        "runs": 4,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 3,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "frey--001eth",
+        "full_name": "Ethan Frey",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Steven Milam",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "milam-000ste",
+        "full_name": "Steven Milam",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jake Brown",
+        "position": "rf",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 3,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "brown-014jak",
+        "full_name": "Jake Brown",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jared Jones",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 4,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "jones-013jar",
+        "full_name": "Jared Jones",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Luis Hernandez",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hernan029lui",
+        "full_name": "Luis Hernandez",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tanner Reaves",
+        "position": "3b",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "reaves000tan",
+        "full_name": "Tanner Reaves",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "John Pearson",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "pearso002joh",
+        "full_name": "John Pearson",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Michael Braswell III",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "braswe000mic",
+        "full_name": "Michael Braswell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Daniel Dickinson",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "dickin000dan",
+        "full_name": "Daniel Dickinson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Chris Stanfield",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "stanfi000chr",
+        "full_name": "Chris Stanfield",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Anthony Eyanson",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "eyanso000ant",
+        "full_name": "Anthony Eyanson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Casan Evans",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "evans-001cas",
+        "full_name": "Casan Evans",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cooper Williams",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "willia003coo",
+        "full_name": "Cooper Williams",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Chase Shores",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "shores000cha",
+        "full_name": "Chase Shores",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Easton Hawk",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hawk--000eas",
+        "full_name": "Easton Hawk",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Landon Stump",
+        "innings_pitched": 2.0,
+        "hits": 4,
+        "runs": 5,
+        "earned_runs": 5,
+        "walks": 2,
+        "strikeouts": 0,
+        "batters_faced": 12,
+        "at_bats": 10,
+        "pitches": 56,
+        "bref_id": "stump-000lan",
+        "full_name": "Landon Stump",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Chris Grothues",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 17,
+        "bref_id": "grothu000chr",
+        "full_name": "Chris Grothues",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wylan Moss",
+        "innings_pitched": 0.2,
+        "hits": 3,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 6,
+        "at_bats": 5,
+        "pitches": 24,
+        "bref_id": "moss--000wyl",
+        "full_name": "Wylan Moss",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cal Randall",
+        "innings_pitched": 1.2,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "batters_faced": 7,
+        "at_bats": 6,
+        "pitches": 32,
+        "bref_id": "randal000cal",
+        "full_name": "Cal Randall",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ian May",
+        "innings_pitched": 0.2,
+        "hits": 0,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 2,
+        "pitches": 16,
+        "bref_id": "may---000ian",
+        "full_name": "Ian May",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jack O'Connor",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 15,
+        "bref_id": "oconno008jac",
+        "full_name": "Jack O'Connor",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "August Souza",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 2,
+        "at_bats": 1,
+        "pitches": 13,
+        "bref_id": "souza-000aug",
+        "full_name": "August Souza",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Easton Hawk",
+        "innings_pitched": 0.2,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 5,
+        "at_bats": 4,
+        "pitches": 13,
+        "bref_id": "hawk--000eas",
+        "full_name": "Easton Hawk",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Anthony Eyanson",
+        "innings_pitched": 3.0,
+        "hits": 4,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 14,
+        "at_bats": 12,
+        "pitches": 44,
+        "bref_id": "eyanso000ant",
+        "full_name": "Anthony Eyanson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Casan Evans",
+        "innings_pitched": 4.1,
+        "hits": 4,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 0,
+        "strikeouts": 5,
+        "batters_faced": 17,
+        "at_bats": 16,
+        "pitches": 68,
+        "bref_id": "evans-001cas",
+        "full_name": "Casan Evans",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cooper Williams",
+        "innings_pitched": 0.1,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "batters_faced": 4,
+        "at_bats": 2,
+        "pitches": 21,
+        "bref_id": "willia003coo",
+        "full_name": "Cooper Williams",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Chase Shores",
+        "innings_pitched": 1.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 11,
+        "bref_id": "shores000cha",
+        "full_name": "Chase Shores",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "home_innings": [
+        4,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "Roman Martin",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Derek Curiel (1)",
+      "Luis Hernandez (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Casan Evans",
+      "record": "5-1"
+    },
+    "loss": {
+      "player": "Landon Stump",
+      "record": "6-2"
+    },
+    "save": {
+      "player": "Chase Shores",
+      "count": 1
+    },
+    "sacrifice_hits": [
+      "Dean West (1)"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "West singled to second base (1-0 B). 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Cholowsky reached on a fielder's choice to shortstop (0-1 K); West out at second ss to 2b. 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Levu singled through the left side (2-2 BBSKFF); Cholowsky advanced to second. 0 0",
+          "pitch_count": "2-2 BBSKFF",
+          "rbi": 0
+        },
+        {
+          "description": "Martin doubled down the lf line, RBI (0-1 K); Levu advanced to third; Cholowsky scored. 1 0",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "Salgado singled to second base, RBI (1-2 FKB); Martin advanced to third; Levu scored. 2 0",
+          "pitch_count": "1-2 FKB",
+          "rbi": 1
+        },
+        {
+          "description": "Brennan grounded out to p, RBI (1-2 SBF); Salgado advanced to second; Martin scored. 3 0",
+          "pitch_count": "1-2 SBF",
+          "rbi": 1
+        },
+        {
+          "description": "Balsz grounded out to ss (0-1 K). 3 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Curiel grounded out to ss (0-0). 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Frey singled up the middle (1-2 KFB). 3 0",
+          "pitch_count": "1-2 KFB",
+          "rbi": 0
+        },
+        {
+          "description": "Milam singled down the rf line (2-2 KBBFF); Frey advanced to third. 3 0",
+          "pitch_count": "2-2 KBBFF",
+          "rbi": 0
+        },
+        {
+          "description": "Brown singled through the right side, RBI (0-2 FK); Milam advanced to third; Frey scored. 3 1",
+          "pitch_count": "0-2 FK",
+          "rbi": 1
+        },
+        {
+          "description": "Jones homered to right center, 3 RBI (1-0 B); Brown scored; Milam scored. 3 4",
+          "pitch_count": "1-0 B",
+          "rbi": 3
+        },
+        {
+          "description": "Hernandez grounded out to ss (1-0 B). 3 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Reaves grounded out to 2b (2-2 KKFFBBF). 3 4",
+          "pitch_count": "2-2 KKFFBBF",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Dugger grounded out to 2b (0-2 KK). 3 4",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "Call hit by pitch (1-1 BF). 3 4",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "West grounded out to p, SAC, bunt (0-0); Call advanced to second. 3 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Cholowsky struck out swinging (1-2 BSSS). 3 4",
+          "pitch_count": "1-2 BSSS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Dickinson grounded out to ss (2-2 BBKK). 3 4",
+          "pitch_count": "2-2 BBKK",
+          "rbi": 0
+        },
+        {
+          "description": "Stanfield lined out to cf (2-2 SKBBFFF). 3 4",
+          "pitch_count": "2-2 SKBBFFF",
+          "rbi": 0
+        },
+        {
+          "description": "Curiel grounded out to 2b (1-1 KB). 3 4",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Levu fouled out to lf (0-0). 3 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Martin lined out to rf (3-2 BBKBF). 3 4",
+          "pitch_count": "3-2 BBKBF",
+          "rbi": 0
+        },
+        {
+          "description": "Salgado grounded out to 2b (1-1 BS). 3 4",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Frey walked (3-2 KKBFFFBBB). 3 4",
+          "pitch_count": "3-2 KKBFFFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Milam walked (3-1 BBBKB); Frey advanced to second. 3 4",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Grothues to p for Stump. 3 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Brown struck out swinging (1-2 BKFS). 3 4",
+          "pitch_count": "1-2 BKFS",
+          "rbi": 0
+        },
+        {
+          "description": "Jones struck out swinging (3-2 KBKBBS). 3 4",
+          "pitch_count": "3-2 KBKBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Hernandez singled up the middle, RBI (0-1 K); Milam advanced to second; Frey scored. 3 5",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "Pearson, Jn. pinch hit for Reaves. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field is picked off second, LSU Challenged. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call is overturned, LSU retains both of its challenges. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pearson, Jn. struck out swinging (2-2 BBFKS). 3 5",
+          "pitch_count": "2-2 BBFKS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "The game entered a weather delay at 7:20 p.m. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Play was suspended at 10:13 p.m. with a 2:53 delay. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Play resumed at 10:03 a.m. on June 17. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Braswell III to 3b for Pearson, Jn.. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Evans to p for Eyanson. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Brennan grounded out to ss (2-2 BSBS). 3 5",
+          "pitch_count": "2-2 BSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Balsz struck out swinging (1-2 SFBFS). 3 5",
+          "pitch_count": "1-2 SFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Dugger singled through the left side (2-0 BB). 3 5",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Call struck out swinging (0-2 KKFFS). 3 5",
+          "pitch_count": "0-2 KKFFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Moss to p for Grothues. 3 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dickinson grounded out to 3b (1-2 BKK). 3 5",
+          "pitch_count": "1-2 BKK",
+          "rbi": 0
+        },
+        {
+          "description": "Stanfield grounded out to ss (3-2 KBFBFB). 3 5",
+          "pitch_count": "3-2 KBFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Curiel singled to left field (1-1 BK). 3 5",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Frey walked (3-1 BBFBB); Curiel advanced to second. 3 5",
+          "pitch_count": "3-1 BBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Milam singled up the middle, RBI (1-1 BK); Frey advanced to third; Curiel scored. 3 6",
+          "pitch_count": "1-1 BK",
+          "rbi": 1
+        },
+        {
+          "description": "Brown singled to right field, RBI (0-1 K); Milam advanced to third; Frey scored. 3 7",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "Randall to p for Moss. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jones grounded out to ss (3-0 BBB). 3 7",
+          "pitch_count": "3-0 BBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "West struck out swinging (0-2 KKS). 3 7",
+          "pitch_count": "0-2 KKS",
+          "rbi": 0
+        },
+        {
+          "description": "Cholowsky flied out to lf to left center (1-0 B). 3 7",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Levu grounded out to 1b unassisted (2-2 FBFB). 3 7",
+          "pitch_count": "2-2 FBFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hernandez grounded out to ss (1-2 KSBF). 3 7",
+          "pitch_count": "1-2 KSBF",
+          "rbi": 0
+        },
+        {
+          "description": "Braswell III struck out looking (1-2 KKBK). 3 7",
+          "pitch_count": "1-2 KKBK",
+          "rbi": 0
+        },
+        {
+          "description": "Dickinson struck out looking (2-2 BKFBK). 3 7",
+          "pitch_count": "2-2 BKFBK",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Martin grounded out to 2b (1-2 KKB). 3 7",
+          "pitch_count": "1-2 KKB",
+          "rbi": 0
+        },
+        {
+          "description": "Salgado singled through the right side (2-2 SFBB). 3 7",
+          "pitch_count": "2-2 SFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Brennan grounded into double play ss to 1b (0-0); Salgado out on the play. 3 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Call on the field was GDP, UCLA Challenged the call at first base. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call was upheld, UCLA loses its first challenge and has one remaining. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Stanfield singled to pitcher (2-2 KBBF). 3 7",
+          "pitch_count": "2-2 KBBF",
+          "rbi": 0
+        },
+        {
+          "description": "Curiel hit by pitch (1-2 KBK); Stanfield advanced to second. 3 7",
+          "pitch_count": "1-2 KBK",
+          "rbi": 0
+        },
+        {
+          "description": "Frey struck out looking (2-2 KBSBK). 3 7",
+          "pitch_count": "2-2 KBSBK",
+          "rbi": 0
+        },
+        {
+          "description": "May to p for Randall. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Milam flied out to cf to right center (1-2 KFB); Stanfield advanced to third. 3 7",
+          "pitch_count": "1-2 KFB",
+          "rbi": 0
+        },
+        {
+          "description": "Brown grounded out to 1b unassisted (3-2 KBBBK). 3 7",
+          "pitch_count": "3-2 KBBBK",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Balsz struck out swinging (1-2 FKBS). 3 7",
+          "pitch_count": "1-2 FKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Dugger singled to left field (3-1 BKBB). 3 7",
+          "pitch_count": "3-1 BKBB",
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was ball, UCLA challenged call requesting HBP. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field stands, UCLA loses its second challenge and is out. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call struck out looking (2-2 BKBKK). 3 7",
+          "pitch_count": "2-2 BKBKK",
+          "rbi": 0
+        },
+        {
+          "description": "West grounded out to p (1-2 SBFF). 3 7",
+          "pitch_count": "1-2 SBFF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jones walked (3-2 BKBBKB). 3 7",
+          "pitch_count": "3-2 BKBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "O'Connor to p for May. 3 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hernandez grounded out to ss (3-2 BBFBS); Jones advanced to second. 3 7",
+          "pitch_count": "3-2 BBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Braswell III grounded out to 2b (0-1 K); Jones advanced to third. 3 7",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Dickinson singled to right field, RBI (2-2 BBKF); Jones scored. 3 8",
+          "pitch_count": "2-2 BBKF",
+          "rbi": 1
+        },
+        {
+          "description": "Stanfield grounded out to 2b (1-0 B). 3 8",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Cholowsky fouled out to 1b (0-0). 3 8",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Levu singled through the right side (2-2 BFBFF). 3 8",
+          "pitch_count": "2-2 BFBFF",
+          "rbi": 0
+        },
+        {
+          "description": "Levu advanced to second on a wild pitch. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Martin hit by pitch (1-2 BKK). 3 8",
+          "pitch_count": "1-2 BKK",
+          "rbi": 0
+        },
+        {
+          "description": "Williams to p for Evans. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Salgado walked (3-2 KBFFBBB); Martin advanced to second; Levu advanced to third. 3 8",
+          "pitch_count": "3-2 KBFFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Brennan reached on a fielder's choice to second base, RBI (0-2 KKF); Salgado out at second 2b to ss; Martin",
+          "pitch_count": "0-2 KKF",
+          "rbi": 1
+        },
+        {
+          "description": "advanced to third; Levu scored. 4 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Balsz singled up the middle, RBI (2-2 KBKB); Brennan advanced to second; Martin scored. 5 8",
+          "pitch_count": "2-2 KBKB",
+          "rbi": 1
+        },
+        {
+          "description": "Dugger walked (3-1 BBKBB); Balsz advanced to second; Brennan advanced to third. 5 8",
+          "pitch_count": "3-1 BBKBB",
+          "rbi": 0
+        },
+        {
+          "description": "Shores to p for Williams. 5 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call reached on a fielder's choice to shortstop (0-0); Dugger out at second ss to 2b. 5 8",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Souza to p for O'Connor. 5 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Curiel grounded out to 2b (3-2 BBKSFB). 5 8",
+          "pitch_count": "3-2 BBKSFB",
+          "rbi": 0
+        },
+        {
+          "description": "Frey walked (3-2 BKBBKB). 5 8",
+          "pitch_count": "3-2 BKBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Hawk to p for Souza. 5 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Milam struck out swinging (0-2 KFS). 5 8",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        },
+        {
+          "description": "Brown singled to right field (0-0); Frey advanced to third. 5 8",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Jones singled to center field, RBI (1-1 BK); Brown advanced to third; Frey scored. 5 9",
+          "pitch_count": "1-1 BK",
+          "rbi": 1
+        },
+        {
+          "description": "Hernandez hit by pitch (0-0); Jones advanced to second. 5 9",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Braswell III lined out to lf (3-1 BKBB). 5 9",
+          "pitch_count": "3-1 BKBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "West grounded out to 2b (2-2 KBBF). 5 9",
+          "pitch_count": "2-2 KBBF",
+          "rbi": 0
+        },
+        {
+          "description": "Cholowsky grounded out to 2b (0-0). 5 9",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Levu grounded out to 2b (2-1 KBB). 5 9",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

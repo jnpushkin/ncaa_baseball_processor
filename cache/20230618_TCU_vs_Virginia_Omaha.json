@@ -1,0 +1,1042 @@
+{
+  "metadata": {
+    "date": "6/18/2023",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "TCU",
+    "away_team_rank": null,
+    "away_team_record": "43-23",
+    "away_team_score": 4,
+    "home_team": "Virginia",
+    "home_team_rank": null,
+    "home_team_record": "50-15",
+    "home_team_score": 3,
+    "attendance": 24479,
+    "duration": "3:08",
+    "start_time": null,
+    "weather": "81 - Cloudy - W:5 MPH SSW",
+    "umpires": {
+      "home_plate": "Ramon Armenderiz",
+      "first_base": "Brandon Cooper",
+      "second_base": "Jeff Head",
+      "third_base": "Angel Campos"
+    },
+    "_teams_swapped": false
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "1",
+        "name": "Nunez",
+        "position": "cf",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 2,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "nunez-001eli",
+        "full_name": "Elijah Nunez",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "14",
+        "name": "Bowen",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 8,
+        "assists": 1,
+        "left_on_base": 2,
+        "bref_id": "bowen-000kar",
+        "full_name": "Karson Bowen",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "55",
+        "name": "Taylor",
+        "position": "3b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 1,
+        "assists": 2,
+        "left_on_base": 2,
+        "bref_id": "taylor010bra",
+        "full_name": "Brayden Taylor",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "32",
+        "name": "Fontenelle",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 10,
+        "assists": 1,
+        "left_on_base": 0,
+        "bref_id": "fonten000col",
+        "full_name": "Cole Fontenelle",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "0",
+        "name": "Richardson",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 1,
+        "assists": 3,
+        "left_on_base": 3,
+        "bref_id": "richar002tre",
+        "full_name": "Tre Richardson",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "4",
+        "name": "Byrne",
+        "position": "dh",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "byrne-000kur",
+        "full_name": "Kurtis Byrne",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "5",
+        "name": "Silva",
+        "position": "ss",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 3,
+        "left_on_base": 1,
+        "bref_id": "silva-000ant",
+        "full_name": "Anthony Silva",
+        "match_confidence": 0.4
+      },
+      {
+        "number": "22",
+        "name": "Maxwell",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 1,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "maxwel001log",
+        "full_name": "Logan Maxwell",
+        "match_confidence": 0.7
+      },
+      {
+        "number": "6",
+        "name": "Boyers",
+        "position": "lf",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 2,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "boyers000luk",
+        "full_name": "Luke Boyers",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "11",
+        "name": "Davis",
+        "position": "rf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 1,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "davis-005aus",
+        "full_name": "Austin Davis",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "6",
+        "name": "O'Ferrall",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 1,
+        "assists": 1,
+        "left_on_base": 2,
+        "bref_id": "oferra000gri",
+        "full_name": "Griff O'Ferrall",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "2",
+        "name": "O'Donnell",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 2,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "odonne000eth",
+        "full_name": "Ethan O'Donnell",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "22",
+        "name": "Gelof",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 2,
+        "left_on_base": 0,
+        "bref_id": "gelof-000jak",
+        "full_name": "Jake Gelof",
+        "match_confidence": 0.4
+      },
+      {
+        "number": "3",
+        "name": "Teel",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 5,
+        "assists": 1,
+        "left_on_base": 0,
+        "bref_id": "teel--000aid",
+        "full_name": "Aidan Teel",
+        "match_confidence": 0.4
+      },
+      {
+        "number": "23",
+        "name": "Anderson",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 7,
+        "assists": 1,
+        "left_on_base": 1,
+        "bref_id": "anders001eth",
+        "full_name": "Ethan Anderson",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "8",
+        "name": "Saucke",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 4,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "saucke002cas",
+        "full_name": "Casey Saucke",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "16",
+        "name": "Stephan",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "stepha000ant",
+        "full_name": "Anthony Stephan",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "7",
+        "name": "Godbout",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 3,
+        "assists": 1,
+        "left_on_base": 0,
+        "bref_id": "godbou000hen",
+        "full_name": "Henry Godbout",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "34",
+        "name": "Didawick",
+        "position": "lf",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 5,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "didawi000har",
+        "full_name": "Harrison Didawick",
+        "match_confidence": 0.85
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "15",
+        "name": "Stoutenborou",
+        "innings_pitched": 4.2,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 2,
+        "strikeouts": 3,
+        "batters_faced": 18,
+        "at_bats": 16,
+        "pitches": 64,
+        "bref_id": "stoute000sam",
+        "full_name": "Sam Stoutenborough",
+        "match_confidence": 0.7
+      },
+      {
+        "number": "21",
+        "name": "Wright",
+        "innings_pitched": 2.2,
+        "hits": 2,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 0,
+        "strikeouts": 4,
+        "batters_faced": 10,
+        "at_bats": 10,
+        "pitches": 43,
+        "bref_id": "wright006gar",
+        "full_name": "Garrett Wright",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "46",
+        "name": "Abeldt",
+        "innings_pitched": 1.2,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 6,
+        "at_bats": 6,
+        "pitches": 18,
+        "bref_id": "abeldt000ben",
+        "full_name": "Ben Abeldt",
+        "match_confidence": 0.85
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "20",
+        "name": "Early",
+        "innings_pitched": 5.0,
+        "hits": 6,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 3,
+        "strikeouts": 2,
+        "batters_faced": 23,
+        "at_bats": 19,
+        "pitches": 101,
+        "bref_id": "early-000con",
+        "full_name": "Connelly Early",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "36",
+        "name": "Edgington",
+        "innings_pitched": 2.2,
+        "hits": 5,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 2,
+        "batters_faced": 15,
+        "at_bats": 12,
+        "pitches": 57,
+        "bref_id": "edging000bri",
+        "full_name": "Brian Edgington",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "10",
+        "name": "Hodges",
+        "innings_pitched": 0.2,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 3,
+        "at_bats": 2,
+        "pitches": 12,
+        "bref_id": "hodges003bra",
+        "full_name": "Bradley Hodges",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "4",
+        "name": "Woolfolk",
+        "innings_pitched": 0.2,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 2,
+        "at_bats": 2,
+        "pitches": 4,
+        "bref_id": "woolfo000jay",
+        "full_name": "Jay Woolfolk",
+        "match_confidence": 0.85
+      }
+    ],
+    "line_score": {
+      "away_innings": [],
+      "home_innings": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Nunez"
+    ],
+    "double_plays": {
+      "TCU": 0,
+      "Virginia": 0
+    },
+    "doubles": [],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [],
+    "caught_stealing": [],
+    "hit_by_pitch": [],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Wright",
+      "record": "3-2"
+    },
+    "loss": {
+      "player": "Early",
+      "record": "12-3"
+    },
+    "save": {
+      "player": "Abeldt",
+      "count": 2
+    }
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "No play. TCU 1 2 0 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nunez doubled down the lf line (1-2 FBS). VA 1 2 0 1",
+          "pitch_count": "1-2 FBS",
+          "rbi": 0
+        },
+        {
+          "description": "Pitch Clock Violation moved count to 1-2.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bowen singled to right center (2-2 KFFBB); Nunez advanced to third.",
+          "pitch_count": "2-2 KFFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Taylor struck out swinging (2-2 SBSBS).",
+          "pitch_count": "2-2 SBSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Fontenelle flied out to rf, SF, RBI (2-2 BKBFF); Nunez scored.",
+          "pitch_count": "2-2 BKBFF",
+          "rbi": 1
+        },
+        {
+          "description": "Richardson lined out to lf (0-1 F).",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "O'Ferrall doubled down the lf line (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "O'Donnell singled to center field (2-0 BB); O'Ferrall advanced to third.",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Gelof reached on a fielder's choice to second base, RBI (1-1 FB); O'Donnell out at second 2b",
+          "pitch_count": "1-1 FB",
+          "rbi": 1
+        },
+        {
+          "description": "unassisted; O'Ferrall scored.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Teel fouled out to 3b (2-2 BBKF).",
+          "pitch_count": "2-2 BBKF",
+          "rbi": 0
+        },
+        {
+          "description": "Gelof stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Anderson struck out swinging (1-2 KSFBS).",
+          "pitch_count": "1-2 KSFBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Byrne flied out to cf (2-2 KBBS). TCU 0 2 0 1",
+          "pitch_count": "2-2 KBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Silva struck out swinging (0-2 SFS). VA 0 0 0 0",
+          "pitch_count": "0-2 SFS",
+          "rbi": 0
+        },
+        {
+          "description": "Maxwell doubled down the rf line (2-0 BB).",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Davis singled to pitcher (2-2 KFFBFB); Maxwell advanced to third.",
+          "pitch_count": "2-2 KFFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Davis out at second c to ss, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Saucke struck out looking (2-2 KBBKFK).",
+          "pitch_count": "2-2 KBBKFK",
+          "rbi": 0
+        },
+        {
+          "description": "Stephan flied out to cf (0-2 KFF).",
+          "pitch_count": "0-2 KFF",
+          "rbi": 0
+        },
+        {
+          "description": "Godbout grounded out to 2b (2-1 BKB).",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Nunez grounded out to 1b unassisted (3-2 KBBFB). TCU 1 2 0 1",
+          "pitch_count": "3-2 KBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Bowen singled to center field (0-0). VA 0 0 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Taylor doubled down the rf line (1-2 KBF); Bowen advanced to third.",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        },
+        {
+          "description": "Fontenelle grounded out to 1b unassisted, RBI (2-2 BBSK); Taylor advanced to third; Bowen",
+          "pitch_count": "2-2 BBSK",
+          "rbi": 1
+        },
+        {
+          "description": "scored.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Richardson grounded out to 3b (1-2 KKFFFB).",
+          "pitch_count": "1-2 KKFFFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Didawick grounded out to 2b (2-0 BB).",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "O'Ferrall flied out to cf (2-0 BB).",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "O'Donnell struck out swinging (0-2 KSFFS).",
+          "pitch_count": "0-2 KSFFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Byrne flied out to rf to right center (2-2 SBKB). TCU 0 0 0 2",
+          "pitch_count": "2-2 SBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Silva flied out to rf down the rf line (0-0). VA 0 0 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Maxwell walked (3-0 BBBB).",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Davis walked (3-0 BBBB); Maxwell advanced to second.",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Nunez flied out to lf (1-1 KB).",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Gelof grounded out to 3b (1-2 BSF).",
+          "pitch_count": "1-2 BSF",
+          "rbi": 0
+        },
+        {
+          "description": "Teel out at first 1b to p (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Anderson flied out to rf (0-1 K).",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Bowen grounded out to 3b (2-2 BKBF). TCU 0 0 0 1",
+          "pitch_count": "2-2 BKBF",
+          "rbi": 0
+        },
+        {
+          "description": "Taylor grounded out to p (2-1 FBB). VA 0 0 0 2",
+          "pitch_count": "2-1 FBB",
+          "rbi": 0
+        },
+        {
+          "description": "Fontenelle walked (3-2 SBBSBFB).",
+          "pitch_count": "3-2 SBBSBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Richardson lined out to cf (1-0 B).",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Saucke walked (3-0 BBBB).",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Stephan grounded out to p (3-1 BBBK); Saucke advanced to second.",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Godbout grounded out to 2b (0-1 F); Saucke advanced to third.",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Didawick walked (3-0 BBBB).",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Wright to p for Stoutenborou.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Didawick stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Ferrall grounded out to ss (3-2 BBBKS).",
+          "pitch_count": "3-2 BBBKS",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Edgington to p for Early. TCU 1 2 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Byrne grounded out to 2b (0-1 K). VA 0 0 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Silva singled up the middle (3-1 KBBB).",
+          "pitch_count": "3-1 KBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Maxwell struck out swinging (0-2 KKS).",
+          "pitch_count": "0-2 KKS",
+          "rbi": 0
+        },
+        {
+          "description": "Davis walked (3-2 BKBFBB); Silva advanced to second.",
+          "pitch_count": "3-2 BKBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Nunez singled to right center, RBI (1-1 BK); Davis advanced to third; Silva scored.",
+          "pitch_count": "1-1 BK",
+          "rbi": 1
+        },
+        {
+          "description": "Bowen flied out to lf (0-2 KK).",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "O'Donnell struck out swinging, out at first c to 1b (2-2 FKBBFS).",
+          "pitch_count": "2-2 FKBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Gelof flied out to lf (3-2 BSSBFFB).",
+          "pitch_count": "3-2 BSSBFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Teel struck out swinging (3-2 FBBSBS).",
+          "pitch_count": "3-2 FBBSBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Taylor flied out to lf (1-1 BK). TCU 0 1 0 1",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Fontenelle struck out swinging (1-2 KBFS). VA 1 1 0 0",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Richardson singled to left field (2-2 BKSB).",
+          "pitch_count": "2-2 BKSB",
+          "rbi": 0
+        },
+        {
+          "description": "Byrne reached on a fielder's choice to shortstop (3-1 BBBK); Richardson out at second ss to 2b.",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Boyers to lf for Maxwell.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Anderson homered to left center, RBI (1-0 B).",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "Saucke struck out swinging (0-2 KFS).",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        },
+        {
+          "description": "Stephan struck out swinging (1-2 FKFBS).",
+          "pitch_count": "1-2 FKFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Godbout grounded out to 3b (0-1 F).",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Silva singled to third base (1-0 B). TCU 1 2 0 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Boyers grounded out to p, SAC, bunt (0-1 K); Silva advanced to second. VA 1 1 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Davis doubled to center field, RBI (0-1 K); Silva scored.",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "Nunez flied out to rf (2-2 KBFB); Davis advanced to third.",
+          "pitch_count": "2-2 KBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Bowen walked (3-2 KBBKBFB).",
+          "pitch_count": "3-2 KBBKBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Hodges to p for Edgington.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Taylor struck out swinging (2-2 KKBBS).",
+          "pitch_count": "2-2 KKBBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Didawick singled up the middle (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Didawick stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Ferrall flied out to lf (1-2 BSK); Didawick advanced to third.",
+          "pitch_count": "1-2 BSK",
+          "rbi": 0
+        },
+        {
+          "description": "Abeldt to p for Wright.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Donnell grounded out to ss, RBI (1-0 B); Didawick scored.",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "Gelof flied out to lf (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Fontenelle singled up the middle (3-1 BFBB). TCU 0 1 0 1",
+          "pitch_count": "3-1 BFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was out at first - TCU Challenged the Call. VA 0 1 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call Stands.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Richardson out at first 1b to 2b, SAC, bunt (1-0 B); Fontenelle advanced to second.",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Woolfolk to p for Hodges.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Byrne flied out to lf (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Silva popped up to 2b to right center (1-1 BK).",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Teel struck out swinging (1-2 BFKFS).",
+          "pitch_count": "1-2 BFKFS",
+          "rbi": 0
+        },
+        {
+          "description": "Anderson grounded out to ss (2-1 BFB).",
+          "pitch_count": "2-1 BFB",
+          "rbi": 0
+        },
+        {
+          "description": "Saucke singled to center field, advanced to second on a fielding error by cf (1-0 B).",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Stephan struck out swinging (1-2 BFSS).",
+          "pitch_count": "1-2 BFSS",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_a"
+}

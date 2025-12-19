@@ -1,0 +1,286 @@
+{
+  "team_name": "2012 Southern Utah Thunderbirds",
+  "team_id": "eb371469",
+  "year": "2012",
+  "players": [
+    {
+      "name": "DJ Andrade",
+      "bref_id": "andrad000dj-",
+      "first_name": "DJ",
+      "last_name": "Andrade",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Ronnie Burton",
+      "bref_id": "burton000ron",
+      "first_name": "Ronnie",
+      "last_name": "Burton",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Bo Cuthbertson",
+      "bref_id": "cuthbe000bo-",
+      "first_name": "Bo",
+      "last_name": "Cuthbertson",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "David Headley",
+      "bref_id": "headle000dav",
+      "first_name": "David",
+      "last_name": "Headley",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Austin Hunt",
+      "bref_id": "hunt--001aus",
+      "first_name": "Austin",
+      "last_name": "Hunt",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Mitchell Kauweloa",
+      "bref_id": "kauwel000mit",
+      "first_name": "Mitchell",
+      "last_name": "Kauweloa",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Micah Keeno",
+      "bref_id": "keeno-000mic",
+      "first_name": "Micah",
+      "last_name": "Keeno",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Bryson Kenolio",
+      "bref_id": "kenoli000bry",
+      "first_name": "Bryson",
+      "last_name": "Kenolio",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Kevin Kline",
+      "bref_id": "kline-001kev",
+      "first_name": "Kevin",
+      "last_name": "Kline",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Chaisson Low",
+      "bref_id": "low---000cha",
+      "first_name": "Chaisson",
+      "last_name": "Low",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Taggart Lunceford",
+      "bref_id": "luncef000tag",
+      "first_name": "Taggart",
+      "last_name": "Lunceford",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Justin Neuhart",
+      "bref_id": "neuhar000jus",
+      "first_name": "Justin",
+      "last_name": "Neuhart",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Chase Rezac",
+      "bref_id": "rezac-002cha",
+      "first_name": "Chase",
+      "last_name": "Rezac",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "David Ricker",
+      "bref_id": "ricker002dav",
+      "first_name": "David",
+      "last_name": "Ricker",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Marcus Romero",
+      "bref_id": "romero006mar",
+      "first_name": "Marcus",
+      "last_name": "Romero",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Brad Royer",
+      "bref_id": "royer-001bra",
+      "first_name": "Brad",
+      "last_name": "Royer",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Taylor Shaw",
+      "bref_id": "shaw--000tay",
+      "first_name": "Taylor",
+      "last_name": "Shaw",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Tariq Staton",
+      "bref_id": "staton002tar",
+      "first_name": "Tariq",
+      "last_name": "Staton",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Tyson Weber",
+      "bref_id": "weber-000tys",
+      "first_name": "Tyson",
+      "last_name": "Weber",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Jordan Zymola",
+      "bref_id": "zymola000jor",
+      "first_name": "Jordan",
+      "last_name": "Zymola",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Gage Bigelow",
+      "bref_id": "bigelo000gag",
+      "first_name": "Gage",
+      "last_name": "Bigelow",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Jesse Bristow",
+      "bref_id": "bristo000jes",
+      "first_name": "Jesse",
+      "last_name": "Bristow",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Jesse Hartle",
+      "bref_id": "hartle000jes",
+      "first_name": "Jesse",
+      "last_name": "Hartle",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Andy Harvey",
+      "bref_id": "harvey000and",
+      "first_name": "Andy",
+      "last_name": "Harvey",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Joe Karlik",
+      "bref_id": "karlik000joe",
+      "first_name": "Joe",
+      "last_name": "Karlik",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Taylor Larsen",
+      "bref_id": "larsen000tay",
+      "first_name": "Taylor",
+      "last_name": "Larsen",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Matt Nelson",
+      "bref_id": "nelson003mat",
+      "first_name": "Matt",
+      "last_name": "Nelson",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Justin Neubauer",
+      "bref_id": "neubau000jus",
+      "first_name": "Justin",
+      "last_name": "Neubauer",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Kelsey Outram",
+      "bref_id": "outram000kel",
+      "first_name": "Kelsey",
+      "last_name": "Outram",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "Kolby Rimer",
+      "bref_id": "rimer-000kol",
+      "first_name": "Kolby",
+      "last_name": "Rimer",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    },
+    {
+      "name": "KC Sandstrom",
+      "bref_id": "sandst000kc-",
+      "first_name": "KC",
+      "last_name": "Sandstrom",
+      "position": null,
+      "number": null,
+      "year": "2012"
+    }
+  ]
+}

@@ -1,0 +1,1208 @@
+{
+  "metadata": {
+    "date": "6/13/2025",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Arizona",
+    "away_team_rank": null,
+    "away_team_record": "0",
+    "away_team_score": 4,
+    "home_team": "Coastal Carolina",
+    "home_team_rank": null,
+    "home_team_record": "0",
+    "home_team_score": 7,
+    "attendance": null,
+    "duration": null,
+    "start_time": "1:07 pm",
+    "weather": "81-Partly Sunny-W:5 MPH S-H:56",
+    "umpires": {
+      "list": "Home Plate: Gregory Street First: Casey Moser Second Base: Clint Fagan Third Base: Brian deBrauwere"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Brendan Summerhill",
+        "position": "rf",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "summer003bre",
+        "full_name": "Brendan Summerhill",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Aaron Walton",
+        "position": "cf",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "walton000aar",
+        "full_name": "Aaron Walton",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Mason White",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "white-002mas",
+        "full_name": "Mason White",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Adonys Guzman",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 3,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "guzman000ado",
+        "full_name": "Adonys Guzman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Maddox Mihalakis",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mihala000mad",
+        "full_name": "Maddox Mihalakis",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Garen Caulfield",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "caulfi000gar",
+        "full_name": "Garen Caulfield",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Andrew Cain",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "cain--002and",
+        "full_name": "Andrew Cain",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tommy Splaine",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "splain000tom",
+        "full_name": "Tommy Splaine",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Easton Breyfogle",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "breyfo000eas",
+        "full_name": "Easton Breyfogle",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dom Rodriguez",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "rodrig005dom",
+        "full_name": "Dom Rodriguez",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Owen Kramkowski",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kramko000owe",
+        "full_name": "Owen Kramkowski",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Casey Hintz",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hintz-000cas",
+        "full_name": "Casey Hintz",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Garrett Hicks",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hicks-004gar",
+        "full_name": "Garrett Hicks",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Caden Bodine",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "bodine000cad",
+        "full_name": "Caden Bodine",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Sebastian Alexander",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "alexan000seb",
+        "full_name": "Sebastian Alexander",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blake Barthol",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 3,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bartho000bla",
+        "full_name": "Blake Barthol",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Walker Mitchell",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "mitche003wal",
+        "full_name": "Walker Mitchell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Colby Thorndyke",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "thornd000col",
+        "full_name": "Colby Thorndyke",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blagen Pado",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "pado--000bla",
+        "full_name": "Blagen Pado",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ty Dooley",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "dooley000ty-",
+        "full_name": "Ty Dooley",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dean Mihos",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mihos-000dea",
+        "full_name": "Dean Mihos",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wells Sykes",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "sykes-000wel",
+        "full_name": "Wells Sykes",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Riley Eikhoff",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "eikhof000ril",
+        "full_name": "Riley Eikhoff",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cameron Flukey",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "flukey000cam",
+        "full_name": "Cameron Flukey",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dominick Carbone",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "carbon000dom",
+        "full_name": "Dominick Carbone",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tony Pluta",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pluta-000ton",
+        "full_name": "Tony Pluta",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Owen Kramkowski",
+        "innings_pitched": 5.0,
+        "hits": 9,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 1,
+        "strikeouts": 7,
+        "batters_faced": 25,
+        "at_bats": 23,
+        "pitches": 86,
+        "bref_id": "kramko000owe",
+        "full_name": "Owen Kramkowski",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Casey Hintz",
+        "innings_pitched": 1.1,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 6,
+        "at_bats": 5,
+        "pitches": 25,
+        "bref_id": "hintz-000cas",
+        "full_name": "Casey Hintz",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Garrett Hicks",
+        "innings_pitched": 1.1,
+        "hits": 2,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 7,
+        "at_bats": 6,
+        "pitches": 25,
+        "bref_id": "hicks-004gar",
+        "full_name": "Garrett Hicks",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tony Pluta",
+        "innings_pitched": 0.1,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 2,
+        "at_bats": 2,
+        "pitches": 8,
+        "bref_id": "pluta-000ton",
+        "full_name": "Tony Pluta",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Riley Eikhoff",
+        "innings_pitched": 4.0,
+        "hits": 6,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 0,
+        "strikeouts": 4,
+        "batters_faced": 16,
+        "at_bats": 16,
+        "pitches": 45,
+        "bref_id": "eikhof000ril",
+        "full_name": "Riley Eikhoff",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cameron Flukey",
+        "innings_pitched": 4.0,
+        "hits": 2,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 3,
+        "batters_faced": 18,
+        "at_bats": 14,
+        "pitches": 71,
+        "bref_id": "flukey000cam",
+        "full_name": "Cameron Flukey",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dominick Carbone",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 10,
+        "bref_id": "carbon000dom",
+        "full_name": "Dominick Carbone",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        3,
+        7
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [],
+    "double_plays": {
+      "count": 2
+    },
+    "doubles": [
+      {
+        "player": "Adonys Guzman",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Maddox Mihalakis",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Andrew Cain",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "Mason White",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [
+      "Wells Sykes (1)"
+    ],
+    "caught_stealing": [
+      "Brendan Summerhill (1)"
+    ],
+    "hit_by_pitch": [
+      "Aaron Walton (1)",
+      "Mason White (1)",
+      "Maddox Mihalakis (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": null,
+    "loss": null,
+    "save": null,
+    "sacrifice_hits": [
+      "Sebastian Alexander (1)",
+      "Walker Mitchell (1)"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Summerhill singled to left field (1-1 BF). 0 0",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "Walton flied out to cf to right center (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "White struck out swinging (1-2 BFKS). 0 0",
+          "pitch_count": "1-2 BFKS",
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill out at second c to 2b, caught stealing. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Original Call was Stolen Base, Call is Under Review. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field is overturned, runner out at second. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Bodine singled through the right side (2-0 BB). 0 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Alexander grounded out to 3b, SAC, bunt (0-0); Bodine advanced to second. 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Barthol struck out swinging (2-2 BBKKFS). 0 0",
+          "pitch_count": "2-2 BBKKFS",
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell popped up to 2b (2-2 BBSSFF). 0 0",
+          "pitch_count": "2-2 BBSSFF",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Guzman singled up the middle (0-1 F). 0 0",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Mihalakis struck out swinging (0-2 KSS). 0 0",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield grounded into double play 2b to ss to 1b (0-2 KK); Guzman out on the play. 0 0",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Thorndyke singled to right center (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Pado singled to left field (2-2 BFFBF); Thorndyke advanced to second. 0 0",
+          "pitch_count": "2-2 BFFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Dooley singled to pitcher, bunt (0-0); Pado advanced to second; Thorndyke advanced to third. 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Mihos struck out swinging (1-2 BSSS). 0 0",
+          "pitch_count": "1-2 BSSS",
+          "rbi": 0
+        },
+        {
+          "description": "Sykes singled to left center, 2 RBI (0-1 F); Dooley advanced to second; Pado scored; Thorndyke scored. 0 2",
+          "pitch_count": "0-1 F",
+          "rbi": 2
+        },
+        {
+          "description": "Bodine lined out to rf (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Alexander struck out swinging (0-2 SKFS). 0 2",
+          "pitch_count": "0-2 SKFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Cain struck out looking (1-2 BKFK). 0 2",
+          "pitch_count": "1-2 BKFK",
+          "rbi": 0
+        },
+        {
+          "description": "Splaine doubled to left field (3-2 BBSBKF). 0 2",
+          "pitch_count": "3-2 BBSBKF",
+          "rbi": 0
+        },
+        {
+          "description": "Double off LF Wall. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Breyfogle grounded out to 2b (0-0); Splaine advanced to third. 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill popped up to 2b (0-1 F). 0 2",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Barthol struck out swinging (1-2 BKFFFS). 0 2",
+          "pitch_count": "1-2 BKFFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell popped up to 2b (2-2 KBBF). 0 2",
+          "pitch_count": "2-2 KBBF",
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke grounded out to p (0-2 KS). 0 2",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Walton struck out swinging (1-2 KFBS). 0 2",
+          "pitch_count": "1-2 KFBS",
+          "rbi": 0
+        },
+        {
+          "description": "White homered to left field, RBI (0-2 KS). 1 2",
+          "pitch_count": "0-2 KS",
+          "rbi": 1
+        },
+        {
+          "description": "Guzman doubled down the rf line (0-0). 1 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Mihalakis doubled down the rf line, RBI (1-2 BKS); Guzman scored. 2 2",
+          "pitch_count": "1-2 BKS",
+          "rbi": 1
+        },
+        {
+          "description": "Caulfield flied out to cf (1-0 B); Mihalakis advanced to third. 2 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Appeal at second was denied. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cain popped up to cf (0-0). 2 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Pado struck out swinging (0-2 KSS). 2 2",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        },
+        {
+          "description": "Dooley singled through the left side (0-1 K). 2 2",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Mihos singled up the middle (1-1 KB); Dooley advanced to second. 2 2",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Sykes reached on a fielder's choice to third base (1-0 B); Mihos out at second 3b to 2b; Dooley advanced to",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "third. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sykes stole second. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine struck out swinging (1-2 KFBS). 2 2",
+          "pitch_count": "1-2 KFBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Flukey to p for Eikhoff. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine flied out to rf (0-1 K). 2 2",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Breyfogle flied out to cf (0-0). 2 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill flied out to lf to left center (3-2 BKFBFB). 2 2",
+          "pitch_count": "3-2 BKFBFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Call on the Field was Batter Intentionally Hit, thus 0-2 count. CCU Challen. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call Upheld, count remains 0-2. CCU has one challenge remaining. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander struck out looking (2-2 FKFBBK). 2 2",
+          "pitch_count": "2-2 FKFBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Barthol singled to center field (0-2 FF). 2 2",
+          "pitch_count": "0-2 FF",
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell walked (3-1 BBBKB); Barthol advanced to second. 2 2",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke flied out to rf (0-0); Barthol advanced to third. 2 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Pado singled up the middle, RBI (1-2 BFKF); Mitchell advanced to third; Barthol scored. 2 3",
+          "pitch_count": "1-2 BFKF",
+          "rbi": 1
+        },
+        {
+          "description": "Dooley grounded out to 2b (0-1 K). 2 3",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Walton hit by pitch (0-1 K). 2 3",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Walton advanced to second on a balk. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White hit by pitch (1-2 FKFFFFBF). 2 3",
+          "pitch_count": "1-2 FKFFFFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Guzman singled through the left side, bunt (2-1 BBK); White advanced to second; Walton advanced to third. 2 3",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "Mihalakis hit by pitch, RBI (0-2 SF); Guzman advanced to second; White advanced to third; Walton scored. 3 3",
+          "pitch_count": "0-2 SF",
+          "rbi": 1
+        },
+        {
+          "description": "Caulfield reached on a fielder's choice to second base, RBI (1-2 KBK); Mihalakis out at second 2b to ss;",
+          "pitch_count": "1-2 KBK",
+          "rbi": 1
+        },
+        {
+          "description": "Guzman advanced to third; White scored. 4 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cain struck out swinging (2-2 BBFFFFS). 4 3",
+          "pitch_count": "2-2 BBFFFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Splaine grounded out to ss (0-1 F). 4 3",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hintz to p for Kramkowski. 4 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihos singled through the left side (1-1 BS). 4 3",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        },
+        {
+          "description": "Mihos advanced to second on a wild pitch. 4 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sykes grounded out to ss (1-2 FBFF); Mihos advanced to third. 4 3",
+          "pitch_count": "1-2 FBFF",
+          "rbi": 0
+        },
+        {
+          "description": "Bodine grounded out to ss, RBI (0-1 F); Mihos scored. 4 4",
+          "pitch_count": "0-1 F",
+          "rbi": 1
+        },
+        {
+          "description": "Alexander struck out swinging, out at first c to 1b (2-2 KFFFFBBFS). 4 4",
+          "pitch_count": "2-2 KFFFFBBFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Breyfogle flied out to rf (2-1 KBB). 4 4",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill struck out looking (1-2 BFFK). 4 4",
+          "pitch_count": "1-2 BFFK",
+          "rbi": 0
+        },
+        {
+          "description": "Walton walked (3-2 FFBBBFFB). 4 4",
+          "pitch_count": "3-2 FFBBBFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Walton stole second. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White popped up to 1b (0-1 S). 4 4",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Barthol doubled down the rf line, ground-rule (1-2 FFBF). 4 4",
+          "pitch_count": "1-2 FFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Ground Rule Double due to Fan Interference. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell out at first p to 2b, SAC, bunt (0-0); Barthol advanced to third. 4 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Hicks to p for Hintz. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke struck out swinging (0-2 FSS). 4 4",
+          "pitch_count": "0-2 FSS",
+          "rbi": 0
+        },
+        {
+          "description": "Pado struck out swinging (0-2 KSS). 4 4",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Guzman popped up to 1b (2-0 BB). 4 4",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Mihalakis lined out to cf (1-0 B). 4 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield struck out swinging (0-2 KFS). 4 4",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Dooley lined out to 3b (2-2 KBFB). 4 4",
+          "pitch_count": "2-2 KBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Mihos grounded out to ss (3-2 KBKFBBF). 4 4",
+          "pitch_count": "3-2 KBKFBBF",
+          "rbi": 0
+        },
+        {
+          "description": "Sykes doubled down the rf line (0-2 KK). 4 4",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "Bodine intentionally walked. 4 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander singled to center field, RBI (2-0 BB); Bodine advanced to second; Sykes scored. 4 5",
+          "pitch_count": "2-0 BB",
+          "rbi": 1
+        },
+        {
+          "description": "Pluta to p for Hicks. 4 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Barthol doubled to right center, 2 RBI (3-1 BBBK); Alexander scored; Bodine scored. 4 7",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 2
+        },
+        {
+          "description": "Mitchell popped up to rf to right center (2-0 BB). 4 7",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Cain doubled down the rf line (1-1 BK). 4 7",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Carbone to p for Flukey. 4 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine singled to right center (0-2 KFF); Cain advanced to third. 4 7",
+          "pitch_count": "0-2 KFF",
+          "rbi": 0
+        },
+        {
+          "description": "Rodriguez pinch hit for Breyfogle. 4 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rodriguez struck out swinging (1-2 KBFFS). 4 7",
+          "pitch_count": "1-2 KBFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill grounded into double play 2b to 1b (0-0); Splaine out on the play. 4 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

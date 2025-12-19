@@ -1,0 +1,1329 @@
+{
+  "metadata": {
+    "date": "3/1/2025",
+    "venue": "Sunken Diamond (Stanford, Calif.)",
+    "stadium": "Sunken Diamond",
+    "city": "Stanford, Calif.",
+    "away_team": "Xavier",
+    "away_team_rank": null,
+    "away_team_record": "6-4",
+    "away_team_score": 5,
+    "home_team": "Stanford",
+    "home_team_rank": null,
+    "home_team_record": "9-1",
+    "home_team_score": 4,
+    "attendance": 1475,
+    "duration": "3:01",
+    "start_time": "1:07 PM",
+    "weather": "60 Degrees, Cloudy",
+    "umpires": {
+      "list": "Home Plate: Chris Booker First: Matt Winter Second Base: Jake Botek Third Base: Mike Jarboe"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "LAMBDIN, Jake 3b/p",
+        "position": "",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lambdi000jak",
+        "full_name": "Jake Lambdin",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "HENDRICKSON, Carter",
+        "position": "lf",
+        "at_bats": 1,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hendri002car",
+        "full_name": "Carter Hendrickson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "ANDERSON, Aedan",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "anders000aed",
+        "full_name": "Aedan Anderson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "MISCH, Connor",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 3,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "misch-000con",
+        "full_name": "Connor Misch",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "MENSIK, Landon 2b/rf",
+        "position": "",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "mensik000lan",
+        "full_name": "Landon Mensik",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "WACHSMANN, Isaac",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "wachsm000isa",
+        "full_name": "Isaac Wachsmann",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CANTERBERRY, Donavan",
+        "position": "3b",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "canter000don",
+        "full_name": "Donavan Canterberry",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "BURDETTE, Clay",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "burdet000cla",
+        "full_name": "Clay Burdette",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "TUCKER, Nolan",
+        "position": "ph/2b",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "tucker000nol",
+        "full_name": "Nolan Tucker",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "CHRISTIANSEN, Hayden",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "christ000hay",
+        "full_name": "Hayden Christiansen",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "JELIC, Jason",
+        "position": "ph/c",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "jelic-000jas",
+        "full_name": "Jason Jelic",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "PETERS, Eddie",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "peters000edd",
+        "full_name": "Eddie Peters",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "PIECH, Ryan",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "piech-000rya",
+        "full_name": "Ryan Piech",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "HOSKINS, Luke",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hoskin000luk",
+        "full_name": "Luke Hoskins",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "GEDDES, Trevor",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "geddes000tre",
+        "full_name": "Trevor Geddes",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Haskins, Trevor",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "haskin000tre",
+        "full_name": "Trevor Haskins",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Larson, Brandon",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "larson003bra",
+        "full_name": "Brandon Larson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blair, Brett",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "blair-000bre",
+        "full_name": "Brett Blair",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Springer, Gabe",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "spring000gab",
+        "full_name": "Gabe Springer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Sasaki, Rintaro",
+        "position": "1b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "sasaki000rin",
+        "full_name": "Rintaro Sasaki",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hott, Ethan",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hott--000eth",
+        "full_name": "Ethan Hott",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Saum, Charlie",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "saum--000cha",
+        "full_name": "Charlie Saum",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Nati, Jimmy",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "nati--000jim",
+        "full_name": "Jimmy Nati",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Reynolds, Brady",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "reynol003bra",
+        "full_name": "Brady Reynolds",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Becerra, Temo",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "becerr000tem",
+        "full_name": "Temo Becerra",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Bates, Charlie",
+        "position": "cf",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bates-014cha",
+        "full_name": "Charlie Bates",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Campbell, Saborn",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "campbe000sab",
+        "full_name": "Saborn Campbell",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Marsh, Tatum",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "marsh-000tat",
+        "full_name": "Tatum Marsh",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Lim, Christian",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lim---000chr",
+        "full_name": "Christian Lim",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Moore, Trevor",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "moore-003tre",
+        "full_name": "Trevor Moore",
+        "match_confidence": 1.0
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "PIECH, Ryan",
+        "innings_pitched": 6.0,
+        "hits": 5,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 6,
+        "batters_faced": 24,
+        "at_bats": 22,
+        "pitches": 92,
+        "bref_id": "piech-000rya",
+        "full_name": "Ryan Piech",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "HOSKINS, Luke",
+        "innings_pitched": 2.2,
+        "hits": 3,
+        "runs": 2,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 4,
+        "batters_faced": 14,
+        "at_bats": 12,
+        "pitches": 52,
+        "bref_id": "hoskin000luk",
+        "full_name": "Luke Hoskins",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "GEDDES, Trevor",
+        "innings_pitched": 0.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 1,
+        "at_bats": 1,
+        "pitches": 4,
+        "bref_id": "geddes000tre",
+        "full_name": "Trevor Geddes",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "LAMBDIN, Jake",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 1,
+        "at_bats": 1,
+        "pitches": 3,
+        "bref_id": "lambdi000jak",
+        "full_name": "Jake Lambdin",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Lim, Christian",
+        "innings_pitched": 5.0,
+        "hits": 6,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 2,
+        "strikeouts": 5,
+        "batters_faced": 24,
+        "at_bats": 20,
+        "pitches": 90,
+        "bref_id": "lim---000chr",
+        "full_name": "Christian Lim",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Moore, Trevor",
+        "innings_pitched": 3.0,
+        "hits": 3,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 4,
+        "batters_faced": 14,
+        "at_bats": 11,
+        "pitches": 44,
+        "bref_id": "moore-003tre",
+        "full_name": "Trevor Moore",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Speshyock, Ryan",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 9,
+        "bref_id": "speshy000rya",
+        "full_name": "Ryan Speshyock",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "home_innings": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "PETERS, Eddie (1) HBP: Haskins, Trevor (1)",
+      "HENDRICKSON advanced to second",
+      "LAMBDIN advanced to third. 0 0\nMENSIK, L. singled, hit into double play rf to 1b to ss to 1b, RBI (0-0)",
+      "MISCH, C. out on the play",
+      "HENDRICKSON advanced to third",
+      "LAMBDIN scored. 1 0\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nStanford - Bottom of 1st XAV STA\nHaskins,T singled through the left side (1-2 BKF). 1 0\nLarson,B doubled down the lf line (1-0 B)",
+      "Haskins,T advanced to third. 1 0\nSasaki,R popped up to ss (1-1 BF). 1 0\nSaum,C flied out to 2b, SF, RBI (1-0 B)",
+      "Haskins,T scored. 1 1\nNati,J struck out swinging (2-2 KKBFFBS). 1 1\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nXavier - Top of 2nd XAV STA\nWACHSMANN flied out to lf (1-1 KB). 1 1\nBURDETTE, C. doubled down the lf line (1-2 FBSF). 1 1\nBURDETTE, C. advanced to third on a wild pitch. 1 1\nCHRISTIANSEN reached on a fielder's choice to second base, RBI (1-1 BS)",
+      "BURDETTE, C. scored. 2 1\nPETERS, E. doubled down the lf line (3-1 BBBK)",
+      "CHRISTIANSEN advanced to third. 2 1\nLAMBDIN struck out swinging (1-2 SSBFS). 2 1\nHENDRICKSON hit by pitch (1-2 BSF). 2 1\nANDERSON,A. struck out looking (2-2 KFBBK). 2 1\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 3\nStanford - Bottom of 2nd XAV STA\nReynolds,B singled through the right side (0-1 K). 2 1\nBecerra,T struck out looking (1-2 BFFK). 2 1\nBates,C flied out to cf to left center (1-0 B). 2 1\nMarsh,T singled through the right side (2-2 BKKB)",
+      "Reynolds,B advanced to third. 2 1\nHaskins,T struck out looking (1-2 BKFK). 2 1\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2\nXavier - Top of 3rd XAV STA\nMISCH, C. walked (3-2 FBBBFFB). 2 1\nMENSIK, L. reached on a fielder's choice to third base (1-1 KB)",
+      "MISCH, C. out at second 3b to 2b. 2 1\nWACHSMANN struck out looking (0-2 FFK). 2 1\nBURDETTE, C. struck out swinging (1-2 BSFS). 2 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nStanford - Bottom of 3rd XAV STA\nLarson,B struck out swinging (1-2 SBSFFS). 2 1\nSasaki,R fouled out to c (2-2 BFBS). 2 1\nSaum,C fouled out to rf (3-2 BFKBFB). 2 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nXavier - Top of 4th XAV STA\nCampbell,S to cf for Bates,C. 2 1\nCHRISTIANSEN popped up to ss (2-0 BB). 2 1\nPETERS, E. grounded out to 2b (0-0). 2 1\nLAMBDIN grounded out to p (0-1 K). 2 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nStanford - Bottom of 4th XAV STA\nNati,J popped up to 1b (0-1 K). 2 1\nReynolds,B struck out swinging (1-2 BKFFS). 2 1\nBecerra,T flied out to cf to left center (1-1 BK). 2 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nXavier - Top of 5th XAV STA\nHENDRICKSON singled to first base, bunt (0-0). 2 1\nANDERSON,A. struck out looking (3-2 BBFFBK)",
+      "HENDRICKSON stole second. 2 1\nMISCH, C. singled to left field, RBI (1-0 B)",
+      "HENDRICKSON scored. 3 1\nMENSIK, L. flied out to lf to left center (1-0 B). 3 1\nWACHSMANN flied out to cf to left center (3-2 BBKSFB). 3 1\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nStanford - Bottom of 5th XAV STA\nCampbell,S popped up to 3b (0-0). 3 1\nMarsh,T popped up to ss (2-2 BFKFFB). 3 1\nHaskins,T fouled out to c, bunt (0-0). 3 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nXavier - Top of 6th XAV STA\nMoore,T to p for Lim,C. 3 1\nBURDETTE, C. struck out swinging (0-2 FFS). 3 1\nCHRISTIANSEN flied out to cf (0-1 F). 3 1\nPETERS, E. grounded out to 2b (1-0 B). 3 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nStanford - Bottom of 6th XAV STA\nLarson,B struck out swinging (1-2 KBKS). 3 1\nSasaki,R flied out to cf to left center (0-2 KK). 3 1\nSaum,C walked (3-1 BBFBB). 3 1\nNati,J flied out to rf to right center (2-1 BBF). 3 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nXavier - Top of 7th XAV STA\nLAMBDIN singled to right field (0-2 KK). 3 1\nHENDRICKSON walked (3-2 KKBBBB)",
+      "LAMBDIN advanced to second. 3 1\nANDERSON,A. out at first p to 2b, SAC, bunt (0-0)",
+      "HENDRICKSON advanced to second",
+      "LAMBDIN\nadvanced to third. 3 1\nMISCH, C. singled up the middle, 2 RBI (1-1 KB)",
+      "HENDRICKSON scored",
+      "LAMBDIN scored. 5 1\nMENSIK, L. singled to right center, advanced to second on a throwing error by cf (0-2 FK)",
+      "MISCH, C.\nadvanced to third. 5 1\nWACHSMANN struck out swinging (2-2 BFSBS). 5 1\nTUCKER, N. pinch hit for BURDETTE, C.. 5 1\nTUCKER, N. grounded out to 2b (1-0 B). 5 1\nRuns: 2 Hits: 3 Errors: 1 Left On Base: 2\nStanford - Bottom of 7th XAV STA\nMENSIK, L. to rf. 5 1\nTUCKER, N. to 2b. 5 1\nReynolds,B homered to center field, RBI (2-1 BBK). 5 2\nHOSKINS to p for PIECH. 5 2\nBecerra,T struck out swinging, out at first c to 1b (3-2 BBKFBFS). 5 2\nCampbell,S struck out looking (2-2 BKSBK). 5 2\nMarsh,T hit by pitch (0-0). 5 2\nHaskins,T hit by pitch (2-2 FFBFB)",
+      "Marsh,T advanced to second. 5 2\nLarson,B singled to third base (0-0)",
+      "Haskins,T advanced to second",
+      "Marsh,T advanced to third. 5 2\nBlair,B pinch ran for Larson,B. 5 2\nSasaki,R grounded out to 2b (0-1 K). 5 2\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 3\nXavier - Top of 8th XAV STA\nJELIC, J. pinch hit for CHRISTIANSEN. 5 2\nJELIC, J. struck out swinging (0-2 KKS). 5 2\nPETERS, E. struck out swinging (0-2 KFFS). 5 2\nLAMBDIN flied out to lf to left center (0-0). 5 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nStanford - Bottom of 8th XAV STA\nJELIC, J. to c. 5 2\nSaum,C reached on a throwing error by ss (1-1 FB). 5 2\nNati,J homered to left field, 2 RBI (2-2 BFBF)",
+      "Saum,C scored, unearned. 5 4\nReynolds,B grounded out to 1b unassisted (1-1 KB). 5 4\nBecerra,T struck out looking (1-2 KFBK). 5 4\nCampbell,S grounded out to 2b (0-0). 5 4\nRuns: 2 Hits: 1 Errors: 1 Left On Base: 0\nXavier - Top of 9th XAV STA\nHENDRICKSON walked (3-2 BFBBFB). 5 4\nSpeshyock,R to p for Moore,T. 5 4\nANDERSON,A. grounded out to c unassisted, interference (0-2 KS). 5 4\nMISCH, C. flied out to rf (2-1 BFB). 5 4\nMENSIK, L. struck out looking (0-2 FKK). 5 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nStanford - Bottom of 9th XAV STA\nMarsh,T struck out looking (1-2 SBSK). 5 4\nHaskins,T singled up the middle (1-2 KKFB). 5 4\nSpringer,G pinch hit for Blair,B. 5 4\nThe umpires review the sequence of pitches to confirm 3-1 count. 5 4\nSpringer,G flied out to lf (3-1 BSBB). 5 4\nGEDDES, T. to p for HOSKINS. 5 4\nSasaki,R singled to right field (2-1 BFB)",
+      "Haskins,T advanced to third. 5 4\nLAMBDIN to p. 5 4\nCANTERBERRY to 3b for WACHSMANN. 5 4\n/ for GEDDES, T.. 5 4\nHott,E pinch ran for Sasaki,R. 5 4\nSaum,C struck out swinging (0-2 FSS). 5 4\nRuns: 0 Hits: 2 Errors: 0 Left On Base: 2"
+    ],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "BURDETTE, Clay",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "PETERS, Eddie",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [
+      "HENDRICKSON, Carter (1) HR: Nati, Jimmy (1)",
+      "Reynolds, Brady (1)"
+    ],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "HENDRICKSON, Carter (2) SF: Saum, Charlie (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [
+      "Saum, Charlie"
+    ],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "PIECH, Ryan",
+      "record": "1-0"
+    },
+    "loss": {
+      "player": "Lim, Christian",
+      "record": "1-1"
+    },
+    "save": {
+      "player": "LAMBDIN, Jake",
+      "count": 2
+    },
+    "sacrifice_hits": [
+      "ANDERSON, Aedan (1) 2B: Larson, Brandon (1)"
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "LAMBDIN singled to left field (2-2 KBBK). 0 0",
+          "pitch_count": "2-2 KBBK",
+          "rbi": 0
+        },
+        {
+          "description": "LAMBDIN advanced to second on a passed ball. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HENDRICKSON hit by pitch (2-2 BFBFF). 0 0",
+          "pitch_count": "2-2 BFBFF",
+          "rbi": 0
+        },
+        {
+          "description": "ANDERSON,A. popped up to 2b (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "MISCH, C. walked (3-2 FBBFBB); HENDRICKSON advanced to second; LAMBDIN advanced to third. 0 0",
+          "pitch_count": "3-2 FBBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "MENSIK, L. singled, hit into double play rf to 1b to ss to 1b, RBI (0-0); MISCH, C. out on the play;",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "HENDRICKSON advanced to third; LAMBDIN scored. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Haskins,T singled through the left side (1-2 BKF). 1 0",
+          "pitch_count": "1-2 BKF",
+          "rbi": 0
+        },
+        {
+          "description": "Larson,B doubled down the lf line (1-0 B); Haskins,T advanced to third. 1 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Sasaki,R popped up to ss (1-1 BF). 1 0",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "Saum,C flied out to 2b, SF, RBI (1-0 B); Haskins,T scored. 1 1",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "Nati,J struck out swinging (2-2 KKBFFBS). 1 1",
+          "pitch_count": "2-2 KKBFFBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "WACHSMANN flied out to lf (1-1 KB). 1 1",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "BURDETTE, C. doubled down the lf line (1-2 FBSF). 1 1",
+          "pitch_count": "1-2 FBSF",
+          "rbi": 0
+        },
+        {
+          "description": "BURDETTE, C. advanced to third on a wild pitch. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CHRISTIANSEN reached on a fielder's choice to second base, RBI (1-1 BS); BURDETTE, C. scored. 2 1",
+          "pitch_count": "1-1 BS",
+          "rbi": 1
+        },
+        {
+          "description": "PETERS, E. doubled down the lf line (3-1 BBBK); CHRISTIANSEN advanced to third. 2 1",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 0
+        },
+        {
+          "description": "LAMBDIN struck out swinging (1-2 SSBFS). 2 1",
+          "pitch_count": "1-2 SSBFS",
+          "rbi": 0
+        },
+        {
+          "description": "HENDRICKSON hit by pitch (1-2 BSF). 2 1",
+          "pitch_count": "1-2 BSF",
+          "rbi": 0
+        },
+        {
+          "description": "ANDERSON,A. struck out looking (2-2 KFBBK). 2 1",
+          "pitch_count": "2-2 KFBBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Reynolds,B singled through the right side (0-1 K). 2 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Becerra,T struck out looking (1-2 BFFK). 2 1",
+          "pitch_count": "1-2 BFFK",
+          "rbi": 0
+        },
+        {
+          "description": "Bates,C flied out to cf to left center (1-0 B). 2 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Marsh,T singled through the right side (2-2 BKKB); Reynolds,B advanced to third. 2 1",
+          "pitch_count": "2-2 BKKB",
+          "rbi": 0
+        },
+        {
+          "description": "Haskins,T struck out looking (1-2 BKFK). 2 1",
+          "pitch_count": "1-2 BKFK",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "MISCH, C. walked (3-2 FBBBFFB). 2 1",
+          "pitch_count": "3-2 FBBBFFB",
+          "rbi": 0
+        },
+        {
+          "description": "MENSIK, L. reached on a fielder's choice to third base (1-1 KB); MISCH, C. out at second 3b to 2b. 2 1",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "WACHSMANN struck out looking (0-2 FFK). 2 1",
+          "pitch_count": "0-2 FFK",
+          "rbi": 0
+        },
+        {
+          "description": "BURDETTE, C. struck out swinging (1-2 BSFS). 2 1",
+          "pitch_count": "1-2 BSFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Larson,B struck out swinging (1-2 SBSFFS). 2 1",
+          "pitch_count": "1-2 SBSFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Sasaki,R fouled out to c (2-2 BFBS). 2 1",
+          "pitch_count": "2-2 BFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Saum,C fouled out to rf (3-2 BFKBFB). 2 1",
+          "pitch_count": "3-2 BFKBFB",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Campbell,S to cf for Bates,C. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CHRISTIANSEN popped up to ss (2-0 BB). 2 1",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "PETERS, E. grounded out to 2b (0-0). 2 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "LAMBDIN grounded out to p (0-1 K). 2 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Nati,J popped up to 1b (0-1 K). 2 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Reynolds,B struck out swinging (1-2 BKFFS). 2 1",
+          "pitch_count": "1-2 BKFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Becerra,T flied out to cf to left center (1-1 BK). 2 1",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "HENDRICKSON singled to first base, bunt (0-0). 2 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "ANDERSON,A. struck out looking (3-2 BBFFBK); HENDRICKSON stole second. 2 1",
+          "pitch_count": "3-2 BBFFBK",
+          "rbi": 0
+        },
+        {
+          "description": "MISCH, C. singled to left field, RBI (1-0 B); HENDRICKSON scored. 3 1",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "MENSIK, L. flied out to lf to left center (1-0 B). 3 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "WACHSMANN flied out to cf to left center (3-2 BBKSFB). 3 1",
+          "pitch_count": "3-2 BBKSFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Campbell,S popped up to 3b (0-0). 3 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Marsh,T popped up to ss (2-2 BFKFFB). 3 1",
+          "pitch_count": "2-2 BFKFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Haskins,T fouled out to c, bunt (0-0). 3 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Moore,T to p for Lim,C. 3 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BURDETTE, C. struck out swinging (0-2 FFS). 3 1",
+          "pitch_count": "0-2 FFS",
+          "rbi": 0
+        },
+        {
+          "description": "CHRISTIANSEN flied out to cf (0-1 F). 3 1",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "PETERS, E. grounded out to 2b (1-0 B). 3 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Larson,B struck out swinging (1-2 KBKS). 3 1",
+          "pitch_count": "1-2 KBKS",
+          "rbi": 0
+        },
+        {
+          "description": "Sasaki,R flied out to cf to left center (0-2 KK). 3 1",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "Saum,C walked (3-1 BBFBB). 3 1",
+          "pitch_count": "3-1 BBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Nati,J flied out to rf to right center (2-1 BBF). 3 1",
+          "pitch_count": "2-1 BBF",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "LAMBDIN singled to right field (0-2 KK). 3 1",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "HENDRICKSON walked (3-2 KKBBBB); LAMBDIN advanced to second. 3 1",
+          "pitch_count": "3-2 KKBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "ANDERSON,A. out at first p to 2b, SAC, bunt (0-0); HENDRICKSON advanced to second; LAMBDIN",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "advanced to third. 3 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MISCH, C. singled up the middle, 2 RBI (1-1 KB); HENDRICKSON scored; LAMBDIN scored. 5 1",
+          "pitch_count": "1-1 KB",
+          "rbi": 2
+        },
+        {
+          "description": "MENSIK, L. singled to right center, advanced to second on a throwing error by cf (0-2 FK); MISCH, C.",
+          "pitch_count": "0-2 FK",
+          "rbi": 0
+        },
+        {
+          "description": "advanced to third. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WACHSMANN struck out swinging (2-2 BFSBS). 5 1",
+          "pitch_count": "2-2 BFSBS",
+          "rbi": 0
+        },
+        {
+          "description": "TUCKER, N. pinch hit for BURDETTE, C.. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "TUCKER, N. grounded out to 2b (1-0 B). 5 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "MENSIK, L. to rf. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "TUCKER, N. to 2b. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reynolds,B homered to center field, RBI (2-1 BBK). 5 2",
+          "pitch_count": "2-1 BBK",
+          "rbi": 1
+        },
+        {
+          "description": "HOSKINS to p for PIECH. 5 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Becerra,T struck out swinging, out at first c to 1b (3-2 BBKFBFS). 5 2",
+          "pitch_count": "3-2 BBKFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,S struck out looking (2-2 BKSBK). 5 2",
+          "pitch_count": "2-2 BKSBK",
+          "rbi": 0
+        },
+        {
+          "description": "Marsh,T hit by pitch (0-0). 5 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Haskins,T hit by pitch (2-2 FFBFB); Marsh,T advanced to second. 5 2",
+          "pitch_count": "2-2 FFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Larson,B singled to third base (0-0); Haskins,T advanced to second; Marsh,T advanced to third. 5 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Blair,B pinch ran for Larson,B. 5 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sasaki,R grounded out to 2b (0-1 K). 5 2",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "JELIC, J. pinch hit for CHRISTIANSEN. 5 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "JELIC, J. struck out swinging (0-2 KKS). 5 2",
+          "pitch_count": "0-2 KKS",
+          "rbi": 0
+        },
+        {
+          "description": "PETERS, E. struck out swinging (0-2 KFFS). 5 2",
+          "pitch_count": "0-2 KFFS",
+          "rbi": 0
+        },
+        {
+          "description": "LAMBDIN flied out to lf to left center (0-0). 5 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "JELIC, J. to c. 5 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Saum,C reached on a throwing error by ss (1-1 FB). 5 2",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Nati,J homered to left field, 2 RBI (2-2 BFBF); Saum,C scored, unearned. 5 4",
+          "pitch_count": "2-2 BFBF",
+          "rbi": 2
+        },
+        {
+          "description": "Reynolds,B grounded out to 1b unassisted (1-1 KB). 5 4",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Becerra,T struck out looking (1-2 KFBK). 5 4",
+          "pitch_count": "1-2 KFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,S grounded out to 2b (0-0). 5 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "HENDRICKSON walked (3-2 BFBBFB). 5 4",
+          "pitch_count": "3-2 BFBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Speshyock,R to p for Moore,T. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ANDERSON,A. grounded out to c unassisted, interference (0-2 KS). 5 4",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        },
+        {
+          "description": "MISCH, C. flied out to rf (2-1 BFB). 5 4",
+          "pitch_count": "2-1 BFB",
+          "rbi": 0
+        },
+        {
+          "description": "MENSIK, L. struck out looking (0-2 FKK). 5 4",
+          "pitch_count": "0-2 FKK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Marsh,T struck out looking (1-2 SBSK). 5 4",
+          "pitch_count": "1-2 SBSK",
+          "rbi": 0
+        },
+        {
+          "description": "Haskins,T singled up the middle (1-2 KKFB). 5 4",
+          "pitch_count": "1-2 KKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Springer,G pinch hit for Blair,B. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "The umpires review the sequence of pitches to confirm 3-1 count. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Springer,G flied out to lf (3-1 BSBB). 5 4",
+          "pitch_count": "3-1 BSBB",
+          "rbi": 0
+        },
+        {
+          "description": "GEDDES, T. to p for HOSKINS. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sasaki,R singled to right field (2-1 BFB); Haskins,T advanced to third. 5 4",
+          "pitch_count": "2-1 BFB",
+          "rbi": 0
+        },
+        {
+          "description": "LAMBDIN to p. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CANTERBERRY to 3b for WACHSMANN. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "/ for GEDDES, T.. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hott,E pinch ran for Sasaki,R. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Saum,C struck out swinging (0-2 FSS). 5 4",
+          "pitch_count": "0-2 FSS",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}

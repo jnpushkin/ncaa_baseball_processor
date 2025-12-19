@@ -1,0 +1,1196 @@
+{
+  "metadata": {
+    "date": "4/25/2025",
+    "venue": "Br. Ronald Gallagher (Moraga, Calif.)",
+    "stadium": "Br. Ronald Gallagher",
+    "city": "Moraga, Calif.",
+    "away_team": "LMU",
+    "away_team_rank": null,
+    "away_team_record": "22-20, 9-7 WCC",
+    "away_team_score": 3,
+    "home_team": "Saint Mary's",
+    "home_team_rank": null,
+    "home_team_record": "21-19, 6-7 WCC",
+    "home_team_score": 8,
+    "attendance": 162,
+    "duration": "2:46",
+    "start_time": "3:00 PM",
+    "weather": "Cloudy, low 60's",
+    "umpires": {
+      "list": "Home Plate: Adam Dowdy First: Neil Turner Second Base: Derek Eaton Third Base: Luis Hernandez"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Devan Ornelas",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ornela000dev",
+        "full_name": "Devan Ornelas",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Beau Ankeney",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "ankene000bea",
+        "full_name": "Beau Ankeney",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Robbie Ayers",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "ayers-000rob",
+        "full_name": "Robbie Ayers",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Nate Savoie",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 3,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "savoie000nat",
+        "full_name": "Nate Savoie",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Zion Williams",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "willia000zio",
+        "full_name": "Zion Williams",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Colby Wallace",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "wallac002col",
+        "full_name": "Colby Wallace",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "JD Dunn",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "dunn--000jd-",
+        "full_name": "JD Dunn",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kolton Freeman",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "freema000kol",
+        "full_name": "Kolton Freeman",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Luca Danos",
+        "position": "2b",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "danos-000luc",
+        "full_name": "Luca Danos",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Joe Reid",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "reid--000joe",
+        "full_name": "Joe Reid",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "James Bose",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bose--000jam",
+        "full_name": "James Bose",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Noah Malone",
+        "position": "ph",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "malone002noa",
+        "full_name": "Noah Malone",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kenji Pallares",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pallar000ken",
+        "full_name": "Kenji Pallares",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Madrigal, Eddie",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 5,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "madrig000edd",
+        "full_name": "Eddie Madrigal",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kashimoto, Cody",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "kashim000cod",
+        "full_name": "Cody Kashimoto",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Taurek, Aiden",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "taurek000aid",
+        "full_name": "Aiden Taurek",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Pierce, Ryan",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "pierce002rya",
+        "full_name": "Ryan Pierce",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Duroff, Brian",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "duroff000bri",
+        "full_name": "Brian Duroff",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Castellanos, Diego",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "castel000die",
+        "full_name": "Diego Castellanos",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Mettam, Jared",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "mettam000jar",
+        "full_name": "Jared Mettam",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Armstrong, Ian",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "armstr000ian",
+        "full_name": "Ian Armstrong",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Griffith, Tanner",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "griffi001tan",
+        "full_name": "Tanner Griffith",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Sarantos, Lukas",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "sarant000luk",
+        "full_name": "Lukas Sarantos",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kretsch, Sam",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kretsc000sam",
+        "full_name": "Sam Kretsch",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Castro, Daniel Gueva",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "castro007ale",
+        "full_name": "Alessandro Castro",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Austin Schroeder",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "schroe001aus",
+        "full_name": "Austin Schroeder",
+        "match_confidence": 1.0
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Kenji Pallares",
+        "innings_pitched": 7.0,
+        "hits": 9,
+        "runs": 8,
+        "earned_runs": 8,
+        "walks": 3,
+        "strikeouts": 6,
+        "batters_faced": 33,
+        "at_bats": 28,
+        "pitches": 105,
+        "bref_id": "pallar000ken",
+        "full_name": "Kenji Pallares",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Austin Schroeder",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 5,
+        "at_bats": 4,
+        "pitches": 17,
+        "bref_id": "schroe001aus",
+        "full_name": "Austin Schroeder",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Sarantos, Lukas",
+        "innings_pitched": 6.1,
+        "hits": 3,
+        "runs": 3,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 6,
+        "batters_faced": 28,
+        "at_bats": 24,
+        "pitches": 102,
+        "bref_id": "sarant000luk",
+        "full_name": "Lukas Sarantos",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Kretsch, Sam",
+        "innings_pitched": 1.2,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 6,
+        "at_bats": 5,
+        "pitches": 34,
+        "bref_id": "kretsc000sam",
+        "full_name": "Sam Kretsch",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Castro, Daniel Gueva",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 4,
+        "at_bats": 3,
+        "pitches": 13,
+        "bref_id": "castro007ale",
+        "full_name": "Alessandro Castro",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "home_innings": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        4,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Madrigal, Eddie (1)",
+      "Kashimoto, C scored. 0 1\nPierce, Ryan flied out to rf, SF, RBI (1-2 SBF)",
+      "Taurek, Aide scored. 0 2\nDuroff, Bria grounded out to ss (0-0). 0 2\nRuns: 2 Hits: 1 Errors: 0 Left On Base: 0\nLMU - Top of 2nd LMU SMC\nN. Savoie singled to left center (1-2 KBSF). 0 2\nZ. Williams hit by pitch (1-0 B)",
+      "N. Savoie advanced to second. 0 2\nZ. Williams advanced to second on a passed ball",
+      "N. Savoie advanced to third on a passed ball. 0 2\nMound Visit. 0 2\nC. Wallace fouled out to 3b (2-2 BBSS). 0 2\nJ. Dunn struck out swinging (3-2 SBKBBS). 0 2\nJ. Reid grounded out to ss (0-1 F). 0 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nSaint Mary's - Bottom of 2nd LMU SMC\nCastellanos, grounded out to 2b (1-1 KB). 0 2\nMettam, Jare singled through the left side (0-1 S). 0 2\nMettam, Jare out at first p to 1b, picked off. 0 2\nChallenge on the play, runner out at first. 0 2\nCall stands runner out at first. 0 2\nArmstrong, I grounded out to ss (3-0 BBB). 0 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nLMU - Top of 3rd LMU SMC\nJ. Bose flied out to cf to right center (0-0). 0 2\nD. Ornelas struck out swinging, out at first c to 1b (3-2 BSFBBFS). 0 2\nB. Ankeney walked (3-0 BBBB). 0 2\nR. Ayers struck out swinging (3-2 KKFBBBS). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nSaint Mary's - Bottom of 3rd LMU SMC\nGriffith, Ta struck out swinging (3-2 KKBBFFFFBFS). 0 2\nMadrigal, Ed struck out swinging (0-2 KFS). 0 2\nKashimoto, C struck out swinging (0-2 KFFS). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nLMU - Top of 4th LMU SMC\nN. Savoie homered to center field, RBI (1-1 FB). 1 2\nZ. Williams struck out looking (1-2 KBFK). 1 2\nC. Wallace walked (3-0 BBBB). 1 2\nMound meeting. 1 2\nJ. Dunn reached on a fielder's choice, bunt (0-0)",
+      "C. Wallace out at second p to ss. 1 2\nJ. Reid flied out to cf to right center (1-0 B). 1 2\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 1\nSaint Mary's - Bottom of 4th LMU SMC\nTaurek, Aide singled to shortstop (0-0). 1 2\nPierce, Ryan flied out to rf (1-0 B)",
+      "Taurek, Aide advanced to second. 1 2\nDuroff, Bria singled to center field, RBI (1-1 KB)",
+      "Taurek, Aide scored. 1 3\nCastellanos, flied out to cf (0-0). 1 3\nMettam, Jare flied out to rf (0-0). 1 3\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 1\nLMU - Top of 5th LMU SMC\nJ. Bose flied out to lf (1-1 KB). 1 3\nD. Ornelas struck out swinging (3-2 BBKBFS). 1 3\nB. Ankeney reached on an error by 1b (3-1 BKBB). 1 3\nB. Ankeney advanced to second on a wild pitch. 1 3\nR. Ayers flied out to lf (2-2 KFBB). 1 3\nRuns: 0 Hits: 0 Errors: 1 Left On Base: 1\nSaint Mary's - Bottom of 5th LMU SMC\nArmstrong, I flied out to rf (1-0 B). 1 3\nGriffith, Ta flied out to cf (1-2 BKK). 1 3\nMound meeting. 1 3\nMadrigal, Ed homered to right field, RBI (2-1 BBF). 1 4\nKashimoto, C walked (3-0 BBBB). 1 4\nMound Visit. 1 4\nTaurek, Aide singled to shortstop (0-0)",
+      "Kashimoto, C advanced to second. 1 4\nPierce, Ryan reached on a fielder's choice (0-2 KFFF)",
+      "Taurek, Aide out at second ss to 2b. 1 4\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 2\nLMU - Top of 6th LMU SMC\nN. Savoie grounded out to 3b (1-1 BK). 1 4\nZ. Williams flied out to cf to right center (1-1 KB). 1 4\nC. Wallace grounded out to 3b (0-0). 1 4\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSaint Mary's - Bottom of 6th LMU SMC\nDuroff, Bria struck out looking (2-2 KBFBK). 1 4\nCastellanos, walked (3-1 BBBKB). 1 4\nMettam, Jare flied out to cf (1-1 FB). 1 4\nArmstrong, I singled up the middle (1-0 B)",
+      "Castellanos, advanced to second. 1 4\nMound meeting. 1 4\nOffensive timeout. 1 4\nGriffith, Ta hit by pitch (0-0)",
+      "Armstrong, I advanced to second",
+      "Castellanos, advanced to third. 1 4\nMadrigal, Ed homered to right field, 4 RBI (0-0)",
+      "Griffith, Ta scored",
+      "Armstrong, I scored",
+      "Castellanos,\nscored. 1 8\nKashimoto, C popped up to ss (0-0). 1 8\nRuns: 4 Hits: 2 Errors: 0 Left On Base: 0\nLMU - Top of 7th LMU SMC\nJ. Dunn reached on an error by ss (1-0 B). 1 8\nJ. Reid homered to left field, 2 RBI (0-0)",
+      "J. Dunn scored, unearned. 3 8\nJ. Bose fouled out to 1b (2-1 FBB). 3 8\nD. Ornelas hit by pitch (0-0). 3 8\nMound Visit. 3 8\nKretsch, Sam to p for Sarantos, Lu. 3 8\nB. Ankeney grounded into double play ss to 2b to 1b (1-2 FSB)",
+      "D. Ornelas out on the play. 3 8\nRuns: 2 Hits: 1 Errors: 1 Left On Base: 0\nSaint Mary's - Bottom of 7th LMU SMC\nTaurek, Aide struck out swinging (0-2 FFS). 3 8\nPierce, Ryan singled up the middle (2-2 BFSB). 3 8\nDuroff, Bria fouled out to 3b (0-1 F). 3 8\nCastellanos, struck out looking (2-2 BBFSK). 3 8\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nLMU - Top of 8th LMU SMC\nR. Ayers walked (3-1 KBBBB). 3 8\nN. Savoie doubled down the rf line (0-2 SKFF)",
+      "R. Ayers advanced to third. 3 8\nZ. Williams flied out to lf (2-2 BKKB). 3 8\nC. Wallace struck out looking (3-2 BBKBFK). 3 8\nK. Freeman pinch hit for J. Dunn. 3 8\nOffensive timeout. 3 8\nK. Freeman grounded out to ss (3-2 KKFBBBFF). 3 8\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nSaint Mary's - Bottom of 8th LMU SMC\nL. Danos to 2b for K. Freeman. 3 8\nA. Schroeder to p for K. Pallares. 3 8\nMettam, Jare singled to center field (1-1 BK). 3 8\nArmstrong, I struck out looking (0-2 KKK). 3 8\nGriffith, Ta grounded out to 1b unassisted (1-0 B)",
+      "Mettam, Jare advanced to second. 3 8\nMadrigal, Ed walked (3-0 BBBB). 3 8\nOffensive timeout. 3 8\nMadrigal, Ed stole second",
+      "Mettam, Jare stole third. 3 8\nKashimoto, C grounded out to 1b unassisted (3-1 KBBB). 3 8\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nLMU - Top of 9th LMU SMC\nCastro, Dani to p for Kretsch, Sam. 3 8\nJ. Reid struck out swinging (1-2 FBFS). 3 8\nN. Malone pinch hit for J. Bose. 3 8\nN. Malone walked (3-1 BBFBB). 3 8\nD. Ornelas popped up to ss (1-0 B). 3 8\nB. Ankeney popped up to 1b (0-1 K). 3 8\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nSaint Mary's - Bottom of 9th LMU SMC\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "Nate Savoie",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Mettam, Jared",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "Madrigal, Eddie",
+        "game_count": 1,
+        "season_total": 2
+      }
+    ],
+    "stolen_bases": [],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Devan Ornelas (1)",
+      "Zion Williams (1) PO: Mettam, Jared (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [
+      "Armstrong, Ian (1)"
+    ],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Sarantos, Lukas",
+      "record": "2-0"
+    },
+    "loss": {
+      "player": "Kenji Pallares",
+      "record": "3-4"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "D. Ornelas struck out swinging, out at first c to 1b (1-2 FBFS). 0 0",
+          "pitch_count": "1-2 FBFS",
+          "rbi": 0
+        },
+        {
+          "description": "B. Ankeney flied out to cf (0-2 KF). 0 0",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "R. Ayers flied out to cf (2-0 BB). 0 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Madrigal, Ed grounded out to 2b (1-0 B). 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Kashimoto, C walked (3-2 BBBKKB). 0 0",
+          "pitch_count": "3-2 BBBKKB",
+          "rbi": 0
+        },
+        {
+          "description": "Taurek, Aide doubled to right center, advanced to third on the throw, RBI (2-0 BB); Kashimoto, C scored. 0 1",
+          "pitch_count": "2-0 BB",
+          "rbi": 1
+        },
+        {
+          "description": "Pierce, Ryan flied out to rf, SF, RBI (1-2 SBF); Taurek, Aide scored. 0 2",
+          "pitch_count": "1-2 SBF",
+          "rbi": 1
+        },
+        {
+          "description": "Duroff, Bria grounded out to ss (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "N. Savoie singled to left center (1-2 KBSF). 0 2",
+          "pitch_count": "1-2 KBSF",
+          "rbi": 0
+        },
+        {
+          "description": "Z. Williams hit by pitch (1-0 B); N. Savoie advanced to second. 0 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Z. Williams advanced to second on a passed ball; N. Savoie advanced to third on a passed ball. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mound Visit. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "C. Wallace fouled out to 3b (2-2 BBSS). 0 2",
+          "pitch_count": "2-2 BBSS",
+          "rbi": 0
+        },
+        {
+          "description": "J. Dunn struck out swinging (3-2 SBKBBS). 0 2",
+          "pitch_count": "3-2 SBKBBS",
+          "rbi": 0
+        },
+        {
+          "description": "J. Reid grounded out to ss (0-1 F). 0 2",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Castellanos, grounded out to 2b (1-1 KB). 0 2",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Mettam, Jare singled through the left side (0-1 S). 0 2",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "Mettam, Jare out at first p to 1b, picked off. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Challenge on the play, runner out at first. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call stands runner out at first. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Armstrong, I grounded out to ss (3-0 BBB). 0 2",
+          "pitch_count": "3-0 BBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "J. Bose flied out to cf to right center (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "D. Ornelas struck out swinging, out at first c to 1b (3-2 BSFBBFS). 0 2",
+          "pitch_count": "3-2 BSFBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "B. Ankeney walked (3-0 BBBB). 0 2",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "R. Ayers struck out swinging (3-2 KKFBBBS). 0 2",
+          "pitch_count": "3-2 KKFBBBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Griffith, Ta struck out swinging (3-2 KKBBFFFFBFS). 0 2",
+          "pitch_count": "3-2 KKBBFFFFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Madrigal, Ed struck out swinging (0-2 KFS). 0 2",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        },
+        {
+          "description": "Kashimoto, C struck out swinging (0-2 KFFS). 0 2",
+          "pitch_count": "0-2 KFFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "N. Savoie homered to center field, RBI (1-1 FB). 1 2",
+          "pitch_count": "1-1 FB",
+          "rbi": 1
+        },
+        {
+          "description": "Z. Williams struck out looking (1-2 KBFK). 1 2",
+          "pitch_count": "1-2 KBFK",
+          "rbi": 0
+        },
+        {
+          "description": "C. Wallace walked (3-0 BBBB). 1 2",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Mound meeting. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Dunn reached on a fielder's choice, bunt (0-0); C. Wallace out at second p to ss. 1 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "J. Reid flied out to cf to right center (1-0 B). 1 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Taurek, Aide singled to shortstop (0-0). 1 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Pierce, Ryan flied out to rf (1-0 B); Taurek, Aide advanced to second. 1 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Duroff, Bria singled to center field, RBI (1-1 KB); Taurek, Aide scored. 1 3",
+          "pitch_count": "1-1 KB",
+          "rbi": 1
+        },
+        {
+          "description": "Castellanos, flied out to cf (0-0). 1 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Mettam, Jare flied out to rf (0-0). 1 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "J. Bose flied out to lf (1-1 KB). 1 3",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "D. Ornelas struck out swinging (3-2 BBKBFS). 1 3",
+          "pitch_count": "3-2 BBKBFS",
+          "rbi": 0
+        },
+        {
+          "description": "B. Ankeney reached on an error by 1b (3-1 BKBB). 1 3",
+          "pitch_count": "3-1 BKBB",
+          "rbi": 0
+        },
+        {
+          "description": "B. Ankeney advanced to second on a wild pitch. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "R. Ayers flied out to lf (2-2 KFBB). 1 3",
+          "pitch_count": "2-2 KFBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Armstrong, I flied out to rf (1-0 B). 1 3",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Griffith, Ta flied out to cf (1-2 BKK). 1 3",
+          "pitch_count": "1-2 BKK",
+          "rbi": 0
+        },
+        {
+          "description": "Mound meeting. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Madrigal, Ed homered to right field, RBI (2-1 BBF). 1 4",
+          "pitch_count": "2-1 BBF",
+          "rbi": 1
+        },
+        {
+          "description": "Kashimoto, C walked (3-0 BBBB). 1 4",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Mound Visit. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Taurek, Aide singled to shortstop (0-0); Kashimoto, C advanced to second. 1 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Pierce, Ryan reached on a fielder's choice (0-2 KFFF); Taurek, Aide out at second ss to 2b. 1 4",
+          "pitch_count": "0-2 KFFF",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "N. Savoie grounded out to 3b (1-1 BK). 1 4",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Z. Williams flied out to cf to right center (1-1 KB). 1 4",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "C. Wallace grounded out to 3b (0-0). 1 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Duroff, Bria struck out looking (2-2 KBFBK). 1 4",
+          "pitch_count": "2-2 KBFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Castellanos, walked (3-1 BBBKB). 1 4",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Mettam, Jare flied out to cf (1-1 FB). 1 4",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Armstrong, I singled up the middle (1-0 B); Castellanos, advanced to second. 1 4",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Mound meeting. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Offensive timeout. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Griffith, Ta hit by pitch (0-0); Armstrong, I advanced to second; Castellanos, advanced to third. 1 4",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Madrigal, Ed homered to right field, 4 RBI (0-0); Griffith, Ta scored; Armstrong, I scored; Castellanos,",
+          "pitch_count": "0-0",
+          "rbi": 4
+        },
+        {
+          "description": "scored. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kashimoto, C popped up to ss (0-0). 1 8",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "J. Dunn reached on an error by ss (1-0 B). 1 8",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "J. Reid homered to left field, 2 RBI (0-0); J. Dunn scored, unearned. 3 8",
+          "pitch_count": "0-0",
+          "rbi": 2
+        },
+        {
+          "description": "J. Bose fouled out to 1b (2-1 FBB). 3 8",
+          "pitch_count": "2-1 FBB",
+          "rbi": 0
+        },
+        {
+          "description": "D. Ornelas hit by pitch (0-0). 3 8",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Mound Visit. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kretsch, Sam to p for Sarantos, Lu. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Ankeney grounded into double play ss to 2b to 1b (1-2 FSB); D. Ornelas out on the play. 3 8",
+          "pitch_count": "1-2 FSB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Taurek, Aide struck out swinging (0-2 FFS). 3 8",
+          "pitch_count": "0-2 FFS",
+          "rbi": 0
+        },
+        {
+          "description": "Pierce, Ryan singled up the middle (2-2 BFSB). 3 8",
+          "pitch_count": "2-2 BFSB",
+          "rbi": 0
+        },
+        {
+          "description": "Duroff, Bria fouled out to 3b (0-1 F). 3 8",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Castellanos, struck out looking (2-2 BBFSK). 3 8",
+          "pitch_count": "2-2 BBFSK",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "R. Ayers walked (3-1 KBBBB). 3 8",
+          "pitch_count": "3-1 KBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "N. Savoie doubled down the rf line (0-2 SKFF); R. Ayers advanced to third. 3 8",
+          "pitch_count": "0-2 SKFF",
+          "rbi": 0
+        },
+        {
+          "description": "Z. Williams flied out to lf (2-2 BKKB). 3 8",
+          "pitch_count": "2-2 BKKB",
+          "rbi": 0
+        },
+        {
+          "description": "C. Wallace struck out looking (3-2 BBKBFK). 3 8",
+          "pitch_count": "3-2 BBKBFK",
+          "rbi": 0
+        },
+        {
+          "description": "K. Freeman pinch hit for J. Dunn. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Offensive timeout. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "K. Freeman grounded out to ss (3-2 KKFBBBFF). 3 8",
+          "pitch_count": "3-2 KKFBBBFF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "L. Danos to 2b for K. Freeman. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "A. Schroeder to p for K. Pallares. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mettam, Jare singled to center field (1-1 BK). 3 8",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Armstrong, I struck out looking (0-2 KKK). 3 8",
+          "pitch_count": "0-2 KKK",
+          "rbi": 0
+        },
+        {
+          "description": "Griffith, Ta grounded out to 1b unassisted (1-0 B); Mettam, Jare advanced to second. 3 8",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Madrigal, Ed walked (3-0 BBBB). 3 8",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Offensive timeout. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Madrigal, Ed stole second; Mettam, Jare stole third. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kashimoto, C grounded out to 1b unassisted (3-1 KBBB). 3 8",
+          "pitch_count": "3-1 KBBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Castro, Dani to p for Kretsch, Sam. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Reid struck out swinging (1-2 FBFS). 3 8",
+          "pitch_count": "1-2 FBFS",
+          "rbi": 0
+        },
+        {
+          "description": "N. Malone pinch hit for J. Bose. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Malone walked (3-1 BBFBB). 3 8",
+          "pitch_count": "3-1 BBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "D. Ornelas popped up to ss (1-0 B). 3 8",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "B. Ankeney popped up to 1b (0-1 K). 3 8",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

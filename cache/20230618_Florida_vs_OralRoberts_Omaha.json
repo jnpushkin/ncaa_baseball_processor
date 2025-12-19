@@ -1,0 +1,1360 @@
+{
+  "metadata": {
+    "date": "6/18/2023",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Florida",
+    "away_team_rank": null,
+    "away_team_record": "52-15",
+    "away_team_score": 5,
+    "home_team": "Oral Roberts",
+    "home_team_rank": null,
+    "home_team_record": "52-13",
+    "home_team_score": 4,
+    "attendance": 24841,
+    "duration": "3:16",
+    "start_time": "6:07 pm",
+    "weather": "87 - Sunny - W: 7 MPH W",
+    "umpires": {
+      "list": "Home Plate: Travis Reininger First: Casey Moser Second Base: Billy Van Raaphorst Third Base: David Savage"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Cade Kurland",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kurlan000cad",
+        "full_name": "Cade Kurland",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Wyatt Langford cf/lf",
+        "position": "",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "langfo000wya",
+        "full_name": "Wyatt Langford",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jac Caglianone",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "caglia000jac",
+        "full_name": "Jac Caglianone",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Josh Rivera",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "rivera015jos",
+        "full_name": "Josh Rivera",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "BT Riopelle",
+        "position": "c",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "riopel000bra",
+        "full_name": "B.T. Riopelle",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Luke Heyman",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "heyman000luk",
+        "full_name": "Luke Heyman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Tyler Shelnut",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "shelnu000tyl",
+        "full_name": "Tyler Shelnut",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Michael Robertson",
+        "position": "cf",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "robert020mic",
+        "full_name": "Michael Robertson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ty Evans",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "evans-000ty-",
+        "full_name": "Ty Evans",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Richie Schiekofer",
+        "position": "pr/rf",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "schiek000ric",
+        "full_name": "Richie Schiekofer",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Colby Halter",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "halter000col",
+        "full_name": "Colby Halter",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Hurston Waldrep",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "waldre000hur",
+        "full_name": "Hurston Waldrep",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ryan Slater",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "slater000rya",
+        "full_name": "Ryan Slater",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Brandon Neely",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "neely-000bra",
+        "full_name": "Brandon Neely",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cade Fisher",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "fisher000cad",
+        "full_name": "Cade Fisher",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Jake McMurray",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mcmurr002jak",
+        "full_name": "Jake McMurray",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Justin Quinn",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "quinn-000jus",
+        "full_name": "Justin Quinn",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jonah Cox",
+        "position": "cf",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "cox---000jon",
+        "full_name": "Jonah Cox",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Matt Hogan",
+        "position": "rf",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hogan-000mat",
+        "full_name": "Matt Hogan",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Mac McCroskey",
+        "position": "ss",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "mccros000mac",
+        "full_name": "Mac McCroskey",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Holden Breeze",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "breeze000hol",
+        "full_name": "Holden Breeze",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Drew Stahl",
+        "position": "dh",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "stahl-001dre",
+        "full_name": "Drew Stahl",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Sam Thompson",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "thomps006sam",
+        "full_name": "Sam Thompson",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jacob Godman",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "godman000jac",
+        "full_name": "Jacob Godman",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Blaze Brothers",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "brothe000bla",
+        "full_name": "Blaze Brothers",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Harley Gollert",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "goller001har",
+        "full_name": "Harley Gollert",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dalton Patten",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "patten000dal",
+        "full_name": "Dalton Patten",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jacob Widener",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "widene000jac",
+        "full_name": "Jacob Widener",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Evan Kowalski",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kowals000eva",
+        "full_name": "Evan Kowalski",
+        "match_confidence": 0.9
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Hurston Waldrep",
+        "innings_pitched": 6.0,
+        "hits": 7,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 3,
+        "strikeouts": 12,
+        "batters_faced": 27,
+        "at_bats": 24,
+        "pitches": 103,
+        "bref_id": "waldre000hur",
+        "full_name": "Hurston Waldrep",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Ryan Slater",
+        "innings_pitched": 0.2,
+        "hits": 1,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 4,
+        "at_bats": 3,
+        "pitches": 16,
+        "bref_id": "slater000rya",
+        "full_name": "Ryan Slater",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Brandon Neely",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 6,
+        "at_bats": 5,
+        "pitches": 22,
+        "bref_id": "neely-000bra",
+        "full_name": "Brandon Neely",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Cade Fisher",
+        "innings_pitched": 1.1,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 7,
+        "at_bats": 6,
+        "pitches": 25,
+        "bref_id": "fisher000cad",
+        "full_name": "Cade Fisher",
+        "match_confidence": 0.9
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Harley Gollert",
+        "innings_pitched": 3.0,
+        "hits": 4,
+        "runs": 5,
+        "earned_runs": 5,
+        "walks": 1,
+        "strikeouts": 6,
+        "batters_faced": 15,
+        "at_bats": 13,
+        "pitches": 63,
+        "bref_id": "goller001har",
+        "full_name": "Harley Gollert",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Dalton Patten",
+        "innings_pitched": 1.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 3,
+        "batters_faced": 5,
+        "at_bats": 4,
+        "pitches": 28,
+        "bref_id": "patten000dal",
+        "full_name": "Dalton Patten",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Jacob Widener",
+        "innings_pitched": 2.2,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 4,
+        "batters_faced": 12,
+        "at_bats": 9,
+        "pitches": 45,
+        "bref_id": "widene000jac",
+        "full_name": "Jacob Widener",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "Evan Kowalski",
+        "innings_pitched": 2.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 6,
+        "at_bats": 5,
+        "pitches": 19,
+        "bref_id": "kowals000eva",
+        "full_name": "Evan Kowalski",
+        "match_confidence": 0.9
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        2,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "McMurray advanced to second. 0 0\nCox struck out swinging (0-2 SFFS). 0 0\nHogan grounded out to 2b (0-0)",
+      "Quinn advanced to second",
+      "McMurray advanced to third. 0 0\nMcCroskey grounded out to ss (0-1 K). 0 0\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nFlorida - Top of 2nd UF ORU\nRiopelle struck out swinging (3-2 BBKBSS). 0 0\nHeyman flied out to cf (1-1 BK). 0 0\nShelnut walked (3-2 BBSSFFBB). 0 0\nEvans homered to left center, 2 RBI (2-2 BBSF)",
+      "Shelnut scored. 2 0\nHalter struck out looking (3-2 BBSBKK). 2 0\nRuns: 2 Hits: 1 Errors: 0 Left On Base: 0\nOral Roberts - Bottom of 2nd UF ORU\nBreeze singled to shortstop (0-1 K). 2 0\nStahl lined out to 3b (0-0). 2 0\nGodman walked (3-1 BBSBB)",
+      "Breeze advanced to second. 2 0\nBrothers struck out swinging (1-2 KFFBS). 2 0\nMcMurray walked (3-2 BKBBFB)",
+      "Godman advanced to second",
+      "Breeze advanced to third. 2 0\nQuinn singled to pitcher, RBI (1-2 BFK)",
+      "McMurray advanced to second",
+      "Godman advanced to third",
+      "Breeze\nscored. 2 1\nCox struck out swinging (0-2 KFS). 2 1\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 3\nFlorida - Top of 3rd UF ORU\nNo play. 2 1\nKurland grounded out to ss (0-1 K). 2 1\nCall on the field was foul, the play is under crew chief review. 2 1\nThe call on the field was confirmed as a foul ball. 2 1\nLangford struck out swinging (2-2 FBKBS). 2 1\nCaglianone struck out swinging (2-2 KBBFFFS). 2 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nOral Roberts - Bottom of 3rd UF ORU\nNo play. 2 1\nHogan struck out swinging (0-2 KSS). 2 1\nCall on the field was a ball - ORU Challenged the batter was HBP. 2 1\nCall on the field confirmed. 2 1\nMcCroskey singled up the middle (3-2 BKBBKF). 2 1\nBreeze struck out looking (0-2 KSK). 2 1\nStahl struck out swinging (0-2 SSS). 2 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nFlorida - Top of 4th UF ORU\nJ. Rivera homered to left field, RBI (0-1 K). 3 1\nRiopelle hit by pitch (0-0). 3 1\nHeyman homered to left center, 2 RBI (1-2 SKB)",
+      "Riopelle scored. 5 1\nPatten to p for Gollert. 5 1\nShelnut struck out swinging (3-2 BSFBFBFS). 5 1\nEvans struck out swinging (0-2 KFFS). 5 1\nHalter flied out to cf (3-1 BBFB). 5 1\nRuns: 3 Hits: 2 Errors: 0 Left On Base: 0\nOral Roberts - Bottom of 4th UF ORU\nGodman struck out swinging, out at first c to 1b (0-2 FFS). 5 1\nBrothers struck out swinging (2-2 BFBSS). 5 1\nMcMurray singled through the right side (1-1 BK). 5 1\nQuinn struck out swinging (2-2 KBBKFS). 5 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nFlorida - Top of 5th UF ORU\nKurland struck out swinging (1-2 FBKFS). 5 1\nLangford walked (3-2 KBBSBB). 5 1\nWidener to p for Patten. 5 1\nCaglianone struck out looking (1-2 FBKFK). 5 1\nJ. Rivera struck out swinging (1-2 BKFS). 5 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nOral Roberts - Bottom of 5th UF ORU\nCox singled to left field (0-0). 5 1\nHogan popped up to ss (2-1 BFB). 5 1\nMcCroskey popped up to rf (2-1 KBB). 5 1\nCox picked off, out at second p to 1b to 2b to p, caught stealing. 5 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nFlorida - Top of 6th UF ORU\nRiopelle struck out swinging (3-2 SKBBBS). 5 1\nHeyman walked (3-1 BFBBB). 5 1\nShelnut struck out looking (1-2 KBFFK). 5 1\nEvans flied out to cf (0-2 KF). 5 1\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nOral Roberts - Bottom of 6th UF ORU\nBreeze struck out swinging (3-2 KKBBBS). 5 1\nStahl struck out looking (2-2 BFBFFK). 5 1\nGodman doubled to right field, ground-rule (1-1 BK). 5 1\nBrothers struck out swinging (1-2 BKFS). 5 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nFlorida - Top of 7th UF ORU\nNo play. 5 1\nHalter singled to left center (2-1 BBK). 5 1\nHalter advanced to second on a balk. 5 1\nKurland flied out to rf to right center (2-2 KFBB)",
+      "Halter advanced to third. 5 1\nLangford hit by pitch (0-1 K). 5 1\nCaglianone fouled out to 3b (0-0). 5 1\nJ. Rivera grounded out to 2b (1-0 B). 5 1\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nOral Roberts - Bottom of 7th UF ORU\nSlater to p for Waldrep. 5 1\nMcMurray grounded out to 3b (0-1 K). 5 1\nQuinn walked (3-0 BBBB). 5 1\nCox flied out to cf (2-2 BBKKF). 5 1\nHogan homered to left center, inside the park, 2 RBI (2-1 FBB)",
+      "Quinn scored. 5 3\nInside the park HR for Hogan. 5 3\nCall on the field is safe - Florida Challenged. 5 3\nCall Reversed - Out at first. 5 3\nNeely to p for Slater. 5 3\nMcCroskey grounded out to 2b (1-1 BF). 5 3\nRuns: 2 Hits: 1 Errors: 0 Left On Base: 0\nFlorida - Top of 8th UF ORU\nRiopelle hit by pitch (2-0 BB). 5 3\nKowalski to p for Widener. 5 3\nSportsmanship warnings have been issued to both teams. 5 3\nHeyman grounded into double play 3b to 2b to 1b (1-2 BKK)",
+      "Riopelle out on the play. 5 3\nShelnut struck out swinging (0-2 FFFS). 5 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nOral Roberts - Bottom of 8th UF ORU\nLangford to lf. 5 3\nRobertson to cf for Shelnut. 5 3\nBreeze struck out looking (1-2 FBKK). 5 3\nStahl grounded out to 2b (0-2 KS). 5 3\nGodman reached on a fielding error by ss (1-1 KB). 5 3\nBrothers singled through the left side (1-0 B)",
+      "Godman advanced to second. 5 3\nThrow behind at first - call on the field was safe - Florida Challenge. 5 3\nCall confirmed, safe at first. 5 3\nMcMurray walked (3-2 BBBKKFB)",
+      "Brothers advanced to second",
+      "Godman advanced to third. 5 3\nFisher to p for Neely. 5 3\nQuinn lined out to lf (3-2 KKBBB). 5 3\nRuns: 0 Hits: 1 Errors: 1 Left On Base: 3\nFlorida - Top of 9th UF ORU\nEvans hit by pitch (0-1 S). 5 3\nSchiekofer pinch ran for Evans. 5 3\nHalter flied out to cf (0-0). 5 3\nSchiekofer advanced to second on a throwing error by p, failed pickoff attempt. 5 3\nKurland flied out to lf (3-2 BBBKK). 5 3\nLangford fouled out to 1b (1-0 B). 5 3\nRuns: 0 Hits: 0 Errors: 1 Left On Base: 1\nOral Roberts - Bottom of 9th UF ORU\nSchiekofer to rf. 5 3\nCox grounded out to 3b (0-1 K). 5 3\nHogan doubled down the lf line, ground-rule (1-1 BS). 5 3\nMcCroskey singled to center field (1-2 BFFF)",
+      "Hogan advanced to third. 5 3\nBreeze walked (3-2 BKBFBB)",
+      "McCroskey advanced to second. 5 3\nStahl reached on a fielder's choice to shortstop, RBI (0-0)",
+      "Breeze out at second ss to 2b",
+      "McCroskey\nadvanced to third",
+      "Hogan scored. 5 4\nThompson pinch ran for Stahl. 5 4\nGodman flied out to cf to right center (0-1 K). 5 4\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 2"
+    ],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "Matt Hogan",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Jacob Godman",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "Josh Rivera",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Luke Heyman",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Ty Evans",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Wyatt Langford (1)",
+      "BT Riopelle (2)",
+      "Ty Evans (1) CS: Jonah Cox (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Hurston Waldrep",
+      "record": "10-3"
+    },
+    "loss": {
+      "player": "Harley Gollert",
+      "record": "10-2"
+    },
+    "save": {
+      "player": "Cade Fisher",
+      "count": 2
+    }
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Kurland singled to third base (0-0). 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Langford flied out to lf (1-0 B). 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Caglianone struck out swinging (3-2 BBSBSS). 0 0",
+          "pitch_count": "3-2 BBSBSS",
+          "rbi": 0
+        },
+        {
+          "description": "J. Rivera struck out swinging (2-2 BFBFS). 0 0",
+          "pitch_count": "2-2 BFBFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "McMurray singled to right field (1-1 FB). 0 0",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Quinn walked (3-1 BBBKB); McMurray advanced to second. 0 0",
+          "pitch_count": "3-1 BBBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Cox struck out swinging (0-2 SFFS). 0 0",
+          "pitch_count": "0-2 SFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Hogan grounded out to 2b (0-0); Quinn advanced to second; McMurray advanced to third. 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "McCroskey grounded out to ss (0-1 K). 0 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Riopelle struck out swinging (3-2 BBKBSS). 0 0",
+          "pitch_count": "3-2 BBKBSS",
+          "rbi": 0
+        },
+        {
+          "description": "Heyman flied out to cf (1-1 BK). 0 0",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Shelnut walked (3-2 BBSSFFBB). 0 0",
+          "pitch_count": "3-2 BBSSFFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Evans homered to left center, 2 RBI (2-2 BBSF); Shelnut scored. 2 0",
+          "pitch_count": "2-2 BBSF",
+          "rbi": 2
+        },
+        {
+          "description": "Halter struck out looking (3-2 BBSBKK). 2 0",
+          "pitch_count": "3-2 BBSBKK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Breeze singled to shortstop (0-1 K). 2 0",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Stahl lined out to 3b (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Godman walked (3-1 BBSBB); Breeze advanced to second. 2 0",
+          "pitch_count": "3-1 BBSBB",
+          "rbi": 0
+        },
+        {
+          "description": "Brothers struck out swinging (1-2 KFFBS). 2 0",
+          "pitch_count": "1-2 KFFBS",
+          "rbi": 0
+        },
+        {
+          "description": "McMurray walked (3-2 BKBBFB); Godman advanced to second; Breeze advanced to third. 2 0",
+          "pitch_count": "3-2 BKBBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Quinn singled to pitcher, RBI (1-2 BFK); McMurray advanced to second; Godman advanced to third; Breeze",
+          "pitch_count": "1-2 BFK",
+          "rbi": 1
+        },
+        {
+          "description": "scored. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cox struck out swinging (0-2 KFS). 2 1",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Kurland grounded out to ss (0-1 K). 2 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was foul, the play is under crew chief review. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "The call on the field was confirmed as a foul ball. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Langford struck out swinging (2-2 FBKBS). 2 1",
+          "pitch_count": "2-2 FBKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Caglianone struck out swinging (2-2 KBBFFFS). 2 1",
+          "pitch_count": "2-2 KBBFFFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hogan struck out swinging (0-2 KSS). 2 1",
+          "pitch_count": "0-2 KSS",
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was a ball - ORU Challenged the batter was HBP. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field confirmed. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McCroskey singled up the middle (3-2 BKBBKF). 2 1",
+          "pitch_count": "3-2 BKBBKF",
+          "rbi": 0
+        },
+        {
+          "description": "Breeze struck out looking (0-2 KSK). 2 1",
+          "pitch_count": "0-2 KSK",
+          "rbi": 0
+        },
+        {
+          "description": "Stahl struck out swinging (0-2 SSS). 2 1",
+          "pitch_count": "0-2 SSS",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "J. Rivera homered to left field, RBI (0-1 K). 3 1",
+          "pitch_count": "0-1 K",
+          "rbi": 1
+        },
+        {
+          "description": "Riopelle hit by pitch (0-0). 3 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Heyman homered to left center, 2 RBI (1-2 SKB); Riopelle scored. 5 1",
+          "pitch_count": "1-2 SKB",
+          "rbi": 2
+        },
+        {
+          "description": "Patten to p for Gollert. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Shelnut struck out swinging (3-2 BSFBFBFS). 5 1",
+          "pitch_count": "3-2 BSFBFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Evans struck out swinging (0-2 KFFS). 5 1",
+          "pitch_count": "0-2 KFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Halter flied out to cf (3-1 BBFB). 5 1",
+          "pitch_count": "3-1 BBFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Godman struck out swinging, out at first c to 1b (0-2 FFS). 5 1",
+          "pitch_count": "0-2 FFS",
+          "rbi": 0
+        },
+        {
+          "description": "Brothers struck out swinging (2-2 BFBSS). 5 1",
+          "pitch_count": "2-2 BFBSS",
+          "rbi": 0
+        },
+        {
+          "description": "McMurray singled through the right side (1-1 BK). 5 1",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Quinn struck out swinging (2-2 KBBKFS). 5 1",
+          "pitch_count": "2-2 KBBKFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Kurland struck out swinging (1-2 FBKFS). 5 1",
+          "pitch_count": "1-2 FBKFS",
+          "rbi": 0
+        },
+        {
+          "description": "Langford walked (3-2 KBBSBB). 5 1",
+          "pitch_count": "3-2 KBBSBB",
+          "rbi": 0
+        },
+        {
+          "description": "Widener to p for Patten. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caglianone struck out looking (1-2 FBKFK). 5 1",
+          "pitch_count": "1-2 FBKFK",
+          "rbi": 0
+        },
+        {
+          "description": "J. Rivera struck out swinging (1-2 BKFS). 5 1",
+          "pitch_count": "1-2 BKFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Cox singled to left field (0-0). 5 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Hogan popped up to ss (2-1 BFB). 5 1",
+          "pitch_count": "2-1 BFB",
+          "rbi": 0
+        },
+        {
+          "description": "McCroskey popped up to rf (2-1 KBB). 5 1",
+          "pitch_count": "2-1 KBB",
+          "rbi": 0
+        },
+        {
+          "description": "Cox picked off, out at second p to 1b to 2b to p, caught stealing. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Riopelle struck out swinging (3-2 SKBBBS). 5 1",
+          "pitch_count": "3-2 SKBBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Heyman walked (3-1 BFBBB). 5 1",
+          "pitch_count": "3-1 BFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Shelnut struck out looking (1-2 KBFFK). 5 1",
+          "pitch_count": "1-2 KBFFK",
+          "rbi": 0
+        },
+        {
+          "description": "Evans flied out to cf (0-2 KF). 5 1",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Breeze struck out swinging (3-2 KKBBBS). 5 1",
+          "pitch_count": "3-2 KKBBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Stahl struck out looking (2-2 BFBFFK). 5 1",
+          "pitch_count": "2-2 BFBFFK",
+          "rbi": 0
+        },
+        {
+          "description": "Godman doubled to right field, ground-rule (1-1 BK). 5 1",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Brothers struck out swinging (1-2 BKFS). 5 1",
+          "pitch_count": "1-2 BKFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Halter singled to left center (2-1 BBK). 5 1",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "Halter advanced to second on a balk. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurland flied out to rf to right center (2-2 KFBB); Halter advanced to third. 5 1",
+          "pitch_count": "2-2 KFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Langford hit by pitch (0-1 K). 5 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Caglianone fouled out to 3b (0-0). 5 1",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "J. Rivera grounded out to 2b (1-0 B). 5 1",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Slater to p for Waldrep. 5 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McMurray grounded out to 3b (0-1 K). 5 1",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Quinn walked (3-0 BBBB). 5 1",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Cox flied out to cf (2-2 BBKKF). 5 1",
+          "pitch_count": "2-2 BBKKF",
+          "rbi": 0
+        },
+        {
+          "description": "Hogan homered to left center, inside the park, 2 RBI (2-1 FBB); Quinn scored. 5 3",
+          "pitch_count": "2-1 FBB",
+          "rbi": 2
+        },
+        {
+          "description": "Inside the park HR for Hogan. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field is safe - Florida Challenged. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call Reversed - Out at first. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neely to p for Slater. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McCroskey grounded out to 2b (1-1 BF). 5 3",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Riopelle hit by pitch (2-0 BB). 5 3",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Kowalski to p for Widener. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sportsmanship warnings have been issued to both teams. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Heyman grounded into double play 3b to 2b to 1b (1-2 BKK); Riopelle out on the play. 5 3",
+          "pitch_count": "1-2 BKK",
+          "rbi": 0
+        },
+        {
+          "description": "Shelnut struck out swinging (0-2 FFFS). 5 3",
+          "pitch_count": "0-2 FFFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Langford to lf. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Robertson to cf for Shelnut. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Breeze struck out looking (1-2 FBKK). 5 3",
+          "pitch_count": "1-2 FBKK",
+          "rbi": 0
+        },
+        {
+          "description": "Stahl grounded out to 2b (0-2 KS). 5 3",
+          "pitch_count": "0-2 KS",
+          "rbi": 0
+        },
+        {
+          "description": "Godman reached on a fielding error by ss (1-1 KB). 5 3",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Brothers singled through the left side (1-0 B); Godman advanced to second. 5 3",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Throw behind at first - call on the field was safe - Florida Challenge. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call confirmed, safe at first. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McMurray walked (3-2 BBBKKFB); Brothers advanced to second; Godman advanced to third. 5 3",
+          "pitch_count": "3-2 BBBKKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Fisher to p for Neely. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Quinn lined out to lf (3-2 KKBBB). 5 3",
+          "pitch_count": "3-2 KKBBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Evans hit by pitch (0-1 S). 5 3",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "Schiekofer pinch ran for Evans. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Halter flied out to cf (0-0). 5 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Schiekofer advanced to second on a throwing error by p, failed pickoff attempt. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurland flied out to lf (3-2 BBBKK). 5 3",
+          "pitch_count": "3-2 BBBKK",
+          "rbi": 0
+        },
+        {
+          "description": "Langford fouled out to 1b (1-0 B). 5 3",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Schiekofer to rf. 5 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cox grounded out to 3b (0-1 K). 5 3",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Hogan doubled down the lf line, ground-rule (1-1 BS). 5 3",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        },
+        {
+          "description": "McCroskey singled to center field (1-2 BFFF); Hogan advanced to third. 5 3",
+          "pitch_count": "1-2 BFFF",
+          "rbi": 0
+        },
+        {
+          "description": "Breeze walked (3-2 BKBFBB); McCroskey advanced to second. 5 3",
+          "pitch_count": "3-2 BKBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Stahl reached on a fielder's choice to shortstop, RBI (0-0); Breeze out at second ss to 2b; McCroskey",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "advanced to third; Hogan scored. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thompson pinch ran for Stahl. 5 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Godman flied out to cf to right center (0-1 K). 5 4",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}
