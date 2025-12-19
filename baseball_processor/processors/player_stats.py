@@ -483,7 +483,10 @@ class PlayerStatsProcessor:
 
         df = pd.DataFrame(rows)
         if not df.empty and 'date' in df.columns:
-            df = df.sort_values('date', ascending=False)
+            # Parse dates properly for sorting (M/D/YYYY format)
+            df['_date_sort'] = pd.to_datetime(df['date'], format='%m/%d/%Y', errors='coerce')
+            df = df.sort_values('_date_sort', ascending=True)
+            df = df.drop(columns=['_date_sort'])
         return df
 
     def _create_pitcher_games_dataframe(self) -> pd.DataFrame:
@@ -498,5 +501,8 @@ class PlayerStatsProcessor:
 
         df = pd.DataFrame(rows)
         if not df.empty and 'date' in df.columns:
-            df = df.sort_values('date', ascending=False)
+            # Parse dates properly for sorting (M/D/YYYY format)
+            df['_date_sort'] = pd.to_datetime(df['date'], format='%m/%d/%Y', errors='coerce')
+            df = df.sort_values('_date_sort', ascending=True)
+            df = df.drop(columns=['_date_sort'])
         return df
