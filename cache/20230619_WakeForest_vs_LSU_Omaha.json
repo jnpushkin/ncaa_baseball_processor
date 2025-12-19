@@ -190,7 +190,7 @@
         "left_on_base": 1,
         "bref_id": "thomps002jor",
         "full_name": "Jordan Thompson",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "pearso002jos",
         "full_name": "Josh Pearson",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       },
       {
         "number": "",
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "hawke-000tom",
         "full_name": "Tommy Hawke",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "costel000luc",
         "full_name": "Lucas Costello",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       },
       {
         "number": "",

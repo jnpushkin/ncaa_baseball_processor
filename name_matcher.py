@@ -13,6 +13,11 @@ from typing import Optional
 from dataclasses import dataclass
 
 
+# Minimum confidence threshold for accepting a match
+# Matches below this threshold will be rejected to prevent incorrect player assignments
+MIN_CONFIDENCE = 0.5
+
+
 @dataclass
 class MatchResult:
     """Result of a name match attempt."""
@@ -52,10 +57,18 @@ class NameMatcher:
         team_name = team_key or roster.get('team_name', Path(roster_path).stem)
         players = roster.get('players', [])
 
+        # Extract year from filename (e.g., "2023_virginia_cavaliers.json")
+        filename = Path(roster_path).stem
+        year_match = re.match(r'^(\d{4})_', filename)
+        roster_year = int(year_match.group(1)) if year_match else None
+
         self.rosters[team_name] = players
 
         # Index by last name for fast lookup
         for player in players:
+            # Add roster year to player for later matching
+            player['_roster_year'] = roster_year
+
             last_name = player.get('last_name', '').lower()
             if last_name:
                 if last_name not in self.players_by_last:
@@ -231,7 +244,7 @@ class NameMatcher:
 
         return result
 
-    def match(self, name: str, team: Optional[str] = None, number: Optional[str] = None) -> MatchResult:
+    def match(self, name: str, team: Optional[str] = None, number: Optional[str] = None, year: Optional[int] = None) -> MatchResult:
         """
         Match a name to a roster entry.
 
@@ -239,6 +252,7 @@ class NameMatcher:
             name: Player name (can be abbreviated)
             team: Optional team name to restrict search
             number: Optional jersey number for disambiguation
+            year: Optional game year to prefer matching roster year
 
         Returns:
             MatchResult with matched player info
@@ -274,7 +288,20 @@ class NameMatcher:
         for variant in last_variants:
             candidates.extend(self.players_by_last.get(variant, []))
 
-        # Remove duplicates while preserving order
+        # Track if team filtering was applied
+        team_filtered = False
+        year_filtered = False
+
+        # Filter by year FIRST - this is important because the same player may appear
+        # in multiple year rosters with the same bref_id. We want to match to the
+        # roster version from the game's year before deduplication removes alternatives.
+        if year and candidates:
+            year_matches = [p for p in candidates if p.get('_roster_year') == year]
+            if year_matches:
+                candidates = year_matches
+                year_filtered = True
+
+        # Remove duplicates while preserving order (after year filter)
         seen = set()
         unique_candidates = []
         for c in candidates:
@@ -283,9 +310,6 @@ class NameMatcher:
                 seen.add(cid)
                 unique_candidates.append(c)
         candidates = unique_candidates
-
-        # Track if team filtering was applied
-        team_filtered = False
 
         # Filter by team if specified
         if team and candidates:
@@ -299,10 +323,10 @@ class NameMatcher:
         if not candidates:
             return MatchResult(matched=False)
 
-        # If only one candidate after team filtering, higher confidence
+        # If only one candidate after filtering, higher confidence
         if len(candidates) == 1:
-            # Confidence boost if team was specified and matched
-            base_conf = 0.9 if parsed['full_first'] else (0.85 if team_filtered else 0.7)
+            # Confidence boost if team/year was specified and matched
+            base_conf = 0.9 if parsed['full_first'] else (0.85 if (team_filtered or year_filtered) else 0.7)
             return MatchResult(
                 matched=True,
                 player=candidates[0],
@@ -385,7 +409,7 @@ class NameMatcher:
                 return team_name
         return ""
 
-    def get_bref_id(self, name: str, team: Optional[str] = None, number: Optional[str] = None) -> Optional[str]:
+    def get_bref_id(self, name: str, team: Optional[str] = None, number: Optional[str] = None, year: Optional[int] = None) -> Optional[str]:
         """
         Get the Baseball Reference ID for a player name.
 
@@ -393,16 +417,17 @@ class NameMatcher:
             name: Player name
             team: Optional team name
             number: Optional jersey number
+            year: Optional game year
 
         Returns:
             bref_id if found, None otherwise
         """
-        result = self.match(name, team, number)
+        result = self.match(name, team, number, year)
         if result.matched and result.player:
             return result.player.get('bref_id')
         return None
 
-    def get_full_name(self, name: str, team: Optional[str] = None, number: Optional[str] = None) -> Optional[str]:
+    def get_full_name(self, name: str, team: Optional[str] = None, number: Optional[str] = None, year: Optional[int] = None) -> Optional[str]:
         """
         Get the full name for an abbreviated player name.
 
@@ -410,11 +435,12 @@ class NameMatcher:
             name: Player name (possibly abbreviated)
             team: Optional team name
             number: Optional jersey number
+            year: Optional game year
 
         Returns:
             Full name if found, None otherwise
         """
-        result = self.match(name, team, number)
+        result = self.match(name, team, number, year)
         if result.matched and result.player:
             return result.player.get('name')
         return None
@@ -435,38 +461,48 @@ def enrich_game_data(game_data: dict, matcher: NameMatcher) -> dict:
     away_team = game_data.get('metadata', {}).get('away_team', '')
     home_team = game_data.get('metadata', {}).get('home_team', '')
 
+    # Extract year from game date
+    game_date = game_data.get('metadata', {}).get('date', '')
+    game_year = None
+    if game_date:
+        # Try different date formats
+        year_match = re.search(r'(\d{4})', game_date)
+        if year_match:
+            game_year = int(year_match.group(1))
+
     # Enrich batting stats
     for player in game_data.get('box_score', {}).get('away_batting', []):
-        _enrich_player(player, matcher, away_team)
+        _enrich_player(player, matcher, away_team, game_year)
 
     for player in game_data.get('box_score', {}).get('home_batting', []):
-        _enrich_player(player, matcher, home_team)
+        _enrich_player(player, matcher, home_team, game_year)
 
     # Enrich pitching stats
     for player in game_data.get('box_score', {}).get('away_pitching', []):
-        _enrich_player(player, matcher, away_team)
+        _enrich_player(player, matcher, away_team, game_year)
 
     for player in game_data.get('box_score', {}).get('home_pitching', []):
-        _enrich_player(player, matcher, home_team)
+        _enrich_player(player, matcher, home_team, game_year)
 
     return game_data
 
 
-def _enrich_player(player: dict, matcher: NameMatcher, team: str) -> None:
+def _enrich_player(player: dict, matcher: NameMatcher, team: str, year: Optional[int] = None) -> None:
     """Add bref_id and full_name to a player dict."""
     name = player.get('name', '')
     number = player.get('number', '')
 
-    result = matcher.match(name, team, number)
+    result = matcher.match(name, team, number, year)
 
-    if result.matched and result.player:
+    # Only accept matches above the minimum confidence threshold
+    if result.matched and result.player and result.confidence >= MIN_CONFIDENCE:
         player['bref_id'] = result.player.get('bref_id')
         player['full_name'] = result.player.get('name')
         player['match_confidence'] = result.confidence
     else:
         player['bref_id'] = None
         player['full_name'] = None
-        player['match_confidence'] = 0.0
+        player['match_confidence'] = result.confidence if result.matched else 0.0
 
 
 # CLI for testing

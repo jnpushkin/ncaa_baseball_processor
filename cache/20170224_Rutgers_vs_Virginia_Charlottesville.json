@@ -336,8 +336,8 @@
     ],
     "away_pitching": [
       {
-        "number": "O'Reilly",
-        "name": "",
+        "number": "",
+        "name": "O'Reilly",
         "innings_pitched": 5.0,
         "hits": 9,
         "runs": 4,
@@ -347,13 +347,13 @@
         "batters_faced": 27,
         "at_bats": 24,
         "pitches": 84,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "oreill004joh",
+        "full_name": "John O'Reilly",
+        "match_confidence": 0.85
       },
       {
-        "number": "Reardon",
-        "name": "",
+        "number": "",
+        "name": "Reardon",
         "innings_pitched": 1.0,
         "hits": 2,
         "runs": 3,
@@ -363,13 +363,13 @@
         "batters_faced": 6,
         "at_bats": 5,
         "pitches": 26,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "reardo000eri",
+        "full_name": "Eric Reardon",
+        "match_confidence": 0.85
       },
       {
-        "number": "Fleming",
-        "name": "",
+        "number": "",
+        "name": "Fleming",
         "innings_pitched": 2.0,
         "hits": 1,
         "runs": 0,
@@ -379,12 +379,61 @@
         "batters_faced": 9,
         "at_bats": 7,
         "pitches": 31,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "flemin002rya",
+        "full_name": "Ryan Fleming",
+        "match_confidence": 0.85
       }
     ],
-    "home_pitching": [],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Lynch, D.",
+        "innings_pitched": 5.1,
+        "hits": 7,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 4,
+        "strikeouts": 3,
+        "batters_faced": 27,
+        "at_bats": 23,
+        "pitches": 101,
+        "bref_id": "lynch-004rya",
+        "full_name": "Ryan Lynch",
+        "match_confidence": 0.7
+      },
+      {
+        "number": "",
+        "name": "Bettinger, A",
+        "innings_pitched": 2.2,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 4,
+        "batters_faced": 9,
+        "at_bats": 9,
+        "pitches": 42,
+        "bref_id": "bettin000ale",
+        "full_name": "Alec Bettinger",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Doyle, T.",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 9,
+        "bref_id": "doyle-001tom",
+        "full_name": "Tommy Doyle",
+        "match_confidence": 0.85
+      }
+    ],
     "line_score": {
       "away_innings": [
         1,

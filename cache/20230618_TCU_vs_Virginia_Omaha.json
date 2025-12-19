@@ -143,7 +143,7 @@
         "left_on_base": 1,
         "bref_id": "silva-000ant",
         "full_name": "Anthony Silva",
-        "match_confidence": 0.4
+        "match_confidence": 0.85
       },
       {
         "number": "22",
@@ -160,7 +160,7 @@
         "left_on_base": 0,
         "bref_id": "maxwel001log",
         "full_name": "Logan Maxwell",
-        "match_confidence": 0.7
+        "match_confidence": 0.85
       },
       {
         "number": "6",
@@ -247,7 +247,7 @@
         "left_on_base": 0,
         "bref_id": "gelof-000jak",
         "full_name": "Jake Gelof",
-        "match_confidence": 0.4
+        "match_confidence": 0.85
       },
       {
         "number": "3",
@@ -262,9 +262,9 @@
         "put_outs": 5,
         "assists": 1,
         "left_on_base": 0,
-        "bref_id": "teel--000aid",
-        "full_name": "Aidan Teel",
-        "match_confidence": 0.4
+        "bref_id": "teel--000kyl",
+        "full_name": "Kyle Teel",
+        "match_confidence": 0.85
       },
       {
         "number": "23",

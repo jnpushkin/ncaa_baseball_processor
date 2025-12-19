@@ -37,7 +37,7 @@
         "left_on_base": 0,
         "bref_id": "teel--000aid",
         "full_name": "Aidan Teel",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       },
       {
         "number": "",
@@ -275,7 +275,7 @@
         "left_on_base": 0,
         "bref_id": "lopez-013jor",
         "full_name": "Jordy Lopez",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       }
     ],
     "home_batting": [

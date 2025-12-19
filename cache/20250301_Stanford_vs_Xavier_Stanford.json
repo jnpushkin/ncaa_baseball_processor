@@ -532,7 +532,7 @@
         "left_on_base": 0,
         "bref_id": "moore-003tre",
         "full_name": "Trevor Moore",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       }
     ],
     "away_pitching": [
@@ -632,7 +632,7 @@
         "pitches": 44,
         "bref_id": "moore-003tre",
         "full_name": "Trevor Moore",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       },
       {
         "number": "",

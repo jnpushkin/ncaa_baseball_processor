@@ -176,13 +176,15 @@ def extract_game_notes(text: str) -> dict:
                     notes["double_plays"][parts[0].strip()] = int(parts[1])
 
     # Extract doubles: 2B - Player (season) ; or 2B: Player (count)
-    # Use a more restrictive pattern that stops at newline
     # Common stat prefixes to filter out
     stat_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|3B|HR)\b'
     doubles_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|3B|HR)\b'
 
-    # Use findall to capture ALL 2B lines (there may be multiple, one per team)
-    doubles_matches = re.findall(r'^2B\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    # Use findall to capture ALL 2B entries
+    # Format A: "2B - Player (count)" at start of line
+    # Format B: "2B - Player (count)" mid-line, terminated by ; or next stat
+    # Note: "2B: Umpire Name" in umpire line doesn't have parentheses - skip those
+    doubles_matches = re.findall(r'(?:^|;\s*)2B\s*[-:]\s*([^;]+?)(?=\s*;|\s*$|\s*(?:3B|HR|SB|CS|SH|SF|WP|PB|KL|HBP|GDP|LOB|DP|BK|IBB|E)\s*[-:])', text, re.MULTILINE)
     for doubles_line in doubles_matches:
         for item in doubles_line.split(';'):
             item = item.strip()
@@ -198,13 +200,13 @@ def extract_game_notes(text: str) -> dict:
                             "game_count": int(match.group(2)) if match.group(2) else 1,
                             "season_total": int(match.group(3))
                         })
-                elif item and not re.match(doubles_prefixes, item, re.IGNORECASE):
-                    notes["doubles"].append({"player": item, "game_count": 1, "season_total": None})
+                # Don't add items without parentheses - they might be umpire names
 
     # Extract triples: 3B - Player count (season) ;
-    # Use findall to capture ALL 3B lines (there may be multiple, one per team)
+    # Use findall to capture ALL 3B entries (Format A at line start, Format B mid-line)
+    # Note: "3B: Umpire Name" in umpire line doesn't have parentheses - skip those
     triples_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|2B|HR)\b'
-    triples_matches = re.findall(r'^3B\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    triples_matches = re.findall(r'(?:^|;\s*)3B\s*[-:]\s*([^;]+?)(?=\s*;|\s*$|\s*(?:2B|HR|SB|CS|SH|SF|WP|PB|KL|HBP|GDP|LOB|DP|BK|IBB|E)\s*[-:])', text, re.MULTILINE)
     for triples_line in triples_matches:
         for item in triples_line.split(';'):
             item = item.strip()
@@ -218,12 +220,11 @@ def extract_game_notes(text: str) -> dict:
                             "game_count": int(match.group(2)) if match.group(2) else 1,
                             "season_total": int(match.group(3))
                         })
-                elif item and not re.match(triples_prefixes, item, re.IGNORECASE):
-                    notes["triples"].append({"player": item, "game_count": 1, "season_total": None})
+                # Don't add items without parentheses - they might be umpire names
 
     # Extract home runs: HR - Player count (season) ; or HR: Player (count)
-    # Use findall to capture ALL HR lines (there may be multiple, one per team)
-    hr_matches = re.findall(r'^HR\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    # Use findall to capture ALL HR entries (Format A at line start, Format B mid-line)
+    hr_matches = re.findall(r'(?:^|;\s*)HR\s*[-:]\s*([^;]+?)(?=\s*;|\s*$|\s*(?:2B|3B|SB|CS|SH|SF|WP|PB|KL|HBP|GDP|LOB|DP|BK|IBB|E)\s*[-:])', text, re.MULTILINE)
     for hr_line in hr_matches:
         for item in hr_line.split(';'):
             item = item.strip()
@@ -243,9 +244,9 @@ def extract_game_notes(text: str) -> dict:
                         })
 
     # Extract stolen bases: SB - Player count (season) ;
-    # Use findall to capture ALL SB lines (there may be multiple, one per team)
+    # Use findall to capture ALL SB entries (Format A at line start, Format B mid-line)
     sb_prefixes = r'^(CS|GDP|LOB|DP|WP|PB|BK|IBB|E)\b'
-    sb_matches = re.findall(r'^SB\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    sb_matches = re.findall(r'(?:^|;\s*)SB\s*[-:]\s*([^;]+?)(?=\s*;|\s*$|\s*(?:2B|3B|HR|CS|SH|SF|WP|PB|KL|HBP|GDP|LOB|DP|BK|IBB|E)\s*[-:])', text, re.MULTILINE)
     for sb_line in sb_matches:
         for item in sb_line.split(';'):
             item = item.strip()
@@ -267,7 +268,7 @@ def extract_game_notes(text: str) -> dict:
     if cs_match:
         for item in cs_match.group(1).split(';'):
             item = item.strip()
-            if item:
+            if item and item.lower() != 'none':
                 notes["caught_stealing"].append(item)
 
     # Extract hit by pitch (batters): HBP - Player (count) ; or HBP: Player (count)
@@ -276,7 +277,7 @@ def extract_game_notes(text: str) -> dict:
     if hbp_match:
         for item in hbp_match.group(1).split(';'):
             item = item.strip()
-            if item:
+            if item and item.lower() != 'none':
                 notes["hit_by_pitch"].append(item)
 
     # Extract grounded into double play: GDP - Player ;
@@ -296,19 +297,27 @@ def extract_game_notes(text: str) -> dict:
     if loss_match:
         notes["loss"] = {"player": loss_match.group(1).strip(), "record": loss_match.group(2)}
 
-    save_match = re.search(r'Save\s*[-:]\s*([^(]+)\s*\((\d+)\)', text)
-    if save_match:
-        notes["save"] = {"player": save_match.group(1).strip(), "count": int(save_match.group(2))}
-    elif re.search(r'Save\s*[-:]\s*None', text):
+    # Check for "Save - None" FIRST before trying to parse a save with count
+    # Otherwise the greedy regex can match across lines (e.g., "Save - None.\nWP - Pitcher (3)")
+    if re.search(r'Save\s*[-:]\s*None', text, re.IGNORECASE):
         notes["save"] = None
+    else:
+        # Only match save on a single line to avoid capturing WP/HBP data
+        save_match = re.search(r'Save\s*[-:]\s*([^(\n]+)\s*\((\d+)\)', text)
+        if save_match:
+            notes["save"] = {"player": save_match.group(1).strip(), "count": int(save_match.group(2))}
 
-    # Extract wild pitches: WP - Pitcher (count) ; (single line only)
-    wp_match = re.search(r'^WP\s*[-:]\s*(.+?)$', text, re.MULTILINE)
+    # Extract wild pitches: WP - Pitcher (count)
+    # Format B has multiple stats on one line, so use lookahead to stop at next stat prefix
+    # This ensures we don't capture HB data that follows WP on the same line
+    wp_match = re.search(r'(?:^|;\s*)WP\s*[-:]\s*([^;]+?)(?=\s*;?\s*(?:HB|PB|SFA|SH|SF|BK)\s*[-:]|\s*;?\s*$)', text, re.MULTILINE)
     if wp_match:
         for item in wp_match.group(1).split(';'):
             item = item.strip()
-            if item and not any(x in item for x in ['HB -', 'PB -']):
-                notes["wild_pitches"].append(item)
+            if item and item.lower() != 'none':
+                # Only accept if it has a count in parentheses (avoids stray names)
+                if re.search(r'\(\d+\)', item):
+                    notes["wild_pitches"].append(item)
 
     # Extract passed balls: PB - Player ; (single line only)
     pb_match = re.search(r'^PB\s*[-:]\s*(.+?)$', text, re.MULTILINE)
@@ -324,8 +333,20 @@ def extract_game_notes(text: str) -> dict:
         notes["sacrifice_hits"] = []
         for item in sh_match.group(1).split(';'):
             item = item.strip()
-            if item:
+            if item and item.lower() != 'none':
                 notes["sacrifice_hits"].append(item)
+
+    # Extract hit batters (pitchers who hit batters): HB - Pitcher count (season)
+    # Format B has this inline: "HB - Turkington,A 3 (6) ; Dessart,S (1)"
+    # Multiple pitchers may be listed, separated by semicolons, until next stat prefix
+    hb_match = re.search(r'(?:^|;\s*)HB\s*[-:]\s*(.+?)(?=\s*;?\s*(?:WP|PB|SFA|SH|SF|BK)\s*[-:]|\s*;?\s*$)', text, re.MULTILINE)
+    if hb_match:
+        for item in hb_match.group(1).split(';'):
+            item = item.strip()
+            if item and item.lower() != 'none':
+                # Only accept if it has a count in parentheses
+                if re.search(r'\(\d+\)', item):
+                    notes["hit_batters"].append(item)
 
     return notes
 
@@ -653,15 +674,20 @@ def parse_single_pitcher(parts: list) -> Optional[PitcherStats]:
     """Parse a single pitcher's stats from a list of parts.
 
     Expected format: # Name ip h r er bb k bf ab np
+    OR: Name ip h r er bb k bf ab np (no jersey number)
     Name may contain multiple parts (e.g., "McGarry, G.")
     """
     if len(parts) < 10:
         return None
 
     try:
-        # Find the IP field (first float-like value after jersey number)
+        # Check if first part is a jersey number (digits only)
+        has_jersey_number = parts[0].isdigit()
+
+        # Find the IP field (first float-like value)
         ip_idx = None
-        for i in range(1, min(5, len(parts))):
+        start_idx = 1 if has_jersey_number else 0
+        for i in range(start_idx, min(start_idx + 4, len(parts))):
             try:
                 float(parts[i])
                 ip_idx = i
@@ -672,9 +698,13 @@ def parse_single_pitcher(parts: list) -> Optional[PitcherStats]:
         if ip_idx is None:
             return None
 
-        # Name is everything between jersey number and IP
-        number = parts[0]
-        name = ' '.join(parts[1:ip_idx])
+        # Extract name and number based on format
+        if has_jersey_number:
+            number = parts[0]
+            name = ' '.join(parts[1:ip_idx])
+        else:
+            number = ''
+            name = ' '.join(parts[0:ip_idx])
 
         # Stats start at IP
         return PitcherStats(
@@ -738,8 +768,10 @@ def parse_side_by_side_pitching_line(line: str) -> tuple:
             away_pitcher = parse_single_pitcher(parts[:away_end])
             return (away_pitcher, None)
 
-        # Check if home_parts starts with a jersey number
-        if not home_parts[0].isdigit():
+        # Check if home_parts looks like a valid pitcher entry
+        # It should start with either a jersey number OR a name (letters)
+        first_char = home_parts[0][0] if home_parts[0] else ''
+        if not (first_char.isdigit() or first_char.isalpha()):
             away_pitcher = parse_single_pitcher(parts[:away_end])
             return (away_pitcher, None)
 

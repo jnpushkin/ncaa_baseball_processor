@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "bruno-000rya",
         "full_name": "Ryan Bruno",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       }
     ],
     "home_batting": [
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "hawke-000tom",
         "full_name": "Tommy Hawke",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       },
       {
         "number": "",
@@ -530,7 +530,7 @@
         "pitches": 19,
         "bref_id": "bruno-000rya",
         "full_name": "Ryan Bruno",
-        "match_confidence": 1.0
+        "match_confidence": 0.9
       }
     ],
     "home_pitching": [

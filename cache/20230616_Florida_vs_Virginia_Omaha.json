@@ -75,7 +75,7 @@
         "left_on_base": 0,
         "bref_id": "gelof-000jak",
         "full_name": "Jake Gelof",
-        "match_confidence": 0.4
+        "match_confidence": 0.85
       },
       {
         "number": "3",
@@ -90,9 +90,9 @@
         "put_outs": 4,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "teel--000aid",
-        "full_name": "Aidan Teel",
-        "match_confidence": 0.4
+        "bref_id": "teel--000kyl",
+        "full_name": "Kyle Teel",
+        "match_confidence": 0.85
       },
       {
         "number": "23",
@@ -482,7 +482,7 @@
         "pitches": 46,
         "bref_id": "berry-003jak",
         "full_name": "Jake Berry",
-        "match_confidence": 0.7
+        "match_confidence": 0.85
       },
       {
         "number": "4",
@@ -498,7 +498,7 @@
         "pitches": 3,
         "bref_id": "woolfo000jay",
         "full_name": "Jay Woolfolk",
-        "match_confidence": 0.4
+        "match_confidence": 0.85
       }
     ],
     "line_score": {

@@ -75,7 +75,7 @@
         "left_on_base": 0,
         "bref_id": "arroyo001chr",
         "full_name": "Chris Arroyo",
-        "match_confidence": 0.7
+        "match_confidence": 0.85
       },
       {
         "number": "9",
@@ -126,7 +126,7 @@
         "left_on_base": 1,
         "bref_id": "harris000aid",
         "full_name": "Aiden Harris",
-        "match_confidence": 0.4
+        "match_confidence": 0.85
       },
       {
         "number": "28",
@@ -414,7 +414,7 @@
         "pitches": 15,
         "bref_id": "buchan000mat",
         "full_name": "Matthew Buchanan",
-        "match_confidence": 0.6
+        "match_confidence": 0.85
       }
     ],
     "line_score": {
