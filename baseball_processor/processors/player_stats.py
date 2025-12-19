@@ -309,13 +309,15 @@ class PlayerStatsProcessor:
                         self.pitcher_totals[key][stat] += val
 
                     # Track game-by-game
+                    # Format IP in baseball notation (6.2 = 6 and 2/3 innings)
+                    ip_formatted = f"{int(ip)}.{int((ip % 1) * 3)}"
                     game_stats = {
                         'date': date,
                         'team': team,
                         'opponent': opponent,
                         'won': won,
                         'game_id': game_id,
-                        'ip': ip,
+                        'ip': ip_formatted,
                     }
                     for stat in pitching_keys:
                         if stat == 'ip':

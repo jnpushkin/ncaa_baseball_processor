@@ -690,7 +690,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <td className="text-center">{{g.ip?.toFixed(1)}}</td>
+                                                        <td className="text-center">{{g.ip}}</td>
                                                         <td className="text-center">{{g.h}}</td>
                                                         <td className="text-center">{{g.r}}</td>
                                                         <td className="text-center">{{g.er}}</td>
