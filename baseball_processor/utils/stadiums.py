@@ -91,6 +91,7 @@ STADIUM_DATA = {
     "Saint Mary's": (37.8404, -122.1065, 'Br. Ronald Gallagher Field'),
     'San Diego': (32.7720, -117.1905, 'John Cunningham Stadium'),
     'San Francisco': (37.7775, -122.4514, 'Dante Benedetti Diamond'),
+    'San Francisco State': (37.7219, -122.4782, 'Maloney Field'),
     'Santa Clara': (37.3525, -121.9395, 'Stephen Schott Stadium'),
     'Seattle': (47.6062, -122.3321, 'Bannerwood Park'),
 

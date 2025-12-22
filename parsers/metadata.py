@@ -65,14 +65,15 @@ def extract_game_metadata(text: str) -> dict:
 
     # Extract venue/stadium and city
     # Format: "at Davenport Field (Charlottesville, Va.)"
-    venue_match = re.search(r'at\s+([A-Za-z\s]+(?:Field|Stadium|Park|Center|Arena|Coliseum|Complex))\s*\(([^)]+)\)', text)
+    # Use non-greedy match constrained to single line to avoid matching distant parentheses
+    venue_match = re.search(r'at\s+([A-Za-z\s]+(?:Field|Stadium|Park|Center|Arena|Coliseum|Complex))\s*\(([^)\n]+)\)', text)
     if venue_match:
         metadata["stadium"] = venue_match.group(1).strip()
         metadata["city"] = venue_match.group(2).strip()
         metadata["venue"] = f"{metadata['stadium']} ({metadata['city']})"
     else:
-        # Fallback: try simpler pattern
-        venue_match = re.search(r'at\s+([^(]+)\s*\(([^)]+)\)', text)
+        # Fallback: try simpler pattern but constrain to same line
+        venue_match = re.search(r'at\s+([^(\n]+?)\s*\(([^)\n]+)\)', text)
         if venue_match:
             metadata["stadium"] = venue_match.group(1).strip()
             metadata["city"] = venue_match.group(2).strip()
@@ -242,12 +243,50 @@ def extract_format_b_metadata(text: str) -> dict:
     if date_match:
         metadata["date"] = date_match.group(1)
 
-    # Extract venue - format: "at City, State (Stadium)"
-    venue_match = re.search(r'at\s+([^(]+)\s*\(([^)]+)\)', text)
+    # Extract venue - multiple format variations:
+    # 1. "at Stadium (City, State)" or "at City, State (Stadium)"
+    # 2. "at City, State" (no parentheses)
+    # 3. "Game# (City, State" after team name (no "at" keyword)
+    #
+    # IMPORTANT: Only search the header portion to avoid matching play-by-play
+    # text like "out at first 1b to p (1-2)"
+    header_end = text.find('Score by Innings')
+    if header_end == -1:
+        header_end = min(1500, len(text))  # Fallback: first 1500 chars
+    header_text = text[:header_end]
+
+    # First try: match "at X (Y)" on same line only (non-greedy, single line)
+    # Exclude play-by-play patterns by requiring venue-like content
+    venue_match = re.search(r'at\s+([A-Za-z][A-Za-z\s,\.]+?)\s*\(([^)\n]+)\)', header_text)
     if venue_match:
-        metadata["city"] = venue_match.group(1).strip()
-        metadata["stadium"] = venue_match.group(2).strip()
+        part1 = venue_match.group(1).strip()
+        part2 = venue_match.group(2).strip()
+        # Determine which is stadium vs city
+        stadium_keywords = ['field', 'stadium', 'park', 'center', 'arena', 'coliseum', 'complex', 'diamond']
+        if any(kw in part1.lower() for kw in stadium_keywords):
+            metadata["stadium"] = part1
+            metadata["city"] = part2
+        elif any(kw in part2.lower() for kw in stadium_keywords):
+            metadata["city"] = part1
+            metadata["stadium"] = part2
+        else:
+            # Default: assume "at City (Stadium)" format for format B
+            metadata["city"] = part1
+            metadata["stadium"] = part2
         metadata["venue"] = f"{metadata['stadium']} ({metadata['city']})"
+    else:
+        # Fallback: "at City, State" without parentheses (single line)
+        venue_match = re.search(r'at\s+([A-Za-z][A-Za-z\s,\.]+?)(?:\n|$)', header_text)
+        if venue_match:
+            metadata["city"] = venue_match.group(1).strip()
+            metadata["venue"] = metadata["city"]
+        else:
+            # Try format: "Game# (City, State" - extract from header line
+            # Pattern: digit followed by space and opening paren with city
+            city_match = re.search(r'\d\s+\(([A-Za-z][A-Za-z\s,\.]+?)(?:\)|$)', header_text)
+            if city_match:
+                metadata["city"] = city_match.group(1).strip()
+                metadata["venue"] = metadata["city"]
 
     # Extract scores from line like "UCLA 5 LSU 9" (appears after score by innings)
     if metadata["away_team"] and metadata["home_team"]:
@@ -282,5 +321,19 @@ def extract_format_b_metadata(text: str) -> dict:
     umpires_match = re.search(r'Umpires?[:\s]+(.+?)(?:\n|$)', text, re.IGNORECASE)
     if umpires_match:
         metadata["umpires"]["list"] = umpires_match.group(1).strip()
+
+    # If no stadium was found, try to look it up from the home team
+    if not metadata["stadium"] and metadata["home_team"]:
+        try:
+            from baseball_processor.utils.stadiums import STADIUM_DATA
+            stadium_info = STADIUM_DATA.get(metadata["home_team"])
+            if stadium_info:
+                metadata["stadium"] = stadium_info[2]  # stadium name is 3rd element
+                if metadata["city"]:
+                    metadata["venue"] = f"{metadata['stadium']} ({metadata['city']})"
+                else:
+                    metadata["venue"] = metadata["stadium"]
+        except ImportError:
+            pass  # Stadium lookup not available
 
     return metadata
