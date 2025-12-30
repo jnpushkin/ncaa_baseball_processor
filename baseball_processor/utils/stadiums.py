@@ -380,6 +380,383 @@ STADIUM_DATA = {
 }
 
 
+# NCAA Team Logos using ESPN team IDs
+# URL pattern: https://a.espncdn.com/i/teamlogos/ncaa/500/{id}.png
+NCAA_TEAM_LOGOS = {
+    # ACC
+    'Boston College': 103,
+    'California': 25,
+    'Clemson': 228,
+    'Duke': 150,
+    'Florida State': 52,
+    'Georgia Tech': 59,
+    'Louisville': 97,
+    'Miami': 2390,
+    'NC State': 152,
+    'North Carolina': 153,
+    'Notre Dame': 87,
+    'Pittsburgh': 221,
+    'SMU': 2567,
+    'Stanford': 24,
+    'Virginia': 258,
+    'Virginia Tech': 259,
+    'Wake Forest': 154,
+
+    # SEC
+    'Alabama': 333,
+    'Arkansas': 8,
+    'Auburn': 2,
+    'Florida': 57,
+    'Georgia': 61,
+    'Kentucky': 96,
+    'LSU': 99,
+    'Mississippi State': 344,
+    'Missouri': 142,
+    'Oklahoma': 201,
+    'Ole Miss': 145,
+    'South Carolina': 2579,
+    'Tennessee': 2633,
+    'Texas': 251,
+    'Texas A&M': 245,
+    'Vanderbilt': 238,
+
+    # Big 12
+    'Arizona': 12,
+    'Arizona State': 9,
+    'Baylor': 239,
+    'BYU': 252,
+    'Cincinnati': 2132,
+    'Colorado': 38,
+    'Houston': 248,
+    'Kansas': 2305,
+    'Kansas State': 2306,
+    'Oklahoma State': 197,
+    'TCU': 2628,
+    'Texas Tech': 2641,
+    'UCF': 2116,
+    'Utah': 254,
+    'West Virginia': 277,
+
+    # Big Ten
+    'Illinois': 356,
+    'Indiana': 84,
+    'Iowa': 2294,
+    'Maryland': 120,
+    'Michigan': 130,
+    'Michigan State': 127,
+    'Minnesota': 135,
+    'Nebraska': 158,
+    'Northwestern': 77,
+    'Ohio State': 194,
+    'Oregon': 2483,
+    'Penn State': 213,
+    'Purdue': 2509,
+    'Rutgers': 164,
+    'UCLA': 26,
+    'USC': 30,
+    'Washington': 264,
+
+    # Pac-12
+    'Oregon State': 204,
+    'Washington State': 265,
+
+    # WCC
+    'Gonzaga': 2250,
+    'LMU': 2350,
+    'Pacific': 279,
+    'Pepperdine': 2492,
+    'Portland': 2507,
+    "Saint Mary's": 2608,
+    'San Diego': 2612,
+    'San Francisco': 2608,
+    'Santa Clara': 2541,
+
+    # Mountain West
+    'Air Force': 2005,
+    'Fresno State': 278,
+    'Grand Canyon': 2253,
+    'Nevada': 2440,
+    'New Mexico': 167,
+    'San Diego State': 21,
+    'San Jose State': 23,
+    'UNLV': 2439,
+
+    # Missouri Valley
+    'Belmont': 2057,
+    'Bradley': 2080,
+    'Evansville': 339,
+    'Illinois State': 2287,
+    'Indiana State': 282,
+    'Murray State': 93,
+    'Southern Illinois': 79,
+    'UIC': 82,
+    'Valparaiso': 2674,
+
+    # Summit League
+    'North Dakota State': 2449,
+    'Northern Colorado': 2458,
+    'Omaha': 2437,
+    'Oral Roberts': 198,
+    'South Dakota State': 2571,
+    'St. Thomas': 2900,
+
+    # Big East
+    'Butler': 2086,
+    'Creighton': 156,
+    'Georgetown': 46,
+    'Seton Hall': 2550,
+    "St. John's": 2599,
+    'UConn': 41,
+    'Villanova': 222,
+    'Xavier': 2752,
+
+    # Sun Belt
+    'Appalachian State': 2026,
+    'Arkansas State': 2032,
+    'Coastal Carolina': 324,
+    'Georgia Southern': 290,
+    'Georgia State': 2247,
+    'James Madison': 256,
+    'Louisiana': 309,
+    'Louisiana-Monroe': 2433,
+    'Marshall': 276,
+    'Old Dominion': 295,
+    'South Alabama': 6,
+    'Southern Miss': 2572,
+    'Texas State': 326,
+    'Troy': 2653,
+
+    # Southern
+    'ETSU': 2193,
+    'Mercer': 2382,
+    'Samford': 2534,
+    'The Citadel': 2643,
+    'UNC Greensboro': 2430,
+    'VMI': 2678,
+    'Western Carolina': 2717,
+    'Wofford': 2747,
+
+    # Northeast
+    'Central Connecticut': 2115,
+    'Fairleigh Dickinson': 161,
+    'Le Moyne': 2329,
+    'LIU': 2344,
+    'Mercyhurst': 2372,
+    'Stonehill': 2926,
+    'Wagner': 2681,
+
+    # Big West
+    'Cal Poly': 13,
+    'Cal State Fullerton': 2239,
+    'CSU Bakersfield': 2934,
+    'CSUN': 2463,
+    'Hawaii': 62,
+    'Long Beach State': 299,
+    'UC Davis': 302,
+    'UC Irvine': 300,
+    'UC Riverside': 27,
+    'UC San Diego': 28,
+    'UC Santa Barbara': 2540,
+
+    # WAC
+    'Abilene Christian': 2000,
+    'California Baptist': 16541,
+    'Sacramento State': 16,
+    'Tarleton State': 2466,
+    'UT Arlington': 250,
+    'Utah Tech': 3137,
+    'Utah Valley': 3084,
+
+    # American
+    'Charlotte': 2429,
+    'East Carolina': 151,
+    'FAU': 2226,
+    'Memphis': 235,
+    'Rice': 242,
+    'Tulane': 2655,
+    'UAB': 5,
+    'USF': 58,
+    'UTSA': 2636,
+    'Wichita State': 2724,
+
+    # MAC
+    'Akron': 2006,
+    'Ball State': 2050,
+    'Bowling Green': 189,
+    'Central Michigan': 2117,
+    'Eastern Michigan': 2199,
+    'Kent State': 2309,
+    'Miami (OH)': 193,
+    'NIU': 2459,
+    'Ohio': 195,
+    'Toledo': 2649,
+    'UMass': 113,
+    'Western Michigan': 2711,
+
+    # Patriot League
+    'Army': 349,
+    'Bucknell': 2083,
+    'Holy Cross': 107,
+    'Lafayette': 322,
+    'Lehigh': 2329,
+    'Navy': 2426,
+
+    # Ivy League
+    'Brown': 225,
+    'Columbia': 171,
+    'Cornell': 172,
+    'Dartmouth': 159,
+    'Harvard': 108,
+    'Penn': 219,
+    'Princeton': 163,
+    'Yale': 43,
+
+    # Atlantic 10
+    'Davidson': 2166,
+    'Dayton': 2168,
+    'Fordham': 2230,
+    'George Mason': 2244,
+    'George Washington': 45,
+    'La Salle': 2325,
+    'Rhode Island': 227,
+    'Richmond': 257,
+    "Saint Joseph's": 2603,
+    'Saint Louis': 139,
+    'St. Bonaventure': 179,
+    'VCU': 2670,
+
+    # Conference USA
+    'Dallas Baptist': 2162,
+    'Delaware': 48,
+    'FIU': 2229,
+    'Jacksonville State': 55,
+    'Kennesaw State': 338,
+    'Liberty': 2335,
+    'Louisiana Tech': 2348,
+    'Middle Tennessee': 2393,
+    'Missouri State': 2623,
+    'New Mexico State': 166,
+    'Sam Houston': 2534,
+    'WKU': 98,
+
+    # CAA
+    'Campbell': 2097,
+    'Charleston': 232,
+    'Elon': 2210,
+    'Hofstra': 2275,
+    'Monmouth': 2405,
+    'North Carolina A&T': 2448,
+    'Northeastern': 111,
+    'Stony Brook': 2619,
+    'Towson': 119,
+    'UNC Wilmington': 350,
+    'William & Mary': 2729,
+
+    # Ohio Valley
+    'Eastern Illinois': 2197,
+    'Lindenwood': 2815,
+    'Little Rock': 2031,
+    'Morehead State': 2413,
+    'SIU Edwardsville': 2565,
+    'Southeast Missouri': 2546,
+    'Southern Indiana': 6916,
+    'Tennessee State': 2634,
+    'Tennessee Tech': 2635,
+    'UT Martin': 2630,
+    'Western Illinois': 2710,
+
+    # ASUN
+    'Austin Peay': 2046,
+    'Bellarmine': 91,
+    'Central Arkansas': 2110,
+    'Eastern Kentucky': 2198,
+    'FGCU': 526,
+    'Jacksonville': 294,
+    'Lipscomb': 288,
+    'North Alabama': 2453,
+    'North Florida': 2454,
+    'Queens': 2761,
+    'Stetson': 56,
+    'West Georgia': 20049,
+
+    # Southland
+    'Houston Christian': 2277,
+    'Lamar': 2320,
+    'McNeese': 2377,
+    'New Orleans': 2443,
+    'Nicholls': 2447,
+    'Northwestern State': 2464,
+    'Southeastern Louisiana': 2545,
+    'Stephen F. Austin': 2617,
+    'Texas A&M-Corpus Christi': 357,
+    'UTRGV': 292,
+    'UIW': 2916,
+
+    # Big South
+    'Charleston Southern': 2127,
+    'Gardner-Webb': 2241,
+    'High Point': 2272,
+    'Longwood': 2344,
+    'Presbyterian': 2506,
+    'Radford': 2520,
+    'UNC Asheville': 2427,
+    'USC Upstate': 2908,
+    'Winthrop': 2745,
+
+    # Horizon League
+    'Milwaukee': 270,
+    'Northern Kentucky': 94,
+    'Oakland': 2473,
+    'PFW': 2870,
+    'Wright State': 2750,
+    'Youngstown State': 2754,
+
+    # America East
+    'Albany': 399,
+    'Binghamton': 2066,
+    'Bryant': 2803,
+    'Maine': 311,
+    'NJIT': 2885,
+    'UMBC': 2378,
+    'UMass Lowell': 2349,
+
+    # SWAC
+    'Alabama A&M': 2010,
+    'Alabama State': 2011,
+    'Alcorn State': 2016,
+    'Arkansas-Pine Bluff': 2029,
+    'Bethune-Cookman': 2065,
+    'Florida A&M': 50,
+    'Grambling State': 2755,
+    'Jackson State': 2296,
+    'Mississippi Valley State': 2400,
+    'Prairie View A&M': 2504,
+    'Southern': 2582,
+    'Texas Southern': 2640,
+
+    # Additional teams
+    'Coppin State': 2154,
+    'Delaware State': 2169,
+    'Norfolk State': 2450,
+    'San Francisco State': 2614,
+}
+
+
+def get_ncaa_logo_url(team: str) -> str:
+    """Get ESPN logo URL for an NCAA team.
+
+    Args:
+        team: Team name
+
+    Returns:
+        ESPN logo URL or empty string if not found
+    """
+    espn_id = NCAA_TEAM_LOGOS.get(team)
+    if espn_id:
+        return f'https://a.espncdn.com/i/teamlogos/ncaa/500/{espn_id}.png'
+    return ''
+
+
 def get_stadium_info(team: str) -> tuple:
     """Get stadium info for a team.
 

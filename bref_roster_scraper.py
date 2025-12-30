@@ -386,11 +386,94 @@ def load_roster(roster_path: str) -> dict:
         return json.load(f)
 
 
+def normalize_for_matching(s: str) -> str:
+    """Normalize a string for matching (remove accents, lowercase)."""
+    import unicodedata
+    # Normalize unicode to decomposed form, then remove combining marks (accents)
+    normalized = unicodedata.normalize('NFD', s)
+    without_accents = ''.join(c for c in normalized if unicodedata.category(c) != 'Mn')
+    return without_accents.lower()
+
+
+# Common nickname mappings
+NICKNAME_MAP = {
+    'tom': ['thomas', 'tommy'],
+    'thomas': ['tom', 'tommy'],
+    'tommy': ['tom', 'thomas'],
+    'mike': ['michael', 'mick', 'mickey'],
+    'michael': ['mike', 'mick', 'mickey'],
+    'bill': ['william', 'billy', 'will'],
+    'william': ['bill', 'billy', 'will'],
+    'bob': ['robert', 'bobby', 'rob'],
+    'robert': ['bob', 'bobby', 'rob'],
+    'jim': ['james', 'jimmy'],
+    'james': ['jim', 'jimmy'],
+    'joe': ['joseph', 'joey'],
+    'joseph': ['joe', 'joey'],
+    'nick': ['nicholas', 'nicky', 'nico', 'nicolo'],
+    'nicholas': ['nick', 'nicky', 'nico'],
+    'nico': ['nick', 'nicholas', 'nicolo'],
+    'nicolo': ['nick', 'nicholas', 'nico'],
+    'dan': ['daniel', 'danny'],
+    'daniel': ['dan', 'danny'],
+    'matt': ['matthew', 'matty'],
+    'matthew': ['matt', 'matty'],
+    'chris': ['christopher', 'christoph'],
+    'christopher': ['chris'],
+    'alex': ['alexander', 'alexis'],
+    'alexander': ['alex'],
+    'ed': ['edward', 'eddie', 'ted'],
+    'edward': ['ed', 'eddie', 'ted'],
+    'tony': ['anthony'],
+    'anthony': ['tony'],
+    'sam': ['samuel', 'sammy'],
+    'samuel': ['sam', 'sammy'],
+    'dave': ['david', 'davy'],
+    'david': ['dave', 'davy'],
+    'steve': ['steven', 'stephen'],
+    'steven': ['steve', 'stephen'],
+    'stephen': ['steve', 'steven'],
+    'john': ['johnny', 'jon', 'jonathan'],
+    'johnny': ['john', 'jon'],
+    'jon': ['john', 'johnny', 'jonathan'],
+    'jonathan': ['john', 'jon'],
+}
+
+
+def names_match(search_first: str, roster_first: str) -> bool:
+    """Check if two first names match, considering nicknames and initials."""
+    search_norm = normalize_for_matching(search_first)
+    roster_norm = normalize_for_matching(roster_first)
+
+    # Direct match
+    if roster_norm.startswith(search_norm):
+        return True
+
+    # Single initial match
+    if len(search_norm) == 1 and roster_norm.startswith(search_norm):
+        return True
+
+    # Nickname match
+    nicknames = NICKNAME_MAP.get(search_norm, [])
+    for nick in nicknames:
+        if roster_norm.startswith(nick) or nick.startswith(roster_norm):
+            return True
+
+    # Reverse nickname check
+    nicknames = NICKNAME_MAP.get(roster_norm, [])
+    for nick in nicknames:
+        if search_norm.startswith(nick) or nick.startswith(search_norm):
+            return True
+
+    return False
+
+
 def lookup_player(roster: dict, name: str, number: Optional[str] = None) -> Optional[dict]:
     """
     Look up a player in a roster by name.
 
     Handles abbreviated names like "McCarthy, J." or "J. McCarthy"
+    Also handles nicknames (Thomas/Tom) and accented characters (Nicolò/Nicolo)
 
     Args:
         roster: Roster dictionary with players list
@@ -423,18 +506,21 @@ def lookup_player(roster: dict, name: str, number: Optional[str] = None) -> Opti
             last_name = name_clean
             first_initial = ""
 
+    # Normalize for matching
+    last_name_norm = normalize_for_matching(last_name)
+
     # Search through players
     for player in roster.get('players', []):
-        player_last = player.get('last_name', '').lower()
-        player_first = player.get('first_name', '').lower()
+        player_last = player.get('last_name', '')
+        player_first = player.get('first_name', '')
 
-        # Check last name match
-        if player_last != last_name.lower():
+        # Check last name match (with accent normalization)
+        if normalize_for_matching(player_last) != last_name_norm:
             continue
 
-        # Check first name/initial match
+        # Check first name/initial match (with nickname support)
         if first_initial:
-            if not player_first.startswith(first_initial.lower()):
+            if not names_match(first_initial, player_first):
                 continue
 
         # If we have a jersey number, use it to disambiguate

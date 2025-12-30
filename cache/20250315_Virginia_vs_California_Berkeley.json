@@ -387,22 +387,33 @@
       "Virginia": 2,
       "California": 0
     },
-    "doubles": [],
+    "doubles": [
+      {
+        "player": "Teel, A.",
+        "game_count": 1,
+        "season_total": 5
+      }
+    ],
     "triples": [],
-    "home_runs": [],
+    "home_runs": [
+      {
+        "player": "Ford, H.",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
     "stolen_bases": [],
     "caught_stealing": [],
     "hit_by_pitch": [],
     "intentional_walks": [],
     "strikeouts_looking": [],
     "grounded_into_dp": [],
-    "wild_pitches": [
-      "Valincius (3)",
-      "Barker (2)",
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [
+      "Eddy,G (4)",
       "Shaw,D 2 (4)"
     ],
-    "passed_balls": [],
-    "hit_batters": [],
     "balks": [],
     "win": {
       "player": "Koenen",

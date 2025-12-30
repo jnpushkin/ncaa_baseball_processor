@@ -441,9 +441,21 @@
       "Virginia": 0,
       "California": 1
     },
-    "doubles": [],
+    "doubles": [
+      {
+        "player": "Birge,A",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
     "triples": [],
-    "home_runs": [],
+    "home_runs": [
+      {
+        "player": "Gwynn,S",
+        "game_count": 1,
+        "season_total": 2
+      }
+    ],
     "stolen_bases": [],
     "caught_stealing": [],
     "hit_by_pitch": [],
@@ -451,13 +463,13 @@
     "strikeouts_looking": [],
     "grounded_into_dp": [],
     "wild_pitches": [
-      "Turkington,A (2)",
-      "Dessart,S (1)",
-      "SFA - Woolfolk",
-      "Turkington,A"
+      "Turkington,A (2)"
     ],
     "passed_balls": [],
-    "hit_batters": [],
+    "hit_batters": [
+      "Turkington,A 3 (6)",
+      "Dessart,S (1)"
+    ],
     "balks": [],
     "win": {
       "player": "Turkington,A",
@@ -467,10 +479,7 @@
       "player": "Woolfolk",
       "record": "1-1"
     },
-    "save": {
-      "player": "None.\nWP - Turkington,A",
-      "count": 2
-    }
+    "save": null
   },
   "play_by_play": {
     "1": {

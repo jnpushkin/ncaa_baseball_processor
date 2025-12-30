@@ -741,32 +741,7 @@
         "season_total": 1
       },
       {
-        "player": "French,Jacob",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "Handron,Max",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
         "player": "Wolff, K.",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "Garcia, E.",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "Johnson, G.",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "Cimini, V.",
         "game_count": 1,
         "season_total": 1
       }
@@ -778,17 +753,10 @@
         "player": "Ragsdale, J.",
         "game_count": 1,
         "season_total": 1
-      },
-      {
-        "player": "Toomey, J.",
-        "game_count": 1,
-        "season_total": 1
       }
     ],
     "caught_stealing": [],
-    "hit_by_pitch": [
-      "None"
-    ],
+    "hit_by_pitch": [],
     "intentional_walks": [],
     "strikeouts_looking": [],
     "grounded_into_dp": [],

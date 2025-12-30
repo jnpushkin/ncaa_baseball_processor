@@ -568,7 +568,13 @@
       "VMI": 1,
       "Virginia": 2
     },
-    "doubles": [],
+    "doubles": [
+      {
+        "player": "Pita",
+        "game_count": 2,
+        "season_total": 3
+      }
+    ],
     "triples": [],
     "home_runs": [],
     "stolen_bases": [],
@@ -577,14 +583,11 @@
     "intentional_walks": [],
     "strikeouts_looking": [],
     "grounded_into_dp": [],
-    "wild_pitches": [
-      "McGarry, G. (1)",
-      "Donahue, G.",
-      "Whitten, K. (1)",
-      "Meyer, M."
-    ],
+    "wild_pitches": [],
     "passed_balls": [],
-    "hit_batters": [],
+    "hit_batters": [
+      "Ewald (1)"
+    ],
     "balks": [],
     "win": {
       "player": "Barbery",
@@ -594,10 +597,7 @@
       "player": "McGarry, G.",
       "record": "0-1"
     },
-    "save": {
-      "player": "None.\nWP - McGarry, G.",
-      "count": 1
-    }
+    "save": null
   },
   "play_by_play": {
     "1": {

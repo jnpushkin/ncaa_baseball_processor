@@ -1,0 +1,22 @@
+# Partner League Game IDs
+# Format: league:game_id
+#
+# Leagues:
+#   pioneer - Pioneer League (use game code from URL, e.g., 20240828_fhp1)
+#   atlantic - Atlantic League (use numeric gameid from Pointstreak URL)
+#   american_association - American Association (use numeric gameid)
+#   frontier - Frontier League (use numeric gameid)
+#
+# Finding game IDs:
+#   Pioneer: URL format https://www.pioneerleague.com/sports/bsb/YYYY/boxscores/YYYYMMDD_XXX#.xml
+#   Pointstreak leagues: URL format https://baseball.pointstreak.com/boxscore.html?gameid=######
+
+# Pioneer League (uses Playwright for dynamic content)
+pioneer:20240828_fhp1  # Idaho Falls @ Oakland, Aug 28, 2024 (Oakland 9, Idaho Falls 4)
+
+# Atlantic League
+atlantic:612414  # Lancaster @ Staten Island, May 11, 2024 (Lancaster 8, Staten Island 2)
+
+# American Association
+american_association:497562  # St. Paul @ Fargo-Moorhead, Aug 30, 2019 (St. Paul 4, Fargo 3)
+american_association:497575  # Fargo-Moorhead @ Cleburne, Sep 2, 2019 (Cleburne 2, Fargo 0)

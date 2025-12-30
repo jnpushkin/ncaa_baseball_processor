@@ -575,7 +575,13 @@
       "VMI": 0,
       "Virginia": 0
     },
-    "doubles": [],
+    "doubles": [
+      {
+        "player": "Morris, T.",
+        "game_count": 1,
+        "season_total": 2
+      }
+    ],
     "triples": [],
     "home_runs": [],
     "stolen_bases": [],
@@ -585,14 +591,15 @@
     "strikeouts_looking": [],
     "grounded_into_dp": [],
     "wild_pitches": [
-      "Messinger 2 (4)",
-      "Nichols 2 (4)",
-      "Light (2)",
-      "Sperling, E. (2)",
-      "SFA - Clines"
+      "Messinger 2 (4)"
     ],
     "passed_balls": [],
-    "hit_batters": [],
+    "hit_batters": [
+      "Clines (2)",
+      "Nichols 2 (4)",
+      "Light (2)",
+      "Sperling, E. (2)"
+    ],
     "balks": [],
     "win": {
       "player": "Messinger",
@@ -602,10 +609,7 @@
       "player": "Clines",
       "record": "1-1"
     },
-    "save": {
-      "player": "None.\nWP - Messinger 2",
-      "count": 4
-    }
+    "save": null
   },
   "play_by_play": {
     "1": {

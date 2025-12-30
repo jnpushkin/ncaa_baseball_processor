@@ -785,11 +785,6 @@
         "player": "Tayman,Ryan",
         "game_count": 1,
         "season_total": 1
-      },
-      {
-        "player": "Moutzouridis,PJ",
-        "game_count": 1,
-        "season_total": 1
       }
     ],
     "triples": [],
@@ -798,25 +793,13 @@
         "player": "Henry Ford",
         "game_count": 1,
         "season_total": 1
-      },
-      {
-        "player": "Henry Godbout",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "Walker Buchanan",
-        "game_count": 1,
-        "season_total": 1
       }
     ],
     "stolen_bases": [],
     "caught_stealing": [
       "Eric Becker (1) Bougie,Tucker p 0 0 0 0 0 0 0"
     ],
-    "hit_by_pitch": [
-      "None"
-    ],
+    "hit_by_pitch": [],
     "intentional_walks": [],
     "strikeouts_looking": [],
     "grounded_into_dp": [],

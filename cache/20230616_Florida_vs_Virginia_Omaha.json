@@ -524,9 +524,27 @@
       "Virginia": 1,
       "Florida": 1
     },
-    "doubles": [],
-    "triples": [],
-    "home_runs": [],
+    "doubles": [
+      {
+        "player": "O'Ferrall",
+        "game_count": 1,
+        "season_total": 19
+      }
+    ],
+    "triples": [
+      {
+        "player": "Didawick",
+        "game_count": 1,
+        "season_total": 5
+      }
+    ],
+    "home_runs": [
+      {
+        "player": "Langford",
+        "game_count": 1,
+        "season_total": 19
+      }
+    ],
     "stolen_bases": [],
     "caught_stealing": [],
     "hit_by_pitch": [],
@@ -535,7 +553,10 @@
     "grounded_into_dp": [],
     "wild_pitches": [],
     "passed_balls": [],
-    "hit_batters": [],
+    "hit_batters": [
+      "Berry (5)",
+      "Sproat 2 (16)"
+    ],
     "balks": [],
     "win": {
       "player": "Neely",
@@ -545,10 +566,7 @@
       "player": "Berry",
       "record": "0-5"
     },
-    "save": {
-      "player": "None.\nHB - Berry",
-      "count": 5
-    }
+    "save": null
   },
   "play_by_play": {
     "1": {

@@ -704,16 +704,6 @@
         "season_total": 1
       },
       {
-        "player": "Cooper Combs",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "Jack Schark",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
         "player": "Cromwick, Josiah",
         "game_count": 1,
         "season_total": 1
@@ -729,16 +719,6 @@
         "player": "Vu, Kien",
         "game_count": 1,
         "season_total": 3
-      },
-      {
-        "player": "Compton, Brandon",
-        "game_count": 1,
-        "season_total": 2
-      },
-      {
-        "player": "Jackson, Isaiah",
-        "game_count": 1,
-        "season_total": 2
       }
     ],
     "caught_stealing": [],

@@ -1,0 +1,1200 @@
+{
+  "metadata": {
+    "date": "4/13/2025",
+    "venue": "Maloney Field (San Francisco, Calif)",
+    "stadium": "Maloney Field",
+    "city": "San Francisco, Calif",
+    "away_team": "Cal Poly Pomona",
+    "away_team_rank": null,
+    "away_team_record": "13-28, 10-22 CCAA",
+    "away_team_score": 7,
+    "home_team": "San Francisco State",
+    "home_team_rank": null,
+    "home_team_record": "22-14, 18-10 CCAA",
+    "home_team_score": 12,
+    "attendance": 56,
+    "duration": "2:45",
+    "start_time": "12:00pm",
+    "weather": "63 Sunny",
+    "umpires": {
+      "list": "Home Plate: Sid Aguilar First: Gary Frieders Third Base: Kate Hart"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "PAPPAS, Johnny",
+        "position": "c",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pappas000wil",
+        "full_name": "Will Pappas",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "BETTEN, Beau",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "ANGULO, Julian",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "MALERBA, Marco",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "TRETO, Robbie",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "COTA, Brent",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "ARGUELLES, Sebastian",
+        "position": "3b",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "CHAFFEE, Tyler",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "PORTER, Clay",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "porter007jam",
+        "full_name": "James Porter",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "REITER, Tyler",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "CAMPBELL, Andrew",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      },
+      {
+        "number": "",
+        "name": "DIAZ DE LEON, River",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "MURILLO, Daniel",
+        "position": "ss",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "ALLRED, Nicholas",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "CUNNINGHAM, Michael",
+        "position": "cf",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      },
+      {
+        "number": "",
+        "name": "JOHNSON, Justin",
+        "position": "dh",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "johnso010jon",
+        "full_name": "Jonah Johnson",
+        "match_confidence": 0.6
+      },
+      {
+        "number": "",
+        "name": "WOOD, Jackson",
+        "position": "1b",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 3,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "wood--000gag",
+        "full_name": "Gage Wood",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "LAFERRIERE, Derek",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "SCHRADER, Aj",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "RAFAIL, Colby",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "ESPINOZA, Stephen",
+        "position": "2b",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "espino000aid",
+        "full_name": "Aidan Espinoza",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "SANTOS, Daniel",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "santos000pab",
+        "full_name": "Pablo Santos",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "OLIMPIA, Kyle",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "REITER, Tyler",
+        "innings_pitched": 5.1,
+        "hits": 7,
+        "runs": 7,
+        "earned_runs": 6,
+        "walks": 2,
+        "strikeouts": 2,
+        "batters_faced": 26,
+        "at_bats": 23,
+        "pitches": 107,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "CAMPBELL, Andrew",
+        "innings_pitched": 2.2,
+        "hits": 8,
+        "runs": 5,
+        "earned_runs": 5,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 15,
+        "at_bats": 15,
+        "pitches": 48,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "OHLSON, Tyler",
+        "innings_pitched": 2.1,
+        "hits": 4,
+        "runs": 5,
+        "earned_runs": 5,
+        "walks": 2,
+        "strikeouts": 0,
+        "batters_faced": 12,
+        "at_bats": 9,
+        "pitches": 43,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "DIAZ DE LEON, River",
+        "innings_pitched": 3.1,
+        "hits": 2,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 0,
+        "strikeouts": 4,
+        "batters_faced": 12,
+        "at_bats": 12,
+        "pitches": 38,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "SMITH, Daniel",
+        "innings_pitched": 0.1,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 3,
+        "at_bats": 2,
+        "pitches": 14,
+        "bref_id": "smith-021der",
+        "full_name": "Derrick Smith",
+        "match_confidence": 0.6
+      },
+      {
+        "number": "",
+        "name": "GARZA, Ryan",
+        "innings_pitched": 2.2,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "batters_faced": 10,
+        "at_bats": 9,
+        "pitches": 35,
+        "bref_id": "garza-000man",
+        "full_name": "Manny Garza",
+        "match_confidence": 0.9
+      },
+      {
+        "number": "",
+        "name": "RANGEL, Edrian",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 1,
+        "at_bats": 1,
+        "pitches": 3,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        5,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        3,
+        0,
+        0,
+        3,
+        0,
+        1,
+        4,
+        1,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "BETTEN, Beau (1)",
+      "MALERBA, Marco (1)",
+      "MURILLO advanced to second. 0 0\nALLRED advanced to second on a wild pitch",
+      "MURILLO advanced to third on a wild pitch. 0 0\nCUNNINGHAM singled to center field, RBI (1-2)",
+      "ALLRED advanced to third",
+      "MURILLO scored. 0 1\nJOHNSON struck out swinging (1-2). 0 1\nWOOD singled, advanced to second on a fielding error by cf, 2 RBI (1-2)",
+      "CUNNINGHAM scored",
+      "ALLRED\nscored. 0 3\nLAFERRIERE flied out to rf (0-1)",
+      "WOOD advanced to third. 0 3\nSCHRADER flied out to lf (3-2). 0 3\nRuns: 3 Hits: 3 Errors: 1 Left On Base: 1\nCal Poly Pomona - Top of 2nd CPP SFS\nMALERBA flied out to rf to right center (2-0). 0 3\nTRETO grounded out to 3b (0-0). 0 3\nCOTA out at first 1b to p (1-2). 0 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco State - Bottom of 2nd CPP SFS\nSANTOS flied out to lf (1-1). 0 3\nOLIMPIA flied out to cf (2-2). 0 3\nMURILLO grounded out to ss (1-0). 0 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCal Poly Pomona - Top of 3rd CPP SFS\nARGUELLES singled to shortstop (1-0). 0 3\nCHAFFEE walked (3-0)",
+      "ARGUELLES advanced to second. 0 3\nPORTER, C. walked (3-0)",
+      "CHAFFEE advanced to second",
+      "ARGUELLES advanced to third. 0 3\nPAPPAS singled to right field, RBI (0-1)",
+      "PORTER, C. advanced to second",
+      "CHAFFEE advanced to third",
+      "ARGUELLES scored. 1 3\nBETTEN flied out to cf, SF, RBI (1-2)",
+      "PAPPAS advanced to second",
+      "PORTER, C. advanced to third",
+      "CHAFFEE\nscored. 2 3\nANGULO tripled down the rf line, 2 RBI (0-0)",
+      "PAPPAS scored",
+      "PORTER, C. scored. 4 3\nDIAZ DE LEON to p for OHLSON. 4 3\nMALERBA grounded out to ss, RBI (3-1)",
+      "ANGULO scored. 5 3\nTRETO grounded out to 2b (1-2). 5 3\nRuns: 5 Hits: 3 Errors: 0 Left On Base: 0\nSan Francisco State - Bottom of 3rd CPP SFS\nALLRED grounded out to ss (1-2). 5 3\nCUNNINGHAM flied out to rf (1-1). 5 3\nJOHNSON grounded out to ss (2-2). 5 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCal Poly Pomona - Top of 4th CPP SFS\nCOTA struck out swinging (1-2). 5 3\nARGUELLES homered to left field, RBI (1-0). 6 3\nCHAFFEE struck out swinging (0-2). 6 3\nPORTER, C. struck out swinging (1-2). 6 3\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0\nSan Francisco State - Bottom of 4th CPP SFS\nWOOD singled to center field (1-2). 6 3\nLAFERRIERE flied out to lf (1-1). 6 3\nSCHRADER walked (3-2)",
+      "WOOD advanced to second. 6 3\nSANTOS doubled down the lf line, 2 RBI (2-2)",
+      "SCHRADER scored",
+      "WOOD scored. 6 5\nOLIMPIA flied out to rf (0-1). 6 5\nMURILLO singled to left field, RBI (1-0)",
+      "SANTOS scored. 6 6\nALLRED reached on a fielder's choice (0-0)",
+      "MURILLO out at second 3b to 2b. 6 6\nRuns: 3 Hits: 3 Errors: 0 Left On Base: 1\nCal Poly Pomona - Top of 5th CPP SFS\nPAPPAS fouled out to c (1-0). 6 6\nBETTEN flied out to cf (1-0). 6 6\nANGULO fouled out to c (0-0). 6 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco State - Bottom of 5th CPP SFS\nCUNNINGHAM struck out swinging (3-2). 6 6\nJOHNSON popped up to 3b (1-2). 6 6\nWOOD grounded out to 2b (3-2). 6 6\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nCal Poly Pomona - Top of 6th CPP SFS\nMALERBA singled to left field (2-2). 6 6\nTRETO struck out swinging (2-2). 6 6\nCOTA flied out to lf (0-0). 6 6\nSMITH, D. to p for DIAZ DE LEON. 6 6\nARGUELLES walked (3-2)",
+      "MALERBA advanced to second. 6 6\nCHAFFEE singled to center field, RBI (2-1)",
+      "ARGUELLES advanced to third",
+      "MALERBA scored. 7 6\nCHAFFEE advanced to second on a wild pitch. 7 6\nPORTER, C. struck out looking (1-2). 7 6\nRuns: 1 Hits: 2 Errors: 0 Left On Base: 2\nSan Francisco State - Bottom of 6th CPP SFS\nLAFERRIERE flied out to lf (3-2). 7 6\nSCHRADER singled up the middle (2-2). 7 6\nSANTOS walked (3-2)",
+      "SCHRADER advanced to second. 7 6\nCAMPBELL to p for REITER. 7 6\nOLIMPIA reached on a fielder's choice, advanced to second on a throwing error by ss (1-2)",
+      "SANTOS out at\nsecond ss unassisted",
+      "SCHRADER scored, unearned. 7 7\nMURILLO flied out to cf (1-1). 7 7\nRuns: 1 Hits: 1 Errors: 1 Left On Base: 1\nCal Poly Pomona - Top of 7th CPP SFS\nGARZA to p for SMITH, D.. 7 7\nPAPPAS popped up to ss (2-2). 7 7\nBETTEN singled to center field (0-2). 7 7\nANGULO flied out to cf (1-0). 7 7\nBETTEN stole second. 7 7\nMALERBA popped up to ss (1-1). 7 7\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nSan Francisco State - Bottom of 7th CPP SFS\nALLRED singled to second base (1-2). 7 7\nALLRED advanced to second on a wild pitch. 7 7\nCUNNINGHAM flied out to rf (2-1)",
+      "ALLRED advanced to third. 7 7\nJOHNSON doubled down the lf line, RBI (2-1)",
+      "ALLRED scored. 7 8\nWOOD singled to right field, RBI (2-2)",
+      "JOHNSON scored. 7 9\nLAFERRIERE singled to left field (2-2)",
+      "WOOD advanced to second. 7 9\nSCHRADER tripled down the rf line, 2 RBI (0-1)",
+      "LAFERRIERE scored",
+      "WOOD scored. 7 11\nRAFAIL pinch ran for SCHRADER. 7 11\nSANTOS hit into double play p to c to 1b (0-1)",
+      "RAFAIL out on the play. 7 11\nRuns: 4 Hits: 5 Errors: 0 Left On Base: 0\nCal Poly Pomona - Top of 8th CPP SFS\nESPINOZA to 2b for RAFAIL. 7 11\nTRETO popped up to ss (0-0). 7 11\nCOTA walked (3-1). 7 11\nARGUELLES grounded into double play 2b to ss to 1b (2-2)",
+      "COTA out on the play. 7 11\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco State - Bottom of 8th CPP SFS\nOLIMPIA popped up to 2b (0-1). 7 11\nMURILLO singled to shortstop (0-2). 7 11\nALLRED singled, bunt (0-1)",
+      "MURILLO advanced to second, advanced to third on a fielding error by 1b. 7 11\nCUNNINGHAM singled to left field, RBI (0-0)",
+      "ALLRED advanced to second",
+      "MURILLO scored. 7 12\nJOHNSON flied out to rf (0-2)",
+      "ALLRED advanced to third. 7 12\nCUNNINGHAM advanced to second on a wild pitch. 7 12\nWOOD lined out to ss (0-0). 7 12\nRuns: 1 Hits: 3 Errors: 1 Left On Base: 2\nCal Poly Pomona - Top of 9th CPP SFS\nCHAFFEE grounded out to ss (0-1). 7 12\nPORTER, C. grounded out to ss (2-0). 7 12\nPAPPAS doubled down the lf line (1-1). 7 12\nRANGEL to p for GARZA. 7 12\nBETTEN struck out swinging (0-2). 7 12\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nSan Francisco State - Bottom of 9th CPP SFS\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {},
+    "doubles": [
+      {
+        "player": "PAPPAS, Johnny",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [
+      {
+        "player": "ANGULO, Julian",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "SCHRADER, Aj",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "home_runs": [
+      {
+        "player": "ARGUELLES, Sebastian",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [
+      {
+        "player": "BETTEN, Beau",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "caught_stealing": [
+      "BETTEN, Beau (1)"
+    ],
+    "hit_by_pitch": [
+      "ALLRED, Nicholas (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "GARZA, Ryan",
+      "record": "2-3"
+    },
+    "loss": {
+      "player": "CAMPBELL, Andrew",
+      "record": "1-1"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "PAPPAS flied out to rf (3-1). 0 0",
+          "pitch_count": "3-1",
+          "rbi": 0
+        },
+        {
+          "description": "BETTEN singled to shortstop (1-2). 0 0",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "BETTEN out at second c to 2b, caught stealing. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ANGULO grounded out to 3b (0-2). 0 0",
+          "pitch_count": "0-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "MURILLO singled to left field (1-0). 0 0",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "ALLRED hit by pitch (2-0); MURILLO advanced to second. 0 0",
+          "pitch_count": "2-0",
+          "rbi": 0
+        },
+        {
+          "description": "ALLRED advanced to second on a wild pitch; MURILLO advanced to third on a wild pitch. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CUNNINGHAM singled to center field, RBI (1-2); ALLRED advanced to third; MURILLO scored. 0 1",
+          "pitch_count": "1-2",
+          "rbi": 1
+        },
+        {
+          "description": "JOHNSON struck out swinging (1-2). 0 1",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "WOOD singled, advanced to second on a fielding error by cf, 2 RBI (1-2); CUNNINGHAM scored; ALLRED",
+          "pitch_count": "1-2",
+          "rbi": 2
+        },
+        {
+          "description": "scored. 0 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LAFERRIERE flied out to rf (0-1); WOOD advanced to third. 0 3",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "SCHRADER flied out to lf (3-2). 0 3",
+          "pitch_count": "3-2",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "MALERBA flied out to rf to right center (2-0). 0 3",
+          "pitch_count": "2-0",
+          "rbi": 0
+        },
+        {
+          "description": "TRETO grounded out to 3b (0-0). 0 3",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "COTA out at first 1b to p (1-2). 0 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "SANTOS flied out to lf (1-1). 0 3",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "OLIMPIA flied out to cf (2-2). 0 3",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "MURILLO grounded out to ss (1-0). 0 3",
+          "pitch_count": "1-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "ARGUELLES singled to shortstop (1-0). 0 3",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "CHAFFEE walked (3-0); ARGUELLES advanced to second. 0 3",
+          "pitch_count": "3-0",
+          "rbi": 0
+        },
+        {
+          "description": "PORTER, C. walked (3-0); CHAFFEE advanced to second; ARGUELLES advanced to third. 0 3",
+          "pitch_count": "3-0",
+          "rbi": 0
+        },
+        {
+          "description": "PAPPAS singled to right field, RBI (0-1); PORTER, C. advanced to second; CHAFFEE advanced to third;",
+          "pitch_count": "0-1",
+          "rbi": 1
+        },
+        {
+          "description": "ARGUELLES scored. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BETTEN flied out to cf, SF, RBI (1-2); PAPPAS advanced to second; PORTER, C. advanced to third; CHAFFEE",
+          "pitch_count": "1-2",
+          "rbi": 1
+        },
+        {
+          "description": "scored. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ANGULO tripled down the rf line, 2 RBI (0-0); PAPPAS scored; PORTER, C. scored. 4 3",
+          "pitch_count": "0-0",
+          "rbi": 2
+        },
+        {
+          "description": "DIAZ DE LEON to p for OHLSON. 4 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MALERBA grounded out to ss, RBI (3-1); ANGULO scored. 5 3",
+          "pitch_count": "3-1",
+          "rbi": 1
+        },
+        {
+          "description": "TRETO grounded out to 2b (1-2). 5 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "ALLRED grounded out to ss (1-2). 5 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "CUNNINGHAM flied out to rf (1-1). 5 3",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "JOHNSON grounded out to ss (2-2). 5 3",
+          "pitch_count": "2-2",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "COTA struck out swinging (1-2). 5 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "ARGUELLES homered to left field, RBI (1-0). 6 3",
+          "pitch_count": "1-0",
+          "rbi": 1
+        },
+        {
+          "description": "CHAFFEE struck out swinging (0-2). 6 3",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "PORTER, C. struck out swinging (1-2). 6 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "WOOD singled to center field (1-2). 6 3",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "LAFERRIERE flied out to lf (1-1). 6 3",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "SCHRADER walked (3-2); WOOD advanced to second. 6 3",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "SANTOS doubled down the lf line, 2 RBI (2-2); SCHRADER scored; WOOD scored. 6 5",
+          "pitch_count": "2-2",
+          "rbi": 2
+        },
+        {
+          "description": "OLIMPIA flied out to rf (0-1). 6 5",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "MURILLO singled to left field, RBI (1-0); SANTOS scored. 6 6",
+          "pitch_count": "1-0",
+          "rbi": 1
+        },
+        {
+          "description": "ALLRED reached on a fielder's choice (0-0); MURILLO out at second 3b to 2b. 6 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "PAPPAS fouled out to c (1-0). 6 6",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "BETTEN flied out to cf (1-0). 6 6",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "ANGULO fouled out to c (0-0). 6 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "CUNNINGHAM struck out swinging (3-2). 6 6",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "JOHNSON popped up to 3b (1-2). 6 6",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "WOOD grounded out to 2b (3-2). 6 6",
+          "pitch_count": "3-2",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "MALERBA singled to left field (2-2). 6 6",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "TRETO struck out swinging (2-2). 6 6",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "COTA flied out to lf (0-0). 6 6",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "SMITH, D. to p for DIAZ DE LEON. 6 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ARGUELLES walked (3-2); MALERBA advanced to second. 6 6",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "CHAFFEE singled to center field, RBI (2-1); ARGUELLES advanced to third; MALERBA scored. 7 6",
+          "pitch_count": "2-1",
+          "rbi": 1
+        },
+        {
+          "description": "CHAFFEE advanced to second on a wild pitch. 7 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "PORTER, C. struck out looking (1-2). 7 6",
+          "pitch_count": "1-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "LAFERRIERE flied out to lf (3-2). 7 6",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "SCHRADER singled up the middle (2-2). 7 6",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "SANTOS walked (3-2); SCHRADER advanced to second. 7 6",
+          "pitch_count": "3-2",
+          "rbi": 0
+        },
+        {
+          "description": "CAMPBELL to p for REITER. 7 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "OLIMPIA reached on a fielder's choice, advanced to second on a throwing error by ss (1-2); SANTOS out at",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "second ss unassisted; SCHRADER scored, unearned. 7 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MURILLO flied out to cf (1-1). 7 7",
+          "pitch_count": "1-1",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "GARZA to p for SMITH, D.. 7 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "PAPPAS popped up to ss (2-2). 7 7",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "BETTEN singled to center field (0-2). 7 7",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "ANGULO flied out to cf (1-0). 7 7",
+          "pitch_count": "1-0",
+          "rbi": 0
+        },
+        {
+          "description": "BETTEN stole second. 7 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MALERBA popped up to ss (1-1). 7 7",
+          "pitch_count": "1-1",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "ALLRED singled to second base (1-2). 7 7",
+          "pitch_count": "1-2",
+          "rbi": 0
+        },
+        {
+          "description": "ALLRED advanced to second on a wild pitch. 7 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CUNNINGHAM flied out to rf (2-1); ALLRED advanced to third. 7 7",
+          "pitch_count": "2-1",
+          "rbi": 0
+        },
+        {
+          "description": "JOHNSON doubled down the lf line, RBI (2-1); ALLRED scored. 7 8",
+          "pitch_count": "2-1",
+          "rbi": 1
+        },
+        {
+          "description": "WOOD singled to right field, RBI (2-2); JOHNSON scored. 7 9",
+          "pitch_count": "2-2",
+          "rbi": 1
+        },
+        {
+          "description": "LAFERRIERE singled to left field (2-2); WOOD advanced to second. 7 9",
+          "pitch_count": "2-2",
+          "rbi": 0
+        },
+        {
+          "description": "SCHRADER tripled down the rf line, 2 RBI (0-1); LAFERRIERE scored; WOOD scored. 7 11",
+          "pitch_count": "0-1",
+          "rbi": 2
+        },
+        {
+          "description": "RAFAIL pinch ran for SCHRADER. 7 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SANTOS hit into double play p to c to 1b (0-1); RAFAIL out on the play. 7 11",
+          "pitch_count": "0-1",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "ESPINOZA to 2b for RAFAIL. 7 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "TRETO popped up to ss (0-0). 7 11",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "COTA walked (3-1). 7 11",
+          "pitch_count": "3-1",
+          "rbi": 0
+        },
+        {
+          "description": "ARGUELLES grounded into double play 2b to ss to 1b (2-2); COTA out on the play. 7 11",
+          "pitch_count": "2-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "OLIMPIA popped up to 2b (0-1). 7 11",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "MURILLO singled to shortstop (0-2). 7 11",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "ALLRED singled, bunt (0-1); MURILLO advanced to second, advanced to third on a fielding error by 1b. 7 11",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "CUNNINGHAM singled to left field, RBI (0-0); ALLRED advanced to second; MURILLO scored. 7 12",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "JOHNSON flied out to rf (0-2); ALLRED advanced to third. 7 12",
+          "pitch_count": "0-2",
+          "rbi": 0
+        },
+        {
+          "description": "CUNNINGHAM advanced to second on a wild pitch. 7 12",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WOOD lined out to ss (0-0). 7 12",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "CHAFFEE grounded out to ss (0-1). 7 12",
+          "pitch_count": "0-1",
+          "rbi": 0
+        },
+        {
+          "description": "PORTER, C. grounded out to ss (2-0). 7 12",
+          "pitch_count": "2-0",
+          "rbi": 0
+        },
+        {
+          "description": "PAPPAS doubled down the lf line (1-1). 7 12",
+          "pitch_count": "1-1",
+          "rbi": 0
+        },
+        {
+          "description": "RANGEL to p for GARZA. 7 12",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BETTEN struck out swinging (0-2). 7 12",
+          "pitch_count": "0-2",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

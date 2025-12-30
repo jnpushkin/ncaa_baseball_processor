@@ -467,9 +467,21 @@
       "Rutgers": 1,
       "Virginia": 1
     },
-    "doubles": [],
+    "doubles": [
+      {
+        "player": "Carter",
+        "game_count": 1,
+        "season_total": 3
+      }
+    ],
     "triples": [],
-    "home_runs": [],
+    "home_runs": [
+      {
+        "player": "Haseley, A.",
+        "game_count": 2,
+        "season_total": 3
+      }
+    ],
     "stolen_bases": [],
     "caught_stealing": [],
     "hit_by_pitch": [],
@@ -477,11 +489,13 @@
     "strikeouts_looking": [],
     "grounded_into_dp": [],
     "wild_pitches": [
-      "O'Reilly (3)",
-      "Fleming 2 (2)"
+      "O'Reilly (3)"
     ],
     "passed_balls": [],
-    "hit_batters": [],
+    "hit_batters": [
+      "O'Reilly 2 (2)",
+      "Fleming 2 (2)"
+    ],
     "balks": [],
     "win": {
       "player": "Lynch, D.",
@@ -491,10 +505,7 @@
       "player": "O'Reilly",
       "record": "0-2"
     },
-    "save": {
-      "player": "None.\nWP - O'Reilly",
-      "count": 3
-    }
+    "save": null
   },
   "play_by_play": {
     "1": {

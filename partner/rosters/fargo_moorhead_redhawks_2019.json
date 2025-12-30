@@ -1,0 +1,314 @@
+{
+  "team_name": "2019 Fargo-Moorhead Redhawks",
+  "team_id": "df4c2924",
+  "partner_team_name": "Fargo-Moorhead RedHawks",
+  "year": "2019",
+  "players": [
+    {
+      "name": "Devan Ahart",
+      "bref_id": "ahart-000dev",
+      "first_name": "Devan",
+      "last_name": "Ahart",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Joe Becht",
+      "bref_id": "becht-000joe",
+      "first_name": "Joe",
+      "last_name": "Becht",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "T.J. Bennett",
+      "bref_id": "bennet000tj-",
+      "first_name": "T.J.",
+      "last_name": "Bennett",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Alex Boxwell",
+      "bref_id": "boxwel000ale",
+      "first_name": "Alex",
+      "last_name": "Boxwell",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Max Casper",
+      "bref_id": "casper000max",
+      "first_name": "Max",
+      "last_name": "Casper",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Tim Colwell",
+      "bref_id": "colwel000tim",
+      "first_name": "Tim",
+      "last_name": "Colwell",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Daniel Comstock",
+      "bref_id": "comsto000dan",
+      "first_name": "Daniel",
+      "last_name": "Comstock",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Joe Filomeno",
+      "bref_id": "filome000joe",
+      "first_name": "Joe",
+      "last_name": "Filomeno",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Carlos Garcia",
+      "bref_id": "garcia013car",
+      "first_name": "Carlos",
+      "last_name": "Garcia",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Wilfredo Gimenez",
+      "bref_id": "gimene001wil",
+      "first_name": "Wilfredo",
+      "last_name": "Gimenez",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Michael Hope",
+      "bref_id": "hope--000mic",
+      "first_name": "Michael",
+      "last_name": "Hope",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Quinn Irey",
+      "bref_id": "irey--000qui",
+      "first_name": "Quinn",
+      "last_name": "Irey",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Chris Jacobs",
+      "bref_id": "jacobs004fra",
+      "first_name": "Chris",
+      "last_name": "Jacobs",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Yhoxian Medina",
+      "bref_id": "medina000yho",
+      "first_name": "Yhoxian",
+      "last_name": "Medina",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Brennan Metzger",
+      "bref_id": "metzge000bre",
+      "first_name": "Brennan",
+      "last_name": "Metzger",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Brian Olson",
+      "bref_id": "olson-000bri",
+      "first_name": "Brian",
+      "last_name": "Olson",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Leobaldo Pi\u00f1a",
+      "bref_id": "pina--000leo",
+      "first_name": "Leobaldo",
+      "last_name": "Pi\u00f1a",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Correlle Prime",
+      "bref_id": "prime-000cor",
+      "first_name": "Correlle",
+      "last_name": "Prime",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Luke Wilkins",
+      "bref_id": "wilkin000luk",
+      "first_name": "Luke",
+      "last_name": "Wilkins",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Ryan Williams",
+      "bref_id": "willia006rya",
+      "first_name": "Ryan",
+      "last_name": "Williams",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Tyler Wolfe",
+      "bref_id": "wolfe-000tyl",
+      "first_name": "Tyler",
+      "last_name": "Wolfe",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Taylor Bloye",
+      "bref_id": "bloye-000tay",
+      "first_name": "Taylor",
+      "last_name": "Bloye",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Geoff Broussard",
+      "bref_id": "brouss000geo",
+      "first_name": "Geoff",
+      "last_name": "Broussard",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "J.R. Bunda",
+      "bref_id": "bunda-000jr-",
+      "first_name": "J.R.",
+      "last_name": "Bunda",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Cole Christensen",
+      "bref_id": "christ002col",
+      "first_name": "Cole",
+      "last_name": "Christensen",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Reese Gregory",
+      "bref_id": "gregor000ree",
+      "first_name": "Reese",
+      "last_name": "Gregory",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Bradin Hagens",
+      "bref_id": "hagens001bra",
+      "first_name": "Bradin",
+      "last_name": "Hagens",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Bret Helton",
+      "bref_id": "helton000bre",
+      "first_name": "Bret",
+      "last_name": "Helton",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Carter Hope",
+      "bref_id": "hope--000car",
+      "first_name": "Carter",
+      "last_name": "Hope",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Brent Jones",
+      "bref_id": "jones-002bre",
+      "first_name": "Brent",
+      "last_name": "Jones",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Sebastian Kessay",
+      "bref_id": "kessay000seb",
+      "first_name": "Sebastian",
+      "last_name": "Kessay",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Tyler Pike",
+      "bref_id": "pike--000tyl",
+      "first_name": "Tyler",
+      "last_name": "Pike",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Will Solomon",
+      "bref_id": "solomo005wil",
+      "first_name": "Will",
+      "last_name": "Solomon",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Michael Tamburino",
+      "bref_id": "tambur000mic",
+      "first_name": "Michael",
+      "last_name": "Tamburino",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    }
+  ]
+}

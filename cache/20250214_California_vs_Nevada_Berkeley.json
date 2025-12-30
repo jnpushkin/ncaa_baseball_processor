@@ -777,20 +777,13 @@
         "player": "Moutzouridis,PJ",
         "game_count": 1,
         "season_total": 1
-      },
-      {
-        "player": "Campbell,Cade",
-        "game_count": 1,
-        "season_total": 1
       }
     ],
     "stolen_bases": [],
     "caught_stealing": [
       "Kodama,Ethan (1)"
     ],
-    "hit_by_pitch": [
-      "None"
-    ],
+    "hit_by_pitch": [],
     "intentional_walks": [],
     "strikeouts_looking": [],
     "grounded_into_dp": [],

@@ -1,0 +1,377 @@
+{
+  "team_name": "2019 St. Paul Saints",
+  "team_id": "9629adfd",
+  "partner_team_name": "St. Paul Saints",
+  "year": "2019",
+  "players": [
+    {
+      "name": "Mike Aiello",
+      "bref_id": "aiello000mik",
+      "first_name": "Mike",
+      "last_name": "Aiello",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Troy Alexander",
+      "bref_id": "alexan000tro",
+      "first_name": "Troy",
+      "last_name": "Alexander",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Josh Allen",
+      "bref_id": "allen-003jos",
+      "first_name": "Josh",
+      "last_name": "Allen",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Chris Baker",
+      "bref_id": "baker-003chr",
+      "first_name": "Chris",
+      "last_name": "Baker",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Jabari Henry",
+      "bref_id": "henry-001jab",
+      "first_name": "Jabari",
+      "last_name": "Henry",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Michael Lang",
+      "bref_id": "lang--000mic",
+      "first_name": "Michael",
+      "last_name": "Lang",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Jeremy Martinez",
+      "bref_id": "martin004jer",
+      "first_name": "Jeremy",
+      "last_name": "Martinez",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Matt Morales",
+      "bref_id": "morale000mat",
+      "first_name": "Matt",
+      "last_name": "Morales",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Dan Motl",
+      "bref_id": "motl--000dan",
+      "first_name": "Dan",
+      "last_name": "Motl",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Max Murphy",
+      "bref_id": "murphy000max",
+      "first_name": "Max",
+      "last_name": "Murphy",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Steve Pascual",
+      "bref_id": "pascua000ste",
+      "first_name": "Steve",
+      "last_name": "Pascual",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Burt Reynolds",
+      "bref_id": "reynol001bur",
+      "first_name": "Burt",
+      "last_name": "Reynolds",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Devon Rodriguez",
+      "bref_id": "rodrig000dev",
+      "first_name": "Devon",
+      "last_name": "Rodriguez",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Josh Romanski",
+      "bref_id": "romans001jos",
+      "first_name": "Josh",
+      "last_name": "Romanski",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Blake Schmit",
+      "bref_id": "schmit000bla",
+      "first_name": "Blake",
+      "last_name": "Schmit",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Brady Shoemaker",
+      "bref_id": "shoema001bra",
+      "first_name": "Brady",
+      "last_name": "Shoemaker",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "John Silviano",
+      "bref_id": "silvia000joh",
+      "first_name": "John",
+      "last_name": "Silviano",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Caden Skinner",
+      "bref_id": "skinne000cad",
+      "first_name": "Caden",
+      "last_name": "Skinner",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Jhonatan Solano",
+      "bref_id": "solano001jho",
+      "first_name": "Jhonatan",
+      "last_name": "Solano",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Joey Wong",
+      "bref_id": "wong--001joe",
+      "first_name": "Joey",
+      "last_name": "Wong",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Chesny Young",
+      "bref_id": "young-000che",
+      "first_name": "Chesny",
+      "last_name": "Young",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Landon Beck",
+      "bref_id": "beck--000lan",
+      "first_name": "Landon",
+      "last_name": "Beck",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Nick Belzer",
+      "bref_id": "belzer000nic",
+      "first_name": "Nick",
+      "last_name": "Belzer",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Dustin Crenshaw",
+      "bref_id": "crensh000dus",
+      "first_name": "Dustin",
+      "last_name": "Crenshaw",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Tom Curtin",
+      "bref_id": "curtin000tom",
+      "first_name": "Tom",
+      "last_name": "Curtin",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Mike Devine",
+      "bref_id": "devine003mic",
+      "first_name": "Mike",
+      "last_name": "Devine",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Ken Frosch",
+      "bref_id": "frosch000ken",
+      "first_name": "Ken",
+      "last_name": "Frosch",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Jordan Jess",
+      "bref_id": "jess--000jor",
+      "first_name": "Jordan",
+      "last_name": "Jess",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Spencer Jones",
+      "bref_id": "jones-000spe",
+      "first_name": "Spencer",
+      "last_name": "Jones",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Tanner Kiest",
+      "bref_id": "kiest-000tan",
+      "first_name": "Tanner",
+      "last_name": "Kiest",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "John Kilichowski",
+      "bref_id": "kilich000joh",
+      "first_name": "John",
+      "last_name": "Kilichowski",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Karch Kowalczyk",
+      "bref_id": "kowalc000kar",
+      "first_name": "Karch",
+      "last_name": "Kowalczyk",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Chris Lee",
+      "bref_id": "lee---003chr",
+      "first_name": "Chris",
+      "last_name": "Lee",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Jake Matthys",
+      "bref_id": "matthy000jak",
+      "first_name": "Jake",
+      "last_name": "Matthys",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Mason McMahon",
+      "bref_id": "mcmaho000mas",
+      "first_name": "Mason",
+      "last_name": "McMahon",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Eddie Medina",
+      "bref_id": "medina000edd",
+      "first_name": "Eddie",
+      "last_name": "Medina",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Ryan Schlosser",
+      "bref_id": "schlos000rya",
+      "first_name": "Ryan",
+      "last_name": "Schlosser",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Ryan Smith",
+      "bref_id": "smith-016ste",
+      "first_name": "Ryan",
+      "last_name": "Smith",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Todd Van Steensel",
+      "bref_id": "vanste001tod",
+      "first_name": "Todd Van",
+      "last_name": "Steensel",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Benji Waite",
+      "bref_id": "waite-002ben",
+      "first_name": "Benji",
+      "last_name": "Waite",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    },
+    {
+      "name": "Ryan Zimmerman",
+      "bref_id": "zimmer006rya",
+      "first_name": "Ryan",
+      "last_name": "Zimmerman",
+      "position": null,
+      "number": null,
+      "year": "2019"
+    }
+  ]
+}

@@ -491,9 +491,21 @@
       "TCU": 0,
       "Virginia": 0
     },
-    "doubles": [],
+    "doubles": [
+      {
+        "player": "Nunez",
+        "game_count": 1,
+        "season_total": 17
+      }
+    ],
     "triples": [],
-    "home_runs": [],
+    "home_runs": [
+      {
+        "player": "Anderson",
+        "game_count": 1,
+        "season_total": 15
+      }
+    ],
     "stolen_bases": [],
     "caught_stealing": [],
     "hit_by_pitch": [],

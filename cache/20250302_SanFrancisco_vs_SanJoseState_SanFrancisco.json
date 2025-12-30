@@ -697,11 +697,6 @@
         "player": "FERNANDES, Alex",
         "game_count": 1,
         "season_total": 1
-      },
-      {
-        "player": "Kody Watanabe",
-        "game_count": 1,
-        "season_total": 1
       }
     ],
     "triples": [],
@@ -717,24 +712,12 @@
         "player": "Kenny DeCelle",
         "game_count": 1,
         "season_total": 2
-      },
-      {
-        "player": "TJ Rogers",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "JT Amaral",
-        "game_count": 1,
-        "season_total": 2
       }
     ],
     "caught_stealing": [
       "LEWIS, Jared (1) DP: 1"
     ],
-    "hit_by_pitch": [
-      "None"
-    ],
+    "hit_by_pitch": [],
     "intentional_walks": [],
     "strikeouts_looking": [],
     "grounded_into_dp": [],

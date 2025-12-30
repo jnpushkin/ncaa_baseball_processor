@@ -32,6 +32,20 @@ ROSTERS_DIR = BASE_DIR / "rosters"
 OUTPUT_DIR = BASE_DIR / "html_output"
 PDF_DIR = BASE_DIR / "pdfs"
 
+# MiLB directories and API
+MILB_DIR = BASE_DIR / "milb"
+MILB_CACHE_DIR = MILB_DIR / "cache"
+MILB_GAME_IDS_FILE = MILB_DIR / "game_ids.txt"
+MILB_API_BASE = "https://statsapi.mlb.com/api/v1"
+
+# MLB Game Tracker (read-only for crossover tracking)
+MLB_TRACKER_CACHE = Path.home() / "MLB Game Tracker" / "cache"
+
+# Partner Leagues (independent leagues: Pioneer, Atlantic, American Association, Frontier)
+PARTNER_DIR = BASE_DIR / "partner"
+PARTNER_CACHE_DIR = PARTNER_DIR / "cache"
+PARTNER_GAME_IDS_FILE = PARTNER_DIR / "game_ids.txt"
+
 
 # === BASEBALL STAT COLUMNS ===
 

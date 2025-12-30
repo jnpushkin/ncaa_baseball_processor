@@ -936,16 +936,6 @@
         "season_total": 1
       },
       {
-        "player": "Smith, JP",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "Perez, Christian",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
         "player": "Jimmy Pelletier",
         "game_count": 1,
         "season_total": 1
@@ -961,16 +951,6 @@
         "player": "Kenny DeCelle",
         "game_count": 1,
         "season_total": 2
-      },
-      {
-        "player": "Jordan Lewis",
-        "game_count": 1,
-        "season_total": 2
-      },
-      {
-        "player": "Patrick Keighran",
-        "game_count": 1,
-        "season_total": 1
       }
     ],
     "caught_stealing": [

@@ -576,11 +576,6 @@
         "player": "HARDEN, Brelon",
         "game_count": 1,
         "season_total": 1
-      },
-      {
-        "player": "WILL, Zack",
-        "game_count": 1,
-        "season_total": 1
       }
     ],
     "triples": [],
@@ -588,16 +583,6 @@
     "stolen_bases": [
       {
         "player": "D'AMATO, Hunter",
-        "game_count": 1,
-        "season_total": 1
-      },
-      {
-        "player": "HARDEN, Brelon",
-        "game_count": 1,
-        "season_total": 2
-      },
-      {
-        "player": "RAMPPEN, Zack",
         "game_count": 1,
         "season_total": 1
       }
