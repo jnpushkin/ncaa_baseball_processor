@@ -173,6 +173,27 @@ def get_player_extra_stats(player_name: str, lookup: Dict[str, Dict[str, int]]) 
 class MilestonesProcessor:
     """Process and compile baseball milestones across games."""
 
+    # All milestone keys for programmatic access
+    MILESTONE_KEYS = [
+        # Batting milestones (21)
+        'three_hr_games', 'multi_hr_games', 'hr_games',
+        'five_hit_games', 'four_hit_games', 'three_hit_games',
+        'cycles', 'cycle_watch',
+        'six_rbi_games', 'five_rbi_games', 'four_rbi_games', 'three_rbi_games',
+        'multi_double_games', 'multi_triple_games', 'multi_sb_games',
+        'four_walk_games', 'perfect_batting_games',
+        'four_run_games', 'three_run_games',
+        'hit_for_extra_bases', 'three_total_bases_games',
+        # Pitching milestones (22)
+        'perfect_games', 'no_hitters', 'one_hitters', 'two_hitters',
+        'shutouts', 'cgso_no_walks', 'complete_games', 'low_hit_cg',
+        'seven_inning_shutouts', 'maddux_games',
+        'fifteen_k_games', 'twelve_k_games', 'ten_k_games', 'eight_k_games',
+        'quality_starts', 'dominant_starts', 'efficient_starts',
+        'high_k_low_bb', 'no_walk_starts', 'scoreless_relief',
+        'win_games', 'save_games',
+    ]
+
     def __init__(self, games: List[Dict[str, Any]]):
         self.games = games
 
@@ -183,25 +204,8 @@ class MilestonesProcessor:
         Returns:
             Dictionary of milestone type -> DataFrame
         """
-        milestones = {
-            # Batting milestones
-            'multi_hr_games': [],
-            'hr_games': [],
-            'four_hit_games': [],
-            'three_hit_games': [],
-            'five_rbi_games': [],
-            'four_rbi_games': [],
-            'three_rbi_games': [],
-            'cycle_watch': [],
-            'multi_sb_games': [],
-
-            # Pitching milestones
-            'ten_k_games': [],
-            'quality_starts': [],
-            'complete_games': [],
-            'shutouts': [],
-            'no_hitters': [],
-        }
+        # Initialize all milestone lists
+        milestones = {key: [] for key in self.MILESTONE_KEYS}
 
         for game in self.games:
             meta = game.get('metadata', {})
@@ -239,6 +243,13 @@ class MilestonesProcessor:
                     triples = extra_stats['3b'] or safe_int(player.get('triples', player.get('3b', 0)))
                     sb = extra_stats['sb'] or safe_int(player.get('sb', player.get('stolen_bases', 0)))
 
+                    r = safe_int(player.get('runs', player.get('r', 0)))
+                    bb = safe_int(player.get('walks', player.get('bb', 0)))
+                    so = safe_int(player.get('strikeouts', player.get('so', player.get('k', 0))))
+                    ab = safe_int(player.get('at_bats', player.get('ab', 0)))
+                    singles = max(0, h - doubles - triples - hr)
+                    total_bases = singles + (2 * doubles) + (3 * triples) + (4 * hr)
+
                     base_info = {
                         'Date': date,
                         'Player': name,
@@ -248,81 +259,110 @@ class MilestonesProcessor:
                         'GameID': game_id,
                     }
 
-                    # Check HR milestones
-                    if hr >= 2:
+                    # HR milestones (tiered - highest first)
+                    if hr >= 3:
+                        milestones['three_hr_games'].append({
+                            **base_info, 'HR': hr, 'H': h, 'RBI': rbi,
+                        })
+                    elif hr >= 2:
                         milestones['multi_hr_games'].append({
-                            **base_info,
-                            'HR': hr,
-                            'H': h,
-                            'RBI': rbi,
+                            **base_info, 'HR': hr, 'H': h, 'RBI': rbi,
                         })
-                    if hr >= 1:
+                    elif hr >= 1:
                         milestones['hr_games'].append({
-                            **base_info,
-                            'HR': hr,
-                            'H': h,
-                            'RBI': rbi,
+                            **base_info, 'HR': hr, 'H': h, 'RBI': rbi,
                         })
 
-                    # Check hit milestones
-                    if h >= 4:
+                    # Hit milestones (tiered)
+                    if h >= 5:
+                        milestones['five_hit_games'].append({
+                            **base_info, 'H': h, 'R': r, 'RBI': rbi,
+                        })
+                    elif h >= 4:
                         milestones['four_hit_games'].append({
-                            **base_info,
-                            'H': h,
-                            'R': safe_int(player.get('runs', player.get('r', 0))),
-                            'RBI': rbi,
+                            **base_info, 'H': h, 'R': r, 'RBI': rbi,
                         })
-                    if h >= 3:
+                    elif h >= 3:
                         milestones['three_hit_games'].append({
-                            **base_info,
-                            'H': h,
-                            'R': safe_int(player.get('runs', player.get('r', 0))),
-                            'RBI': rbi,
+                            **base_info, 'H': h, 'R': r, 'RBI': rbi,
                         })
 
-                    # Check RBI milestones
-                    if rbi >= 5:
-                        milestones['five_rbi_games'].append({
-                            **base_info,
-                            'RBI': rbi,
-                            'H': h,
-                            'HR': hr,
-                        })
-                    if rbi >= 4:
-                        milestones['four_rbi_games'].append({
-                            **base_info,
-                            'RBI': rbi,
-                            'H': h,
-                            'HR': hr,
-                        })
-                    if rbi >= 3:
-                        milestones['three_rbi_games'].append({
-                            **base_info,
-                            'RBI': rbi,
-                            'H': h,
-                            'HR': hr,
-                        })
-
-                    # Check for cycle watch (3 of 4 types of hits)
-                    singles = h - doubles - triples - hr
+                    # Cycle detection
                     hit_types = sum([1 for x in [singles, doubles, triples, hr] if x > 0])
-                    if hit_types >= 3 and h >= 3:
+                    if singles >= 1 and doubles >= 1 and triples >= 1 and hr >= 1:
+                        milestones['cycles'].append({
+                            **base_info, 'H': h, '1B': singles, '2B': doubles, '3B': triples, 'HR': hr,
+                        })
+                    elif hit_types >= 3 and h >= 3:
                         milestones['cycle_watch'].append({
-                            **base_info,
-                            'H': h,
-                            '1B': singles,
-                            '2B': doubles,
-                            '3B': triples,
-                            'HR': hr,
+                            **base_info, 'H': h, '1B': singles, '2B': doubles, '3B': triples, 'HR': hr,
                         })
 
-                    # Check SB milestones
+                    # RBI milestones (tiered)
+                    if rbi >= 6:
+                        milestones['six_rbi_games'].append({
+                            **base_info, 'RBI': rbi, 'H': h, 'HR': hr,
+                        })
+                    elif rbi >= 5:
+                        milestones['five_rbi_games'].append({
+                            **base_info, 'RBI': rbi, 'H': h, 'HR': hr,
+                        })
+                    elif rbi >= 4:
+                        milestones['four_rbi_games'].append({
+                            **base_info, 'RBI': rbi, 'H': h, 'HR': hr,
+                        })
+                    elif rbi >= 3:
+                        milestones['three_rbi_games'].append({
+                            **base_info, 'RBI': rbi, 'H': h, 'HR': hr,
+                        })
+
+                    # Extra-base hit milestones
+                    if doubles >= 2:
+                        milestones['multi_double_games'].append({
+                            **base_info, '2B': doubles, 'H': h, 'TB': total_bases,
+                        })
+                    if triples >= 2:
+                        milestones['multi_triple_games'].append({
+                            **base_info, '3B': triples, 'H': h, 'TB': total_bases,
+                        })
                     if sb >= 2:
                         milestones['multi_sb_games'].append({
-                            **base_info,
-                            'SB': sb,
-                            'H': h,
-                            'R': safe_int(player.get('runs', player.get('r', 0))),
+                            **base_info, 'SB': sb, 'H': h, 'R': r,
+                        })
+
+                    # Walk milestones
+                    if bb >= 4:
+                        milestones['four_walk_games'].append({
+                            **base_info, 'BB': bb, 'H': h, 'R': r,
+                        })
+
+                    # Perfect batting (3+ H, 0 K, AB > 0)
+                    if h >= 3 and so == 0 and ab > 0:
+                        milestones['perfect_batting_games'].append({
+                            **base_info, 'H': h, 'AB': ab, 'K': so, 'AVG': f"{h/ab:.3f}",
+                        })
+
+                    # Run milestones (tiered)
+                    if r >= 4:
+                        milestones['four_run_games'].append({
+                            **base_info, 'R': r, 'H': h, 'BB': bb,
+                        })
+                    elif r >= 3:
+                        milestones['three_run_games'].append({
+                            **base_info, 'R': r, 'H': h, 'BB': bb,
+                        })
+
+                    # Hit for extra bases (2+ XBH)
+                    xbh = doubles + triples + hr
+                    if xbh >= 2:
+                        milestones['hit_for_extra_bases'].append({
+                            **base_info, 'XBH': xbh, '2B': doubles, '3B': triples, 'HR': hr, 'TB': total_bases,
+                        })
+
+                    # Total bases milestone
+                    if total_bases >= 8:
+                        milestones['three_total_bases_games'].append({
+                            **base_info, 'TB': total_bases, 'H': h, '2B': doubles, '3B': triples, 'HR': hr,
                         })
 
                 # Process pitching milestones
@@ -335,9 +375,13 @@ class MilestonesProcessor:
                     ip = parse_innings_pitched(player.get('innings_pitched', 0))
                     k = safe_int(player.get('strikeouts', player.get('k', 0)))
                     er = safe_int(player.get('earned_runs', player.get('er', 0)))
+                    r = safe_int(player.get('runs', player.get('r', 0)))
                     h = safe_int(player.get('hits', player.get('h', 0)))
                     bb = safe_int(player.get('walks', player.get('bb', 0)))
+                    pitches = safe_int(player.get('pitches', player.get('np', 0)))
+                    decision = player.get('decision', '').upper()
 
+                    ip_str = f"{int(ip)}.{int((ip % 1) * 3)}"
                     base_info = {
                         'Date': date,
                         'Player': name,
@@ -347,59 +391,127 @@ class MilestonesProcessor:
                         'GameID': game_id,
                     }
 
-                    # 10+ K games
-                    if k >= 10:
+                    # Complete game milestones (9+ IP or 7+ for 7-inning games)
+                    is_complete_game = ip >= 9
+                    is_seven_inning_cg = ip >= 7 and ip < 9
+
+                    # Perfect game (CG, 0 H, 0 BB, 0 errors)
+                    if is_complete_game and h == 0 and bb == 0:
+                        milestones['perfect_games'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb,
+                        })
+                    # No-hitter (CG, 0 H)
+                    elif is_complete_game and h == 0:
+                        milestones['no_hitters'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                        })
+                    # One-hitter (CG, 1 H)
+                    elif is_complete_game and h == 1:
+                        milestones['one_hitters'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                        })
+                    # Two-hitter (CG, 2 H)
+                    elif is_complete_game and h == 2:
+                        milestones['two_hitters'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                        })
+
+                    # Shutout milestones
+                    if is_complete_game and er == 0:
+                        if bb == 0:
+                            milestones['cgso_no_walks'].append({
+                                **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb,
+                            })
+                        else:
+                            milestones['shutouts'].append({
+                                **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb,
+                            })
+                    elif is_seven_inning_cg and er == 0:
+                        milestones['seven_inning_shutouts'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb,
+                        })
+
+                    # Complete game categories
+                    if is_complete_game:
+                        if h <= 3:
+                            milestones['low_hit_cg'].append({
+                                **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                            })
+                        else:
+                            milestones['complete_games'].append({
+                                **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                            })
+
+                    # Maddux (CG with under 100 pitches)
+                    if is_complete_game and pitches > 0 and pitches < 100:
+                        milestones['maddux_games'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'Pitches': pitches, 'H': h, 'BB': bb,
+                        })
+
+                    # Strikeout milestones (tiered)
+                    if k >= 15:
+                        milestones['fifteen_k_games'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                        })
+                    elif k >= 12:
+                        milestones['twelve_k_games'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                        })
+                    elif k >= 10:
                         milestones['ten_k_games'].append({
-                            **base_info,
-                            'IP': f"{int(ip)}.{int((ip % 1) * 3)}",
-                            'K': k,
-                            'H': h,
-                            'ER': er,
-                            'BB': bb,
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                        })
+                    elif k >= 8:
+                        milestones['eight_k_games'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
                         })
 
                     # Quality starts (6+ IP, 3 or fewer ER)
                     if ip >= 6 and er <= 3:
                         milestones['quality_starts'].append({
-                            **base_info,
-                            'IP': f"{int(ip)}.{int((ip % 1) * 3)}",
-                            'K': k,
-                            'H': h,
-                            'ER': er,
-                            'BB': bb,
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
                         })
 
-                    # Complete games (9+ IP)
-                    if ip >= 9:
-                        milestones['complete_games'].append({
-                            **base_info,
-                            'IP': f"{int(ip)}.{int((ip % 1) * 3)}",
-                            'K': k,
-                            'H': h,
-                            'ER': er,
-                            'BB': bb,
+                    # Dominant start (7+ IP, 10+ K)
+                    if ip >= 7 and k >= 10:
+                        milestones['dominant_starts'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
                         })
 
-                    # Shutouts (9+ IP, 0 ER)
-                    if ip >= 9 and er == 0:
-                        milestones['shutouts'].append({
-                            **base_info,
-                            'IP': f"{int(ip)}.{int((ip % 1) * 3)}",
-                            'K': k,
-                            'H': h,
-                            'ER': er,
-                            'BB': bb,
+                    # Efficient start (6+ IP, 80 or fewer pitches)
+                    if ip >= 6 and pitches > 0 and pitches <= 80:
+                        milestones['efficient_starts'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'Pitches': pitches, 'H': h, 'BB': bb,
                         })
 
-                    # No-hitters (9+ IP, 0 H)
-                    if ip >= 9 and h == 0:
-                        milestones['no_hitters'].append({
-                            **base_info,
-                            'IP': f"{int(ip)}.{int((ip % 1) * 3)}",
-                            'K': k,
-                            'H': h,
-                            'ER': er,
-                            'BB': bb,
+                    # High K, low BB (8+ K, 2 or fewer BB)
+                    if k >= 8 and bb <= 2:
+                        milestones['high_k_low_bb'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'BB': bb, 'H': h, 'ER': er,
+                        })
+
+                    # No walk start (5+ IP, 0 BB)
+                    if ip >= 5 and bb == 0:
+                        milestones['no_walk_starts'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'BB': bb, 'H': h, 'ER': er,
+                        })
+
+                    # Scoreless relief (3+ IP, 0 ER, not a starter)
+                    if ip >= 3 and ip < 6 and er == 0:
+                        milestones['scoreless_relief'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb,
+                        })
+
+                    # Win games
+                    if decision == 'W':
+                        milestones['win_games'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
+                        })
+
+                    # Save games
+                    if decision == 'S' or decision == 'SV':
+                        milestones['save_games'].append({
+                            **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
                         })
 
         # Convert to DataFrames
