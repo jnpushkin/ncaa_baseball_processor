@@ -740,20 +740,51 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         'pitcherGames': df_to_list(pitcher_games),
         'teamRecords': df_to_list(team_records),
         'milestones': {
+            # Batting milestones (21)
+            'threeHrGames': df_to_list(milestones.get('three_hr_games', [])),
             'multiHrGames': df_to_list(milestones.get('multi_hr_games', [])),
             'hrGames': df_to_list(milestones.get('hr_games', [])),
+            'fiveHitGames': df_to_list(milestones.get('five_hit_games', [])),
             'fourHitGames': df_to_list(milestones.get('four_hit_games', [])),
             'threeHitGames': df_to_list(milestones.get('three_hit_games', [])),
+            'cycles': df_to_list(milestones.get('cycles', [])),
+            'cycleWatch': df_to_list(milestones.get('cycle_watch', [])),
+            'sixRbiGames': df_to_list(milestones.get('six_rbi_games', [])),
             'fiveRbiGames': df_to_list(milestones.get('five_rbi_games', [])),
             'fourRbiGames': df_to_list(milestones.get('four_rbi_games', [])),
             'threeRbiGames': df_to_list(milestones.get('three_rbi_games', [])),
+            'multiDoubleGames': df_to_list(milestones.get('multi_double_games', [])),
+            'multiTripleGames': df_to_list(milestones.get('multi_triple_games', [])),
             'multiSbGames': df_to_list(milestones.get('multi_sb_games', [])),
-            'cycleWatch': df_to_list(milestones.get('cycle_watch', [])),
-            'tenKGames': df_to_list(milestones.get('ten_k_games', [])),
-            'qualityStarts': df_to_list(milestones.get('quality_starts', [])),
-            'completeGames': df_to_list(milestones.get('complete_games', [])),
-            'shutouts': df_to_list(milestones.get('shutouts', [])),
+            'fourWalkGames': df_to_list(milestones.get('four_walk_games', [])),
+            'perfectBattingGames': df_to_list(milestones.get('perfect_batting_games', [])),
+            'fourRunGames': df_to_list(milestones.get('four_run_games', [])),
+            'threeRunGames': df_to_list(milestones.get('three_run_games', [])),
+            'hitForExtraBases': df_to_list(milestones.get('hit_for_extra_bases', [])),
+            'threeTotalBasesGames': df_to_list(milestones.get('three_total_bases_games', [])),
+            # Pitching milestones (22)
+            'perfectGames': df_to_list(milestones.get('perfect_games', [])),
             'noHitters': df_to_list(milestones.get('no_hitters', [])),
+            'oneHitters': df_to_list(milestones.get('one_hitters', [])),
+            'twoHitters': df_to_list(milestones.get('two_hitters', [])),
+            'shutouts': df_to_list(milestones.get('shutouts', [])),
+            'cgsoNoWalks': df_to_list(milestones.get('cgso_no_walks', [])),
+            'completeGames': df_to_list(milestones.get('complete_games', [])),
+            'lowHitCg': df_to_list(milestones.get('low_hit_cg', [])),
+            'sevenInningShutouts': df_to_list(milestones.get('seven_inning_shutouts', [])),
+            'madduxGames': df_to_list(milestones.get('maddux_games', [])),
+            'fifteenKGames': df_to_list(milestones.get('fifteen_k_games', [])),
+            'twelveKGames': df_to_list(milestones.get('twelve_k_games', [])),
+            'tenKGames': df_to_list(milestones.get('ten_k_games', [])),
+            'eightKGames': df_to_list(milestones.get('eight_k_games', [])),
+            'qualityStarts': df_to_list(milestones.get('quality_starts', [])),
+            'dominantStarts': df_to_list(milestones.get('dominant_starts', [])),
+            'efficientStarts': df_to_list(milestones.get('efficient_starts', [])),
+            'highKLowBb': df_to_list(milestones.get('high_k_low_bb', [])),
+            'noWalkStarts': df_to_list(milestones.get('no_walk_starts', [])),
+            'scorelessRelief': df_to_list(milestones.get('scoreless_relief', [])),
+            'winGames': df_to_list(milestones.get('win_games', [])),
+            'saveGames': df_to_list(milestones.get('save_games', [])),
         },
         'milbGameLog': df_to_list(milb_game_log),
         'milbBatters': df_to_list(milb_batters),
@@ -3288,59 +3319,63 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     {{activeTab === 'teams' && <TeamRecords teams={{DATA.teamRecords}} confFilter={{confFilter}} />}}
                     {{activeTab === 'milestones' && (
                         <div>
-                            <h3 style={{{{margin: '0 0 16px 0', color: '#1e3a5f'}}}}>Pitching Milestones</h3>
-                            <MilestonesTable
-                                title="No-Hitters (9+ IP, 0 H)"
-                                data={{DATA.milestones.noHitters}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'BB', 'Score']}}
-                            />
-                            <MilestonesTable
-                                title="Shutouts (9+ IP, 0 ER)"
-                                data={{DATA.milestones.shutouts}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}}
-                            />
-                            <MilestonesTable
-                                title="Complete Games (9+ IP)"
-                                data={{DATA.milestones.completeGames}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}}
-                            />
-                            <MilestonesTable
-                                title="10+ K Games"
-                                data={{DATA.milestones.tenKGames}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}}
-                            />
-                            <MilestonesTable
-                                title="Quality Starts (6+ IP, 3 or fewer ER)"
-                                data={{DATA.milestones.qualityStarts}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}}
-                            />
+                            <h3 style={{{{margin: '0 0 16px 0', color: '#1e3a5f'}}}}>Elite Pitching Performances</h3>
+                            <MilestonesTable title="Perfect Games" data={{DATA.milestones.perfectGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'Score']}} />
+                            <MilestonesTable title="No-Hitters" data={{DATA.milestones.noHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'BB', 'Score']}} />
+                            <MilestonesTable title="One-Hitters" data={{DATA.milestones.oneHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} />
+                            <MilestonesTable title="Two-Hitters" data={{DATA.milestones.twoHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} />
+                            <MilestonesTable title="Maddux Games (CG, <100 pitches)" data={{DATA.milestones.madduxGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} />
 
-                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Batting Milestones</h3>
-                            <MilestonesTable
-                                title="Multi-HR Games"
-                                data={{DATA.milestones.multiHrGames}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}}
-                            />
-                            <MilestonesTable
-                                title="Cycle Watch (3 of 4 hit types)"
-                                data={{DATA.milestones.cycleWatch}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}}
-                            />
-                            <MilestonesTable
-                                title="4+ Hit Games"
-                                data={{DATA.milestones.fourHitGames}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}}
-                            />
-                            <MilestonesTable
-                                title="5+ RBI Games"
-                                data={{DATA.milestones.fiveRbiGames}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}}
-                            />
-                            <MilestonesTable
-                                title="Multi-SB Games"
-                                data={{DATA.milestones.multiSbGames}}
-                                columns={{['Date', 'Player', 'Team', 'Opponent', 'SB', 'H', 'R']}}
-                            />
+                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Complete Games & Shutouts</h3>
+                            <MilestonesTable title="CGSO No Walks" data={{DATA.milestones.cgsoNoWalks}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K']}} />
+                            <MilestonesTable title="Shutouts" data={{DATA.milestones.shutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} />
+                            <MilestonesTable title="7+ IP Shutouts" data={{DATA.milestones.sevenInningShutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} />
+                            <MilestonesTable title="Complete Games" data={{DATA.milestones.completeGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
+                            <MilestonesTable title="Low-Hit CG" data={{DATA.milestones.lowHitCg}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} />
+
+                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Strikeout Performances</h3>
+                            <MilestonesTable title="15+ K Games" data={{DATA.milestones.fifteenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} />
+                            <MilestonesTable title="12+ K Games" data={{DATA.milestones.twelveKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} />
+                            <MilestonesTable title="10+ K Games" data={{DATA.milestones.tenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} />
+                            <MilestonesTable title="8+ K Games" data={{DATA.milestones.eightKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} />
+
+                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Quality Pitching</h3>
+                            <MilestonesTable title="Quality Starts (6+ IP, ≤3 ER)" data={{DATA.milestones.qualityStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
+                            <MilestonesTable title="Dominant Starts" data={{DATA.milestones.dominantStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
+                            <MilestonesTable title="Efficient Starts" data={{DATA.milestones.efficientStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
+                            <MilestonesTable title="High K/Low BB" data={{DATA.milestones.highKLowBb}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'BB', 'IP', 'ER']}} />
+                            <MilestonesTable title="No-Walk Starts" data={{DATA.milestones.noWalkStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
+                            <MilestonesTable title="Scoreless Relief" data={{DATA.milestones.scorelessRelief}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H']}} />
+                            <MilestonesTable title="Wins" data={{DATA.milestones.winGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
+                            <MilestonesTable title="Saves" data={{DATA.milestones.saveGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H']}} />
+
+                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Big Batting Performances</h3>
+                            <MilestonesTable title="3+ HR Games" data={{DATA.milestones.threeHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI', 'R']}} />
+                            <MilestonesTable title="Multi-HR Games" data={{DATA.milestones.multiHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} />
+                            <MilestonesTable title="HR Games" data={{DATA.milestones.hrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} />
+                            <MilestonesTable title="Cycles" data={{DATA.milestones.cycles}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} />
+                            <MilestonesTable title="Cycle Watch (3 of 4)" data={{DATA.milestones.cycleWatch}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} />
+
+                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Hit Milestones</h3>
+                            <MilestonesTable title="5+ Hit Games" data={{DATA.milestones.fiveHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} />
+                            <MilestonesTable title="4+ Hit Games" data={{DATA.milestones.fourHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} />
+                            <MilestonesTable title="3+ Hit Games" data={{DATA.milestones.threeHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} />
+                            <MilestonesTable title="Multi-Double Games" data={{DATA.milestones.multiDoubleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '2B', 'H', 'RBI']}} />
+                            <MilestonesTable title="Multi-Triple Games" data={{DATA.milestones.multiTripleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '3B', 'H', 'RBI']}} />
+                            <MilestonesTable title="2+ XBH Games" data={{DATA.milestones.hitForExtraBases}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', '2B', '3B', 'HR']}} />
+                            <MilestonesTable title="8+ Total Bases" data={{DATA.milestones.threeTotalBasesGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'HR', 'RBI']}} />
+                            <MilestonesTable title="Perfect Batting (3+ H, 0 K)" data={{DATA.milestones.perfectBattingGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'AB', 'RBI']}} />
+
+                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Run Production</h3>
+                            <MilestonesTable title="6+ RBI Games" data={{DATA.milestones.sixRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} />
+                            <MilestonesTable title="5+ RBI Games" data={{DATA.milestones.fiveRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} />
+                            <MilestonesTable title="4+ RBI Games" data={{DATA.milestones.fourRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} />
+                            <MilestonesTable title="4+ Run Games" data={{DATA.milestones.fourRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} />
+                            <MilestonesTable title="3+ Run Games" data={{DATA.milestones.threeRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} />
+
+                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Baserunning & Patience</h3>
+                            <MilestonesTable title="Multi-SB Games" data={{DATA.milestones.multiSbGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'SB', 'H', 'R']}} />
+                            <MilestonesTable title="4+ Walk Games" data={{DATA.milestones.fourWalkGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'BB', 'H', 'R']}} />
                         </div>
                     )}}
 
