@@ -4,6 +4,8 @@ Website generator for interactive HTML output.
 
 import os
 import json
+import base64
+from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Any
 import pandas as pd
@@ -15,6 +17,89 @@ from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEA
                                 PRO_LEVELS, LEVEL_ORDER, LEVEL_COLORS, resolve_level_and_league)
 from ..utils.helpers import normalize_team_name
 from ..utils.player_ids import PlayerIDMapper
+
+
+# Map team names to local logo filenames in the logos/ directory
+LOCAL_LOGO_MAP = {
+    # NCAA teams without ESPN logos
+    'San Francisco State': 'San_Francisco_State.png',
+    'Cal Poly Pomona': 'Cal_Poly_Pomona.png',
+    # Partner/Independent league teams - Pioneer League
+    'Billings Mustangs': 'Billings_Mustangs.png',
+    'Boise Hawks': 'Boise_Hawks.png',
+    'Glacier Range Riders': 'Glacier_Range_Riders.png',
+    'Great Falls Voyagers': 'Great_Falls_Voyagers.png',
+    'Idaho Falls Chukars': 'Idaho_Falls_Chukars.png',
+    'Long Beach Coast': 'Long_Beach_Coast.png',
+    'Missoula PaddleHeads': 'Missoula_PaddleHeads.png',
+    'Modesto Roadsters': 'Modesto_Roadsters.png',
+    'Oakland Ballers': 'Oakland_Ballers.png',
+    'Ogden Raptors': 'Ogden_Raptors.png',
+    'Yuba-Sutter High Wheelers': 'Yuba_Sutter_High_Wheelers.png',
+    'RedPocket Mobiles': 'RedPocket_Mobiles.png',
+    # Atlantic League
+    'Charleston Dirty Birds': 'Charleston_Dirty_Birds.png',
+    'Gastonia Ghost Peppers': 'Gastonia_Ghost_Peppers.png',
+    'Hagerstown Flying Boxcars': 'Hagerstown_Flying_Boxcars.png',
+    'High Point Rockers': 'High_Point_Rockers.png',
+    'Lancaster Stormers': 'Lancaster_Stormers.png',
+    'Lexington Legends': 'Lexington_Legends.png',
+    'Long Island Ducks': 'Long_Island_Ducks.png',
+    'Southern Maryland Blue Crabs': 'Southern_Maryland_Blue_Crabs.png',
+    'Staten Island FerryHawks': 'Staten_Island_FerryHawks.png',
+    'York Revolution': 'York_Revolution.png',
+    # American Association
+    'Fargo-Moorhead RedHawks': 'Fargo_Moorhead_RedHawks.png',
+    'St. Paul Saints': 'St_Paul_Saints.png',
+    'Cleburne Railroaders': 'Cleburne_Railroaders.png',
+    'Kansas City Monarchs': 'Kansas_City_Monarchs.png',
+    'Sioux Falls Canaries': 'Sioux_Falls_Canaries.png',
+    'Winnipeg Goldeyes': 'Winnipeg_Goldeyes.png',
+    'Lincoln Saltdogs': 'Lincoln_Saltdogs.png',
+    'Chicago Dogs': 'Chicago_Dogs.png',
+    'Gary SouthShore RailCats': 'Gary_SouthShore_RailCats.png',
+    'Milwaukee Milkmen': 'Milwaukee_Milkmen.png',
+    'Sioux City Explorers': 'Sioux_City_Explorers.png',
+    'Kane County Cougars': 'Kane_County_Cougars.png',
+    'Lake Country DockHounds': 'Lake_Country_DockHounds.png',
+    # Frontier League
+    'Brockton Rox': 'Brockton_Rox.png',
+    'Down East Bird Dawgs': 'Down_East_Bird_Dawgs.png',
+    'Evansville Otters': 'Evansville_Otters.png',
+    "Florence Y'alls": 'Florence_Yalls.png',
+    'Gateway Grizzlies': 'Gateway_Grizzlies.png',
+    'Joliet Slammers': 'Joliet_Slammers.png',
+    'Lake Erie Crushers': 'Lake_Erie_Crushers.png',
+    'Mississippi Mud Monsters': 'Mississippi_Mud_Monsters.png',
+    'New Jersey Jackals': 'New_Jersey_Jackals.png',
+    'New York Boulders': 'New_York_Boulders.png',
+    'Ottawa Titans': 'Ottawa_Titans.png',
+    'Quebec Capitales': 'Quebec_Capitales.png',
+    'Schaumburg Boomers': 'Schaumburg_Boomers.png',
+    'Sussex County Miners': 'Sussex_County_Miners.png',
+    'Tri-City ValleyCats': 'Tri_City_ValleyCats.png',
+    'Trois-Rivières Aigles': 'Trois_Rivieres_Aigles.png',
+    'Washington Wild Things': 'Washington_Wild_Things.png',
+    'Windy City ThunderBolts': 'Windy_City_ThunderBolts.png',
+    # Historic
+    'Savannah Sand Gnats': 'Savannah_Sand_Gnats.png',
+}
+
+
+def _load_local_logos() -> Dict[str, str]:
+    """Load local logo files from logos/ directory and return base64 data URIs."""
+    logos_dir = Path(__file__).resolve().parent.parent.parent / 'logos'
+    result = {}
+    for team_name, filename in LOCAL_LOGO_MAP.items():
+        logo_path = logos_dir / filename
+        if logo_path.exists():
+            data = logo_path.read_bytes()
+            ext = filename.rsplit('.', 1)[-1].lower()
+            mime = {'png': 'image/png', 'jpg': 'image/jpeg', 'jpeg': 'image/jpeg',
+                    'svg': 'image/svg+xml', 'webp': 'image/webp', 'gif': 'image/gif'}.get(ext, 'image/png')
+            b64 = base64.b64encode(data).decode('ascii')
+            result[team_name] = f'data:{mime};base64,{b64}'
+    return result
 
 
 def generate_website_from_data(processed_data: Dict[str, Any], output_path: str, raw_games: List[Dict] = None):
@@ -107,6 +192,10 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
 
     # Build partner logos mapping (team name -> logo URL)
     partner_logos = {team_name: data.get('logo') for team_name, data in PARTNER_TEAM_DATA.items() if data.get('logo')}
+
+    # Load local logos (base64 data URIs) and override partner/historical logos
+    local_logos = _load_local_logos()
+    partner_logos.update({k: v for k, v in local_logos.items() if k in partner_logos or k in PARTNER_TEAM_DATA})
 
     # MiLB venue name mappings (old names -> current names)
     milb_venue_aliases = {
@@ -274,9 +363,12 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
                 milb_by_level[mapped_level][league_name] = [team_entry]
 
     # Track team names already added from MILB_STADIUM_DATA to avoid duplicates
+    # Only include non-historic teams; historic teams may also appear in PARTNER_TEAM_DATA
     seen_milb_team_names = set()
     for venue_info in MILB_STADIUM_DATA.values():
-        seen_milb_team_names.add(venue_info[2])  # team_name is index 2
+        team_name = venue_info[2]
+        if team_name not in HISTORIC_MILB_TEAMS:
+            seen_milb_team_names.add(team_name)
 
     # Add Partner (independent league) teams
     seen_partner_ids = set()
@@ -633,9 +725,10 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         'venuesVisited': list(venues_visited),
         'unifiedBatters': unified_batters,
         'unifiedPitchers': unified_pitchers,
-        'historicalTeamLogos': HISTORICAL_TEAM_LOGOS,
+        'historicalTeamLogos': {**HISTORICAL_TEAM_LOGOS, **{k: v for k, v in local_logos.items() if k in HISTORICAL_TEAM_LOGOS}},
         'ncaaTeamLogos': NCAA_TEAM_LOGOS,
         'partnerLogos': partner_logos,
+        'localLogos': local_logos,
     }
 
 
@@ -1137,6 +1230,66 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             return result;
         }};
 
+        // Helper to add innings pitched correctly (6.1 + 3.2 = 10.0, not 9.3)
+        const addIP = (vals) => {{
+            const totalThirds = vals.reduce((sum, ip) => {{
+                const n = parseFloat(ip) || 0;
+                const whole = Math.floor(n);
+                const frac = Math.round((n - whole) * 10);
+                return sum + whole * 3 + frac;
+            }}, 0);
+            const whole = Math.floor(totalThirds / 3);
+            const rem = totalThirds % 3;
+            return parseFloat(`${{whole}}.${{rem}}`);
+        }};
+
+        // Helper to convert IP to true innings for rate stat calculation
+        const ipToInnings = (ip) => {{
+            const n = parseFloat(ip) || 0;
+            const whole = Math.floor(n);
+            const frac = Math.round((n - whole) * 10);
+            return whole + frac / 3;
+        }};
+
+        // Group crossover players by bref_id into combined rows with expandable sub-rows
+        const groupByPlayer = (data, levelFilter, sumFields, calcRateStats, ipField) => {{
+            if (levelFilter && levelFilter !== 'All') return data;
+            const groups = {{}};
+            const ungrouped = [];
+            data.forEach(entry => {{
+                const key = entry.bref_id;
+                if (key) {{
+                    if (!groups[key]) groups[key] = [];
+                    groups[key].push(entry);
+                }} else {{
+                    ungrouped.push(entry);
+                }}
+            }});
+            const result = [];
+            Object.values(groups).forEach(entries => {{
+                if (entries.length === 1) {{
+                    result.push(entries[0]);
+                }} else {{
+                    const combined = {{ ...entries[0] }};
+                    combined.isCombined = true;
+                    combined.subRows = entries;
+                    combined.level = 'Combined';
+                    combined.levels = entries.map(e => e.level);
+                    combined.team = entries.map(e => e.team).join(' / ');
+                    sumFields.forEach(f => {{
+                        if (f === ipField) {{
+                            combined[f] = addIP(entries.map(e => e[f]));
+                        }} else {{
+                            combined[f] = entries.reduce((s, e) => s + (parseFloat(e[f]) || 0), 0);
+                        }}
+                    }});
+                    calcRateStats(combined);
+                    result.push(combined);
+                }}
+            }});
+            return [...result, ...ungrouped];
+        }};
+
         const PlayerLink = ({{ name, brefId, onClick }}) => {{
             return (
                 <span className="clickable-name" onClick={{onClick}}>
@@ -1339,35 +1492,16 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             }}, [games, levelFilter, leagueFilter, searchTerm]);
 
             const TeamCell = ({{ team, teamId, level }}) => {{
+                const localLogo = DATA.localLogos && DATA.localLogos[team];
                 const historicalLogo = DATA.historicalTeamLogos && DATA.historicalTeamLogos[team];
                 const ncaaEspnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[team];
                 const partnerLogo = DATA.partnerLogos && DATA.partnerLogos[team];
+                const logoSrc = localLogo || (level === 'Independent' && partnerLogo) || historicalLogo || (level === 'NCAA' && ncaaEspnId && `https://a.espncdn.com/i/teamlogos/ncaa/500/${{ncaaEspnId}}.png`) || (level !== 'NCAA' && teamId && `https://www.mlbstatic.com/team-logos/${{teamId}}.svg`);
 
-                // Independent (partner) teams use custom logos
-                if (level === 'Independent' && partnerLogo) {{
-                    return (
-                        <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
-                            <img src={{partnerLogo}} style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => e.target.style.display = 'none'}} />
-                            <span>{{team}}</span>
-                        </div>
-                    );
-                }}
-
-                // Pro teams (any non-NCAA level) with team ID or historical logo
-                if (level !== 'NCAA' && (teamId || historicalLogo)) {{
-                    const logoSrc = historicalLogo || `https://www.mlbstatic.com/team-logos/${{teamId}}.svg`;
+                if (logoSrc) {{
                     return (
                         <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
                             <img src={{logoSrc}} style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => e.target.style.display = 'none'}} />
-                            <span>{{team}}</span>
-                        </div>
-                    );
-                }}
-
-                if (level === 'NCAA' && ncaaEspnId) {{
-                    return (
-                        <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
-                            <img src={{`https://a.espncdn.com/i/teamlogos/ncaa/500/${{ncaaEspnId}}.png`}} style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => e.target.style.display = 'none'}} />
                             <span>{{team}}</span>
                         </div>
                     );
@@ -1900,6 +2034,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                                     <div style={{{{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '8px'}}}}>
                                                                         {{lgData.teams.sort((a, b) => a.team.localeCompare(b.team)).map(({{ team, venue, teamId, logo }}) => {{
                                                                             const status = lgData.teamStatus[team] || 'none';
+                                                                            const resolvedLogo = (DATA.localLogos && DATA.localLogos[team]) || logo;
                                                                             return (
                                                                                 <div key={{team}} style={{{{
                                                                                     padding: '8px 12px',
@@ -1911,7 +2046,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                                                     gap: '10px'
                                                                                 }}}}>
                                                                                     <img
-                                                                                        src={{logo}}
+                                                                                        src={{resolvedLogo}}
                                                                                         style={{{{width: '24px', height: '24px', objectFit: 'contain'}}}}
                                                                                         onError={{(e) => {{ e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}}}
                                                                                     />
@@ -1933,6 +2068,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                         <div style={{{{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '8px'}}}}>
                                                             {{levelData.teams.sort((a, b) => a.team.localeCompare(b.team)).map(({{ team, venue, teamId, logo }}) => {{
                                                                 const status = levelData.teamStatus[team] || 'none';
+                                                                const resolvedLogo = (DATA.localLogos && DATA.localLogos[team]) || logo;
                                                                 return (
                                                                     <div key={{team}} style={{{{
                                                                         padding: '8px 12px',
@@ -1944,7 +2080,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                                         gap: '10px'
                                                                     }}}}>
                                                                         <img
-                                                                            src={{logo}}
+                                                                            src={{resolvedLogo}}
                                                                             style={{{{width: '24px', height: '24px', objectFit: 'contain'}}}}
                                                                             onError={{(e) => {{ e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}}}
                                                                         />
@@ -2074,12 +2210,13 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
                         const opacity = isVisited ? 1.0 : 0.5;
                         const size = isVisited ? 28 : 22;
+                        const logo = (DATA.localLogos && DATA.localLogos[info.team]) || info.logo;
 
                         const teamInitial = info.team.charAt(0);
                         const icon = L.divIcon({{
                             className: 'logo-marker',
                             html: `<div style="width: ${{size}}px; height: ${{size}}px; opacity: ${{opacity}}; background: white; border-radius: 50%; padding: 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); ${{isVisited ? 'border: 2px solid #ff6b35;' : ''}} display: flex; align-items: center; justify-content: center;">
-                                <img src="${{info.logo}}" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                                <img src="${{logo}}" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
                                 <span style="display: none; font-weight: bold; font-size: ${{size*0.5}}px; color: #333; align-items: center; justify-content: center; width: 100%; height: 100%;">⚾</span>
                             </div>`,
                             iconSize: [size, size],
@@ -2087,7 +2224,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         }});
 
                         const marker = L.marker([info.lat, info.lng], {{ icon }})
-                            .bindPopup(`<div style="text-align:center;"><img src="${{info.logo}}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>⚾</span>'" /><br><strong>${{info.team}}</strong><br>${{venueName}}<br><em>MiLB (${{info.level}}) - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
+                            .bindPopup(`<div style="text-align:center;"><img src="${{logo}}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>⚾</span>'" /><br><strong>${{info.team}}</strong><br>${{venueName}}<br><em>MiLB (${{info.level}}) - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
                             .addTo(mapInstance.current);
                         markersRef.current.push(marker);
                     }});
@@ -2105,11 +2242,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
                         const opacity = isVisited ? 1.0 : 0.5;
                         const size = isVisited ? 26 : 20;
+                        const logo = (DATA.localLogos && DATA.localLogos[info.team]) || info.logo;
 
                         const icon = L.divIcon({{
                             className: 'logo-marker',
                             html: `<div style="width: ${{size}}px; height: ${{size}}px; opacity: ${{opacity}}; background: white; border-radius: 50%; padding: 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); ${{isVisited ? 'border: 2px solid #9c27b0;' : ''}} display: flex; align-items: center; justify-content: center;">
-                                <img src="${{info.logo}}" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                                <img src="${{logo}}" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
                                 <span style="display: none; font-weight: bold; font-size: ${{size*0.5}}px; color: #333; align-items: center; justify-content: center; width: 100%; height: 100%;">⚾</span>
                             </div>`,
                             iconSize: [size, size],
@@ -2117,7 +2255,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         }});
 
                         const marker = L.marker([info.lat, info.lng], {{ icon }})
-                            .bindPopup(`<div style="text-align:center;"><img src="${{info.logo}}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>⚾</span>'" /><br><strong>${{info.team}}</strong><br>${{stadiumName}}<br><em>${{info.league}} - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
+                            .bindPopup(`<div style="text-align:center;"><img src="${{logo}}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>⚾</span>'" /><br><strong>${{info.team}}</strong><br>${{stadiumName}}<br><em>${{info.league}} - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
                             .addTo(mapInstance.current);
                         markersRef.current.push(marker);
                     }});
@@ -2242,19 +2380,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
             // Get team logo
             const getTeamLogo = (team, teamId, level) => {{
+                const localLogo = DATA.localLogos && DATA.localLogos[team];
                 const historicalLogo = DATA.historicalTeamLogos && DATA.historicalTeamLogos[team];
                 const ncaaEspnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[team];
                 const partnerLogo = DATA.partnerLogos && DATA.partnerLogos[team];
+                const logoSrc = localLogo || (level === 'Independent' && partnerLogo) || historicalLogo || (level === 'NCAA' && ncaaEspnId && `https://a.espncdn.com/i/teamlogos/ncaa/500/${{ncaaEspnId}}.png`) || (level !== 'NCAA' && teamId && `https://www.mlbstatic.com/team-logos/${{teamId}}.svg`);
 
-                if (level === 'Independent' && partnerLogo) {{
-                    return <img src={{partnerLogo}} style={{{{width: '16px', height: '16px', objectFit: 'contain', marginRight: '6px'}}}} onError={{(e) => e.target.style.display = 'none'}} />;
-                }}
-                if (level !== 'NCAA' && (teamId || historicalLogo)) {{
-                    const logoSrc = historicalLogo || `https://www.mlbstatic.com/team-logos/${{teamId}}.svg`;
+                if (logoSrc) {{
                     return <img src={{logoSrc}} style={{{{width: '16px', height: '16px', objectFit: 'contain', marginRight: '6px'}}}} onError={{(e) => e.target.style.display = 'none'}} />;
-                }}
-                if (level === 'NCAA' && ncaaEspnId) {{
-                    return <img src={{`https://a.espncdn.com/i/teamlogos/ncaa/500/${{ncaaEspnId}}.png`}} style={{{{width: '16px', height: '16px', objectFit: 'contain', marginRight: '6px'}}}} onError={{(e) => e.target.style.display = 'none'}} />;
                 }}
                 return null;
             }};
@@ -2391,6 +2524,16 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             const [levelFilter, setLevelFilter] = useState('All');
             const [leagueFilter, setLeagueFilter] = useState('All');
             const [searchTerm, setSearchTerm] = useState('');
+            const [expandedPlayers, setExpandedPlayers] = useState(new Set());
+
+            const toggleExpand = (brefId) => {{
+                setExpandedPlayers(prev => {{
+                    const next = new Set(prev);
+                    if (next.has(brefId)) next.delete(brefId);
+                    else next.add(brefId);
+                    return next;
+                }});
+            }};
 
             const filtered = useMemo(() => {{
                 if (!batters) return [];
@@ -2402,12 +2545,17 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         b.team?.toLowerCase().includes(s)
                     );
                 }}
-                return result;
+                return groupByPlayer(result, levelFilter,
+                    ['g', 'ab', 'r', 'h', 'doubles', 'triples', 'hr', 'rbi', 'bb', 'k', 'sb'],
+                    (c) => {{ c.avg = c.ab > 0 ? (c.h / c.ab).toFixed(3) : '.000'; }}
+                );
             }}, [batters, levelFilter, leagueFilter, searchTerm]);
 
             const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'h', direction: 'desc' }});
 
             const getTeamLogo = (player) => {{
+                const local = DATA.localLogos && DATA.localLogos[player.team];
+                if (local) return local;
                 if (player.level === 'NCAA') {{
                     const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[player.team];
                     if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
@@ -2421,6 +2569,71 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     return `https://www.mlbstatic.com/team-logos/${{player.team_id}}.svg`;
                 }}
                 return null;
+            }};
+
+            const renderBatterRow = (b, i, isSubRow) => {{
+                const logo = getTeamLogo(b);
+                return (
+                    <tr key={{isSubRow ? `${{i}}-sub-${{b.level}}` : i}}
+                        style={{{{
+                            ...(isSubRow ? {{background: '#f8f9fa'}} : {{}}),
+                            ...(b.isCombined ? {{cursor: 'pointer'}} : {{}})
+                        }}}}
+                        onClick={{b.isCombined ? () => toggleExpand(b.bref_id) : undefined}}
+                    >
+                        <td>
+                            <div style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
+                                {{b.isCombined ? (
+                                    <React.Fragment>
+                                        <span style={{{{fontSize: '10px', color: '#666', width: '12px'}}}}>
+                                            {{expandedPlayers.has(b.bref_id) ? '\u25BC' : '\u25B6'}}
+                                        </span>
+                                        {{b.levels.map((l, j) => (
+                                            <span key={{j}}>{{getLevelBadgeGeneric(l)}}</span>
+                                        ))}}
+                                    </React.Fragment>
+                                ) : (
+                                    <React.Fragment>
+                                        {{isSubRow && <span style={{{{width: '12px'}}}}></span>}}
+                                        {{getLevelBadgeGeneric(b.level)}}
+                                    </React.Fragment>
+                                )}}
+                            </div>
+                        </td>
+                        <td>
+                            {{b.bref_id ? (
+                                <a href={{BREF_BASE + b.bref_id}} target="_blank" style={{{{color: '#1e3a5f', textDecoration: 'none'}}}} onClick={{(e) => e.stopPropagation()}}>
+                                    {{b.name}} <span style={{{{fontSize: '10px'}}}}>↗</span>
+                                </a>
+                            ) : b.name}}
+                        </td>
+                        <td>
+                            <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
+                                {{logo && (
+                                    <img
+                                        src={{logo}}
+                                        alt=""
+                                        style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
+                                        onError={{(e) => {{ e.target.style.display = 'none'; }}}}
+                                    />
+                                )}}
+                                {{b.team}}
+                            </div>
+                        </td>
+                        <td className="text-center">{{b.g}}</td>
+                        <td className="text-center">{{b.ab}}</td>
+                        <td className="text-center">{{b.r}}</td>
+                        <td className="text-center">{{b.h}}</td>
+                        <td className="text-center">{{b.doubles}}</td>
+                        <td className="text-center">{{b.triples}}</td>
+                        <td className="text-center">{{b.hr}}</td>
+                        <td className="text-center">{{b.rbi}}</td>
+                        <td className="text-center">{{b.bb}}</td>
+                        <td className="text-center">{{b.k}}</td>
+                        <td className="text-center">{{b.sb}}</td>
+                        <td className="text-center">{{b.avg}}</td>
+                    </tr>
+                );
             }};
 
             if (!batters || batters.length === 0) {{
@@ -2472,46 +2685,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 </tr>
                             </thead>
                             <tbody>
-                                {{items.slice(0, 200).map((b, i) => {{
-                                    const logo = getTeamLogo(b);
-                                    return (
-                                        <tr key={{i}}>
-                                            <td>{{getLevelBadgeGeneric(b.level)}}</td>
-                                            <td>
-                                                {{b.bref_id ? (
-                                                    <a href={{BREF_BASE + b.bref_id}} target="_blank" style={{{{color: '#1e3a5f', textDecoration: 'none'}}}}>
-                                                        {{b.name}} <span style={{{{fontSize: '10px'}}}}>↗</span>
-                                                    </a>
-                                                ) : b.name}}
-                                            </td>
-                                            <td>
-                                                <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
-                                                    {{logo && (
-                                                        <img
-                                                            src={{logo}}
-                                                            alt=""
-                                                            style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
-                                                            onError={{(e) => {{ e.target.style.display = 'none'; }}}}
-                                                        />
-                                                    )}}
-                                                    {{b.team}}
-                                                </div>
-                                            </td>
-                                            <td className="text-center">{{b.g}}</td>
-                                            <td className="text-center">{{b.ab}}</td>
-                                            <td className="text-center">{{b.r}}</td>
-                                            <td className="text-center">{{b.h}}</td>
-                                            <td className="text-center">{{b.doubles}}</td>
-                                            <td className="text-center">{{b.triples}}</td>
-                                            <td className="text-center">{{b.hr}}</td>
-                                            <td className="text-center">{{b.rbi}}</td>
-                                            <td className="text-center">{{b.bb}}</td>
-                                            <td className="text-center">{{b.k}}</td>
-                                            <td className="text-center">{{b.sb}}</td>
-                                            <td className="text-center">{{b.avg}}</td>
-                                        </tr>
-                                    );
-                                }})}}
+                                {{items.slice(0, 200).map((b, i) => (
+                                    <React.Fragment key={{i}}>
+                                        {{renderBatterRow(b, i, false)}}
+                                        {{b.isCombined && expandedPlayers.has(b.bref_id) && b.subRows.map((sub, j) =>
+                                            renderBatterRow(sub, `${{i}}-${{j}}`, true)
+                                        )}}
+                                    </React.Fragment>
+                                ))}}
                             </tbody>
                         </table>
                     </div>
@@ -2523,6 +2704,16 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             const [levelFilter, setLevelFilter] = useState('All');
             const [leagueFilter, setLeagueFilter] = useState('All');
             const [searchTerm, setSearchTerm] = useState('');
+            const [expandedPlayers, setExpandedPlayers] = useState(new Set());
+
+            const toggleExpand = (brefId) => {{
+                setExpandedPlayers(prev => {{
+                    const next = new Set(prev);
+                    if (next.has(brefId)) next.delete(brefId);
+                    else next.add(brefId);
+                    return next;
+                }});
+            }};
 
             const filtered = useMemo(() => {{
                 if (!pitchers) return [];
@@ -2534,12 +2725,21 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         p.team?.toLowerCase().includes(s)
                     );
                 }}
-                return result;
+                return groupByPlayer(result, levelFilter,
+                    ['g', 'ip', 'h', 'r', 'er', 'bb', 'k', 'hr'],
+                    (c) => {{
+                        const inn = ipToInnings(c.ip);
+                        c.era = inn > 0 ? ((c.er * 9) / inn).toFixed(2) : '0.00';
+                    }},
+                    'ip'
+                );
             }}, [pitchers, levelFilter, leagueFilter, searchTerm]);
 
             const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'k', direction: 'desc' }});
 
             const getTeamLogo = (player) => {{
+                const local = DATA.localLogos && DATA.localLogos[player.team];
+                if (local) return local;
                 if (player.level === 'NCAA') {{
                     const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[player.team];
                     if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
@@ -2553,6 +2753,68 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     return `https://www.mlbstatic.com/team-logos/${{player.team_id}}.svg`;
                 }}
                 return null;
+            }};
+
+            const renderPitcherRow = (p, i, isSubRow) => {{
+                const logo = getTeamLogo(p);
+                return (
+                    <tr key={{isSubRow ? `${{i}}-sub-${{p.level}}` : i}}
+                        style={{{{
+                            ...(isSubRow ? {{background: '#f8f9fa'}} : {{}}),
+                            ...(p.isCombined ? {{cursor: 'pointer'}} : {{}})
+                        }}}}
+                        onClick={{p.isCombined ? () => toggleExpand(p.bref_id) : undefined}}
+                    >
+                        <td>
+                            <div style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
+                                {{p.isCombined ? (
+                                    <React.Fragment>
+                                        <span style={{{{fontSize: '10px', color: '#666', width: '12px'}}}}>
+                                            {{expandedPlayers.has(p.bref_id) ? '\u25BC' : '\u25B6'}}
+                                        </span>
+                                        {{p.levels.map((l, j) => (
+                                            <span key={{j}}>{{getLevelBadgeGeneric(l)}}</span>
+                                        ))}}
+                                    </React.Fragment>
+                                ) : (
+                                    <React.Fragment>
+                                        {{isSubRow && <span style={{{{width: '12px'}}}}></span>}}
+                                        {{getLevelBadgeGeneric(p.level)}}
+                                    </React.Fragment>
+                                )}}
+                            </div>
+                        </td>
+                        <td>
+                            {{p.bref_id ? (
+                                <a href={{BREF_BASE + p.bref_id}} target="_blank" style={{{{color: '#1e3a5f', textDecoration: 'none'}}}} onClick={{(e) => e.stopPropagation()}}>
+                                    {{p.name}} <span style={{{{fontSize: '10px'}}}}>↗</span>
+                                </a>
+                            ) : p.name}}
+                        </td>
+                        <td>
+                            <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
+                                {{logo && (
+                                    <img
+                                        src={{logo}}
+                                        alt=""
+                                        style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
+                                        onError={{(e) => {{ e.target.style.display = 'none'; }}}}
+                                    />
+                                )}}
+                                {{p.team}}
+                            </div>
+                        </td>
+                        <td className="text-center">{{p.g}}</td>
+                        <td className="text-center">{{p.ip}}</td>
+                        <td className="text-center">{{p.h}}</td>
+                        <td className="text-center">{{p.r}}</td>
+                        <td className="text-center">{{p.er}}</td>
+                        <td className="text-center">{{p.bb}}</td>
+                        <td className="text-center">{{p.k}}</td>
+                        <td className="text-center">{{p.hr}}</td>
+                        <td className="text-center">{{p.era}}</td>
+                    </tr>
+                );
             }};
 
             if (!pitchers || pitchers.length === 0) {{
@@ -2601,43 +2863,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 </tr>
                             </thead>
                             <tbody>
-                                {{items.slice(0, 200).map((p, i) => {{
-                                    const logo = getTeamLogo(p);
-                                    return (
-                                        <tr key={{i}}>
-                                            <td>{{getLevelBadgeGeneric(p.level)}}</td>
-                                            <td>
-                                                {{p.bref_id ? (
-                                                    <a href={{BREF_BASE + p.bref_id}} target="_blank" style={{{{color: '#1e3a5f', textDecoration: 'none'}}}}>
-                                                        {{p.name}} <span style={{{{fontSize: '10px'}}}}>↗</span>
-                                                    </a>
-                                                ) : p.name}}
-                                            </td>
-                                            <td>
-                                                <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
-                                                    {{logo && (
-                                                        <img
-                                                            src={{logo}}
-                                                            alt=""
-                                                            style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
-                                                            onError={{(e) => {{ e.target.style.display = 'none'; }}}}
-                                                        />
-                                                    )}}
-                                                    {{p.team}}
-                                                </div>
-                                            </td>
-                                            <td className="text-center">{{p.g}}</td>
-                                            <td className="text-center">{{p.ip}}</td>
-                                            <td className="text-center">{{p.h}}</td>
-                                            <td className="text-center">{{p.r}}</td>
-                                            <td className="text-center">{{p.er}}</td>
-                                            <td className="text-center">{{p.bb}}</td>
-                                            <td className="text-center">{{p.k}}</td>
-                                            <td className="text-center">{{p.hr}}</td>
-                                            <td className="text-center">{{p.era}}</td>
-                                        </tr>
-                                    );
-                                }})}}
+                                {{items.slice(0, 200).map((p, i) => (
+                                    <React.Fragment key={{i}}>
+                                        {{renderPitcherRow(p, i, false)}}
+                                        {{p.isCombined && expandedPlayers.has(p.bref_id) && p.subRows.map((sub, j) =>
+                                            renderPitcherRow(sub, `${{i}}-${{j}}`, true)
+                                        )}}
+                                    </React.Fragment>
+                                ))}}
                             </tbody>
                         </table>
                     </div>

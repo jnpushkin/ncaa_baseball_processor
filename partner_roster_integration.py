@@ -143,6 +143,32 @@ def lookup_partner_player(team_name: str, year: int, player_name: str) -> Option
     return None
 
 
+def lookup_partner_player_full(team_name: str, year: int, player_name: str) -> Optional[Dict[str, str]]:
+    """
+    Look up a player's bref_id and full name from a Partner team roster.
+
+    Args:
+        team_name: Partner team name
+        year: Year of the game
+        player_name: Player name as it appears in the box score
+
+    Returns:
+        Dict with 'bref_id' and 'full_name' keys, or None if not found
+    """
+    roster = fetch_partner_roster(team_name, year)
+    if not roster:
+        return None
+
+    player = lookup_player(roster, player_name)
+    if player:
+        return {
+            'bref_id': player.get('bref_id'),
+            'full_name': player.get('name'),
+        }
+
+    return None
+
+
 def bulk_fetch_partner_rosters(year: int, league: Optional[str] = None, delay: float = REQUEST_DELAY) -> Dict[str, Any]:
     """
     Fetch rosters for all Partner League teams for a given year.

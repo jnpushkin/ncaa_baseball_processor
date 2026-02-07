@@ -38,9 +38,6 @@ MILB_CACHE_DIR = MILB_DIR / "cache"
 MILB_GAME_IDS_FILE = MILB_DIR / "game_ids.txt"
 MILB_API_BASE = "https://statsapi.mlb.com/api/v1"
 
-# MLB Game Tracker (read-only for crossover tracking)
-MLB_TRACKER_CACHE = Path.home() / "MLB Game Tracker" / "cache"
-
 # Partner Leagues (independent leagues: Pioneer, Atlantic, American Association, Frontier)
 PARTNER_DIR = BASE_DIR / "partner"
 PARTNER_CACHE_DIR = PARTNER_DIR / "cache"
@@ -100,21 +97,21 @@ PITCHING_MILESTONES = {
 CONFERENCES = {
     'ACC': ['Boston College', 'California', 'Clemson', 'Duke', 'Florida State', 'Georgia Tech',
             'Louisville', 'Miami', 'NC State', 'North Carolina', 'Notre Dame', 'Pittsburgh',
-            'SMU', 'Stanford', 'Virginia', 'Virginia Tech', 'Wake Forest'],
+            'Stanford', 'Virginia', 'Virginia Tech', 'Wake Forest'],
     'SEC': ['Alabama', 'Arkansas', 'Auburn', 'Florida', 'Georgia', 'Kentucky', 'LSU',
             'Mississippi State', 'Missouri', 'Oklahoma', 'Ole Miss', 'South Carolina',
             'Tennessee', 'Texas', 'Texas A&M', 'Vanderbilt'],
-    'Big 12': ['Arizona', 'Arizona State', 'Baylor', 'BYU', 'Cincinnati', 'Colorado',
+    'Big 12': ['Arizona', 'Arizona State', 'Baylor', 'BYU', 'Cincinnati',
                'Houston', 'Kansas', 'Kansas State', 'Oklahoma State', 'TCU',
                'Texas Tech', 'UCF', 'Utah', 'West Virginia'],
     'Big Ten': ['Illinois', 'Indiana', 'Iowa', 'Maryland', 'Michigan', 'Michigan State',
                 'Minnesota', 'Nebraska', 'Northwestern', 'Ohio State', 'Oregon',
                 'Penn State', 'Purdue', 'Rutgers', 'UCLA', 'USC', 'Washington'],
-    'Pac-12': ['Oregon State', 'Washington State'],
+    'DI Independent': ['Oregon State'],
     'WCC': ['Gonzaga', 'LMU', 'Pacific', 'Pepperdine', 'Portland', "Saint Mary's",
             'San Diego', 'San Francisco', 'Santa Clara', 'Seattle'],
     'Mountain West': ['Air Force', 'Fresno State', 'Grand Canyon', 'Nevada', 'New Mexico',
-                      'San Diego State', 'San Jose State', 'UNLV'],
+                      'San Diego State', 'San Jose State', 'UNLV', 'Washington State'],
     'Missouri Valley': ['Belmont', 'Bradley', 'Evansville', 'Illinois State', 'Indiana State',
                         'Murray State', 'Southern Illinois', 'UIC', 'Valparaiso'],
     'WAC': ['Abilene Christian', 'California Baptist', 'Sacramento State', 'Tarleton State',
@@ -129,7 +126,8 @@ CONFERENCES = {
     'Southern': ['ETSU', 'Mercer', 'Samford', 'The Citadel', 'UNC Greensboro', 'VMI',
                  'Western Carolina', 'Wofford'],
     'Northeast': ['Central Connecticut', 'Coppin State', 'Delaware State', 'Fairleigh Dickinson',
-                  'Le Moyne', 'LIU', 'Mercyhurst', 'Norfolk State', 'Stonehill', 'Wagner'],
+                  'Le Moyne', 'LIU', 'Mercyhurst', 'New Haven', 'Norfolk State', 'Stonehill',
+                  'UMES', 'Wagner'],
     'Big West': ['Cal Poly', 'Cal State Fullerton', 'CSU Bakersfield', 'CSUN', 'Hawaii',
                  'Long Beach State', 'UC Davis', 'UC Irvine', 'UC Riverside',
                  'UC San Diego', 'UC Santa Barbara'],
@@ -145,7 +143,7 @@ CONFERENCES = {
             'Northeastern', 'Stony Brook', 'Towson', 'UNC Wilmington', 'William & Mary'],
     'Ohio Valley': ['Eastern Illinois', 'Lindenwood', 'Little Rock', 'Morehead State',
                     'SIU Edwardsville', 'Southeast Missouri', 'Southern Indiana',
-                    'Tennessee State', 'Tennessee Tech', 'UT Martin', 'Western Illinois'],
+                    'Tennessee Tech', 'UT Martin', 'Western Illinois'],
     'ASUN': ['Austin Peay', 'Bellarmine', 'Central Arkansas', 'Eastern Kentucky', 'FGCU',
              'Jacksonville', 'Lipscomb', 'North Alabama', 'North Florida', 'Queens',
              'Stetson', 'West Georgia'],
@@ -154,7 +152,7 @@ CONFERENCES = {
                   'Texas A&M-Corpus Christi', 'UTRGV', 'UIW'],
     'Big South': ['Charleston Southern', 'Gardner-Webb', 'High Point', 'Longwood',
                   'Presbyterian', 'Radford', 'UNC Asheville', 'USC Upstate', 'Winthrop'],
-    'Horizon League': ['Milwaukee', 'Northern Kentucky', 'Oakland', 'PFW',
+    'Horizon League': ['Milwaukee', 'Northern Kentucky', 'Oakland',
                        'Wright State', 'Youngstown State'],
     'Ivy League': ['Brown', 'Columbia', 'Cornell', 'Dartmouth', 'Harvard', 'Penn',
                    'Princeton', 'Yale'],
@@ -181,9 +179,10 @@ CONFERENCE_CHANGES = {
     'Arizona': [(2023, 'Pac-12')],
     'Arizona State': [(2023, 'Pac-12')],
     'Utah': [(2023, 'Pac-12')],
-    'Colorado': [(2023, 'Pac-12')],
     'Oregon': [(2023, 'Pac-12')],
     'Washington': [(2023, 'Pac-12')],
+    'Oregon State': [(2023, 'Pac-12')],
+    'Washington State': [(2023, 'Pac-12')],
     # Oklahoma and Texas to SEC (2024)
     'Oklahoma': [(2023, 'Big 12')],
     'Texas': [(2023, 'Big 12')],
@@ -238,3 +237,120 @@ def get_conference(team: str, year: int = None) -> str:
 def get_all_conferences() -> list:
     """Get list of all conference names."""
     return list(CONFERENCES.keys())
+
+
+# === PRO LEVEL / LEAGUE MAPPINGS ===
+
+# Maps API sport_level codes and stadium level codes to display names
+SPORT_LEVEL_MAP = {
+    'AAA': 'Triple-A',
+    'AA': 'Double-A',
+    'A+': 'High-A',
+    'A': 'Single-A',
+    'Rookie': 'Independent',
+    'Partner': 'Independent',
+}
+
+# Maps league names to their level
+LEAGUE_LEVEL_MAP = {
+    # Triple-A
+    'International League': 'Triple-A',
+    'Pacific Coast League': 'Triple-A',
+    # Double-A
+    'Eastern League': 'Double-A',
+    'Southern League': 'Double-A',
+    'Texas League': 'Double-A',
+    # High-A
+    'Midwest League': 'High-A',
+    'South Atlantic League': 'High-A',
+    'Northwest League': 'High-A',
+    # Single-A
+    'Carolina League': 'Single-A',
+    'California League': 'Single-A',
+    'Florida State League': 'Single-A',
+    # Independent / Partner
+    'Pioneer League': 'Independent',
+    'Atlantic League': 'Independent',
+    'American Association': 'Independent',
+    'Frontier League': 'Independent',
+}
+
+# Ordered display levels with their associated leagues
+PRO_LEVELS = {
+    'Triple-A': ['International League', 'Pacific Coast League'],
+    'Double-A': ['Eastern League', 'Southern League', 'Texas League'],
+    'High-A': ['Midwest League', 'South Atlantic League', 'Northwest League'],
+    'Single-A': ['Carolina League', 'California League', 'Florida State League'],
+    'Independent': ['Pioneer League', 'Atlantic League', 'American Association', 'Frontier League'],
+}
+
+# Ordered list of all levels for consistent display
+LEVEL_ORDER = ['NCAA', 'Triple-A', 'Double-A', 'High-A', 'Single-A', 'Independent']
+
+# Colors for each level
+LEVEL_COLORS = {
+    'NCAA': '#28a745',
+    'Triple-A': '#d4380d',
+    'Double-A': '#ff6b35',
+    'High-A': '#fa8c16',
+    'Single-A': '#1890ff',
+    'Rookie': '#17a2b8',
+    'Independent': '#9c27b0',
+    'Combined': '#1e3a5f',
+}
+
+
+def resolve_level_and_league(metadata: dict, team_name: str = '') -> tuple:
+    """Resolve the display level and league for a game or team.
+
+    Args:
+        metadata: Game metadata dict (may contain 'source', 'league', 'sport_level', etc.)
+        team_name: Optional team name for partner league lookup
+
+    Returns:
+        Tuple of (level, league) e.g. ('Single-A', 'California League')
+    """
+    from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_canonical_team_name
+
+    source = metadata.get('source', '')
+
+    # Partner league games
+    if source == 'partner':
+        canonical = get_canonical_team_name(team_name)
+        partner_data = PARTNER_TEAM_DATA.get(canonical, {})
+        league = partner_data.get('league', '')
+        return ('Independent', league)
+
+    # MiLB games - try league name first
+    league_info = metadata.get('league', {})
+    league_name = ''
+    if isinstance(league_info, dict):
+        league_name = league_info.get('home', '') or league_info.get('away', '')
+    elif isinstance(league_info, str):
+        league_name = league_info
+
+    if league_name and league_name in LEAGUE_LEVEL_MAP:
+        # Pioneer League was MiLB Rookie ball before 2021 reorganization
+        if league_name == 'Pioneer League':
+            date_str = metadata.get('date_yyyymmdd', '') or metadata.get('date', '')
+            if date_str and str(date_str)[:4] < '2021':
+                return ('Rookie', league_name)
+        return (LEAGUE_LEVEL_MAP[league_name], league_name)
+
+    # Fall back to sport_level code from stadium data
+    sport_level = metadata.get('sport_level', '')
+    if isinstance(sport_level, dict):
+        sport_level = sport_level.get('home', '') or sport_level.get('away', '')
+    if sport_level and isinstance(sport_level, str) and sport_level in SPORT_LEVEL_MAP:
+        return (SPORT_LEVEL_MAP[sport_level], league_name or '')
+
+    # Try to resolve from MILB_STADIUM_DATA via team name
+    from ..utils.milb_stadiums import MILB_TEAM_LEAGUES
+    if team_name and team_name in MILB_TEAM_LEAGUES:
+        league = MILB_TEAM_LEAGUES[team_name]
+        level = LEAGUE_LEVEL_MAP.get(league, '')
+        if level:
+            return (level, league)
+
+    # Default fallback
+    return ('', league_name or '')

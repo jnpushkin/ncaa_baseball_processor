@@ -1,5 +1,5 @@
 """
-Player crossover tracking across NCAA baseball, MiLB, and MLB.
+Player crossover tracking across NCAA baseball and MiLB.
 
 This module tracks which players have been seen at multiple levels,
 enabling a "player journey" view of athletes as they progress through
@@ -7,8 +7,7 @@ the baseball development pipeline.
 
 Uses the Chadwick Bureau Register to unify player IDs across:
 - key_bbref_minors (NCAA/register format): e.g., "fielde001pri"
-- key_bbref (MLB format): e.g., "fieldpr01"
-- key_mlbam (MLB Stats API): e.g., 425902
+- key_mlbam (MLB Stats API, used for MiLB): e.g., 425902
 """
 
 import json
@@ -39,11 +38,9 @@ class PlayerRecord:
     """Unified player record across all levels."""
     name: str
     bref_id: Optional[str] = None  # Baseball Reference register ID (e.g., "fielde001pri")
-    mlb_bref_id: Optional[str] = None  # Baseball Reference MLB ID (e.g., "fieldpr01")
     mlb_api_id: Optional[int] = None  # MLB Stats API ID (e.g., 425902)
     ncaa_appearances: List[Dict[str, Any]] = field(default_factory=list)
     milb_appearances: List[Dict[str, Any]] = field(default_factory=list)
-    mlb_appearances: List[Dict[str, Any]] = field(default_factory=list)
     teams: Set[str] = field(default_factory=set)
 
     def levels_seen(self) -> List[str]:
@@ -53,13 +50,11 @@ class PlayerRecord:
             levels.append('NCAA')
         if self.milb_appearances:
             levels.append('MiLB')
-        if self.mlb_appearances:
-            levels.append('MLB')
         return levels
 
     def total_appearances(self) -> int:
         """Total number of game appearances."""
-        return len(self.ncaa_appearances) + len(self.milb_appearances) + len(self.mlb_appearances)
+        return len(self.ncaa_appearances) + len(self.milb_appearances)
 
     def is_crossover(self) -> bool:
         """Return True if player was seen at multiple levels."""
@@ -145,7 +140,7 @@ def get_name_match_keys(name: str) -> List[str]:
 
 class PlayerCrossover:
     """
-    Track players across NCAA baseball, MiLB, and MLB.
+    Track players across NCAA baseball and MiLB.
 
     Uses Baseball Reference IDs as primary key where available,
     with name matching as fallback. Also supports partial name matching
@@ -165,7 +160,6 @@ class PlayerCrossover:
         name: str,
         bref_id: Optional[str] = None,
         mlb_api_id: Optional[int] = None,
-        mlb_bref_id: Optional[str] = None,
     ) -> str:
         """
         Get existing player key or create new player record.
@@ -176,7 +170,6 @@ class PlayerCrossover:
             name: Player name
             bref_id: Baseball Reference register ID (e.g., "fielde001pri")
             mlb_api_id: MLB Stats API ID (e.g., 425902)
-            mlb_bref_id: Baseball Reference MLB ID (e.g., "fieldpr01")
 
         Returns:
             Player key
@@ -184,41 +177,19 @@ class PlayerCrossover:
         # Use ID mapper to find linked IDs
         mapper = get_id_mapper()
         if mapper:
-            # If we have MLBAM ID, look up linked BBRef IDs
+            # If we have MLBAM ID, look up linked register ID
             if mlb_api_id and not bref_id:
                 bref_id = mapper.get_register_from_mlbam(mlb_api_id)
-            if mlb_api_id and not mlb_bref_id:
-                mlb_bref_id = mapper.get_mlb_from_mlbam(mlb_api_id)
 
-            # If we have register ID, look up linked MLBAM and MLB BBRef IDs
+            # If we have register ID, look up linked MLBAM ID
             if bref_id and not mlb_api_id:
                 mlb_api_id = mapper.get_mlbam_from_register(bref_id)
-            if bref_id and not mlb_bref_id:
-                mlb_bref_id = mapper.get_mlb_id(bref_id)
-
-            # If we have MLB BBRef ID, look up linked register ID
-            if mlb_bref_id and not bref_id:
-                bref_id = mapper.get_register_id(mlb_bref_id)
 
         # Try to find by bref_id first (most reliable - links NCAA and MiLB)
         if bref_id and bref_id in self.bref_id_map:
             key = self.bref_id_map[bref_id]
             player = self.players[key]
             # Update other IDs if we have them
-            if mlb_api_id and not player.mlb_api_id:
-                player.mlb_api_id = mlb_api_id
-                self.mlb_api_id_map[mlb_api_id] = key
-            if mlb_bref_id and not player.mlb_bref_id:
-                player.mlb_bref_id = mlb_bref_id
-            return key
-
-        # Try by MLB BBRef ID (links MLB Game Tracker data)
-        if mlb_bref_id and mlb_bref_id in self.bref_id_map:
-            key = self.bref_id_map[mlb_bref_id]
-            player = self.players[key]
-            if bref_id and not player.bref_id:
-                player.bref_id = bref_id
-                self.bref_id_map[bref_id] = key
             if mlb_api_id and not player.mlb_api_id:
                 player.mlb_api_id = mlb_api_id
                 self.mlb_api_id_map[mlb_api_id] = key
@@ -231,49 +202,29 @@ class PlayerCrossover:
             if bref_id and not player.bref_id:
                 player.bref_id = bref_id
                 self.bref_id_map[bref_id] = key
-            if mlb_bref_id and not player.mlb_bref_id:
-                player.mlb_bref_id = mlb_bref_id
             return key
 
-        # Try to find by normalized name (fallback for cross-level matching)
+        # Only fall back to name matching if this player has NO formal ID.
+        # If they have an ID (bref_id or mlb_api_id) and we didn't match above,
+        # they're a different person who happens to share a name.
+        has_id = bool(bref_id or mlb_api_id)
         name_keys = get_name_match_keys(name)
         normalized = name_keys[0] if name_keys else ''
 
-        if normalized in self.name_map and self.name_map[normalized]:
-            # Found a name match - use the existing player
-            key = self.name_map[normalized][0]
-            player = self.players[key]
-            # Update IDs if we have new ones
-            if bref_id and not player.bref_id:
-                player.bref_id = bref_id
-                self.bref_id_map[bref_id] = key
-            if mlb_api_id and not player.mlb_api_id:
-                player.mlb_api_id = mlb_api_id
-                self.mlb_api_id_map[mlb_api_id] = key
-            if mlb_bref_id and not player.mlb_bref_id:
-                player.mlb_bref_id = mlb_bref_id
-            return key
-
-        # Try partial name match (first initial + last name)
-        # This handles cases like "Johnson, K" matching "Kyle Johnson"
-        for name_key in name_keys:
-            if name_key.startswith('_') and name_key in self.partial_name_map:
-                # Found a partial match - use the existing player
-                key = self.partial_name_map[name_key][0]
-                player = self.players[key]
-                # Update IDs if we have new ones
-                if bref_id and not player.bref_id:
-                    player.bref_id = bref_id
-                    self.bref_id_map[bref_id] = key
-                if mlb_api_id and not player.mlb_api_id:
-                    player.mlb_api_id = mlb_api_id
-                    self.mlb_api_id_map[mlb_api_id] = key
-                if mlb_bref_id and not player.mlb_bref_id:
-                    player.mlb_bref_id = mlb_bref_id
+        if not has_id:
+            if normalized in self.name_map and self.name_map[normalized]:
+                key = self.name_map[normalized][0]
                 return key
 
+            # Try partial name match (first initial + last name)
+            # This handles cases like "Johnson, K" matching "Kyle Johnson"
+            for name_key in name_keys:
+                if name_key.startswith('_') and name_key in self.partial_name_map:
+                    key = self.partial_name_map[name_key][0]
+                    return key
+
         # Create new player
-        key = bref_id or mlb_bref_id or (f"mlb_{mlb_api_id}" if mlb_api_id else f"name_{normalized}")
+        key = bref_id or (f"mlb_{mlb_api_id}" if mlb_api_id else f"name_{normalized}")
 
         # Check if we already have this player by key
         if key in self.players:
@@ -283,15 +234,12 @@ class PlayerCrossover:
         self.players[key] = PlayerRecord(
             name=name,
             bref_id=bref_id,
-            mlb_bref_id=mlb_bref_id,
             mlb_api_id=mlb_api_id,
         )
 
         # Index by various IDs
         if bref_id:
             self.bref_id_map[bref_id] = key
-        if mlb_bref_id:
-            self.bref_id_map[mlb_bref_id] = key
         if mlb_api_id:
             self.mlb_api_id_map[mlb_api_id] = key
         if normalized:
@@ -538,32 +486,6 @@ class PlayerCrossover:
                     })
                     self.players[key].teams.add(team)
 
-    def load_mlb_data(self, mlb_reader) -> None:
-        """
-        Load MLB player appearances from MLB Game Tracker.
-
-        Args:
-            mlb_reader: MLBDataReader instance (already loaded)
-        """
-        for player_id, appearances in mlb_reader.player_appearances.items():
-            # Get or create player using MLB BBRef ID (e.g., "tayloch03")
-            # The ID mapper will link this to the register ID if available
-            if appearances:
-                name = appearances[0].get('name', '')
-                key = self._get_or_create_player(name, mlb_bref_id=player_id)
-
-                for appearance in appearances:
-                    self.players[key].mlb_appearances.append({
-                        'date_yyyymmdd': appearance.get('date', ''),
-                        'team': appearance.get('team', ''),
-                        'opponent': appearance.get('opponent', ''),
-                        'venue': appearance.get('venue', ''),
-                        'level': 'MLB',
-                        'type': appearance.get('type', 'batting'),
-                        'stats': appearance.get('stats', {}),
-                    })
-                    self.players[key].teams.add(appearance.get('team', ''))
-
     def find_crossover_players(self) -> List[PlayerRecord]:
         """
         Find all players seen at multiple levels.
@@ -608,27 +530,18 @@ class PlayerCrossover:
         """Get summary statistics."""
         total_players = len(self.players)
         ncaa_only = sum(1 for p in self.players.values()
-                       if p.ncaa_appearances and not p.milb_appearances and not p.mlb_appearances)
+                       if p.ncaa_appearances and not p.milb_appearances)
         milb_only = sum(1 for p in self.players.values()
-                       if p.milb_appearances and not p.ncaa_appearances and not p.mlb_appearances)
-        mlb_only = sum(1 for p in self.players.values()
-                      if p.mlb_appearances and not p.ncaa_appearances and not p.milb_appearances)
+                       if p.milb_appearances and not p.ncaa_appearances)
         crossover = sum(1 for p in self.players.values() if p.is_crossover())
 
         return {
             'total_players': total_players,
             'ncaa_only': ncaa_only,
             'milb_only': milb_only,
-            'mlb_only': mlb_only,
             'crossover_players': crossover,
             'ncaa_to_milb': sum(1 for p in self.players.values()
                                if p.ncaa_appearances and p.milb_appearances),
-            'milb_to_mlb': sum(1 for p in self.players.values()
-                             if p.milb_appearances and p.mlb_appearances),
-            'ncaa_to_mlb': sum(1 for p in self.players.values()
-                             if p.ncaa_appearances and p.mlb_appearances),
-            'all_levels': sum(1 for p in self.players.values()
-                            if p.ncaa_appearances and p.milb_appearances and p.mlb_appearances),
         }
 
     def to_dataframe_data(self) -> List[Dict[str, Any]]:
@@ -646,14 +559,11 @@ class PlayerCrossover:
 
             ncaa_teams = set()
             milb_teams = set()
-            mlb_teams = set()
 
             for a in player.ncaa_appearances:
                 ncaa_teams.add(a.get('team', ''))
             for a in player.milb_appearances:
                 milb_teams.add(a.get('team', ''))
-            for a in player.mlb_appearances:
-                mlb_teams.add(a.get('team', ''))
 
             data.append({
                 'Name': player.name,
@@ -662,11 +572,9 @@ class PlayerCrossover:
                 'Levels': ', '.join(player.levels_seen()),
                 'NCAA Games': len(player.ncaa_appearances),
                 'MiLB Games': len(player.milb_appearances),
-                'MLB Games': len(player.mlb_appearances),
                 'Total Games': player.total_appearances(),
                 'NCAA Teams': ', '.join(sorted(ncaa_teams - {''})),
                 'MiLB Teams': ', '.join(sorted(milb_teams - {''})),
-                'MLB Teams': ', '.join(sorted(mlb_teams - {''})),
             })
 
         # Sort by total appearances descending
@@ -675,26 +583,11 @@ class PlayerCrossover:
 
 
 if __name__ == '__main__':
-    # Test the crossover tracker
-    from mlb_reader import MLBDataReader
-
     print("Testing Player Crossover Tracker\n")
 
-    # Load MLB data
-    mlb_reader = MLBDataReader()
-    mlb_reader.load_cache()
-
-    # Create crossover tracker
     crossover = PlayerCrossover()
-    crossover.load_mlb_data(mlb_reader)
 
     summary = crossover.get_summary()
     print(f"Summary:")
     print(f"  Total players: {summary['total_players']}")
-    print(f"  MLB only: {summary['mlb_only']}")
-
-    # Search for a sample player
-    print("\nSearching for 'Carroll':")
-    matches = crossover.search_by_name('Carroll')
-    for player in matches[:5]:
-        print(f"  {player.name}: {player.levels_seen()}, {player.total_appearances()} appearances")
+    print(f"  Crossover players: {summary['crossover_players']}")

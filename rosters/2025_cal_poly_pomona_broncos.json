@@ -1,0 +1,268 @@
+{
+  "team_name": "2025 Cal Poly Pomona Broncos",
+  "team_id": "ceadd311",
+  "year": "2025",
+  "players": [
+    {
+      "name": "Preston Allen",
+      "bref_id": "allen-001pre",
+      "first_name": "Preston",
+      "last_name": "Allen",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Julian Angulo",
+      "bref_id": "angulo001jul",
+      "first_name": "Julian",
+      "last_name": "Angulo",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Sebastian Arguelles",
+      "bref_id": "arguel000seb",
+      "first_name": "Sebastian",
+      "last_name": "Arguelles",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Beau Betten",
+      "bref_id": "betten000bea",
+      "first_name": "Beau",
+      "last_name": "Betten",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Tyler Chaffee",
+      "bref_id": "chaffe000tyl",
+      "first_name": "Tyler",
+      "last_name": "Chaffee",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Brent Cota",
+      "bref_id": "cota--000bre",
+      "first_name": "Brent",
+      "last_name": "Cota",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Ruben Del Castillo",
+      "bref_id": "delcas000rub",
+      "first_name": "Ruben Del",
+      "last_name": "Castillo",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Anthony Gibbons",
+      "bref_id": "gibbon001ant",
+      "first_name": "Anthony",
+      "last_name": "Gibbons",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Christian Gomez",
+      "bref_id": "gomez-005chr",
+      "first_name": "Christian",
+      "last_name": "Gomez",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Gage Gonzales",
+      "bref_id": "gonzal000gag",
+      "first_name": "Gage",
+      "last_name": "Gonzales",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Marco Malerba",
+      "bref_id": "malerb000mar",
+      "first_name": "Marco",
+      "last_name": "Malerba",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Johnny Pappas",
+      "bref_id": "pappas001joh",
+      "first_name": "Johnny",
+      "last_name": "Pappas",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Clay Porter",
+      "bref_id": "porter003cla",
+      "first_name": "Clay",
+      "last_name": "Porter",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Dominic Porter",
+      "bref_id": "porter000dom",
+      "first_name": "Dominic",
+      "last_name": "Porter",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Jack Sanders",
+      "bref_id": "sander002jac",
+      "first_name": "Jack",
+      "last_name": "Sanders",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Robbie Treto",
+      "bref_id": "treto-000rob",
+      "first_name": "Robbie",
+      "last_name": "Treto",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Evan Adolphus",
+      "bref_id": "adolph000eva",
+      "first_name": "Evan",
+      "last_name": "Adolphus",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Aren Alvarez",
+      "bref_id": "alvare000are",
+      "first_name": "Aren",
+      "last_name": "Alvarez",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Andrew Campbell",
+      "bref_id": "campbe006and",
+      "first_name": "Andrew",
+      "last_name": "Campbell",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Aaron Ceniceros",
+      "bref_id": "cenice000aar",
+      "first_name": "Aaron",
+      "last_name": "Ceniceros",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Anthony Cosme",
+      "bref_id": "cosme-001ant",
+      "first_name": "Anthony",
+      "last_name": "Cosme",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Dylan Esquival",
+      "bref_id": "esquiv000dyl",
+      "first_name": "Dylan",
+      "last_name": "Esquival",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Chris Fields",
+      "bref_id": "fields002chr",
+      "first_name": "Chris",
+      "last_name": "Fields",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Tyler Reiter",
+      "bref_id": "reiter000tyl",
+      "first_name": "Tyler",
+      "last_name": "Reiter",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Joseph Romero",
+      "bref_id": "romero013jos",
+      "first_name": "Joseph",
+      "last_name": "Romero",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Aaron Rosales",
+      "bref_id": "rosale000aar",
+      "first_name": "Aaron",
+      "last_name": "Rosales",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Sean Suriyaniel",
+      "bref_id": "suriya000sea",
+      "first_name": "Sean",
+      "last_name": "Suriyaniel",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Colt Tucker",
+      "bref_id": "tucker003col",
+      "first_name": "Colt",
+      "last_name": "Tucker",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    },
+    {
+      "name": "Anthony Vasquez",
+      "bref_id": "vasque003ant",
+      "first_name": "Anthony",
+      "last_name": "Vasquez",
+      "position": null,
+      "number": null,
+      "year": "2025"
+    }
+  ]
+}

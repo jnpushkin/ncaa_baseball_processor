@@ -7,7 +7,7 @@ import pandas as pd
 from collections import defaultdict
 
 from ..utils.helpers import safe_int, normalize_team_name
-from ..utils.constants import get_conference
+from ..utils.constants import get_conference, resolve_level_and_league
 
 
 class TeamRecordsProcessor:
@@ -35,6 +35,8 @@ class TeamRecordsProcessor:
 
         # Track which years each team appears in (for conference lookup)
         team_years = defaultdict(list)
+        # Track level/league per team
+        team_level_league = {}
 
         for game in self.games:
             meta = game.get('metadata', {})
@@ -64,6 +66,22 @@ class TeamRecordsProcessor:
                 team_years[away_team].append(game_year)
             if home_team and game_year:
                 team_years[home_team].append(game_year)
+
+            # Resolve level/league for each team
+            is_milb = game.get('format') == 'milb_api'
+            is_partner = meta.get('source') == 'partner'
+            if is_milb or is_partner:
+                if home_team and home_team not in team_level_league:
+                    level, league = resolve_level_and_league(meta, home_team)
+                    team_level_league[home_team] = (level, league)
+                if away_team and away_team not in team_level_league:
+                    level, league = resolve_level_and_league(meta, away_team)
+                    team_level_league[away_team] = (level, league)
+            else:
+                if home_team and home_team not in team_level_league:
+                    team_level_league[home_team] = ('NCAA', '')
+                if away_team and away_team not in team_level_league:
+                    team_level_league[away_team] = ('NCAA', '')
 
             if not away_team or not home_team:
                 continue
@@ -121,9 +139,15 @@ class TeamRecordsProcessor:
             else:
                 win_pct_str = f".{int(win_pct * 1000):03d}"
 
+            level, league = team_level_league.get(team, ('NCAA', ''))
+            if level == 'NCAA':
+                league = get_conference(team, most_recent_year)
+
             team_rows.append({
                 'Team': team,
-                'Conference': get_conference(team, most_recent_year),
+                'Level': level,
+                'League': league,
+                'Conference': league if level == 'NCAA' else level,
                 'W': wins,
                 'L': losses,
                 'Win%': win_pct_str,

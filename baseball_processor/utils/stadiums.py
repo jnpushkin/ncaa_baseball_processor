@@ -166,8 +166,13 @@ STADIUM_DATA = {
     'Le Moyne': (43.0481, -76.0680, 'Dick Rockwell Field'),
     'LIU': (40.6892, -73.9866, 'LIU Baseball Stadium'),
     'Mercyhurst': (42.0987, -80.0816, 'Mercyhurst Baseball Field'),
+    'New Haven': (41.2901, -72.9634, 'Frank "Porky" Vieira Field'),
     'Stonehill': (42.1034, -71.1095, 'Lou Gorman Field'),
+    'UMES': (38.3095, -75.7616, 'Harmon Field'),
     'Wagner': (40.5795, -74.0988, 'Richmond County Bank Ballpark'),
+
+    # CCAA (D2)
+    'Cal Poly Pomona': (34.0565, -117.8211, 'Scolinos Field'),
 
     # Big West
     'Cal Poly': (35.3050, -120.6625, 'Robin Baggett Stadium'),
@@ -462,13 +467,13 @@ NCAA_TEAM_LOGOS = {
 
     # WCC
     'Gonzaga': 2250,
-    'LMU': 2350,
+    'LMU': 2351,
     'Pacific': 279,
     'Pepperdine': 2492,
     'Portland': 2507,
     "Saint Mary's": 2608,
     'San Diego': 2612,
-    'San Francisco': 2608,
+    'San Francisco': 2539,
     'Santa Clara': 2541,
 
     # Mountain West
@@ -542,7 +547,9 @@ NCAA_TEAM_LOGOS = {
     'Le Moyne': 2329,
     'LIU': 2344,
     'Mercyhurst': 2372,
+    'New Haven': 2459,
     'Stonehill': 2926,
+    'UMES': 2627,
     'Wagner': 2681,
 
     # Big West
@@ -738,7 +745,7 @@ NCAA_TEAM_LOGOS = {
     'Coppin State': 2154,
     'Delaware State': 2169,
     'Norfolk State': 2450,
-    'San Francisco State': 2614,
+    'San Francisco State': 22,
 }
 
 

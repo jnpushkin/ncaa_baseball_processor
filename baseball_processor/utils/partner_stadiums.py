@@ -2,10 +2,10 @@
 Partner League team data: logos, stadiums, and coordinates.
 
 Covers 4 MLB Partner Leagues:
-- Pioneer League (8 teams)
-- Atlantic League (8 teams)
+- Pioneer League (12 teams)
+- Atlantic League (10 teams)
 - American Association (12 teams)
-- Frontier League (16 teams)
+- Frontier League (18 teams)
 """
 
 from typing import Dict, Optional, Any
@@ -14,36 +14,36 @@ from typing import Dict, Optional, Any
 # Partner League team data
 # Structure: team_name -> {id, logo, stadium, lat, lng, league, city}
 PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
-    # ========== PIONEER LEAGUE (8 teams) ==========
-    'Oakland Ballers': {
-        'id': 'pioneer_oakland',
-        'bref_team_ids': {2024: 'cceedd0a'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/c/c6/Oakland_Ballers_insignia.svg',
-        'stadium': 'Raimondi Park',
-        'lat': 37.7983,
-        'lng': -122.2633,
+    # ========== PIONEER LEAGUE (12 teams) ==========
+    'Billings Mustangs': {
+        'id': 'pioneer_billings',
+        'bref_team_ids': {2024: '2c7424d3'},
+        'logo': 'https://upload.wikimedia.org/wikipedia/en/c/cb/Billings_Mustangs_logo.png',
+        'stadium': 'Dehler Park',
+        'lat': 45.7833,
+        'lng': -108.5007,
         'league': 'Pioneer League',
-        'city': 'Oakland, CA',
+        'city': 'Billings, MT',
     },
-    'Idaho Falls Chukars': {
-        'id': 'pioneer_idaho_falls',
-        'bref_team_ids': {2024: '2fd78fb8'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/8/84/Idaho_Falls_Chukars_cap_logo.png',
-        'stadium': 'Melaleuca Field',
-        'lat': 43.4926,
-        'lng': -112.0401,
+    'Boise Hawks': {
+        'id': 'pioneer_boise',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Memorial Stadium',
+        'lat': 43.6150,
+        'lng': -116.2023,
         'league': 'Pioneer League',
-        'city': 'Idaho Falls, ID',
+        'city': 'Boise, ID',
     },
-    'Missoula PaddleHeads': {
-        'id': 'pioneer_missoula',
-        'bref_team_ids': {2024: '455f3d7e'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/a/a7/Missoula_PaddleHeads_logo.png',
-        'stadium': 'Ogren Park Allegiance Field',
-        'lat': 46.8422,
-        'lng': -114.0197,
+    'Glacier Range Riders': {
+        'id': 'pioneer_glacier',
+        'bref_team_ids': {2024: '7feac6a5'},
+        'logo': 'https://upload.wikimedia.org/wikipedia/en/1/10/Glacier_Range_Riders_logo.png',
+        'stadium': 'Glacier Bank Park',
+        'lat': 48.2058,
+        'lng': -114.3167,
         'league': 'Pioneer League',
-        'city': 'Missoula, MT',
+        'city': 'Kalispell, MT',
     },
     'Great Falls Voyagers': {
         'id': 'pioneer_great_falls',
@@ -55,48 +55,88 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
         'league': 'Pioneer League',
         'city': 'Great Falls, MT',
     },
-    'Glacier Range Riders': {
-        'id': 'pioneer_glacier',
-        'bref_team_ids': {2024: '7feac6a5'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/1/10/Glacier_Range_Riders_logo.png',
-        'stadium': 'Flathead Field',
-        'lat': 48.2058,
-        'lng': -114.3167,
+    'Idaho Falls Chukars': {
+        'id': 'pioneer_idaho_falls',
+        'bref_team_ids': {2024: '2fd78fb8'},
+        'logo': 'https://upload.wikimedia.org/wikipedia/en/8/84/Idaho_Falls_Chukars_cap_logo.png',
+        'stadium': 'Melaleuca Field',
+        'lat': 43.4926,
+        'lng': -112.0401,
         'league': 'Pioneer League',
-        'city': 'Kalispell, MT',
+        'city': 'Idaho Falls, ID',
     },
-    'Billings Mustangs': {
-        'id': 'pioneer_billings',
-        'bref_team_ids': {2024: '2c7424d3'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/c/cb/Billings_Mustangs_logo.png',
-        'stadium': 'Dehler Park',
-        'lat': 45.7833,
-        'lng': -108.5007,
+    'Long Beach Coast': {
+        'id': 'pioneer_long_beach',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Blair Field',
+        'lat': 33.8303,
+        'lng': -118.1517,
         'league': 'Pioneer League',
-        'city': 'Billings, MT',
+        'city': 'Long Beach, CA',
     },
-    'Northern Colorado Owlz': {
-        'id': 'pioneer_noco',
-        'bref_team_ids': {2024: '0f6445ff'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/c/c9/Northern_Colorado_Owlz_logo.png',
-        'stadium': 'Future Legends Complex',
-        'lat': 40.1672,
-        'lng': -104.9897,
+    'Missoula PaddleHeads': {
+        'id': 'pioneer_missoula',
+        'bref_team_ids': {2024: '455f3d7e'},
+        'logo': 'https://upload.wikimedia.org/wikipedia/en/a/a7/Missoula_PaddleHeads_logo.png',
+        'stadium': 'Ogren Park at Allegiance Field',
+        'lat': 46.8422,
+        'lng': -114.0197,
         'league': 'Pioneer League',
-        'city': 'Windsor, CO',
+        'city': 'Missoula, MT',
     },
-    'Grand Junction Rockies': {
-        'id': 'pioneer_grand_junction',
-        'bref_team_ids': {2024: '21ce0030'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/6/67/Grand_Junction_Rockies_logo.png',
-        'stadium': 'Suplizio Field',
-        'lat': 39.0639,
-        'lng': -108.5506,
+    'Modesto Roadsters': {
+        'id': 'pioneer_modesto',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'John Thurman Field',
+        'lat': 37.6391,
+        'lng': -120.9969,
         'league': 'Pioneer League',
-        'city': 'Grand Junction, CO',
+        'city': 'Modesto, CA',
+    },
+    'Oakland Ballers': {
+        'id': 'pioneer_oakland',
+        'bref_team_ids': {2024: 'cceedd0a'},
+        'logo': 'https://upload.wikimedia.org/wikipedia/en/c/c6/Oakland_Ballers_insignia.svg',
+        'stadium': 'Raimondi Park',
+        'lat': 37.7983,
+        'lng': -122.2633,
+        'league': 'Pioneer League',
+        'city': 'Oakland, CA',
+    },
+    'Ogden Raptors': {
+        'id': 'pioneer_ogden',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Lindquist Field',
+        'lat': 41.1939,
+        'lng': -111.9700,
+        'league': 'Pioneer League',
+        'city': 'Ogden, UT',
+    },
+    'Yuba-Sutter High Wheelers': {
+        'id': 'pioneer_yuba_sutter',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Bryant Field',
+        'lat': 39.1457,
+        'lng': -121.5908,
+        'league': 'Pioneer League',
+        'city': 'Marysville, CA',
+    },
+    'RedPocket Mobiles': {
+        'id': 'pioneer_redpocket',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': '',
+        'lat': 0,
+        'lng': 0,
+        'league': 'Pioneer League',
+        'city': '',
     },
 
-    # ========== ATLANTIC LEAGUE (8 teams) ==========
+    # ========== ATLANTIC LEAGUE (10 teams) ==========
     'Lancaster Stormers': {
         'id': 'atlantic_lancaster',
         'bref_team_ids': {2024: '5465d7c4'},
@@ -157,15 +197,35 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
         'league': 'Atlantic League',
         'city': 'High Point, NC',
     },
-    'Gastonia Baseball Club': {
+    'Charleston Dirty Birds': {
+        'id': 'atlantic_charleston',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'GoMart Ballpark',
+        'lat': 38.3498,
+        'lng': -81.6326,
+        'league': 'Atlantic League',
+        'city': 'Charleston, WV',
+    },
+    'Gastonia Ghost Peppers': {
         'id': 'atlantic_gastonia',
         'bref_team_ids': {2024: '1b605b9e'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/9/94/Gastonia_Honey_Hunters_logo.png',
+        'logo': '',
         'stadium': 'CaroMont Health Park',
         'lat': 35.2480,
         'lng': -81.1793,
         'league': 'Atlantic League',
         'city': 'Gastonia, NC',
+    },
+    'Hagerstown Flying Boxcars': {
+        'id': 'atlantic_hagerstown',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Meritus Park',
+        'lat': 39.6418,
+        'lng': -77.7200,
+        'league': 'Atlantic League',
+        'city': 'Hagerstown, MD',
     },
     'Lexington Legends': {
         'id': 'atlantic_lexington',
@@ -176,17 +236,6 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
         'lng': -84.4856,
         'league': 'Atlantic League',
         'city': 'Lexington, KY',
-    },
-    # Alternate names
-    'Gastonia Honey Hunters': {
-        'id': 'atlantic_gastonia',
-        'bref_team_ids': {2024: '1b605b9e'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/9/94/Gastonia_Honey_Hunters_logo.png',
-        'stadium': 'CaroMont Health Park',
-        'lat': 35.2480,
-        'lng': -81.1793,
-        'league': 'Atlantic League',
-        'city': 'Gastonia, NC',
     },
 
     # ========== AMERICAN ASSOCIATION (12 teams) ==========
@@ -332,7 +381,27 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
         'city': 'Oconomowoc, WI',
     },
 
-    # ========== FRONTIER LEAGUE (16 teams) ==========
+    # ========== FRONTIER LEAGUE (18 teams) ==========
+    'Brockton Rox': {
+        'id': 'frontier_brockton',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Campanelli Stadium',
+        'lat': 42.0834,
+        'lng': -71.0183,
+        'league': 'Frontier League',
+        'city': 'Brockton, MA',
+    },
+    'Down East Bird Dawgs': {
+        'id': 'frontier_down_east',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Grainger Stadium',
+        'lat': 35.2668,
+        'lng': -77.5816,
+        'league': 'Frontier League',
+        'city': 'Kinston, NC',
+    },
     'Quebec Capitales': {
         'id': 'frontier_quebec',
         'bref_team_ids': {2024: 'ea239daf'},
@@ -402,6 +471,26 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
         'lng': -82.0364,
         'league': 'Frontier League',
         'city': 'Avon, OH',
+    },
+    'Mississippi Mud Monsters': {
+        'id': 'frontier_mississippi',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Trustmark Park',
+        'lat': 32.2754,
+        'lng': -90.1218,
+        'league': 'Frontier League',
+        'city': 'Pearl, MS',
+    },
+    'New Jersey Jackals': {
+        'id': 'frontier_nj_jackals',
+        'bref_team_ids': {},
+        'logo': '',
+        'stadium': 'Hinchcliffe Stadium',
+        'lat': 40.9168,
+        'lng': -74.1718,
+        'league': 'Frontier League',
+        'city': 'Paterson, NJ',
     },
     'Washington Wild Things': {
         'id': 'frontier_washington',
@@ -473,26 +562,6 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
         'league': 'Frontier League',
         'city': 'Crestwood, IL',
     },
-    'Empire State Greys': {
-        'id': 'frontier_empire_state',
-        'bref_team_ids': {},  # Team no longer active
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/8/8d/New_York_Boulders_logo.png',  # Placeholder
-        'stadium': 'Various',
-        'lat': 41.0000,
-        'lng': -74.0000,
-        'league': 'Frontier League',
-        'city': 'New York',
-    },
-    'New England Knockouts': {
-        'id': 'frontier_new_england',
-        'bref_team_ids': {2024: '237811a9'},
-        'logo': 'https://upload.wikimedia.org/wikipedia/en/5/5c/New_England_Knockouts_logo.png',
-        'stadium': 'Campanelli Stadium',
-        'lat': 42.0834,
-        'lng': -71.0183,
-        'league': 'Frontier League',
-        'city': 'Brockton, MA',
-    },
 }
 
 # Team name aliases (alternate spellings and historical names)
@@ -516,8 +585,11 @@ PARTNER_TEAM_ALIASES: Dict[str, str] = {
     'York': 'York Revolution',
     'Southern Maryland': 'Southern Maryland Blue Crabs',
     'High Point': 'High Point Rockers',
-    'Gastonia': 'Gastonia Baseball Club',
-    'Gastonia Honey Hunters': 'Gastonia Baseball Club',
+    'Gastonia': 'Gastonia Ghost Peppers',
+    'Gastonia Honey Hunters': 'Gastonia Ghost Peppers',
+    'Gastonia Baseball Club': 'Gastonia Ghost Peppers',
+    'Charleston': 'Charleston Dirty Birds',
+    'Hagerstown': 'Hagerstown Flying Boxcars',
     'Lexington': 'Lexington Legends',
 
     # American Association

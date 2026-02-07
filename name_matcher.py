@@ -325,11 +325,35 @@ class NameMatcher:
 
         # If only one candidate after filtering, higher confidence
         if len(candidates) == 1:
-            # Confidence boost if team/year was specified and matched
-            base_conf = 0.9 if parsed['full_first'] else (0.85 if (team_filtered or year_filtered) else 0.7)
+            candidate = candidates[0]
+            candidate_first = candidate.get('first_name', '').lower()
+
+            # If we have first name info, verify it matches before accepting
+            if parsed['full_first'] and parsed['first']:
+                first_lower = parsed['first'].lower()
+                if candidate_first == first_lower:
+                    # Exact first name match
+                    base_conf = 0.95 if (team_filtered or year_filtered) else 0.9
+                elif candidate_first and candidate_first[0] == first_lower[0]:
+                    # First initial matches (e.g., nickname vs full name)
+                    base_conf = 0.8 if (team_filtered or year_filtered) else 0.7
+                else:
+                    # First name doesn't match at all - reject
+                    return MatchResult(matched=False)
+            elif parsed['first_initial']:
+                initial = parsed['first_initial'].upper()
+                if candidate_first and candidate_first[0].upper() == initial:
+                    base_conf = 0.85 if (team_filtered or year_filtered) else 0.7
+                else:
+                    # Initial doesn't match - reject
+                    return MatchResult(matched=False)
+            else:
+                # No first name info at all
+                base_conf = 0.85 if (team_filtered or year_filtered) else 0.6
+
             return MatchResult(
                 matched=True,
-                player=candidates[0],
+                player=candidate,
                 confidence=base_conf,
                 match_type="last_only" if not parsed['first_initial'] else "last_initial"
             )

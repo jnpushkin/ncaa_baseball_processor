@@ -4,9 +4,8 @@ Main entry point for the NCAA Baseball Stats Processor.
 Supports processing:
 - NCAA baseball box scores (from PDFs)
 - MiLB games (from MLB Stats API)
-- MLB games (read-only from MLB Game Tracker cache)
 
-With player crossover tracking across all levels.
+With player crossover tracking across NCAA and MiLB levels.
 """
 
 import os
@@ -19,7 +18,7 @@ from typing import Dict, List, Any, Optional
 
 from .utils.constants import (
     BASE_DIR, CACHE_DIR, ROSTERS_DIR, PDF_DIR, OUTPUT_DIR,
-    MILB_DIR, MILB_CACHE_DIR, MILB_GAME_IDS_FILE, MLB_TRACKER_CACHE,
+    MILB_DIR, MILB_CACHE_DIR, MILB_GAME_IDS_FILE,
     PARTNER_DIR, PARTNER_CACHE_DIR, PARTNER_GAME_IDS_FILE
 )
 from .excel.workbook_generator import generate_excel_workbook
@@ -32,7 +31,6 @@ from ncaab_parser import parse_ncaab_pdf
 from name_matcher import NameMatcher, enrich_game_data
 from parsers.milb_api import process_all_milb_games, process_milb_game
 from parsers.partner_leagues import process_all_partner_games, process_partner_game
-from mlb_reader import MLBDataReader
 from player_crossover import PlayerCrossover
 
 
@@ -196,8 +194,6 @@ def load_partner_from_cache() -> List[Dict[str, Any]]:
 def build_crossover_data(
     ncaa_games: List[Dict[str, Any]],
     milb_games: List[Dict[str, Any]],
-    include_mlb: bool = True,
-    mlb_cache_path: Optional[Path] = None,
 ) -> PlayerCrossover:
     """
     Build player crossover tracking data.
@@ -205,8 +201,6 @@ def build_crossover_data(
     Args:
         ncaa_games: List of NCAA game data
         milb_games: List of MiLB game data
-        include_mlb: Whether to include MLB data
-        mlb_cache_path: Path to MLB Game Tracker cache
 
     Returns:
         PlayerCrossover instance with all data loaded
@@ -222,15 +216,6 @@ def build_crossover_data(
     if milb_games:
         print(f"Loading {len(milb_games)} MiLB games for crossover...")
         crossover.load_milb_data(milb_games)
-
-    # Load MLB data (read-only)
-    if include_mlb:
-        cache_path = mlb_cache_path or MLB_TRACKER_CACHE
-        if cache_path.exists():
-            print("Loading MLB data for crossover...")
-            mlb_reader = MLBDataReader(cache_path)
-            mlb_reader.load_cache()
-            crossover.load_mlb_data(mlb_reader)
 
     return crossover
 
@@ -287,7 +272,7 @@ def process_games(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Baseball Stats Processor - NCAA, MiLB, and MLB crossover tracking"
+        description="Baseball Stats Processor - NCAA and MiLB crossover tracking"
     )
 
     parser.add_argument(
@@ -343,7 +328,13 @@ def main():
     parser.add_argument(
         '--include-milb',
         action='store_true',
-        help='Include MiLB games from game_ids.txt'
+        default=True,
+        help='Include MiLB games from game_ids.txt (default: on)'
+    )
+    parser.add_argument(
+        '--no-milb',
+        action='store_true',
+        help='Exclude MiLB games'
     )
 
     parser.add_argument(
@@ -362,7 +353,13 @@ def main():
     parser.add_argument(
         '--include-partner',
         action='store_true',
-        help='Include Partner League games (Pioneer, Atlantic, American Association, Frontier)'
+        default=True,
+        help='Include Partner League games (default: on)'
+    )
+    parser.add_argument(
+        '--no-partner',
+        action='store_true',
+        help='Exclude Partner League games'
     )
 
     parser.add_argument(
@@ -375,20 +372,7 @@ def main():
     parser.add_argument(
         '--crossover',
         action='store_true',
-        help='Generate player crossover report (NCAA/MiLB/MLB)'
-    )
-
-    parser.add_argument(
-        '--mlb-cache',
-        type=str,
-        default=str(MLB_TRACKER_CACHE),
-        help='Path to MLB Game Tracker cache (for crossover tracking)'
-    )
-
-    parser.add_argument(
-        '--no-mlb',
-        action='store_true',
-        help='Skip MLB data in crossover tracking'
+        help='Generate player crossover report (NCAA/MiLB)'
     )
 
     args = parser.parse_args()
@@ -438,14 +422,14 @@ def main():
             ncaa_games = process_games(args.input_path, not args.no_cache, roster_dir)
 
     # Load MiLB games
-    if args.include_milb or args.milb_only:
+    if (args.include_milb or args.milb_only) and not args.no_milb:
         if args.from_cache_only:
             milb_games = load_milb_from_cache()
         else:
             milb_games = load_milb_games()
 
     # Load Partner League games
-    if args.include_partner:
+    if args.include_partner and not args.no_partner:
         if args.from_cache_only:
             partner_games = load_partner_from_cache()
         else:
@@ -465,13 +449,11 @@ def main():
 
     # Build crossover data if requested
     crossover_data = None
-    if args.crossover or args.include_milb or args.milb_only or args.include_partner:
+    if args.crossover or milb_games or partner_games:
         print("\nBuilding crossover tracking data...")
         crossover_data = build_crossover_data(
             ncaa_games,
             pro_minor_games,
-            include_mlb=not args.no_mlb,
-            mlb_cache_path=Path(args.mlb_cache) if args.mlb_cache else None,
         )
 
         summary = crossover_data.get_summary()
@@ -479,9 +461,6 @@ def main():
         print(f"  Crossover players: {summary['crossover_players']}")
         if summary['crossover_players'] > 0:
             print(f"    NCAA -> MiLB: {summary['ncaa_to_milb']}")
-            print(f"    MiLB -> MLB: {summary['milb_to_mlb']}")
-            print(f"    NCAA -> MLB: {summary['ncaa_to_mlb']}")
-            print(f"    All levels: {summary['all_levels']}")
 
     # Save intermediate JSON if requested
     if args.save_json:

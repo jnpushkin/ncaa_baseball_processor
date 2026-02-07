@@ -19,22 +19,27 @@ def create_milb_game_log(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
     if not milb_games:
         return pd.DataFrame()
 
+    from ..utils.constants import resolve_level_and_league
+
     rows = []
     for game in milb_games:
         meta = game.get('metadata', {})
         source = meta.get('source', 'milb')
+        home_team = meta.get('home_team', '')
+        level, league = resolve_level_and_league(meta, home_team)
         rows.append({
             'Date': meta.get('date', ''),
             'date_yyyymmdd': meta.get('date_yyyymmdd', ''),
             'Away Team': meta.get('away_team', ''),
-            'Home Team': meta.get('home_team', ''),
+            'Home Team': home_team,
             'Score': f"{meta.get('away_team_score', 0)}-{meta.get('home_team_score', 0)}",
             'Venue': meta.get('venue', ''),
             'Away Parent': meta.get('parent_orgs', {}).get('away', ''),
             'Home Parent': meta.get('parent_orgs', {}).get('home', ''),
             'Game PK': meta.get('game_pk', ''),
             'Source': source,
-            'League': meta.get('league', {}).get('home', '') or meta.get('league', {}).get('away', ''),
+            'Level': level,
+            'League': league or (meta.get('league', {}).get('home', '') if isinstance(meta.get('league'), dict) else meta.get('league', '')),
         })
 
     df = pd.DataFrame(rows)
@@ -49,14 +54,19 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
         return pd.DataFrame()
 
     from collections import defaultdict
+    from ..utils.constants import resolve_level_and_league
+
     batter_totals = defaultdict(lambda: defaultdict(int))
     batter_info = {}
     batter_teams = defaultdict(set)  # Track teams for each player
+    batter_level_league = {}  # Track level/league per player
 
     for game in milb_games:
+        meta = game.get('metadata', {})
+        home_team = meta.get('home_team', '')
+        level, league = resolve_level_and_league(meta, home_team)
         for side in ['away', 'home']:
-            team = game.get('metadata', {}).get(f'{side}_team', '')
-            parent_org = game.get('metadata', {}).get('parent_orgs', {}).get(side, '')
+            team = meta.get(f'{side}_team', '')
             for player in game.get('box_score', {}).get(f'{side}_batting', []):
                 player_id = player.get('player_id')
                 name = player.get('name', '')
@@ -67,6 +77,8 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
                 batter_info[key] = {'name': name, 'player_id': player_id}
                 if team:
                     batter_teams[key].add(team)
+                if key not in batter_level_league:
+                    batter_level_league[key] = (level, league)
 
                 batter_totals[key]['games'] += 1
                 for stat in ['ab', 'r', 'h', 'rbi', 'bb', 'k', 'hr', 'doubles', 'triples', 'sb']:
@@ -79,11 +91,14 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
         ab = totals['ab']
         h = totals['h']
         avg = h / ab if ab > 0 else 0
+        lvl, lg = batter_level_league.get(key, ('', ''))
 
         rows.append({
             'Name': info.get('name', ''),
             'Team': ', '.join(sorted(teams)) if teams else '',
             'Player ID': info.get('player_id', ''),
+            'Level': lvl,
+            'League': lg,
             'G': totals['games'],
             'AB': ab,
             'R': totals['r'],
@@ -110,13 +125,19 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
         return pd.DataFrame()
 
     from collections import defaultdict
+    from ..utils.constants import resolve_level_and_league
+
     pitcher_totals = defaultdict(lambda: defaultdict(float))
     pitcher_info = {}
     pitcher_teams = defaultdict(set)  # Track teams for each player
+    pitcher_level_league = {}  # Track level/league per player
 
     for game in milb_games:
+        meta = game.get('metadata', {})
+        home_team = meta.get('home_team', '')
+        level, league = resolve_level_and_league(meta, home_team)
         for side in ['away', 'home']:
-            team = game.get('metadata', {}).get(f'{side}_team', '')
+            team = meta.get(f'{side}_team', '')
             for player in game.get('box_score', {}).get(f'{side}_pitching', []):
                 player_id = player.get('player_id')
                 name = player.get('name', '')
@@ -127,6 +148,8 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
                 pitcher_info[key] = {'name': name, 'player_id': player_id}
                 if team:
                     pitcher_teams[key].add(team)
+                if key not in pitcher_level_league:
+                    pitcher_level_league[key] = (level, league)
 
                 pitcher_totals[key]['games'] += 1
 
@@ -155,11 +178,14 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
         ip = totals['ip']
         er = totals['er']
         era = (er * 9 / ip) if ip > 0 else 0
+        lvl, lg = pitcher_level_league.get(key, ('', ''))
 
         rows.append({
             'Name': info.get('name', ''),
             'Team': ', '.join(sorted(teams)) if teams else '',
             'Player ID': info.get('player_id', ''),
+            'Level': lvl,
+            'League': lg,
             'G': int(totals['games']),
             'W': int(totals['w']),
             'L': int(totals['l']),
@@ -223,15 +249,21 @@ def generate_excel_workbook(
         processed_data['batter_games'] = player_data['batter_games']
         processed_data['pitcher_games'] = player_data['pitcher_games']
 
-        # Milestones (NCAA)
-        print("  Processing NCAA milestones...")
-        milestones_processor = MilestonesProcessor(ncaa_games)
+        # Milestones (all levels - NCAA + MiLB + Partner)
+        all_games_for_milestones = list(ncaa_games)
+        if milb_games:
+            all_games_for_milestones.extend(milb_games)
+        print(f"  Processing milestones ({len(all_games_for_milestones)} games across all levels)...")
+        milestones_processor = MilestonesProcessor(all_games_for_milestones)
         milestones_data = milestones_processor.process_all_milestones()
         processed_data['milestones'] = milestones_data
 
-        # Team Records (NCAA)
-        print("  Processing NCAA team records...")
-        team_processor = TeamRecordsProcessor(ncaa_games)
+        # Team Records (all levels)
+        all_games_for_teams = list(ncaa_games)
+        if milb_games:
+            all_games_for_teams.extend(milb_games)
+        print(f"  Processing team records ({len(all_games_for_teams)} games across all levels)...")
+        team_processor = TeamRecordsProcessor(all_games_for_teams)
         team_data = team_processor.process_team_records()
         processed_data['team_records'] = team_data['team_records']
         processed_data['venue_records'] = team_data['venue_records']

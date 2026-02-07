@@ -215,6 +215,18 @@ class MilestonesProcessor:
             date = meta.get('date', '')
             game_id = f"{date}_{meta.get('away_team', '')}_{meta.get('home_team', '')}"
 
+            # Resolve level and league for this game
+            from ..utils.constants import resolve_level_and_league
+            game_level = ''
+            game_league = ''
+            home_team_name = meta.get('home_team', '')
+            if game.get('format') == 'milb_api' or meta.get('source') == 'partner':
+                game_level, game_league = resolve_level_and_league(meta, home_team_name)
+            else:
+                game_level = 'NCAA'
+                from ..utils.constants import get_conference
+                game_league = get_conference(home_team_name)
+
             # Build lookup for extra-base hits from game notes
             extra_stats_lookup = build_extra_base_lookup(game_notes)
 
@@ -257,6 +269,8 @@ class MilestonesProcessor:
                         'Opponent': opponent,
                         'Score': f"{team_score}-{opp_score}",
                         'GameID': game_id,
+                        'Level': game_level,
+                        'League': game_league,
                     }
 
                     # HR milestones (tiered - highest first)
@@ -372,7 +386,7 @@ class MilestonesProcessor:
                     if not is_valid_player_name(name):
                         continue
 
-                    ip = parse_innings_pitched(player.get('innings_pitched', 0))
+                    ip = parse_innings_pitched(player.get('innings_pitched', player.get('ip', 0)))
                     k = safe_int(player.get('strikeouts', player.get('k', 0)))
                     er = safe_int(player.get('earned_runs', player.get('er', 0)))
                     r = safe_int(player.get('runs', player.get('r', 0)))
@@ -380,6 +394,14 @@ class MilestonesProcessor:
                     bb = safe_int(player.get('walks', player.get('bb', 0)))
                     pitches = safe_int(player.get('pitches', player.get('np', 0)))
                     decision = player.get('decision', '').upper()
+                    # MiLB API uses boolean fields instead of decision string
+                    if not decision:
+                        if player.get('win'):
+                            decision = 'W'
+                        elif player.get('loss'):
+                            decision = 'L'
+                        elif player.get('save'):
+                            decision = 'S'
 
                     ip_str = f"{int(ip)}.{int((ip % 1) * 3)}"
                     base_info = {
@@ -389,6 +411,8 @@ class MilestonesProcessor:
                         'Opponent': opponent,
                         'Score': f"{team_score}-{opp_score}",
                         'GameID': game_id,
+                        'Level': game_level,
+                        'League': game_league,
                     }
 
                     # Complete game milestones (9+ IP or 7+ for 7-inning games)

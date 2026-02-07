@@ -87,15 +87,15 @@ def _get_partner_roster_module():
 
 def enrich_players_with_bref_ids(game_data: Dict[str, Any]) -> Dict[str, Any]:
     """
-    Enrich player data in a parsed game with Baseball Reference IDs.
+    Enrich player data in a parsed game with Baseball Reference IDs and full names.
 
-    Looks up bref_ids from team rosters for crossover tracking.
+    Looks up bref_ids and full names from team rosters for crossover tracking.
 
     Args:
         game_data: Parsed game data dict (will be modified in place)
 
     Returns:
-        Modified game data with player_id fields populated
+        Modified game data with player_id fields and full names populated
     """
     roster_module = _get_partner_roster_module()
     metadata = game_data.get('metadata', {})
@@ -108,37 +108,33 @@ def enrich_players_with_bref_ids(game_data: Dict[str, Any]) -> Dict[str, Any]:
     else:
         year = 2024  # Default
 
+    def enrich_player(player, team_name):
+        """Look up bref_id and full name for a player."""
+        if player.get('player_id') and player.get('bref_id'):
+            return
+        result = roster_module.lookup_partner_player_full(team_name, year, player.get('name', ''))
+        if result:
+            if result.get('bref_id'):
+                player['player_id'] = result['bref_id']
+                player['bref_id'] = result['bref_id']
+            if result.get('full_name'):
+                player['name'] = result['full_name']
+
     # Process away team
     away_team = metadata.get('away_team', '')
     if away_team:
         for player in box_score.get('away_batting', []):
-            if not player.get('player_id') and not player.get('bref_id'):
-                bref_id = roster_module.lookup_partner_player(away_team, year, player.get('name', ''))
-                if bref_id:
-                    player['player_id'] = bref_id
-                    player['bref_id'] = bref_id  # Also set bref_id for crossover tracking
+            enrich_player(player, away_team)
         for player in box_score.get('away_pitching', []):
-            if not player.get('player_id') and not player.get('bref_id'):
-                bref_id = roster_module.lookup_partner_player(away_team, year, player.get('name', ''))
-                if bref_id:
-                    player['player_id'] = bref_id
-                    player['bref_id'] = bref_id
+            enrich_player(player, away_team)
 
     # Process home team
     home_team = metadata.get('home_team', '')
     if home_team:
         for player in box_score.get('home_batting', []):
-            if not player.get('player_id') and not player.get('bref_id'):
-                bref_id = roster_module.lookup_partner_player(home_team, year, player.get('name', ''))
-                if bref_id:
-                    player['player_id'] = bref_id
-                    player['bref_id'] = bref_id
+            enrich_player(player, home_team)
         for player in box_score.get('home_pitching', []):
-            if not player.get('player_id') and not player.get('bref_id'):
-                bref_id = roster_module.lookup_partner_player(home_team, year, player.get('name', ''))
-                if bref_id:
-                    player['player_id'] = bref_id
-                    player['bref_id'] = bref_id
+            enrich_player(player, home_team)
 
     return game_data
 

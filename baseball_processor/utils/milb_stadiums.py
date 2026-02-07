@@ -12,7 +12,7 @@ Includes MiLB venues with coordinates and team IDs for logos.
 LOGO_OVERRIDES = {
     # Add defunct or problematic team logos here
     # team_id: 'path/to/logo.png' or 'https://url/to/logo.svg'
-    248: 'https://content.sportslogos.net/logos/45/2750/full/rkv0i6rlqgd2pxmhlsd62eu41.gif',  # Savannah Sand Gnats (defunct 2016)
+    248: 'https://upload.wikimedia.org/wikipedia/en/6/6b/Savannah_Sand_Gnats.png',  # Savannah Sand Gnats (defunct 2016)
 }
 
 # Historical team logo overrides - for renamed/relocated teams
@@ -24,9 +24,10 @@ HISTORICAL_TEAM_LOGOS = {
     'Bowie Baysox': 'https://www.mlbstatic.com/team-logos/418.svg',  # Now Chesapeake Baysox
     'Reading Phillies': 'https://www.mlbstatic.com/team-logos/522.svg',  # Now Reading Fightin Phils
     'Buies Creek Astros': 'https://www.mlbstatic.com/team-logos/3712.svg',  # Now Fayetteville Woodpeckers
-    'Savannah Sand Gnats': 'https://www.mlbstatic.com/team-logos/249.svg',  # Team relocated
+    'Savannah Sand Gnats': 'https://upload.wikimedia.org/wikipedia/en/6/6b/Savannah_Sand_Gnats.png',  # Defunct 2016, relocated to Columbia Fireflies
     'Richmond Flying Squirrels': 'https://www.mlbstatic.com/team-logos/3410.svg',
-    'Great Falls Voyagers': 'https://www.mlbstatic.com/team-logos/5004.svg',
+    'Great Falls Voyagers': 'https://upload.wikimedia.org/wikipedia/en/6/63/Great_Falls_Voyagers_cap_logo.png',
+    'Idaho Falls Chukars': 'https://upload.wikimedia.org/wikipedia/en/8/84/Idaho_Falls_Chukars_cap_logo.png',
 }
 
 # MiLB Stadium coordinates: venue_name -> (latitude, longitude, team_name, level, team_id, league_name)
