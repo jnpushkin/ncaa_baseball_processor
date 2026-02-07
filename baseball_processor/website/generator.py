@@ -9,10 +9,12 @@ from typing import Dict, List, Any
 import pandas as pd
 
 from ..utils.stadiums import STADIUM_DATA, NCAA_TEAM_LOGOS
-from ..utils.milb_stadiums import MILB_STADIUM_DATA, MLB_STADIUM_DATA, LOGO_OVERRIDES, HISTORICAL_TEAM_LOGOS, find_stadium
+from ..utils.milb_stadiums import MILB_STADIUM_DATA, MILB_TEAM_LEAGUES, HISTORIC_MILB_TEAMS, LOGO_OVERRIDES, HISTORICAL_TEAM_LOGOS, find_stadium
 from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_partner_stadium_locations
-from ..utils.constants import CONFERENCES, get_conference
+from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEAGUE_LEVEL_MAP,
+                                PRO_LEVELS, LEVEL_ORDER, LEVEL_COLORS, resolve_level_and_league)
 from ..utils.helpers import normalize_team_name
+from ..utils.player_ids import PlayerIDMapper
 
 
 def generate_website_from_data(processed_data: Dict[str, Any], output_path: str, raw_games: List[Dict] = None):
@@ -87,27 +89,16 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         lat, lng, stadium_name = info
         stadium_locations[team] = {'lat': lat, 'lng': lng, 'stadium': stadium_name, 'type': 'ncaa'}
 
-    # Build MiLB stadium locations
+    # Build MiLB stadium locations (includes defunct teams for historical visits)
     milb_stadium_locations = {}
     for venue_name, info in MILB_STADIUM_DATA.items():
-        lat, lng, team_name, level, team_id = info
+        lat, lng, team_name, level_code, team_id, league_name = info
+        resolved_level = SPORT_LEVEL_MAP.get(level_code, level_code)
         # Check for logo override, otherwise use mlbstatic
         logo_url = LOGO_OVERRIDES.get(team_id, f'https://www.mlbstatic.com/team-logos/{team_id}.svg')
         milb_stadium_locations[venue_name] = {
             'lat': lat, 'lng': lng, 'stadium': venue_name,
-            'team': team_name, 'level': level, 'type': 'milb',
-            'teamId': team_id, 'logo': logo_url
-        }
-
-    # Build MLB stadium locations
-    mlb_stadium_locations = {}
-    for venue_name, info in MLB_STADIUM_DATA.items():
-        lat, lng, team_name, level, team_id = info
-        # Check for logo override, otherwise use mlbstatic
-        logo_url = LOGO_OVERRIDES.get(team_id, f'https://www.mlbstatic.com/team-logos/{team_id}.svg')
-        mlb_stadium_locations[venue_name] = {
-            'lat': lat, 'lng': lng, 'stadium': venue_name,
-            'team': team_name, 'level': level, 'type': 'mlb',
+            'team': team_name, 'level': resolved_level, 'league': league_name, 'type': 'milb',
             'teamId': team_id, 'logo': logo_url
         }
 
@@ -125,7 +116,6 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
 
     # Track MiLB and Partner venues visited
     milb_venues_visited = set()
-    mlb_venues_visited = set()
     partner_venues_visited = set()
     for game in raw_games:
         if game.get('format') == 'milb_api':
@@ -142,35 +132,6 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
                 stadium = PARTNER_TEAM_DATA[home_team].get('stadium')
                 if stadium:
                     partner_venues_visited.add(stadium)
-
-    # Import MLB venues visited from MLB Game Tracker cache
-    from ..utils.constants import MLB_TRACKER_CACHE
-
-    # Venue name mappings (old names -> current API names)
-    venue_aliases = {
-        'AT&T Park': 'Oracle Park',
-        'Angel Stadium of Anaheim': 'Angel Stadium',
-        'Minute Maid Park': 'Daikin Park',
-        'O.co Coliseum': 'Sutter Health Park',  # A's moved
-        'Oakland Coliseum': 'Sutter Health Park',
-    }
-
-    if MLB_TRACKER_CACHE.exists():
-        import json
-        for cache_file in MLB_TRACKER_CACHE.glob("*.json"):
-            if 'career_firsts' in cache_file.name or 'lookup' in cache_file.name or 'api_cache' in cache_file.name:
-                continue
-            try:
-                with open(cache_file, 'r') as f:
-                    game_data = json.load(f)
-                venue = game_data.get('basic_info', {}).get('venue', '')
-                if venue:
-                    # Add both the original name and the mapped name
-                    mlb_venues_visited.add(venue)
-                    if venue in venue_aliases:
-                        mlb_venues_visited.add(venue_aliases[venue])
-            except:
-                pass
 
     # Build checklist data - track which teams/venues have been seen
     teams_seen_home = set()  # Teams seen at their actual home stadium
@@ -262,7 +223,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'teamStatus': {t: 'home' if t in teams_seen_home else ('away' if t in teams_seen_away else 'none') for t in teams}
         }
 
-    # Build MiLB checklist organized by level/league
+    # Build MiLB/Partner checklist organized by level/league
     milb_teams_seen_home = set()  # Teams at venues we visited
     milb_teams_seen_away = set()  # Teams we saw play (as away team at a venue we visited)
 
@@ -275,98 +236,102 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
                 milb_teams_seen_home.add(home_team)
             if away_team:
                 milb_teams_seen_away.add(away_team)
+        elif game.get('metadata', {}).get('source') == 'partner':
+            metadata = game.get('metadata', {})
+            home_team = metadata.get('home_team', '')
+            away_team = metadata.get('away_team', '')
+            if home_team:
+                milb_teams_seen_home.add(home_team)
+            if away_team:
+                milb_teams_seen_away.add(away_team)
 
-    # Organize MiLB teams by level
-    milb_by_level = {'Triple-A': [], 'Double-A': [], 'High-A': [], 'Single-A': [], 'Rookie/Independent': []}
-    level_map = {'AAA': 'Triple-A', 'AA': 'Double-A', 'A+': 'High-A', 'A': 'Single-A', 'Rookie': 'Rookie/Independent'}
+    # Organize MiLB teams by level → league
+    milb_by_level = {}
+    for level in LEVEL_ORDER[1:]:  # Skip 'NCAA'
+        milb_by_level[level] = {}
+        for league in PRO_LEVELS.get(level, []):
+            milb_by_level[level][league] = []
 
+    # Add active MiLB teams (skip defunct/historic teams)
     for venue_name, info in MILB_STADIUM_DATA.items():
-        lat, lng, team_name, level, team_id = info
-        mapped_level = level_map.get(level, level)
-        # Use logo override if available, otherwise use mlbstatic
+        lat, lng, team_name, level_code, team_id, league_name = info
+        if team_name in HISTORIC_MILB_TEAMS:
+            continue
+        mapped_level = SPORT_LEVEL_MAP.get(level_code, level_code)
         logo_url = LOGO_OVERRIDES.get(team_id, f'https://www.mlbstatic.com/team-logos/{team_id}.svg')
+        team_entry = {
+            'team': team_name,
+            'venue': venue_name,
+            'teamId': team_id,
+            'logo': logo_url,
+            'league': league_name,
+            'historic': False,
+        }
         if mapped_level in milb_by_level:
-            milb_by_level[mapped_level].append({
-                'team': team_name,
-                'venue': venue_name,
-                'teamId': team_id,
-                'logo': logo_url
-            })
+            if league_name in milb_by_level[mapped_level]:
+                milb_by_level[mapped_level][league_name].append(team_entry)
+            else:
+                milb_by_level[mapped_level][league_name] = [team_entry]
 
+    # Track team names already added from MILB_STADIUM_DATA to avoid duplicates
+    seen_milb_team_names = set()
+    for venue_info in MILB_STADIUM_DATA.values():
+        seen_milb_team_names.add(venue_info[2])  # team_name is index 2
+
+    # Add Partner (independent league) teams
+    seen_partner_ids = set()
+    for team_name, data in PARTNER_TEAM_DATA.items():
+        team_id = data.get('id')
+        if team_id in seen_partner_ids or team_name in seen_milb_team_names:
+            continue
+        seen_partner_ids.add(team_id)
+        league_name = data.get('league', '')
+        team_entry = {
+            'team': team_name,
+            'venue': data.get('stadium', ''),
+            'teamId': team_id,
+            'logo': data.get('logo', ''),
+            'league': league_name,
+            'historic': False,
+        }
+        if 'Independent' in milb_by_level:
+            if league_name in milb_by_level['Independent']:
+                milb_by_level['Independent'][league_name].append(team_entry)
+            else:
+                milb_by_level['Independent'][league_name] = [team_entry]
+
+    # Build flat milb_checklist per level (with league breakdown)
     milb_checklist = {}
-    for level, teams in milb_by_level.items():
-        team_names = [t['team'] for t in teams]
-        seen = len([t for t in team_names if t in milb_teams_seen_home or t in milb_teams_seen_away])
-        visited = len([t for t in team_names if t in milb_teams_seen_home])
+    for level, leagues in milb_by_level.items():
+        all_teams = []
+        league_data = {}
+        for league_name, teams in leagues.items():
+            all_teams.extend(teams)
+            team_names = [t['team'] for t in teams]
+            seen = len([t for t in team_names if t in milb_teams_seen_home or t in milb_teams_seen_away])
+            visited = len([t for t in team_names if t in milb_teams_seen_home])
+            league_data[league_name] = {
+                'teams': sorted(teams, key=lambda x: x['team']),
+                'total': len(teams),
+                'seen': seen,
+                'visited': visited,
+                'teamStatus': {t['team']: 'home' if t['team'] in milb_teams_seen_home else ('away' if t['team'] in milb_teams_seen_away else 'none') for t in teams}
+            }
+        all_team_names = [t['team'] for t in all_teams]
+        total_seen = len([t for t in all_team_names if t in milb_teams_seen_home or t in milb_teams_seen_away])
+        total_visited = len([t for t in all_team_names if t in milb_teams_seen_home])
         milb_checklist[level] = {
-            'teams': sorted(teams, key=lambda x: x['team']),
-            'total': len(teams),
-            'seen': seen,
-            'visited': visited,
-            'teamStatus': {t['team']: 'home' if t['team'] in milb_teams_seen_home else ('away' if t['team'] in milb_teams_seen_away else 'none') for t in teams}
+            'teams': sorted(all_teams, key=lambda x: x['team']),
+            'total': len(all_teams),
+            'seen': total_seen,
+            'visited': total_visited,
+            'teamStatus': {t['team']: 'home' if t['team'] in milb_teams_seen_home else ('away' if t['team'] in milb_teams_seen_away else 'none') for t in all_teams},
+            'leagues': league_data,
         }
 
     # Get game-by-game data for players
     batter_games = processed_data.get('batter_games', pd.DataFrame())
     pitcher_games = processed_data.get('pitcher_games', pd.DataFrame())
-
-    # MLB team name aliases (historical names -> current name for logo lookup)
-    mlb_team_aliases = {
-        'Cleveland Indians': 'Cleveland Guardians',
-        'Oakland Athletics': 'Athletics',
-        'Oakland A\'s': 'Athletics',
-        'Los Angeles Angels of Anaheim': 'Los Angeles Angels',
-        'Anaheim Angels': 'Los Angeles Angels',
-        'California Angels': 'Los Angeles Angels',
-        'Florida Marlins': 'Miami Marlins',
-        'Montreal Expos': 'Washington Nationals',
-        'Tampa Bay Devil Rays': 'Tampa Bay Rays',
-    }
-
-    def get_mlb_team_id(team_name):
-        """Get team ID for a team name, handling aliases for renamed teams."""
-        # Check if it's an alias
-        lookup_name = mlb_team_aliases.get(team_name, team_name)
-        for venue_name, info in MLB_STADIUM_DATA.items():
-            if info[2] == lookup_name or info[2] == team_name:
-                return info[4]
-        return None
-
-    # Build MLB game log from cache
-    mlb_game_log = []
-    if MLB_TRACKER_CACHE.exists():
-        for cache_file in MLB_TRACKER_CACHE.glob("*.json"):
-            if 'career_firsts' in cache_file.name or 'lookup' in cache_file.name or 'api_cache' in cache_file.name:
-                continue
-            try:
-                with open(cache_file, 'r') as f:
-                    game_data = json.load(f)
-                basic_info = game_data.get('basic_info', {})
-                if not basic_info:
-                    continue
-
-                # Get team IDs for logos (handle renamed teams)
-                away_team = basic_info.get('away_team', '')
-                home_team = basic_info.get('home_team', '')
-                away_team_id = get_mlb_team_id(away_team)
-                home_team_id = get_mlb_team_id(home_team)
-
-                mlb_game_log.append({
-                    'date': basic_info.get('date', ''),
-                    'date_yyyymmdd': basic_info.get('date_yyyymmdd', ''),
-                    'away_team': away_team,
-                    'home_team': home_team,
-                    'away_score': basic_info.get('away_score', 0),
-                    'home_score': basic_info.get('home_score', 0),
-                    'venue': basic_info.get('venue', ''),
-                    'away_team_id': away_team_id,
-                    'home_team_id': home_team_id,
-                    'level': 'MLB',
-                })
-            except:
-                pass
-
-    mlb_games_count = len(mlb_game_log)
 
     # Build unified game log (all levels)
     unified_game_log = []
@@ -398,15 +363,16 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         away_team = game.get('Away Team', '')
         home_team_id = None
         away_team_id = None
-        home_level = ''
-        away_level = ''
         for venue_name, info in MILB_STADIUM_DATA.items():
             if info[2] == home_team:
                 home_team_id = info[4]
-                home_level = info[3]
             if info[2] == away_team:
                 away_team_id = info[4]
-                away_level = info[3]
+        # Check partner teams for IDs/logos too
+        if not home_team_id and home_team in PARTNER_TEAM_DATA:
+            home_team_id = PARTNER_TEAM_DATA[home_team].get('id')
+        if not away_team_id and away_team in PARTNER_TEAM_DATA:
+            away_team_id = PARTNER_TEAM_DATA[away_team].get('id')
 
         # Parse score from combined "X-Y" format
         score_str = game.get('Score', '0-0')
@@ -417,9 +383,9 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         except:
             away_score, home_score = 0, 0
 
-        # Determine level: MiLB (affiliated) or Partner (independent)
-        source = game.get('Source', 'milb')
-        level = 'Partner' if source == 'partner' else 'MiLB'
+        # Use resolved level from pipeline
+        resolved_level = game.get('Level', '')
+        league = game.get('League', '')
 
         unified_game_log.append({
             'date': game.get('Date', ''),
@@ -429,41 +395,11 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'away_score': away_score,
             'home_score': home_score,
             'venue': game.get('Venue', ''),
-            'level': level,
-            'milb_level': home_level or away_level,
-            'league': game.get('League', ''),
+            'level': resolved_level,
+            'league': league,
             'home_team_id': home_team_id,
             'away_team_id': away_team_id,
             'parent_orgs': {'away': game.get('Away Parent', ''), 'home': game.get('Home Parent', '')},
-        })
-
-    # Add MLB games
-    for game in mlb_game_log:
-        # Convert MLB date from "Friday, April 13, 2018" to "4/13/2018"
-        mlb_date = game.get('date', '')
-        mlb_date_formatted = mlb_date
-        date_yyyymmdd = game.get('date_yyyymmdd', '')
-        if date_yyyymmdd and len(date_yyyymmdd) == 8:
-            # Parse YYYYMMDD to M/D/YYYY
-            try:
-                year = date_yyyymmdd[:4]
-                month = str(int(date_yyyymmdd[4:6]))  # Remove leading zero
-                day = str(int(date_yyyymmdd[6:8]))  # Remove leading zero
-                mlb_date_formatted = f"{month}/{day}/{year}"
-            except:
-                pass
-
-        unified_game_log.append({
-            'date': mlb_date_formatted,
-            'date_sort': date_yyyymmdd,
-            'away_team': game.get('away_team', ''),
-            'home_team': game.get('home_team', ''),
-            'away_score': game.get('away_score', 0),
-            'home_score': game.get('home_score', 0),
-            'venue': game.get('venue', ''),
-            'level': 'MLB',
-            'home_team_id': game.get('home_team_id'),
-            'away_team_id': game.get('away_team_id'),
         })
 
     # Sort by date (most recent first)
@@ -479,6 +415,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'name': b.get('Name', ''),
             'team': b.get('Team', ''),
             'level': 'NCAA',
+            'league': b.get('Conference', ''),
             'conference': b.get('Conference', ''),
             'g': b.get('G', 0),
             'ab': b.get('AB', 0),
@@ -497,6 +434,12 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'bref_id': b.get('bref_id', ''),
         })
 
+    # Initialize player ID mapper for bref_id lookups on MiLB players
+    try:
+        id_mapper = PlayerIDMapper(auto_download=True)
+    except Exception:
+        id_mapper = None
+
     # Add MiLB batters
     milb_batters_list = df_to_list(milb_batters)
     for b in milb_batters_list:
@@ -506,10 +449,22 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             if info[2] == team_name:
                 team_id = info[4]
                 break
+        if not team_id and team_name in PARTNER_TEAM_DATA:
+            team_id = PARTNER_TEAM_DATA[team_name].get('id')
+        # Look up bref_id from MLBAM player_id via Chadwick register
+        bref_id = ''
+        pid = b.get('Player ID', '') or b.get('player_id', '')
+        if pid and id_mapper and str(pid).isdigit():
+            bref_id = id_mapper.get_register_from_mlbam(int(pid)) or ''
+        elif pid and isinstance(pid, str) and not str(pid).isdigit():
+            bref_id = pid
+        resolved_level = b.get('Level', '')
+        league = b.get('League', '')
         unified_batters.append({
             'name': b.get('Name', ''),
             'team': team_name,
-            'level': 'MiLB',
+            'level': resolved_level,
+            'league': league,
             'team_id': team_id,
             'g': b.get('G', 0),
             'ab': b.get('AB', 0),
@@ -525,78 +480,8 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'avg': b.get('AVG', '.000'),
             'obp': b.get('OBP', '.000'),
             'slg': b.get('SLG', '.000'),
-            'player_id': b.get('player_id', ''),
-        })
-
-    # Add MLB batters from cache
-    mlb_batter_stats = {}  # player_id -> aggregated stats
-    if MLB_TRACKER_CACHE.exists():
-        for cache_file in MLB_TRACKER_CACHE.glob("*.json"):
-            if 'career_firsts' in cache_file.name or 'lookup' in cache_file.name or 'api_cache' in cache_file.name:
-                continue
-            try:
-                with open(cache_file, 'r') as f:
-                    game_data = json.load(f)
-                for side in ['away', 'home']:
-                    team = game_data.get('basic_info', {}).get(f'{side}_team', '')
-                    team_id = None
-                    for venue_name, info in MLB_STADIUM_DATA.items():
-                        if info[2] == team:
-                            team_id = info[4]
-                            break
-                    for player in game_data.get('batting', {}).get(side, []):
-                        pid = player.get('player_id', '')
-                        if not pid:
-                            continue
-                        if pid not in mlb_batter_stats:
-                            mlb_batter_stats[pid] = {
-                                'name': player.get('name', ''),
-                                'team': team,
-                                'team_id': team_id,
-                                'g': 0, 'ab': 0, 'r': 0, 'h': 0, 'doubles': 0, 'triples': 0,
-                                'hr': 0, 'rbi': 0, 'bb': 0, 'k': 0, 'sb': 0,
-                            }
-                        stats = mlb_batter_stats[pid]
-                        stats['g'] += 1
-                        stats['ab'] += player.get('AB', 0)
-                        stats['r'] += player.get('R', 0)
-                        stats['h'] += player.get('H', 0)
-                        stats['doubles'] += player.get('2B', 0)
-                        stats['triples'] += player.get('3B', 0)
-                        stats['hr'] += player.get('HR', 0)
-                        stats['rbi'] += player.get('RBI', 0)
-                        stats['bb'] += player.get('BB', 0)
-                        stats['k'] += player.get('SO', 0)
-                        stats['sb'] += player.get('SB', 0)
-            except:
-                pass
-
-    for pid, stats in mlb_batter_stats.items():
-        avg = f"{stats['h'] / stats['ab']:.3f}" if stats['ab'] > 0 else '.000'
-        obp_denom = stats['ab'] + stats['bb']
-        obp = f"{(stats['h'] + stats['bb']) / obp_denom:.3f}" if obp_denom > 0 else '.000'
-        tb = stats['h'] + stats['doubles'] + 2*stats['triples'] + 3*stats['hr']
-        slg = f"{tb / stats['ab']:.3f}" if stats['ab'] > 0 else '.000'
-        unified_batters.append({
-            'name': stats['name'],
-            'team': stats['team'],
-            'level': 'MLB',
-            'team_id': stats['team_id'],
-            'g': stats['g'],
-            'ab': stats['ab'],
-            'r': stats['r'],
-            'h': stats['h'],
-            'doubles': stats['doubles'],
-            'triples': stats['triples'],
-            'hr': stats['hr'],
-            'rbi': stats['rbi'],
-            'bb': stats['bb'],
-            'k': stats['k'],
-            'sb': stats['sb'],
-            'avg': avg,
-            'obp': obp,
-            'slg': slg,
             'player_id': pid,
+            'bref_id': bref_id,
         })
 
     # Build unified pitchers list (all levels)
@@ -609,6 +494,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'name': p.get('Name', ''),
             'team': p.get('Team', ''),
             'level': 'NCAA',
+            'league': p.get('Conference', ''),
             'conference': p.get('Conference', ''),
             'g': p.get('G', 0),
             'ip': p.get('IP', 0),
@@ -631,10 +517,22 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             if info[2] == team_name:
                 team_id = info[4]
                 break
+        if not team_id and team_name in PARTNER_TEAM_DATA:
+            team_id = PARTNER_TEAM_DATA[team_name].get('id')
+        # Look up bref_id from MLBAM player_id via Chadwick register
+        bref_id = ''
+        pid = p.get('Player ID', '') or p.get('player_id', '')
+        if pid and id_mapper and str(pid).isdigit():
+            bref_id = id_mapper.get_register_from_mlbam(int(pid)) or ''
+        elif pid and isinstance(pid, str) and not str(pid).isdigit():
+            bref_id = pid
+        resolved_level = p.get('Level', '')
+        league = p.get('League', '')
         unified_pitchers.append({
             'name': p.get('Name', ''),
             'team': team_name,
-            'level': 'MiLB',
+            'level': resolved_level,
+            'league': league,
             'team_id': team_id,
             'g': p.get('G', 0),
             'ip': p.get('IP', 0),
@@ -645,75 +543,8 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'k': p.get('K', 0),
             'hr': p.get('HR', 0),
             'era': p.get('ERA', '0.00'),
-            'player_id': p.get('player_id', ''),
-        })
-
-    # Add MLB pitchers from cache
-    mlb_pitcher_stats = {}
-    if MLB_TRACKER_CACHE.exists():
-        for cache_file in MLB_TRACKER_CACHE.glob("*.json"):
-            if 'career_firsts' in cache_file.name or 'lookup' in cache_file.name or 'api_cache' in cache_file.name:
-                continue
-            try:
-                with open(cache_file, 'r') as f:
-                    game_data = json.load(f)
-                for side in ['away', 'home']:
-                    team = game_data.get('basic_info', {}).get(f'{side}_team', '')
-                    team_id = None
-                    for venue_name, info in MLB_STADIUM_DATA.items():
-                        if info[2] == team:
-                            team_id = info[4]
-                            break
-                    for player in game_data.get('pitching', {}).get(side, []):
-                        pid = player.get('player_id', '')
-                        if not pid:
-                            continue
-                        if pid not in mlb_pitcher_stats:
-                            mlb_pitcher_stats[pid] = {
-                                'name': player.get('name', ''),
-                                'team': team,
-                                'team_id': team_id,
-                                'g': 0, 'ip': 0, 'h': 0, 'r': 0, 'er': 0, 'bb': 0, 'k': 0, 'hr': 0,
-                            }
-                        stats = mlb_pitcher_stats[pid]
-                        stats['g'] += 1
-                        # Parse IP (could be like "6.1" meaning 6 1/3)
-                        ip_str = str(player.get('IP', 0))
-                        try:
-                            if '.' in ip_str:
-                                parts = ip_str.split('.')
-                                stats['ip'] += int(parts[0]) + int(parts[1]) / 3
-                            else:
-                                stats['ip'] += float(ip_str)
-                        except:
-                            pass
-                        stats['h'] += player.get('H', 0)
-                        stats['r'] += player.get('R', 0)
-                        stats['er'] += player.get('ER', 0)
-                        stats['bb'] += player.get('BB', 0)
-                        stats['k'] += player.get('SO', player.get('K', 0))
-                        stats['hr'] += player.get('HR', 0)
-            except:
-                pass
-
-    for pid, stats in mlb_pitcher_stats.items():
-        era = f"{stats['er'] * 9 / stats['ip']:.2f}" if stats['ip'] > 0 else '0.00'
-        ip_display = f"{stats['ip']:.1f}"
-        unified_pitchers.append({
-            'name': stats['name'],
-            'team': stats['team'],
-            'level': 'MLB',
-            'team_id': stats['team_id'],
-            'g': stats['g'],
-            'ip': ip_display,
-            'h': stats['h'],
-            'r': stats['r'],
-            'er': stats['er'],
-            'bb': stats['bb'],
-            'k': stats['k'],
-            'hr': stats['hr'],
-            'era': era,
             'player_id': pid,
+            'bref_id': bref_id,
         })
 
     return {
@@ -727,12 +558,13 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'milbGames': milb_games_count,
             'milbBatters': milb_batters_count,
             'milbPitchers': milb_pitchers_count,
-            'mlbGames': mlb_games_count,
             'crossoverPlayers': crossover_count,
             'allGames': len(unified_game_log),
             'unifiedBatters': len(unified_batters),
             'unifiedPitchers': len(unified_pitchers),
         },
+        'levelColors': LEVEL_COLORS,
+        'levelOrder': LEVEL_ORDER,
         'gameLog': df_to_list(game_log),
         'batters': df_to_list(batters),
         'pitchers': df_to_list(pitchers),
@@ -786,19 +618,13 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'winGames': df_to_list(milestones.get('win_games', [])),
             'saveGames': df_to_list(milestones.get('save_games', [])),
         },
-        'milbGameLog': df_to_list(milb_game_log),
-        'milbBatters': df_to_list(milb_batters),
-        'milbPitchers': df_to_list(milb_pitchers),
-        'mlbGameLog': mlb_game_log,
         'unifiedGameLog': unified_game_log,
         'crossoverPlayers': df_to_list(crossover_players),
         'rawGames': raw_games,
         'stadiumLocations': stadium_locations,
         'milbStadiumLocations': milb_stadium_locations,
-        'mlbStadiumLocations': mlb_stadium_locations,
         'partnerStadiumLocations': partner_stadium_locations,
         'milbVenuesVisited': list(milb_venues_visited),
-        'mlbVenuesVisited': list(mlb_venues_visited),
         'partnerVenuesVisited': list(partner_venues_visited),
         'checklist': checklist,
         'milbChecklist': milb_checklist,
@@ -824,11 +650,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
     generated_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     # Build header subtitle
-    header_parts = [f"{total_games} NCAA Games"]
-    if milb_games > 0:
-        header_parts.append(f"{milb_games} MiLB Games")
-    header_parts.append(f"{total_batters + summary.get('milbBatters', 0)} Batters")
-    header_parts.append(f"{total_pitchers + summary.get('milbPitchers', 0)} Pitchers")
+    all_games = summary.get('allGames', total_games + milb_games)
+    unified_batters = summary.get('unifiedBatters', total_batters + summary.get('milbBatters', 0))
+    unified_pitchers = summary.get('unifiedPitchers', total_pitchers + summary.get('milbPitchers', 0))
+    header_parts = [f"{all_games} Games"]
+    header_parts.append(f"{unified_batters} Batters")
+    header_parts.append(f"{unified_pitchers} Pitchers")
     if crossover_players > 0:
         header_parts.append(f"{crossover_players} Crossover Players")
     header_subtitle = " | ".join(header_parts)
@@ -1216,6 +1043,100 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
+        // Shared LevelLeagueFilter component
+        const LevelLeagueFilter = ({{ levelFilter, setLevelFilter, leagueFilter, setLeagueFilter, data, showSearch, searchTerm, setSearchTerm, searchPlaceholder }}) => {{
+            const levelColors = DATA.levelColors || {{}};
+            const levelOrder = DATA.levelOrder || ['NCAA', 'Triple-A', 'Double-A', 'High-A', 'Single-A', 'Independent'];
+
+            // Derive available levels from data
+            const availableLevels = useMemo(() => {{
+                if (!data) return [];
+                const levels = new Set();
+                data.forEach(d => {{ if (d.level || d.Level) levels.add(d.level || d.Level); }});
+                return levelOrder.filter(l => levels.has(l));
+            }}, [data]);
+
+            // Derive available leagues for selected level
+            const availableLeagues = useMemo(() => {{
+                if (!data || levelFilter === 'All') return [];
+                const leagues = new Set();
+                data.forEach(d => {{
+                    const itemLevel = d.level || d.Level || '';
+                    const itemLeague = d.league || d.League || d.conference || d.Conference || '';
+                    if (itemLevel === levelFilter && itemLeague) leagues.add(itemLeague);
+                }});
+                return Array.from(leagues).sort();
+            }}, [data, levelFilter]);
+
+            const handleLevelChange = (newLevel) => {{
+                setLevelFilter(newLevel);
+                if (setLeagueFilter) setLeagueFilter('All');
+            }};
+
+            return (
+                <div style={{{{padding: '16px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center'}}}}>
+                    <select
+                        className="search-box"
+                        style={{{{width: 'auto', minWidth: '120px', margin: 0}}}}
+                        value={{levelFilter}}
+                        onChange={{(e) => handleLevelChange(e.target.value)}}
+                    >
+                        <option value="All">All Levels</option>
+                        {{availableLevels.map(l => <option key={{l}} value={{l}}>{{l}}</option>)}}
+                    </select>
+                    {{levelFilter !== 'All' && availableLeagues.length > 1 && setLeagueFilter && (
+                        <select
+                            className="search-box"
+                            style={{{{width: 'auto', minWidth: '150px', margin: 0}}}}
+                            value={{leagueFilter || 'All'}}
+                            onChange={{(e) => setLeagueFilter(e.target.value)}}
+                        >
+                            <option value="All">All Leagues</option>
+                            {{availableLeagues.map(l => <option key={{l}} value={{l}}>{{l}}</option>)}}
+                        </select>
+                    )}}
+                    {{showSearch && (
+                        <input
+                            type="text"
+                            className="search-box"
+                            placeholder={{searchPlaceholder || 'Search...'}}
+                            value={{searchTerm || ''}}
+                            onChange={{(e) => setSearchTerm(e.target.value)}}
+                            style={{{{minWidth: '200px', margin: 0}}}}
+                        />
+                    )}}
+                </div>
+            );
+        }};
+
+        // Helper to get level badge with proper color
+        const getLevelBadgeGeneric = (level) => {{
+            const levelColors = DATA.levelColors || {{}};
+            const color = levelColors[level] || '#666';
+            return (
+                <span style={{{{
+                    background: color,
+                    color: 'white',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    fontSize: '11px',
+                    fontWeight: 600
+                }}}}>{{level}}</span>
+            );
+        }};
+
+        // Helper to filter data by level and league
+        const filterByLevelLeague = (data, levelFilter, leagueFilter) => {{
+            let result = data;
+            if (levelFilter && levelFilter !== 'All') {{
+                result = result.filter(d => (d.level || d.Level) === levelFilter);
+            }}
+            if (leagueFilter && leagueFilter !== 'All') {{
+                result = result.filter(d => (d.league || d.League || d.conference || d.Conference) === leagueFilter);
+            }}
+            return result;
+        }};
+
         const PlayerLink = ({{ name, brefId, onClick }}) => {{
             return (
                 <span className="clickable-name" onClick={{onClick}}>
@@ -1333,26 +1254,20 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
         const StatsGrid = ({{ data }}) => (
             <div className="stats-grid">
                 <div className="stat-card">
-                    <div className="value">{{data.totalGames}}</div>
-                    <div className="label">NCAA Games</div>
+                    <div className="value">{{data.allGames || data.totalGames}}</div>
+                    <div className="label">Total Games</div>
                 </div>
-                {{data.milbGames > 0 && (
-                    <div className="stat-card">
-                        <div className="value">{{data.milbGames}}</div>
-                        <div className="label">MiLB Games</div>
-                    </div>
-                )}}
                 <div className="stat-card">
-                    <div className="value">{{data.totalBatters + (data.milbBatters || 0)}}</div>
+                    <div className="value">{{data.unifiedBatters || (data.totalBatters + (data.milbBatters || 0))}}</div>
                     <div className="label">Batters</div>
                 </div>
                 <div className="stat-card">
-                    <div className="value">{{data.totalPitchers + (data.milbPitchers || 0)}}</div>
+                    <div className="value">{{data.unifiedPitchers || (data.totalPitchers + (data.milbPitchers || 0))}}</div>
                     <div className="label">Pitchers</div>
                 </div>
                 <div className="stat-card">
                     <div className="value">{{data.totalTeams}}</div>
-                    <div className="label">NCAA Teams</div>
+                    <div className="label">Teams</div>
                 </div>
                 {{data.crossoverPlayers > 0 && (
                     <div className="stat-card">
@@ -1407,18 +1322,11 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
         const UnifiedGameLog = ({{ games }}) => {{
             const [levelFilter, setLevelFilter] = useState('All');
+            const [leagueFilter, setLeagueFilter] = useState('All');
             const [searchTerm, setSearchTerm] = useState('');
 
             const filtered = useMemo(() => {{
-                let result = games;
-                if (levelFilter !== 'All') {{
-                    // MLB filter includes MiLB (minor leagues) and Partner leagues
-                    if (levelFilter === 'MLB') {{
-                        result = result.filter(g => g.level === 'MLB' || g.level === 'MiLB' || g.level === 'Partner');
-                    }} else {{
-                        result = result.filter(g => g.level === levelFilter);
-                    }}
-                }}
+                let result = filterByLevelLeague(games, levelFilter, leagueFilter);
                 if (searchTerm) {{
                     const s = searchTerm.toLowerCase();
                     result = result.filter(g =>
@@ -1428,77 +1336,38 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     );
                 }}
                 return result;
-            }}, [games, levelFilter, searchTerm]);
-
-            const levelColors = {{
-                'NCAA': '#28a745',
-                'MiLB': '#ff6b35',
-                'Partner': '#9c27b0',
-                'MLB': '#007bff'
-            }};
-
-            const getLevelBadge = (level, milbLevel) => {{
-                const color = levelColors[level] || '#666';
-                const label = level === 'MiLB' && milbLevel ? `${{level}} (${{milbLevel}})` : level;
-                return (
-                    <span style={{{{
-                        background: color,
-                        color: 'white',
-                        padding: '2px 8px',
-                        borderRadius: '4px',
-                        fontSize: '11px',
-                        fontWeight: 600
-                    }}}}>{{label}}</span>
-                );
-            }};
+            }}, [games, levelFilter, leagueFilter, searchTerm]);
 
             const TeamCell = ({{ team, teamId, level }}) => {{
-                // Check for historical team logo first (renamed/relocated teams)
                 const historicalLogo = DATA.historicalTeamLogos && DATA.historicalTeamLogos[team];
-
-                // Check for NCAA team logo
                 const ncaaEspnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[team];
-
-                // Check for Partner team logo
                 const partnerLogo = DATA.partnerLogos && DATA.partnerLogos[team];
 
-                // Partner teams use custom logos from partner_stadiums
-                if (level === 'Partner' && partnerLogo) {{
+                // Independent (partner) teams use custom logos
+                if (level === 'Independent' && partnerLogo) {{
                     return (
                         <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
-                            <img
-                                src={{partnerLogo}}
-                                style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
-                                onError={{(e) => e.target.style.display = 'none'}}
-                            />
+                            <img src={{partnerLogo}} style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => e.target.style.display = 'none'}} />
                             <span>{{team}}</span>
                         </div>
                     );
                 }}
 
-                if ((level === 'MiLB' || level === 'MLB') && (teamId || historicalLogo)) {{
+                // Pro teams (any non-NCAA level) with team ID or historical logo
+                if (level !== 'NCAA' && (teamId || historicalLogo)) {{
                     const logoSrc = historicalLogo || `https://www.mlbstatic.com/team-logos/${{teamId}}.svg`;
                     return (
                         <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
-                            <img
-                                src={{logoSrc}}
-                                style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
-                                onError={{(e) => e.target.style.display = 'none'}}
-                            />
+                            <img src={{logoSrc}} style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => e.target.style.display = 'none'}} />
                             <span>{{team}}</span>
                         </div>
                     );
                 }}
 
-                // NCAA logo from ESPN CDN
                 if (level === 'NCAA' && ncaaEspnId) {{
                     return (
                         <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
-                            <img
-                                src={{`https://a.espncdn.com/i/teamlogos/ncaa/500/${{ncaaEspnId}}.png`}}
-                                style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
-                                onError={{(e) => e.target.style.display = 'none'}}
-                            />
+                            <img src={{`https://a.espncdn.com/i/teamlogos/ncaa/500/${{ncaaEspnId}}.png`}} style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => e.target.style.display = 'none'}} />
                             <span>{{team}}</span>
                         </div>
                     );
@@ -1507,47 +1376,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 return <span>{{team}}</span>;
             }};
 
+            const levelColors = DATA.levelColors || {{}};
+
             return (
                 <div className="panel">
                     <div className="panel-header"><h2>All Games ({{filtered.length}})</h2></div>
-                    <div style={{{{padding: '16px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center'}}}}>
-                        <select
-                            className="search-box"
-                            style={{{{width: 'auto', minWidth: '120px'}}}}
-                            value={{levelFilter}}
-                            onChange={{(e) => setLevelFilter(e.target.value)}}
-                        >
-                            <option value="All">All Levels</option>
-                            <option value="NCAA">NCAA</option>
-                            <option value="MLB">MLB/Pro</option>
-                        </select>
-                        <input
-                            type="text"
-                            className="search-box"
-                            placeholder="Search teams or venues..."
-                            value={{searchTerm}}
-                            onChange={{(e) => setSearchTerm(e.target.value)}}
-                            style={{{{minWidth: '200px'}}}}
-                        />
-                        <div style={{{{display: 'flex', gap: '12px', marginLeft: 'auto'}}}}>
-                            <span style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
-                                <span style={{{{width: '12px', height: '12px', borderRadius: '3px', background: '#28a745'}}}}></span>
-                                <span style={{{{fontSize: '12px', color: '#666'}}}}>NCAA</span>
-                            </span>
-                            <span style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
-                                <span style={{{{width: '12px', height: '12px', borderRadius: '3px', background: '#ff6b35'}}}}></span>
-                                <span style={{{{fontSize: '12px', color: '#666'}}}}>MiLB</span>
-                            </span>
-                            <span style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
-                                <span style={{{{width: '12px', height: '12px', borderRadius: '3px', background: '#9c27b0'}}}}></span>
-                                <span style={{{{fontSize: '12px', color: '#666'}}}}>Partner</span>
-                            </span>
-                            <span style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
-                                <span style={{{{width: '12px', height: '12px', borderRadius: '3px', background: '#007bff'}}}}></span>
-                                <span style={{{{fontSize: '12px', color: '#666'}}}}>MLB</span>
-                            </span>
-                        </div>
-                    </div>
+                    <LevelLeagueFilter levelFilter={{levelFilter}} setLevelFilter={{setLevelFilter}} leagueFilter={{leagueFilter}} setLeagueFilter={{setLeagueFilter}} data={{games}} showSearch={{true}} searchTerm={{searchTerm}} setSearchTerm={{setSearchTerm}} searchPlaceholder="Search teams or venues..." />
                     <div className="table-container">
                         <table>
                             <thead>
@@ -1564,7 +1398,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 {{filtered.map((g, i) => (
                                     <tr key={{i}} style={{{{borderLeft: `4px solid ${{levelColors[g.level] || '#ccc'}}`}}}}>
                                         <td>{{g.date}}</td>
-                                        <td>{{getLevelBadge(g.level, g.milb_level)}}</td>
+                                        <td>{{getLevelBadgeGeneric(g.level)}}</td>
                                         <td><TeamCell team={{g.away_team}} teamId={{g.away_team_id}} level={{g.level}} /></td>
                                         <td className="text-center">{{g.away_score}} - {{g.home_score}}</td>
                                         <td><TeamCell team={{g.home_team}} teamId={{g.home_team_id}} level={{g.level}} /></td>
@@ -1716,23 +1550,34 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const TeamRecords = ({{ teams, confFilter }}) => {{
+        const TeamRecords = ({{ teams }}) => {{
+            const [levelFilter, setLevelFilter] = useState('All');
+            const [leagueFilter, setLeagueFilter] = useState('All');
+
             const filtered = useMemo(() => {{
-                if (!confFilter || confFilter === 'All') return teams;
-                return teams.filter(t => t.Conference === confFilter);
-            }}, [teams, confFilter]);
+                if (!teams) return [];
+                return filterByLevelLeague(teams, levelFilter, leagueFilter);
+            }}, [teams, levelFilter, leagueFilter]);
 
             const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'W', direction: 'desc' }});
 
             return (
                 <div className="panel">
                     <div className="panel-header"><h2>Team Records ({{filtered.length}})</h2></div>
+                    <LevelLeagueFilter
+                        levelFilter={{levelFilter}}
+                        setLevelFilter={{setLevelFilter}}
+                        leagueFilter={{leagueFilter}}
+                        setLeagueFilter={{setLeagueFilter}}
+                        data={{teams}}
+                    />
                     <div className="table-container">
                         <table>
                             <thead>
                                 <tr>
+                                    <SortableHeader label="Level" sortKey="Level" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="Team" sortKey="Team" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="Conference" sortKey="Conference" sortConfig={{sortConfig}} onSort={{requestSort}} />
+                                    <SortableHeader label="League" sortKey="League" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="W" sortKey="W" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="L" sortKey="L" sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     <SortableHeader label="Win%" sortKey="Win%" sortConfig={{sortConfig}} onSort={{requestSort}} />
@@ -1744,8 +1589,9 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             <tbody>
                                 {{items.map((t, i) => (
                                     <tr key={{i}}>
+                                        <td>{{getLevelBadgeGeneric(t.Level)}}</td>
                                         <td>{{t.Team}}</td>
-                                        <td>{{t.Conference}}</td>
+                                        <td>{{t.League}}</td>
                                         <td className="text-center">{{t.W}}</td>
                                         <td className="text-center">{{t.L}}</td>
                                         <td className="text-center">{{t['Win%']}}</td>
@@ -1761,18 +1607,24 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const MilestonesTable = ({{ title, data, columns }}) => {{
-            const {{ items, sortConfig, requestSort }} = useSortableData(data, {{ key: 'Date', direction: 'desc' }});
+        const MilestonesTable = ({{ title, data, columns, levelFilter, leagueFilter }}) => {{
+            const filtered = useMemo(() => {{
+                if (!data) return [];
+                return filterByLevelLeague(data, levelFilter, leagueFilter);
+            }}, [data, levelFilter, leagueFilter]);
 
-            if (!data || data.length === 0) return null;
+            const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'Date', direction: 'desc' }});
+
+            if (!filtered || filtered.length === 0) return null;
+            const allColumns = ['Level', ...columns];
             return (
                 <div className="panel" style={{{{marginTop: '16px'}}}}>
-                    <div className="panel-header"><h2>{{title}} ({{data.length}})</h2></div>
+                    <div className="panel-header"><h2>{{title}} ({{filtered.length}})</h2></div>
                     <div className="table-container">
                         <table>
                             <thead>
                                 <tr>
-                                    {{columns.map(col => (
+                                    {{allColumns.map(col => (
                                         <SortableHeader key={{col}} label={{col}} sortKey={{col}} sortConfig={{sortConfig}} onSort={{requestSort}} />
                                     ))}}
                                 </tr>
@@ -1780,8 +1632,10 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             <tbody>
                                 {{items.slice(0, 50).map((row, i) => (
                                     <tr key={{i}}>
-                                        {{columns.map(col => (
-                                            <td key={{col}} className="text-center">{{row[col]}}</td>
+                                        {{allColumns.map(col => (
+                                            <td key={{col}} className="text-center">
+                                                {{col === 'Level' ? getLevelBadgeGeneric(row[col]) : row[col]}}
+                                            </td>
                                         ))}}
                                     </tr>
                                 ))}}
@@ -1792,16 +1646,16 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const Checklist = ({{ checklist }}) => {{
-            const [expandedConf, setExpandedConf] = useState(null);
+        const Checklist = ({{ checklist, milbChecklist }}) => {{
+            const [expandedSection, setExpandedSection] = useState(null);
+            const [expandedLeague, setExpandedLeague] = useState(null);
+            const levelColors = DATA.levelColors || {{}};
+            const levelOrder = DATA.levelOrder || ['NCAA', 'Triple-A', 'Double-A', 'High-A', 'Single-A', 'Independent'];
 
-            const conferences = useMemo(() => {{
-                return Object.keys(checklist).sort();
-            }}, [checklist]);
-
-            const totalStats = useMemo(() => {{
+            // NCAA stats
+            const ncaaStats = useMemo(() => {{
                 let totalTeams = 0, totalSeen = 0, totalVisited = 0;
-                Object.values(checklist).forEach(c => {{
+                Object.values(checklist || {{}}).forEach(c => {{
                     totalTeams += c.total;
                     totalSeen += c.seen;
                     totalVisited += c.visited;
@@ -1809,117 +1663,10 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 return {{ total: totalTeams, seen: totalSeen, visited: totalVisited }};
             }}, [checklist]);
 
-            const toggleConf = (conf) => {{
-                setExpandedConf(expandedConf === conf ? null : conf);
-            }};
-
-            return (
-                <div className="panel">
-                    <div className="panel-header"><h2>NCAA Checklist</h2></div>
-                    <div style={{{{padding: '20px'}}}}>
-                    <div style={{{{display: 'flex', gap: '24px', marginBottom: '20px', flexWrap: 'wrap'}}}}>
-                        <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
-                            <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#333'}}}}>{{totalStats.seen}}/{{totalStats.total}}</div>
-                            <div style={{{{fontSize: '14px', color: '#666'}}}}>Teams Seen</div>
-                        </div>
-                        <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
-                            <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#27ae60'}}}}>{{totalStats.visited}}</div>
-                            <div style={{{{fontSize: '14px', color: '#666'}}}}>Home Stadiums</div>
-                        </div>
-                        <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
-                            <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#333'}}}}>{{Math.round((totalStats.seen / totalStats.total) * 100) || 0}}%</div>
-                            <div style={{{{fontSize: '14px', color: '#666'}}}}>Progress</div>
-                        </div>
-                    </div>
-                    <div style={{{{display: 'flex', flexDirection: 'column', gap: '8px'}}}}>
-                        {{conferences.map(conf => {{
-                            const data = checklist[conf] || {{ teams: [], total: 0, seen: 0, visited: 0, teamStatus: {{}} }};
-                            const isExpanded = expandedConf === conf;
-                            const pct = data.total > 0 ? Math.round((data.seen / data.total) * 100) : 0;
-                            return (
-                                <div key={{conf}}>
-                                    <div
-                                        onClick={{() => toggleConf(conf)}}
-                                        style={{{{
-                                            padding: '14px 18px',
-                                            background: '#f8f9fa',
-                                            borderRadius: isExpanded ? '8px 8px 0 0' : '8px',
-                                            cursor: 'pointer',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'space-between',
-                                            border: '1px solid #dee2e6',
-                                            borderBottom: isExpanded ? 'none' : '1px solid #dee2e6'
-                                        }}}}
-                                    >
-                                        <div style={{{{display: 'flex', alignItems: 'center', gap: '12px'}}}}>
-                                            <span style={{{{fontSize: '18px'}}}}>{{isExpanded ? '▼' : '▶'}}</span>
-                                            <span style={{{{fontWeight: 600, fontSize: '16px'}}}}>{{conf}}</span>
-                                        </div>
-                                        <div style={{{{display: 'flex', alignItems: 'center', gap: '16px'}}}}>
-                                            <span style={{{{color: '#666'}}}}>{{data.seen}}/{{data.total}} seen</span>
-                                            <div style={{{{width: '100px', height: '8px', background: '#e0e0e0', borderRadius: '4px', overflow: 'hidden'}}}}>
-                                                <div style={{{{width: `${{pct}}%`, height: '100%', background: '#27ae60', borderRadius: '4px'}}}}></div>
-                                            </div>
-                                            <span style={{{{fontWeight: 500, minWidth: '40px'}}}}>{{pct}}%</span>
-                                        </div>
-                                    </div>
-                                    {{isExpanded && (
-                                        <div style={{{{
-                                            padding: '16px',
-                                            border: '1px solid #dee2e6',
-                                            borderTop: 'none',
-                                            borderRadius: '0 0 8px 8px',
-                                            background: 'white'
-                                        }}}}>
-                                            <div style={{{{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px'}}}}>
-                                                {{data.teams.sort().map(team => {{
-                                                    const status = data.teamStatus[team] || 'none';
-                                                    return (
-                                                        <div key={{team}} style={{{{
-                                                            padding: '10px 14px',
-                                                            borderRadius: '6px',
-                                                            background: status === 'home' ? '#d4edda' : status === 'away' ? '#cce5ff' : '#f8f9fa',
-                                                            border: `1px solid ${{status === 'home' ? '#28a745' : status === 'away' ? '#007bff' : '#dee2e6'}}`,
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            gap: '8px'
-                                                        }}}}>
-                                                            <span style={{{{
-                                                                width: '12px',
-                                                                height: '12px',
-                                                                borderRadius: '50%',
-                                                                background: status === 'home' ? '#28a745' : status === 'away' ? '#007bff' : '#ccc'
-                                                            }}}}></span>
-                                                            <span style={{{{flex: 1, fontWeight: status !== 'none' ? 500 : 400}}}}>{{team}}</span>
-                                                        </div>
-                                                    );
-                                                }})}}
-                                            </div>
-                                        </div>
-                                    )}}
-                                </div>
-                            );
-                        }})}}
-                    </div>
-                    <div style={{{{marginTop: '16px', display: 'flex', gap: '16px', fontSize: '14px', color: '#666'}}}}>
-                        <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#28a745', marginRight: '4px'}}}}></span> Visited (Home)</span>
-                        <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#007bff', marginRight: '4px'}}}}></span> Seen (Away)</span>
-                        <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#ccc', marginRight: '4px'}}}}></span> Not Seen</span>
-                    </div>
-                    </div>
-                </div>
-            );
-        }};
-
-        const MilbChecklist = ({{ milbChecklist }}) => {{
-            const [expandedLevel, setExpandedLevel] = useState(null);
-
-            const levels = ['Triple-A', 'Double-A', 'High-A', 'Single-A', 'Rookie/Independent'];
-
-            const totalStats = useMemo(() => {{
+            // Pro stats
+            const proStats = useMemo(() => {{
                 let totalTeams = 0, totalSeen = 0, totalVisited = 0;
-                Object.values(milbChecklist).forEach(c => {{
+                Object.values(milbChecklist || {{}}).forEach(c => {{
                     totalTeams += c.total;
                     totalSeen += c.seen;
                     totalVisited += c.visited;
@@ -1927,124 +1674,318 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 return {{ total: totalTeams, seen: totalSeen, visited: totalVisited }};
             }}, [milbChecklist]);
 
-            const toggleLevel = (level) => {{
-                setExpandedLevel(expandedLevel === level ? null : level);
+            const grandTotal = {{
+                total: ncaaStats.total + proStats.total,
+                seen: ncaaStats.seen + proStats.seen,
+                visited: ncaaStats.visited + proStats.visited,
             }};
+
+            const toggleSection = (key) => {{
+                setExpandedSection(expandedSection === key ? null : key);
+                setExpandedLeague(null);
+            }};
+
+            const toggleLeague = (key) => {{
+                setExpandedLeague(expandedLeague === key ? null : key);
+            }};
+
+            // NCAA conferences sorted
+            const ncaaConferences = useMemo(() => {{
+                return Object.keys(checklist || {{}}).sort();
+            }}, [checklist]);
+
+            // Pro levels in order
+            const proLevels = levelOrder.filter(l => l !== 'NCAA' && milbChecklist && milbChecklist[l]);
 
             return (
                 <div className="panel">
-                    <div className="panel-header"><h2>MiLB Checklist</h2></div>
+                    <div className="panel-header"><h2>Team Checklist</h2></div>
                     <div style={{{{padding: '20px'}}}}>
-                    <div style={{{{display: 'flex', gap: '24px', marginBottom: '20px', flexWrap: 'wrap'}}}}>
-                        <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
-                            <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#333'}}}}>{{totalStats.seen}}/{{totalStats.total}}</div>
-                            <div style={{{{fontSize: '14px', color: '#666'}}}}>Teams Seen</div>
+                        <div style={{{{display: 'flex', gap: '24px', marginBottom: '20px', flexWrap: 'wrap'}}}}>
+                            <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
+                                <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#333'}}}}>{{grandTotal.seen}}/{{grandTotal.total}}</div>
+                                <div style={{{{fontSize: '14px', color: '#666'}}}}>Teams Seen</div>
+                            </div>
+                            <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
+                                <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#27ae60'}}}}>{{grandTotal.visited}}</div>
+                                <div style={{{{fontSize: '14px', color: '#666'}}}}>Stadiums Visited</div>
+                            </div>
+                            <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
+                                <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#333'}}}}>{{grandTotal.total > 0 ? Math.round((grandTotal.seen / grandTotal.total) * 100) : 0}}%</div>
+                                <div style={{{{fontSize: '14px', color: '#666'}}}}>Progress</div>
+                            </div>
                         </div>
-                        <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
-                            <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#ff6b35'}}}}>{{totalStats.visited}}</div>
-                            <div style={{{{fontSize: '14px', color: '#666'}}}}>Home Stadiums</div>
-                        </div>
-                        <div style={{{{background: '#f0f0f0', padding: '12px 24px', borderRadius: '8px', textAlign: 'center'}}}}>
-                            <div style={{{{fontSize: '24px', fontWeight: 'bold', color: '#333'}}}}>{{Math.round((totalStats.seen / totalStats.total) * 100) || 0}}%</div>
-                            <div style={{{{fontSize: '14px', color: '#666'}}}}>Progress</div>
-                        </div>
-                    </div>
-                    <div style={{{{display: 'flex', flexDirection: 'column', gap: '8px'}}}}>
-                        {{levels.map(level => {{
-                            const data = milbChecklist[level] || {{ teams: [], total: 0, seen: 0, visited: 0, teamStatus: {{}} }};
-                            const isExpanded = expandedLevel === level;
-                            const pct = data.total > 0 ? Math.round((data.seen / data.total) * 100) : 0;
-                            return (
-                                <div key={{level}}>
-                                    <div
-                                        onClick={{() => toggleLevel(level)}}
-                                        style={{{{
-                                            padding: '14px 18px',
-                                            background: '#f8f9fa',
-                                            borderRadius: isExpanded ? '8px 8px 0 0' : '8px',
-                                            cursor: 'pointer',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'space-between',
-                                            border: '1px solid #dee2e6',
-                                            borderBottom: isExpanded ? 'none' : '1px solid #dee2e6'
-                                        }}}}
-                                    >
-                                        <div style={{{{display: 'flex', alignItems: 'center', gap: '12px'}}}}>
-                                            <span style={{{{fontSize: '18px'}}}}>{{isExpanded ? '▼' : '▶'}}</span>
-                                            <span style={{{{fontWeight: 600, fontSize: '16px'}}}}>{{level}}</span>
-                                        </div>
-                                        <div style={{{{display: 'flex', alignItems: 'center', gap: '16px'}}}}>
-                                            <span style={{{{color: '#666'}}}}>{{data.seen}}/{{data.total}} seen</span>
-                                            <div style={{{{width: '100px', height: '8px', background: '#e0e0e0', borderRadius: '4px', overflow: 'hidden'}}}}>
-                                                <div style={{{{width: `${{pct}}%`, height: '100%', background: '#ff6b35', borderRadius: '4px'}}}}></div>
-                                            </div>
-                                            <span style={{{{fontWeight: 500, minWidth: '40px'}}}}>{{pct}}%</span>
-                                        </div>
+
+                        {{/* Per-level summary */}}
+                        <div style={{{{display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap'}}}}>
+                            <div style={{{{padding: '8px 16px', borderRadius: '6px', background: levelColors['NCAA'] || '#28a745', color: 'white', fontSize: '13px'}}}}>
+                                NCAA: {{ncaaStats.seen}}/{{ncaaStats.total}}
+                            </div>
+                            {{proLevels.map(level => {{
+                                const data = milbChecklist[level] || {{ total: 0, seen: 0 }};
+                                return (
+                                    <div key={{level}} style={{{{padding: '8px 16px', borderRadius: '6px', background: levelColors[level] || '#666', color: 'white', fontSize: '13px'}}}}>
+                                        {{level}}: {{data.seen}}/{{data.total}}
                                     </div>
-                                    {{isExpanded && (
-                                        <div style={{{{
-                                            padding: '16px',
-                                            border: '1px solid #dee2e6',
-                                            borderTop: 'none',
-                                            borderRadius: '0 0 8px 8px',
-                                            background: 'white'
-                                        }}}}>
-                                            <div style={{{{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '8px'}}}}>
-                                                {{data.teams.sort((a, b) => a.team.localeCompare(b.team)).map(({{ team, venue, teamId, logo }}) => {{
-                                                    const status = data.teamStatus[team] || 'none';
-                                                    return (
-                                                        <div key={{team}} style={{{{
+                                );
+                            }})}}
+                        </div>
+
+                        <div style={{{{display: 'flex', flexDirection: 'column', gap: '8px'}}}}>
+                            {{/* NCAA Section */}}
+                            <div>
+                                <div
+                                    onClick={{() => toggleSection('NCAA')}}
+                                    style={{{{
+                                        padding: '14px 18px',
+                                        background: '#f8f9fa',
+                                        borderRadius: expandedSection === 'NCAA' ? '8px 8px 0 0' : '8px',
+                                        cursor: 'pointer',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        border: '1px solid #dee2e6',
+                                        borderBottom: expandedSection === 'NCAA' ? 'none' : '1px solid #dee2e6',
+                                        borderLeft: `4px solid ${{levelColors['NCAA'] || '#28a745'}}`
+                                    }}}}
+                                >
+                                    <div style={{{{display: 'flex', alignItems: 'center', gap: '12px'}}}}>
+                                        <span style={{{{fontSize: '18px'}}}}>{{expandedSection === 'NCAA' ? '▼' : '▶'}}</span>
+                                        {{getLevelBadgeGeneric('NCAA')}}
+                                        <span style={{{{fontWeight: 600, fontSize: '16px'}}}}>NCAA</span>
+                                    </div>
+                                    <div style={{{{display: 'flex', alignItems: 'center', gap: '16px'}}}}>
+                                        <span style={{{{color: '#666'}}}}>{{ncaaStats.seen}}/{{ncaaStats.total}} seen</span>
+                                        <div style={{{{width: '100px', height: '8px', background: '#e0e0e0', borderRadius: '4px', overflow: 'hidden'}}}}>
+                                            <div style={{{{width: `${{ncaaStats.total > 0 ? Math.round((ncaaStats.seen / ncaaStats.total) * 100) : 0}}%`, height: '100%', background: levelColors['NCAA'] || '#28a745', borderRadius: '4px'}}}}></div>
+                                        </div>
+                                        <span style={{{{fontWeight: 500, minWidth: '40px'}}}}>{{ncaaStats.total > 0 ? Math.round((ncaaStats.seen / ncaaStats.total) * 100) : 0}}%</span>
+                                    </div>
+                                </div>
+                                {{expandedSection === 'NCAA' && (
+                                    <div style={{{{border: '1px solid #dee2e6', borderTop: 'none', borderRadius: '0 0 8px 8px', background: 'white', padding: '8px'}}}}>
+                                        {{ncaaConferences.map(conf => {{
+                                            const confData = checklist[conf] || {{ teams: [], total: 0, seen: 0, visited: 0, teamStatus: {{}} }};
+                                            const isLeagueExpanded = expandedLeague === 'ncaa-' + conf;
+                                            const pct = confData.total > 0 ? Math.round((confData.seen / confData.total) * 100) : 0;
+                                            return (
+                                                <div key={{conf}} style={{{{marginBottom: '4px'}}}}>
+                                                    <div
+                                                        onClick={{() => toggleLeague('ncaa-' + conf)}}
+                                                        style={{{{
                                                             padding: '10px 14px',
-                                                            borderRadius: '6px',
-                                                            background: status === 'home' ? '#fff3e6' : status === 'away' ? '#e6f3ff' : '#f8f9fa',
-                                                            border: `1px solid ${{status === 'home' ? '#ff6b35' : status === 'away' ? '#007bff' : '#dee2e6'}}`,
+                                                            background: '#fafafa',
+                                                            borderRadius: isLeagueExpanded ? '6px 6px 0 0' : '6px',
+                                                            cursor: 'pointer',
                                                             display: 'flex',
                                                             alignItems: 'center',
-                                                            gap: '10px'
-                                                        }}}}>
-                                                            <img
-                                                                src={{logo}}
-                                                                style={{{{width: '28px', height: '28px', objectFit: 'contain'}}}}
-                                                                onError={{(e) => {{ e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}}}
-                                                            />
-                                                            <span style={{{{display: 'none', width: '28px', height: '28px', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}}}>⚾</span>
-                                                            <div style={{{{flex: 1}}}}>
-                                                                <div style={{{{fontWeight: status !== 'none' ? 500 : 400}}}}>{{team}}</div>
-                                                                <div style={{{{fontSize: '11px', color: '#666'}}}}>{{venue}}</div>
+                                                            justifyContent: 'space-between',
+                                                        }}}}
+                                                    >
+                                                        <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
+                                                            <span style={{{{fontSize: '14px'}}}}>{{isLeagueExpanded ? '▼' : '▶'}}</span>
+                                                            <span style={{{{fontWeight: 500}}}}>{{conf}}</span>
+                                                        </div>
+                                                        <div style={{{{display: 'flex', alignItems: 'center', gap: '12px'}}}}>
+                                                            <span style={{{{fontSize: '13px', color: '#666'}}}}>{{confData.seen}}/{{confData.total}}</span>
+                                                            <div style={{{{width: '60px', height: '6px', background: '#e0e0e0', borderRadius: '3px', overflow: 'hidden'}}}}>
+                                                                <div style={{{{width: `${{pct}}%`, height: '100%', background: '#27ae60', borderRadius: '3px'}}}}></div>
                                                             </div>
                                                         </div>
-                                                    );
-                                                }})}}
+                                                    </div>
+                                                    {{isLeagueExpanded && (
+                                                        <div style={{{{padding: '12px', background: 'white', borderRadius: '0 0 6px 6px'}}}}>
+                                                            <div style={{{{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px'}}}}>
+                                                                {{confData.teams.sort().map(team => {{
+                                                                    const status = confData.teamStatus[team] || 'none';
+                                                                    return (
+                                                                        <div key={{team}} style={{{{
+                                                                            padding: '8px 12px',
+                                                                            borderRadius: '6px',
+                                                                            background: status === 'home' ? '#d4edda' : status === 'away' ? '#cce5ff' : '#f8f9fa',
+                                                                            border: `1px solid ${{status === 'home' ? '#28a745' : status === 'away' ? '#007bff' : '#dee2e6'}}`,
+                                                                            display: 'flex',
+                                                                            alignItems: 'center',
+                                                                            gap: '8px'
+                                                                        }}}}>
+                                                                            <span style={{{{
+                                                                                width: '10px',
+                                                                                height: '10px',
+                                                                                borderRadius: '50%',
+                                                                                background: status === 'home' ? '#28a745' : status === 'away' ? '#007bff' : '#ccc'
+                                                                            }}}}></span>
+                                                                            <span style={{{{flex: 1, fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{team}}</span>
+                                                                        </div>
+                                                                    );
+                                                                }})}}
+                                                            </div>
+                                                        </div>
+                                                    )}}
+                                                </div>
+                                            );
+                                        }})}}
+                                    </div>
+                                )}}
+                            </div>
+
+                            {{/* Pro level sections */}}
+                            {{proLevels.map(level => {{
+                                const levelData = milbChecklist[level] || {{ teams: [], total: 0, seen: 0, visited: 0, teamStatus: {{}}, leagues: {{}} }};
+                                const isExpanded = expandedSection === level;
+                                const levelPct = levelData.total > 0 ? Math.round((levelData.seen / levelData.total) * 100) : 0;
+                                const leagues = levelData.leagues ? Object.keys(levelData.leagues).sort() : [];
+                                return (
+                                    <div key={{level}}>
+                                        <div
+                                            onClick={{() => toggleSection(level)}}
+                                            style={{{{
+                                                padding: '14px 18px',
+                                                background: '#f8f9fa',
+                                                borderRadius: isExpanded ? '8px 8px 0 0' : '8px',
+                                                cursor: 'pointer',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'space-between',
+                                                border: '1px solid #dee2e6',
+                                                borderBottom: isExpanded ? 'none' : '1px solid #dee2e6',
+                                                borderLeft: `4px solid ${{levelColors[level] || '#666'}}`
+                                            }}}}
+                                        >
+                                            <div style={{{{display: 'flex', alignItems: 'center', gap: '12px'}}}}>
+                                                <span style={{{{fontSize: '18px'}}}}>{{isExpanded ? '▼' : '▶'}}</span>
+                                                {{getLevelBadgeGeneric(level)}}
+                                                <span style={{{{fontWeight: 600, fontSize: '16px'}}}}>{{level}}</span>
+                                            </div>
+                                            <div style={{{{display: 'flex', alignItems: 'center', gap: '16px'}}}}>
+                                                <span style={{{{color: '#666'}}}}>{{levelData.seen}}/{{levelData.total}} seen</span>
+                                                <div style={{{{width: '100px', height: '8px', background: '#e0e0e0', borderRadius: '4px', overflow: 'hidden'}}}}>
+                                                    <div style={{{{width: `${{levelPct}}%`, height: '100%', background: levelColors[level] || '#666', borderRadius: '4px'}}}}></div>
+                                                </div>
+                                                <span style={{{{fontWeight: 500, minWidth: '40px'}}}}>{{levelPct}}%</span>
                                             </div>
                                         </div>
-                                    )}}
-                                </div>
-                            );
-                        }})}}
-                    </div>
-                    <div style={{{{marginTop: '16px', display: 'flex', gap: '16px', fontSize: '14px', color: '#666'}}}}>
-                        <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#ff6b35', marginRight: '4px'}}}}></span> Visited (Home)</span>
-                        <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#007bff', marginRight: '4px'}}}}></span> Seen (Away)</span>
-                        <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#ccc', marginRight: '4px'}}}}></span> Not Seen</span>
-                    </div>
+                                        {{isExpanded && (
+                                            <div style={{{{border: '1px solid #dee2e6', borderTop: 'none', borderRadius: '0 0 8px 8px', background: 'white', padding: '8px'}}}}>
+                                                {{leagues.length > 1 ? leagues.map(league => {{
+                                                    const lgData = levelData.leagues[league] || {{ teams: [], total: 0, seen: 0, visited: 0, teamStatus: {{}} }};
+                                                    const isLgExpanded = expandedLeague === level + '-' + league;
+                                                    const lgPct = lgData.total > 0 ? Math.round((lgData.seen / lgData.total) * 100) : 0;
+                                                    return (
+                                                        <div key={{league}} style={{{{marginBottom: '4px'}}}}>
+                                                            <div
+                                                                onClick={{() => toggleLeague(level + '-' + league)}}
+                                                                style={{{{
+                                                                    padding: '10px 14px',
+                                                                    background: '#fafafa',
+                                                                    borderRadius: isLgExpanded ? '6px 6px 0 0' : '6px',
+                                                                    cursor: 'pointer',
+                                                                    display: 'flex',
+                                                                    alignItems: 'center',
+                                                                    justifyContent: 'space-between',
+                                                                }}}}
+                                                            >
+                                                                <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
+                                                                    <span style={{{{fontSize: '14px'}}}}>{{isLgExpanded ? '▼' : '▶'}}</span>
+                                                                    <span style={{{{fontWeight: 500}}}}>{{league}}</span>
+                                                                </div>
+                                                                <div style={{{{display: 'flex', alignItems: 'center', gap: '12px'}}}}>
+                                                                    <span style={{{{fontSize: '13px', color: '#666'}}}}>{{lgData.seen}}/{{lgData.total}}</span>
+                                                                    <div style={{{{width: '60px', height: '6px', background: '#e0e0e0', borderRadius: '3px', overflow: 'hidden'}}}}>
+                                                                        <div style={{{{width: `${{lgPct}}%`, height: '100%', background: levelColors[level] || '#666', borderRadius: '3px'}}}}></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {{isLgExpanded && (
+                                                                <div style={{{{padding: '12px', background: 'white', borderRadius: '0 0 6px 6px'}}}}>
+                                                                    <div style={{{{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '8px'}}}}>
+                                                                        {{lgData.teams.sort((a, b) => a.team.localeCompare(b.team)).map(({{ team, venue, teamId, logo }}) => {{
+                                                                            const status = lgData.teamStatus[team] || 'none';
+                                                                            return (
+                                                                                <div key={{team}} style={{{{
+                                                                                    padding: '8px 12px',
+                                                                                    borderRadius: '6px',
+                                                                                    background: status === 'home' ? '#fff3e6' : status === 'away' ? '#e6f3ff' : '#f8f9fa',
+                                                                                    border: `1px solid ${{status === 'home' ? levelColors[level] || '#ff6b35' : status === 'away' ? '#007bff' : '#dee2e6'}}`,
+                                                                                    display: 'flex',
+                                                                                    alignItems: 'center',
+                                                                                    gap: '10px'
+                                                                                }}}}>
+                                                                                    <img
+                                                                                        src={{logo}}
+                                                                                        style={{{{width: '24px', height: '24px', objectFit: 'contain'}}}}
+                                                                                        onError={{(e) => {{ e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}}}
+                                                                                    />
+                                                                                    <span style={{{{display: 'none', width: '24px', height: '24px', alignItems: 'center', justifyContent: 'center', fontSize: '16px'}}}}>⚾</span>
+                                                                                    <div style={{{{flex: 1}}}}>
+                                                                                        <div style={{{{fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{team}}</div>
+                                                                                        <div style={{{{fontSize: '11px', color: '#666'}}}}>{{venue}}</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            );
+                                                                        }})}}
+                                                                    </div>
+                                                                </div>
+                                                            )}}
+                                                        </div>
+                                                    );
+                                                }}) : (
+                                                    <div style={{{{padding: '12px'}}}}>
+                                                        <div style={{{{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '8px'}}}}>
+                                                            {{levelData.teams.sort((a, b) => a.team.localeCompare(b.team)).map(({{ team, venue, teamId, logo }}) => {{
+                                                                const status = levelData.teamStatus[team] || 'none';
+                                                                return (
+                                                                    <div key={{team}} style={{{{
+                                                                        padding: '8px 12px',
+                                                                        borderRadius: '6px',
+                                                                        background: status === 'home' ? '#fff3e6' : status === 'away' ? '#e6f3ff' : '#f8f9fa',
+                                                                        border: `1px solid ${{status === 'home' ? levelColors[level] || '#ff6b35' : status === 'away' ? '#007bff' : '#dee2e6'}}`,
+                                                                        display: 'flex',
+                                                                        alignItems: 'center',
+                                                                        gap: '10px'
+                                                                    }}}}>
+                                                                        <img
+                                                                            src={{logo}}
+                                                                            style={{{{width: '24px', height: '24px', objectFit: 'contain'}}}}
+                                                                            onError={{(e) => {{ e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}}}
+                                                                        />
+                                                                        <span style={{{{display: 'none', width: '24px', height: '24px', alignItems: 'center', justifyContent: 'center', fontSize: '16px'}}}}>⚾</span>
+                                                                        <div style={{{{flex: 1}}}}>
+                                                                            <div style={{{{fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{team}}</div>
+                                                                            <div style={{{{fontSize: '11px', color: '#666'}}}}>{{venue}}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                );
+                                                            }})}}
+                                                        </div>
+                                                    </div>
+                                                )}}
+                                            </div>
+                                        )}}
+                                    </div>
+                                );
+                            }})}}
+                        </div>
+
+                        <div style={{{{marginTop: '16px', display: 'flex', gap: '16px', fontSize: '14px', color: '#666'}}}}>
+                            <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#28a745', marginRight: '4px'}}}}></span> Visited (Home)</span>
+                            <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#007bff', marginRight: '4px'}}}}></span> Seen (Away)</span>
+                            <span><span style={{{{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#ccc', marginRight: '4px'}}}}></span> Not Seen</span>
+                        </div>
                     </div>
                 </div>
             );
         }};
 
-        const SchoolMap = ({{ stadiums, teamsSeenHome, teamsSeenAway, checklist, milbStadiums, milbVenuesVisited, mlbStadiums, mlbVenuesVisited, partnerStadiums, partnerVenuesVisited }}) => {{
+        const SchoolMap = ({{ stadiums, teamsSeenHome, teamsSeenAway, checklist, milbStadiums, milbVenuesVisited, partnerStadiums, partnerVenuesVisited }}) => {{
             const mapRef = useRef(null);
             const mapInstance = useRef(null);
             const markersRef = useRef([]);
             const [selectedConf, setSelectedConf] = useState('All');
             const [filter, setFilter] = useState('all');
             const [showMilb, setShowMilb] = useState(true);
-            const [showMlb, setShowMlb] = useState(true);
             const [showPartner, setShowPartner] = useState(true);
 
             const hasMilbData = milbStadiums && Object.keys(milbStadiums).length > 0;
-            const hasMlbData = mlbStadiums && Object.keys(mlbStadiums).length > 0;
             const hasPartnerData = partnerStadiums && Object.keys(partnerStadiums).length > 0;
 
             const conferences = useMemo(() => {{
@@ -2152,36 +2093,6 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     }});
                 }}
 
-                // Add MLB markers if enabled
-                if (showMlb && mlbStadiums && (selectedConf === 'All' || selectedConf === 'MLB')) {{
-                    Object.entries(mlbStadiums).forEach(([venueName, info]) => {{
-                        const isVisited = mlbVenuesVisited && mlbVenuesVisited.includes(venueName);
-
-                        // Apply filter
-                        if (filter === 'visited' && !isVisited) return;
-                        if (filter === 'unseen' && isVisited) return;
-                        if (filter === 'seen' && !isVisited) return;
-
-                        const opacity = isVisited ? 1.0 : 0.5;
-                        const size = isVisited ? 32 : 26;
-
-                        const icon = L.divIcon({{
-                            className: 'logo-marker',
-                            html: `<div style="width: ${{size}}px; height: ${{size}}px; opacity: ${{opacity}}; background: white; border-radius: 50%; padding: 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); ${{isVisited ? 'border: 2px solid #e74c3c;' : ''}} display: flex; align-items: center; justify-content: center;">
-                                <img src="${{info.logo}}" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                                <span style="display: none; font-weight: bold; font-size: ${{size*0.5}}px; color: #333; align-items: center; justify-content: center; width: 100%; height: 100%;">⚾</span>
-                            </div>`,
-                            iconSize: [size, size],
-                            iconAnchor: [size/2, size/2]
-                        }});
-
-                        const marker = L.marker([info.lat, info.lng], {{ icon }})
-                            .bindPopup(`<div style="text-align:center;"><img src="${{info.logo}}" style="width:60px;height:60px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:50px;\\'>⚾</span>'" /><br><strong>${{info.team}}</strong><br>${{venueName}}<br><em>MLB - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
-                            .addTo(mapInstance.current);
-                        markersRef.current.push(marker);
-                    }});
-                }}
-
                 // Add Partner (independent league) markers if enabled
                 if (showPartner && partnerStadiums && (selectedConf === 'All' || selectedConf === 'Partner')) {{
                     Object.entries(partnerStadiums).forEach(([stadiumName, info]) => {{
@@ -2211,7 +2122,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         markersRef.current.push(marker);
                     }});
                 }}
-            }}, [stadiums, teamsSeenHome, teamsSeenAway, selectedConf, filter, checklist, showMilb, milbStadiums, milbVenuesVisited, showMlb, mlbStadiums, mlbVenuesVisited, showPartner, partnerStadiums, partnerVenuesVisited]);
+            }}, [stadiums, teamsSeenHome, teamsSeenAway, selectedConf, filter, checklist, showMilb, milbStadiums, milbVenuesVisited, showPartner, partnerStadiums, partnerVenuesVisited]);
 
             return (
                 <div className="panel">
@@ -2226,7 +2137,6 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             >
                                 {{conferences.map(c => <option key={{c}} value={{c}}>{{c}}</option>)}}
                                 {{hasMilbData && <option value="MiLB">MiLB Only</option>}}
-                                {{hasMlbData && <option value="MLB">MLB Only</option>}}
                             </select>
                             <select
                                 className="search-box"
@@ -2247,16 +2157,6 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                         onChange={{(e) => setShowMilb(e.target.checked)}}
                                     />
                                     Show MiLB
-                                </label>
-                            )}}
-                            {{hasMlbData && (
-                                <label style={{{{display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer'}}}}>
-                                    <input
-                                        type="checkbox"
-                                        checked={{showMlb}}
-                                        onChange={{(e) => setShowMlb(e.target.checked)}}
-                                    />
-                                    Show MLB
                                 </label>
                             )}}
                             {{hasPartnerData && (
@@ -2281,12 +2181,6 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             {{hasMilbData && (
                                 <span><span style={{{{display: 'inline-block', width: '14px', height: '14px', borderRadius: '50%', background: 'white', opacity: 0.5, marginRight: '4px', boxShadow: '0 1px 3px rgba(0,0,0,0.2)'}}}}></span> MiLB (logo)</span>
                             )}}
-                            {{hasMlbData && (
-                                <span><span style={{{{display: 'inline-block', width: '18px', height: '18px', borderRadius: '50%', border: '2px solid #e74c3c', background: 'white', marginRight: '4px'}}}}></span> MLB Visited (logo)</span>
-                            )}}
-                            {{hasMlbData && (
-                                <span><span style={{{{display: 'inline-block', width: '16px', height: '16px', borderRadius: '50%', background: 'white', opacity: 0.5, marginRight: '4px', boxShadow: '0 1px 3px rgba(0,0,0,0.2)'}}}}></span> MLB (logo)</span>
-                            )}}
                             {{hasPartnerData && (
                                 <span><span style={{{{display: 'inline-block', width: '14px', height: '14px', borderRadius: '50%', border: '2px solid #9c27b0', background: 'white', marginRight: '4px'}}}}></span> Partner Visited (logo)</span>
                             )}}
@@ -2302,26 +2196,15 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
         const CalendarView = ({{ games }}) => {{
             const [selectedDay, setSelectedDay] = useState(null);
             const [levelFilter, setLevelFilter] = useState('All');
+            const [leagueFilter, setLeagueFilter] = useState('All');
 
             const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             const DAYS_IN_MONTH = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-            const levelColors = {{
-                'NCAA': '#28a745',
-                'MiLB': '#ff6b35',
-                'Partner': '#9c27b0',
-                'MLB': '#007bff'
-            }};
-
-            // Filter games by level
+            // Filter games by level and league
             const filteredGames = useMemo(() => {{
-                if (levelFilter === 'All') return games;
-                // MLB filter includes MiLB and Partner leagues
-                if (levelFilter === 'MLB') {{
-                    return games.filter(g => g.level === 'MLB' || g.level === 'MiLB' || g.level === 'Partner');
-                }}
-                return games.filter(g => g.level === levelFilter);
-            }}, [games, levelFilter]);
+                return filterByLevelLeague(games || [], levelFilter, leagueFilter);
+            }}, [games, levelFilter, leagueFilter]);
 
             // Group games by month-day (ignoring year) - uses unified format
             const gamesByDay = useMemo(() => {{
@@ -2357,32 +2240,16 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 return '#f8f9fa';
             }};
 
-            const getLevelBadge = (level, milbLevel) => {{
-                const color = levelColors[level] || '#666';
-                const label = level === 'MiLB' && milbLevel ? milbLevel : level;
-                return (
-                    <span style={{{{
-                        background: color,
-                        color: 'white',
-                        padding: '2px 6px',
-                        borderRadius: '4px',
-                        fontSize: '10px',
-                        fontWeight: 600
-                    }}}}>{{label}}</span>
-                );
-            }};
-
             // Get team logo
             const getTeamLogo = (team, teamId, level) => {{
                 const historicalLogo = DATA.historicalTeamLogos && DATA.historicalTeamLogos[team];
                 const ncaaEspnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[team];
                 const partnerLogo = DATA.partnerLogos && DATA.partnerLogos[team];
 
-                // Partner teams use custom logos from partner_stadiums
-                if (level === 'Partner' && partnerLogo) {{
+                if (level === 'Independent' && partnerLogo) {{
                     return <img src={{partnerLogo}} style={{{{width: '16px', height: '16px', objectFit: 'contain', marginRight: '6px'}}}} onError={{(e) => e.target.style.display = 'none'}} />;
                 }}
-                if ((level === 'MiLB' || level === 'MLB') && (teamId || historicalLogo)) {{
+                if (level !== 'NCAA' && (teamId || historicalLogo)) {{
                     const logoSrc = historicalLogo || `https://www.mlbstatic.com/team-logos/${{teamId}}.svg`;
                     return <img src={{logoSrc}} style={{{{width: '16px', height: '16px', objectFit: 'contain', marginRight: '6px'}}}} onError={{(e) => e.target.style.display = 'none'}} />;
                 }}
@@ -2397,17 +2264,13 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     <div className="panel-header"><h2>Games by Date (All Years)</h2></div>
                     <div style={{{{padding: '20px'}}}}>
                         <div style={{{{marginBottom: '16px', display: 'flex', gap: '12px', alignItems: 'center'}}}}>
-                            <select
-                                className="search-box"
-                                style={{{{width: 'auto', minWidth: '120px'}}}}
-                                value={{levelFilter}}
-                                onChange={{(e) => {{ setLevelFilter(e.target.value); setSelectedDay(null); }}}}
-                            >
-                                <option value="All">All Levels</option>
-                                <option value="NCAA">NCAA</option>
-                                <option value="MiLB">MiLB</option>
-                                <option value="MLB">MLB</option>
-                            </select>
+                            <LevelLeagueFilter
+                                levelFilter={{levelFilter}}
+                                setLevelFilter={{(v) => {{ setLevelFilter(v); setSelectedDay(null); }}}}
+                                leagueFilter={{leagueFilter}}
+                                setLeagueFilter={{setLeagueFilter}}
+                                data={{games}}
+                            />
                             <span style={{{{fontSize: '14px', color: '#666'}}}}>{{filteredGames.length}} games</span>
                         </div>
 
@@ -2463,18 +2326,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 <span style={{{{width: '16px', height: '16px', background: '#4caf50', border: '1px solid #ddd', borderRadius: '3px'}}}}></span> 3+
                             </span>
                             <span style={{{{marginLeft: 'auto', display: 'flex', gap: '12px'}}}}>
-                                <span style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
-                                    <span style={{{{width: '12px', height: '12px', borderRadius: '3px', background: '#28a745'}}}}></span>
-                                    <span style={{{{fontSize: '12px', color: '#666'}}}}>NCAA</span>
-                                </span>
-                                <span style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
-                                    <span style={{{{width: '12px', height: '12px', borderRadius: '3px', background: '#ff6b35'}}}}></span>
-                                    <span style={{{{fontSize: '12px', color: '#666'}}}}>MiLB</span>
-                                </span>
-                                <span style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
-                                    <span style={{{{width: '12px', height: '12px', borderRadius: '3px', background: '#007bff'}}}}></span>
-                                    <span style={{{{fontSize: '12px', color: '#666'}}}}>MLB</span>
-                                </span>
+                                {{(DATA.levelOrder || []).map(l => (
+                                    <span key={{l}} style={{{{display: 'flex', alignItems: 'center', gap: '4px'}}}}>
+                                        <span style={{{{width: '12px', height: '12px', borderRadius: '3px', background: (DATA.levelColors || {{}})[l] || '#666'}}}}></span>
+                                        <span style={{{{fontSize: '12px', color: '#666'}}}}>{{l}}</span>
+                                    </span>
+                                ))}}
                             </span>
                         </div>
 
@@ -2501,9 +2358,9 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                 const yearB = b.date?.split('/')[2] || '0';
                                                 return yearB.localeCompare(yearA);
                                             }}).map((g, i) => (
-                                                <tr key={{i}} style={{{{borderLeft: `4px solid ${{levelColors[g.level] || '#ccc'}}`}}}}>
+                                                <tr key={{i}} style={{{{borderLeft: `4px solid ${{(DATA.levelColors || {{}})[g.level] || '#ccc'}}`}}}}>
                                                     <td>{{g.date?.split('/')[2]}}</td>
-                                                    <td>{{getLevelBadge(g.level, g.milb_level)}}</td>
+                                                    <td>{{getLevelBadgeGeneric(g.level)}}</td>
                                                     <td>
                                                         <div style={{{{display: 'flex', alignItems: 'center'}}}}>
                                                             {{getTeamLogo(g.away_team, g.away_team_id, g.level)}}
@@ -2530,217 +2387,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const MiLBGameLog = ({{ games }}) => {{
-            const {{ items, sortConfig, requestSort }} = useSortableData(games, {{ key: 'Date', direction: 'desc' }});
-
-            if (!games || games.length === 0) {{
-                return (
-                    <div className="panel">
-                        <div className="panel-header"><h2>MiLB Game Log</h2></div>
-                        <div style={{{{padding: '20px', textAlign: 'center', color: '#666'}}}}>
-                            No MiLB games recorded yet. Add game IDs to milb/game_ids.txt.
-                        </div>
-                    </div>
-                );
-            }}
-
-            return (
-                <div className="panel">
-                    <div className="panel-header"><h2>MiLB Game Log ({{games.length}})</h2></div>
-                    <div className="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <SortableHeader label="Date" sortKey="Date" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="Away" sortKey="Away Team" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <th className="text-center">Score</th>
-                                    <SortableHeader label="Home" sortKey="Home Team" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="Away Parent" sortKey="Away Parent" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="Home Parent" sortKey="Home Parent" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="Venue" sortKey="Venue" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{items.map((g, i) => (
-                                    <tr key={{i}}>
-                                        <td>{{g.Date}}</td>
-                                        <td>{{g['Away Team']}}</td>
-                                        <td className="text-center">{{g.Score}}</td>
-                                        <td>{{g['Home Team']}}</td>
-                                        <td>{{g['Away Parent']}}</td>
-                                        <td>{{g['Home Parent']}}</td>
-                                        <td>{{g.Venue}}</td>
-                                    </tr>
-                                ))}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            );
-        }};
-
-        const MiLBBattersTable = ({{ batters, search }}) => {{
-            const filtered = useMemo(() => {{
-                if (!batters) return [];
-                if (!search) return batters;
-                const s = search.toLowerCase();
-                return batters.filter(b =>
-                    b.Name?.toLowerCase().includes(s)
-                );
-            }}, [batters, search]);
-
-            const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'H', direction: 'desc' }});
-
-            if (!batters || batters.length === 0) {{
-                return (
-                    <div className="panel">
-                        <div className="panel-header"><h2>MiLB Batting Leaders</h2></div>
-                        <div style={{{{padding: '20px', textAlign: 'center', color: '#666'}}}}>
-                            No MiLB batting data available.
-                        </div>
-                    </div>
-                );
-            }}
-
-            return (
-                <div className="panel">
-                    <div className="panel-header"><h2>MiLB Batting Leaders ({{filtered.length}})</h2></div>
-                    <div className="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <SortableHeader label="Name" sortKey="Name" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="G" sortKey="G" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="AB" sortKey="AB" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="R" sortKey="R" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="H" sortKey="H" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="2B" sortKey="2B" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="3B" sortKey="3B" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="HR" sortKey="HR" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="RBI" sortKey="RBI" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="BB" sortKey="BB" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="K" sortKey="K" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="SB" sortKey="SB" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="AVG" sortKey="AVG" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{items.slice(0, 100).map((b, i) => (
-                                    <tr key={{i}}>
-                                        <td>{{b.Name}}</td>
-                                        <td className="text-center">{{b.G}}</td>
-                                        <td className="text-center">{{b.AB}}</td>
-                                        <td className="text-center">{{b.R}}</td>
-                                        <td className="text-center">{{b.H}}</td>
-                                        <td className="text-center">{{b['2B']}}</td>
-                                        <td className="text-center">{{b['3B']}}</td>
-                                        <td className="text-center">{{b.HR}}</td>
-                                        <td className="text-center">{{b.RBI}}</td>
-                                        <td className="text-center">{{b.BB}}</td>
-                                        <td className="text-center">{{b.K}}</td>
-                                        <td className="text-center">{{b.SB}}</td>
-                                        <td className="text-center">{{b.AVG}}</td>
-                                    </tr>
-                                ))}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            );
-        }};
-
-        const MiLBPitchersTable = ({{ pitchers, search }}) => {{
-            const filtered = useMemo(() => {{
-                if (!pitchers) return [];
-                if (!search) return pitchers;
-                const s = search.toLowerCase();
-                return pitchers.filter(p =>
-                    p.Name?.toLowerCase().includes(s)
-                );
-            }}, [pitchers, search]);
-
-            const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'K', direction: 'desc' }});
-
-            if (!pitchers || pitchers.length === 0) {{
-                return (
-                    <div className="panel">
-                        <div className="panel-header"><h2>MiLB Pitching Leaders</h2></div>
-                        <div style={{{{padding: '20px', textAlign: 'center', color: '#666'}}}}>
-                            No MiLB pitching data available.
-                        </div>
-                    </div>
-                );
-            }}
-
-            return (
-                <div className="panel">
-                    <div className="panel-header"><h2>MiLB Pitching Leaders ({{filtered.length}})</h2></div>
-                    <div className="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <SortableHeader label="Name" sortKey="Name" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="G" sortKey="G" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="W" sortKey="W" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="L" sortKey="L" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="SV" sortKey="SV" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="IP" sortKey="IP" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="H" sortKey="H" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="R" sortKey="R" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="ER" sortKey="ER" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="BB" sortKey="BB" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="K" sortKey="K" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="HR" sortKey="HR" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                    <SortableHeader label="ERA" sortKey="ERA" sortConfig={{sortConfig}} onSort={{requestSort}} />
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{items.slice(0, 100).map((p, i) => (
-                                    <tr key={{i}}>
-                                        <td>{{p.Name}}</td>
-                                        <td className="text-center">{{p.G}}</td>
-                                        <td className="text-center">{{p.W}}</td>
-                                        <td className="text-center">{{p.L}}</td>
-                                        <td className="text-center">{{p.SV}}</td>
-                                        <td className="text-center">{{p.IP}}</td>
-                                        <td className="text-center">{{p.H}}</td>
-                                        <td className="text-center">{{p.R}}</td>
-                                        <td className="text-center">{{p.ER}}</td>
-                                        <td className="text-center">{{p.BB}}</td>
-                                        <td className="text-center">{{p.K}}</td>
-                                        <td className="text-center">{{p.HR}}</td>
-                                        <td className="text-center">{{p.ERA}}</td>
-                                    </tr>
-                                ))}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            );
-        }};
-
         const UnifiedBattersTable = ({{ batters }}) => {{
             const [levelFilter, setLevelFilter] = useState('All');
+            const [leagueFilter, setLeagueFilter] = useState('All');
             const [searchTerm, setSearchTerm] = useState('');
-
-            const levelColors = {{
-                'NCAA': '#28a745',
-                'MiLB': '#ff6b35',
-                'Partner': '#9c27b0',
-                'MLB': '#007bff'
-            }};
 
             const filtered = useMemo(() => {{
                 if (!batters) return [];
-                let result = batters;
-                if (levelFilter !== 'All') {{
-                    // MLB filter includes MiLB (minor leagues) and Partner leagues
-                    if (levelFilter === 'MLB') {{
-                        result = result.filter(b => b.level === 'MLB' || b.level === 'MiLB' || b.level === 'Partner');
-                    }} else {{
-                        result = result.filter(b => b.level === levelFilter);
-                    }}
-                }}
+                let result = filterByLevelLeague(batters, levelFilter, leagueFilter);
                 if (searchTerm) {{
                     const s = searchTerm.toLowerCase();
                     result = result.filter(b =>
@@ -2749,23 +2403,22 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     );
                 }}
                 return result;
-            }}, [batters, levelFilter, searchTerm]);
+            }}, [batters, levelFilter, leagueFilter, searchTerm]);
 
             const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'h', direction: 'desc' }});
 
-            const getTeamLogo = (batter) => {{
-                if (batter.level === 'NCAA') {{
-                    const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[batter.team];
+            const getTeamLogo = (player) => {{
+                if (player.level === 'NCAA') {{
+                    const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[player.team];
                     if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
                     return null;
                 }}
-                if (batter.level === 'Partner') {{
-                    const partnerLogo = DATA.partnerLogos && DATA.partnerLogos[batter.team];
+                if (player.level === 'Independent') {{
+                    const partnerLogo = DATA.partnerLogos && DATA.partnerLogos[player.team];
                     if (partnerLogo) return partnerLogo;
-                    return null;
                 }}
-                if (batter.team_id) {{
-                    return `https://www.mlbstatic.com/team-logos/${{batter.team_id}}.svg`;
+                if (player.team_id) {{
+                    return `https://www.mlbstatic.com/team-logos/${{player.team_id}}.svg`;
                 }}
                 return null;
             }};
@@ -2786,35 +2439,17 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     <div className="panel-header">
                         <h2>All Batters ({{filtered.length}})</h2>
                     </div>
-                    <div style={{{{padding: '16px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center'}}}}>
-                        <div style={{{{display: 'flex', gap: '8px'}}}}>
-                            {{['All', 'NCAA', 'MLB'].map(level => (
-                                <button
-                                    key={{level}}
-                                    onClick={{() => setLevelFilter(level)}}
-                                    style={{{{
-                                        padding: '6px 12px',
-                                        borderRadius: '4px',
-                                        border: levelFilter === level ? 'none' : '1px solid #ddd',
-                                        background: levelFilter === level ? (levelColors[level] || '#1e3a5f') : 'white',
-                                        color: levelFilter === level ? 'white' : '#333',
-                                        cursor: 'pointer',
-                                        fontWeight: levelFilter === level ? 'bold' : 'normal'
-                                    }}}}
-                                >
-                                    {{level}}
-                                </button>
-                            ))}}
-                        </div>
-                        <input
-                            type="text"
-                            className="search-box"
-                            placeholder="Search by name or team..."
-                            value={{searchTerm}}
-                            onChange={{(e) => setSearchTerm(e.target.value)}}
-                            style={{{{maxWidth: '300px'}}}}
-                        />
-                    </div>
+                    <LevelLeagueFilter
+                        levelFilter={{levelFilter}}
+                        setLevelFilter={{setLevelFilter}}
+                        leagueFilter={{leagueFilter}}
+                        setLeagueFilter={{setLeagueFilter}}
+                        data={{batters}}
+                        showSearch={{true}}
+                        searchTerm={{searchTerm}}
+                        setSearchTerm={{setSearchTerm}}
+                        searchPlaceholder="Search by name or team..."
+                    />
                     <div className="table-container">
                         <table>
                             <thead>
@@ -2841,19 +2476,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                     const logo = getTeamLogo(b);
                                     return (
                                         <tr key={{i}}>
+                                            <td>{{getLevelBadgeGeneric(b.level)}}</td>
                                             <td>
-                                                <span style={{{{
-                                                    background: levelColors[b.level],
-                                                    color: 'white',
-                                                    padding: '2px 8px',
-                                                    borderRadius: '4px',
-                                                    fontSize: '0.75rem',
-                                                    fontWeight: 'bold'
-                                                }}}}>
-                                                    {{b.level}}
-                                                </span>
+                                                {{b.bref_id ? (
+                                                    <a href={{BREF_BASE + b.bref_id}} target="_blank" style={{{{color: '#1e3a5f', textDecoration: 'none'}}}}>
+                                                        {{b.name}} <span style={{{{fontSize: '10px'}}}}>↗</span>
+                                                    </a>
+                                                ) : b.name}}
                                             </td>
-                                            <td>{{b.name}}</td>
                                             <td>
                                                 <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
                                                     {{logo && (
@@ -2891,26 +2521,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
         const UnifiedPitchersTable = ({{ pitchers }}) => {{
             const [levelFilter, setLevelFilter] = useState('All');
+            const [leagueFilter, setLeagueFilter] = useState('All');
             const [searchTerm, setSearchTerm] = useState('');
-
-            const levelColors = {{
-                'NCAA': '#28a745',
-                'MiLB': '#ff6b35',
-                'Partner': '#9c27b0',
-                'MLB': '#007bff'
-            }};
 
             const filtered = useMemo(() => {{
                 if (!pitchers) return [];
-                let result = pitchers;
-                if (levelFilter !== 'All') {{
-                    // MLB filter includes MiLB (minor leagues) and Partner leagues
-                    if (levelFilter === 'MLB') {{
-                        result = result.filter(p => p.level === 'MLB' || p.level === 'MiLB' || p.level === 'Partner');
-                    }} else {{
-                        result = result.filter(p => p.level === levelFilter);
-                    }}
-                }}
+                let result = filterByLevelLeague(pitchers, levelFilter, leagueFilter);
                 if (searchTerm) {{
                     const s = searchTerm.toLowerCase();
                     result = result.filter(p =>
@@ -2919,23 +2535,22 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     );
                 }}
                 return result;
-            }}, [pitchers, levelFilter, searchTerm]);
+            }}, [pitchers, levelFilter, leagueFilter, searchTerm]);
 
             const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'k', direction: 'desc' }});
 
-            const getTeamLogo = (pitcher) => {{
-                if (pitcher.level === 'NCAA') {{
-                    const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[pitcher.team];
+            const getTeamLogo = (player) => {{
+                if (player.level === 'NCAA') {{
+                    const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[player.team];
                     if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
                     return null;
                 }}
-                if (pitcher.level === 'Partner') {{
-                    const partnerLogo = DATA.partnerLogos && DATA.partnerLogos[pitcher.team];
+                if (player.level === 'Independent') {{
+                    const partnerLogo = DATA.partnerLogos && DATA.partnerLogos[player.team];
                     if (partnerLogo) return partnerLogo;
-                    return null;
                 }}
-                if (pitcher.team_id) {{
-                    return `https://www.mlbstatic.com/team-logos/${{pitcher.team_id}}.svg`;
+                if (player.team_id) {{
+                    return `https://www.mlbstatic.com/team-logos/${{player.team_id}}.svg`;
                 }}
                 return null;
             }};
@@ -2956,35 +2571,17 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     <div className="panel-header">
                         <h2>All Pitchers ({{filtered.length}})</h2>
                     </div>
-                    <div style={{{{padding: '16px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center'}}}}>
-                        <div style={{{{display: 'flex', gap: '8px'}}}}>
-                            {{['All', 'NCAA', 'MLB'].map(level => (
-                                <button
-                                    key={{level}}
-                                    onClick={{() => setLevelFilter(level)}}
-                                    style={{{{
-                                        padding: '6px 12px',
-                                        borderRadius: '4px',
-                                        border: levelFilter === level ? 'none' : '1px solid #ddd',
-                                        background: levelFilter === level ? (levelColors[level] || '#1e3a5f') : 'white',
-                                        color: levelFilter === level ? 'white' : '#333',
-                                        cursor: 'pointer',
-                                        fontWeight: levelFilter === level ? 'bold' : 'normal'
-                                    }}}}
-                                >
-                                    {{level}}
-                                </button>
-                            ))}}
-                        </div>
-                        <input
-                            type="text"
-                            className="search-box"
-                            placeholder="Search by name or team..."
-                            value={{searchTerm}}
-                            onChange={{(e) => setSearchTerm(e.target.value)}}
-                            style={{{{maxWidth: '300px'}}}}
-                        />
-                    </div>
+                    <LevelLeagueFilter
+                        levelFilter={{levelFilter}}
+                        setLevelFilter={{setLevelFilter}}
+                        leagueFilter={{leagueFilter}}
+                        setLeagueFilter={{setLeagueFilter}}
+                        data={{pitchers}}
+                        showSearch={{true}}
+                        searchTerm={{searchTerm}}
+                        setSearchTerm={{setSearchTerm}}
+                        searchPlaceholder="Search by name or team..."
+                    />
                     <div className="table-container">
                         <table>
                             <thead>
@@ -3008,19 +2605,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                     const logo = getTeamLogo(p);
                                     return (
                                         <tr key={{i}}>
+                                            <td>{{getLevelBadgeGeneric(p.level)}}</td>
                                             <td>
-                                                <span style={{{{
-                                                    background: levelColors[p.level],
-                                                    color: 'white',
-                                                    padding: '2px 8px',
-                                                    borderRadius: '4px',
-                                                    fontSize: '0.75rem',
-                                                    fontWeight: 'bold'
-                                                }}}}>
-                                                    {{p.level}}
-                                                </span>
+                                                {{p.bref_id ? (
+                                                    <a href={{BREF_BASE + p.bref_id}} target="_blank" style={{{{color: '#1e3a5f', textDecoration: 'none'}}}}>
+                                                        {{p.name}} <span style={{{{fontSize: '10px'}}}}>↗</span>
+                                                    </a>
+                                                ) : p.name}}
                                             </td>
-                                            <td>{{p.name}}</td>
                                             <td>
                                                 <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
                                                     {{logo && (
@@ -3064,8 +2656,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 return items.filter(p =>
                     p.Name?.toLowerCase().includes(s) ||
                     p['NCAA Teams']?.toLowerCase().includes(s) ||
-                    p['MiLB Teams']?.toLowerCase().includes(s) ||
-                    p['MLB Teams']?.toLowerCase().includes(s)
+                    p['MiLB Teams']?.toLowerCase().includes(s)
                 );
             }}, [items, searchTerm]);
 
@@ -3074,24 +2665,18 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     <div className="panel">
                         <div className="panel-header"><h2>Crossover Players</h2></div>
                         <div style={{{{padding: '20px', textAlign: 'center', color: '#666'}}}}>
-                            No crossover players found. Crossover players are those seen at multiple levels (NCAA, MiLB, MLB).
+                            No crossover players found. Crossover players are those seen at multiple levels (NCAA, MiLB).
                         </div>
                     </div>
                 );
             }}
 
-            const levelColors = {{
-                'NCAA': '#28a745',
-                'MiLB': '#ff6b35',
-                'Partner': '#9c27b0',
-                'MLB': '#007bff'
-            }};
+            const levelColors = DATA.levelColors || {{}};
 
             const PlayerTimeline = ({{ player }}) => {{
                 const levels = [];
                 if (player['NCAA Games'] > 0) levels.push({{ level: 'NCAA', games: player['NCAA Games'], teams: player['NCAA Teams'] }});
                 if (player['MiLB Games'] > 0) levels.push({{ level: 'MiLB', games: player['MiLB Games'], teams: player['MiLB Teams'] }});
-                if (player['MLB Games'] > 0) levels.push({{ level: 'MLB', games: player['MLB Games'], teams: player['MLB Teams'] }});
 
                 return (
                     <div style={{{{padding: '16px', background: '#f8f9fa', borderRadius: '8px', marginTop: '8px'}}}}>
@@ -3176,7 +2761,6 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                         <div style={{{{display: 'flex', gap: '4px'}}}}>
                                             {{p['NCAA Games'] > 0 && <span style={{{{background: '#28a745', color: 'white', padding: '2px 8px', borderRadius: '4px', fontSize: '11px'}}}}>NCAA</span>}}
                                             {{p['MiLB Games'] > 0 && <span style={{{{background: '#ff6b35', color: 'white', padding: '2px 8px', borderRadius: '4px', fontSize: '11px'}}}}>MiLB</span>}}
-                                            {{p['MLB Games'] > 0 && <span style={{{{background: '#007bff', color: 'white', padding: '2px 8px', borderRadius: '4px', fontSize: '11px'}}}}>MLB</span>}}
                                         </div>
                                     </div>
                                     <div style={{{{display: 'flex', alignItems: 'center', gap: '24px', color: '#666'}}}}>
@@ -3203,10 +2787,10 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
         const App = () => {{
             const [activeTab, setActiveTab] = useState('allGames');
-            const [search, setSearch] = useState('');
-            const [confFilter, setConfFilter] = useState('All');
             const [selectedPlayer, setSelectedPlayer] = useState(null);
             const [playerType, setPlayerType] = useState(null);
+            const [milestoneLevelFilter, setMilestoneLevelFilter] = useState('All');
+            const [milestoneLeagueFilter, setMilestoneLeagueFilter] = useState('All');
 
             // Handle player click to show modal
             const handlePlayerClick = (player, type) => {{
@@ -3230,47 +2814,26 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 }}
             }}, [selectedPlayer, playerType]);
 
-            // Get unique conferences from data
-            const conferences = useMemo(() => {{
-                const confs = new Set(['All']);
-                DATA.batters.forEach(b => {{
-                    if (b.Conference) {{
-                        b.Conference.split(', ').forEach(c => confs.add(c));
-                    }}
+            // Collect all milestone data for LevelLeagueFilter derivation
+            const allMilestoneData = useMemo(() => {{
+                const all = [];
+                Object.values(DATA.milestones || {{}}).forEach(arr => {{
+                    if (Array.isArray(arr)) all.push(...arr);
                 }});
-                DATA.pitchers.forEach(p => {{
-                    if (p.Conference) {{
-                        p.Conference.split(', ').forEach(c => confs.add(c));
-                    }}
-                }});
-                DATA.teamRecords.forEach(t => {{
-                    if (t.Conference && t.Conference !== 'Other') confs.add(t.Conference);
-                }});
-                return Array.from(confs).sort((a, b) => {{
-                    if (a === 'All') return -1;
-                    if (b === 'All') return 1;
-                    return a.localeCompare(b);
-                }});
+                return all;
             }}, []);
 
-            const hasMilb = DATA.milbGameLog && DATA.milbGameLog.length > 0;
-            const hasMlb = DATA.mlbGameLog && DATA.mlbGameLog.length > 0;
             const hasCrossover = DATA.crossoverPlayers && DATA.crossoverPlayers.length > 0;
-            const hasMultipleLevels = (DATA.gameLog?.length > 0 ? 1 : 0) + (hasMilb ? 1 : 0) + (hasMlb ? 1 : 0) > 1;
 
             const tabs = [
                 {{ id: 'allGames', label: 'All Games' }},
                 {{ id: 'calendar', label: 'Calendar' }},
-                {{ id: 'batters', label: 'NCAA Batters' }},
-                {{ id: 'pitchers', label: 'NCAA Pitchers' }},
-                ...(hasMultipleLevels ? [{{ id: 'unifiedBatters', label: 'All Batters' }}] : []),
-                ...(hasMultipleLevels ? [{{ id: 'unifiedPitchers', label: 'All Pitchers' }}] : []),
+                {{ id: 'unifiedBatters', label: 'Batters' }},
+                {{ id: 'unifiedPitchers', label: 'Pitchers' }},
                 {{ id: 'teams', label: 'Teams' }},
                 {{ id: 'milestones', label: 'Milestones' }},
-                ...(hasMilb ? [{{ id: 'milb', label: 'MiLB' }}] : []),
                 ...(hasCrossover ? [{{ id: 'crossover', label: 'Crossover' }}] : []),
-                {{ id: 'checklist', label: 'NCAA Checklist' }},
-                ...(hasMilb ? [{{ id: 'milbChecklist', label: 'MiLB Checklist' }}] : []),
+                {{ id: 'checklist', label: 'Checklist' }},
                 {{ id: 'map', label: 'Map' }},
             ];
 
@@ -3290,113 +2853,76 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         ))}}
                     </div>
 
-                    {{(activeTab === 'batters' || activeTab === 'pitchers' || activeTab === 'teams') && (
-                        <div style={{{{display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap'}}}}>
-                            <select
-                                className="search-box"
-                                style={{{{width: 'auto', minWidth: '150px'}}}}
-                                value={{confFilter}}
-                                onChange={{(e) => setConfFilter(e.target.value)}}
-                            >
-                                {{conferences.map(c => <option key={{c}} value={{c}}>{{c}}</option>)}}
-                            </select>
-                            {{(activeTab === 'batters' || activeTab === 'pitchers') && (
-                                <input
-                                    type="text"
-                                    className="search-box"
-                                    placeholder="Search by name or team..."
-                                    value={{search}}
-                                    onChange={{(e) => setSearch(e.target.value)}}
-                                />
-                            )}}
-                        </div>
-                    )}}
-
                     {{activeTab === 'allGames' && <UnifiedGameLog games={{DATA.unifiedGameLog}} />}}
                     {{activeTab === 'calendar' && <CalendarView games={{DATA.unifiedGameLog}} />}}
-                    {{activeTab === 'batters' && <BattersTable batters={{DATA.batters}} search={{search}} confFilter={{confFilter}} onPlayerClick={{handlePlayerClick}} />}}
-                    {{activeTab === 'pitchers' && <PitchersTable pitchers={{DATA.pitchers}} search={{search}} confFilter={{confFilter}} onPlayerClick={{handlePlayerClick}} />}}
-                    {{activeTab === 'teams' && <TeamRecords teams={{DATA.teamRecords}} confFilter={{confFilter}} />}}
+                    {{activeTab === 'teams' && <TeamRecords teams={{DATA.teamRecords}} />}}
                     {{activeTab === 'milestones' && (
                         <div>
+                            <LevelLeagueFilter
+                                levelFilter={{milestoneLevelFilter}}
+                                setLevelFilter={{setMilestoneLevelFilter}}
+                                leagueFilter={{milestoneLeagueFilter}}
+                                setLeagueFilter={{setMilestoneLeagueFilter}}
+                                data={{allMilestoneData}}
+                            />
+
                             <h3 style={{{{margin: '0 0 16px 0', color: '#1e3a5f'}}}}>Elite Pitching Performances</h3>
-                            <MilestonesTable title="Perfect Games" data={{DATA.milestones.perfectGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'Score']}} />
-                            <MilestonesTable title="No-Hitters" data={{DATA.milestones.noHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'BB', 'Score']}} />
-                            <MilestonesTable title="One-Hitters" data={{DATA.milestones.oneHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} />
-                            <MilestonesTable title="Two-Hitters" data={{DATA.milestones.twoHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} />
-                            <MilestonesTable title="Maddux Games (CG, <100 pitches)" data={{DATA.milestones.madduxGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} />
+                            <MilestonesTable title="Perfect Games" data={{DATA.milestones.perfectGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'Score']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="No-Hitters" data={{DATA.milestones.noHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'BB', 'Score']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="One-Hitters" data={{DATA.milestones.oneHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Two-Hitters" data={{DATA.milestones.twoHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Maddux Games (CG, <100 pitches)" data={{DATA.milestones.madduxGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Complete Games & Shutouts</h3>
-                            <MilestonesTable title="CGSO No Walks" data={{DATA.milestones.cgsoNoWalks}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K']}} />
-                            <MilestonesTable title="Shutouts" data={{DATA.milestones.shutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} />
-                            <MilestonesTable title="7+ IP Shutouts" data={{DATA.milestones.sevenInningShutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} />
-                            <MilestonesTable title="Complete Games" data={{DATA.milestones.completeGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
-                            <MilestonesTable title="Low-Hit CG" data={{DATA.milestones.lowHitCg}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} />
+                            <MilestonesTable title="CGSO No Walks" data={{DATA.milestones.cgsoNoWalks}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Shutouts" data={{DATA.milestones.shutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="7+ IP Shutouts" data={{DATA.milestones.sevenInningShutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Complete Games" data={{DATA.milestones.completeGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Low-Hit CG" data={{DATA.milestones.lowHitCg}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Strikeout Performances</h3>
-                            <MilestonesTable title="15+ K Games" data={{DATA.milestones.fifteenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} />
-                            <MilestonesTable title="12+ K Games" data={{DATA.milestones.twelveKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} />
-                            <MilestonesTable title="10+ K Games" data={{DATA.milestones.tenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} />
-                            <MilestonesTable title="8+ K Games" data={{DATA.milestones.eightKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} />
+                            <MilestonesTable title="15+ K Games" data={{DATA.milestones.fifteenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="12+ K Games" data={{DATA.milestones.twelveKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="10+ K Games" data={{DATA.milestones.tenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="8+ K Games" data={{DATA.milestones.eightKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Quality Pitching</h3>
-                            <MilestonesTable title="Quality Starts (6+ IP, ≤3 ER)" data={{DATA.milestones.qualityStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
-                            <MilestonesTable title="Dominant Starts" data={{DATA.milestones.dominantStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
-                            <MilestonesTable title="Efficient Starts" data={{DATA.milestones.efficientStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
-                            <MilestonesTable title="High K/Low BB" data={{DATA.milestones.highKLowBb}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'BB', 'IP', 'ER']}} />
-                            <MilestonesTable title="No-Walk Starts" data={{DATA.milestones.noWalkStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
-                            <MilestonesTable title="Scoreless Relief" data={{DATA.milestones.scorelessRelief}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H']}} />
-                            <MilestonesTable title="Wins" data={{DATA.milestones.winGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} />
-                            <MilestonesTable title="Saves" data={{DATA.milestones.saveGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H']}} />
+                            <MilestonesTable title="Quality Starts (6+ IP, ≤3 ER)" data={{DATA.milestones.qualityStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Dominant Starts" data={{DATA.milestones.dominantStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Efficient Starts" data={{DATA.milestones.efficientStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="High K/Low BB" data={{DATA.milestones.highKLowBb}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'BB', 'IP', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="No-Walk Starts" data={{DATA.milestones.noWalkStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Scoreless Relief" data={{DATA.milestones.scorelessRelief}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Wins" data={{DATA.milestones.winGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Saves" data={{DATA.milestones.saveGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Big Batting Performances</h3>
-                            <MilestonesTable title="3+ HR Games" data={{DATA.milestones.threeHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI', 'R']}} />
-                            <MilestonesTable title="Multi-HR Games" data={{DATA.milestones.multiHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} />
-                            <MilestonesTable title="HR Games" data={{DATA.milestones.hrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} />
-                            <MilestonesTable title="Cycles" data={{DATA.milestones.cycles}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} />
-                            <MilestonesTable title="Cycle Watch (3 of 4)" data={{DATA.milestones.cycleWatch}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} />
+                            <MilestonesTable title="3+ HR Games" data={{DATA.milestones.threeHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Multi-HR Games" data={{DATA.milestones.multiHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="HR Games" data={{DATA.milestones.hrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Cycles" data={{DATA.milestones.cycles}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Cycle Watch (3 of 4)" data={{DATA.milestones.cycleWatch}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Hit Milestones</h3>
-                            <MilestonesTable title="5+ Hit Games" data={{DATA.milestones.fiveHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} />
-                            <MilestonesTable title="4+ Hit Games" data={{DATA.milestones.fourHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} />
-                            <MilestonesTable title="3+ Hit Games" data={{DATA.milestones.threeHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} />
-                            <MilestonesTable title="Multi-Double Games" data={{DATA.milestones.multiDoubleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '2B', 'H', 'RBI']}} />
-                            <MilestonesTable title="Multi-Triple Games" data={{DATA.milestones.multiTripleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '3B', 'H', 'RBI']}} />
-                            <MilestonesTable title="2+ XBH Games" data={{DATA.milestones.hitForExtraBases}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', '2B', '3B', 'HR']}} />
-                            <MilestonesTable title="8+ Total Bases" data={{DATA.milestones.threeTotalBasesGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'HR', 'RBI']}} />
-                            <MilestonesTable title="Perfect Batting (3+ H, 0 K)" data={{DATA.milestones.perfectBattingGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'AB', 'RBI']}} />
+                            <MilestonesTable title="5+ Hit Games" data={{DATA.milestones.fiveHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="4+ Hit Games" data={{DATA.milestones.fourHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="3+ Hit Games" data={{DATA.milestones.threeHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Multi-Double Games" data={{DATA.milestones.multiDoubleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '2B', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Multi-Triple Games" data={{DATA.milestones.multiTripleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '3B', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="2+ XBH Games" data={{DATA.milestones.hitForExtraBases}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', '2B', '3B', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="8+ Total Bases" data={{DATA.milestones.threeTotalBasesGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'HR', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Perfect Batting (3+ H, 0 K)" data={{DATA.milestones.perfectBattingGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'AB', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Run Production</h3>
-                            <MilestonesTable title="6+ RBI Games" data={{DATA.milestones.sixRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} />
-                            <MilestonesTable title="5+ RBI Games" data={{DATA.milestones.fiveRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} />
-                            <MilestonesTable title="4+ RBI Games" data={{DATA.milestones.fourRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} />
-                            <MilestonesTable title="4+ Run Games" data={{DATA.milestones.fourRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} />
-                            <MilestonesTable title="3+ Run Games" data={{DATA.milestones.threeRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} />
+                            <MilestonesTable title="6+ RBI Games" data={{DATA.milestones.sixRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="5+ RBI Games" data={{DATA.milestones.fiveRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="4+ RBI Games" data={{DATA.milestones.fourRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="4+ Run Games" data={{DATA.milestones.fourRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="3+ Run Games" data={{DATA.milestones.threeRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Baserunning & Patience</h3>
-                            <MilestonesTable title="Multi-SB Games" data={{DATA.milestones.multiSbGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'SB', 'H', 'R']}} />
-                            <MilestonesTable title="4+ Walk Games" data={{DATA.milestones.fourWalkGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'BB', 'H', 'R']}} />
-                        </div>
-                    )}}
-
-                    {{activeTab === 'milb' && (
-                        <div>
-                            <div style={{{{marginBottom: '24px'}}}}>
-                                <input
-                                    type="text"
-                                    className="search-box"
-                                    placeholder="Search MiLB players..."
-                                    value={{search}}
-                                    onChange={{(e) => setSearch(e.target.value)}}
-                                />
-                            </div>
-                            <MiLBGameLog games={{DATA.milbGameLog}} />
-                            <div style={{{{marginTop: '24px'}}}}>
-                                <MiLBBattersTable batters={{DATA.milbBatters}} search={{search}} />
-                            </div>
-                            <div style={{{{marginTop: '24px'}}}}>
-                                <MiLBPitchersTable pitchers={{DATA.milbPitchers}} search={{search}} />
-                            </div>
+                            <MilestonesTable title="Multi-SB Games" data={{DATA.milestones.multiSbGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'SB', 'H', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="4+ Walk Games" data={{DATA.milestones.fourWalkGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'BB', 'H', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
                         </div>
                     )}}
 
@@ -3405,9 +2931,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     {{activeTab === 'unifiedBatters' && <UnifiedBattersTable batters={{DATA.unifiedBatters}} />}}
                     {{activeTab === 'unifiedPitchers' && <UnifiedPitchersTable pitchers={{DATA.unifiedPitchers}} />}}
 
-                    {{activeTab === 'checklist' && <Checklist checklist={{DATA.checklist}} />}}
-                    {{activeTab === 'milbChecklist' && <MilbChecklist milbChecklist={{DATA.milbChecklist}} />}}
-                    {{activeTab === 'map' && <SchoolMap stadiums={{DATA.stadiumLocations}} teamsSeenHome={{DATA.teamsSeenHome}} teamsSeenAway={{DATA.teamsSeenAway}} checklist={{DATA.checklist}} milbStadiums={{DATA.milbStadiumLocations}} milbVenuesVisited={{DATA.milbVenuesVisited}} mlbStadiums={{DATA.mlbStadiumLocations}} mlbVenuesVisited={{DATA.mlbVenuesVisited}} partnerStadiums={{DATA.partnerStadiumLocations}} partnerVenuesVisited={{DATA.partnerVenuesVisited}} />}}
+                    {{activeTab === 'checklist' && <Checklist checklist={{DATA.checklist}} milbChecklist={{DATA.milbChecklist}} />}}
+                    {{activeTab === 'map' && <SchoolMap stadiums={{DATA.stadiumLocations}} teamsSeenHome={{DATA.teamsSeenHome}} teamsSeenAway={{DATA.teamsSeenAway}} checklist={{DATA.checklist}} milbStadiums={{DATA.milbStadiumLocations}} milbVenuesVisited={{DATA.milbVenuesVisited}} partnerStadiums={{DATA.partnerStadiumLocations}} partnerVenuesVisited={{DATA.partnerVenuesVisited}} />}}
 
                     <div className="footer">
                         Generated {generated_time} | Player links go to Baseball-Reference.com
