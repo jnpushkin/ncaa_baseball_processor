@@ -417,6 +417,38 @@
         "bref_id": "oconno007jac",
         "full_name": "Jack O'Connor",
         "match_confidence": 0.85
+      },
+      {
+        "number": "32",
+        "name": "Berry",
+        "innings_pitched": 1.2,
+        "hits": 4,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 2,
+        "strikeouts": 2,
+        "batters_faced": 12,
+        "at_bats": 9,
+        "pitches": 46,
+        "bref_id": "berry-003jak",
+        "full_name": "Jake Berry",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "4",
+        "name": "Woolfolk",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 1,
+        "at_bats": 0,
+        "pitches": 3,
+        "bref_id": "woolfo000jay",
+        "full_name": "Jay Woolfolk",
+        "match_confidence": 0.85
       }
     ],
     "home_pitching": [
@@ -466,38 +498,6 @@
         "pitches": 33,
         "bref_id": "neely-000bra",
         "full_name": "Brandon Neely",
-        "match_confidence": 0.85
-      },
-      {
-        "number": "32",
-        "name": "Berry",
-        "innings_pitched": 1.2,
-        "hits": 4,
-        "runs": 4,
-        "earned_runs": 4,
-        "walks": 2,
-        "strikeouts": 2,
-        "batters_faced": 12,
-        "at_bats": 9,
-        "pitches": 46,
-        "bref_id": "berry-003jak",
-        "full_name": "Jake Berry",
-        "match_confidence": 0.85
-      },
-      {
-        "number": "4",
-        "name": "Woolfolk",
-        "innings_pitched": 0.1,
-        "hits": 0,
-        "runs": 0,
-        "earned_runs": 0,
-        "walks": 0,
-        "strikeouts": 0,
-        "batters_faced": 1,
-        "at_bats": 0,
-        "pitches": 3,
-        "bref_id": "woolfo000jay",
-        "full_name": "Jay Woolfolk",
         "match_confidence": 0.85
       }
     ],

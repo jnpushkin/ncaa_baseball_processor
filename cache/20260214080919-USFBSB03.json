@@ -1,0 +1,1428 @@
+{
+  "metadata": {
+    "date": "2/14/2026",
+    "venue": "Benedetti Diamond (San Francisco, CA)",
+    "stadium": "Benedetti Diamond",
+    "city": "San Francisco, CA",
+    "away_team": "Western Illinois",
+    "away_team_rank": null,
+    "away_team_record": "0-3",
+    "away_team_score": 6,
+    "home_team": "San Francisco",
+    "home_team_rank": null,
+    "home_team_record": "3-0",
+    "home_team_score": 10,
+    "attendance": 190,
+    "duration": "3:14",
+    "start_time": "2:25 PM",
+    "weather": "Still kinda cold",
+    "umpires": {
+      "list": "Home Plate: Pete Saucedo First: Randy Sutton Third Base: Ruben Candelaria"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Joe Connolly",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Kenneth Perez",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      },
+      {
+        "number": "",
+        "name": "Liam Bushey",
+        "position": "1b",
+        "at_bats": 2,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 3,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Dante Turgeon",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Paul Osting",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Gage Hoover",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Kamryn Link",
+        "position": "ph/lf",
+        "at_bats": 0,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Wandel Campana",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Krayton Morse",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Isaiah Monge",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Harrison Dubois",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "JT Fabian",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      },
+      {
+        "number": "",
+        "name": "Eric Rawlings",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Anthony Steinhoff",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Brett Buchanan",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      },
+      {
+        "number": "",
+        "name": "Paul Wheeler",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Jayden Garrison",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Eddison Esquivel lf/rf",
+        "position": "",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "esquiv000edd",
+        "full_name": "Eddison Esquivel",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "TJ Rogers",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "rogers001tj-",
+        "full_name": "T.J. Rogers",
+        "match_confidence": 0.8
+      },
+      {
+        "number": "",
+        "name": "Wyatt Davis",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 4,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      },
+      {
+        "number": "",
+        "name": "Myles Kallinger",
+        "position": "lf",
+        "at_bats": 1,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kallin000myl",
+        "full_name": "Myles Kallinger",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Brendan Burke",
+        "position": "1b",
+        "at_bats": 5,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "burke-004bre",
+        "full_name": "Brendan Burke",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Zack Ramppen",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "ramppe000zac",
+        "full_name": "Zack Ramppen",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Zach Nagy",
+        "position": "3b",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Jackson Nystrom",
+        "position": "dh",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 3,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "nystro000jac",
+        "full_name": "Jackson Nystrom",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Trevor Harmon",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "harmon001tre",
+        "full_name": "Trevor Harmon",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Tino Vasell",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Matteo Bellisimo",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bellis000mat",
+        "full_name": "Matteo Bellisimo",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Jared Lewis",
+        "position": "2b",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lewis-001jar",
+        "full_name": "Jared Lewis",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Gauge Lockhart",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Hunter Holzemer",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "holzem000hun",
+        "full_name": "Hunter Holzemer",
+        "match_confidence": 0.95
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Harrison Dubois",
+        "innings_pitched": 2.2,
+        "hits": 7,
+        "runs": 8,
+        "earned_runs": 8,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 19,
+        "at_bats": 16,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "JT Fabian",
+        "innings_pitched": 2.0,
+        "hits": 1,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 2,
+        "strikeouts": 5,
+        "batters_faced": 12,
+        "at_bats": 7,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      },
+      {
+        "number": "",
+        "name": "Eric Rawlings",
+        "innings_pitched": 1.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Anthony Steinhoff",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 4,
+        "at_bats": 3,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Brett Buchanan",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Gauge Lockhart",
+        "innings_pitched": 3.2,
+        "hits": 2,
+        "runs": 3,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 5,
+        "batters_faced": 15,
+        "at_bats": 12,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Hunter Holzemer",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 2,
+        "at_bats": 2,
+        "pitches": 0,
+        "bref_id": "holzem000hun",
+        "full_name": "Hunter Holzemer",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Thomas Gonzales",
+        "innings_pitched": 2.0,
+        "hits": 1,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 4,
+        "batters_faced": 8,
+        "at_bats": 7,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Paul Wheeler",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 5,
+        "at_bats": 3,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Alex Gomez",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 6,
+        "at_bats": 3,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.4
+      },
+      {
+        "number": "",
+        "name": "Alan Gonzalez",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "home_innings": [
+        3,
+        0,
+        5,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Tino Vasell (1)\nWestern Illinois IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nHarrison Dubois (L, 0-1) 2.2 7 8 8 2 1 0 0 1 0 16 19 2 5 \u2013\nJT Fabian 2.0 1 1 1 2 5 1 0 3 0 7 12 1 0 \u2013\nEric Rawlings 1.1 0 0 0 0 0 0 0 0 0 4 4 3 1 \u2013\nAnthony Steinhoff 1.0 0 0 0 1 1 0 0 0 0 3 4 1 1 \u2013\nBrett Buchanan 1.0 1 1 1 0 2 1 0 0 0 4 4 1 0 \u2013\nTotals 9 10 10 5 9 2 0 4 0 34 43 8 7\nSan Francisco IP H R ER BB SO WP BK HBP IBB AB BF FO GO NP\nGauge Lockhart 3.2 2 3 2 1 5 1 0 1 0 12 15 2 4 \u2013\nHunter Holzemer 0.1 0 0 0 0 0 0 0 0 0 2 2 1 0 \u2013\nThomas Gonzales (W, 1-0) 2.0 1 0 0 1 4 0 0 0 0 7 8 2 0 \u2013\nPaul Wheeler 1.0 0 1 1 2 1 0 0 0 0 3 5 1 1 \u2013\nAlex Gomez 1.0 1 2 2 2 1 1 0 0 0 3 6 1 1 \u2013\nAlan Gonzalez 1.0 0 0 0 0 0 0 0 0 0 3 3 3 0 \u2013\nTotals 4 6 5 6 11 2 0 1 0 30 39 10 6\nWin: Thomas Gonzales (1-0)\nLoss: Harrison Dubois (0-1)\nHBP: Harrison Dubois, JT Fabian, Gauge Lockhart\nPB: None\nUmpires: Home Plate: Pete Saucedo First: Randy Sutton Third Base: Ruben Candelaria\nStart: 2:25 PM Time: 3:14 Attendance: 190 Weather: Still kinda cold\nGame notes:\n-WHEELER faced 1 batter in the 8th.\nPlay By Play\nWestern Illinois - Top of 1st WIU USF\nJoe Connolly grounded out to 1b unassisted. 0 0\nKenneth Pere hit by pitch. 0 0\nLiam Bushey walked",
+      "Kenneth Pere advanced to second. 0 0\nLiam Bushey advanced to second on a wild pitch",
+      "Kenneth Pere advanced to third on a wild pitch. 0 0\nDante Turgeo flied out to cf to left center, SAC, RBI",
+      "Liam Bushey advanced to third",
+      "Kenneth Pere scored. 1 0\nPaul Osting struck out looking. 1 0\nRuns: 1 Hits: 0 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 1st WIU USF\nGARRISON grounded out to ss. 1 0\nESQUIVEL walked. 1 0\nROGERS walked",
+      "ESQUIVEL advanced to second. 1 0\nDAVIS homered to right field, 3 RBI",
+      "ROGERS scored",
+      "ESQUIVEL scored. 1 3\nBURKE singled to right field. 1 3\nRAMPPEN reached on a fielder's choice to third base",
+      "BURKE out at second 3b to 2b. 1 3\nNAGY flied out to rf. 1 3\nRuns: 3 Hits: 2 Errors: 0 Left On Base: 1\nWestern Illinois - Top of 2nd WIU USF\nGage Hoover popped up to 2b to right center. 1 3\nWandel Campa grounded out to 1b unassisted. 1 3\nKrayton Mors struck out swinging. 1 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 2nd WIU USF\nNYSTROM grounded out to p. 1 3\nVASELL flied out to lf to left center. 1 3\nGARRISON hit by pitch. 1 3\nESQUIVEL grounded out to ss. 1 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nWestern Illinois - Top of 3rd WIU USF\nIsaiah Monge struck out swinging. 1 3\nJoe Connolly struck out swinging. 1 3\nKenneth Pere struck out swinging. 1 3\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 3rd WIU USF\nROGERS doubled to right center. 1 3\nDAVIS doubled to right field, RBI",
+      "ROGERS scored. 1 4\nBURKE grounded out to 3b",
+      "DAVIS advanced to third. 1 4\nRAMPPEN reached on a fielder's choice to third base, RBI",
+      "DAVIS scored. 1 5\nNAGY singled through the right side",
+      "RAMPPEN advanced to second. 1 5\nNYSTROM homered to left field, 3 RBI",
+      "NAGY scored",
+      "RAMPPEN scored. 1 8\nVASELL singled up the middle. 1 8\nGARRISON struck out swinging",
+      "VASELL stole second. 1 8\nJT Fabian to p for Harrison Dub. 1 8\nESQUIVEL hit by pitch. 1 8\nROGERS walked",
+      "ESQUIVEL advanced to second",
+      "VASELL advanced to third. 1 8\nDAVIS struck out looking. 1 8\nRuns: 5 Hits: 5 Errors: 0 Left On Base: 3\nWestern Illinois - Top of 4th WIU USF\nLiam Bushey singled to right field. 1 8\nDante Turgeo singled to second base",
+      "Liam Bushey advanced to second. 1 8\nPaul Osting out at first 1b to p",
+      "Dante Turgeo advanced to second",
+      "Liam Bushey advanced to third. 1 8\nGage Hoover grounded out to 3b, RBI",
+      "Liam Bushey scored. 2 8\nHOLZEMER to p for LOCKHART. 2 8\nWandel Campa reached on a fielding error by 2b",
+      "Dante Turgeo scored, unearned. 3 8\nKrayton Mors flied out to rf. 3 8\nRuns: 2 Hits: 2 Errors: 1 Left On Base: 1\nSan Francisco - Bottom of 4th WIU USF\nBURKE struck out swinging. 3 8\nRAMPPEN hit by pitch. 3 8\nNAGY popped up to 2b. 3 8\nNYSTROM hit by pitch",
+      "RAMPPEN advanced to second. 3 8\nVASELL struck out swinging. 3 8\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 2\nWestern Illinois - Top of 5th WIU USF\nGONZALES to p for HOLZEMER. 3 8\nIsaiah Monge flied out to cf to left center. 3 8\nJoe Connolly singled to shortstop. 3 8\nJoe Connolly stole second. 3 8\nKenneth Pere struck out swinging. 3 8\nLiam Bushey walked. 3 8\nDante Turgeo struck out swinging. 3 8\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nSan Francisco - Bottom of 5th WIU USF\nGARRISON walked. 3 8\nESQUIVEL struck out swinging. 3 8\nGARRISON advanced to second on a wild pitch. 3 8\nROGERS doubled to right center, RBI",
+      "GARRISON scored. 3 9\nDAVIS struck out looking. 3 9\nEric Rawling to p for JT Fabian. 3 9\nBURKE lined out to rf. 3 9\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 1\nWestern Illinois - Top of 6th WIU USF\nESQUIVEL to rf. 3 9\nKALLINGER to lf for DAVIS. 3 9\nPaul Osting struck out swinging. 3 9\nGage Hoover flied out to cf to right center. 3 9\nWandel Campa struck out swinging. 3 9\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 6th WIU USF\nRAMPPEN flied out to lf to left center. 3 9\nNAGY grounded out to 1b unassisted. 3 9\nHARMON pinch hit for NYSTROM. 3 9\nHARMON flied out to rf to right center. 3 9\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nWestern Illinois - Top of 7th WIU USF\nHARMON to dh. 3 9\nWHEELER to p for GONZALES. 3 9\nKrayton Mors struck out swinging. 3 9\nIsaiah Monge flied out to rf to right center. 3 9\nJoe Connolly walked. 3 9\nKenneth Pere reached on a fielder's choice to shortstop",
+      "Joe Connolly out at second ss to 2b. 3 9\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 7th WIU USF\nAnthony Stei to p for Eric Rawling. 3 9\nBELLISIMO pinch hit for VASELL. 3 9\nBELLISIMO grounded out to 3b. 3 9\nGARRISON flied out to rf. 3 9\nESQUIVEL walked. 3 9\nROGERS struck out looking. 3 9\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nWestern Illinois - Top of 8th WIU USF\nJA LEWIS to 2b for BELLISIMO. 3 9\nLiam Bushey walked. 3 9\nGOMEZ to p for WHEELER. 3 9\nDante Turgeo struck out swinging. 3 9\nLiam Bushey advanced to second on a wild pitch. 3 9\nPaul Osting walked. 3 9\nKamryn Link pinch hit for Gage Hoover. 3 9\nKamryn Link walked",
+      "Paul Osting advanced to second",
+      "Liam Bushey advanced to third. 3 9\nWandel Campa singled to right field, 2 RBI",
+      "Kamryn Link advanced to third",
+      "Paul Osting scored",
+      "Liam\nBushey scored. 5 9\nKrayton Mors flied out to cf, SAC, RBI",
+      "Wandel Campa advanced to second",
+      "Kamryn Link scored. 6 9\nIsaiah Monge grounded out to ss. 6 9\nRuns: 3 Hits: 1 Errors: 0 Left On Base: 1\nSan Francisco - Bottom of 8th WIU USF\nKamryn Link to lf. 6 9\nBrett Buchan to p for Anthony Stei. 6 9\nKALLINGER singled up the middle. 6 9\nBURKE struck out swinging",
+      "KALLINGER stole second. 6 9\nRAMPPEN struck out swinging",
+      "KALLINGER stole third. 6 9\nKALLINGER scored on a wild pitch. 6 10\nNAGY popped up to 2b. 6 10\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0\nWestern Illinois - Top of 9th WIU USF\nGONZALEZ to p for GOMEZ. 6 10\nJoe Connolly popped up to 2b. 6 10\nKenneth Pere fouled out to rf. 6 10\nLiam Bushey fouled out to c. 6 10\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nSan Francisco - Bottom of 9th WIU USF\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {},
+    "doubles": [
+      {
+        "player": "TJ Rogers",
+        "game_count": 1,
+        "season_total": 2
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "Wyatt Davis",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [
+      {
+        "player": "Joe Connolly",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Myles Kallinger",
+        "game_count": 1,
+        "season_total": 2
+      }
+    ],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Kenneth Perez (1) Alan Gonzalez p 0 0 0 0 0 0 0"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Thomas Gonzales",
+      "record": "1-0"
+    },
+    "loss": {
+      "player": "Harrison Dubois",
+      "record": "0-1"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Joe Connolly grounded out to 1b unassisted. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kenneth Pere hit by pitch. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Liam Bushey walked; Kenneth Pere advanced to second. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Liam Bushey advanced to second on a wild pitch; Kenneth Pere advanced to third on a wild pitch. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dante Turgeo flied out to cf to left center, SAC, RBI; Liam Bushey advanced to third; Kenneth Pere scored. 1 0",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Paul Osting struck out looking. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "GARRISON grounded out to ss. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL walked. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS walked; ESQUIVEL advanced to second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DAVIS homered to right field, 3 RBI; ROGERS scored; ESQUIVEL scored. 1 3",
+          "pitch_count": null,
+          "rbi": 3
+        },
+        {
+          "description": "BURKE singled to right field. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN reached on a fielder's choice to third base; BURKE out at second 3b to 2b. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NAGY flied out to rf. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Gage Hoover popped up to 2b to right center. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wandel Campa grounded out to 1b unassisted. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krayton Mors struck out swinging. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "NYSTROM grounded out to p. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "VASELL flied out to lf to left center. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GARRISON hit by pitch. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL grounded out to ss. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Isaiah Monge struck out swinging. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Joe Connolly struck out swinging. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kenneth Pere struck out swinging. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "ROGERS doubled to right center. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DAVIS doubled to right field, RBI; ROGERS scored. 1 4",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "BURKE grounded out to 3b; DAVIS advanced to third. 1 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN reached on a fielder's choice to third base, RBI; DAVIS scored. 1 5",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "NAGY singled through the right side; RAMPPEN advanced to second. 1 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NYSTROM homered to left field, 3 RBI; NAGY scored; RAMPPEN scored. 1 8",
+          "pitch_count": null,
+          "rbi": 3
+        },
+        {
+          "description": "VASELL singled up the middle. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GARRISON struck out swinging; VASELL stole second. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "JT Fabian to p for Harrison Dub. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL hit by pitch. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS walked; ESQUIVEL advanced to second; VASELL advanced to third. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DAVIS struck out looking. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Liam Bushey singled to right field. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dante Turgeo singled to second base; Liam Bushey advanced to second. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paul Osting out at first 1b to p; Dante Turgeo advanced to second; Liam Bushey advanced to third. 1 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gage Hoover grounded out to 3b, RBI; Liam Bushey scored. 2 8",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "HOLZEMER to p for LOCKHART. 2 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wandel Campa reached on a fielding error by 2b; Dante Turgeo scored, unearned. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krayton Mors flied out to rf. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "BURKE struck out swinging. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN hit by pitch. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NAGY popped up to 2b. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NYSTROM hit by pitch; RAMPPEN advanced to second. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "VASELL struck out swinging. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "GONZALES to p for HOLZEMER. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Isaiah Monge flied out to cf to left center. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Joe Connolly singled to shortstop. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Joe Connolly stole second. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kenneth Pere struck out swinging. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Liam Bushey walked. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dante Turgeo struck out swinging. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "GARRISON walked. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL struck out swinging. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GARRISON advanced to second on a wild pitch. 3 8",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS doubled to right center, RBI; GARRISON scored. 3 9",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "DAVIS struck out looking. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Eric Rawling to p for JT Fabian. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BURKE lined out to rf. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "ESQUIVEL to rf. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "KALLINGER to lf for DAVIS. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paul Osting struck out swinging. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gage Hoover flied out to cf to right center. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wandel Campa struck out swinging. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "RAMPPEN flied out to lf to left center. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NAGY grounded out to 1b unassisted. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON pinch hit for NYSTROM. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON flied out to rf to right center. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "HARMON to dh. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WHEELER to p for GONZALES. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krayton Mors struck out swinging. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Isaiah Monge flied out to rf to right center. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Joe Connolly walked. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kenneth Pere reached on a fielder's choice to shortstop; Joe Connolly out at second ss to 2b. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Anthony Stei to p for Eric Rawling. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BELLISIMO pinch hit for VASELL. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BELLISIMO grounded out to 3b. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GARRISON flied out to rf. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL walked. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out looking. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "JA LEWIS to 2b for BELLISIMO. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Liam Bushey walked. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GOMEZ to p for WHEELER. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dante Turgeo struck out swinging. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Liam Bushey advanced to second on a wild pitch. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paul Osting walked. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kamryn Link pinch hit for Gage Hoover. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kamryn Link walked; Paul Osting advanced to second; Liam Bushey advanced to third. 3 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wandel Campa singled to right field, 2 RBI; Kamryn Link advanced to third; Paul Osting scored; Liam",
+          "pitch_count": null,
+          "rbi": 2
+        },
+        {
+          "description": "Bushey scored. 5 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krayton Mors flied out to cf, SAC, RBI; Wandel Campa advanced to second; Kamryn Link scored. 6 9",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Isaiah Monge grounded out to ss. 6 9",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Kamryn Link to lf. 6 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Brett Buchan to p for Anthony Stei. 6 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "KALLINGER singled up the middle. 6 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BURKE struck out swinging; KALLINGER stole second. 6 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN struck out swinging; KALLINGER stole third. 6 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "KALLINGER scored on a wild pitch. 6 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NAGY popped up to 2b. 6 10",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "GONZALEZ to p for GOMEZ. 6 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Joe Connolly popped up to 2b. 6 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kenneth Pere fouled out to rf. 6 10",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Liam Bushey fouled out to c. 6 10",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

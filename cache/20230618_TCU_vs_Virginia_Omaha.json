@@ -367,7 +367,7 @@
         "pitches": 64,
         "bref_id": "stoute000sam",
         "full_name": "Sam Stoutenborough",
-        "match_confidence": 0.7
+        "match_confidence": 0.6
       },
       {
         "number": "21",
@@ -399,6 +399,22 @@
         "pitches": 18,
         "bref_id": "abeldt000ben",
         "full_name": "Ben Abeldt",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "4",
+        "name": "Woolfolk",
+        "innings_pitched": 0.2,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 2,
+        "at_bats": 2,
+        "pitches": 4,
+        "bref_id": "woolfo000jay",
+        "full_name": "Jay Woolfolk",
         "match_confidence": 0.85
       }
     ],
@@ -449,22 +465,6 @@
         "pitches": 12,
         "bref_id": "hodges003bra",
         "full_name": "Bradley Hodges",
-        "match_confidence": 0.85
-      },
-      {
-        "number": "4",
-        "name": "Woolfolk",
-        "innings_pitched": 0.2,
-        "hits": 0,
-        "runs": 0,
-        "earned_runs": 0,
-        "walks": 0,
-        "strikeouts": 0,
-        "batters_faced": 2,
-        "at_bats": 2,
-        "pitches": 4,
-        "bref_id": "woolfo000jay",
-        "full_name": "Jay Woolfolk",
         "match_confidence": 0.85
       }
     ],
