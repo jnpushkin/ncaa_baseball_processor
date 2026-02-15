@@ -13,6 +13,9 @@ import sys
 import json
 import argparse
 import re
+import shutil
+import subprocess
+import tempfile
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
@@ -375,6 +378,18 @@ def main():
         help='Generate player crossover report (NCAA/MiLB)'
     )
 
+    # Deploy options
+    parser.add_argument(
+        '--deploy',
+        action='store_true',
+        help='Deploy website to Surge after generation'
+    )
+    parser.add_argument(
+        '--deploy-domain',
+        default='ncaa-baseball.surge.sh',
+        help='Surge domain to deploy to (default: ncaa-baseball.surge.sh)'
+    )
+
     args = parser.parse_args()
 
     # Validate flags
@@ -515,6 +530,30 @@ def main():
         print(f"Error during processing: {e}")
         import traceback
         traceback.print_exc()
+        return
+
+    # Deploy to Surge if requested
+    if args.deploy and not args.excel_only:
+        html_path = args.output_excel.replace('.xlsx', '.html')
+        if not os.path.exists(html_path):
+            print("No HTML file to deploy.")
+            return
+
+        if not shutil.which('surge'):
+            print("Error: 'surge' CLI not found. Install with: npm install -g surge")
+            return
+
+        print(f"\nDeploying to {args.deploy_domain}...")
+        with tempfile.TemporaryDirectory() as deploy_dir:
+            shutil.copy2(html_path, os.path.join(deploy_dir, 'index.html'))
+            result = subprocess.run(
+                ['surge', deploy_dir, '--domain', args.deploy_domain],
+                capture_output=True, text=True
+            )
+            if result.returncode == 0:
+                print(f"Deployed to https://{args.deploy_domain}")
+            else:
+                print(f"Deploy failed: {result.stderr or result.stdout}")
 
 
 if __name__ == '__main__':
