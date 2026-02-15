@@ -224,7 +224,7 @@ def extract_format_b_metadata(text: str) -> dict:
     # 4. "LMU (22-20) -vs- Saint Mary's (21-19)" - team names with apostrophes
     # Pattern handles: optional ranking, team name (including apostrophes), parenthesized record
     matchup = re.search(
-        r"(?:#\s*(\d+)\s+)?([A-Za-z\s']+?)\s*\(([^)]+)\)\s*-vs-\s*(?:#\s*(\d+)\s+)?([A-Za-z\s']+?)\s*\(([^)]+)\)",
+        r"(?:#\s*(\d+)\s+|#\s*)?([A-Za-z\s']+?)\s*\(([^)]+)\)\s*-vs-\s*(?:#\s*(\d+)\s+|#\s*)?([A-Za-z\s']+?)\s*\(([^)]+)\)",
         text
     )
     if matchup:
