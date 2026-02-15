@@ -56,10 +56,11 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
     from collections import defaultdict
     from ..utils.constants import resolve_level_and_league
 
+    # Key by (player_id_or_name, team) to create separate rows per team.
+    # This preserves correct level per team and enables proper grouping in the UI.
     batter_totals = defaultdict(lambda: defaultdict(int))
     batter_info = {}
-    batter_teams = defaultdict(set)  # Track teams for each player
-    batter_level_league = {}  # Track level/league per player
+    batter_level_league = {}
 
     for game in milb_games:
         meta = game.get('metadata', {})
@@ -73,10 +74,9 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
                 if not name:
                     continue
 
-                key = player_id or name
-                batter_info[key] = {'name': name, 'player_id': player_id}
-                if team:
-                    batter_teams[key].add(team)
+                player_key = player_id or name
+                key = (player_key, team)
+                batter_info[key] = {'name': name, 'player_id': player_id, 'team': team}
                 if key not in batter_level_league:
                     batter_level_league[key] = (level, league)
 
@@ -87,7 +87,6 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
     rows = []
     for key, totals in batter_totals.items():
         info = batter_info.get(key, {})
-        teams = batter_teams.get(key, set())
         ab = totals['ab']
         h = totals['h']
         avg = h / ab if ab > 0 else 0
@@ -95,7 +94,7 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
 
         rows.append({
             'Name': info.get('name', ''),
-            'Team': ', '.join(sorted(teams)) if teams else '',
+            'Team': info.get('team', ''),
             'Player ID': info.get('player_id', ''),
             'Level': lvl,
             'League': lg,
@@ -127,10 +126,10 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
     from collections import defaultdict
     from ..utils.constants import resolve_level_and_league
 
+    # Key by (player_id_or_name, team) to create separate rows per team.
     pitcher_totals = defaultdict(lambda: defaultdict(float))
     pitcher_info = {}
-    pitcher_teams = defaultdict(set)  # Track teams for each player
-    pitcher_level_league = {}  # Track level/league per player
+    pitcher_level_league = {}
 
     for game in milb_games:
         meta = game.get('metadata', {})
@@ -144,10 +143,9 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
                 if not name:
                     continue
 
-                key = player_id or name
-                pitcher_info[key] = {'name': name, 'player_id': player_id}
-                if team:
-                    pitcher_teams[key].add(team)
+                player_key = player_id or name
+                key = (player_key, team)
+                pitcher_info[key] = {'name': name, 'player_id': player_id, 'team': team}
                 if key not in pitcher_level_league:
                     pitcher_level_league[key] = (level, league)
 
@@ -174,7 +172,6 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
     rows = []
     for key, totals in pitcher_totals.items():
         info = pitcher_info.get(key, {})
-        teams = pitcher_teams.get(key, set())
         ip = totals['ip']
         er = totals['er']
         era = (er * 9 / ip) if ip > 0 else 0
@@ -182,7 +179,7 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
 
         rows.append({
             'Name': info.get('name', ''),
-            'Team': ', '.join(sorted(teams)) if teams else '',
+            'Team': info.get('team', ''),
             'Player ID': info.get('player_id', ''),
             'Level': lvl,
             'League': lg,
