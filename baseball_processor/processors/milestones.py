@@ -194,7 +194,7 @@ class MilestonesProcessor:
         'cycles', 'cycle_watch',
         'six_rbi_games', 'five_rbi_games', 'four_rbi_games', 'three_rbi_games',
         'multi_double_games', 'multi_triple_games', 'multi_sb_games',
-        'four_walk_games', 'perfect_batting_games',
+        'four_walk_games',
         'four_run_games', 'three_run_games',
         'hit_for_extra_bases', 'three_total_bases_games',
         # Pitching milestones (22)
@@ -346,11 +346,11 @@ class MilestonesProcessor:
                     # Extra-base hit milestones
                     if doubles >= 2:
                         milestones['multi_double_games'].append({
-                            **base_info, '2B': doubles, 'H': h, 'TB': total_bases,
+                            **base_info, '2B': doubles, 'H': h, 'RBI': rbi,
                         })
                     if triples >= 2:
                         milestones['multi_triple_games'].append({
-                            **base_info, '3B': triples, 'H': h, 'TB': total_bases,
+                            **base_info, '3B': triples, 'H': h, 'RBI': rbi,
                         })
                     if sb >= 2:
                         milestones['multi_sb_games'].append({
@@ -361,12 +361,6 @@ class MilestonesProcessor:
                     if bb >= 4:
                         milestones['four_walk_games'].append({
                             **base_info, 'BB': bb, 'H': h, 'R': r,
-                        })
-
-                    # Perfect batting (3+ H, 0 K, AB > 0)
-                    if h >= 3 and so == 0 and ab > 0:
-                        milestones['perfect_batting_games'].append({
-                            **base_info, 'H': h, 'AB': ab, 'K': so, 'AVG': f"{h/ab:.3f}",
                         })
 
                     # Run milestones (tiered)
@@ -389,7 +383,7 @@ class MilestonesProcessor:
                     # Total bases milestone
                     if total_bases >= 8:
                         milestones['three_total_bases_games'].append({
-                            **base_info, 'TB': total_bases, 'H': h, '2B': doubles, '3B': triples, 'HR': hr,
+                            **base_info, 'H': h, 'HR': hr, 'RBI': rbi,
                         })
 
                 # Process pitching milestones
@@ -432,8 +426,10 @@ class MilestonesProcessor:
                     is_complete_game = ip >= 9
                     is_seven_inning_cg = ip >= 7 and ip < 9
 
-                    # Perfect game (CG, 0 H, 0 BB, 0 errors)
-                    if is_complete_game and h == 0 and bb == 0:
+                    # Perfect game (CG, 0 H, 0 BB, exactly 27 batters faced)
+                    batters_faced = safe_int(player.get('batters_faced', player.get('bf', 0)))
+                    is_perfect = is_complete_game and h == 0 and bb == 0 and (batters_faced == 27 or batters_faced == 0)
+                    if is_perfect and batters_faced == 27:
                         milestones['perfect_games'].append({
                             **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb,
                         })
