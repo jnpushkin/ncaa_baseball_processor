@@ -24,8 +24,10 @@ venv/
 # Generated output (can be regenerated)
 *.xlsx
 *.html
+!Baseball_Stats.html
 output/
 html_output/
+deploy/
 
 # Cache (optional - can be regenerated)
 # cache/
