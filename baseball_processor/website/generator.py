@@ -10,7 +10,7 @@ from datetime import datetime
 from typing import Dict, List, Any
 import pandas as pd
 
-from ..utils.stadiums import STADIUM_DATA, NCAA_TEAM_LOGOS
+from ..utils.stadiums import STADIUM_DATA, NCAA_TEAM_LOGOS, NCAA_TEAM_NICKNAMES
 from ..utils.milb_stadiums import MILB_STADIUM_DATA, MILB_TEAM_LEAGUES, HISTORIC_MILB_TEAMS, LOGO_OVERRIDES, HISTORICAL_TEAM_LOGOS, find_stadium
 from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_partner_stadium_locations
 from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEAGUE_LEVEL_MAP,
@@ -727,6 +727,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         'unifiedPitchers': unified_pitchers,
         'historicalTeamLogos': {**HISTORICAL_TEAM_LOGOS, **{k: v for k, v in local_logos.items() if k in HISTORICAL_TEAM_LOGOS}},
         'ncaaTeamLogos': NCAA_TEAM_LOGOS,
+        'ncaaTeamNicknames': NCAA_TEAM_NICKNAMES,
         'partnerLogos': partner_logos,
         'localLogos': local_logos,
     }
@@ -1082,13 +1083,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     }}
 
                     // Handle string values that look like numbers
-                    const aNum = parseFloat(aVal);
-                    const bNum = parseFloat(bVal);
-                    if (!isNaN(aNum) && !isNaN(bNum)) {{
-                        return sortConfig.direction === 'asc' ? aNum - bNum : bNum - aNum;
-                    }}
-
-                    // Handle date-like strings (M/D/YYYY)
+                    // Handle date-like strings (M/D/YYYY) - must check before numeric
                     if (sortConfig.key === 'Date' || sortConfig.key === 'DateSort') {{
                         const parseDate = (d) => {{
                             if (!d) return 0;
@@ -1101,6 +1096,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         const aDate = parseDate(aVal);
                         const bDate = parseDate(bVal);
                         return sortConfig.direction === 'asc' ? aDate - bDate : bDate - aDate;
+                    }}
+
+                    const aNum = parseFloat(aVal);
+                    const bNum = parseFloat(bVal);
+                    if (!isNaN(aNum) && !isNaN(bNum)) {{
+                        return sortConfig.direction === 'asc' ? aNum - bNum : bNum - aNum;
                     }}
 
                     // String comparison
@@ -1202,6 +1203,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
+        // Helper to get team display name with nickname for NCAA teams
+        const getTeamDisplayName = (team) => {{
+            const nickname = DATA.ncaaTeamNicknames && DATA.ncaaTeamNicknames[team];
+            return nickname ? `${{team}} ${{nickname}}` : team;
+        }};
+
         // Helper to get level badge with proper color
         const getLevelBadgeGeneric = (level) => {{
             const levelColors = DATA.levelColors || {{}};
@@ -1213,7 +1220,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     padding: '2px 8px',
                     borderRadius: '4px',
                     fontSize: '11px',
-                    fontWeight: 600
+                    fontWeight: 600,
+                    whiteSpace: 'nowrap'
                 }}}}>{{level}}</span>
             );
         }};
@@ -1276,6 +1284,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     combined.level = 'Combined';
                     combined.levels = entries.map(e => e.level);
                     combined.team = entries.map(e => e.team).join(' / ');
+                    combined.teams = entries.map(e => ({{ team: e.team, team_id: e.team_id, level: e.level }}));
                     sumFields.forEach(f => {{
                         if (f === ipField) {{
                             combined[f] = addIP(entries.map(e => e[f]));
@@ -2556,6 +2565,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             const getTeamLogo = (player) => {{
                 const local = DATA.localLogos && DATA.localLogos[player.team];
                 if (local) return local;
+                const historical = DATA.historicalTeamLogos && DATA.historicalTeamLogos[player.team];
+                if (historical) return historical;
                 if (player.level === 'NCAA') {{
                     const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[player.team];
                     if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
@@ -2608,17 +2619,28 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             ) : b.name}}
                         </td>
                         <td>
-                            <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
-                                {{logo && (
-                                    <img
-                                        src={{logo}}
-                                        alt=""
-                                        style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
-                                        onError={{(e) => {{ e.target.style.display = 'none'; }}}}
-                                    />
-                                )}}
-                                {{b.team}}
-                            </div>
+                            {{b.teams ? (
+                                <div style={{{{display: 'flex', flexDirection: 'column', gap: '2px'}}}}>
+                                    {{b.teams.map((t, j) => {{
+                                        const tLogo = getTeamLogo(t);
+                                        return (
+                                            <div key={{j}} style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
+                                                {{tLogo && (
+                                                    <img src={{tLogo}} alt="" style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => {{ e.target.style.display = 'none'; }}}} />
+                                                )}}
+                                                {{getTeamDisplayName(t.team)}}
+                                            </div>
+                                        );
+                                    }})}}
+                                </div>
+                            ) : (
+                                <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
+                                    {{logo && (
+                                        <img src={{logo}} alt="" style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => {{ e.target.style.display = 'none'; }}}} />
+                                    )}}
+                                    {{getTeamDisplayName(b.team)}}
+                                </div>
+                            )}}
                         </td>
                         <td className="text-center">{{b.g}}</td>
                         <td className="text-center">{{b.ab}}</td>
@@ -2740,6 +2762,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             const getTeamLogo = (player) => {{
                 const local = DATA.localLogos && DATA.localLogos[player.team];
                 if (local) return local;
+                const historical = DATA.historicalTeamLogos && DATA.historicalTeamLogos[player.team];
+                if (historical) return historical;
                 if (player.level === 'NCAA') {{
                     const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[player.team];
                     if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
@@ -2792,17 +2816,28 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             ) : p.name}}
                         </td>
                         <td>
-                            <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
-                                {{logo && (
-                                    <img
-                                        src={{logo}}
-                                        alt=""
-                                        style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}}
-                                        onError={{(e) => {{ e.target.style.display = 'none'; }}}}
-                                    />
-                                )}}
-                                {{p.team}}
-                            </div>
+                            {{p.teams ? (
+                                <div style={{{{display: 'flex', flexDirection: 'column', gap: '2px'}}}}>
+                                    {{p.teams.map((t, j) => {{
+                                        const tLogo = getTeamLogo(t);
+                                        return (
+                                            <div key={{j}} style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
+                                                {{tLogo && (
+                                                    <img src={{tLogo}} alt="" style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => {{ e.target.style.display = 'none'; }}}} />
+                                                )}}
+                                                {{getTeamDisplayName(t.team)}}
+                                            </div>
+                                        );
+                                    }})}}
+                                </div>
+                            ) : (
+                                <div style={{{{display: 'flex', alignItems: 'center', gap: '6px'}}}}>
+                                    {{logo && (
+                                        <img src={{logo}} alt="" style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => {{ e.target.style.display = 'none'; }}}} />
+                                    )}}
+                                    {{getTeamDisplayName(p.team)}}
+                                </div>
+                            )}}
                         </td>
                         <td className="text-center">{{p.g}}</td>
                         <td className="text-center">{{p.ip}}</td>

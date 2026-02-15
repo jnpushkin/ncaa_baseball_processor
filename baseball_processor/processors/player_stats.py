@@ -13,6 +13,7 @@ from ..utils.helpers import (
     parse_innings_pitched
 )
 from ..utils.constants import get_conference
+from .milestones import normalize_player_name
 
 
 def build_extra_base_lookup(game_notes: Dict[str, Any]) -> Dict[str, Dict[str, int]]:
@@ -211,7 +212,7 @@ class PlayerStatsProcessor:
 
                 batters = box_score.get(f'{side}_batting', [])
                 for player in batters:
-                    name = player.get('full_name') or player.get('name', '')
+                    name = normalize_player_name(player.get('full_name') or player.get('name', ''))
                     if not name:
                         continue
 
@@ -281,7 +282,7 @@ class PlayerStatsProcessor:
                 # Process pitching stats
                 pitchers = box_score.get(f'{side}_pitching', [])
                 for player in pitchers:
-                    name = player.get('full_name') or player.get('name', '')
+                    name = normalize_player_name(player.get('full_name') or player.get('name', ''))
                     if not name:
                         continue
 

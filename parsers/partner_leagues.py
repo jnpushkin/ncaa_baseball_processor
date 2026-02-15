@@ -108,11 +108,13 @@ def enrich_players_with_bref_ids(game_data: Dict[str, Any]) -> Dict[str, Any]:
     else:
         year = 2024  # Default
 
-    def enrich_player(player, team_name):
-        """Look up bref_id and full name for a player."""
+    def enrich_player(player, team_name, fallback_team_name=None):
+        """Look up bref_id and full name for a player, trying fallback team if needed."""
         if player.get('player_id') and player.get('bref_id'):
             return
         result = roster_module.lookup_partner_player_full(team_name, year, player.get('name', ''))
+        if not result and fallback_team_name:
+            result = roster_module.lookup_partner_player_full(fallback_team_name, year, player.get('name', ''))
         if result:
             if result.get('bref_id'):
                 player['player_id'] = result['bref_id']
@@ -120,21 +122,21 @@ def enrich_players_with_bref_ids(game_data: Dict[str, Any]) -> Dict[str, Any]:
             if result.get('full_name'):
                 player['name'] = result['full_name']
 
-    # Process away team
+    # Process away team (try opponent as fallback for misassigned players)
     away_team = metadata.get('away_team', '')
+    home_team = metadata.get('home_team', '')
     if away_team:
         for player in box_score.get('away_batting', []):
-            enrich_player(player, away_team)
+            enrich_player(player, away_team, home_team)
         for player in box_score.get('away_pitching', []):
-            enrich_player(player, away_team)
+            enrich_player(player, away_team, home_team)
 
     # Process home team
-    home_team = metadata.get('home_team', '')
     if home_team:
         for player in box_score.get('home_batting', []):
-            enrich_player(player, home_team)
+            enrich_player(player, home_team, away_team)
         for player in box_score.get('home_pitching', []):
-            enrich_player(player, home_team)
+            enrich_player(player, home_team, away_team)
 
     return game_data
 

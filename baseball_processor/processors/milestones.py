@@ -9,6 +9,19 @@ import pandas as pd
 from ..utils.helpers import safe_int, safe_float, parse_innings_pitched, normalize_team_name
 
 
+def normalize_player_name(name: str) -> str:
+    """Convert 'Last, First' format names to 'First Last'."""
+    if not name or ',' not in name:
+        return name
+    parts = [p.strip() for p in name.split(',', 1)]
+    if len(parts) == 2 and parts[1] and parts[0]:
+        # Avoid converting game notes like "SB: Smith, Jones"
+        if ':' in parts[0]:
+            return name
+        return f"{parts[1]} {parts[0]}"
+    return name
+
+
 def is_valid_player_name(name: str) -> bool:
     """Check if a name is a valid player name (not a game note or totals row)."""
     if not name:
@@ -239,7 +252,7 @@ class MilestonesProcessor:
 
                 batters = box_score.get(f'{side}_batting', [])
                 for player in batters:
-                    name = player.get('full_name') or player.get('name', '')
+                    name = normalize_player_name(player.get('full_name') or player.get('name', ''))
                     if not is_valid_player_name(name):
                         continue
 
@@ -382,7 +395,7 @@ class MilestonesProcessor:
                 # Process pitching milestones
                 pitchers = box_score.get(f'{side}_pitching', [])
                 for player in pitchers:
-                    name = player.get('full_name') or player.get('name', '')
+                    name = normalize_player_name(player.get('full_name') or player.get('name', ''))
                     if not is_valid_player_name(name):
                         continue
 
