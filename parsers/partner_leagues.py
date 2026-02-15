@@ -718,7 +718,7 @@ def parse_pointstreak_html(html_content: str, game_id: int, league: str = 'atlan
     home_pitchers = []
 
     # Identify stats tables (have team name headers, 9-10 columns of stats)
-    # Table order: HOME batting, AWAY batting, HOME pitching, AWAY pitching
+    # Table order: AWAY batting, HOME batting, AWAY pitching, HOME pitching
     table_idx = 0
     for table in stats_tables:
         rows = table.find_all('tr')
@@ -728,13 +728,13 @@ def parse_pointstreak_html(html_content: str, game_id: int, league: str = 'atlan
             cells = data_row.find_all('td')
             if len(cells) >= 8:  # Stats tables have 8+ columns
                 if table_idx == 0:
-                    home_batters = parse_pointstreak_stats_table(table, 'batting')
-                elif table_idx == 1:
                     away_batters = parse_pointstreak_stats_table(table, 'batting')
+                elif table_idx == 1:
+                    home_batters = parse_pointstreak_stats_table(table, 'batting')
                 elif table_idx == 2:
-                    home_pitchers = parse_pointstreak_stats_table(table, 'pitching')
-                elif table_idx == 3:
                     away_pitchers = parse_pointstreak_stats_table(table, 'pitching')
+                elif table_idx == 3:
+                    home_pitchers = parse_pointstreak_stats_table(table, 'pitching')
                 table_idx += 1
                 if table_idx >= 4:
                     break

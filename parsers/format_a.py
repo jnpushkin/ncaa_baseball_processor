@@ -337,8 +337,25 @@ def parse_box_score_from_tables(pdf_page) -> dict:
     text = pdf_page.extract_text() or ""
     lines = text.split('\n')
 
+    # Build visual line data from word positions for column detection.
+    # Groups words by y-position to determine left vs right column placement.
+    words = pdf_page.extract_words()
+    page_midpoint = pdf_page.width / 2
+    # Group words by approximate y-position, storing leftmost x per visual line
+    visual_lines = {}  # y_key -> list of (x0, text)
+    for w in words:
+        y_key = round(w['top'], 0)
+        if y_key not in visual_lines:
+            visual_lines[y_key] = []
+        visual_lines[y_key].append((w['x0'], w['text']))
+    # Sort visual lines by y and each line's words by x
+    sorted_y_keys = sorted(visual_lines.keys())
+    for y_key in sorted_y_keys:
+        visual_lines[y_key].sort(key=lambda t: t[0])
+
     in_batting_section = False
     in_pitching_section = False
+    pitching_y_keys = []  # y-positions of pitching stat lines
 
     for i, line in enumerate(lines):
         stripped = line.strip()
@@ -400,11 +417,25 @@ def parse_box_score_from_tables(pdf_page) -> dict:
                 result["away_pitching"].append(asdict(away_pitcher))
                 result["home_pitching"].append(asdict(home_pitcher))
             elif away_pitcher and not home_pitcher:
-                # Only one pitcher on line - after side-by-side lines end,
-                # remaining single pitchers belong to home team
-                # (because away team exhausted their pitchers first in the PDF layout)
-                # Check if we already have home pitchers (meaning we've seen side-by-side lines)
-                if result["home_pitching"]:
+                # Single pitcher - use x-coordinates from pdfplumber to
+                # determine if this pitcher is in the left (away) or
+                # right (home) column of the PDF.
+                # Find the pitcher's name or jersey number in the word positions
+                # by matching the first token of the stripped line.
+                first_token = stripped.split()[0] if stripped.split() else ""
+                is_right_column = False
+                for y_key in sorted_y_keys:
+                    line_words = visual_lines[y_key]
+                    # Check if this visual line's first word matches our line's first token
+                    if line_words and line_words[0][1] == first_token:
+                        # Check if this y_key hasn't been claimed by a paired line
+                        if y_key not in pitching_y_keys:
+                            pitching_y_keys.append(y_key)
+                            # If leftmost word is past midpoint, it's right column (home)
+                            if line_words[0][0] > page_midpoint:
+                                is_right_column = True
+                            break
+                if is_right_column:
                     result["home_pitching"].append(asdict(away_pitcher))
                 else:
                     result["away_pitching"].append(asdict(away_pitcher))

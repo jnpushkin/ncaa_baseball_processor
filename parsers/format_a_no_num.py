@@ -114,8 +114,22 @@ def parse_format_a_no_num_box_score(pdf_page) -> dict:
     text = pdf_page.extract_text() or ""
     lines = text.split('\n')
 
+    # Build visual line data from word positions for column detection.
+    words = pdf_page.extract_words()
+    page_midpoint = pdf_page.width / 2
+    visual_lines = {}
+    for w in words:
+        y_key = round(w['top'], 0)
+        if y_key not in visual_lines:
+            visual_lines[y_key] = []
+        visual_lines[y_key].append((w['x0'], w['text']))
+    sorted_y_keys = sorted(visual_lines.keys())
+    for y_key in sorted_y_keys:
+        visual_lines[y_key].sort(key=lambda t: t[0])
+
     in_batting_section = False
     in_pitching_section = False
+    pitching_y_keys = []
 
     for i, line in enumerate(lines):
         stripped = line.strip()
@@ -159,7 +173,18 @@ def parse_format_a_no_num_box_score(pdf_page) -> dict:
                 result["away_pitching"].append(asdict(away_pitcher))
                 result["home_pitching"].append(asdict(home_pitcher))
             elif away_pitcher:
-                if result["home_pitching"]:
+                # Single pitcher - use x-coordinates to determine column.
+                first_token = stripped.split()[0] if stripped.split() else ""
+                is_right_column = False
+                for y_key in sorted_y_keys:
+                    line_words = visual_lines[y_key]
+                    if line_words and line_words[0][1] == first_token:
+                        if y_key not in pitching_y_keys:
+                            pitching_y_keys.append(y_key)
+                            if line_words[0][0] > page_midpoint:
+                                is_right_column = True
+                            break
+                if is_right_column:
                     result["home_pitching"].append(asdict(away_pitcher))
                 else:
                     result["away_pitching"].append(asdict(away_pitcher))
