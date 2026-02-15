@@ -13,6 +13,19 @@ from ..utils.helpers import (
     parse_innings_pitched
 )
 from ..utils.constants import get_conference
+
+
+def smart_title(name: str) -> str:
+    """Title-case a name, preserving short all-caps tokens like JT, DJ, TJ."""
+    words = name.split()
+    result = []
+    for w in words:
+        # Preserve short all-caps words (initials like JT, DJ, TJ, AJ)
+        if len(w) <= 3 and w.isupper() and w.isalpha():
+            result.append(w)
+        else:
+            result.append(w.title())
+    return ' '.join(result)
 from .milestones import normalize_player_name
 
 
@@ -404,7 +417,8 @@ class PlayerStatsProcessor:
             ops = obp + slg
 
             # Get display name from stored _name or parse from key
-            display_name = stats.get('_name', key.split('|')[0]).title()
+            display_name = stats.get('_name', key.split('|')[0])
+            display_name = smart_title(display_name)
 
             rows.append({
                 'Name': display_name,
@@ -456,7 +470,8 @@ class PlayerStatsProcessor:
             bb_per_9 = (bb * 9) / ip if ip > 0 else 0
 
             # Get display name from stored _name or parse from key
-            display_name = stats.get('_name', key.split('|')[0]).title()
+            display_name = stats.get('_name', key.split('|')[0])
+            display_name = smart_title(display_name)
 
             rows.append({
                 'Name': display_name,
@@ -487,7 +502,8 @@ class PlayerStatsProcessor:
         rows = []
         for key, games in self.batter_games.items():
             # Get display name from stored stats or parse from key
-            display_name = self.batter_totals[key].get('_name', key.split('|')[0]).title()
+            display_name = self.batter_totals[key].get('_name', key.split('|')[0])
+            display_name = smart_title(display_name)
             for game in games:
                 row = {'Name': display_name, **game}
                 rows.append(row)
@@ -505,7 +521,8 @@ class PlayerStatsProcessor:
         rows = []
         for key, games in self.pitcher_games.items():
             # Get display name from stored stats or parse from key
-            display_name = self.pitcher_totals[key].get('_name', key.split('|')[0]).title()
+            display_name = self.pitcher_totals[key].get('_name', key.split('|')[0])
+            display_name = smart_title(display_name)
             for game in games:
                 row = {'Name': display_name, **game}
                 rows.append(row)
