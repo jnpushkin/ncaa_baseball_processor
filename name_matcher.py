@@ -65,6 +65,7 @@ class NameMatcher:
         self.rosters[team_name] = players
 
         # Index by last name for fast lookup
+        suffixes = {'jr', 'jr.', 'sr', 'sr.', 'ii', 'iii', 'iv', 'v'}
         for player in players:
             # Add roster year to player for later matching
             player['_roster_year'] = roster_year
@@ -74,6 +75,14 @@ class NameMatcher:
                 if last_name not in self.players_by_last:
                     self.players_by_last[last_name] = []
                 self.players_by_last[last_name].append(player)
+
+                # Also index under base last name without suffix (e.g., "Lynch IV" -> "lynch")
+                last_parts = last_name.split()
+                if len(last_parts) > 1 and last_parts[-1] in suffixes:
+                    base_last = ' '.join(last_parts[:-1])
+                    if base_last not in self.players_by_last:
+                        self.players_by_last[base_last] = []
+                    self.players_by_last[base_last].append(player)
 
     def load_rosters_from_dir(self, roster_dir: str) -> int:
         """
@@ -106,6 +115,7 @@ class NameMatcher:
         with open(filepath, 'r') as f:
             data = json.load(f)
 
+        suffixes = {'jr', 'jr.', 'sr', 'sr.', 'ii', 'iii', 'iv', 'v'}
         players = data.get('players', [])
         for player in players:
             last_name = player.get('last_name', '').lower()
@@ -113,6 +123,14 @@ class NameMatcher:
                 if last_name not in self.players_by_last:
                     self.players_by_last[last_name] = []
                 self.players_by_last[last_name].append(player)
+
+                # Also index under base last name without suffix
+                last_parts = last_name.split()
+                if len(last_parts) > 1 and last_parts[-1] in suffixes:
+                    base_last = ' '.join(last_parts[:-1])
+                    if base_last not in self.players_by_last:
+                        self.players_by_last[base_last] = []
+                    self.players_by_last[base_last].append(player)
 
     # Known typos in source PDFs: {typo: correction}
     TYPO_CORRECTIONS = {
