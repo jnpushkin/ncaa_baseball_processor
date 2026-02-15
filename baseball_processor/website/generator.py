@@ -1426,6 +1426,16 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             return whole + frac / 3;
         }};
 
+        // Helper to normalize date strings to MM/DD/YYYY with zero-padding
+        const formatDate = (d) => {{
+            if (!d) return '';
+            const parts = d.split('/');
+            if (parts.length === 3) {{
+                return parts[0].padStart(2, '0') + '/' + parts[1].padStart(2, '0') + '/' + parts[2];
+            }}
+            return d;
+        }};
+
         // Group crossover players by bref_id into combined rows with expandable sub-rows
         // Only combines entries that span different levels (e.g. NCAA + MiLB)
         const groupByPlayer = (data, levelFilter, sumFields, calcRateStats, ipField) => {{
@@ -1566,7 +1576,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                         {{milestones.map((m, i) => (
                                             <span key={{i}} className="milestone-chip">
                                                 <span className="chip-type">{{m.milestoneType}}</span>
-                                                {{m.Date && <span>{{m.Date}}</span>}}
+                                                {{m.Date && <span>{{formatDate(m.Date)}}</span>}}
                                                 {{m.Opponent && <span>vs {{m.Opponent}}</span>}}
                                             </span>
                                         ))}}
@@ -1610,7 +1620,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                     <tbody>
                                         {{games.map((g, i) => (
                                             <tr key={{i}}>
-                                                <td>{{g.date || g.Date}}</td>
+                                                <td>{{formatDate(g.date || g.Date)}}</td>
                                                 <td>{{getLevelBadgeGeneric(g.level || g.Level || '')}}</td>
                                                 <td>{{getTeamDisplayName(g.opponent || g.Opponent)}}</td>
                                                 {{isBatter ? (
@@ -1698,7 +1708,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             <tbody>
                                 {{items.map((g, i) => (
                                     <tr key={{i}}>
-                                        <td>{{g.Date}}</td>
+                                        <td>{{formatDate(g.Date)}}</td>
                                         <td>{{getTeamDisplayName(g.Away)}}</td>
                                         <td className="text-center">{{g['Away Score']}} - {{g['Home Score']}}</td>
                                         <td>{{getTeamDisplayName(g.Home)}}</td>
@@ -1770,7 +1780,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             <tbody>
                                 {{filtered.map((g, i) => (
                                     <tr key={{i}} style={{{{borderLeft: `4px solid ${{levelColors[g.level] || '#ccc'}}`}}}}>
-                                        <td>{{g.date}}</td>
+                                        <td>{{formatDate(g.date)}}</td>
                                         <td>{{getLevelBadgeGeneric(g.level)}}</td>
                                         <td><TeamCell team={{g.away_team}} teamId={{g.away_team_id}} level={{g.level}} /></td>
                                         <td className="text-center">{{g.away_score}} - {{g.home_score}}</td>
@@ -2016,6 +2026,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                             {{row[col]}}
                                                         </span>
                                                       )
+                                                      : col === 'Date' ? formatDate(row[col])
                                                       : col === 'Team' || col === 'Opponent' ? getTeamDisplayName(row[col])
                                                       : row[col]}}
                                                 </td>
