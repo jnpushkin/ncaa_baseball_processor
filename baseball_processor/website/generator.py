@@ -165,8 +165,22 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
 
     # Milestone counts
     milestones = processed_data.get('milestones', {})
-    hr_games_count = len(milestones.get('hr_games', []))
-    ten_k_count = len(milestones.get('ten_k_games', []))
+    # Count total notable milestones (exclude common ones like single HR, wins, saves, quality starts, etc.)
+    notable_milestone_keys = [
+        'three_hr_games', 'multi_hr_games',
+        'five_hit_games', 'four_hit_games',
+        'cycles', 'cycle_watch',
+        'six_rbi_games', 'five_rbi_games', 'four_rbi_games',
+        'multi_double_games', 'multi_triple_games', 'multi_sb_games',
+        'four_walk_games', 'perfect_batting_games',
+        'four_run_games', 'three_total_bases_games',
+        'perfect_games', 'no_hitters', 'one_hitters', 'two_hitters',
+        'shutouts', 'cgso_no_walks', 'complete_games', 'low_hit_cg',
+        'seven_inning_shutouts', 'maddux_games',
+        'fifteen_k_games', 'twelve_k_games', 'ten_k_games',
+        'dominant_starts',
+    ]
+    total_milestones = sum(len(milestones.get(k, [])) for k in notable_milestone_keys)
 
     # Build stadium locations for map
     stadium_locations = {}
@@ -645,8 +659,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'totalBatters': total_batters,
             'totalPitchers': total_pitchers,
             'totalTeams': total_teams,
-            'hrGames': hr_games_count,
-            'tenKGames': ten_k_count,
+            'totalMilestones': total_milestones,
             'milbGames': milb_games_count,
             'milbBatters': milb_batters_count,
             'milbPitchers': milb_pitchers_count,
@@ -681,7 +694,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'multiTripleGames': df_to_list(milestones.get('multi_triple_games', [])),
             'multiSbGames': df_to_list(milestones.get('multi_sb_games', [])),
             'fourWalkGames': df_to_list(milestones.get('four_walk_games', [])),
-            'perfectBattingGames': df_to_list(milestones.get('perfect_batting_games', [])),
+
             'fourRunGames': df_to_list(milestones.get('four_run_games', [])),
             'threeRunGames': df_to_list(milestones.get('three_run_games', [])),
             'hitForExtraBases': df_to_list(milestones.get('hit_for_extra_bases', [])),
@@ -826,7 +839,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             border-radius: 8px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }}
 
         .stat-card .value {{
@@ -845,7 +858,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             display: flex;
             gap: 8px;
             margin-bottom: 16px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }}
+
+        .tabs::-webkit-scrollbar {{
+            display: none;
         }}
 
         .tab {{
@@ -856,6 +876,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             cursor: pointer;
             font-size: 0.875rem;
             transition: all 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }}
 
         .tab:hover {{
@@ -871,12 +893,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
         .panel {{
             background: var(--bg-secondary);
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             overflow: hidden;
         }}
 
         .panel-header {{
-            background: var(--accent-light);
+            background: linear-gradient(135deg, #e8f0fe 0%, #dbe7fd 100%);
             padding: 16px 20px;
             border-bottom: 1px solid var(--border-color);
         }}
@@ -889,35 +911,42 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
         table {{
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
         }}
 
         th, td {{
-            padding: 10px 12px;
+            padding: 12px 14px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
         }}
 
         th {{
-            background: #f8f9fa;
+            background: #f0f2f5;
             font-weight: 600;
             position: sticky;
             top: 0;
             cursor: pointer;
             user-select: none;
+            z-index: 1;
         }}
 
         th:hover {{
-            background: #e9ecef;
+            background: #e2e6ea;
         }}
 
         th .sort-indicator {{
             margin-left: 4px;
-            opacity: 0.5;
+            opacity: 0.4;
+            font-size: 0.75em;
         }}
 
         th.sorted .sort-indicator {{
             opacity: 1;
+            color: var(--accent-color);
+        }}
+
+        tbody tr:nth-child(even) {{
+            background: #fafbfc;
         }}
 
         tr:hover {{
@@ -957,12 +986,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             overflow-y: auto;
         }}
 
-        .footer {{
-            text-align: center;
-            padding: 24px;
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-        }}
+        /* footer styles in responsive section below */
 
         .modal-overlay {{
             position: fixed;
@@ -984,7 +1008,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             max-height: 80vh;
             width: 90%;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
         }}
 
         .modal-header {{
@@ -1048,6 +1072,137 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             font-size: 0.75rem;
             color: var(--text-secondary);
         }}
+
+        .milestone-chip {{
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            color: #664d03;
+            white-space: nowrap;
+        }}
+
+        .milestone-chip .chip-type {{
+            font-weight: 600;
+        }}
+
+        .footer {{
+            border-top: 1px solid var(--border-color);
+            margin-top: 24px;
+            padding: 20px 24px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-align: center;
+        }}
+
+        @media (max-width: 768px) {{
+            .header {{
+                padding: 16px 12px;
+            }}
+
+            .header h1 {{
+                font-size: 1.25rem;
+            }}
+
+            .container {{
+                padding: 12px;
+            }}
+
+            .stats-grid {{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }}
+
+            .stat-card {{
+                padding: 12px;
+            }}
+
+            .stat-card .value {{
+                font-size: 1.5rem;
+            }}
+
+            .tabs {{
+                gap: 4px;
+            }}
+
+            .tab {{
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }}
+
+            th, td {{
+                padding: 8px 6px;
+                font-size: 0.8rem;
+            }}
+
+            .modal-content {{
+                width: 100%;
+                max-height: 100vh;
+                height: 100vh;
+                border-radius: 0;
+            }}
+
+            .modal-body {{
+                max-height: calc(100vh - 60px);
+            }}
+
+            .panel-header {{
+                padding: 12px 14px;
+            }}
+
+            .search-box {{
+                max-width: 100%;
+            }}
+        }}
+
+        @media (max-width: 480px) {{
+            .header {{
+                padding: 12px 8px;
+            }}
+
+            .header h1 {{
+                font-size: 1.1rem;
+            }}
+
+            .header p {{
+                display: none;
+            }}
+
+            .container {{
+                padding: 8px;
+            }}
+
+            .stats-grid {{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }}
+
+            .stat-card {{
+                padding: 10px;
+            }}
+
+            .stat-card .value {{
+                font-size: 1.25rem;
+            }}
+
+            .tabs {{
+                gap: 4px;
+            }}
+
+            .tab {{
+                padding: 6px 10px;
+                font-size: 0.75rem;
+            }}
+
+            th, td {{
+                padding: 6px 4px;
+                font-size: 0.72rem;
+            }}
+        }}
     </style>
 </head>
 <body>
@@ -1068,48 +1223,43 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
         const BREF_BASE = "https://www.baseball-reference.com/register/player.fcgi?id=";
 
         // Custom hook for sortable tables
-        const useSortableData = (items, defaultSort = null) => {{
+        const useSortableData = (items, defaultSort = null, secondaryKey = null) => {{
             const [sortConfig, setSortConfig] = useState(defaultSort);
+
+            const compareValues = (aVal, bVal, direction, key) => {{
+                if (typeof aVal === 'number' && typeof bVal === 'number') {{
+                    return direction === 'asc' ? aVal - bVal : bVal - aVal;
+                }}
+                if (key === 'Date' || key === 'DateSort') {{
+                    const parseDate = (d) => {{
+                        if (!d) return 0;
+                        const parts = d.split('/');
+                        if (parts.length === 3) {{
+                            return new Date(parts[2], parts[0] - 1, parts[1]).getTime();
+                        }}
+                        return 0;
+                    }};
+                    return direction === 'asc' ? parseDate(aVal) - parseDate(bVal) : parseDate(bVal) - parseDate(aVal);
+                }}
+                const aNum = parseFloat(aVal);
+                const bNum = parseFloat(bVal);
+                if (!isNaN(aNum) && !isNaN(bNum)) {{
+                    return direction === 'asc' ? aNum - bNum : bNum - aNum;
+                }}
+                const aStr = String(aVal || '').toLowerCase();
+                const bStr = String(bVal || '').toLowerCase();
+                if (aStr < bStr) return direction === 'asc' ? -1 : 1;
+                if (aStr > bStr) return direction === 'asc' ? 1 : -1;
+                return 0;
+            }};
 
             const sortedItems = useMemo(() => {{
                 if (!sortConfig || !items) return items;
                 const sorted = [...items].sort((a, b) => {{
-                    let aVal = a[sortConfig.key];
-                    let bVal = b[sortConfig.key];
-
-                    // Handle numeric values
-                    if (typeof aVal === 'number' && typeof bVal === 'number') {{
-                        return sortConfig.direction === 'asc' ? aVal - bVal : bVal - aVal;
-                    }}
-
-                    // Handle string values that look like numbers
-                    // Handle date-like strings (M/D/YYYY) - must check before numeric
-                    if (sortConfig.key === 'Date' || sortConfig.key === 'DateSort') {{
-                        const parseDate = (d) => {{
-                            if (!d) return 0;
-                            const parts = d.split('/');
-                            if (parts.length === 3) {{
-                                return new Date(parts[2], parts[0] - 1, parts[1]).getTime();
-                            }}
-                            return 0;
-                        }};
-                        const aDate = parseDate(aVal);
-                        const bDate = parseDate(bVal);
-                        return sortConfig.direction === 'asc' ? aDate - bDate : bDate - aDate;
-                    }}
-
-                    const aNum = parseFloat(aVal);
-                    const bNum = parseFloat(bVal);
-                    if (!isNaN(aNum) && !isNaN(bNum)) {{
-                        return sortConfig.direction === 'asc' ? aNum - bNum : bNum - aNum;
-                    }}
-
-                    // String comparison
-                    aVal = String(aVal || '').toLowerCase();
-                    bVal = String(bVal || '').toLowerCase();
-                    if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
-                    if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
-                    return 0;
+                    const primary = compareValues(a[sortConfig.key], b[sortConfig.key], sortConfig.direction, sortConfig.key);
+                    if (primary !== 0 || !secondaryKey) return primary;
+                    // Tiebreaker: always desc for secondary
+                    return compareValues(a[secondaryKey], b[secondaryKey], sortConfig.direction, secondaryKey);
                 }});
                 return sorted;
             }}, [items, sortConfig]);
@@ -1203,10 +1353,27 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
+        // Build case-insensitive lookup for NCAA nicknames, logos, and canonical names
+        const nicknameByLower = {{}};
+        const canonicalName = {{}};
+        if (DATA.ncaaTeamNicknames) {{
+            Object.entries(DATA.ncaaTeamNicknames).forEach(([k, v]) => {{
+                nicknameByLower[k.toLowerCase()] = v;
+                canonicalName[k.toLowerCase()] = k;
+            }});
+        }}
+        const logoByLower = {{}};
+        if (DATA.ncaaTeamLogos) {{
+            Object.entries(DATA.ncaaTeamLogos).forEach(([k, v]) => {{ logoByLower[k.toLowerCase()] = v; }});
+        }}
+
         // Helper to get team display name with nickname for NCAA teams
         const getTeamDisplayName = (team) => {{
-            const nickname = DATA.ncaaTeamNicknames && DATA.ncaaTeamNicknames[team];
-            return nickname ? `${{team}} ${{nickname}}` : team;
+            if (!team) return team;
+            const lower = team.toLowerCase();
+            const proper = canonicalName[lower] || team;
+            const nickname = nicknameByLower[lower];
+            return nickname ? `${{proper}} ${{nickname}}` : team;
         }};
 
         // Helper to get level badge with proper color
@@ -1260,6 +1427,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
         }};
 
         // Group crossover players by bref_id into combined rows with expandable sub-rows
+        // Only combines entries that span different levels (e.g. NCAA + MiLB)
         const groupByPlayer = (data, levelFilter, sumFields, calcRateStats, ipField) => {{
             if (levelFilter && levelFilter !== 'All') return data;
             const groups = {{}};
@@ -1275,8 +1443,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             }});
             const result = [];
             Object.values(groups).forEach(entries => {{
-                if (entries.length === 1) {{
-                    result.push(entries[0]);
+                // Only combine if entries span multiple levels (NCAA + MiLB crossover)
+                // Same-level entries with same bref_id but different teams are likely
+                // different people (name collision in Chadwick register)
+                const uniqueLevels = new Set(entries.map(e => e.level));
+                if (entries.length === 1 || uniqueLevels.size <= 1) {{
+                    entries.forEach(e => result.push(e));
                 }} else {{
                     const combined = {{ ...entries[0] }};
                     combined.isCombined = true;
@@ -1308,46 +1480,107 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const PlayerModal = ({{ player, games, type, onClose }}) => {{
+        const PlayerModal = ({{ player, games, type, milestones, onClose }}) => {{
             if (!player) return null;
 
             const isBatter = type === 'batter';
+
+            // Compute summary stats from game data
+            const summary = useMemo(() => {{
+                if (!games || games.length === 0) return null;
+                if (isBatter) {{
+                    const g = games.length;
+                    const ab = games.reduce((s, x) => s + (parseInt(x.ab) || 0), 0);
+                    const h = games.reduce((s, x) => s + (parseInt(x.h) || 0), 0);
+                    const hr = games.reduce((s, x) => s + (parseInt(x.hr) || 0), 0);
+                    const rbi = games.reduce((s, x) => s + (parseInt(x.rbi) || 0), 0);
+                    const bb = games.reduce((s, x) => s + (parseInt(x.bb) || 0), 0);
+                    const k = games.reduce((s, x) => s + (parseInt(x.k) || 0), 0);
+                    const avg = ab > 0 ? (h / ab).toFixed(3) : '.000';
+                    return {{ g, ab, h, hr, rbi, bb, k, avg }};
+                }} else {{
+                    const g = games.length;
+                    const ip = addIP(games.map(x => x.ip));
+                    const h = games.reduce((s, x) => s + (parseInt(x.h) || 0), 0);
+                    const er = games.reduce((s, x) => s + (parseInt(x.er) || 0), 0);
+                    const bb = games.reduce((s, x) => s + (parseInt(x.bb) || 0), 0);
+                    const k = games.reduce((s, x) => s + (parseInt(x.k) || 0), 0);
+                    const inn = ipToInnings(ip);
+                    const era = inn > 0 ? ((er * 9) / inn).toFixed(2) : '0.00';
+                    return {{ g, ip, h, er, bb, k, era }};
+                }}
+            }}, [games, isBatter]);
+
+            const levelBadges = (player.levels || []).map((l, i) => {{
+                const lvl = l.level || l;
+                return <span key={{i}} style={{{{marginRight: '4px'}}}}>{{getLevelBadgeGeneric(lvl)}}</span>;
+            }});
 
             return (
                 <div className="modal-overlay" onClick={{onClose}}>
                     <div className="modal-content" onClick={{(e) => e.stopPropagation()}}>
                         <div className="modal-header">
-                            <h3>{{player.Name}} - {{player.Team}}</h3>
+                            <div>
+                                <h3 style={{{{margin: 0}}}}>{{player.name}}</h3>
+                                <div style={{{{display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px'}}}}>
+                                    {{levelBadges}}
+                                    <span style={{{{opacity: 0.8, fontSize: '0.85rem'}}}}>{{getTeamDisplayName(player.team)}}</span>
+                                    {{player.bref_id && (
+                                        <a href={{BREF_BASE + player.bref_id}} target="_blank"
+                                           style={{{{color: 'white', fontSize: '11px', opacity: 0.8}}}}>
+                                            BBRef ↗
+                                        </a>
+                                    )}}
+                                </div>
+                            </div>
                             <button className="modal-close" onClick={{onClose}}>&times;</button>
                         </div>
                         <div className="modal-body">
-                            <div className="player-summary">
-                                {{isBatter ? (
-                                    <>
-                                        <div className="player-summary-stat"><div className="value">{{player.G}}</div><div className="label">Games</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.AVG}}</div><div className="label">AVG</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.H}}</div><div className="label">Hits</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.HR}}</div><div className="label">HR</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.RBI}}</div><div className="label">RBI</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.OPS}}</div><div className="label">OPS</div></div>
-                                    </>
-                                ) : (
-                                    <>
-                                        <div className="player-summary-stat"><div className="value">{{player.G}}</div><div className="label">Games</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.IP}}</div><div className="label">IP</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.ERA}}</div><div className="label">ERA</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.K}}</div><div className="label">K</div></div>
-                                        <div className="player-summary-stat"><div className="value">{{player.WHIP}}</div><div className="label">WHIP</div></div>
-                                    </>
-                                )}}
-                            </div>
+                            {{summary && (
+                                <div className="player-summary">
+                                    {{isBatter ? (
+                                        <>
+                                            <div className="player-summary-stat"><div className="value">{{summary.g}}</div><div className="label">Games</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.avg}}</div><div className="label">AVG</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.h}}</div><div className="label">Hits</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.hr}}</div><div className="label">HR</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.rbi}}</div><div className="label">RBI</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.bb}}</div><div className="label">BB</div></div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <div className="player-summary-stat"><div className="value">{{summary.g}}</div><div className="label">Games</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.ip}}</div><div className="label">IP</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.era}}</div><div className="label">ERA</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.k}}</div><div className="label">K</div></div>
+                                            <div className="player-summary-stat"><div className="value">{{summary.bb}}</div><div className="label">BB</div></div>
+                                        </>
+                                    )}}
+                                </div>
+                            )}}
 
-                            <h4 style={{{{marginBottom: '12px'}}}}>Game Log</h4>
+                            {{milestones && milestones.length > 0 && (
+                                <div style={{{{marginBottom: '16px'}}}}>
+                                    <h4 style={{{{marginBottom: '8px'}}}}>Milestones</h4>
+                                    <div style={{{{display: 'flex', flexWrap: 'wrap', gap: '6px'}}}}>
+                                        {{milestones.map((m, i) => (
+                                            <span key={{i}} className="milestone-chip">
+                                                <span className="chip-type">{{m.milestoneType}}</span>
+                                                {{m.Date && <span>{{m.Date}}</span>}}
+                                                {{m.Opponent && <span>vs {{m.Opponent}}</span>}}
+                                            </span>
+                                        ))}}
+                                    </div>
+                                </div>
+                            )}}
+
+                            <h4 style={{{{marginBottom: '12px'}}}}>Game Log ({{games.length}})</h4>
                             <div className="table-container" style={{{{maxHeight: '400px'}}}}>
                                 <table>
                                     <thead>
                                         <tr>
                                             <th>Date</th>
+                                            <th>Level</th>
                                             <th>Opp</th>
                                             {{isBatter ? (
                                                 <>
@@ -1377,8 +1610,9 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                     <tbody>
                                         {{games.map((g, i) => (
                                             <tr key={{i}}>
-                                                <td>{{g.date}}</td>
-                                                <td>{{g.opponent}}</td>
+                                                <td>{{g.date || g.Date}}</td>
+                                                <td>{{getLevelBadgeGeneric(g.level || g.Level || '')}}</td>
+                                                <td>{{getTeamDisplayName(g.opponent || g.Opponent)}}</td>
                                                 {{isBatter ? (
                                                     <>
                                                         <td className="text-center">{{g.ab}}</td>
@@ -1438,12 +1672,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     </div>
                 )}}
                 <div className="stat-card">
-                    <div className="value">{{data.hrGames}}</div>
-                    <div className="label">HR Games</div>
-                </div>
-                <div className="stat-card">
-                    <div className="value">{{data.tenKGames}}</div>
-                    <div className="label">10+ K Games</div>
+                    <div className="value">{{data.totalMilestones || 0}}</div>
+                    <div className="label">Milestones</div>
                 </div>
             </div>
         );
@@ -1469,9 +1699,9 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 {{items.map((g, i) => (
                                     <tr key={{i}}>
                                         <td>{{g.Date}}</td>
-                                        <td>{{g.Away}}</td>
+                                        <td>{{getTeamDisplayName(g.Away)}}</td>
                                         <td className="text-center">{{g['Away Score']}} - {{g['Home Score']}}</td>
-                                        <td>{{g.Home}}</td>
+                                        <td>{{getTeamDisplayName(g.Home)}}</td>
                                         <td>{{g.Venue}}</td>
                                     </tr>
                                 ))}}
@@ -1511,12 +1741,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     return (
                         <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
                             <img src={{logoSrc}} style={{{{width: '20px', height: '20px', objectFit: 'contain'}}}} onError={{(e) => e.target.style.display = 'none'}} />
-                            <span>{{team}}</span>
+                            <span>{{getTeamDisplayName(team)}}</span>
                         </div>
                     );
                 }}
 
-                return <span>{{team}}</span>;
+                return <span>{{getTeamDisplayName(team)}}</span>;
             }};
 
             const levelColors = DATA.levelColors || {{}};
@@ -1733,7 +1963,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 {{items.map((t, i) => (
                                     <tr key={{i}}>
                                         <td>{{getLevelBadgeGeneric(t.Level)}}</td>
-                                        <td>{{t.Team}}</td>
+                                        <td>{{getTeamDisplayName(t.Team)}}</td>
                                         <td>{{t.League}}</td>
                                         <td className="text-center">{{t.W}}</td>
                                         <td className="text-center">{{t.L}}</td>
@@ -1750,7 +1980,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const MilestonesTable = ({{ title, data, columns, levelFilter, leagueFilter }}) => {{
+        const MilestonesTable = ({{ title, data, columns, levelFilter, leagueFilter, onPlayerClick }}) => {{
             const filtered = useMemo(() => {{
                 if (!data) return [];
                 return filterByLevelLeague(data, levelFilter, leagueFilter);
@@ -1773,15 +2003,26 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 </tr>
                             </thead>
                             <tbody>
-                                {{items.slice(0, 50).map((row, i) => (
-                                    <tr key={{i}}>
-                                        {{allColumns.map(col => (
-                                            <td key={{col}} className="text-center">
-                                                {{col === 'Level' ? getLevelBadgeGeneric(row[col]) : row[col]}}
-                                            </td>
-                                        ))}}
-                                    </tr>
-                                ))}}
+                                {{items.slice(0, 50).map((row, i) => {{
+                                    const textCols = ['Player', 'Team', 'Opponent', 'Date', 'Level'];
+                                    const isPitcher = row.IP !== undefined;
+                                    return (
+                                        <tr key={{i}}>
+                                            {{allColumns.map(col => (
+                                                <td key={{col}} className={{textCols.includes(col) ? '' : 'text-center'}}>
+                                                    {{col === 'Level' ? getLevelBadgeGeneric(row[col])
+                                                      : col === 'Player' ? (
+                                                        <span className="clickable-name" onClick={{() => onPlayerClick && onPlayerClick(row, isPitcher ? 'pitcher' : 'batter')}}>
+                                                            {{row[col]}}
+                                                        </span>
+                                                      )
+                                                      : col === 'Team' || col === 'Opponent' ? getTeamDisplayName(row[col])
+                                                      : row[col]}}
+                                                </td>
+                                            ))}}
+                                        </tr>
+                                    );
+                                }})}}
                             </tbody>
                         </table>
                     </div>
@@ -1957,7 +2198,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                                                 borderRadius: '50%',
                                                                                 background: status === 'home' ? '#28a745' : status === 'away' ? '#007bff' : '#ccc'
                                                                             }}}}></span>
-                                                                            <span style={{{{flex: 1, fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{team}}</span>
+                                                                            <span style={{{{flex: 1, fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{getTeamDisplayName(team)}}</span>
                                                                         </div>
                                                                     );
                                                                 }})}}
@@ -2061,7 +2302,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                                                     />
                                                                                     <span style={{{{display: 'none', width: '24px', height: '24px', alignItems: 'center', justifyContent: 'center', fontSize: '16px'}}}}>⚾</span>
                                                                                     <div style={{{{flex: 1}}}}>
-                                                                                        <div style={{{{fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{team}}</div>
+                                                                                        <div style={{{{fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{getTeamDisplayName(team)}}</div>
                                                                                         <div style={{{{fontSize: '11px', color: '#666'}}}}>{{venue}}</div>
                                                                                     </div>
                                                                                 </div>
@@ -2095,7 +2336,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                                         />
                                                                         <span style={{{{display: 'none', width: '24px', height: '24px', alignItems: 'center', justifyContent: 'center', fontSize: '16px'}}}}>⚾</span>
                                                                         <div style={{{{flex: 1}}}}>
-                                                                            <div style={{{{fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{team}}</div>
+                                                                            <div style={{{{fontWeight: status !== 'none' ? 500 : 400, fontSize: '14px'}}}}>{{getTeamDisplayName(team)}}</div>
                                                                             <div style={{{{fontSize: '11px', color: '#666'}}}}>{{venue}}</div>
                                                                         </div>
                                                                     </div>
@@ -2232,8 +2473,9 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             iconAnchor: [size/2, size/2]
                         }});
 
+                        const displayName = getTeamDisplayName(info.team);
                         const marker = L.marker([info.lat, info.lng], {{ icon }})
-                            .bindPopup(`<div style="text-align:center;"><img src="${{logo}}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>⚾</span>'" /><br><strong>${{info.team}}</strong><br>${{venueName}}<br><em>MiLB (${{info.level}}) - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
+                            .bindPopup(`<div style="text-align:center;"><img src="${{logo}}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>⚾</span>'" /><br><strong>${{displayName}}</strong><br>${{venueName}}<br><em>MiLB (${{info.level}}) - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
                             .addTo(mapInstance.current);
                         markersRef.current.push(marker);
                     }});
@@ -2263,8 +2505,9 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             iconAnchor: [size/2, size/2]
                         }});
 
+                        const displayName = getTeamDisplayName(info.team);
                         const marker = L.marker([info.lat, info.lng], {{ icon }})
-                            .bindPopup(`<div style="text-align:center;"><img src="${{logo}}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>⚾</span>'" /><br><strong>${{info.team}}</strong><br>${{stadiumName}}<br><em>${{info.league}} - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
+                            .bindPopup(`<div style="text-align:center;"><img src="${{logo}}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>⚾</span>'" /><br><strong>${{displayName}}</strong><br>${{stadiumName}}<br><em>${{info.league}} - ${{isVisited ? 'Visited' : 'Not Visited'}}</em></div>`)
                             .addTo(mapInstance.current);
                         markersRef.current.push(marker);
                     }});
@@ -2506,14 +2749,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                     <td>
                                                         <div style={{{{display: 'flex', alignItems: 'center'}}}}>
                                                             {{getTeamLogo(g.away_team, g.away_team_id, g.level)}}
-                                                            <span>{{g.away_team}}</span>
+                                                            <span>{{getTeamDisplayName(g.away_team)}}</span>
                                                         </div>
                                                     </td>
                                                     <td className="text-center">{{g.away_score}} - {{g.home_score}}</td>
                                                     <td>
                                                         <div style={{{{display: 'flex', alignItems: 'center'}}}}>
                                                             {{getTeamLogo(g.home_team, g.home_team_id, g.level)}}
-                                                            <span>{{g.home_team}}</span>
+                                                            <span>{{getTeamDisplayName(g.home_team)}}</span>
                                                         </div>
                                                     </td>
                                                     <td>{{g.venue}}</td>
@@ -2529,7 +2772,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const UnifiedBattersTable = ({{ batters }}) => {{
+        const UnifiedBattersTable = ({{ batters, onPlayerClick }}) => {{
             const [levelFilter, setLevelFilter] = useState('All');
             const [leagueFilter, setLeagueFilter] = useState('All');
             const [searchTerm, setSearchTerm] = useState('');
@@ -2560,7 +2803,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 );
             }}, [batters, levelFilter, leagueFilter, searchTerm]);
 
-            const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'h', direction: 'desc' }});
+            const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'g', direction: 'desc' }}, 'ab');
 
             const getTeamLogo = (player) => {{
                 const local = DATA.localLogos && DATA.localLogos[player.team];
@@ -2568,7 +2811,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 const historical = DATA.historicalTeamLogos && DATA.historicalTeamLogos[player.team];
                 if (historical) return historical;
                 if (player.level === 'NCAA') {{
-                    const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[player.team];
+                    const espnId = logoByLower[player.team ? player.team.toLowerCase() : ''];
                     if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
                     return null;
                 }}
@@ -2612,11 +2855,10 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             </div>
                         </td>
                         <td>
-                            {{b.bref_id ? (
-                                <a href={{BREF_BASE + b.bref_id}} target="_blank" style={{{{color: '#1e3a5f', textDecoration: 'none'}}}} onClick={{(e) => e.stopPropagation()}}>
-                                    {{b.name}} <span style={{{{fontSize: '10px'}}}}>↗</span>
-                                </a>
-                            ) : b.name}}
+                            <PlayerLink name={{b.name}} brefId={{b.bref_id}} onClick={{(e) => {{
+                                e.stopPropagation();
+                                onPlayerClick && onPlayerClick(b, 'batter');
+                            }}}} />
                         </td>
                         <td>
                             {{b.teams ? (
@@ -2722,7 +2964,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const UnifiedPitchersTable = ({{ pitchers }}) => {{
+        const UnifiedPitchersTable = ({{ pitchers, onPlayerClick }}) => {{
             const [levelFilter, setLevelFilter] = useState('All');
             const [leagueFilter, setLeagueFilter] = useState('All');
             const [searchTerm, setSearchTerm] = useState('');
@@ -2757,7 +2999,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 );
             }}, [pitchers, levelFilter, leagueFilter, searchTerm]);
 
-            const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'k', direction: 'desc' }});
+            const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'g', direction: 'desc' }}, 'ip');
 
             const getTeamLogo = (player) => {{
                 const local = DATA.localLogos && DATA.localLogos[player.team];
@@ -2765,7 +3007,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 const historical = DATA.historicalTeamLogos && DATA.historicalTeamLogos[player.team];
                 if (historical) return historical;
                 if (player.level === 'NCAA') {{
-                    const espnId = DATA.ncaaTeamLogos && DATA.ncaaTeamLogos[player.team];
+                    const espnId = logoByLower[player.team ? player.team.toLowerCase() : ''];
                     if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
                     return null;
                 }}
@@ -2809,11 +3051,10 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             </div>
                         </td>
                         <td>
-                            {{p.bref_id ? (
-                                <a href={{BREF_BASE + p.bref_id}} target="_blank" style={{{{color: '#1e3a5f', textDecoration: 'none'}}}} onClick={{(e) => e.stopPropagation()}}>
-                                    {{p.name}} <span style={{{{fontSize: '10px'}}}}>↗</span>
-                                </a>
-                            ) : p.name}}
+                            <PlayerLink name={{p.name}} brefId={{p.bref_id}} onClick={{(e) => {{
+                                e.stopPropagation();
+                                onPlayerClick && onPlayerClick(p, 'pitcher');
+                            }}}} />
                         </td>
                         <td>
                             {{p.teams ? (
@@ -2913,7 +3154,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             );
         }};
 
-        const CrossoverPlayers = ({{ players }}) => {{
+        const CrossoverPlayers = ({{ players, onPlayerClick }}) => {{
             const [expandedPlayer, setExpandedPlayer] = useState(null);
             const [searchTerm, setSearchTerm] = useState('');
             const {{ items, sortConfig, requestSort }} = useSortableData(players, {{ key: 'Total Games', direction: 'desc' }});
@@ -2933,7 +3174,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     <div className="panel">
                         <div className="panel-header"><h2>Crossover Players</h2></div>
                         <div style={{{{padding: '20px', textAlign: 'center', color: '#666'}}}}>
-                            No crossover players found. Crossover players are those seen at multiple levels (NCAA, MiLB).
+                            No crossover players found. Crossover players are those seen at multiple levels (NCAA, MiLB, Partner).
                         </div>
                     </div>
                 );
@@ -2942,9 +3183,12 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             const levelColors = DATA.levelColors || {{}};
 
             const PlayerTimeline = ({{ player }}) => {{
-                const levels = [];
-                if (player['NCAA Games'] > 0) levels.push({{ level: 'NCAA', games: player['NCAA Games'], teams: player['NCAA Teams'] }});
-                if (player['MiLB Games'] > 0) levels.push({{ level: 'MiLB', games: player['MiLB Games'], teams: player['MiLB Teams'] }});
+                const levels = player['Level Details'] || [];
+                // Fallback for old data format
+                if (levels.length === 0) {{
+                    if (player['NCAA Games'] > 0) levels.push({{ level: 'NCAA', games: player['NCAA Games'], teams: player['NCAA Teams'] }});
+                    if (player['MiLB Games'] > 0) levels.push({{ level: 'MiLB', games: player['MiLB Games'], teams: player['MiLB Teams'] }});
+                }}
 
                 return (
                     <div style={{{{padding: '16px', background: '#f8f9fa', borderRadius: '8px', marginTop: '8px'}}}}>
@@ -3025,10 +3269,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 >
                                     <div style={{{{display: 'flex', alignItems: 'center', gap: '16px'}}}}>
                                         <span style={{{{fontSize: '16px'}}}}>{{expandedPlayer === i ? '▼' : '▶'}}</span>
-                                        <span style={{{{fontWeight: 600}}}}>{{p.Name}}</span>
-                                        <div style={{{{display: 'flex', gap: '4px'}}}}>
-                                            {{p['NCAA Games'] > 0 && <span style={{{{background: '#28a745', color: 'white', padding: '2px 8px', borderRadius: '4px', fontSize: '11px'}}}}>NCAA</span>}}
-                                            {{p['MiLB Games'] > 0 && <span style={{{{background: '#ff6b35', color: 'white', padding: '2px 8px', borderRadius: '4px', fontSize: '11px'}}}}>MiLB</span>}}
+                                        <span className="clickable-name" style={{{{fontWeight: 600}}}} onClick={{(e) => {{
+                                            e.stopPropagation();
+                                            onPlayerClick && onPlayerClick(p, 'batter');
+                                        }}}}>{{p.Name}}</span>
+                                        <div style={{{{display: 'flex', gap: '4px', flexWrap: 'wrap'}}}}>
+                                            {{(p['Level Details'] || []).map((ld, li) => (
+                                                <span key={{li}} style={{{{background: levelColors[ld.level] || '#666', color: 'white', padding: '2px 8px', borderRadius: '4px', fontSize: '11px'}}}}>{{ld.level}}</span>
+                                            ))}}
                                         </div>
                                     </div>
                                     <div style={{{{display: 'flex', alignItems: 'center', gap: '24px', color: '#666'}}}}>
@@ -3060,9 +3308,17 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             const [milestoneLevelFilter, setMilestoneLevelFilter] = useState('All');
             const [milestoneLeagueFilter, setMilestoneLeagueFilter] = useState('All');
 
-            // Handle player click to show modal
+            // Handle player click to show modal - normalizes from any source
             const handlePlayerClick = (player, type) => {{
-                setSelectedPlayer(player);
+                const normalized = {{
+                    name: player.Name || player.name || player.Player || '',
+                    team: player.Team || player.team || '',
+                    bref_id: player['BBRef ID'] || player.bref_id || '',
+                    level: player.Level || player.level || '',
+                    levels: player.levels || player['Level Details'] || (player.Level || player.level ? [{{ level: player.Level || player.level }}] : []),
+                    _raw: player,
+                }};
+                setSelectedPlayer(normalized);
                 setPlayerType(type);
             }};
 
@@ -3071,16 +3327,50 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 setPlayerType(null);
             }};
 
-            // Get game log for selected player
+            // Get game log for selected player - match by bref_id first, then name
             const selectedPlayerGames = useMemo(() => {{
                 if (!selectedPlayer) return [];
-                const name = selectedPlayer.Name;
-                if (playerType === 'batter') {{
-                    return DATA.batterGames.filter(g => g.Name === name);
-                }} else {{
-                    return DATA.pitcherGames.filter(g => g.Name === name);
+                const brefId = selectedPlayer.bref_id;
+                const name = selectedPlayer.name;
+                const games = playerType === 'batter' ? DATA.batterGames : DATA.pitcherGames;
+                if (brefId) {{
+                    const byId = games.filter(g => g.bref_id === brefId);
+                    if (byId.length > 0) return byId;
                 }}
+                return games.filter(g => (g.Name || g.name) === name);
             }}, [selectedPlayer, playerType]);
+
+            // Get milestones for selected player
+            const selectedPlayerMilestones = useMemo(() => {{
+                if (!selectedPlayer) return [];
+                const name = selectedPlayer.name;
+                const brefId = selectedPlayer.bref_id;
+                const results = [];
+                const milestoneLabels = {{
+                    threeHrGames: '3+ HR', multiHrGames: 'Multi-HR', fiveHitGames: '5+ Hits',
+                    fourHitGames: '4+ Hits', cycles: 'Cycle', cycleWatch: 'Cycle Watch',
+                    sixRbiGames: '6+ RBI', fiveRbiGames: '5+ RBI', fourRbiGames: '4+ RBI',
+                    multiDoubleGames: 'Multi-2B', multiTripleGames: 'Multi-3B', multiSbGames: 'Multi-SB',
+                    fourWalkGames: '4+ BB', fourRunGames: '4+ Runs', threeTotalBasesGames: '8+ TB',
+                    perfectGames: 'Perfect Game', noHitters: 'No-Hitter', oneHitters: '1-Hitter',
+                    twoHitters: '2-Hitter', shutouts: 'Shutout', cgsoNoWalks: 'CGSO No BB',
+                    completeGames: 'Complete Game', lowHitCg: 'Low-Hit CG',
+                    sevenInningShutouts: '7+ IP SO', madduxGames: 'Maddux',
+                    fifteenKGames: '15+ K', twelveKGames: '12+ K', tenKGames: '10+ K',
+                    dominantStarts: 'Dominant Start',
+                }};
+                Object.entries(DATA.milestones || {{}}).forEach(([key, arr]) => {{
+                    if (!Array.isArray(arr)) return;
+                    arr.forEach(entry => {{
+                        const entryName = entry.Player || entry.name || '';
+                        const entryBref = entry.bref_id || '';
+                        if ((brefId && entryBref === brefId) || entryName === name) {{
+                            results.push({{ ...entry, milestoneType: milestoneLabels[key] || key }});
+                        }}
+                    }});
+                }});
+                return results;
+            }}, [selectedPlayer]);
 
             // Collect all milestone data for LevelLeagueFilter derivation
             const allMilestoneData = useMemo(() => {{
@@ -3135,69 +3425,55 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             />
 
                             <h3 style={{{{margin: '0 0 16px 0', color: '#1e3a5f'}}}}>Elite Pitching Performances</h3>
-                            <MilestonesTable title="Perfect Games" data={{DATA.milestones.perfectGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'Score']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="No-Hitters" data={{DATA.milestones.noHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'BB', 'Score']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="One-Hitters" data={{DATA.milestones.oneHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Two-Hitters" data={{DATA.milestones.twoHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Maddux Games (CG, <100 pitches)" data={{DATA.milestones.madduxGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Perfect Games" data={{DATA.milestones.perfectGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'Score']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="No-Hitters" data={{DATA.milestones.noHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'BB', 'Score']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="One-Hitters" data={{DATA.milestones.oneHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Two-Hitters" data={{DATA.milestones.twoHitters}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Maddux Games (CG, <100 pitches)" data={{DATA.milestones.madduxGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Complete Games & Shutouts</h3>
-                            <MilestonesTable title="CGSO No Walks" data={{DATA.milestones.cgsoNoWalks}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Shutouts" data={{DATA.milestones.shutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="7+ IP Shutouts" data={{DATA.milestones.sevenInningShutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Complete Games" data={{DATA.milestones.completeGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Low-Hit CG" data={{DATA.milestones.lowHitCg}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="CGSO No Walks" data={{DATA.milestones.cgsoNoWalks}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Shutouts" data={{DATA.milestones.shutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="7+ IP Shutouts" data={{DATA.milestones.sevenInningShutouts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'BB']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Complete Games" data={{DATA.milestones.completeGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Low-Hit CG" data={{DATA.milestones.lowHitCg}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'H', 'K', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Strikeout Performances</h3>
-                            <MilestonesTable title="15+ K Games" data={{DATA.milestones.fifteenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="12+ K Games" data={{DATA.milestones.twelveKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="10+ K Games" data={{DATA.milestones.tenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="8+ K Games" data={{DATA.milestones.eightKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-
-                            <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Quality Pitching</h3>
-                            <MilestonesTable title="Quality Starts (6+ IP, ≤3 ER)" data={{DATA.milestones.qualityStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Dominant Starts" data={{DATA.milestones.dominantStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Efficient Starts" data={{DATA.milestones.efficientStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="High K/Low BB" data={{DATA.milestones.highKLowBb}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'BB', 'IP', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="No-Walk Starts" data={{DATA.milestones.noWalkStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Scoreless Relief" data={{DATA.milestones.scorelessRelief}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Wins" data={{DATA.milestones.winGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Saves" data={{DATA.milestones.saveGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="15+ K Games" data={{DATA.milestones.fifteenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="12+ K Games" data={{DATA.milestones.twelveKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="10+ K Games" data={{DATA.milestones.tenKGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'K', 'IP', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Dominant Starts (7+ IP, 10+ K)" data={{DATA.milestones.dominantStarts}} columns={{['Date', 'Player', 'Team', 'Opponent', 'IP', 'K', 'H', 'ER']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Big Batting Performances</h3>
-                            <MilestonesTable title="3+ HR Games" data={{DATA.milestones.threeHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Multi-HR Games" data={{DATA.milestones.multiHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="HR Games" data={{DATA.milestones.hrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Cycles" data={{DATA.milestones.cycles}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Cycle Watch (3 of 4)" data={{DATA.milestones.cycleWatch}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="3+ HR Games" data={{DATA.milestones.threeHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Multi-HR Games" data={{DATA.milestones.multiHrGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'HR', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Cycles" data={{DATA.milestones.cycles}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Cycle Watch (3 of 4)" data={{DATA.milestones.cycleWatch}} columns={{['Date', 'Player', 'Team', 'Opponent', '1B', '2B', '3B', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Hit Milestones</h3>
-                            <MilestonesTable title="5+ Hit Games" data={{DATA.milestones.fiveHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="4+ Hit Games" data={{DATA.milestones.fourHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="3+ Hit Games" data={{DATA.milestones.threeHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Multi-Double Games" data={{DATA.milestones.multiDoubleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '2B', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Multi-Triple Games" data={{DATA.milestones.multiTripleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '3B', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="2+ XBH Games" data={{DATA.milestones.hitForExtraBases}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', '2B', '3B', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="8+ Total Bases" data={{DATA.milestones.threeTotalBasesGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'HR', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="Perfect Batting (3+ H, 0 K)" data={{DATA.milestones.perfectBattingGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'AB', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="5+ Hit Games" data={{DATA.milestones.fiveHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="4+ Hit Games" data={{DATA.milestones.fourHitGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'R', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Multi-Double Games" data={{DATA.milestones.multiDoubleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '2B', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="Multi-Triple Games" data={{DATA.milestones.multiTripleGames}} columns={{['Date', 'Player', 'Team', 'Opponent', '3B', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="8+ Total Bases" data={{DATA.milestones.threeTotalBasesGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'H', 'HR', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Run Production</h3>
-                            <MilestonesTable title="6+ RBI Games" data={{DATA.milestones.sixRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="5+ RBI Games" data={{DATA.milestones.fiveRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="4+ RBI Games" data={{DATA.milestones.fourRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="4+ Run Games" data={{DATA.milestones.fourRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="3+ Run Games" data={{DATA.milestones.threeRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="6+ RBI Games" data={{DATA.milestones.sixRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="5+ RBI Games" data={{DATA.milestones.fiveRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="4+ RBI Games" data={{DATA.milestones.fourRbiGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'RBI', 'H', 'HR']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="4+ Run Games" data={{DATA.milestones.fourRunGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'R', 'H', 'RBI']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
 
                             <h3 style={{{{margin: '32px 0 16px 0', color: '#1e3a5f'}}}}>Baserunning & Patience</h3>
-                            <MilestonesTable title="Multi-SB Games" data={{DATA.milestones.multiSbGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'SB', 'H', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
-                            <MilestonesTable title="4+ Walk Games" data={{DATA.milestones.fourWalkGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'BB', 'H', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} />
+                            <MilestonesTable title="Multi-SB Games" data={{DATA.milestones.multiSbGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'SB', 'H', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
+                            <MilestonesTable title="4+ Walk Games" data={{DATA.milestones.fourWalkGames}} columns={{['Date', 'Player', 'Team', 'Opponent', 'BB', 'H', 'R']}} levelFilter={{milestoneLevelFilter}} leagueFilter={{milestoneLeagueFilter}} onPlayerClick={{handlePlayerClick}} />
                         </div>
                     )}}
 
-                    {{activeTab === 'crossover' && <CrossoverPlayers players={{DATA.crossoverPlayers}} />}}
+                    {{activeTab === 'crossover' && <CrossoverPlayers players={{DATA.crossoverPlayers}} onPlayerClick={{handlePlayerClick}} />}}
 
-                    {{activeTab === 'unifiedBatters' && <UnifiedBattersTable batters={{DATA.unifiedBatters}} />}}
-                    {{activeTab === 'unifiedPitchers' && <UnifiedPitchersTable pitchers={{DATA.unifiedPitchers}} />}}
+                    {{activeTab === 'unifiedBatters' && <UnifiedBattersTable batters={{DATA.unifiedBatters}} onPlayerClick={{handlePlayerClick}} />}}
+                    {{activeTab === 'unifiedPitchers' && <UnifiedPitchersTable pitchers={{DATA.unifiedPitchers}} onPlayerClick={{handlePlayerClick}} />}}
 
                     {{activeTab === 'checklist' && <Checklist checklist={{DATA.checklist}} milbChecklist={{DATA.milbChecklist}} />}}
                     {{activeTab === 'map' && <SchoolMap stadiums={{DATA.stadiumLocations}} teamsSeenHome={{DATA.teamsSeenHome}} teamsSeenAway={{DATA.teamsSeenAway}} checklist={{DATA.checklist}} milbStadiums={{DATA.milbStadiumLocations}} milbVenuesVisited={{DATA.milbVenuesVisited}} partnerStadiums={{DATA.partnerStadiumLocations}} partnerVenuesVisited={{DATA.partnerVenuesVisited}} />}}
@@ -3210,6 +3486,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         <PlayerModal
                             player={{selectedPlayer}}
                             games={{selectedPlayerGames}}
+                            milestones={{selectedPlayerMilestones}}
                             type={{playerType}}
                             onClose={{closeModal}}
                         />
