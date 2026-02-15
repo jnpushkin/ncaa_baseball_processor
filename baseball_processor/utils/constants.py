@@ -285,7 +285,7 @@ PRO_LEVELS = {
 }
 
 # Ordered list of all levels for consistent display
-LEVEL_ORDER = ['NCAA', 'Triple-A', 'Double-A', 'High-A', 'Single-A', 'Independent']
+LEVEL_ORDER = ['NCAA', 'Triple-A', 'Double-A', 'High-A', 'Single-A', 'Rookie', 'Partner', 'Independent']
 
 # Colors for each level
 LEVEL_COLORS = {
@@ -295,6 +295,7 @@ LEVEL_COLORS = {
     'High-A': '#fa8c16',
     'Single-A': '#1890ff',
     'Rookie': '#17a2b8',
+    'Partner': '#9c27b0',
     'Independent': '#9c27b0',
     'Combined': '#1e3a5f',
 }

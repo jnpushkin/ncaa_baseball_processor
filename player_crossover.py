@@ -17,6 +17,15 @@ from typing import Dict, List, Set, Any, Optional, Tuple
 from collections import defaultdict
 from dataclasses import dataclass, field
 
+# Normalize old MiLB level names to current names
+LEVEL_NAME_MAP = {
+    'Class A Advanced': 'High-A',
+    'Class A Short Season': 'Single-A',
+    'Class A': 'Single-A',
+    'Rookie Advanced': 'Rookie',
+    'Low-A': 'Single-A',
+}
+
 # Import player ID mapper (lazy load to avoid circular imports)
 _id_mapper = None
 
@@ -42,22 +51,24 @@ class PlayerRecord:
     ncaa_appearances: List[Dict[str, Any]] = field(default_factory=list)
     milb_appearances: List[Dict[str, Any]] = field(default_factory=list)
     teams: Set[str] = field(default_factory=set)
+    sport_levels: Set[str] = field(default_factory=set)  # e.g., {'Triple-A', 'Double-A', 'Partner'}
 
     def levels_seen(self) -> List[str]:
-        """Return list of levels where player was seen."""
-        levels = []
+        """Return list of distinct levels where player was seen."""
+        level_order = ['NCAA', 'Triple-A', 'Double-A', 'High-A', 'Single-A', 'Rookie', 'Partner', 'Independent']
+        levels = set()
         if self.ncaa_appearances:
-            levels.append('NCAA')
-        if self.milb_appearances:
-            levels.append('MiLB')
-        return levels
+            levels.add('NCAA')
+        levels.update(self.sport_levels)
+        # Sort by level order
+        return [l for l in level_order if l in levels] + sorted(levels - set(level_order))
 
     def total_appearances(self) -> int:
         """Total number of game appearances."""
         return len(self.ncaa_appearances) + len(self.milb_appearances)
 
     def is_crossover(self) -> bool:
-        """Return True if player was seen at multiple levels."""
+        """Return True if player was seen at multiple distinct levels."""
         return len(self.levels_seen()) > 1
 
 
@@ -345,6 +356,8 @@ class PlayerCrossover:
             for side in ['away', 'home']:
                 team = metadata.get(f'{side}_team', '')
                 parent_org = metadata.get('parent_orgs', {}).get(side, '')
+                raw_level = metadata.get('sport_level', {}).get(side, '') if isinstance(metadata.get('sport_level'), dict) else ''
+                sport_level = LEVEL_NAME_MAP.get(raw_level, raw_level)
 
                 # Process batters
                 for player in box_score.get(f'{side}_batting', []):
@@ -362,6 +375,7 @@ class PlayerCrossover:
                         'parent_org': parent_org,
                         'opponent': metadata.get('home_team' if side == 'away' else 'away_team', ''),
                         'level': 'MiLB',
+                        'sport_level': sport_level,
                         'type': 'batting',
                         'stats': {
                             'AB': player.get('ab', 0),
@@ -373,6 +387,8 @@ class PlayerCrossover:
                         },
                     })
                     self.players[key].teams.add(team)
+                    if sport_level:
+                        self.players[key].sport_levels.add(sport_level)
                     if mlb_api_id and not self.players[key].mlb_api_id:
                         self.players[key].mlb_api_id = mlb_api_id
 
@@ -392,6 +408,7 @@ class PlayerCrossover:
                         'parent_org': parent_org,
                         'opponent': metadata.get('home_team' if side == 'away' else 'away_team', ''),
                         'level': 'MiLB',
+                        'sport_level': sport_level,
                         'type': 'pitching',
                         'stats': {
                             'IP': player.get('ip', '0.0'),
@@ -403,6 +420,8 @@ class PlayerCrossover:
                         },
                     })
                     self.players[key].teams.add(team)
+                    if sport_level:
+                        self.players[key].sport_levels.add(sport_level)
 
     def load_partner_data(self, games: List[Dict[str, Any]]) -> None:
         """
@@ -442,6 +461,7 @@ class PlayerCrossover:
                         'parent_org': '',
                         'opponent': metadata.get('home_team' if side == 'away' else 'away_team', ''),
                         'level': 'Partner',
+                        'sport_level': 'Partner',
                         'league': league_name,
                         'type': 'batting',
                         'stats': {
@@ -454,6 +474,7 @@ class PlayerCrossover:
                         },
                     })
                     self.players[key].teams.add(team)
+                    self.players[key].sport_levels.add('Partner')
                     if bref_id and not self.players[key].bref_id:
                         self.players[key].bref_id = bref_id
 
@@ -473,6 +494,7 @@ class PlayerCrossover:
                         'parent_org': '',
                         'opponent': metadata.get('home_team' if side == 'away' else 'away_team', ''),
                         'level': 'Partner',
+                        'sport_level': 'Partner',
                         'league': league_name,
                         'type': 'pitching',
                         'stats': {
@@ -485,6 +507,7 @@ class PlayerCrossover:
                         },
                     })
                     self.players[key].teams.add(team)
+                    self.players[key].sport_levels.add('Partner')
 
     def find_crossover_players(self) -> List[PlayerRecord]:
         """
@@ -558,14 +581,34 @@ class PlayerCrossover:
                 continue
 
             ncaa_teams = set()
-            milb_teams = set()
+            # Group MiLB appearances by sport level
+            teams_by_level = defaultdict(set)
+            games_by_level = defaultdict(int)
 
             for a in player.ncaa_appearances:
                 ncaa_teams.add(a.get('team', ''))
             for a in player.milb_appearances:
-                milb_teams.add(a.get('team', ''))
+                sport_level = a.get('sport_level', 'MiLB')
+                teams_by_level[sport_level].add(a.get('team', ''))
+                games_by_level[sport_level] += 1
 
-            data.append({
+            # Build per-level detail list
+            level_details = []
+            for level in player.levels_seen():
+                if level == 'NCAA':
+                    level_details.append({
+                        'level': 'NCAA',
+                        'games': len(player.ncaa_appearances),
+                        'teams': ', '.join(sorted(ncaa_teams - {''})),
+                    })
+                elif level in games_by_level:
+                    level_details.append({
+                        'level': level,
+                        'games': games_by_level[level],
+                        'teams': ', '.join(sorted(teams_by_level[level] - {''})),
+                    })
+
+            row = {
                 'Name': player.name,
                 'BBRef ID': player.bref_id or '',
                 'MLB API ID': player.mlb_api_id or '',
@@ -574,8 +617,12 @@ class PlayerCrossover:
                 'MiLB Games': len(player.milb_appearances),
                 'Total Games': player.total_appearances(),
                 'NCAA Teams': ', '.join(sorted(ncaa_teams - {''})),
-                'MiLB Teams': ', '.join(sorted(milb_teams - {''})),
-            })
+                'MiLB Teams': ', '.join(sorted(
+                    t for teams in teams_by_level.values() for t in teams if t
+                )),
+                'Level Details': level_details,
+            }
+            data.append(row)
 
         # Sort by total appearances descending
         data.sort(key=lambda x: x['Total Games'], reverse=True)

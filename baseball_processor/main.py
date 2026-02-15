@@ -197,6 +197,7 @@ def load_partner_from_cache() -> List[Dict[str, Any]]:
 def build_crossover_data(
     ncaa_games: List[Dict[str, Any]],
     milb_games: List[Dict[str, Any]],
+    partner_games: Optional[List[Dict[str, Any]]] = None,
 ) -> PlayerCrossover:
     """
     Build player crossover tracking data.
@@ -204,6 +205,7 @@ def build_crossover_data(
     Args:
         ncaa_games: List of NCAA game data
         milb_games: List of MiLB game data
+        partner_games: List of Partner league game data
 
     Returns:
         PlayerCrossover instance with all data loaded
@@ -215,10 +217,15 @@ def build_crossover_data(
         print(f"Loading {len(ncaa_games)} NCAA games for crossover...")
         crossover.load_ncaa_data(ncaa_games)
 
-    # Load MiLB data
+    # Load MiLB data (uses mlb_api_id for player matching)
     if milb_games:
         print(f"Loading {len(milb_games)} MiLB games for crossover...")
         crossover.load_milb_data(milb_games)
+
+    # Load Partner data separately (uses bref_id for player matching)
+    if partner_games:
+        print(f"Loading {len(partner_games)} Partner games for crossover...")
+        crossover.load_partner_data(partner_games)
 
     return crossover
 
@@ -468,7 +475,8 @@ def main():
         print("\nBuilding crossover tracking data...")
         crossover_data = build_crossover_data(
             ncaa_games,
-            pro_minor_games,
+            milb_games,
+            partner_games,
         )
 
         summary = crossover_data.get_summary()
