@@ -406,9 +406,9 @@ def main():
 
     # Deploy options
     parser.add_argument(
-        '--deploy',
+        '--no-deploy',
         action='store_true',
-        help='Deploy website to Surge after generation'
+        help='Skip automatic Surge deployment after website generation'
     )
     parser.add_argument(
         '--deploy-domain',
@@ -578,8 +578,8 @@ def main():
         traceback.print_exc()
         return
 
-    # Deploy to Surge if requested
-    if args.deploy and not args.excel_only:
+    # Deploy to Surge after website generation (automatic unless --no-deploy or --excel-only)
+    if not args.excel_only and not args.no_deploy:
         html_path = args.output_excel.replace('.xlsx', '.html')
         if not os.path.exists(html_path):
             print("No HTML file to deploy.")
