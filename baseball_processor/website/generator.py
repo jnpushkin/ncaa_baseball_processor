@@ -102,7 +102,7 @@ def _load_local_logos() -> Dict[str, str]:
     return result
 
 
-def generate_website_from_data(processed_data: Dict[str, Any], output_path: str, raw_games: List[Dict] = None):
+def generate_website_from_data(processed_data: Dict[str, Any], output_path: str, raw_games: List[Dict] = None, schedule_games: List[Dict] = None):
     """
     Generate interactive HTML website from processed data.
 
@@ -110,11 +110,19 @@ def generate_website_from_data(processed_data: Dict[str, Any], output_path: str,
         processed_data: Dictionary containing processed DataFrames
         output_path: Path to save the HTML file
         raw_games: Optional list of raw game data for additional details
+        schedule_games: Optional list of upcoming schedule game dicts
     """
     print(f"Generating website: {output_path}")
 
     # Serialize data for JavaScript
     data = _serialize_data(processed_data, raw_games or [])
+
+    # Add schedule data if available
+    if schedule_games:
+        data['scheduleGames'] = schedule_games
+    else:
+        data['scheduleGames'] = []
+
     json_data = json.dumps(data, default=str)
 
     # Generate HTML
@@ -511,6 +519,31 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
     # Sort by date (most recent first)
     unified_game_log.sort(key=lambda x: x.get('date_sort', ''), reverse=True)
 
+    # Build scorigami data
+    scorigami = {}
+    for game in unified_game_log:
+        a = game.get('away_score', 0) or 0
+        h = game.get('home_score', 0) or 0
+        try:
+            a, h = int(a), int(h)
+        except (ValueError, TypeError):
+            continue
+        if a == 0 and h == 0:
+            continue
+        lo, hi = min(a, h), max(a, h)
+        key = f"{lo}-{hi}"
+        if key not in scorigami:
+            scorigami[key] = {'count': 0, 'games': []}
+        scorigami[key]['count'] += 1
+        scorigami[key]['games'].append({
+            'date': game.get('date', ''),
+            'away': game.get('away_team', ''),
+            'home': game.get('home_team', ''),
+            'away_score': a,
+            'home_score': h,
+            'level': game.get('level', ''),
+        })
+
     # Build unified batters list (all levels)
     unified_batters = []
 
@@ -724,6 +757,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'saveGames': df_to_list(milestones.get('save_games', [])),
         },
         'unifiedGameLog': unified_game_log,
+        'scorigami': scorigami,
         'crossoverPlayers': df_to_list(crossover_players),
         'rawGames': raw_games,
         'stadiumLocations': stadium_locations,
@@ -2037,6 +2071,379 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             </tbody>
                         </table>
                     </div>
+                </div>
+            );
+        }};
+
+        const ScorigamiGrid = ({{ scorigami, games }}) => {{
+            const [levelFilter, setLevelFilter] = useState('All');
+            const [selectedCell, setSelectedCell] = useState(null);
+
+            const filteredScorigami = useMemo(() => {{
+                if (levelFilter === 'All') return scorigami;
+                const filtered = {{}};
+                Object.entries(scorigami).forEach(([key, val]) => {{
+                    const fg = val.games.filter(g => {{
+                        if (levelFilter === 'NCAA') return g.level === 'NCAA';
+                        return g.level === 'MiLB' || g.level === 'Partner';
+                    }});
+                    if (fg.length > 0) filtered[key] = {{ count: fg.length, games: fg }};
+                }});
+                return filtered;
+            }}, [scorigami, levelFilter]);
+
+            const {{ maxWinner, maxLoser, maxCount, totalGames, totalCombos, mostCommon }} = useMemo(() => {{
+                let mw = 0, ml = 0, mc = 0, tg = 0, best = '';
+                Object.entries(filteredScorigami).forEach(([key, val]) => {{
+                    const [lo, hi] = key.split('-').map(Number);
+                    if (hi > mw) mw = hi;
+                    if (lo > ml) ml = lo;
+                    if (val.count > mc) {{ mc = val.count; best = key; }}
+                    tg += val.count;
+                }});
+                return {{ maxWinner: Math.min(mw, 30), maxLoser: Math.min(ml, 25), maxCount: mc, totalGames: tg, totalCombos: Object.keys(filteredScorigami).length, mostCommon: best }};
+            }}, [filteredScorigami]);
+
+            const getColor = (count) => {{
+                if (!count) return '#f8f9fa';
+                if (count === 1) return '#ffd700';
+                const intensity = Math.min(count / Math.max(maxCount * 0.6, 1), 1);
+                const r = Math.round(66 - intensity * 36);
+                const g = Math.round(133 - intensity * 50);
+                const b = Math.round(244 - intensity * 30);
+                return `rgb(${{r}},${{g}},${{b}})`;
+            }};
+
+            return (
+                <div>
+                    <div style={{{{display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap', alignItems: 'center'}}}}>
+                        {{['All', 'NCAA', 'MiLB/Pro'].map(level => (
+                            <button key={{level}} onClick={{() => {{ setLevelFilter(level); setSelectedCell(null); }}}}
+                                style={{{{padding: '6px 16px', borderRadius: '20px', border: 'none', cursor: 'pointer',
+                                    background: levelFilter === level ? '#1e3a5f' : '#e9ecef', color: levelFilter === level ? 'white' : '#333',
+                                    fontWeight: levelFilter === level ? 600 : 400, fontSize: '0.85rem'}}}}>
+                                {{level}}
+                            </button>
+                        ))}}
+                        <span style={{{{marginLeft: 'auto', color: '#666', fontSize: '0.85rem'}}}}>
+                            {{totalCombos}} unique scores across {{totalGames}} games
+                            {{mostCommon && ` | Most common: ${{mostCommon.replace('-', ' to ')}} (${{filteredScorigami[mostCommon]?.count}}x)`}}
+                        </span>
+                    </div>
+
+                    <div style={{{{display: 'flex', gap: '12px', marginBottom: '16px'}}}}>
+                        <span style={{{{display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', color: '#666'}}}}>
+                            <span style={{{{width: '14px', height: '14px', background: '#ffd700', borderRadius: '2px', display: 'inline-block'}}}}></span> Scorigami (1x)
+                        </span>
+                        <span style={{{{display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', color: '#666'}}}}>
+                            <span style={{{{width: '14px', height: '14px', background: 'rgb(50,100,230)', borderRadius: '2px', display: 'inline-block'}}}}></span> Multiple
+                        </span>
+                        <span style={{{{display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', color: '#666'}}}}>
+                            <span style={{{{width: '14px', height: '14px', background: '#f8f9fa', border: '1px solid #ddd', borderRadius: '2px', display: 'inline-block'}}}}></span> Never
+                        </span>
+                    </div>
+
+                    <div style={{{{overflowX: 'auto', marginBottom: '16px'}}}}>
+                        <div style={{{{display: 'inline-block', minWidth: 'fit-content'}}}}>
+                            <div style={{{{textAlign: 'center', fontWeight: 600, color: '#1e3a5f', marginBottom: '4px', fontSize: '0.85rem'}}}}>Winner Score →</div>
+                            <div style={{{{display: 'flex'}}}}>
+                                <div style={{{{width: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}}}>
+                                    <span style={{{{writingMode: 'vertical-rl', transform: 'rotate(180deg)', fontWeight: 600, color: '#1e3a5f', fontSize: '0.85rem'}}}}>← Loser Score</span>
+                                </div>
+                                <div>
+                                    <div style={{{{display: 'flex'}}}}>
+                                        <div style={{{{width: '28px', height: '28px'}}}}></div>
+                                        {{Array.from({{length: maxWinner}}, (_, i) => i + 1).map(w => (
+                                            <div key={{w}} style={{{{width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 600, color: '#666'}}}}>{{w}}</div>
+                                        ))}}
+                                    </div>
+                                    {{Array.from({{length: maxLoser + 1}}, (_, i) => i).map(loser => (
+                                        <div key={{loser}} style={{{{display: 'flex'}}}}>
+                                            <div style={{{{width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 600, color: '#666'}}}}>{{loser}}</div>
+                                            {{Array.from({{length: maxWinner}}, (_, i) => i + 1).map(winner => {{
+                                                if (winner <= loser) return <div key={{winner}} style={{{{width: '28px', height: '28px', background: '#eee'}}}}></div>;
+                                                const key = `${{loser}}-${{winner}}`;
+                                                const entry = filteredScorigami[key];
+                                                const count = entry?.count || 0;
+                                                return (
+                                                    <div key={{winner}} onClick={{() => count > 0 && setSelectedCell(selectedCell === key ? null : key)}}
+                                                        style={{{{width: '28px', height: '28px', background: getColor(count), display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                            fontSize: '0.6rem', color: count > 1 ? 'white' : count === 1 ? '#333' : '#ccc', cursor: count > 0 ? 'pointer' : 'default',
+                                                            border: selectedCell === key ? '2px solid #333' : '1px solid rgba(0,0,0,0.08)', fontWeight: count > 0 ? 600 : 400,
+                                                            borderRadius: '2px', transition: 'transform 0.1s', transform: selectedCell === key ? 'scale(1.2)' : 'none'}}}}>
+                                                        {{count > 0 ? count : ''}}
+                                                    </div>
+                                                );
+                                            }})}}
+                                        </div>
+                                    ))}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{selectedCell && filteredScorigami[selectedCell] && (
+                        <div style={{{{background: 'white', borderRadius: '8px', padding: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', border: '1px solid #e0e0e0', marginBottom: '16px'}}}}>
+                            <div style={{{{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px'}}}}>
+                                <h3 style={{{{margin: 0, color: '#1e3a5f'}}}}>Score: {{selectedCell.replace('-', ' to ')}} ({{filteredScorigami[selectedCell].count}} game{{filteredScorigami[selectedCell].count > 1 ? 's' : ''}})</h3>
+                                <button onClick={{() => setSelectedCell(null)}} style={{{{background: 'none', border: 'none', fontSize: '1.2rem', cursor: 'pointer', color: '#999'}}}}>✕</button>
+                            </div>
+                            <table style={{{{width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem'}}}}>
+                                <thead>
+                                    <tr style={{{{borderBottom: '2px solid #1e3a5f'}}}}>
+                                        <th style={{{{textAlign: 'left', padding: '6px 8px'}}}}>Date</th>
+                                        <th style={{{{textAlign: 'left', padding: '6px 8px'}}}}>Away</th>
+                                        <th style={{{{textAlign: 'center', padding: '6px 8px'}}}}>Score</th>
+                                        <th style={{{{textAlign: 'left', padding: '6px 8px'}}}}>Home</th>
+                                        <th style={{{{textAlign: 'left', padding: '6px 8px'}}}}>Level</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{filteredScorigami[selectedCell].games.map((g, i) => (
+                                        <tr key={{i}} style={{{{borderBottom: '1px solid #eee'}}}}>
+                                            <td style={{{{padding: '6px 8px'}}}}>{{g.date}}</td>
+                                            <td style={{{{padding: '6px 8px', fontWeight: g.away_score > g.home_score ? 700 : 400}}}}>{{g.away}}</td>
+                                            <td style={{{{padding: '6px 8px', textAlign: 'center', fontWeight: 600}}}}>{{g.away_score}} - {{g.home_score}}</td>
+                                            <td style={{{{padding: '6px 8px', fontWeight: g.home_score > g.away_score ? 700 : 400}}}}>{{g.home}}</td>
+                                            <td style={{{{padding: '6px 8px'}}}}>
+                                                <span style={{{{padding: '2px 8px', borderRadius: '10px', fontSize: '0.75rem', fontWeight: 600,
+                                                    background: g.level === 'NCAA' ? '#e8f5e9' : g.level === 'Partner' ? '#f3e5f5' : '#fff3e0',
+                                                    color: g.level === 'NCAA' ? '#28a745' : g.level === 'Partner' ? '#9c27b0' : '#ff6b35'}}}}>
+                                                    {{g.level}}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    ))}}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}}
+                </div>
+            );
+        }};
+
+        const ScheduleMap = ({{ games }}) => {{
+            const mapRef = useRef(null);
+            const mapInstance = useRef(null);
+            const markersRef = useRef([]);
+
+            useEffect(() => {{
+                if (!mapRef.current || mapInstance.current) return;
+                mapInstance.current = L.map(mapRef.current).setView([39.5, -98.35], 4);
+                L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+                    maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'
+                }}).addTo(mapInstance.current);
+                return () => {{ if (mapInstance.current) {{ mapInstance.current.remove(); mapInstance.current = null; }} }};
+            }}, []);
+
+            useEffect(() => {{
+                if (!mapInstance.current) return;
+                markersRef.current.forEach(m => m.remove());
+                markersRef.current = [];
+
+                const venues = {{}};
+                games.forEach(g => {{
+                    const name = g.home_team?.name;
+                    if (!name) return;
+                    const loc = DATA.stadiumLocations?.[name] || (() => {{
+                        const milb = DATA.milbStadiumLocations || {{}};
+                        for (const [, info] of Object.entries(milb)) {{
+                            if (info.team === name) return info;
+                        }}
+                        const partner = DATA.partnerStadiumLocations || {{}};
+                        for (const [, info] of Object.entries(partner)) {{
+                            if (info.team === name) return info;
+                        }}
+                        return null;
+                    }})();
+                    if (!loc || !loc.lat || !loc.lng) return;
+                    const vKey = `${{loc.lat}},${{loc.lng}}`;
+                    if (!venues[vKey]) venues[vKey] = {{ lat: loc.lat, lng: loc.lng, name: g.venue?.name || name, games: [] }};
+                    venues[vKey].games.push(g);
+                }});
+
+                Object.values(venues).forEach(v => {{
+                    const count = v.games.length;
+                    const icon = L.divIcon({{
+                        className: 'schedule-marker',
+                        html: `<div style="width:${{count > 1 ? 22 : 16}}px;height:${{count > 1 ? 22 : 16}}px;background:#28a745;border-radius:50%;border:2px solid white;box-shadow:0 2px 4px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;color:white;font-size:${{count > 1 ? '10' : '0'}}px;font-weight:700;">${{count > 1 ? count : ''}}</div>`,
+                        iconSize: [count > 1 ? 22 : 16, count > 1 ? 22 : 16],
+                        iconAnchor: [count > 1 ? 11 : 8, count > 1 ? 11 : 8]
+                    }});
+                    const popupLines = v.games.map(g => {{
+                        const away = g.away_team?.name || 'TBD';
+                        const home = g.home_team?.name || 'TBD';
+                        const time = g.time_detail || 'TBD';
+                        return `<div style="margin:4px 0;font-size:12px;"><strong>${{away}} @ ${{home}}</strong><br/>${{g.date_display || ''}} - ${{time}}</div>`;
+                    }}).join('');
+                    const marker = L.marker([v.lat, v.lng], {{ icon }})
+                        .bindPopup(`<div style="max-height:200px;overflow-y:auto;"><strong>${{v.name}}</strong><br/>${{count}} game${{count > 1 ? 's' : ''}}<hr style="margin:4px 0;"/>${{popupLines}}</div>`)
+                        .addTo(mapInstance.current);
+                    markersRef.current.push(marker);
+                }});
+            }}, [games]);
+
+            return <div ref={{mapRef}} style={{{{height: '450px', borderRadius: '8px', border: '1px solid #ddd', marginBottom: '16px'}}}}></div>;
+        }};
+
+        const UpcomingGames = ({{ games }}) => {{
+            const [statusFilter, setStatusFilter] = useState('scheduled');
+            const [dateFilter, setDateFilter] = useState('All');
+            const [searchText, setSearchText] = useState('');
+            const [showMap, setShowMap] = useState(false);
+
+            const statusOptions = ['All', 'scheduled', 'in_progress', 'final', 'canceled', 'postponed'];
+
+            // Get unique dates for filter
+            const uniqueDates = useMemo(() => {{
+                const dates = [...new Set(games.map(g => g.date_display))];
+                return ['All', ...dates];
+            }}, [games]);
+
+            const filtered = useMemo(() => {{
+                return games.filter(g => {{
+                    if (statusFilter !== 'All' && g.status !== statusFilter) return false;
+                    if (dateFilter !== 'All' && g.date_display !== dateFilter) return false;
+                    if (searchText) {{
+                        const s = searchText.toLowerCase();
+                        const home = (g.home_team?.name || '').toLowerCase();
+                        const away = (g.away_team?.name || '').toLowerCase();
+                        const venue = (g.venue?.name || '').toLowerCase();
+                        if (!home.includes(s) && !away.includes(s) && !venue.includes(s)) return false;
+                    }}
+                    return true;
+                }});
+            }}, [games, statusFilter, dateFilter, searchText]);
+
+            // Group by date
+            const grouped = useMemo(() => {{
+                const groups = {{}};
+                filtered.forEach(g => {{
+                    const key = g.date_display || 'Unknown';
+                    if (!groups[key]) groups[key] = [];
+                    groups[key].push(g);
+                }});
+                return groups;
+            }}, [filtered]);
+
+            const statusColors = {{
+                scheduled: '#28a745',
+                in_progress: '#ff6b35',
+                final: '#666',
+                canceled: '#dc3545',
+                postponed: '#ffc107',
+            }};
+
+            const getTeamLogo = (team) => {{
+                if (team.logo_url) return team.logo_url;
+                const espnId = DATA.ncaaTeamLogos?.[team.name];
+                if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${{espnId}}.png`;
+                return '';
+            }};
+
+            return (
+                <div>
+                    <div style={{{{display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap', alignItems: 'center'}}}}>
+                        <input
+                            type="text"
+                            placeholder="Search teams or venues..."
+                            value={{searchText}}
+                            onChange={{e => setSearchText(e.target.value)}}
+                            style={{{{padding: '8px 12px', borderRadius: '6px', border: '1px solid #ddd', fontSize: '0.875rem', minWidth: '200px'}}}}
+                        />
+                        <select
+                            value={{statusFilter}}
+                            onChange={{e => setStatusFilter(e.target.value)}}
+                            style={{{{padding: '8px 12px', borderRadius: '6px', border: '1px solid #ddd', fontSize: '0.875rem'}}}}
+                        >
+                            {{statusOptions.map(s => <option key={{s}} value={{s}}>{{s === 'All' ? 'All Statuses' : s.charAt(0).toUpperCase() + s.slice(1).replace('_', ' ')}}</option>)}}
+                        </select>
+                        <select
+                            value={{dateFilter}}
+                            onChange={{e => setDateFilter(e.target.value)}}
+                            style={{{{padding: '8px 12px', borderRadius: '6px', border: '1px solid #ddd', fontSize: '0.875rem'}}}}
+                        >
+                            {{uniqueDates.map(d => <option key={{d}} value={{d}}>{{d === 'All' ? 'All Dates' : d}}</option>)}}
+                        </select>
+                        <span style={{{{color: '#666', fontSize: '0.875rem'}}}}>{{filtered.length}} games</span>
+                        <button onClick={{() => setShowMap(!showMap)}}
+                            style={{{{padding: '8px 16px', borderRadius: '6px', border: '1px solid #ddd', background: showMap ? '#1e3a5f' : 'white',
+                                color: showMap ? 'white' : '#333', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 500}}}}>
+                            {{showMap ? 'Hide Map' : 'Show Map'}}
+                        </button>
+                    </div>
+
+                    {{showMap && <ScheduleMap games={{filtered}} />}}
+
+                    {{Object.entries(grouped).map(([dateLabel, dateGames]) => (
+                        <div key={{dateLabel}} style={{{{marginBottom: '24px'}}}}>
+                            <h3 style={{{{margin: '0 0 12px 0', color: '#1e3a5f', fontSize: '1.1rem', borderBottom: '2px solid #1e3a5f', paddingBottom: '4px'}}}}>
+                                {{dateLabel}} ({{dateGames.length}} games)
+                            </h3>
+                            <div style={{{{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '12px'}}}}>
+                                {{dateGames.map((game, idx) => (
+                                    <div key={{game.d1bb_key || idx}} style={{{{
+                                        background: 'white',
+                                        borderRadius: '8px',
+                                        padding: '14px',
+                                        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                                        border: '1px solid #e0e0e0',
+                                    }}}}>
+                                        <div style={{{{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px'}}}}>
+                                            <span style={{{{
+                                                fontSize: '0.75rem',
+                                                fontWeight: 600,
+                                                color: statusColors[game.status] || '#666',
+                                                textTransform: 'uppercase',
+                                            }}}}>
+                                                {{game.status === 'scheduled' ? game.time_detail || 'TBD' : game.status.replace('_', ' ')}}
+                                            </span>
+                                            {{game.venue?.name && (
+                                                <span style={{{{fontSize: '0.75rem', color: '#999', maxWidth: '180px', textAlign: 'right', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}}}>
+                                                    {{game.venue.name}}
+                                                </span>
+                                            )}}
+                                        </div>
+
+                                        <div style={{{{display: 'flex', alignItems: 'center', gap: '10px'}}}}>
+                                            <div style={{{{flex: 1}}}}>
+                                                <div style={{{{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px'}}}}>
+                                                    {{getTeamLogo(game.away_team) && (
+                                                        <img src={{getTeamLogo(game.away_team)}} alt="" style={{{{width: '24px', height: '24px', objectFit: 'contain'}}}} />
+                                                    )}}
+                                                    <span style={{{{fontWeight: 600, fontSize: '0.9rem'}}}}>
+                                                        {{game.away_team?.rank ? `#${{game.away_team.rank}} ` : ''}}{{game.away_team?.name || 'TBD'}}
+                                                    </span>
+                                                    {{game.away_team?.record && <span style={{{{color: '#999', fontSize: '0.75rem'}}}}>{{game.away_team.record}}</span>}}
+                                                </div>
+                                                <div style={{{{display: 'flex', alignItems: 'center', gap: '8px'}}}}>
+                                                    {{getTeamLogo(game.home_team) && (
+                                                        <img src={{getTeamLogo(game.home_team)}} alt="" style={{{{width: '24px', height: '24px', objectFit: 'contain'}}}} />
+                                                    )}}
+                                                    <span style={{{{fontWeight: 600, fontSize: '0.9rem'}}}}>
+                                                        {{game.home_team?.rank ? `#${{game.home_team.rank}} ` : ''}}{{game.home_team?.name || 'TBD'}}
+                                                    </span>
+                                                    {{game.home_team?.record && <span style={{{{color: '#999', fontSize: '0.75rem'}}}}>{{game.home_team.record}}</span>}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{game.venue?.city && (
+                                            <div style={{{{marginTop: '8px', fontSize: '0.75rem', color: '#999'}}}}>
+                                                {{game.venue.city}}{{game.venue.state ? `, ${{game.venue.state}}` : ''}}
+                                            </div>
+                                        )}}
+                                    </div>
+                                ))}}
+                            </div>
+                        </div>
+                    ))}}
+
+                    {{filtered.length === 0 && (
+                        <div style={{{{textAlign: 'center', padding: '40px', color: '#999'}}}}>
+                            No games match your filters. Try adjusting the search or filters above.
+                        </div>
+                    )}}
                 </div>
             );
         }};
@@ -3394,6 +3801,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
             const hasCrossover = DATA.crossoverPlayers && DATA.crossoverPlayers.length > 0;
 
+            const hasSchedule = DATA.scheduleGames && DATA.scheduleGames.length > 0;
+
             const tabs = [
                 {{ id: 'allGames', label: 'All Games' }},
                 {{ id: 'calendar', label: 'Calendar' }},
@@ -3402,6 +3811,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 {{ id: 'teams', label: 'Teams' }},
                 {{ id: 'milestones', label: 'Milestones' }},
                 ...(hasCrossover ? [{{ id: 'crossover', label: 'Crossover' }}] : []),
+                ...(hasSchedule ? [{{ id: 'schedule', label: 'Schedule' }}] : []),
+                {{ id: 'scorigami', label: 'Scorigami' }},
                 {{ id: 'checklist', label: 'Checklist' }},
                 {{ id: 'map', label: 'Map' }},
             ];
@@ -3486,6 +3897,8 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                     {{activeTab === 'unifiedBatters' && <UnifiedBattersTable batters={{DATA.unifiedBatters}} onPlayerClick={{handlePlayerClick}} />}}
                     {{activeTab === 'unifiedPitchers' && <UnifiedPitchersTable pitchers={{DATA.unifiedPitchers}} onPlayerClick={{handlePlayerClick}} />}}
 
+                    {{activeTab === 'schedule' && <UpcomingGames games={{DATA.scheduleGames}} />}}
+                    {{activeTab === 'scorigami' && <ScorigamiGrid scorigami={{DATA.scorigami}} games={{DATA.unifiedGameLog}} />}}
                     {{activeTab === 'checklist' && <Checklist checklist={{DATA.checklist}} milbChecklist={{DATA.milbChecklist}} />}}
                     {{activeTab === 'map' && <SchoolMap stadiums={{DATA.stadiumLocations}} teamsSeenHome={{DATA.teamsSeenHome}} teamsSeenAway={{DATA.teamsSeenAway}} checklist={{DATA.checklist}} milbStadiums={{DATA.milbStadiumLocations}} milbVenuesVisited={{DATA.milbVenuesVisited}} partnerStadiums={{DATA.partnerStadiumLocations}} partnerVenuesVisited={{DATA.partnerVenuesVisited}} />}}
 

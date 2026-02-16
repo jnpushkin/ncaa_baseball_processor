@@ -28,6 +28,8 @@ def _find_project_root() -> Path:
 BASE_DIR = _find_project_root()
 CACHE_DIR = BASE_DIR / "cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
+DATA_DIR = BASE_DIR / "data"
+SCHEDULE_CACHE_FILE = DATA_DIR / "schedule_cache.json"
 ROSTERS_DIR = BASE_DIR / "rosters"
 OUTPUT_DIR = BASE_DIR / "html_output"
 PDF_DIR = BASE_DIR / "pdfs"

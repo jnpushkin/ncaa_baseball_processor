@@ -22,7 +22,8 @@ from typing import Dict, List, Any, Optional
 from .utils.constants import (
     BASE_DIR, CACHE_DIR, ROSTERS_DIR, PDF_DIR, OUTPUT_DIR,
     MILB_DIR, MILB_CACHE_DIR, MILB_GAME_IDS_FILE,
-    PARTNER_DIR, PARTNER_CACHE_DIR, PARTNER_GAME_IDS_FILE
+    PARTNER_DIR, PARTNER_CACHE_DIR, PARTNER_GAME_IDS_FILE,
+    DATA_DIR, SCHEDULE_CACHE_FILE,
 )
 from .excel.workbook_generator import generate_excel_workbook
 from .website.generator import generate_website_from_data
@@ -385,6 +386,24 @@ def main():
         help='Generate player crossover report (NCAA/MiLB)'
     )
 
+    # Schedule options
+    parser.add_argument(
+        '--schedule',
+        action='store_true',
+        help='Scrape upcoming game schedule from D1Baseball.com'
+    )
+    parser.add_argument(
+        '--refresh-schedule',
+        action='store_true',
+        help='Force refresh schedule cache (ignore TTL)'
+    )
+    parser.add_argument(
+        '--schedule-days',
+        type=int,
+        default=7,
+        help='Number of days ahead to scrape (default: 7)'
+    )
+
     # Deploy options
     parser.add_argument(
         '--deploy',
@@ -406,6 +425,20 @@ def main():
 
     print("Baseball Stats Processor")
     print("=" * 50)
+
+    # Handle schedule scraping
+    schedule_games = []
+    if args.schedule or args.refresh_schedule:
+        from .utils.schedule_scraper import get_schedule
+        from datetime import datetime, timedelta
+        start = datetime.now()
+        end = start + timedelta(days=args.schedule_days)
+        schedule_games = get_schedule(
+            force_refresh=args.refresh_schedule,
+            start_date=start,
+            end_date=end,
+        )
+        print(f"Schedule: {len(schedule_games)} upcoming games loaded")
 
     ncaa_games = []
     milb_games = []
@@ -496,6 +529,11 @@ def main():
             }, f, indent=2)
         print(f"JSON data saved: {json_path}")
 
+    # Load schedule data for website (from cache if not freshly scraped)
+    if not schedule_games and not args.excel_only:
+        from .utils.schedule_scraper import load_schedule_cache
+        schedule_games = load_schedule_cache()
+
     # Generate outputs
     try:
         if args.website_only:
@@ -506,7 +544,7 @@ def main():
             )
 
             html_path = args.output_excel.replace('.xlsx', '.html')
-            generate_website_from_data(processed_data, html_path, all_games)
+            generate_website_from_data(processed_data, html_path, all_games, schedule_games=schedule_games)
 
             print(f"\nDone! Website: {os.path.abspath(html_path)}")
 
@@ -528,7 +566,7 @@ def main():
             )
 
             html_path = args.output_excel.replace('.xlsx', '.html')
-            generate_website_from_data(processed_data, html_path, all_games)
+            generate_website_from_data(processed_data, html_path, all_games, schedule_games=schedule_games)
 
             print(f"\nDone!")
             print(f"Excel: {os.path.abspath(args.output_excel)}")
