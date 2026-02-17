@@ -212,10 +212,14 @@ def _parse_venue(tile) -> Dict:
     - "Arlington, Texas, Globe Life Field"
     - "Chapel Hill, Boshamer Stadium"
     - "Chapel Hill, NC"
+    - "Baton Rouge, La. (Alex Box Stadium, Skip Bertman Field)"
+    - "Surprise, Ariz. (Surprise Stadium)"
     """
     venue_name = ''
     city = ''
     state = ''
+
+    import re
 
     commentary = tile.find('span', class_='matchup-commentary')
     if not commentary:
@@ -223,53 +227,69 @@ def _parse_venue(tile) -> Dict:
 
     if commentary:
         text = commentary.get_text(strip=True)
-        parts = [p.strip() for p in text.split(',')]
 
-        # US state abbreviations: "NC", "S.C.", "N.C.", etc.
-        import re
-        state_pattern = re.compile(r'^[A-Z]\.?[A-Z]\.?$')
+        # Extract parenthetical stadium name first, before splitting on commas
+        paren_match = re.search(r'\(([^)]+)\)', text)
+        if paren_match:
+            venue_name = paren_match.group(1).strip()
+            # Remove the parenthetical from text for city/state parsing
+            text = text[:paren_match.start()].strip().rstrip(',').strip()
+
+        parts = [p.strip() for p in text.split(',') if p.strip()]
+
+        # US state abbreviations: "NC", "S.C.", "N.C.", "La.", "Ariz.", etc.
+        state_pattern = re.compile(r'^[A-Z][a-z]*\.?[A-Z]?\.?$')
+        state_abbr_pattern = re.compile(r'^[A-Z]{2}$|^[A-Z][a-z]+\.$')
+
+        us_states = {
+            'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
+            'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho',
+            'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+            'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+            'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
+            'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
+            'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
+            'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina',
+            'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+            'Washington', 'West Virginia', 'Wisconsin', 'Wyoming',
+        }
+
+        def _is_state(s):
+            """Check if string looks like a state name or abbreviation."""
+            if not s:
+                return False
+            if s in us_states:
+                return True
+            # Two-letter abbrevs: NC, FL, TX, etc.
+            if re.match(r'^[A-Z]{2}$', s):
+                return True
+            # Abbreviated state names: La., Ariz., Calif., etc.
+            if re.match(r'^[A-Z][a-z]+\.$', s):
+                return True
+            # Dotted abbreviations: N.C., S.C., etc.
+            if re.match(r'^[A-Z]\.?[A-Z]\.?$', s):
+                return True
+            return False
 
         if len(parts) == 1:
             city = parts[0]
         elif len(parts) == 2:
             city = parts[0]
-            # Second part could be state abbreviation, full state name, or venue
-            if state_pattern.match(parts[1]):
+            if _is_state(parts[1]):
                 state = parts[1]
-            elif len(parts[1]) > 3 and not parts[1][0].isupper():
-                state = parts[1]
-            else:
-                # Could be a venue name or a state name
-                # If it looks like a known state, treat as state; otherwise venue
-                us_states = {
-                    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
-                    'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho',
-                    'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-                    'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-                    'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
-                    'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
-                    'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
-                    'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina',
-                    'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-                    'Washington', 'West Virginia', 'Wisconsin', 'Wyoming',
-                }
-                if parts[1] in us_states:
-                    state = parts[1]
-                else:
-                    venue_name = parts[1]
+            elif not venue_name:
+                # If no parenthetical venue, this might be a venue name
+                venue_name = parts[1]
         elif len(parts) >= 3:
             city = parts[0]
-            # "City, State, Venue" pattern
-            if state_pattern.match(parts[1]) or parts[1] in {
-                'Texas', 'Florida', 'California', 'Arizona', 'Puerto Rico',
-                'North Carolina', 'South Carolina', 'Georgia', 'Virginia',
-            }:
+            if _is_state(parts[1]):
                 state = parts[1]
-                venue_name = ', '.join(parts[2:])
+                if not venue_name:
+                    venue_name = ', '.join(parts[2:])
             else:
-                # "City, part1, part2" - last part likely venue
                 state = parts[1]
-                venue_name = ', '.join(parts[2:])
+                if not venue_name:
+                    venue_name = ', '.join(parts[2:])
 
     return {
         'name': venue_name,
@@ -284,7 +304,7 @@ def scrape_season_schedule(
     delay: float = 0.5,
 ) -> List[Dict]:
     """
-    Scrape games for a date range.
+    Scrape games for a date range, deduplicating by d1bb_key.
 
     Args:
         start_date: First date to scrape
@@ -292,9 +312,9 @@ def scrape_season_schedule(
         delay: Seconds to wait between requests
 
     Returns:
-        List of all games found
+        List of all unique games found
     """
-    all_games = []
+    games_by_key = {}
     current = start_date
     total_days = (end_date - start_date).days + 1
 
@@ -308,7 +328,8 @@ def scrape_season_schedule(
 
         if games:
             print(f"  [{day_num}/{total_days}] {date_str}: {len(games)} games")
-            all_games.extend(games)
+            for g in games:
+                games_by_key[g['d1bb_key']] = g
         else:
             print(f"  [{day_num}/{total_days}] {date_str}: no games")
 
@@ -316,37 +337,70 @@ def scrape_season_schedule(
         if current <= end_date:
             time.sleep(delay)
 
-    print(f"Total: {len(all_games)} games scraped")
-    return all_games
+    result = list(games_by_key.values())
+    print(f"Total: {len(result)} unique games scraped")
+    return result
 
 
 def save_schedule_cache(games: List[Dict]) -> None:
-    """Save games to schedule cache file."""
+    """Save games to schedule cache file, merging with existing cache by key."""
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Load existing cache and merge by key
+    merged = {}
+    if SCHEDULE_CACHE_FILE.exists():
+        try:
+            with open(SCHEDULE_CACHE_FILE, 'r', encoding='utf-8') as f:
+                existing = json.load(f)
+            for g in existing.get('games', []):
+                key = g.get('d1bb_key')
+                if key:
+                    merged[key] = g
+        except (json.JSONDecodeError, IOError):
+            pass
+
+    # New games overwrite existing ones with the same key
+    for g in games:
+        key = g.get('d1bb_key')
+        if key:
+            merged[key] = g
+
+    all_games = list(merged.values())
 
     cache_data = {
         'updated': datetime.now().isoformat(),
-        'game_count': len(games),
-        'games': games,
+        'game_count': len(all_games),
+        'games': all_games,
     }
 
     with open(SCHEDULE_CACHE_FILE, 'w', encoding='utf-8') as f:
         json.dump(cache_data, f, indent=2)
 
-    print(f"Schedule cache saved: {len(games)} games -> {SCHEDULE_CACHE_FILE}")
+    print(f"Schedule cache saved: {len(all_games)} games -> {SCHEDULE_CACHE_FILE}")
 
 
 def load_schedule_cache() -> List[Dict]:
-    """Load games from schedule cache file."""
+    """Load games from schedule cache file, deduplicating by d1bb_key."""
     if not SCHEDULE_CACHE_FILE.exists():
         return []
 
     try:
         with open(SCHEDULE_CACHE_FILE, 'r', encoding='utf-8') as f:
             cache_data = json.load(f)
-        games = cache_data.get('games', [])
+        raw_games = cache_data.get('games', [])
         updated = cache_data.get('updated', 'unknown')
-        print(f"Schedule cache loaded: {len(games)} games (updated: {updated})")
+
+        # Defensive dedup by d1bb_key
+        seen = {}
+        for g in raw_games:
+            key = g.get('d1bb_key')
+            if key:
+                seen[key] = g
+            else:
+                seen[id(g)] = g
+        games = list(seen.values())
+
+        print(f"Schedule cache loaded: {len(games)} unique games (updated: {updated})")
         return games
     except (json.JSONDecodeError, IOError) as e:
         print(f"Error loading schedule cache: {e}")
@@ -388,11 +442,11 @@ def get_schedule(
         except (json.JSONDecodeError, IOError, ValueError):
             pass
 
-    # Fetch fresh data
+    # Fetch fresh data — always start from today (past games are kept in cache)
     if start_date is None:
         start_date = datetime.now()
     if end_date is None:
-        end_date = start_date + timedelta(days=7)
+        end_date = datetime(start_date.year, 6, 30)
 
     games = scrape_season_schedule(start_date, end_date)
     if games:

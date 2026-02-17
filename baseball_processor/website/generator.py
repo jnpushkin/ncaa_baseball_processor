@@ -102,6 +102,226 @@ def _load_local_logos() -> Dict[str, str]:
     return result
 
 
+# Common D1 baseball venue cities → (lat, lng) for neutral-site / tournament games
+VENUE_CITY_COORDS = {
+    # Spring training / tournament hubs
+    ('Surprise', 'AZ'): (33.6292, -112.3677),
+    ('Surprise', 'Ariz.'): (33.6292, -112.3677),
+    ('Surprise', 'Arizona'): (33.6292, -112.3677),
+    ('Scottsdale', 'AZ'): (33.4942, -111.9261),
+    ('Scottsdale', 'Ariz.'): (33.4942, -111.9261),
+    ('Scottsdale', 'Arizona'): (33.4942, -111.9261),
+    ('Mesa', 'AZ'): (33.4152, -111.8315),
+    ('Mesa', 'Ariz.'): (33.4152, -111.8315),
+    ('Mesa', 'Arizona'): (33.4152, -111.8315),
+    ('Phoenix', 'AZ'): (33.4484, -112.0740),
+    ('Phoenix', 'Ariz.'): (33.4484, -112.0740),
+    ('Phoenix', 'Arizona'): (33.4484, -112.0740),
+    ('Tempe', 'AZ'): (33.4255, -111.9400),
+    ('Tempe', 'Ariz.'): (33.4255, -111.9400),
+    ('Tempe', 'Arizona'): (33.4255, -111.9400),
+    ('Glendale', 'AZ'): (33.5387, -112.1860),
+    ('Glendale', 'Ariz.'): (33.5387, -112.1860),
+    ('Glendale', 'Arizona'): (33.5387, -112.1860),
+    ('Peoria', 'AZ'): (33.5806, -112.2374),
+    ('Peoria', 'Ariz.'): (33.5806, -112.2374),
+    ('Peoria', 'Arizona'): (33.5806, -112.2374),
+    ('Goodyear', 'AZ'): (33.4353, -112.3577),
+    ('Goodyear', 'Ariz.'): (33.4353, -112.3577),
+    ('Goodyear', 'Arizona'): (33.4353, -112.3577),
+    ('Tucson', 'AZ'): (32.2226, -110.9747),
+    ('Tucson', 'Ariz.'): (32.2226, -110.9747),
+    ('Tucson', 'Arizona'): (32.2226, -110.9747),
+    # Florida tournament sites
+    ('DeLand', 'FL'): (29.0283, -81.3031),
+    ('DeLand', 'Fla.'): (29.0283, -81.3031),
+    ('DeLand', 'Florida'): (29.0283, -81.3031),
+    ('Lakeland', 'FL'): (28.0395, -81.9498),
+    ('Lakeland', 'Fla.'): (28.0395, -81.9498),
+    ('Lakeland', 'Florida'): (28.0395, -81.9498),
+    ('Port Charlotte', 'FL'): (26.9767, -82.0906),
+    ('Port Charlotte', 'Fla.'): (26.9767, -82.0906),
+    ('Port Charlotte', 'Florida'): (26.9767, -82.0906),
+    ('Clearwater', 'FL'): (27.9659, -82.8001),
+    ('Clearwater', 'Fla.'): (27.9659, -82.8001),
+    ('Clearwater', 'Florida'): (27.9659, -82.8001),
+    ('Jupiter', 'FL'): (26.9342, -80.0942),
+    ('Jupiter', 'Fla.'): (26.9342, -80.0942),
+    ('Jupiter', 'Florida'): (26.9342, -80.0942),
+    ('Fort Myers', 'FL'): (26.6406, -81.8723),
+    ('Fort Myers', 'Fla.'): (26.6406, -81.8723),
+    ('Fort Myers', 'Florida'): (26.6406, -81.8723),
+    ('Bradenton', 'FL'): (27.4989, -82.5748),
+    ('Bradenton', 'Fla.'): (27.4989, -82.5748),
+    ('Bradenton', 'Florida'): (27.4989, -82.5748),
+    ('Sarasota', 'FL'): (27.3364, -82.5307),
+    ('Sarasota', 'Fla.'): (27.3364, -82.5307),
+    ('Sarasota', 'Florida'): (27.3364, -82.5307),
+    ('Kissimmee', 'FL'): (28.2920, -81.4076),
+    ('Kissimmee', 'Fla.'): (28.2920, -81.4076),
+    ('Kissimmee', 'Florida'): (28.2920, -81.4076),
+    ('Dunedin', 'FL'): (28.0197, -82.7718),
+    ('Dunedin', 'Fla.'): (28.0197, -82.7718),
+    ('Dunedin', 'Florida'): (28.0197, -82.7718),
+    ('Tampa', 'FL'): (27.9506, -82.4572),
+    ('Tampa', 'Fla.'): (27.9506, -82.4572),
+    ('Tampa', 'Florida'): (27.9506, -82.4572),
+    ('Orlando', 'FL'): (28.5383, -81.3792),
+    ('Orlando', 'Fla.'): (28.5383, -81.3792),
+    ('Orlando', 'Florida'): (28.5383, -81.3792),
+    ('Jacksonville', 'FL'): (30.3322, -81.6557),
+    ('Jacksonville', 'Fla.'): (30.3322, -81.6557),
+    ('Jacksonville', 'Florida'): (30.3322, -81.6557),
+    ('Gainesville', 'FL'): (29.6516, -82.3248),
+    ('Gainesville', 'Fla.'): (29.6516, -82.3248),
+    ('Gainesville', 'Florida'): (29.6516, -82.3248),
+    ('Tallahassee', 'FL'): (30.4383, -84.2807),
+    ('Tallahassee', 'Fla.'): (30.4383, -84.2807),
+    ('Tallahassee', 'Florida'): (30.4383, -84.2807),
+    ('Miami', 'FL'): (25.7617, -80.1918),
+    ('Miami', 'Fla.'): (25.7617, -80.1918),
+    ('Miami', 'Florida'): (25.7617, -80.1918),
+    # Texas tournament sites
+    ('Arlington', 'TX'): (32.7357, -97.1081),
+    ('Arlington', 'Texas'): (32.7357, -97.1081),
+    ('Arlington', 'Tex.'): (32.7357, -97.1081),
+    ('Houston', 'TX'): (29.7604, -95.3698),
+    ('Houston', 'Texas'): (29.7604, -95.3698),
+    ('Houston', 'Tex.'): (29.7604, -95.3698),
+    ('San Antonio', 'TX'): (29.4241, -98.4936),
+    ('San Antonio', 'Texas'): (29.4241, -98.4936),
+    ('San Antonio', 'Tex.'): (29.4241, -98.4936),
+    ('Dallas', 'TX'): (32.7767, -96.7970),
+    ('Dallas', 'Texas'): (32.7767, -96.7970),
+    ('Dallas', 'Tex.'): (32.7767, -96.7970),
+    ('Round Rock', 'TX'): (30.5083, -97.6789),
+    ('Round Rock', 'Texas'): (30.5083, -97.6789),
+    ('Round Rock', 'Tex.'): (30.5083, -97.6789),
+    ('Frisco', 'TX'): (33.1507, -96.8236),
+    ('Frisco', 'Texas'): (33.1507, -96.8236),
+    ('Frisco', 'Tex.'): (33.1507, -96.8236),
+    ('Sugar Land', 'TX'): (29.6197, -95.6349),
+    ('Sugar Land', 'Texas'): (29.6197, -95.6349),
+    ('Sugar Land', 'Tex.'): (29.6197, -95.6349),
+    ('Corpus Christi', 'TX'): (27.8006, -97.3964),
+    ('Corpus Christi', 'Texas'): (27.8006, -97.3964),
+    ('Corpus Christi', 'Tex.'): (27.8006, -97.3964),
+    ('College Station', 'TX'): (30.6280, -96.3344),
+    ('College Station', 'Texas'): (30.6280, -96.3344),
+    ('College Station', 'Tex.'): (30.6280, -96.3344),
+    # Puerto Rico
+    ('Ponce', 'Puerto Rico'): (18.0111, -66.6141),
+    ('San Juan', 'Puerto Rico'): (18.4655, -66.1057),
+    ('Carolina', 'Puerto Rico'): (18.3811, -65.9574),
+    ('Bayamon', 'Puerto Rico'): (18.3989, -66.1553),
+    # Other common tournament / neutral sites
+    ('Omaha', 'NE'): (41.2565, -95.9345),
+    ('Omaha', 'Neb.'): (41.2565, -95.9345),
+    ('Omaha', 'Nebraska'): (41.2565, -95.9345),
+    ('Minneapolis', 'MN'): (44.9778, -93.2650),
+    ('Minneapolis', 'Minn.'): (44.9778, -93.2650),
+    ('Minneapolis', 'Minnesota'): (44.9778, -93.2650),
+    ('Nashville', 'TN'): (36.1627, -86.7816),
+    ('Nashville', 'Tenn.'): (36.1627, -86.7816),
+    ('Nashville', 'Tennessee'): (36.1627, -86.7816),
+    ('Charlotte', 'NC'): (35.2271, -80.8431),
+    ('Charlotte', 'N.C.'): (35.2271, -80.8431),
+    ('Charlotte', 'North Carolina'): (35.2271, -80.8431),
+    ('Atlanta', 'GA'): (33.7490, -84.3880),
+    ('Atlanta', 'Ga.'): (33.7490, -84.3880),
+    ('Atlanta', 'Georgia'): (33.7490, -84.3880),
+    ('Baton Rouge', 'LA'): (30.4515, -91.1871),
+    ('Baton Rouge', 'La.'): (30.4515, -91.1871),
+    ('Baton Rouge', 'Louisiana'): (30.4515, -91.1871),
+    ('Hattiesburg', 'MS'): (31.3271, -89.2903),
+    ('Hattiesburg', 'Miss.'): (31.3271, -89.2903),
+    ('Hattiesburg', 'Mississippi'): (31.3271, -89.2903),
+    ('Starkville', 'MS'): (33.4504, -88.8184),
+    ('Starkville', 'Miss.'): (33.4504, -88.8184),
+    ('Starkville', 'Mississippi'): (33.4504, -88.8184),
+    ('Greenville', 'SC'): (34.8526, -82.3940),
+    ('Greenville', 'S.C.'): (34.8526, -82.3940),
+    ('Greenville', 'South Carolina'): (34.8526, -82.3940),
+    ('Myrtle Beach', 'SC'): (33.6891, -78.8867),
+    ('Myrtle Beach', 'S.C.'): (33.6891, -78.8867),
+    ('Myrtle Beach', 'South Carolina'): (33.6891, -78.8867),
+    ('Conway', 'SC'): (33.8360, -79.0478),
+    ('Conway', 'S.C.'): (33.8360, -79.0478),
+    ('Conway', 'South Carolina'): (33.8360, -79.0478),
+    ('Fayetteville', 'AR'): (36.0626, -94.1574),
+    ('Fayetteville', 'Ark.'): (36.0626, -94.1574),
+    ('Fayetteville', 'Arkansas'): (36.0626, -94.1574),
+    ('Norman', 'OK'): (35.2226, -97.4395),
+    ('Norman', 'Okla.'): (35.2226, -97.4395),
+    ('Norman', 'Oklahoma'): (35.2226, -97.4395),
+    ('Stillwater', 'OK'): (36.1156, -97.0584),
+    ('Stillwater', 'Okla.'): (36.1156, -97.0584),
+    ('Stillwater', 'Oklahoma'): (36.1156, -97.0584),
+    ('Corvallis', 'OR'): (44.5646, -123.2620),
+    ('Corvallis', 'Ore.'): (44.5646, -123.2620),
+    ('Corvallis', 'Oregon'): (44.5646, -123.2620),
+    ('Eugene', 'OR'): (44.0521, -123.0868),
+    ('Eugene', 'Ore.'): (44.0521, -123.0868),
+    ('Eugene', 'Oregon'): (44.0521, -123.0868),
+    ('Seattle', 'WA'): (47.6062, -122.3321),
+    ('Seattle', 'Wash.'): (47.6062, -122.3321),
+    ('Seattle', 'Washington'): (47.6062, -122.3321),
+    ('Los Angeles', 'CA'): (34.0522, -118.2437),
+    ('Los Angeles', 'Calif.'): (34.0522, -118.2437),
+    ('Los Angeles', 'California'): (34.0522, -118.2437),
+    ('San Diego', 'CA'): (32.7157, -117.1611),
+    ('San Diego', 'Calif.'): (32.7157, -117.1611),
+    ('San Diego', 'California'): (32.7157, -117.1611),
+    ('Honolulu', 'HI'): (21.3069, -157.8583),
+    ('Honolulu', 'Hawaii'): (21.3069, -157.8583),
+    # College towns commonly appearing
+    ('Chapel Hill', 'NC'): (35.9132, -79.0558),
+    ('Chapel Hill', 'N.C.'): (35.9132, -79.0558),
+    ('Charlottesville', 'VA'): (38.0293, -78.4767),
+    ('Charlottesville', 'Va.'): (38.0293, -78.4767),
+    ('Blacksburg', 'VA'): (37.2296, -80.4139),
+    ('Blacksburg', 'Va.'): (37.2296, -80.4139),
+    ('Clemson', 'SC'): (34.6834, -82.8374),
+    ('Clemson', 'S.C.'): (34.6834, -82.8374),
+    ('Knoxville', 'TN'): (35.9606, -83.9207),
+    ('Knoxville', 'Tenn.'): (35.9606, -83.9207),
+    ('Lexington', 'KY'): (38.0406, -84.5037),
+    ('Lexington', 'Ky.'): (38.0406, -84.5037),
+    ('Tuscaloosa', 'AL'): (33.2098, -87.5692),
+    ('Tuscaloosa', 'Ala.'): (33.2098, -87.5692),
+    ('Auburn', 'AL'): (32.6099, -85.4808),
+    ('Auburn', 'Ala.'): (32.6099, -85.4808),
+    ('Oxford', 'MS'): (34.3665, -89.5192),
+    ('Oxford', 'Miss.'): (34.3665, -89.5192),
+    ('Lubbock', 'TX'): (33.5779, -101.8552),
+    ('Lubbock', 'Texas'): (33.5779, -101.8552),
+    ('Lubbock', 'Tex.'): (33.5779, -101.8552),
+    ('Austin', 'TX'): (30.2672, -97.7431),
+    ('Austin', 'Texas'): (30.2672, -97.7431),
+    ('Austin', 'Tex.'): (30.2672, -97.7431),
+    ('Waco', 'TX'): (31.5493, -97.1467),
+    ('Waco', 'Texas'): (31.5493, -97.1467),
+    ('Waco', 'Tex.'): (31.5493, -97.1467),
+    ('Fort Worth', 'TX'): (32.7555, -97.3308),
+    ('Fort Worth', 'Texas'): (32.7555, -97.3308),
+    ('Fort Worth', 'Tex.'): (32.7555, -97.3308),
+    ('Raleigh', 'NC'): (35.7796, -78.6382),
+    ('Raleigh', 'N.C.'): (35.7796, -78.6382),
+    ('Durham', 'NC'): (35.9940, -78.8986),
+    ('Durham', 'N.C.'): (35.9940, -78.8986),
+    ('Columbia', 'SC'): (34.0007, -81.0348),
+    ('Columbia', 'S.C.'): (34.0007, -81.0348),
+    ('Gainesville', 'GA'): (34.2979, -83.8241),
+    ('Gainesville', 'Ga.'): (34.2979, -83.8241),
+    ('Athens', 'GA'): (33.9519, -83.3576),
+    ('Athens', 'Ga.'): (33.9519, -83.3576),
+    ('Hoover', 'AL'): (33.4054, -86.8114),
+    ('Hoover', 'Ala.'): (33.4054, -86.8114),
+    ('Birmingham', 'AL'): (33.5207, -86.8025),
+    ('Birmingham', 'Ala.'): (33.5207, -86.8025),
+}
+
+
 def generate_website_from_data(processed_data: Dict[str, Any], output_path: str, raw_games: List[Dict] = None, schedule_games: List[Dict] = None):
     """
     Generate interactive HTML website from processed data.
@@ -775,6 +995,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         'historicalTeamLogos': {**HISTORICAL_TEAM_LOGOS, **{k: v for k, v in local_logos.items() if k in HISTORICAL_TEAM_LOGOS}},
         'ncaaTeamLogos': NCAA_TEAM_LOGOS,
         'ncaaTeamNicknames': NCAA_TEAM_NICKNAMES,
+        'venueCityCoords': {f"{city},{state}": {'lat': lat, 'lng': lng} for (city, state), (lat, lng) in VENUE_CITY_COORDS.items()},
         'partnerLogos': partner_logos,
         'localLogos': local_logos,
     }
@@ -2241,10 +2462,20 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 markersRef.current.forEach(m => m.remove());
                 markersRef.current = [];
 
-                const venues = {{}};
-                games.forEach(g => {{
+                // Resolve game location: prefer venue city/state coords, fall back to home team stadium
+                const resolveLocation = (g) => {{
+                    const venue = g.venue || {{}};
+                    const city = venue.city;
+                    const state = venue.state;
+                    // Try venue city+state lookup first (handles neutral sites / tournaments)
+                    if (city && state) {{
+                        const venueLookup = DATA.venueCityCoords || {{}};
+                        const key = `${{city}},${{state}}`;
+                        if (venueLookup[key]) return venueLookup[key];
+                    }}
+                    // Fall back to home team stadium location
                     const name = g.home_team?.name;
-                    if (!name) return;
+                    if (!name) return null;
                     const loc = DATA.stadiumLocations?.[name] || (() => {{
                         const milb = DATA.milbStadiumLocations || {{}};
                         for (const [, info] of Object.entries(milb)) {{
@@ -2256,9 +2487,16 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         }}
                         return null;
                     }})();
+                    return loc;
+                }};
+
+                const venues = {{}};
+                games.forEach(g => {{
+                    const loc = resolveLocation(g);
                     if (!loc || !loc.lat || !loc.lng) return;
                     const vKey = `${{loc.lat}},${{loc.lng}}`;
-                    if (!venues[vKey]) venues[vKey] = {{ lat: loc.lat, lng: loc.lng, name: g.venue?.name || name, games: [] }};
+                    const venueName = g.venue?.name || g.venue?.city || g.home_team?.name || '';
+                    if (!venues[vKey]) venues[vKey] = {{ lat: loc.lat, lng: loc.lng, name: venueName, city: g.venue?.city, state: g.venue?.state, games: [] }};
                     venues[vKey].games.push(g);
                 }});
 
@@ -2270,14 +2508,15 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         iconSize: [count > 1 ? 22 : 16, count > 1 ? 22 : 16],
                         iconAnchor: [count > 1 ? 11 : 8, count > 1 ? 11 : 8]
                     }});
+                    const locationLabel = v.name + (v.city ? ` — ${{v.city}}${{v.state ? ', ' + v.state : ''}}` : '');
                     const popupLines = v.games.map(g => {{
                         const away = g.away_team?.name || 'TBD';
                         const home = g.home_team?.name || 'TBD';
-                        const time = g.time_detail || 'TBD';
+                        const time = convertEasternToLocal(g.time_detail, g.date) || g.time_detail || 'TBD';
                         return `<div style="margin:4px 0;font-size:12px;"><strong>${{away}} @ ${{home}}</strong><br/>${{g.date_display || ''}} - ${{time}}</div>`;
                     }}).join('');
                     const marker = L.marker([v.lat, v.lng], {{ icon }})
-                        .bindPopup(`<div style="max-height:200px;overflow-y:auto;"><strong>${{v.name}}</strong><br/>${{count}} game${{count > 1 ? 's' : ''}}<hr style="margin:4px 0;"/>${{popupLines}}</div>`)
+                        .bindPopup(`<div style="max-height:200px;overflow-y:auto;"><strong>${{locationLabel}}</strong><br/>${{count}} game${{count > 1 ? 's' : ''}}<hr style="margin:4px 0;"/>${{popupLines}}</div>`)
                         .addTo(mapInstance.current);
                     markersRef.current.push(marker);
                 }});
@@ -2286,34 +2525,139 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             return <div ref={{mapRef}} style={{{{height: '450px', borderRadius: '8px', border: '1px solid #ddd', marginBottom: '16px'}}}}></div>;
         }};
 
+        // Convert Eastern time string to local time
+        const convertEasternToLocal = (timeStr, dateStr) => {{
+            if (!timeStr || !dateStr) return timeStr;
+            // Parse time like "7:00 PM" or "3:30 PM"
+            const match = timeStr.match(/^(\d{{1,2}}):(\d{{2}})\s*(AM|PM)$/i);
+            if (!match) return timeStr;
+            let hours = parseInt(match[1]);
+            const mins = parseInt(match[2]);
+            const ampm = match[3].toUpperCase();
+            if (ampm === 'PM' && hours !== 12) hours += 12;
+            if (ampm === 'AM' && hours === 12) hours = 0;
+            // Parse the ISO date
+            let dateParts;
+            try {{
+                const d = new Date(dateStr);
+                if (isNaN(d.getTime())) return timeStr;
+                dateParts = d;
+            }} catch(e) {{ return timeStr; }}
+            // Create date in Eastern time (America/New_York)
+            const year = dateParts.getFullYear();
+            const month = dateParts.getMonth();
+            const day = dateParts.getDate();
+            // Build an Eastern datetime string and parse it
+            const etStr = `${{year}}-${{String(month+1).padStart(2,'0')}}-${{String(day).padStart(2,'0')}}T${{String(hours).padStart(2,'0')}}:${{String(mins).padStart(2,'0')}}:00`;
+            try {{
+                // Use Intl to figure out the ET offset for this date
+                const etFormatter = new Intl.DateTimeFormat('en-US', {{ timeZone: 'America/New_York', timeZoneName: 'shortOffset' }});
+                const localFormatter = new Intl.DateTimeFormat('en-US', {{ timeZone: undefined, timeZoneName: 'short' }});
+                // Create a date object assuming ET
+                const utcDate = new Date(etStr + 'Z');
+                // Get ET offset: parse the offset from the formatted string
+                const etParts = etFormatter.formatToParts(utcDate);
+                const etOffsetStr = etParts.find(p => p.type === 'timeZoneName')?.value || '';
+                // Simpler approach: create date in ET, get local representation
+                const etDate = new Date(new Date(etStr).toLocaleString('en-US', {{ timeZone: 'America/New_York' }}));
+                const localDate = new Date(new Date(etStr).toLocaleString('en-US'));
+                // If they're the same timezone, just return original
+                const etTzName = new Intl.DateTimeFormat('en-US', {{ timeZone: 'America/New_York', timeZoneName: 'short' }}).formatToParts(utcDate).find(p => p.type === 'timeZoneName')?.value || 'ET';
+                const localTzName = new Intl.DateTimeFormat('en-US', {{ timeZoneName: 'short' }}).formatToParts(utcDate).find(p => p.type === 'timeZoneName')?.value || '';
+                if (etTzName === localTzName) {{
+                    return `${{timeStr}} ${{etTzName}}`;
+                }}
+                // Convert: create a proper ET date and format in local time
+                // This approach: figure out the ET→UTC offset, then show in local
+                const jan = new Date(year, 0, 1);
+                const jul = new Date(year, 6, 1);
+                const etJan = new Date(jan.toLocaleString('en-US', {{ timeZone: 'America/New_York' }}));
+                const etJul = new Date(jul.toLocaleString('en-US', {{ timeZone: 'America/New_York' }}));
+                const isDST = month >= 2 && month <= 10; // rough DST check
+                const etOffset = isDST ? -4 : -5; // ET offset in hours
+                const utcMs = Date.UTC(year, month, day, hours - etOffset, mins);
+                const localTime = new Date(utcMs);
+                const localHours = localTime.getHours();
+                const localMins = localTime.getMinutes();
+                const localAmPm = localHours >= 12 ? 'PM' : 'AM';
+                const displayHours = localHours % 12 || 12;
+                const displayMins = String(localMins).padStart(2, '0');
+                return `${{displayHours}}:${{displayMins}} ${{localAmPm}} ${{localTzName}}`;
+            }} catch(e) {{
+                return timeStr;
+            }}
+        }};
+
         const UpcomingGames = ({{ games }}) => {{
             const [statusFilter, setStatusFilter] = useState('scheduled');
-            const [dateFilter, setDateFilter] = useState('All');
             const [searchText, setSearchText] = useState('');
             const [showMap, setShowMap] = useState(false);
 
+            // Date range state: default to today through 7 days out
+            const todayStr = useMemo(() => {{
+                const d = new Date();
+                return d.toISOString().slice(0, 10);
+            }}, []);
+            const weekLaterStr = useMemo(() => {{
+                const d = new Date();
+                d.setDate(d.getDate() + 7);
+                return d.toISOString().slice(0, 10);
+            }}, []);
+            const [startDate, setStartDate] = useState(todayStr);
+            const [endDate, setEndDate] = useState(weekLaterStr);
+
             const statusOptions = ['All', 'scheduled', 'in_progress', 'final', 'canceled', 'postponed'];
 
-            // Get unique dates for filter
-            const uniqueDates = useMemo(() => {{
-                const dates = [...new Set(games.map(g => g.date_display))];
-                return ['All', ...dates];
-            }}, [games]);
+            // Quick date filter helpers
+            const setQuickFilter = (preset) => {{
+                const now = new Date();
+                const toISO = (d) => d.toISOString().slice(0, 10);
+                if (preset === 'today') {{
+                    setStartDate(toISO(now));
+                    setEndDate(toISO(now));
+                }} else if (preset === 'week') {{
+                    setStartDate(toISO(now));
+                    const end = new Date(now);
+                    end.setDate(end.getDate() + 6);
+                    setEndDate(toISO(end));
+                }} else if (preset === 'nextweek') {{
+                    const start = new Date(now);
+                    start.setDate(start.getDate() + (7 - start.getDay()));
+                    const end = new Date(start);
+                    end.setDate(end.getDate() + 6);
+                    setStartDate(toISO(start));
+                    setEndDate(toISO(end));
+                }} else if (preset === 'month') {{
+                    setStartDate(toISO(now));
+                    const end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                    setEndDate(toISO(end));
+                }} else if (preset === 'all') {{
+                    setStartDate('');
+                    setEndDate('');
+                }}
+            }};
 
             const filtered = useMemo(() => {{
                 return games.filter(g => {{
                     if (statusFilter !== 'All' && g.status !== statusFilter) return false;
-                    if (dateFilter !== 'All' && g.date_display !== dateFilter) return false;
+                    // Date range filter using ISO date from the game
+                    if (startDate || endDate) {{
+                        const gameDate = (g.date || '').slice(0, 10);
+                        if (!gameDate) return false;
+                        if (startDate && gameDate < startDate) return false;
+                        if (endDate && gameDate > endDate) return false;
+                    }}
                     if (searchText) {{
                         const s = searchText.toLowerCase();
                         const home = (g.home_team?.name || '').toLowerCase();
                         const away = (g.away_team?.name || '').toLowerCase();
                         const venue = (g.venue?.name || '').toLowerCase();
-                        if (!home.includes(s) && !away.includes(s) && !venue.includes(s)) return false;
+                        const city = (g.venue?.city || '').toLowerCase();
+                        if (!home.includes(s) && !away.includes(s) && !venue.includes(s) && !city.includes(s)) return false;
                     }}
                     return true;
                 }});
-            }}, [games, statusFilter, dateFilter, searchText]);
+            }}, [games, statusFilter, startDate, endDate, searchText]);
 
             // Group by date
             const grouped = useMemo(() => {{
@@ -2341,12 +2685,31 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 return '';
             }};
 
+            const quickBtnStyle = (active) => ({{
+                padding: '4px 12px', borderRadius: '14px', border: '1px solid #ddd',
+                background: active ? '#1e3a5f' : 'white', color: active ? 'white' : '#333',
+                cursor: 'pointer', fontSize: '0.8rem', fontWeight: 500, whiteSpace: 'nowrap',
+            }});
+
+            // Determine active quick filter
+            const activeQuick = useMemo(() => {{
+                if (!startDate && !endDate) return 'all';
+                const now = new Date();
+                const toISO = (d) => d.toISOString().slice(0, 10);
+                if (startDate === toISO(now) && endDate === toISO(now)) return 'today';
+                const weekEnd = new Date(now); weekEnd.setDate(weekEnd.getDate() + 6);
+                if (startDate === toISO(now) && endDate === toISO(weekEnd)) return 'week';
+                const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                if (startDate === toISO(now) && endDate === toISO(monthEnd)) return 'month';
+                return '';
+            }}, [startDate, endDate]);
+
             return (
                 <div>
-                    <div style={{{{display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap', alignItems: 'center'}}}}>
+                    <div style={{{{display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap', alignItems: 'center'}}}}>
                         <input
                             type="text"
-                            placeholder="Search teams or venues..."
+                            placeholder="Search teams, venues, cities..."
                             value={{searchText}}
                             onChange={{e => setSearchText(e.target.value)}}
                             style={{{{padding: '8px 12px', borderRadius: '6px', border: '1px solid #ddd', fontSize: '0.875rem', minWidth: '200px'}}}}
@@ -2358,19 +2721,25 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         >
                             {{statusOptions.map(s => <option key={{s}} value={{s}}>{{s === 'All' ? 'All Statuses' : s.charAt(0).toUpperCase() + s.slice(1).replace('_', ' ')}}</option>)}}
                         </select>
-                        <select
-                            value={{dateFilter}}
-                            onChange={{e => setDateFilter(e.target.value)}}
-                            style={{{{padding: '8px 12px', borderRadius: '6px', border: '1px solid #ddd', fontSize: '0.875rem'}}}}
-                        >
-                            {{uniqueDates.map(d => <option key={{d}} value={{d}}>{{d === 'All' ? 'All Dates' : d}}</option>)}}
-                        </select>
                         <span style={{{{color: '#666', fontSize: '0.875rem'}}}}>{{filtered.length}} games</span>
                         <button onClick={{() => setShowMap(!showMap)}}
                             style={{{{padding: '8px 16px', borderRadius: '6px', border: '1px solid #ddd', background: showMap ? '#1e3a5f' : 'white',
                                 color: showMap ? 'white' : '#333', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 500}}}}>
                             {{showMap ? 'Hide Map' : 'Show Map'}}
                         </button>
+                    </div>
+                    <div style={{{{display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap', alignItems: 'center'}}}}>
+                        <span style={{{{fontSize: '0.8rem', color: '#666', marginRight: '4px'}}}}>Dates:</span>
+                        <input type="date" value={{startDate}} onChange={{e => setStartDate(e.target.value)}}
+                            style={{{{padding: '6px 10px', borderRadius: '6px', border: '1px solid #ddd', fontSize: '0.8rem'}}}} />
+                        <span style={{{{color: '#999', fontSize: '0.8rem'}}}}>to</span>
+                        <input type="date" value={{endDate}} onChange={{e => setEndDate(e.target.value)}}
+                            style={{{{padding: '6px 10px', borderRadius: '6px', border: '1px solid #ddd', fontSize: '0.8rem'}}}} />
+                        <button onClick={{() => setQuickFilter('today')}} style={{quickBtnStyle(activeQuick === 'today')}}>Today</button>
+                        <button onClick={{() => setQuickFilter('week')}} style={{quickBtnStyle(activeQuick === 'week')}}>This Week</button>
+                        <button onClick={{() => setQuickFilter('nextweek')}} style={{quickBtnStyle(activeQuick === 'nextweek')}}>Next Week</button>
+                        <button onClick={{() => setQuickFilter('month')}} style={{quickBtnStyle(activeQuick === 'month')}}>This Month</button>
+                        <button onClick={{() => setQuickFilter('all')}} style={{quickBtnStyle(activeQuick === 'all')}}>Full Season</button>
                     </div>
 
                     {{showMap && <ScheduleMap games={{filtered}} />}}
@@ -2396,7 +2765,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                                 color: statusColors[game.status] || '#666',
                                                 textTransform: 'uppercase',
                                             }}}}>
-                                                {{game.status === 'scheduled' ? game.time_detail || 'TBD' : game.status.replace('_', ' ')}}
+                                                {{game.status === 'scheduled' ? convertEasternToLocal(game.time_detail, game.date) || game.time_detail || 'TBD' : game.status.replace('_', ' ')}}
                                             </span>
                                             {{game.venue?.name && (
                                                 <span style={{{{fontSize: '0.75rem', color: '#999', maxWidth: '180px', textAlign: 'right', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}}}>

@@ -400,8 +400,8 @@ def main():
     parser.add_argument(
         '--schedule-days',
         type=int,
-        default=7,
-        help='Number of days ahead to scrape (default: 7)'
+        default=None,
+        help='Number of days ahead to scrape (default: full season Feb 14 - Jun 30)'
     )
 
     # Deploy options
@@ -431,8 +431,13 @@ def main():
     if args.schedule or args.refresh_schedule:
         from .utils.schedule_scraper import get_schedule
         from datetime import datetime, timedelta
-        start = datetime.now()
-        end = start + timedelta(days=args.schedule_days)
+        # Use explicit days if provided, otherwise let get_schedule use full-season default
+        if args.schedule_days is not None:
+            start = datetime.now()
+            end = start + timedelta(days=args.schedule_days)
+        else:
+            start = None
+            end = None
         schedule_games = get_schedule(
             force_refresh=args.refresh_schedule,
             start_date=start,
