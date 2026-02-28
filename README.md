@@ -1,83 +1,179 @@
 # NCAA Baseball Processor
 
-A Python tool for parsing college baseball box scores and generating statistics for NCAA Division I baseball games.
+A Python tool for tracking baseball games across NCAA, MiLB, and independent Partner Leagues. Parses box scores, detects milestones, tracks player crossover between levels, and generates an interactive website and Excel workbook.
 
 ## Features
 
-- Parse PDF box scores (converted to HTML) from various sources
-- Track games attended across multiple seasons
-- Generate Excel workbooks with player/team statistics
-- Generate interactive HTML website with:
-  - Game log
-  - Player statistics (batting and pitching)
-  - Team records
-  - Stadium tracking
-  - Venue/city information
+- Parse NCAA PDF box scores with automatic format detection
+- Fetch MiLB game data from the MLB Stats API
+- Fetch Partner League games (Pioneer, Atlantic, American Association, Frontier)
+- Track player crossover between NCAA and MiLB via Chadwick Bureau Register
+- Detect 43 types of statistical milestones
+- Generate interactive single-page HTML website with game log, player stats, team records, stadium map, scorigami, and schedule
+- Generate Excel workbook with detailed statistics
+- Auto-deploy to Surge.sh
 
 ## Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/jnpushkin/ncaa_baseball_processor.git
 cd ncaa_baseball_processor
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Install Playwright for PDF processing (if needed)
-playwright install
 ```
+
+## Adding Games
+
+### NCAA Games
+
+1. Download the box score PDF from the team's athletics website
+2. Save it to the `pdfs/` directory with this naming convention:
+   ```
+   YYYYMMDD_AwayTeam_vs_HomeTeam_City.pdf
+   ```
+   For example: `20250214_Nevada_vs_California_Berkeley.pdf`
+3. Run the processor:
+   ```bash
+   python3 -m baseball_processor
+   ```
+
+The PDF is automatically parsed, cached as JSON in `cache/`, and included in output generation.
+
+### MiLB Games
+
+1. Find the game on MiLB.com and get the `game_pk` from the URL
+2. Add the ID to `milb/game_ids.txt` (one per line):
+   ```
+   788401
+   784595
+   ```
+3. Run:
+   ```bash
+   python3 -m baseball_processor
+   ```
+
+Or process a single game directly:
+```bash
+python3 -m baseball_processor --milb-game 788401
+```
+
+### Partner League Games
+
+1. Find the game on the league's website and get the game ID
+2. Add it to `partner/game_ids.txt` in the format `league:game_id`:
+   ```
+   pioneer:20240828_fhp1
+   atlantic:612414
+   american_association:497562
+   ```
+3. Run:
+   ```bash
+   python3 -m baseball_processor
+   ```
+
+Or process a single game directly:
+```bash
+python3 -m baseball_processor --partner-game pioneer:20240828_fhp1
+```
+
+**Supported Partner Leagues:**
+| League | ID Source |
+|--------|----------|
+| Pioneer League | Game code from pioneerleague.com URL (e.g. `20240828_fhp1`) |
+| Atlantic League | `gameid` from Pointstreak URL |
+| American Association | `gameid` from Pointstreak URL |
+| Frontier League | `gameid` from Pointstreak URL |
 
 ## Usage
 
-### Basic Usage
-
 ```bash
-# Convert PDFs to HTML first
-python3 pdf_to_html.py
-
-# Process games and generate outputs
+# Process all games (NCAA PDFs + MiLB + Partner League)
 python3 -m baseball_processor
 
-# Process specific directory
-python3 -m baseball_processor /path/to/html/files
+# Regenerate output from cached data only (no parsing or API calls)
+python3 -m baseball_processor --from-cache-only
+
+# Process a specific PDF directory
+python3 -m baseball_processor /path/to/pdfs
 ```
 
 ### Command Line Options
 
+**Input Options:**
+
 | Option | Description |
 |--------|-------------|
-| `--output-excel FILE` | Excel output filename (default: Baseball_Stats.xlsx) |
-| `--save-json` | Save intermediate JSON data |
-| `--from-cache-only` | Load from cached JSON instead of parsing HTML |
+| `input_path` | Path to PDF file or directory (default: `pdfs/`) |
+| `--from-cache-only` | Load all games from cache (no parsing or API calls) |
+| `--no-cache` | Re-parse all PDFs (ignore cache) |
+
+**Output Options:**
+
+| Option | Description |
+|--------|-------------|
+| `-o`, `--output-excel FILE` | Excel output filename (default: `Baseball_Stats.xlsx`) |
+| `--save-json` | Save intermediate JSON data file |
 | `--excel-only` | Generate only Excel, skip website |
 | `--website-only` | Generate only website, skip Excel |
-| `--verbose` | Enable debug output |
+
+**Game Source Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--no-milb` | Exclude MiLB games |
+| `--milb-only` | Process only MiLB games (skip NCAA) |
+| `--milb-game ID` | Process a single MiLB game by `game_pk` |
+| `--no-partner` | Exclude Partner League games |
+| `--partner-game ID` | Process a single Partner League game (format: `league:game_id`) |
+| `--crossover` | Generate player crossover report |
+
+**Schedule Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--schedule` | Scrape upcoming game schedule from D1Baseball.com |
+| `--refresh-schedule` | Force refresh schedule cache |
+| `--schedule-days N` | Number of days ahead to scrape (default: full season Feb 14 - Jun 30) |
+
+**Deploy Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--no-deploy` | Skip automatic Surge.sh deployment |
+| `--deploy-domain DOMAIN` | Surge domain (default: `ncaa-baseball.surge.sh`) |
 
 ## Directory Structure
 
 ```
 ncaa_baseball_processor/
-├── baseball_processor/     # Core processing modules
-│   ├── __init__.py
+├── baseball_processor/     # Main Python package
 │   ├── main.py            # Entry point
-│   ├── utils/
-│   │   ├── stadiums.py    # Stadium coordinates and names
-│   │   └── constants.py   # Conference data
+│   ├── engines/           # Milestone detection (43 types)
+│   ├── parsers/           # HTML parsing for NCAA stats
+│   ├── excel/             # Excel workbook generation
+│   ├── utils/             # Constants, stadium data
 │   └── website/           # HTML website generation
-├── parsers/               # Box score parsing
-│   └── metadata.py        # Game metadata extraction
-├── cache/                 # Cached parsed game data (gitignored)
-├── pdfs/                  # Input PDF files (gitignored)
-├── html_output/           # Converted HTML files
-├── rosters/               # Team roster data
+├── parsers/               # Box score format parsers
+├── pdfs/                  # Input NCAA PDF box scores
+├── cache/                 # Cached parsed NCAA game data
+├── milb/
+│   ├── game_ids.txt       # MiLB game IDs to process
+│   └── cache/             # Cached MiLB game data
+├── partner/
+│   ├── game_ids.txt       # Partner League game IDs to process
+│   └── cache/             # Cached Partner League game data
+├── rosters/               # Team roster JSON files
+├── data/                  # Miscellaneous data files
 └── README.md
 ```
 
 ## Data Sources
 
-- **Box scores:** PDF files from team athletics websites or NCAA
+- **NCAA box scores:** PDF files from team athletics websites
+- **MiLB data:** MLB Stats API (`statsapi.mlb.com`)
+- **Partner Leagues:** Pioneer League website, Pointstreak (Atlantic, American Association, Frontier)
+- **Player crossover:** Chadwick Bureau Register
 - **Stadium data:** Custom database with coordinates for map visualization
+- **Schedule:** D1Baseball.com
 
 ## License
 

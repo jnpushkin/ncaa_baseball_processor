@@ -26,7 +26,7 @@ from .utils.constants import (
     DATA_DIR, SCHEDULE_CACHE_FILE,
 )
 from .excel.workbook_generator import generate_excel_workbook
-from .website.generator import generate_website_from_data
+from .website.generator import generate_website_from_data, generate_nextjs_data
 
 
 # Add parent directory for imports
@@ -416,11 +416,20 @@ def main():
         help='Surge domain to deploy to (default: ncaa-baseball.surge.sh)'
     )
 
+    parser.add_argument(
+        '--nextjs',
+        action='store_true',
+        help='Generate Next.js site: output JSON data, build, and deploy'
+    )
+
     args = parser.parse_args()
 
     # Validate flags
     if args.excel_only and args.website_only:
         print("Error: Cannot use both --excel-only and --website-only")
+        return
+    if args.nextjs and args.excel_only:
+        print("Error: Cannot use both --nextjs and --excel-only")
         return
 
     print("Baseball Stats Processor")
@@ -541,7 +550,49 @@ def main():
 
     # Generate outputs
     try:
-        if args.website_only:
+        if args.nextjs:
+            print("\nGenerating Next.js website...")
+            processed_data = generate_excel_workbook(
+                all_games, args.output_excel, write_file=False,
+                milb_games=pro_minor_games, crossover_data=crossover_data
+            )
+
+            json_path = generate_nextjs_data(processed_data, all_games, schedule_games=schedule_games)
+            print(f"\nNext.js data ready: {json_path}")
+
+            # Build Next.js static site
+            web_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'web')
+            if os.path.isdir(web_dir):
+                print("\nBuilding Next.js site...")
+                build_result = subprocess.run(
+                    ['npm', 'run', 'build'],
+                    cwd=web_dir,
+                    capture_output=True, text=True
+                )
+                if build_result.returncode != 0:
+                    print(f"Next.js build failed:\n{build_result.stderr or build_result.stdout}")
+                else:
+                    print("Next.js build succeeded.")
+
+                    # Deploy to Surge if not --no-deploy
+                    if not args.no_deploy:
+                        out_dir = os.path.join(web_dir, 'out')
+                        if os.path.isdir(out_dir) and shutil.which('surge'):
+                            print(f"\nDeploying to {args.deploy_domain}...")
+                            deploy_result = subprocess.run(
+                                ['surge', out_dir, '--domain', args.deploy_domain],
+                                capture_output=True, text=True
+                            )
+                            if deploy_result.returncode == 0:
+                                print(f"Deployed to https://{args.deploy_domain}")
+                            else:
+                                print(f"Deploy failed: {deploy_result.stderr or deploy_result.stdout}")
+                        elif not shutil.which('surge'):
+                            print("Skipping deploy: 'surge' CLI not found.")
+            else:
+                print(f"Warning: web/ directory not found at {web_dir}")
+
+        elif args.website_only:
             print("\nGenerating website only...")
             processed_data = generate_excel_workbook(
                 all_games, args.output_excel, write_file=False,
@@ -583,8 +634,8 @@ def main():
         traceback.print_exc()
         return
 
-    # Deploy to Surge after website generation (automatic unless --no-deploy or --excel-only)
-    if not args.excel_only and not args.no_deploy:
+    # Deploy to Surge after legacy HTML website generation (skip for --nextjs which deploys above)
+    if not args.excel_only and not args.no_deploy and not args.nextjs:
         html_path = args.output_excel.replace('.xlsx', '.html')
         if not os.path.exists(html_path):
             print("No HTML file to deploy.")

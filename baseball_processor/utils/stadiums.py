@@ -567,7 +567,7 @@ NCAA_TEAM_LOGOS = {
 
     # WAC
     'Abilene Christian': 2000,
-    'California Baptist': 16541,
+    'California Baptist': 2856,
     'Sacramento State': 16,
     'Tarleton State': 2466,
     'UT Arlington': 250,

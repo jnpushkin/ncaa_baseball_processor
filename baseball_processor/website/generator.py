@@ -322,6 +322,85 @@ VENUE_CITY_COORDS = {
 }
 
 
+def generate_nextjs_data(processed_data: Dict[str, Any], raw_games: List[Dict] = None, schedule_games: List[Dict] = None):
+    """
+    Generate JSON data file and copy logos for the Next.js website.
+
+    Writes web/src/data/site-data.json and copies logo PNGs to web/public/logos/.
+    """
+    web_dir = Path(__file__).resolve().parent.parent.parent / 'web'
+    data_dir = web_dir / 'src' / 'data'
+    logos_dest = web_dir / 'public' / 'logos'
+    logos_src = Path(__file__).resolve().parent.parent.parent / 'logos'
+
+    data_dir.mkdir(parents=True, exist_ok=True)
+    logos_dest.mkdir(parents=True, exist_ok=True)
+
+    # Build the data dict (same as legacy HTML path)
+    data = _serialize_data(processed_data, raw_games or [])
+
+    # Add schedule data
+    data['scheduleGames'] = schedule_games or []
+
+    # Strip rawGames — too large and not needed by Next.js frontend
+    data.pop('rawGames', None)
+
+    # Replace base64 localLogos with file paths and copy PNGs
+    file_logos: Dict[str, str] = {}
+    for team_name, filename in LOCAL_LOGO_MAP.items():
+        src_path = logos_src / filename
+        if src_path.exists():
+            import shutil
+            shutil.copy2(src_path, logos_dest / filename)
+            file_logos[team_name] = f'/logos/{filename}'
+    data['localLogos'] = file_logos
+
+    # Also copy any logos referenced in historicalTeamLogos that are local base64
+    # (historicalTeamLogos may reference mlbstatic URLs — keep those as-is)
+    cleaned_historical = {}
+    for team, url in data.get('historicalTeamLogos', {}).items():
+        if isinstance(url, str) and url.startswith('data:'):
+            # This was a base64 logo from localLogos — replace with file path
+            logo_file = LOCAL_LOGO_MAP.get(team)
+            if logo_file:
+                cleaned_historical[team] = f'/logos/{logo_file}'
+            else:
+                cleaned_historical[team] = url  # keep as-is if no mapping
+        else:
+            cleaned_historical[team] = url
+    data['historicalTeamLogos'] = cleaned_historical
+
+    # Write JSON — replace NaN/Infinity with null for valid JSON
+    import math
+
+    class _SafeEncoder(json.JSONEncoder):
+        def default(self, o):
+            if isinstance(o, float) and (math.isnan(o) or math.isinf(o)):
+                return None
+            return str(o)
+
+    # Also scrub NaN in nested dicts/lists (encoder.default only handles non-serializable types,
+    # but float NaN IS serializable by Python's json — it just produces invalid JSON)
+    def _scrub(obj):
+        if isinstance(obj, float) and (math.isnan(obj) or math.isinf(obj)):
+            return None
+        if isinstance(obj, dict):
+            return {k: _scrub(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [_scrub(v) for v in obj]
+        return obj
+
+    data = _scrub(data)
+
+    json_path = data_dir / 'site-data.json'
+    with open(json_path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, default=str, separators=(',', ':'))
+
+    print(f"Next.js data written: {json_path} ({json_path.stat().st_size / 1024:.0f} KB)")
+    print(f"Logos copied to: {logos_dest} ({len(file_logos)} files)")
+    return json_path
+
+
 def generate_website_from_data(processed_data: Dict[str, Any], output_path: str, raw_games: List[Dict] = None, schedule_games: List[Dict] = None):
     """
     Generate interactive HTML website from processed data.
@@ -654,18 +733,117 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         all_team_names = [t['team'] for t in all_teams]
         total_seen = len([t for t in all_team_names if t in milb_teams_seen_home or t in milb_teams_seen_away])
         total_visited = len([t for t in all_team_names if t in milb_teams_seen_home])
-        milb_checklist[level] = {
-            'teams': sorted(all_teams, key=lambda x: x['team']),
-            'total': len(all_teams),
-            'seen': total_seen,
-            'visited': total_visited,
-            'teamStatus': {t['team']: 'home' if t['team'] in milb_teams_seen_home else ('away' if t['team'] in milb_teams_seen_away else 'none') for t in all_teams},
-            'leagues': league_data,
-        }
+        if len(all_teams) > 0:
+            milb_checklist[level] = {
+                'teams': sorted(all_teams, key=lambda x: x['team']),
+                'total': len(all_teams),
+                'seen': total_seen,
+                'visited': total_visited,
+                'teamStatus': {t['team']: 'home' if t['team'] in milb_teams_seen_home else ('away' if t['team'] in milb_teams_seen_away else 'none') for t in all_teams},
+                'leagues': league_data,
+            }
 
-    # Get game-by-game data for players
-    batter_games = processed_data.get('batter_games', pd.DataFrame())
-    pitcher_games = processed_data.get('pitcher_games', pd.DataFrame())
+    # Initialize player ID mapper for bref_id lookups on MiLB players (needed for game enrichment too)
+    try:
+        id_mapper = PlayerIDMapper(auto_download=True)
+    except Exception:
+        id_mapper = None
+
+    # Get game-by-game data for players and enrich with level + bref_id
+    batter_games_df = processed_data.get('batter_games', pd.DataFrame())
+    pitcher_games_df = processed_data.get('pitcher_games', pd.DataFrame())
+
+    # Build bref_id lookup from NCAA batters/pitchers DataFrames
+    ncaa_batter_bref = {}
+    if isinstance(batters, pd.DataFrame) and not batters.empty:
+        for _, row in batters.iterrows():
+            name = row.get('Name', '')
+            team = row.get('Team', '')
+            bid = row.get('bref_id', '')
+            if name and bid:
+                ncaa_batter_bref[f"{name}|{team}"] = bid
+                ncaa_batter_bref[name] = bid
+
+    ncaa_pitcher_bref = {}
+    if isinstance(pitchers, pd.DataFrame) and not pitchers.empty:
+        for _, row in pitchers.iterrows():
+            name = row.get('Name', '')
+            team = row.get('Team', '')
+            bid = row.get('bref_id', '')
+            if name and bid:
+                ncaa_pitcher_bref[f"{name}|{team}"] = bid
+                ncaa_pitcher_bref[name] = bid
+
+    # Convert NCAA batter_games to enriched list
+    enriched_batter_games = []
+    for bg in df_to_list(batter_games_df):
+        name = bg.get('Name', '')
+        team = bg.get('team', '')
+        bref_id = ncaa_batter_bref.get(f"{name}|{team}", ncaa_batter_bref.get(name, ''))
+        enriched_batter_games.append({**bg, 'level': 'NCAA', 'bref_id': bref_id})
+
+    # Convert NCAA pitcher_games to enriched list
+    enriched_pitcher_games = []
+    for pg in df_to_list(pitcher_games_df):
+        name = pg.get('Name', '')
+        team = pg.get('team', '')
+        bref_id = ncaa_pitcher_bref.get(f"{name}|{team}", ncaa_pitcher_bref.get(name, ''))
+        enriched_pitcher_games.append({**pg, 'level': 'NCAA', 'bref_id': bref_id})
+
+    # Extract MiLB/Partner per-player game records from raw_games
+    for game in raw_games:
+        if game.get('format') != 'milb_api' and game.get('metadata', {}).get('source') != 'partner':
+            continue
+        meta = game.get('metadata', {})
+        box_score = game.get('box_score', {})
+        date = meta.get('date', '')
+        home_team = meta.get('home_team', '')
+        game_level, game_league = resolve_level_and_league(meta, home_team)
+
+        for side in ['away', 'home']:
+            team = meta.get(f'{side}_team', '')
+            opponent = meta.get('home_team' if side == 'away' else 'away_team', '')
+
+            # Batting records
+            for player in box_score.get(f'{side}_batting', []):
+                pname = player.get('name', player.get('full_name', ''))
+                if not pname or 'total' in pname.lower():
+                    continue
+                pid = player.get('player_id', '')
+                bref_id = ''
+                if pid and id_mapper and str(pid).isdigit():
+                    bref_id = id_mapper.get_register_from_mlbam(int(pid)) or ''
+                enriched_batter_games.append({
+                    'Name': pname, 'name': pname,
+                    'date': date, 'team': team, 'opponent': opponent,
+                    'level': game_level, 'league': game_league,
+                    'bref_id': bref_id, 'player_id': str(pid) if pid else '',
+                    'ab': player.get('ab', 0), 'r': player.get('r', 0),
+                    'h': player.get('h', 0), 'doubles': player.get('doubles', 0),
+                    'triples': player.get('triples', 0), 'hr': player.get('hr', 0),
+                    'rbi': player.get('rbi', 0), 'bb': player.get('bb', 0),
+                    'k': player.get('k', 0), 'sb': player.get('sb', 0),
+                })
+
+            # Pitching records
+            for player in box_score.get(f'{side}_pitching', []):
+                pname = player.get('name', player.get('full_name', ''))
+                if not pname or 'total' in pname.lower():
+                    continue
+                pid = player.get('player_id', '')
+                bref_id = ''
+                if pid and id_mapper and str(pid).isdigit():
+                    bref_id = id_mapper.get_register_from_mlbam(int(pid)) or ''
+                enriched_pitcher_games.append({
+                    'Name': pname, 'name': pname,
+                    'date': date, 'team': team, 'opponent': opponent,
+                    'level': game_level, 'league': game_league,
+                    'bref_id': bref_id, 'player_id': str(pid) if pid else '',
+                    'ip': player.get('ip', 0), 'h': player.get('h', 0),
+                    'r': player.get('r', 0), 'er': player.get('er', 0),
+                    'bb': player.get('bb', 0), 'k': player.get('k', 0),
+                    'hr': player.get('hr', 0),
+                })
 
     # Build unified game log (all levels)
     unified_game_log = []
@@ -793,11 +971,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'bref_id': b.get('bref_id', ''),
         })
 
-    # Initialize player ID mapper for bref_id lookups on MiLB players
-    try:
-        id_mapper = PlayerIDMapper(auto_download=True)
-    except Exception:
-        id_mapper = None
+    # id_mapper already initialized above (before game enrichment)
 
     # Add MiLB batters
     milb_batters_list = df_to_list(milb_batters)
@@ -923,11 +1097,8 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         },
         'levelColors': LEVEL_COLORS,
         'levelOrder': LEVEL_ORDER,
-        'gameLog': df_to_list(game_log),
-        'batters': df_to_list(batters),
-        'pitchers': df_to_list(pitchers),
-        'batterGames': df_to_list(batter_games),
-        'pitcherGames': df_to_list(pitcher_games),
+        'batterGames': enriched_batter_games,
+        'pitcherGames': enriched_pitcher_games,
         'teamRecords': df_to_list(team_records),
         'milestones': {
             # Batting milestones (21)
@@ -989,7 +1160,6 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         'milbChecklist': milb_checklist,
         'teamsSeenHome': list(teams_seen_home),
         'teamsSeenAway': list(teams_seen_away),
-        'venuesVisited': list(venues_visited),
         'unifiedBatters': unified_batters,
         'unifiedPitchers': unified_pitchers,
         'historicalTeamLogos': {**HISTORICAL_TEAM_LOGOS, **{k: v for k, v in local_logos.items() if k in HISTORICAL_TEAM_LOGOS}},
