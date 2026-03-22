@@ -37,7 +37,7 @@
         "left_on_base": 1,
         "bref_id": "park--000edd",
         "full_name": "Eddie Park",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 0,
         "bref_id": "troy--000tom",
         "full_name": "Tommy Troy",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 0,
         "bref_id": "graham000car",
         "full_name": "Carter Graham",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 0,
         "bref_id": "montgo002bra",
         "full_name": "Braden Montgomery",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 3,
         "bref_id": "rios--000alb",
         "full_name": "Alberto Rios",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 3,
         "bref_id": "bowser000dre",
         "full_name": "Drew Bowser",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 0,
         "bref_id": "campbe000sab",
         "full_name": "Saborn Campbell",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 0,
         "bref_id": "becerr000tem",
         "full_name": "Temo Becerra",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "dixon-000joe",
         "full_name": "Joey Dixon",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "dowd--001dre",
         "full_name": "Drew Dowd",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "dugan-000nic",
         "full_name": "Nick Dugan",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "bruno-000rya",
         "full_name": "Ryan Bruno",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "hawke-000tom",
         "full_name": "Tommy Hawke",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 2,
         "bref_id": "bennet000pie",
         "full_name": "Pierce Bennett",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 2,
         "bref_id": "kurtz-000nic",
         "full_name": "Nick Kurtz",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 0,
         "bref_id": "wilken000bro",
         "full_name": "Brock Wilken",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 0,
         "bref_id": "johnso005jus",
         "full_name": "Justin Johnson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "corona001dan",
         "full_name": "Danny Corona",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": "lee---004ben",
         "full_name": "Bennett Lee",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 1,
         "bref_id": "cecere000ada",
         "full_name": "Adam Cecere",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 3,
         "bref_id": "housto000mar",
         "full_name": "Marek Houston",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "lowder000rhe",
         "full_name": "Rhett Lowder",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "sulliv005sea",
         "full_name": "Sean Sullivan",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 0,
         "bref_id": "keener000set",
         "full_name": "Seth Keener",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 0,
         "bref_id": "minacc000cam",
         "full_name": "Camden Minacci",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -482,7 +482,7 @@
         "pitches": 89,
         "bref_id": "dixon-000joe",
         "full_name": "Joey Dixon",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "pitches": 24,
         "bref_id": "dowd--001dre",
         "full_name": "Drew Dowd",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -514,7 +514,7 @@
         "pitches": 23,
         "bref_id": "dugan-000nic",
         "full_name": "Nick Dugan",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -530,7 +530,7 @@
         "pitches": 19,
         "bref_id": "bruno-000rya",
         "full_name": "Ryan Bruno",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -548,7 +548,7 @@
         "pitches": 100,
         "bref_id": "lowder000rhe",
         "full_name": "Rhett Lowder",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -564,7 +564,7 @@
         "pitches": 25,
         "bref_id": "sulliv005sea",
         "full_name": "Sean Sullivan",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -580,7 +580,7 @@
         "pitches": 19,
         "bref_id": "keener000set",
         "full_name": "Seth Keener",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -596,7 +596,7 @@
         "pitches": 10,
         "bref_id": "minacc000cam",
         "full_name": "Camden Minacci",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

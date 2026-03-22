@@ -22,6 +22,17 @@ UPPERCASE_TEAMS = {
     'FGCU', 'CSUN', 'PFW', 'NIU', 'UIW', 'VCU', 'LIU'
 }
 
+# Teams where .title() produces wrong casing (e.g., "UCONN" -> "Uconn" instead of "UConn")
+TITLE_CASE_OVERRIDES = {
+    'UCONN': 'UConn',
+    'UNCW': 'UNCW',
+    'UTRGV': 'UTRGV',
+    'UALR': 'UALR',
+    'UMKC': 'UMKC',
+    'SIUE': 'SIUE',
+    'IUPUI': 'IUPUI',
+}
+
 
 def clean_player_name(name: str) -> str:
     """
@@ -192,6 +203,10 @@ def normalize_team_name(name: str) -> str:
     # Check if it's a known acronym that should stay uppercase
     if name.upper() in UPPERCASE_TEAMS:
         return name.upper()
+
+    # Check title case overrides (e.g., UCONN -> UConn)
+    if name.upper() in TITLE_CASE_OVERRIDES:
+        return TITLE_CASE_OVERRIDES[name.upper()]
 
     # If all uppercase and not a known acronym, convert to title case
     if name.isupper() and len(name) > 3:

@@ -37,7 +37,7 @@
         "left_on_base": 1,
         "bref_id": "webste000bru",
         "full_name": "Bruer Webster",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 0,
         "bref_id": "frei--000lan",
         "full_name": "Landon Frei",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 1,
         "bref_id": "robert000kai",
         "full_name": "Kai Roberts",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 1,
         "bref_id": "clarks000tre",
         "full_name": "T.J. Clarkson",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 0,
         "bref_id": "cop---000dav",
         "full_name": "Davis Cop",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "hammil000eli",
         "full_name": "Eli Hammill",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 0,
         "bref_id": "gish--000jak",
         "full_name": "Jake Gish",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 1,
         "bref_id": "gurney000cam",
         "full_name": "Cam Gurney",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 2,
         "bref_id": "bodily000kar",
         "full_name": "Karson Bodily",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "duffal000dak",
         "full_name": "Dakota Duffalo",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "vansic000bry",
         "full_name": "Bryson Van Sickle",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "jones-000mer",
         "full_name": "Merit Jones",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "ashman002mic",
         "full_name": "Micah Ashman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -260,7 +260,7 @@
         "left_on_base": 3,
         "bref_id": "willia016har",
         "full_name": "Harris Williams",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 0,
         "bref_id": "amaral000joh",
         "full_name": "JT Amaral",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "demera000mar",
         "full_name": "Mario DeMera",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 0,
         "bref_id": "staple000chr",
         "full_name": "Christian Stapleton",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 1,
         "bref_id": "rogers001tj-",
         "full_name": "T.J. Rogers",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "campag002mik",
         "full_name": "Mike Campagna",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": "griffi000zac",
         "full_name": "Zach Griffin",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "asby--000wil",
         "full_name": "Will Asby",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "pitts-000bla",
         "full_name": "Blake Pitts",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "jones-001max",
         "full_name": "Max Jones",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 0,
         "bref_id": "wittma000bla",
         "full_name": "Blake Wittman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 0,
         "bref_id": "holzem000hun",
         "full_name": "Hunter Holzemer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -482,7 +482,7 @@
         "pitches": 81,
         "bref_id": "vansic000bry",
         "full_name": "Bryson Van Sickle",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "pitches": 32,
         "bref_id": "jones-000mer",
         "full_name": "Merit Jones",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -514,7 +514,7 @@
         "pitches": 18,
         "bref_id": "ashman002mic",
         "full_name": "Micah Ashman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -532,7 +532,7 @@
         "pitches": 57,
         "bref_id": "jones-001max",
         "full_name": "Max Jones",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -548,7 +548,7 @@
         "pitches": 36,
         "bref_id": "wittma000bla",
         "full_name": "Blake Wittman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -564,7 +564,7 @@
         "pitches": 36,
         "bref_id": "holzem000hun",
         "full_name": "Hunter Holzemer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -580,7 +580,7 @@
         "pitches": 9,
         "bref_id": "lepe--000osc",
         "full_name": "Oscar Lepe",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

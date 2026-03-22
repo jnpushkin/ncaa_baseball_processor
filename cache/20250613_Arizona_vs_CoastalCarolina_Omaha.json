@@ -37,7 +37,7 @@
         "left_on_base": 2,
         "bref_id": "summer003bre",
         "full_name": "Brendan Summerhill",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 0,
         "bref_id": "walton000aar",
         "full_name": "Aaron Walton",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 1,
         "bref_id": "white-002mas",
         "full_name": "Mason White",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 0,
         "bref_id": "guzman000ado",
         "full_name": "Adonys Guzman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 0,
         "bref_id": "mihala000mad",
         "full_name": "Maddox Mihalakis",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "caulfi000gar",
         "full_name": "Garen Caulfield",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 1,
         "bref_id": "cain--002and",
         "full_name": "Andrew Cain",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 2,
         "bref_id": "splain000tom",
         "full_name": "Tommy Splaine",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 0,
         "bref_id": "breyfo000eas",
         "full_name": "Easton Breyfogle",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "rodrig005dom",
         "full_name": "Dom Rodriguez",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "kramko000owe",
         "full_name": "Owen Kramkowski",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "hintz-000cas",
         "full_name": "Casey Hintz",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "hicks-004gar",
         "full_name": "Garrett Hicks",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -260,7 +260,7 @@
         "left_on_base": 2,
         "bref_id": "bodine000cad",
         "full_name": "Caden Bodine",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 2,
         "bref_id": "alexan000seb",
         "full_name": "Sebastian Alexander",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "bartho000bla",
         "full_name": "Blake Barthol",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 2,
         "bref_id": "mitche003wal",
         "full_name": "Walker Mitchell",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 0,
         "bref_id": "thornd000col",
         "full_name": "Colby Thorndyke",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 1,
         "bref_id": "pado--000bla",
         "full_name": "Blagen Pado",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 2,
         "bref_id": "dooley000ty-",
         "full_name": "Ty Dooley",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "mihos-000dea",
         "full_name": "Dean Mihos",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "sykes-000wel",
         "full_name": "Wells Sykes",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "eikhof000ril",
         "full_name": "Riley Eikhoff",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "flukey000cam",
         "full_name": "Cameron Flukey",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 0,
         "bref_id": "carbon000dom",
         "full_name": "Dominick Carbone",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -462,9 +462,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "pluta-000ton",
-        "full_name": "Tony Pluta",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       }
     ],
     "away_pitching": [
@@ -482,7 +482,7 @@
         "pitches": 86,
         "bref_id": "kramko000owe",
         "full_name": "Owen Kramkowski",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "pitches": 25,
         "bref_id": "hintz-000cas",
         "full_name": "Casey Hintz",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -514,7 +514,7 @@
         "pitches": 25,
         "bref_id": "hicks-004gar",
         "full_name": "Garrett Hicks",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -530,7 +530,7 @@
         "pitches": 8,
         "bref_id": "pluta-000ton",
         "full_name": "Tony Pluta",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -548,7 +548,7 @@
         "pitches": 45,
         "bref_id": "eikhof000ril",
         "full_name": "Riley Eikhoff",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -564,7 +564,7 @@
         "pitches": 71,
         "bref_id": "flukey000cam",
         "full_name": "Cameron Flukey",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -580,7 +580,7 @@
         "pitches": 10,
         "bref_id": "carbon000dom",
         "full_name": "Dominick Carbone",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

@@ -311,7 +311,7 @@
         "left_on_base": 2,
         "bref_id": "advinc000jar",
         "full_name": "Jarren Advincula",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 0,
         "bref_id": "schmid004car",
         "full_name": "Carl Schmidt",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "smaldi000dom",
         "full_name": "Dominic Smaldino",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 3,
         "bref_id": "french004jac",
         "full_name": "Jacob French",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 2,
         "bref_id": "moutzo000pj-",
         "full_name": "P.J. Moutzouridis",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "handro000max",
         "full_name": "Max Handron",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 1,
         "bref_id": "campbe001cad",
         "full_name": "Cade Campbell",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "birge-000ale",
         "full_name": "Alex Birge",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 1,
         "bref_id": "gwynn-000set",
         "full_name": "Seth Gwynn",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 0,
         "bref_id": "applef000kal",
         "full_name": "Kalen Applefield",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -481,7 +481,7 @@
         "left_on_base": 0,
         "bref_id": "kodama000eth",
         "full_name": "Ethan Kodama",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "left_on_base": 0,
         "bref_id": "tremai000col",
         "full_name": "Cole Tremain",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -515,7 +515,7 @@
         "left_on_base": 0,
         "bref_id": "foley-001eth",
         "full_name": "Ethan Foley",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -532,7 +532,7 @@
         "left_on_base": 0,
         "bref_id": "piper-001log",
         "full_name": "Logan Piper",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -549,7 +549,7 @@
         "left_on_base": 0,
         "bref_id": "lopez-013jor",
         "full_name": "Jordy Lopez",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -617,7 +617,7 @@
         "pitches": 22,
         "bref_id": "tremai000col",
         "full_name": "Cole Tremain",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -633,7 +633,7 @@
         "pitches": 48,
         "bref_id": "foley-001eth",
         "full_name": "Ethan Foley",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -649,7 +649,7 @@
         "pitches": 32,
         "bref_id": "piper-001log",
         "full_name": "Logan Piper",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -665,7 +665,7 @@
         "pitches": 49,
         "bref_id": "lopez-013jor",
         "full_name": "Jordy Lopez",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

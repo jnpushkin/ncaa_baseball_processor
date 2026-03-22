@@ -311,7 +311,7 @@
         "left_on_base": 0,
         "bref_id": "advinc000jar",
         "full_name": "Jarren Advincula",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 1,
         "bref_id": "moutzo000pj-",
         "full_name": "P.J. Moutzouridis",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 1,
         "bref_id": "handro000max",
         "full_name": "Max Handron",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": "clayto000eli",
         "full_name": "Elijah Clayton",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "tayman001rya",
         "full_name": "Ryan Tayman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "smaldi000dom",
         "full_name": "Dominic Smaldino",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 1,
         "bref_id": "french004jac",
         "full_name": "Jacob French",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "kodama000eth",
         "full_name": "Ethan Kodama",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -445,9 +445,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "thomas003che",
-        "full_name": "Chewy Thomas",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 1,
         "bref_id": "birge-000ale",
         "full_name": "Alex Birge",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -481,7 +481,7 @@
         "left_on_base": 0,
         "bref_id": "button000nic",
         "full_name": "Nico Button",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "left_on_base": 0,
         "bref_id": "campbe001cad",
         "full_name": "Cade Campbell",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -515,7 +515,7 @@
         "left_on_base": 0,
         "bref_id": "gwynn-000set",
         "full_name": "Seth Gwynn",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -532,7 +532,7 @@
         "left_on_base": 0,
         "bref_id": "turkin000aus",
         "full_name": "Austin Turkington",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -549,7 +549,7 @@
         "left_on_base": 0,
         "bref_id": "shaw--000dav",
         "full_name": "David Shaw",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -566,7 +566,7 @@
         "left_on_base": 0,
         "bref_id": "dessar000spe",
         "full_name": "Spencer Dessart",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -650,7 +650,7 @@
         "pitches": 62,
         "bref_id": "turkin000aus",
         "full_name": "Austin Turkington",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -666,7 +666,7 @@
         "pitches": 54,
         "bref_id": "shaw--000dav",
         "full_name": "David Shaw",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -682,7 +682,7 @@
         "pitches": 25,
         "bref_id": "dessar000spe",
         "full_name": "Spencer Dessart",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -698,7 +698,7 @@
         "pitches": 15,
         "bref_id": "bougie000tuc",
         "full_name": "Tucker Bougie",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

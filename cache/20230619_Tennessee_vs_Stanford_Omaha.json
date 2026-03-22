@@ -37,7 +37,7 @@
         "left_on_base": 0,
         "bref_id": "ahuna-000mau",
         "full_name": "Maui Ahuna",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 0,
         "bref_id": "ensley000hun",
         "full_name": "Hunter Ensley",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 2,
         "bref_id": "dickey000jar",
         "full_name": "Jared Dickey",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 1,
         "bref_id": "merrit000gri",
         "full_name": "Griffin Merritt",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 0,
         "bref_id": "moore-008chr",
         "full_name": "Christian Moore",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "burke-000bla",
         "full_name": "Blake Burke",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 3,
         "bref_id": "denton000zan",
         "full_name": "Zane Denton",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 0,
         "bref_id": "scott-006chr",
         "full_name": "Christian Scott",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 2,
         "bref_id": "stark-001cal",
         "full_name": "Cal Stark",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "dollan000cha",
         "full_name": "Chase Dollander",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "burns-008cha",
         "full_name": "Chase Burns",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -222,9 +222,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "pancer000bra",
-        "full_name": "Brandt Pancer",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       }
     ],
     "home_batting": [
@@ -243,7 +243,7 @@
         "left_on_base": 1,
         "bref_id": "park--000edd",
         "full_name": "Eddie Park",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "troy--000tom",
         "full_name": "Tommy Troy",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 0,
         "bref_id": "graham000car",
         "full_name": "Carter Graham",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "montgo002bra",
         "full_name": "Braden Montgomery",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 0,
         "bref_id": "rios--000alb",
         "full_name": "Alberto Rios",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "bowser000dre",
         "full_name": "Drew Bowser",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": "cobb--000owe",
         "full_name": "Owen Cobb",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 2,
         "bref_id": "becerr000tem",
         "full_name": "Temo Becerra",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "mathew000qui",
         "full_name": "Quinn Mathews",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "dowd--001dre",
         "full_name": "Drew Dowd",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -431,7 +431,7 @@
         "pitches": 58,
         "bref_id": "dollan000cha",
         "full_name": "Chase Dollander",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "pitches": 73,
         "bref_id": "burns-008cha",
         "full_name": "Chase Burns",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -465,7 +465,7 @@
         "pitches": 89,
         "bref_id": "mathew000qui",
         "full_name": "Quinn Mathews",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -481,7 +481,7 @@
         "pitches": 27,
         "bref_id": "dowd--001dre",
         "full_name": "Drew Dowd",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -497,7 +497,7 @@
         "pitches": 14,
         "bref_id": "scott-006mat",
         "full_name": "Matt Scott",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -513,7 +513,7 @@
         "pitches": 33,
         "bref_id": "pancer000bra",
         "full_name": "Brandt Pancer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

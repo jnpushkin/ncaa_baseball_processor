@@ -35,9 +35,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "ornela000dev",
-        "full_name": "Devan Ornelas",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -52,9 +52,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 1,
-        "bref_id": "ankene000bea",
-        "full_name": "Beau Ankeney",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -69,9 +69,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 2,
-        "bref_id": "ayers-000rob",
-        "full_name": "Robbie Ayers",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -86,9 +86,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "savoie000nat",
-        "full_name": "Nate Savoie",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -103,9 +103,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "willia000zio",
-        "full_name": "Zion Williams",
-        "match_confidence": 1.0
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -120,9 +120,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "wallac002col",
-        "full_name": "Colby Wallace",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -137,9 +137,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "dunn--000jd-",
-        "full_name": "JD Dunn",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -154,9 +154,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 2,
-        "bref_id": "freema000kol",
-        "full_name": "Kolton Freeman",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -171,9 +171,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "danos-000luc",
-        "full_name": "Luca Danos",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -188,9 +188,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 3,
-        "bref_id": "reid--000joe",
-        "full_name": "Joe Reid",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -205,9 +205,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "bose--000jam",
-        "full_name": "James Bose",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -222,9 +222,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "malone002noa",
-        "full_name": "Noah Malone",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -239,9 +239,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "pallar000ken",
-        "full_name": "Kenji Pallares",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       }
     ],
     "home_batting": [
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "madrig000edd",
         "full_name": "Eddie Madrigal",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 2,
         "bref_id": "kashim000cod",
         "full_name": "Cody Kashimoto",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "taurek000aid",
         "full_name": "Aiden Taurek",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 2,
         "bref_id": "pierce002rya",
         "full_name": "Ryan Pierce",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 0,
         "bref_id": "duroff000bri",
         "full_name": "Brian Duroff",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 1,
         "bref_id": "castel000die",
         "full_name": "Diego Castellanos",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 1,
         "bref_id": "mettam000jar",
         "full_name": "Jared Mettam",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "armstr000ian",
         "full_name": "Ian Armstrong",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "griffi001tan",
         "full_name": "Tanner Griffith",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "sarant000luk",
         "full_name": "Lukas Sarantos",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "kretsc000sam",
         "full_name": "Sam Kretsch",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -445,9 +445,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "castro007ale",
-        "full_name": "Alessandro Castro",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -462,9 +462,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "schroe001aus",
-        "full_name": "Austin Schroeder",
-        "match_confidence": 1.0
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       }
     ],
     "away_pitching": [
@@ -480,9 +480,9 @@
         "batters_faced": 33,
         "at_bats": 28,
         "pitches": 105,
-        "bref_id": "pallar000ken",
-        "full_name": "Kenji Pallares",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -496,9 +496,9 @@
         "batters_faced": 5,
         "at_bats": 4,
         "pitches": 17,
-        "bref_id": "schroe001aus",
-        "full_name": "Austin Schroeder",
-        "match_confidence": 1.0
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -512,9 +512,9 @@
         "batters_faced": 28,
         "at_bats": 24,
         "pitches": 102,
-        "bref_id": "sarant000luk",
-        "full_name": "Lukas Sarantos",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -528,9 +528,9 @@
         "batters_faced": 6,
         "at_bats": 5,
         "pitches": 34,
-        "bref_id": "kretsc000sam",
-        "full_name": "Sam Kretsch",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -544,9 +544,9 @@
         "batters_faced": 4,
         "at_bats": 3,
         "pitches": 13,
-        "bref_id": "castro007ale",
-        "full_name": "Alessandro Castro",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       }
     ],
     "home_pitching": [],

@@ -365,9 +365,9 @@
         "batters_faced": 18,
         "at_bats": 16,
         "pitches": 64,
-        "bref_id": "stoute000sam",
-        "full_name": "Sam Stoutenborough",
-        "match_confidence": 0.6
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "21",
@@ -413,9 +413,9 @@
         "batters_faced": 2,
         "at_bats": 2,
         "pitches": 4,
-        "bref_id": "woolfo000jay",
-        "full_name": "Jay Woolfolk",
-        "match_confidence": 0.85
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       }
     ],
     "home_pitching": [

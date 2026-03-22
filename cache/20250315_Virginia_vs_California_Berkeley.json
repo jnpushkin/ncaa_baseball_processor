@@ -262,6 +262,22 @@
         "bref_id": "koenen000dre",
         "full_name": "Drew Koenen",
         "match_confidence": 0.85
+      },
+      {
+        "number": "33",
+        "name": "Lanzendorfer",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 2,
+        "strikeouts": 2,
+        "batters_faced": 6,
+        "at_bats": 4,
+        "pitches": 33,
+        "bref_id": "lanzen000mat",
+        "full_name": "Matt Lanzendorfer",
+        "match_confidence": 0.85
       }
     ],
     "home_pitching": [
@@ -309,9 +325,9 @@
         "batters_faced": 3,
         "at_bats": 3,
         "pitches": 13,
-        "bref_id": "delato000oli",
-        "full_name": "Oliver de la Torre",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "51",
@@ -343,22 +359,6 @@
         "pitches": 6,
         "bref_id": "tremai000col",
         "full_name": "Cole Tremain",
-        "match_confidence": 0.85
-      },
-      {
-        "number": "33",
-        "name": "Lanzendorfer",
-        "innings_pitched": 1.0,
-        "hits": 1,
-        "runs": 1,
-        "earned_runs": 1,
-        "walks": 2,
-        "strikeouts": 2,
-        "batters_faced": 6,
-        "at_bats": 4,
-        "pitches": 33,
-        "bref_id": "lanzen000mat",
-        "full_name": "Matt Lanzendorfer",
         "match_confidence": 0.85
       }
     ],

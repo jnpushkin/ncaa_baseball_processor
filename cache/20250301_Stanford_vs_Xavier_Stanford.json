@@ -37,7 +37,7 @@
         "left_on_base": 0,
         "bref_id": "lambdi000jak",
         "full_name": "Jake Lambdin",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 0,
         "bref_id": "hendri002car",
         "full_name": "Carter Hendrickson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 3,
         "bref_id": "anders000aed",
         "full_name": "Aedan Anderson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 0,
         "bref_id": "misch-000con",
         "full_name": "Connor Misch",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 1,
         "bref_id": "mensik000lan",
         "full_name": "Landon Mensik",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 1,
         "bref_id": "wachsm000isa",
         "full_name": "Isaac Wachsmann",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 0,
         "bref_id": "canter000don",
         "full_name": "Donavan Canterberry",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 1,
         "bref_id": "burdet000cla",
         "full_name": "Clay Burdette",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 2,
         "bref_id": "tucker000nol",
         "full_name": "Nolan Tucker",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "christ000hay",
         "full_name": "Hayden Christiansen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "jelic-000jas",
         "full_name": "Jason Jelic",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "peters000edd",
         "full_name": "Eddie Peters",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "piech-000rya",
         "full_name": "Ryan Piech",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -258,7 +258,7 @@
         "left_on_base": 0,
         "bref_id": "hoskin000luk",
         "full_name": "Luke Hoskins",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -275,7 +275,7 @@
         "left_on_base": 0,
         "bref_id": "geddes000tre",
         "full_name": "Trevor Geddes",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -294,7 +294,7 @@
         "left_on_base": 2,
         "bref_id": "haskin000tre",
         "full_name": "Trevor Haskins",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 0,
         "bref_id": "larson003bra",
         "full_name": "Brandon Larson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 0,
         "bref_id": "blair-000bre",
         "full_name": "Brett Blair",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "spring000gab",
         "full_name": "Gabe Springer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 3,
         "bref_id": "sasaki000rin",
         "full_name": "Rintaro Sasaki",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "hott--000eth",
         "full_name": "Ethan Hott",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 2,
         "bref_id": "saum--000cha",
         "full_name": "Charlie Saum",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 2,
         "bref_id": "nati--000jim",
         "full_name": "Jimmy Nati",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "reynol003bra",
         "full_name": "Brady Reynolds",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 0,
         "bref_id": "becerr000tem",
         "full_name": "Temo Becerra",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 0,
         "bref_id": "bates-014cha",
         "full_name": "Charlie Bates",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -481,7 +481,7 @@
         "left_on_base": 0,
         "bref_id": "campbe000sab",
         "full_name": "Saborn Campbell",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "left_on_base": 0,
         "bref_id": "marsh-000tat",
         "full_name": "Tatum Marsh",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -515,7 +515,7 @@
         "left_on_base": 0,
         "bref_id": "lim---000chr",
         "full_name": "Christian Lim",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -532,7 +532,7 @@
         "left_on_base": 0,
         "bref_id": "moore-003tre",
         "full_name": "Trevor Moore",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -550,7 +550,7 @@
         "pitches": 92,
         "bref_id": "piech-000rya",
         "full_name": "Ryan Piech",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -566,7 +566,7 @@
         "pitches": 52,
         "bref_id": "hoskin000luk",
         "full_name": "Luke Hoskins",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -582,7 +582,7 @@
         "pitches": 4,
         "bref_id": "geddes000tre",
         "full_name": "Trevor Geddes",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -598,7 +598,7 @@
         "pitches": 3,
         "bref_id": "lambdi000jak",
         "full_name": "Jake Lambdin",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -616,7 +616,7 @@
         "pitches": 90,
         "bref_id": "lim---000chr",
         "full_name": "Christian Lim",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -632,7 +632,7 @@
         "pitches": 44,
         "bref_id": "moore-003tre",
         "full_name": "Trevor Moore",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -648,7 +648,7 @@
         "pitches": 9,
         "bref_id": "speshy000rya",
         "full_name": "Ryan Speshyock",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

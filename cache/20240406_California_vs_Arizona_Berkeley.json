@@ -37,7 +37,7 @@
         "left_on_base": 2,
         "bref_id": "morale007ric",
         "full_name": "Richie Morales",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 1,
         "bref_id": "white-002mas",
         "full_name": "Mason White",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 2,
         "bref_id": "caulfi000gar",
         "full_name": "Garen Caulfield",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 0,
         "bref_id": "summer003bre",
         "full_name": "Brendan Summerhill",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 2,
         "bref_id": "guzman000ado",
         "full_name": "Adonys Guzman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "corona000emi",
         "full_name": "Emilio Corona",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 0,
         "bref_id": "splain000tom",
         "full_name": "Tommy Splaine",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 1,
         "bref_id": "esquer000xav",
         "full_name": "Xavier Esquer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 0,
         "bref_id": "rogers005bra",
         "full_name": "Brandon Rogers",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "walty-000cam",
         "full_name": "Cam Walty",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "netz--000daw",
         "full_name": "Dawson Netz",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -222,9 +222,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "may---000ian",
-        "full_name": "Ian May",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       }
     ],
     "home_batting": [
@@ -243,7 +243,7 @@
         "left_on_base": 0,
         "bref_id": "moutzo000pj-",
         "full_name": "P.J. Moutzouridis",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "advinc000jar",
         "full_name": "Jarren Advincula",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 1,
         "bref_id": "lomavi000cal",
         "full_name": "Caleb Lomavita",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "green-001rod",
         "full_name": "Rodney Green",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 4,
         "bref_id": "schulz000pey",
         "full_name": "Peyton Schulze",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 1,
         "bref_id": "handro000max",
         "full_name": "Max Handron",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -343,9 +343,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "thomas003che",
-        "full_name": "Chewy Thomas",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": "crawfo003car",
         "full_name": "Carson Crawford",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "gwynn-000set",
         "full_name": "Seth Gwynn",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "burden000jag",
         "full_name": "Jag Burden",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "tayman001rya",
         "full_name": "Ryan Tayman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -431,7 +431,7 @@
         "pitches": 100,
         "bref_id": "walty-000cam",
         "full_name": "Cam Walty",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "pitches": 24,
         "bref_id": "netz--000daw",
         "full_name": "Dawson Netz",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -465,7 +465,7 @@
         "pitches": 35,
         "bref_id": "may---000ian",
         "full_name": "Ian May",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -479,9 +479,9 @@
         "batters_faced": 18,
         "at_bats": 15,
         "pitches": 62,
-        "bref_id": "newman001tre",
-        "full_name": "Trey Newmann",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -497,7 +497,7 @@
         "pitches": 9,
         "bref_id": "piper-001log",
         "full_name": "Logan Piper",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -513,7 +513,7 @@
         "pitches": 36,
         "bref_id": "becerr002chr",
         "full_name": "Christian Becerra",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

@@ -37,7 +37,7 @@
         "left_on_base": 2,
         "bref_id": "moore-000luc",
         "full_name": "Lucas Moore",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 1,
         "bref_id": "klein-004mat",
         "full_name": "Matt Klein",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 0,
         "bref_id": "munroe000jak",
         "full_name": "Jake Munroe",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 0,
         "bref_id": "king--000edd",
         "full_name": "Eddie King",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 5,
         "bref_id": "pike--001gar",
         "full_name": "Garret Pike",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "rose--000zio",
         "full_name": "Zion Rose",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 0,
         "bref_id": "davis-000tag",
         "full_name": "Tague Davis",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 0,
         "bref_id": "shiver000tan",
         "full_name": "Tanner Shiver",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 0,
         "bref_id": "hot---000bay",
         "full_name": "Bayram Hot",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "alicea001ale",
         "full_name": "Alex Alicea",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "neighb000kam",
         "full_name": "Kamau Neighbors",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "forbes002pat",
         "full_name": "Patrick Forbes",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "west--000jus",
         "full_name": "Justin West",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -258,7 +258,7 @@
         "left_on_base": 0,
         "bref_id": "schwei002jak",
         "full_name": "Jake Schweitzer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -277,7 +277,7 @@
         "left_on_base": 3,
         "bref_id": "carawa000tre",
         "full_name": "Trent Caraway",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "arquet000aiv",
         "full_name": "Aiva Arquette",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 2,
         "bref_id": "turley000gav",
         "full_name": "Gavin Turley",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 0,
         "bref_id": "weber-002wil",
         "full_name": "Wilson Weber",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "singer000aj-",
         "full_name": "AJ Singer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 2,
         "bref_id": "peters000tyc",
         "full_name": "Tyce Peterson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 2,
         "bref_id": "krieg-000jac",
         "full_name": "Jacob Krieg",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "reeder000can",
         "full_name": "Canon Reeder",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "talt--000eas",
         "full_name": "Easton Talt",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "mcenti000car",
         "full_name": "Carson McEntire",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 0,
         "bref_id": "macias000dal",
         "full_name": "Dallas Macias",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 0,
         "bref_id": "whitne000dax",
         "full_name": "Dax Whitney",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -481,7 +481,7 @@
         "left_on_base": 0,
         "bref_id": "segura000eri",
         "full_name": "Eric Segura",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "left_on_base": 0,
         "bref_id": "queen-000wya",
         "full_name": "Wyatt Queen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -516,7 +516,7 @@
         "pitches": 101,
         "bref_id": "forbes002pat",
         "full_name": "Patrick Forbes",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -532,7 +532,7 @@
         "pitches": 33,
         "bref_id": "west--000jus",
         "full_name": "Justin West",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -548,7 +548,7 @@
         "pitches": 21,
         "bref_id": "schwei002jak",
         "full_name": "Jake Schweitzer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -566,7 +566,7 @@
         "pitches": 82,
         "bref_id": "whitne000dax",
         "full_name": "Dax Whitney",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -582,7 +582,7 @@
         "pitches": 14,
         "bref_id": "segura000eri",
         "full_name": "Eric Segura",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -598,7 +598,7 @@
         "pitches": 33,
         "bref_id": "queen-000wya",
         "full_name": "Wyatt Queen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -614,7 +614,7 @@
         "pitches": 16,
         "bref_id": "oakes-000kel",
         "full_name": "Kellan Oakes",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

@@ -37,7 +37,7 @@
         "left_on_base": 0,
         "bref_id": "sosa--000joa",
         "full_name": "Joan Sosa",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 0,
         "bref_id": "avila-000ben",
         "full_name": "Ben Avila",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 0,
         "bref_id": "damato000hun",
         "full_name": "Hunter D'Amato",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 1,
         "bref_id": "sander003bri",
         "full_name": "Brian Sanders",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 1,
         "bref_id": "gomez-007fra",
         "full_name": "Franklin Gomez",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "sierra000jus",
         "full_name": "Justin Sierra",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 0,
         "bref_id": "harden000bre",
         "full_name": "Brelon Harden",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 1,
         "bref_id": "verga-000tom",
         "full_name": "Tommy Verga",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 1,
         "bref_id": "will--000zac",
         "full_name": "Zack Will",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "cheese000jer",
         "full_name": "Jeremy Cheeseman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "pika--000ben",
         "full_name": "Ben Pika",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "simon-003jak",
         "full_name": "Jake Simon",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -243,7 +243,7 @@
         "left_on_base": 0,
         "bref_id": "watana000kod",
         "full_name": "Kody Watanabe",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "amaral000joh",
         "full_name": "JT Amaral",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 4,
         "bref_id": "leax--000log",
         "full_name": "Logan Leax",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "fung--000mat",
         "full_name": "Matty Fung",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 0,
         "bref_id": "guilia000aj-",
         "full_name": "AJ Guiliana",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 0,
         "bref_id": "campag002mik",
         "full_name": "Mike Campagna",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "ramppe000zac",
         "full_name": "Zack Ramppen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 2,
         "bref_id": "thomas012mat",
         "full_name": "Mattie Thomas",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "rogers001tj-",
         "full_name": "T.J. Rogers",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "moore-000tyv",
         "full_name": "Tyvon Moore",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "shew--000ada",
         "full_name": "Adam Shew",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "hazell000and",
         "full_name": "Andrew Hazell",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -448,7 +448,7 @@
         "pitches": 98,
         "bref_id": "cheese000jer",
         "full_name": "Jeremy Cheeseman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "pitches": 35,
         "bref_id": "pika--000ben",
         "full_name": "Ben Pika",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -480,7 +480,7 @@
         "pitches": 14,
         "bref_id": "simon-003jak",
         "full_name": "Jake Simon",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -498,7 +498,7 @@
         "pitches": 84,
         "bref_id": "shew--000ada",
         "full_name": "Adam Shew",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -514,7 +514,7 @@
         "pitches": 44,
         "bref_id": "hazell000and",
         "full_name": "Andrew Hazell",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

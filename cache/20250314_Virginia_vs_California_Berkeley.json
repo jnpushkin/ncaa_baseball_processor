@@ -245,9 +245,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "thomas003che",
-        "full_name": "Chewy Thomas",
-        "match_confidence": 0.85
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "4",
@@ -349,6 +349,22 @@
         "bref_id": "arring000wes",
         "full_name": "Wes Arrington",
         "match_confidence": 0.85
+      },
+      {
+        "number": "25",
+        "name": "M. Buchanan",
+        "innings_pitched": 1.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 15,
+        "bref_id": "buchan000mat",
+        "full_name": "Matthew Buchanan",
+        "match_confidence": 0.85
       }
     ],
     "home_pitching": [
@@ -398,22 +414,6 @@
         "pitches": 12,
         "bref_id": "shaw--000dav",
         "full_name": "David Shaw",
-        "match_confidence": 0.85
-      },
-      {
-        "number": "25",
-        "name": "M. Buchanan",
-        "innings_pitched": 1.1,
-        "hits": 0,
-        "runs": 0,
-        "earned_runs": 0,
-        "walks": 0,
-        "strikeouts": 3,
-        "batters_faced": 4,
-        "at_bats": 4,
-        "pitches": 15,
-        "bref_id": "buchan000mat",
-        "full_name": "Matthew Buchanan",
         "match_confidence": 0.85
       }
     ],

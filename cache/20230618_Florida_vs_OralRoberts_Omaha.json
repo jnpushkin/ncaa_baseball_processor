@@ -37,7 +37,7 @@
         "left_on_base": 0,
         "bref_id": "kurlan000cad",
         "full_name": "Cade Kurland",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 1,
         "bref_id": "langfo000wya",
         "full_name": "Wyatt Langford",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 0,
         "bref_id": "caglia000jac",
         "full_name": "Jac Caglianone",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 4,
         "bref_id": "rivera015jos",
         "full_name": "Josh Rivera",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 0,
         "bref_id": "riopel000bra",
         "full_name": "B.T. Riopelle",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "heyman000luk",
         "full_name": "Luke Heyman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 0,
         "bref_id": "shelnu000tyl",
         "full_name": "Tyler Shelnut",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 0,
         "bref_id": "robert020mic",
         "full_name": "Michael Robertson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 1,
         "bref_id": "evans-000ty-",
         "full_name": "Ty Evans",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "schiek000ric",
         "full_name": "Richie Schiekofer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "halter000col",
         "full_name": "Colby Halter",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "waldre000hur",
         "full_name": "Hurston Waldrep",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "slater000rya",
         "full_name": "Ryan Slater",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -258,7 +258,7 @@
         "left_on_base": 0,
         "bref_id": "neely-000bra",
         "full_name": "Brandon Neely",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -275,7 +275,7 @@
         "left_on_base": 0,
         "bref_id": "fisher000cad",
         "full_name": "Cade Fisher",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "mcmurr002jak",
         "full_name": "Jake McMurray",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 4,
         "bref_id": "quinn-000jus",
         "full_name": "Justin Quinn",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 3,
         "bref_id": "cox---000jon",
         "full_name": "Jonah Cox",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "hogan-000mat",
         "full_name": "Matt Hogan",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 2,
         "bref_id": "mccros000mac",
         "full_name": "Mac McCroskey",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "breeze000hol",
         "full_name": "Holden Breeze",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 1,
         "bref_id": "stahl-001dre",
         "full_name": "Drew Stahl",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "thomps006sam",
         "full_name": "Sam Thompson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 2,
         "bref_id": "godman000jac",
         "full_name": "Jacob Godman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 1,
         "bref_id": "brothe000bla",
         "full_name": "Blaze Brothers",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 0,
         "bref_id": "goller001har",
         "full_name": "Harley Gollert",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -481,7 +481,7 @@
         "left_on_base": 0,
         "bref_id": "patten000dal",
         "full_name": "Dalton Patten",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "left_on_base": 0,
         "bref_id": "widene000jac",
         "full_name": "Jacob Widener",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -515,7 +515,7 @@
         "left_on_base": 0,
         "bref_id": "kowals000eva",
         "full_name": "Evan Kowalski",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -533,7 +533,7 @@
         "pitches": 103,
         "bref_id": "waldre000hur",
         "full_name": "Hurston Waldrep",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -549,7 +549,7 @@
         "pitches": 16,
         "bref_id": "slater000rya",
         "full_name": "Ryan Slater",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -565,7 +565,7 @@
         "pitches": 22,
         "bref_id": "neely-000bra",
         "full_name": "Brandon Neely",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -581,7 +581,7 @@
         "pitches": 25,
         "bref_id": "fisher000cad",
         "full_name": "Cade Fisher",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -599,7 +599,7 @@
         "pitches": 63,
         "bref_id": "goller001har",
         "full_name": "Harley Gollert",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -615,7 +615,7 @@
         "pitches": 28,
         "bref_id": "patten000dal",
         "full_name": "Dalton Patten",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -631,7 +631,7 @@
         "pitches": 45,
         "bref_id": "widene000jac",
         "full_name": "Jacob Widener",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -647,7 +647,7 @@
         "pitches": 19,
         "bref_id": "kowals000eva",
         "full_name": "Evan Kowalski",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

@@ -20,9 +20,13 @@ from urllib.parse import urljoin, quote
 BASE_URL = "https://www.baseball-reference.com"
 SEARCH_URL = f"{BASE_URL}/search/search.fcgi"
 TEAM_URL = f"{BASE_URL}/register/team.cgi"
+LEAGUE_URL = f"{BASE_URL}/register/league.cgi"
 
 # Rate limiting - be respectful
 REQUEST_DELAY = 3.0  # seconds between requests
+
+# Local team index cache
+TEAM_INDEX_PATH = Path(__file__).parent / "data" / "bref_team_index.json"
 
 # Create a cloudscraper session to handle Cloudflare
 scraper = cloudscraper.create_scraper(
@@ -60,18 +64,253 @@ class TeamRoster:
             self.players = []
 
 
+def _load_team_index() -> dict:
+    """Load the cached team index, or return empty dict if not found."""
+    if TEAM_INDEX_PATH.exists():
+        with open(TEAM_INDEX_PATH, 'r') as f:
+            return json.load(f)
+    return {}
+
+
+def _save_team_index(index: dict):
+    """Save the team index to disk."""
+    TEAM_INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(TEAM_INDEX_PATH, 'w') as f:
+        json.dump(index, f, indent=2)
+
+
+def _scrape_conference_teams(conference_code: str, conference_class: str = "NCAA") -> list[dict]:
+    """
+    Scrape all teams and their year-specific IDs from a conference page.
+
+    Returns list of dicts with keys: name, id, year, conference_code
+    """
+    url = f"{LEAGUE_URL}?code={conference_code}&class={conference_class}"
+    try:
+        response = scraper.get(url, timeout=30)
+        response.raise_for_status()
+    except Exception as e:
+        print(f"  Error fetching conference {conference_code}: {e}")
+        return []
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+    teams = []
+
+    for table in soup.find_all('table'):
+        for row in table.find_all('tr'):
+            # Each row has a year in the first cell, then team links
+            cells = row.find_all(['td', 'th'])
+            if not cells:
+                continue
+
+            year_text = cells[0].get_text(strip=True)
+            year_match = re.match(r'^(\d{4})$', year_text)
+            if not year_match:
+                continue
+            year = year_match.group(1)
+
+            for link in row.find_all('a', href=True):
+                href = link['href']
+                if '/register/team.cgi?id=' in href:
+                    id_match = re.search(r'id=([a-f0-9]+)', href)
+                    if id_match:
+                        teams.append({
+                            "name": link.get_text(strip=True),
+                            "id": id_match.group(1),
+                            "year": year,
+                            "conference_code": conference_code
+                        })
+
+    return teams
+
+
+def _get_all_conference_codes() -> list[tuple[str, str]]:
+    """
+    Fetch all NCAA conference codes from the main NCAA league page.
+
+    Returns list of (code, class) tuples.
+    """
+    url = f"{LEAGUE_URL}?code=NCAA&class=college"
+    try:
+        response = scraper.get(url, timeout=30)
+        response.raise_for_status()
+    except Exception as e:
+        print(f"Error fetching conference list: {e}")
+        return []
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+    conferences = []
+
+    for link in soup.find_all('a', href=True):
+        href = link['href']
+        match = re.search(r'league\.cgi\?code=([^&]+)&class=([^&"\s]+)', href)
+        if match:
+            code, cls = match.group(1), match.group(2).strip()
+            if code != "NCAA":  # Skip the top-level NCAA link itself
+                conferences.append((code, cls))
+
+    # Deduplicate
+    return list(dict.fromkeys(conferences))
+
+
+def build_team_index(year: Optional[int] = None) -> dict:
+    """
+    Build a team index by scraping all NCAA conference pages on Baseball Reference.
+
+    The index maps normalized team names to their year-specific team IDs.
+
+    Args:
+        year: If specified, only index teams for this year. Otherwise index all years.
+
+    Returns:
+        The built index dict.
+    """
+    print("Building team index from Baseball Reference conference pages...")
+    print("This may take a few minutes (rate-limited to be respectful).")
+
+    conferences = _get_all_conference_codes()
+    print(f"Found {len(conferences)} conferences to scrape")
+
+    # Load existing index to merge into
+    index = _load_team_index()
+    if "teams" not in index:
+        index["teams"] = {}  # name -> {year -> {id, conference_code}}
+
+    scraped = 0
+    for i, (code, cls) in enumerate(conferences):
+        print(f"  [{i+1}/{len(conferences)}] Scraping {code}...", end="", flush=True)
+        time.sleep(REQUEST_DELAY)
+
+        teams = _scrape_conference_teams(code, cls)
+        print(f" {len(teams)} team-seasons")
+
+        for team in teams:
+            if year and team["year"] != str(year):
+                continue
+            name = team["name"]
+            if name not in index["teams"]:
+                index["teams"][name] = {}
+            index["teams"][name][team["year"]] = {
+                "id": team["id"],
+                "conference_code": team["conference_code"]
+            }
+        scraped += len(teams)
+
+    index["last_updated"] = time.strftime("%Y-%m-%dT%H:%M:%S")
+    index["total_team_seasons"] = sum(len(years) for years in index["teams"].values())
+
+    _save_team_index(index)
+    print(f"Indexed {len(index['teams'])} unique teams ({index['total_team_seasons']} team-seasons)")
+    print(f"Saved to {TEAM_INDEX_PATH}")
+    return index
+
+
+def search_team_index(team_name: str, year: Optional[int] = None) -> list[dict]:
+    """
+    Search the local team index for a team by name with fuzzy matching.
+
+    Tries exact match first, then substring, then word-level matching.
+
+    Args:
+        team_name: Search query (e.g., "UConn", "San Diego State", "Virginia Cavaliers")
+        year: Optional year to filter results
+
+    Returns:
+        List of matching teams with their IDs sorted by relevance
+    """
+    index = _load_team_index()
+    if not index.get("teams"):
+        return []
+
+    query = team_name.lower().strip()
+    results = []
+
+    for name, years_data in index["teams"].items():
+        name_lower = name.lower()
+        score = 0
+
+        # Exact match
+        if name_lower == query:
+            score = 100
+        # Name starts with query
+        elif name_lower.startswith(query + " "):
+            score = 90
+        # Query is a full word in the name
+        elif query in name_lower.split():
+            score = 80
+        # Substring match
+        elif query in name_lower:
+            score = 70
+        # All query words appear in name
+        elif all(w in name_lower for w in query.split()):
+            score = 60
+        # Partial word matching (e.g., "san diego" matches "San Diego State Aztecs")
+        else:
+            query_words = query.split()
+            name_words = name_lower.split()
+            matched = sum(1 for qw in query_words if any(qw in nw or nw in qw for nw in name_words))
+            if matched == len(query_words):
+                score = 50
+
+        if score > 0:
+            if year:
+                year_str = str(year)
+                if year_str in years_data:
+                    results.append({
+                        "name": name,
+                        "id": years_data[year_str]["id"],
+                        "year": year_str,
+                        "conference": years_data[year_str].get("conference_code"),
+                        "score": score,
+                        "url": f"{BASE_URL}/register/team.cgi?id={years_data[year_str]['id']}"
+                    })
+            else:
+                # Return most recent year
+                latest_year = max(years_data.keys())
+                results.append({
+                    "name": name,
+                    "id": years_data[latest_year]["id"],
+                    "year": latest_year,
+                    "conference": years_data[latest_year].get("conference_code"),
+                    "score": score,
+                    "url": f"{BASE_URL}/register/team.cgi?id={years_data[latest_year]['id']}"
+                })
+
+    # Sort by score descending, then name
+    results.sort(key=lambda x: (-x["score"], x["name"]))
+    return results
+
+
 def search_team(team_name: str, year: Optional[int] = None) -> list[dict]:
     """
     Search for a college team on Baseball Reference.
 
+    Tries the local team index first (fast, reliable), then falls back
+    to Baseball Reference's search API.
+
     Args:
-        team_name: Name of the team (e.g., "Oregon State Beavers", "Virginia Cavaliers")
+        team_name: Name of the team (e.g., "Oregon State Beavers", "UConn", "San Diego State")
         year: Optional year to filter results
 
     Returns:
         List of matching teams with their IDs and info
     """
     print(f"Searching for team: {team_name}")
+
+    # Try local index first
+    index_results = search_team_index(team_name, year)
+    if index_results:
+        print(f"Found {len(index_results)} match(es) in local index")
+        # Convert to the same format as web search results
+        return [{
+            "name": r["name"],
+            "id": r["id"],
+            "year": r["year"],
+            "conference": r.get("conference"),
+            "url": r["url"]
+        } for r in index_results]
+
+    print("Not found in local index, falling back to web search...")
 
     params = {"search": team_name}
 
@@ -580,19 +819,43 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Baseball Reference College Roster Scraper")
         print("\nUsage:")
-        print("  python bref_roster_scraper.py <team_name> [year]")
-        print("  python bref_roster_scraper.py --id <team_id>")
-        print("  python bref_roster_scraper.py --file <teams_file> [year]")
+        print("  python3 bref_roster_scraper.py <team_name> [year]")
+        print("  python3 bref_roster_scraper.py --id <team_id>")
+        print("  python3 bref_roster_scraper.py --file <teams_file> [year]")
+        print("  python3 bref_roster_scraper.py --build-index [year]")
+        print("  python3 bref_roster_scraper.py --search <team_name> [year]")
         print("\nExamples:")
-        print('  python bref_roster_scraper.py "Virginia Cavaliers"')
-        print('  python bref_roster_scraper.py "Oregon State Beavers" 2024')
-        print('  python bref_roster_scraper.py --id c1295e0d')
-        print('  python bref_roster_scraper.py --file teams.txt 2024')
-        print("\nThe teams.txt file should contain one team name per line.")
-        print("\nKnown team IDs can be found by searching on baseball-reference.com")
+        print('  python3 bref_roster_scraper.py "UConn" 2026')
+        print('  python3 bref_roster_scraper.py "San Diego State" 2026')
+        print('  python3 bref_roster_scraper.py --id c1295e0d')
+        print('  python3 bref_roster_scraper.py --file teams.txt 2024')
+        print('  python3 bref_roster_scraper.py --build-index        # index all years')
+        print('  python3 bref_roster_scraper.py --build-index 2026   # index only 2026')
+        print('  python3 bref_roster_scraper.py --search "UConn"     # search index only')
+        print("\nThe team index must be built once with --build-index before name searches")
+        print("will work reliably. After that, searches use the local index.")
         sys.exit(1)
 
-    if sys.argv[1] == "--id":
+    if sys.argv[1] == "--build-index":
+        year = int(sys.argv[2]) if len(sys.argv) > 2 else None
+        build_team_index(year)
+
+    elif sys.argv[1] == "--search":
+        # Search-only mode (no roster fetch)
+        if len(sys.argv) < 3:
+            print("Error: Please specify a team name")
+            sys.exit(1)
+        team_name = sys.argv[2]
+        year = int(sys.argv[3]) if len(sys.argv) > 3 else None
+        results = search_team_index(team_name, year)
+        if results:
+            print(f"Found {len(results)} match(es):")
+            for r in results[:10]:
+                print(f"  {r['name']} ({r['year']}) - ID: {r['id']} [score: {r['score']}]")
+        else:
+            print("No matches found. Run --build-index first if you haven't.")
+
+    elif sys.argv[1] == "--id":
         # Fetch by team ID directly
         if len(sys.argv) < 3:
             print("Error: Please specify a team ID")

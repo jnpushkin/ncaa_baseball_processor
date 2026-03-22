@@ -337,6 +337,10 @@ class NameMatcher:
             if filtered:
                 candidates = filtered
                 team_filtered = True
+            else:
+                # No roster matches for this team — don't return cross-team matches
+                # to avoid false merges (e.g., different players with the same name)
+                return MatchResult(matched=False)
 
         if not candidates:
             return MatchResult(matched=False)

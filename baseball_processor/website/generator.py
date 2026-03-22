@@ -1319,7 +1319,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             background: var(--bg-secondary);
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            overflow: hidden;
+            overflow: visible;
         }}
 
         .panel-header {{
@@ -1407,8 +1407,6 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
         .table-container {{
             overflow-x: auto;
-            max-height: 600px;
-            overflow-y: auto;
         }}
 
         /* footer styles in responsive section below */
@@ -3906,7 +3904,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 </tr>
                             </thead>
                             <tbody>
-                                {{items.slice(0, 200).map((b, i) => (
+                                {{items.map((b, i) => (
                                     <React.Fragment key={{i}}>
                                         {{renderBatterRow(b, i, false)}}
                                         {{b.isCombined && expandedPlayers.has(b.bref_id) && b.subRows.map((sub, j) =>
@@ -4096,7 +4094,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 </tr>
                             </thead>
                             <tbody>
-                                {{items.slice(0, 200).map((p, i) => (
+                                {{items.map((p, i) => (
                                     <React.Fragment key={{i}}>
                                         {{renderPitcherRow(p, i, false)}}
                                         {{p.isCombined && expandedPlayers.has(p.bref_id) && p.subRows.map((sub, j) =>

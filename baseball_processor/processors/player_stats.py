@@ -168,6 +168,61 @@ class PlayerStatsProcessor:
         self.player_teams = defaultdict(set)
         self.player_team_years = defaultdict(lambda: defaultdict(list))  # key -> team -> [years]
         self.player_bref_ids = {}
+        self._bref_id_to_key = {}  # bref_id -> canonical key (for merging transfers)
+
+    def _build_transfer_set(self):
+        """Pre-scan all games to identify bref_ids that are genuine transfers
+        vs. different players who happen to share a name/bref_id.
+
+        A bref_id is a false merge if it appears on two different teams
+        in the same game (e.g., opposing players named "Lucas Kelly").
+        """
+        from collections import defaultdict
+        # bref_id -> set of (game_id, team) appearances
+        bref_game_teams = defaultdict(list)
+
+        for game in self.games:
+            meta = game.get('metadata', {})
+            box_score = game.get('box_score', {})
+            game_id = f"{meta.get('date', '')}_{meta.get('away_team', '')}_{meta.get('home_team', '')}"
+
+            for side in ['away', 'home']:
+                team = meta.get(f'{side}_team', '')
+                for section in [f'{side}_batting', f'{side}_pitching']:
+                    for player in box_score.get(section, []):
+                        bref_id = player.get('bref_id')
+                        if bref_id:
+                            bref_game_teams[bref_id].append((game_id, team))
+
+        # A bref_id is a false collision if it appears on different teams
+        # in the same game
+        self._false_merge_bref_ids = set()
+        for bref_id, appearances in bref_game_teams.items():
+            games_seen = defaultdict(set)
+            for game_id, team in appearances:
+                games_seen[game_id].add(team)
+            for game_id, teams in games_seen.items():
+                if len(teams) > 1:
+                    self._false_merge_bref_ids.add(bref_id)
+                    break
+
+    def _resolve_player_key(self, normalized_name: str, team: str, bref_id: str = None) -> str:
+        """Resolve the canonical key for a player.
+
+        Uses bref_id to merge players across teams (e.g., transfers).
+        Falls back to name|team when no bref_id is available, or when
+        the bref_id is a known false collision (different players with
+        the same name appearing in the same game).
+        """
+        if bref_id and bref_id not in self._false_merge_bref_ids:
+            if bref_id in self._bref_id_to_key:
+                return self._bref_id_to_key[bref_id]
+            # New bref_id — create canonical key using name|first_team
+            key = f"{normalized_name}|{team}"
+            self._bref_id_to_key[bref_id] = key
+            return key
+        # No bref_id or false collision — fall back to name|team
+        return f"{normalized_name}|{team}"
 
     def process_all_stats(self) -> Dict[str, pd.DataFrame]:
         """
@@ -187,6 +242,7 @@ class PlayerStatsProcessor:
 
     def _aggregate_stats(self):
         """Aggregate statistics for each player across all games."""
+        self._build_transfer_set()
 
         batting_keys = ['ab', 'r', 'h', 'rbi', 'bb', 'k', 'po', 'a', 'lob',
                         'doubles', 'triples', 'hr', 'sb', 'cs', 'hbp', 'sf', 'sh']
@@ -241,9 +297,9 @@ class PlayerStatsProcessor:
                         continue
 
                     normalized_name = normalize_name(name)
-                    # Use name + team as key to prevent merging different players with same name
-                    key = f"{normalized_name}|{team}"
                     bref_id = player.get('bref_id')
+                    # Use bref_id to merge transfers; fall back to name|team
+                    key = self._resolve_player_key(normalized_name, team, bref_id)
                     if bref_id:
                         self.player_bref_ids[key] = bref_id
 
@@ -310,9 +366,9 @@ class PlayerStatsProcessor:
                         continue
 
                     normalized_name = normalize_name(name)
-                    # Use name + team as key to prevent merging different players with same name
-                    key = f"{normalized_name}|{team}"
                     bref_id = player.get('bref_id')
+                    # Use bref_id to merge transfers; fall back to name|team
+                    key = self._resolve_player_key(normalized_name, team, bref_id)
                     if bref_id:
                         self.player_bref_ids[key] = bref_id
 

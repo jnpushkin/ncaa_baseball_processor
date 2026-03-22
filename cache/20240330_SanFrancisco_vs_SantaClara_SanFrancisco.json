@@ -37,7 +37,7 @@
         "left_on_base": 0,
         "bref_id": "berrin000jon",
         "full_name": "JonJon Berring",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 1,
         "bref_id": "brigma000col",
         "full_name": "Coleman Brigman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 0,
         "bref_id": "ohara-002mic",
         "full_name": "Michael O'Hara",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 1,
         "bref_id": "manzo-000efr",
         "full_name": "Efrain Manzo",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 2,
         "bref_id": "steck-000ben",
         "full_name": "Ben Steck",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 1,
         "bref_id": "willia001mal",
         "full_name": "Malcolm Williams",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 0,
         "bref_id": "joyce-000dyl",
         "full_name": "Dylan Joyce",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 0,
         "bref_id": "ferrog000tho",
         "full_name": "Thomas Ferroggiaro",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 0,
         "bref_id": "thomps002cad",
         "full_name": "Caden Thompson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 1,
         "bref_id": "cleary000ben",
         "full_name": "Ben Cleary",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "kitche000col",
         "full_name": "Cole Kitchen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "bayles000max",
         "full_name": "Max Bayles",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -243,7 +243,7 @@
         "left_on_base": 2,
         "bref_id": "watana000kod",
         "full_name": "Kody Watanabe",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "ramppe000zac",
         "full_name": "Zack Ramppen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 0,
         "bref_id": "fung--000mat",
         "full_name": "Matty Fung",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 2,
         "bref_id": "campag002mik",
         "full_name": "Mike Campagna",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 4,
         "bref_id": "keighr000pat",
         "full_name": "Patrick Keighran",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 2,
         "bref_id": "rogers001tj-",
         "full_name": "T.J. Rogers",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "leax--000log",
         "full_name": "Logan Leax",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": "pellet000cha",
         "full_name": "Charles-Etienne Pelletier",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 3,
         "bref_id": "amaral000joh",
         "full_name": "JT Amaral",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "sobero000joe",
         "full_name": "Joe Soberon",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "calia-000kol",
         "full_name": "Kolby Calia",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -431,7 +431,7 @@
         "pitches": 72,
         "bref_id": "kitche000col",
         "full_name": "Cole Kitchen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "pitches": 55,
         "bref_id": "bayles000max",
         "full_name": "Max Bayles",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -465,7 +465,7 @@
         "pitches": 87,
         "bref_id": "sobero000joe",
         "full_name": "Joe Soberon",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -481,7 +481,7 @@
         "pitches": 38,
         "bref_id": "calia-000kol",
         "full_name": "Kolby Calia",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

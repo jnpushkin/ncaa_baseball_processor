@@ -37,7 +37,7 @@
         "left_on_base": 0,
         "bref_id": "davala000cha",
         "full_name": "Charles Davalan",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 2,
         "bref_id": "maxwel001log",
         "full_name": "Logan Maxwell",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 0,
         "bref_id": "diggs-000ken",
         "full_name": "Kendall Diggs",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 3,
         "bref_id": "helfri000ryd",
         "full_name": "Ryder Helfrick",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "kozeal000cam",
         "full_name": "Cam Kozeal",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 0,
         "bref_id": "iredal000bre",
         "full_name": "Brent Iredale",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 2,
         "bref_id": "robine000ree",
         "full_name": "Reese Robinett",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "thomas009jus",
         "full_name": "Justin Thomas",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "wood--000gag",
         "full_name": "Gage Wood",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -226,7 +226,7 @@
         "left_on_base": 0,
         "bref_id": "hogart000jon",
         "full_name": "Jonathan Hogart",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -243,7 +243,7 @@
         "left_on_base": 0,
         "bref_id": "mercer000dus",
         "full_name": "Dustin Mercer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "garner000car",
         "full_name": "Carson Garner",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 0,
         "bref_id": "decker000dom",
         "full_name": "Dom Decker",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "miston000luk",
         "full_name": "Luke Mistone",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 0,
         "bref_id": "vierli000wil",
         "full_name": "Will Vierling",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 1,
         "bref_id": "tauken002dan",
         "full_name": "Dan Tauken",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "jury--000cha",
         "full_name": "Charlie Jury",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": "bermeo000nic",
         "full_name": "Nico Bermeo",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "cunnin001con",
         "full_name": "Conner Cunningham",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "silva-001isa",
         "full_name": "Isaac Silva",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -414,7 +414,7 @@
         "pitches": 119,
         "bref_id": "wood--000gag",
         "full_name": "Gage Wood",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -432,7 +432,7 @@
         "pitches": 90,
         "bref_id": "silva-001isa",
         "full_name": "Isaac Silva",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -448,7 +448,7 @@
         "pitches": 53,
         "bref_id": "kelham000gra",
         "full_name": "Graham Kelham",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

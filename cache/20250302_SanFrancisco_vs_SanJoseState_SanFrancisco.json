@@ -54,7 +54,7 @@
         "left_on_base": 0,
         "bref_id": "fernan018ale",
         "full_name": "Alex Fernandes",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 1,
         "bref_id": "chamiz000zac",
         "full_name": "Zach Chamizo",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 2,
         "bref_id": "osorio000jc-",
         "full_name": "JC Osorio-Agard",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 0,
         "bref_id": "nanez-000ant",
         "full_name": "Antonio Nanez",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "mccoy-002jak",
         "full_name": "Jake McCoy",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 1,
         "bref_id": "jansen000nei",
         "full_name": "Neil Jansen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 0,
         "bref_id": "gianni000dre",
         "full_name": "Drew Giannini",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 0,
         "bref_id": "fabian000rao",
         "full_name": "Raoul Fabian",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "campag000jac",
         "full_name": "Jacob Campagna",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "mendoz001mat",
         "full_name": "Matteo Mendoza",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "taller000zac",
         "full_name": "Zach Tallerman",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -258,7 +258,7 @@
         "left_on_base": 0,
         "bref_id": "scott-000win",
         "full_name": "Win Scott",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -275,7 +275,7 @@
         "left_on_base": 0,
         "bref_id": "george000nol",
         "full_name": "Nolan George",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -294,7 +294,7 @@
         "left_on_base": 1,
         "bref_id": "decell000ken",
         "full_name": "Kenny DeCelle",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 0,
         "bref_id": "lewis-005jor",
         "full_name": "Jordan Lewis",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 0,
         "bref_id": "rogers001tj-",
         "full_name": "T.J. Rogers",
-        "match_confidence": 0.9
+        "match_confidence": 0.8
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "keighr000pat",
         "full_name": "Patrick Keighran",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 1,
         "bref_id": "harmon001tre",
         "full_name": "Trevor Harmon",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 0,
         "bref_id": "esquiv000edd",
         "full_name": "Eddison Esquivel",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "fung--000mat",
         "full_name": "Matty Fung",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 0,
         "bref_id": "ramppe000zac",
         "full_name": "Zack Ramppen",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 2,
         "bref_id": "amaral000joh",
         "full_name": "JT Amaral",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 3,
         "bref_id": "harrie000tyl",
         "full_name": "Tyler Harries",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 0,
         "bref_id": "watana000kod",
         "full_name": "Kody Watanabe",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -481,7 +481,7 @@
         "left_on_base": 0,
         "bref_id": "risse-000aid",
         "full_name": "Aidan Risse",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "left_on_base": 0,
         "bref_id": "holzem000hun",
         "full_name": "Hunter Holzemer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -515,7 +515,7 @@
         "left_on_base": 0,
         "bref_id": "brown-010dyl",
         "full_name": "Dylan Brown",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -530,9 +530,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "albane000tyl",
-        "full_name": "Tyler Albanese",
-        "match_confidence": 0.9
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       }
     ],
     "away_pitching": [
@@ -550,7 +550,7 @@
         "pitches": 69,
         "bref_id": "scott-000win",
         "full_name": "Win Scott",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -566,7 +566,7 @@
         "pitches": 59,
         "bref_id": "george000nol",
         "full_name": "Nolan George",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -582,7 +582,7 @@
         "pitches": 33,
         "bref_id": "albane000tyl",
         "full_name": "Tyler Albanese",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -600,7 +600,7 @@
         "pitches": 65,
         "bref_id": "risse-000aid",
         "full_name": "Aidan Risse",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -616,7 +616,7 @@
         "pitches": 39,
         "bref_id": "holzem000hun",
         "full_name": "Hunter Holzemer",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -632,7 +632,7 @@
         "pitches": 27,
         "bref_id": "brown-010dyl",
         "full_name": "Dylan Brown",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

@@ -37,7 +37,7 @@
         "left_on_base": 0,
         "bref_id": "crews-000dyl",
         "full_name": "Dylan Crews",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -54,7 +54,7 @@
         "left_on_base": 1,
         "bref_id": "white-000tom",
         "full_name": "Tommy White",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -71,7 +71,7 @@
         "left_on_base": 1,
         "bref_id": "morgan002tre",
         "full_name": "Tre' Morgan",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -88,7 +88,7 @@
         "left_on_base": 1,
         "bref_id": "travin000hay",
         "full_name": "Hayden Travinski",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -105,7 +105,7 @@
         "left_on_base": 0,
         "bref_id": "merrif000jac",
         "full_name": "Jack Merrifield",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -122,7 +122,7 @@
         "left_on_base": 0,
         "bref_id": "milazz001ale",
         "full_name": "Alex Milazzo",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -139,7 +139,7 @@
         "left_on_base": 0,
         "bref_id": "beloso000cad",
         "full_name": "Cade Beloso",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -156,7 +156,7 @@
         "left_on_base": 1,
         "bref_id": "dugas-000gav",
         "full_name": "Gavin Dugas",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -173,7 +173,7 @@
         "left_on_base": 2,
         "bref_id": "jobert000bra",
         "full_name": "Brayden Jobert",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -190,7 +190,7 @@
         "left_on_base": 1,
         "bref_id": "thomps002jor",
         "full_name": "Jordan Thompson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -207,7 +207,7 @@
         "left_on_base": 0,
         "bref_id": "pearso002jos",
         "full_name": "Josh Pearson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -224,7 +224,7 @@
         "left_on_base": 0,
         "bref_id": "floyd-000ty-",
         "full_name": "Ty Floyd",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -241,7 +241,7 @@
         "left_on_base": 0,
         "bref_id": "hurd--000tha",
         "full_name": "Thatcher Hurd",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -260,7 +260,7 @@
         "left_on_base": 0,
         "bref_id": "hawke-000tom",
         "full_name": "Tommy Hawke",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -277,7 +277,7 @@
         "left_on_base": 0,
         "bref_id": "bennet000pie",
         "full_name": "Pierce Bennett",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -294,7 +294,7 @@
         "left_on_base": 0,
         "bref_id": "kurtz-000nic",
         "full_name": "Nick Kurtz",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -311,7 +311,7 @@
         "left_on_base": 3,
         "bref_id": "wilken000bro",
         "full_name": "Brock Wilken",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -328,7 +328,7 @@
         "left_on_base": 1,
         "bref_id": "johnso005jus",
         "full_name": "Justin Johnson",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -345,7 +345,7 @@
         "left_on_base": 0,
         "bref_id": "corona001dan",
         "full_name": "Danny Corona",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": "lee---004ben",
         "full_name": "Bennett Lee",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -379,7 +379,7 @@
         "left_on_base": 3,
         "bref_id": "cecere000ada",
         "full_name": "Adam Cecere",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -396,7 +396,7 @@
         "left_on_base": 0,
         "bref_id": "costel000luc",
         "full_name": "Lucas Costello",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -413,7 +413,7 @@
         "left_on_base": 2,
         "bref_id": "housto000mar",
         "full_name": "Marek Houston",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -430,7 +430,7 @@
         "left_on_base": 0,
         "bref_id": "hartle002jos",
         "full_name": "Josh Hartle",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -447,7 +447,7 @@
         "left_on_base": 0,
         "bref_id": "roland000col",
         "full_name": "Cole Roland",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -464,7 +464,7 @@
         "left_on_base": 0,
         "bref_id": "massey002mic",
         "full_name": "Michael Massey",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "away_pitching": [
@@ -482,7 +482,7 @@
         "pitches": 97,
         "bref_id": "floyd-000ty-",
         "full_name": "Ty Floyd",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -498,7 +498,7 @@
         "pitches": 65,
         "bref_id": "hurd--000tha",
         "full_name": "Thatcher Hurd",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -516,7 +516,7 @@
         "pitches": 107,
         "bref_id": "hartle002jos",
         "full_name": "Josh Hartle",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -532,7 +532,7 @@
         "pitches": 14,
         "bref_id": "roland000col",
         "full_name": "Cole Roland",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -548,7 +548,7 @@
         "pitches": 13,
         "bref_id": "massey002mic",
         "full_name": "Michael Massey",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -564,7 +564,7 @@
         "pitches": 14,
         "bref_id": "minacc000cam",
         "full_name": "Camden Minacci",
-        "match_confidence": 0.9
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

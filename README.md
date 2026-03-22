@@ -2,6 +2,30 @@
 
 A Python tool for tracking baseball games across NCAA, MiLB, and independent Partner Leagues. Parses box scores, detects milestones, tracks player crossover between levels, and generates an interactive website and Excel workbook.
 
+## Quick Start
+
+```bash
+# Install
+git clone https://github.com/jnpushkin/ncaa_baseball_processor.git
+cd ncaa_baseball_processor
+pip3 install -r requirements.txt
+
+# Download a box score PDF from a team's athletics website, then:
+cp ~/Downloads/boxscore.pdf pdfs/20260321_UConn_vs_SanDiegoState_SanDiego.pdf
+
+# Run the processor
+python3 -m baseball_processor
+```
+
+This parses all PDFs in `pdfs/`, fetches any MiLB/Partner League games listed in their respective `game_ids.txt` files, detects milestones, and generates:
+- `Baseball_Stats.html` — interactive single-page website (auto-deployed to Surge.sh)
+- `Baseball_Stats.xlsx` — Excel workbook with detailed statistics
+
+To regenerate output from previously cached data without re-parsing:
+```bash
+python3 -m baseball_processor --from-cache-only
+```
+
 ## Features
 
 - Parse NCAA PDF box scores with automatic format detection
@@ -18,25 +42,29 @@ A Python tool for tracking baseball games across NCAA, MiLB, and independent Par
 ```bash
 git clone https://github.com/jnpushkin/ncaa_baseball_processor.git
 cd ncaa_baseball_processor
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Adding Games
 
 ### NCAA Games
 
-1. Download the box score PDF from the team's athletics website
-2. Save it to the `pdfs/` directory with this naming convention:
+1. Go to the home team's athletics website and find the box score page for the game
+2. Download the box score PDF (usually linked on the page)
+3. Rename and save it to the `pdfs/` directory with this naming convention:
    ```
    YYYYMMDD_AwayTeam_vs_HomeTeam_City.pdf
    ```
    For example: `20250214_Nevada_vs_California_Berkeley.pdf`
-3. Run the processor:
+   - Use the game date in `YYYYMMDD` format
+   - Use team names without spaces (e.g. `SanDiegoState`, not `San Diego State`)
+   - City is the home team's city (no spaces)
+4. Run the processor:
    ```bash
    python3 -m baseball_processor
    ```
 
-The PDF is automatically parsed, cached as JSON in `cache/`, and included in output generation.
+The PDF is automatically parsed, cached as JSON in `cache/`, and included in output generation. On subsequent runs, cached games are loaded instantly unless `--no-cache` is used.
 
 ### MiLB Games
 

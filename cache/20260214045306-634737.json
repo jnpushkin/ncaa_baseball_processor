@@ -54,7 +54,7 @@
         "left_on_base": 1,
         "bref_id": null,
         "full_name": null,
-        "match_confidence": 0.4
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -362,7 +362,7 @@
         "left_on_base": 0,
         "bref_id": null,
         "full_name": null,
-        "match_confidence": 0.4
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -411,9 +411,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": "lewis-005jor",
-        "full_name": "Jordan Lewis",
-        "match_confidence": 1.0
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
@@ -428,9 +428,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 3,
-        "bref_id": "lewis-001jar",
-        "full_name": "Jared Lewis",
-        "match_confidence": 1.0
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
       },
       {
         "number": "",
