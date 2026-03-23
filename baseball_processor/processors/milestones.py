@@ -6,20 +6,7 @@ import re
 from typing import Dict, List, Any
 import pandas as pd
 
-from ..utils.helpers import safe_int, safe_float, parse_innings_pitched, normalize_team_name
-
-
-def normalize_player_name(name: str) -> str:
-    """Convert 'Last, First' format names to 'First Last'."""
-    if not name or ',' not in name:
-        return name
-    parts = [p.strip() for p in name.split(',', 1)]
-    if len(parts) == 2 and parts[1] and parts[0]:
-        # Avoid converting game notes like "SB: Smith, Jones"
-        if ':' in parts[0]:
-            return name
-        return f"{parts[1]} {parts[0]}"
-    return name
+from ..utils.helpers import safe_int, safe_float, parse_innings_pitched, normalize_team_name, normalize_player_name
 
 
 def is_valid_player_name(name: str) -> bool:
@@ -388,7 +375,7 @@ class MilestonesProcessor:
 
                 # Process pitching milestones
                 pitchers = box_score.get(f'{side}_pitching', [])
-                for player in pitchers:
+                for pitcher_idx, player in enumerate(pitchers):
                     name = normalize_player_name(player.get('full_name') or player.get('name', ''))
                     if not is_valid_player_name(name):
                         continue
@@ -399,6 +386,7 @@ class MilestonesProcessor:
                     r = safe_int(player.get('runs', player.get('r', 0)))
                     h = safe_int(player.get('hits', player.get('h', 0)))
                     bb = safe_int(player.get('walks', player.get('bb', 0)))
+                    hbp = safe_int(player.get('hit_by_pitch', player.get('hbp', 0)))
                     pitches = safe_int(player.get('pitches', player.get('np', 0)))
                     decision = player.get('decision', '').upper()
                     # MiLB API uses boolean fields instead of decision string
@@ -426,10 +414,10 @@ class MilestonesProcessor:
                     is_complete_game = ip >= 9
                     is_seven_inning_cg = ip >= 7 and ip < 9
 
-                    # Perfect game (CG, 0 H, 0 BB, exactly 27 batters faced)
+                    # Perfect game (CG, 0 H, 0 BB, 0 HBP, exactly 27 batters faced)
                     batters_faced = safe_int(player.get('batters_faced', player.get('bf', 0)))
-                    is_perfect = is_complete_game and h == 0 and bb == 0 and (batters_faced == 27 or batters_faced == 0)
-                    if is_perfect and batters_faced == 27:
+                    is_perfect = is_complete_game and h == 0 and bb == 0 and hbp == 0 and batters_faced == 27
+                    if is_perfect:
                         milestones['perfect_games'].append({
                             **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb,
                         })
@@ -499,20 +487,20 @@ class MilestonesProcessor:
                             **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
                         })
 
-                    # Quality starts (6+ IP, 3 or fewer ER)
-                    if ip >= 6 and er <= 3:
+                    # Quality starts (6+ IP, 3 or fewer ER, must be the starter)
+                    if ip >= 6 and er <= 3 and pitcher_idx == 0:
                         milestones['quality_starts'].append({
                             **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
                         })
 
                     # Dominant start (7+ IP, 10+ K)
-                    if ip >= 7 and k >= 10:
+                    if ip >= 7 and k >= 10 and pitcher_idx == 0:
                         milestones['dominant_starts'].append({
                             **base_info, 'IP': ip_str, 'K': k, 'H': h, 'BB': bb, 'ER': er,
                         })
 
                     # Efficient start (6+ IP, 80 or fewer pitches)
-                    if ip >= 6 and pitches > 0 and pitches <= 80:
+                    if ip >= 6 and pitches > 0 and pitches <= 80 and pitcher_idx == 0:
                         milestones['efficient_starts'].append({
                             **base_info, 'IP': ip_str, 'K': k, 'Pitches': pitches, 'H': h, 'BB': bb,
                         })

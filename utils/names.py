@@ -132,6 +132,30 @@ def normalize_name(name: str) -> str:
     return name
 
 
+def normalize_player_name(name: str) -> str:
+    """
+    Convert 'Last, First' format names to 'First Last' for display.
+
+    Unlike normalize_name(), this preserves original casing and does NOT lowercase.
+    Used for display purposes in milestones and other user-facing output.
+
+    Args:
+        name: Player name, possibly in "Last, First" format
+
+    Returns:
+        Name in "First Last" format, or original if not comma-separated
+    """
+    if not name or ',' not in name:
+        return name
+    parts = [p.strip() for p in name.split(',', 1)]
+    if len(parts) == 2 and parts[1] and parts[0]:
+        # Avoid converting game notes like "SB: Smith, Jones"
+        if ':' in parts[0]:
+            return name
+        return f"{parts[1]} {parts[0]}"
+    return name
+
+
 def normalize_name_for_matching(name: str) -> str:
     """
     Normalize a player name for fuzzy matching (lowercase, remove punctuation).

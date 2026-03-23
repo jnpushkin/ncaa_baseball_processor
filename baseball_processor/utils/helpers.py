@@ -10,6 +10,8 @@ from utils.names import (
     format_innings_pitched,
     parse_innings_pitched,
     normalize_team_name,
+    normalize_name,
+    normalize_player_name,
     UPPERCASE_TEAMS,
 )
 
@@ -40,41 +42,6 @@ def safe_float(value: Any, default: float = 0.0) -> float:
         return float(value)
     except (ValueError, TypeError):
         return default
-
-
-def normalize_name(name: str) -> str:
-    """
-    Normalize player name for consistent tracking.
-
-    Converts to lowercase, removes extra spaces, handles common variations.
-    Converts "Last, First" format to "first last" for consistent display.
-    """
-    if not name:
-        return ""
-
-    # Strip whitespace
-    name = name.strip()
-
-    # Handle "Last, First" or "Last,First" format - convert to "First Last"
-    if ',' in name:
-        parts = name.split(',', 1)
-        last = parts[0].strip()
-        first = parts[1].strip() if len(parts) > 1 else ''
-        if first:
-            name = f"{first} {last}"
-        else:
-            name = last
-
-    # Lowercase
-    name = name.lower()
-
-    # Remove common suffixes
-    name = re.sub(r'\s+(jr\.?|sr\.?|ii|iii|iv)$', '', name, flags=re.IGNORECASE)
-
-    # Remove extra whitespace
-    name = ' '.join(name.split())
-
-    return name
 
 
 def calculate_batting_average(hits: int, at_bats: int) -> str:

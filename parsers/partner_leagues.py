@@ -10,12 +10,22 @@ Supports:
 
 import json
 import re
+import sys
 import requests
 from bs4 import BeautifulSoup
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 import xml.etree.ElementTree as ET
+
+# Add parent dir for shared utils
+_parent_dir = str(Path(__file__).resolve().parent.parent)
+if _parent_dir not in sys.path:
+    sys.path.insert(0, _parent_dir)
+
+from utils.http import create_retry_session
+
+_session = create_retry_session()
 
 # Lazy import for partner team data
 # These will be imported on first use to avoid path issues
@@ -633,7 +643,7 @@ def fetch_pointstreak_boxscore(game_id: int, league: str = 'atlantic') -> Dict[s
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
     }
-    response = requests.get(url, headers=headers, timeout=30)
+    response = _session.get(url, headers=headers, timeout=30)
     response.raise_for_status()
 
     return parse_pointstreak_html(response.text, game_id, league)

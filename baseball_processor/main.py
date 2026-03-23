@@ -255,6 +255,7 @@ def process_games(
         print(f"Loaded {count} rosters for player matching")
 
     games = []
+    errors = []
 
     if input_path is None:
         input_path = str(PDF_DIR)
@@ -265,6 +266,8 @@ def process_games(
             game = process_pdf_file(input_path, matcher, use_cache)
             if game:
                 games.append(game)
+            else:
+                errors.append((os.path.basename(input_path), "Failed to parse"))
     elif os.path.isdir(input_path):
         # Directory
         pdf_files = list(Path(input_path).glob("*.pdf"))
@@ -274,10 +277,16 @@ def process_games(
             game = process_pdf_file(str(pdf_file), matcher, use_cache, idx, len(pdf_files))
             if game:
                 games.append(game)
+            else:
+                errors.append((pdf_file.name, "Failed to parse"))
     else:
         print(f"Invalid path: {input_path}")
 
     print(f"\nSuccessfully processed {len(games)} games")
+    if errors:
+        print(f"\nFailed to process {len(errors)}/{len(games) + len(errors)} PDFs:")
+        for filename, error in errors:
+            print(f"  - {filename}: {error}")
     return games
 
 
@@ -404,6 +413,19 @@ def main():
         help='Number of days ahead to scrape (default: full season Feb 14 - Jun 30)'
     )
 
+    # Draft tracking options
+    parser.add_argument(
+        '--fetch-draft',
+        action='store_true',
+        help='Fetch MLB draft data for crossover player matching'
+    )
+    parser.add_argument(
+        '--draft-years',
+        type=str,
+        default=None,
+        help='Draft year range to fetch (e.g., "2020-2025" or "2024")'
+    )
+
     # Deploy options
     parser.add_argument(
         '--no-deploy',
@@ -422,6 +444,30 @@ def main():
         help='Generate Next.js site: output JSON data, build, and deploy'
     )
 
+    # Cross-project options
+    parser.add_argument(
+        '--export-players',
+        action='store_true',
+        help='Generate shared_players.json for cross-project player linking'
+    )
+
+    # Database options
+    parser.add_argument(
+        '--migrate-cache',
+        action='store_true',
+        help='Migrate all JSON cache files into SQLite database'
+    )
+    parser.add_argument(
+        '--db-stats',
+        action='store_true',
+        help='Show database statistics'
+    )
+    parser.add_argument(
+        '--from-db',
+        action='store_true',
+        help='Load all games from SQLite database instead of cache'
+    )
+
     args = parser.parse_args()
 
     # Validate flags
@@ -430,6 +476,30 @@ def main():
         return
     if args.nextjs and args.excel_only:
         print("Error: Cannot use both --nextjs and --excel-only")
+        return
+
+    # Handle database commands
+    if args.migrate_cache:
+        from .db.database import Database
+        db = Database()
+        print("Migrating cache files to SQLite database...")
+        ncaa_imported, ncaa_errors = db.migrate_from_cache(CACHE_DIR, 'ncaa')
+        milb_imported, milb_errors = db.migrate_from_cache(MILB_CACHE_DIR, 'milb')
+        partner_imported, partner_errors = db.migrate_from_cache(PARTNER_CACHE_DIR, 'partner')
+        total = ncaa_imported + milb_imported + partner_imported
+        total_errors = ncaa_errors + milb_errors + partner_errors
+        print(f"\nTotal: {total} games migrated, {total_errors} errors")
+        stats = db.get_stats()
+        print(f"Database: {stats}")
+        return
+
+    if args.db_stats:
+        from .db.database import Database
+        db = Database()
+        stats = db.get_stats()
+        print("Database Statistics:")
+        for key, val in stats.items():
+            print(f"  {key}: {val}")
         return
 
     print("Baseball Stats Processor")
@@ -453,6 +523,22 @@ def main():
             end_date=end,
         )
         print(f"Schedule: {len(schedule_games)} upcoming games loaded")
+
+    # Handle draft data fetching
+    draft_picks = []
+    if args.fetch_draft:
+        sys.path.insert(0, str(BASE_DIR))
+        from parsers.draft_api import fetch_draft_range
+        if args.draft_years:
+            if '-' in args.draft_years:
+                start, end = args.draft_years.split('-')
+                draft_picks = fetch_draft_range(int(start), int(end))
+            else:
+                draft_picks = fetch_draft_range(int(args.draft_years), int(args.draft_years))
+        else:
+            from datetime import datetime as dt
+            draft_picks = fetch_draft_range(2020, dt.now().year)
+        print(f"Draft: {len(draft_picks)} picks loaded")
 
     ncaa_games = []
     milb_games = []
@@ -484,7 +570,12 @@ def main():
 
     # Load NCAA games (unless milb-only)
     elif not args.milb_only:
-        if args.from_cache_only:
+        if args.from_db:
+            from .db.database import Database
+            db = Database()
+            ncaa_games = db.get_all_games('ncaa')
+            print(f"Loaded {len(ncaa_games)} NCAA games from database")
+        elif args.from_cache_only:
             ncaa_games = load_from_cache()
         else:
             roster_dir = args.roster_dir if Path(args.roster_dir).exists() else None
@@ -492,14 +583,24 @@ def main():
 
     # Load MiLB games
     if (args.include_milb or args.milb_only) and not args.no_milb:
-        if args.from_cache_only:
+        if args.from_db:
+            from .db.database import Database as _DbClass
+            _db = _DbClass()
+            milb_games = _db.get_all_games('milb')
+            print(f"Loaded {len(milb_games)} MiLB games from database")
+        elif args.from_cache_only:
             milb_games = load_milb_from_cache()
         else:
             milb_games = load_milb_games()
 
     # Load Partner League games
     if args.include_partner and not args.no_partner:
-        if args.from_cache_only:
+        if args.from_db:
+            from .db.database import Database as _DbClass2
+            _db2 = _DbClass2()
+            partner_games = _db2.get_all_games('partner')
+            print(f"Loaded {len(partner_games)} Partner games from database")
+        elif args.from_cache_only:
             partner_games = load_partner_from_cache()
         else:
             partner_games = load_partner_games()
@@ -531,6 +632,11 @@ def main():
         print(f"  Crossover players: {summary['crossover_players']}")
         if summary['crossover_players'] > 0:
             print(f"    NCAA -> MiLB: {summary['ncaa_to_milb']}")
+
+    # Generate shared player export if requested
+    if args.export_players and crossover_data:
+        from .exporters.shared_players import generate_shared_export
+        generate_shared_export(crossover_data, website_url=f"https://{args.deploy_domain}")
 
     # Save intermediate JSON if requested
     if args.save_json:
@@ -600,7 +706,7 @@ def main():
             )
 
             html_path = args.output_excel.replace('.xlsx', '.html')
-            generate_website_from_data(processed_data, html_path, all_games, schedule_games=schedule_games)
+            generate_website_from_data(processed_data, html_path, all_games, schedule_games=schedule_games, draft_picks=draft_picks)
 
             print(f"\nDone! Website: {os.path.abspath(html_path)}")
 
@@ -622,7 +728,7 @@ def main():
             )
 
             html_path = args.output_excel.replace('.xlsx', '.html')
-            generate_website_from_data(processed_data, html_path, all_games, schedule_games=schedule_games)
+            generate_website_from_data(processed_data, html_path, all_games, schedule_games=schedule_games, draft_picks=draft_picks)
 
             print(f"\nDone!")
             print(f"Excel: {os.path.abspath(args.output_excel)}")

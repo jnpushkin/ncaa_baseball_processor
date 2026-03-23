@@ -15,11 +15,15 @@ from typing import Dict, List, Optional
 import requests
 from bs4 import BeautifulSoup
 
+from utils.http import create_retry_session, get_with_retry
+
 from .constants import DATA_DIR, SCHEDULE_CACHE_FILE
 from .stadiums import STADIUM_DATA
 
 
 D1BASEBALL_SCORES_URL = "https://d1baseball.com/wp-content/plugins/integritive/dynamic-scores.php"
+
+_session = create_retry_session()
 
 
 def fetch_games_for_date(date: datetime) -> List[Dict]:
@@ -34,8 +38,9 @@ def fetch_games_for_date(date: datetime) -> List[Dict]:
     """
     date_str = date.strftime('%Y%m%d')
     try:
-        resp = requests.get(
+        resp = get_with_retry(
             D1BASEBALL_SCORES_URL,
+            session=_session,
             params={'date': date_str, 'sport': 'baseball'},
             headers={
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -45,7 +50,6 @@ def fetch_games_for_date(date: datetime) -> List[Dict]:
             },
             timeout=15,
         )
-        resp.raise_for_status()
         data = resp.json()
     except (requests.RequestException, ValueError) as e:
         print(f"  Error fetching {date_str}: {e}")

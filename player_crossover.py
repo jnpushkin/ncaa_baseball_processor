@@ -72,7 +72,7 @@ class PlayerRecord:
         return len(self.levels_seen()) > 1
 
 
-def normalize_name(name: str) -> str:
+def normalize_name_for_crossover(name: str) -> str:
     """
     Normalize player name for matching.
 
@@ -119,7 +119,7 @@ def get_name_match_keys(name: str) -> List[str]:
         List of possible match keys
     """
     keys = []
-    normalized = normalize_name(name)
+    normalized = normalize_name_for_crossover(name)
     if normalized:
         keys.append(normalized)
 
@@ -277,6 +277,15 @@ class PlayerCrossover:
 
             box_score = game.get('box_score', {})
 
+            # Extract HR info from game_notes
+            game_notes = game.get('game_notes', {})
+            hr_players = set()
+            hr_counts = {}
+            for hr_entry in game_notes.get('home_runs', []):
+                hr_name = hr_entry.get('player', '')
+                if hr_name:
+                    hr_counts[hr_name] = hr_counts.get(hr_name, 0) + hr_entry.get('game_count', 1)
+
             for side in ['away', 'home']:
                 team = metadata.get(f'{side}_team', '')
 
@@ -287,6 +296,17 @@ class PlayerCrossover:
 
                     if not name:
                         continue
+
+                    # Match HR from game_notes by last name
+                    player_hr = 0
+                    last_name = name.split()[-1] if name else ''
+                    short_name = player.get('name', '')
+                    for hr_name, hr_count in hr_counts.items():
+                        # Match "Haseley, A." to "Adam Haseley" or "Haseley"
+                        hr_last = hr_name.split(',')[0].strip() if ',' in hr_name else hr_name.strip()
+                        if hr_last and (hr_last == last_name or hr_last == short_name):
+                            player_hr = hr_count
+                            break
 
                     key = self._get_or_create_player(name, bref_id=bref_id)
                     self.players[key].ncaa_appearances.append({
@@ -301,6 +321,7 @@ class PlayerCrossover:
                             'R': player.get('runs', player.get('r', 0)),
                             'H': player.get('hits', player.get('h', 0)),
                             'RBI': player.get('rbi', 0),
+                            'HR': player_hr,
                             'BB': player.get('walks', player.get('bb', 0)),
                             'K': player.get('strikeouts', player.get('k', 0)),
                         },

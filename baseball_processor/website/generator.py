@@ -401,7 +401,7 @@ def generate_nextjs_data(processed_data: Dict[str, Any], raw_games: List[Dict] =
     return json_path
 
 
-def generate_website_from_data(processed_data: Dict[str, Any], output_path: str, raw_games: List[Dict] = None, schedule_games: List[Dict] = None):
+def generate_website_from_data(processed_data: Dict[str, Any], output_path: str, raw_games: List[Dict] = None, schedule_games: List[Dict] = None, draft_picks: List[Dict] = None):
     """
     Generate interactive HTML website from processed data.
 
@@ -410,6 +410,7 @@ def generate_website_from_data(processed_data: Dict[str, Any], output_path: str,
         output_path: Path to save the HTML file
         raw_games: Optional list of raw game data for additional details
         schedule_games: Optional list of upcoming schedule game dicts
+        draft_picks: Optional list of draft pick dicts for crossover timeline
     """
     print(f"Generating website: {output_path}")
 
@@ -421,6 +422,48 @@ def generate_website_from_data(processed_data: Dict[str, Any], output_path: str,
         data['scheduleGames'] = schedule_games
     else:
         data['scheduleGames'] = []
+
+    # Add draft data if available
+    if draft_picks:
+        # Build draft lookup keyed by player name (lowercase) and mlb_api_id
+        draft_lookup = {}
+        for pick in draft_picks:
+            # Strip 'raw' field to reduce payload size
+            clean_pick = {k: v for k, v in pick.items() if k != 'raw'}
+            mlb_id = pick.get('mlb_api_id')
+            if mlb_id:
+                draft_lookup[str(mlb_id)] = clean_pick
+            name = pick.get('player_name', '').lower()
+            if name:
+                draft_lookup[name] = clean_pick
+        data['draftData'] = draft_lookup
+    else:
+        data['draftData'] = {}
+
+    # Load MLB processor cross-reference data if available
+    try:
+        from ..exporters.shared_players import load_mlb_processor_export
+        mlb_export = load_mlb_processor_export()
+        if mlb_export:
+            # Build lookup by bref_id and mlb_api_id for quick matching in JS
+            mlb_cross_ref = {}
+            for player in mlb_export.get('players', []):
+                entry = {
+                    'website_url': mlb_export.get('website_url', ''),
+                    'mlb_stats': player.get('mlb_stats', {}),
+                    'mlb_teams': player.get('mlb_teams', []),
+                    'name': player.get('name', ''),
+                }
+                if player.get('bref_id'):
+                    mlb_cross_ref[player['bref_id']] = entry
+                if player.get('mlb_api_id'):
+                    mlb_cross_ref[str(player['mlb_api_id'])] = entry
+            data['mlbCrossRef'] = mlb_cross_ref
+        else:
+            data['mlbCrossRef'] = {}
+    except Exception as e:
+        print(f"Note: Could not load MLB cross-reference data: {e}")
+        data['mlbCrossRef'] = {}
 
     json_data = json.dumps(data, default=str)
 
@@ -1216,6 +1259,55 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             --hover-color: #f8f9fa;
         }}
 
+        .dark {{
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-header: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #4dabf7;
+            --accent-light: #1a3a5c;
+            --border-color: #2a2a4a;
+            --hover-color: #1e2a4a;
+        }}
+
+        .dark th {{
+            background: #1e2a4a;
+        }}
+
+        .dark th:hover {{
+            background: #253558;
+        }}
+
+        .dark tbody tr:nth-child(even) {{
+            background: #1a2340;
+        }}
+
+        .dark .panel-header {{
+            background: linear-gradient(135deg, #1a3a5c 0%, #162a4a 100%);
+        }}
+
+        .dark .modal-content {{
+            background: #16213e;
+        }}
+
+        .dark .search-box {{
+            background: #1a2340;
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }}
+
+        .dark select.search-box {{
+            background: #1a2340;
+            color: var(--text-primary);
+        }}
+
+        .dark .milestone-chip {{
+            background: #2a2a1a;
+            border-color: #5a5a2a;
+            color: #e0d090;
+        }}
+
         * {{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             box-sizing: border-box;
@@ -1629,12 +1721,21 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Baseball Statistics</h1>
-        <p>{header_subtitle} | Generated {generated_time}</p>
+    <div class="header" id="site-header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h1 style="margin: 0 0 8px 0;">Baseball Statistics</h1>
+                <p style="margin: 0; opacity: 0.8; font-size: 0.875rem;">{header_subtitle} | Generated {generated_time}</p>
+            </div>
+            <button id="dark-mode-toggle" onclick="document.body.classList.toggle('dark'); localStorage.setItem('darkMode', document.body.classList.contains('dark'));" style="background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; white-space: nowrap;">Toggle Dark Mode</button>
+        </div>
     </div>
 
     <div id="root"></div>
+
+    <script>
+        if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark');
+    </script>
 
     <script>
         const DATA = {json_data};
@@ -1698,15 +1799,77 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             return {{ items: sortedItems, sortConfig, requestSort }};
         }};
 
+        const usePagination = (items, pageSize = 50) => {{
+            const [page, setPage] = useState(0);
+            const totalPages = Math.ceil((items?.length || 0) / pageSize);
+            const paged = useMemo(() => {{
+                if (!items) return [];
+                return items.slice(page * pageSize, (page + 1) * pageSize);
+            }}, [items, page, pageSize]);
+            const PaginationControls = () => {{
+                if (totalPages <= 1) return null;
+                return (
+                    <div style={{{{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', padding: '12px', fontSize: '0.85rem'}}}}>
+                        <button onClick={{() => setPage(Math.max(0, page - 1))}} disabled={{page === 0}} style={{{{padding: '6px 16px', border: '1px solid var(--border-color)', borderRadius: '4px', background: page === 0 ? 'var(--hover-color)' : 'var(--bg-secondary)', cursor: page === 0 ? 'default' : 'pointer', color: 'var(--text-primary)'}}}}>Prev</button>
+                        <span style={{{{color: 'var(--text-secondary)'}}}}>Page {{page + 1}} of {{totalPages}} ({{items.length}} total)</span>
+                        <button onClick={{() => setPage(Math.min(totalPages - 1, page + 1))}} disabled={{page >= totalPages - 1}} style={{{{padding: '6px 16px', border: '1px solid var(--border-color)', borderRadius: '4px', background: page >= totalPages - 1 ? 'var(--hover-color)' : 'var(--bg-secondary)', cursor: page >= totalPages - 1 ? 'default' : 'pointer', color: 'var(--text-primary)'}}}}>Next</button>
+                    </div>
+                );
+            }};
+            // Reset page when items change
+            useEffect(() => {{ setPage(0); }}, [items?.length]);
+            return {{ paged, page, totalPages, PaginationControls }};
+        }};
+
         const SortableHeader = ({{ label, sortKey, sortConfig, onSort }}) => {{
             const isActive = sortConfig && sortConfig.key === sortKey;
             return (
-                <th onClick={{() => onSort(sortKey)}} className={{isActive ? 'sorted' : ''}}>
+                <th onClick={{() => onSort(sortKey)}} className={{isActive ? 'sorted' : ''}} aria-sort={{isActive ? (sortConfig.direction === 'asc' ? 'ascending' : 'descending') : 'none'}}>
                     {{label}}
                     <span className="sort-indicator">
                         {{isActive ? (sortConfig.direction === 'asc' ? '▲' : '▼') : '⇅'}}
                     </span>
                 </th>
+            );
+        }};
+
+        const ExportButtons = ({{ data, filename }}) => {{
+            if (!data || data.length === 0) return null;
+
+            const downloadCSV = () => {{
+                const headers = Object.keys(data[0]).filter(k => !k.startsWith('_'));
+                const rows = data.map(row => headers.map(h => {{
+                    const val = row[h];
+                    if (val === null || val === undefined) return '';
+                    const str = String(val);
+                    return str.includes(',') || str.includes('"') || str.includes('\\n') ? '"' + str.replace(/"/g, '""') + '"' : str;
+                }}).join(','));
+                const csv = [headers.join(','), ...rows].join('\\n');
+                const blob = new Blob([csv], {{ type: 'text/csv' }});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = (filename || 'export') + '.csv'; a.click();
+                URL.revokeObjectURL(url);
+            }};
+
+            const downloadJSON = () => {{
+                const clean = data.map(row => {{
+                    const obj = {{}};
+                    Object.entries(row).forEach(([k, v]) => {{ if (!k.startsWith('_')) obj[k] = v; }});
+                    return obj;
+                }});
+                const blob = new Blob([JSON.stringify(clean, null, 2)], {{ type: 'application/json' }});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = (filename || 'export') + '.json'; a.click();
+                URL.revokeObjectURL(url);
+            }};
+
+            return (
+                <div style={{{{display: 'flex', gap: '8px', padding: '0 16px 12px'}}}}>
+                    <button onClick={{downloadCSV}} style={{{{padding: '4px 12px', fontSize: '0.75rem', border: '1px solid var(--border-color)', borderRadius: '4px', background: 'var(--bg-secondary)', color: 'var(--text-primary)', cursor: 'pointer'}}}}>Export CSV</button>
+                    <button onClick={{downloadJSON}} style={{{{padding: '4px 12px', fontSize: '0.75rem', border: '1px solid var(--border-color)', borderRadius: '4px', background: 'var(--bg-secondary)', color: 'var(--text-primary)', cursor: 'pointer'}}}}>Export JSON</button>
+                </div>
             );
         }};
 
@@ -1950,7 +2113,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             }});
 
             return (
-                <div className="modal-overlay" onClick={{onClose}}>
+                <div className="modal-overlay" onClick={{onClose}} role="dialog" aria-modal="true">
                     <div className="modal-content" onClick={{(e) => e.stopPropagation()}}>
                         <div className="modal-header">
                             <div>
@@ -2184,10 +2347,20 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
             const levelColors = DATA.levelColors || {{}};
 
+            const {{ paged: pagedItems, PaginationControls }} = usePagination(filtered);
+
+            if (filtered.length === 0) return (
+                <div className="panel">
+                    <div className="panel-header"><h2>All Games</h2></div>
+                    <div style={{{{padding: '24px', textAlign: 'center', color: 'var(--text-secondary)'}}}}>No games match your filters.</div>
+                </div>
+            );
+
             return (
                 <div className="panel">
                     <div className="panel-header"><h2>All Games ({{filtered.length}})</h2></div>
                     <LevelLeagueFilter levelFilter={{levelFilter}} setLevelFilter={{setLevelFilter}} leagueFilter={{leagueFilter}} setLeagueFilter={{setLeagueFilter}} data={{games}} showSearch={{true}} searchTerm={{searchTerm}} setSearchTerm={{setSearchTerm}} searchPlaceholder="Search teams or venues..." />
+                    <ExportButtons data={{filtered}} filename="game_log" />
                     <div className="table-container">
                         <table>
                             <thead>
@@ -2201,7 +2374,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 </tr>
                             </thead>
                             <tbody>
-                                {{filtered.map((g, i) => (
+                                {{pagedItems.map((g, i) => (
                                     <tr key={{i}} style={{{{borderLeft: `4px solid ${{levelColors[g.level] || '#ccc'}}`}}}}>
                                         <td>{{formatDate(g.date)}}</td>
                                         <td>{{getLevelBadgeGeneric(g.level)}}</td>
@@ -2214,6 +2387,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             </tbody>
                         </table>
                     </div>
+                    <PaginationControls />
                 </div>
             );
         }};
@@ -2421,7 +2595,13 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
 
             const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'Date', direction: 'desc' }});
 
-            if (!filtered || filtered.length === 0) return null;
+            if (!data || data.length === 0) return null;
+            if (filtered.length === 0) return (
+                <div className="panel" style={{{{marginTop: '16px'}}}}>
+                    <div className="panel-header"><h2>{{title}}</h2></div>
+                    <div style={{{{padding: '24px', textAlign: 'center', color: 'var(--text-secondary)'}}}}>No results match your filters.</div>
+                </div>
+            );
             const allColumns = ['Level', ...columns];
             return (
                 <div className="panel" style={{{{marginTop: '16px'}}}}>
@@ -3759,6 +3939,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             }}, [batters, levelFilter, leagueFilter, searchTerm]);
 
             const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'g', direction: 'desc' }}, 'ab');
+            const {{ paged: pagedItems, PaginationControls }} = usePagination(items);
+
+            if (filtered.length === 0) return (
+                <div className="panel">
+                    <div className="panel-header"><h2>Batters</h2></div>
+                    <div style={{{{padding: '24px', textAlign: 'center', color: 'var(--text-secondary)'}}}}>No batters match your filters.</div>
+                </div>
+            );
 
             const getTeamLogo = (player) => {{
                 const local = DATA.localLogos && DATA.localLogos[player.team];
@@ -3882,6 +4070,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         setSearchTerm={{setSearchTerm}}
                         searchPlaceholder="Search by name or team..."
                     />
+                    <ExportButtons data={{filtered}} filename="batters" />
                     <div className="table-container">
                         <table>
                             <thead>
@@ -3904,7 +4093,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 </tr>
                             </thead>
                             <tbody>
-                                {{items.map((b, i) => (
+                                {{pagedItems.map((b, i) => (
                                     <React.Fragment key={{i}}>
                                         {{renderBatterRow(b, i, false)}}
                                         {{b.isCombined && expandedPlayers.has(b.bref_id) && b.subRows.map((sub, j) =>
@@ -3915,6 +4104,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             </tbody>
                         </table>
                     </div>
+                    <PaginationControls />
                 </div>
             );
         }};
@@ -3955,6 +4145,14 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             }}, [pitchers, levelFilter, leagueFilter, searchTerm]);
 
             const {{ items, sortConfig, requestSort }} = useSortableData(filtered, {{ key: 'g', direction: 'desc' }}, 'ip');
+            const {{ paged: pagedItems, PaginationControls }} = usePagination(items);
+
+            if (filtered.length === 0) return (
+                <div className="panel">
+                    <div className="panel-header"><h2>Pitchers</h2></div>
+                    <div style={{{{padding: '24px', textAlign: 'center', color: 'var(--text-secondary)'}}}}>No pitchers match your filters.</div>
+                </div>
+            );
 
             const getTeamLogo = (player) => {{
                 const local = DATA.localLogos && DATA.localLogos[player.team];
@@ -4075,6 +4273,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                         setSearchTerm={{setSearchTerm}}
                         searchPlaceholder="Search by name or team..."
                     />
+                    <ExportButtons data={{filtered}} filename="pitchers" />
                     <div className="table-container">
                         <table>
                             <thead>
@@ -4094,7 +4293,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                 </tr>
                             </thead>
                             <tbody>
-                                {{items.map((p, i) => (
+                                {{pagedItems.map((p, i) => (
                                     <React.Fragment key={{i}}>
                                         {{renderPitcherRow(p, i, false)}}
                                         {{p.isCombined && expandedPlayers.has(p.bref_id) && p.subRows.map((sub, j) =>
@@ -4105,6 +4304,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             </tbody>
                         </table>
                     </div>
+                    <PaginationControls />
                 </div>
             );
         }};
@@ -4152,9 +4352,20 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                             {{player['BBRef ID'] && (
                                 <a href={{BREF_BASE + player['BBRef ID']}} target="_blank"
                                    style={{{{marginLeft: '8px', fontSize: '12px', color: '#007bff'}}}}>
-                                    View on Baseball Reference ↗
+                                    View on Baseball Reference &#x2197;
                                 </a>
                             )}}
+                            {{(() => {{
+                                const crossRef = DATA.mlbCrossRef || {{}};
+                                const match = crossRef[player['BBRef ID']] || crossRef[String(player['MLB API ID'] || '')];
+                                if (!match || !match.website_url) return null;
+                                return (
+                                    <a href={{match.website_url}} target="_blank" rel="noopener noreferrer"
+                                       style={{{{marginLeft: '8px', fontSize: '12px', padding: '2px 8px', background: '#0d6efd', color: 'white', borderRadius: '4px', textDecoration: 'none', fontWeight: 600}}}}>
+                                        View on MLB site &#x2197;
+                                    </a>
+                                );
+                            }})()}}
                         </div>
                         <div style={{{{display: 'flex', alignItems: 'stretch', gap: '0'}}}}>
                             {{levels.map((l, idx) => (
@@ -4185,6 +4396,50 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                             <span style={{{{fontSize: '24px', color: '#ccc'}}}}>→</span>
                                         </div>
                                     )}}
+                                </React.Fragment>
+                            ))}}
+                        </div>
+                    </div>
+                );
+            }};
+
+            const DraftTimeline = ({{ player }}) => {{
+                const draftData = DATA.draftData || {{}};
+                const draftInfo = draftData[String(player['MLB API ID'] || '')] || draftData[(player.Name || '').toLowerCase()];
+                if (!draftInfo) return null;
+
+                const nodes = [];
+                const levels = player['Level Details'] || [];
+
+                const ncaaLevels = levels.filter(l => l.level === 'NCAA');
+                ncaaLevels.forEach(l => {{
+                    nodes.push({{ icon: 'NCAA', title: l.teams || 'NCAA', subtitle: l.games + ' game' + (l.games !== 1 ? 's' : ''), color: '#28a745' }});
+                }});
+
+                const rdLabel = draftInfo.round === 1 ? '1st' : draftInfo.round === 2 ? '2nd' : draftInfo.round === 3 ? '3rd' : draftInfo.round + 'th';
+                nodes.push({{ icon: 'Draft', title: rdLabel + ' Rd, Pick ' + draftInfo.pick_number, subtitle: (draftInfo.team_short || draftInfo.team || '') + ' (' + draftInfo.year + ')', color: '#d4a017' }});
+
+                const proLevels = levels.filter(l => l.level === 'MiLB' || l.level === 'Partner');
+                proLevels.forEach(l => {{
+                    nodes.push({{ icon: l.level === 'Partner' ? 'Pro' : 'MiLB', title: l.teams || l.level, subtitle: l.games + ' game' + (l.games !== 1 ? 's' : ''), color: l.level === 'Partner' ? '#9c27b0' : '#ff6b35' }});
+                }});
+
+                return (
+                    <div style={{{{marginTop: '16px'}}}}>
+                        <div style={{{{fontSize: '13px', fontWeight: 600, marginBottom: '8px', color: '#555'}}}}>Career Timeline</div>
+                        <div style={{{{display: 'flex', alignItems: 'center', gap: '0', overflowX: 'auto', padding: '16px 0'}}}}>
+                            {{nodes.map((node, i) => (
+                                <React.Fragment key={{i}}>
+                                    {{i > 0 && <div style={{{{width: '40px', height: '3px', background: node.color, flexShrink: 0}}}} />}}
+                                    <div style={{{{display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '100px', flexShrink: 0}}}}>
+                                        <div style={{{{width: '40px', height: '40px', borderRadius: '50%', background: node.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold', fontSize: '0.65rem'}}}}>
+                                            {{node.icon}}
+                                        </div>
+                                        <div style={{{{marginTop: '8px', textAlign: 'center', fontSize: '0.75rem'}}}}>
+                                            <div style={{{{fontWeight: 600}}}}>{{node.title}}</div>
+                                            <div style={{{{color: '#888', fontSize: '0.7rem'}}}}>{{node.subtitle}}</div>
+                                        </div>
+                                    </div>
                                 </React.Fragment>
                             ))}}
                         </div>
@@ -4234,8 +4489,25 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                             ))}}
                                         </div>
                                     </div>
-                                    <div style={{{{display: 'flex', alignItems: 'center', gap: '24px', color: '#666'}}}}>
+                                    <div style={{{{display: 'flex', alignItems: 'center', gap: '12px', color: '#666'}}}}>
                                         <span>{{p['Total Games']}} total games</span>
+                                        {{(() => {{
+                                            const crossRef = DATA.mlbCrossRef || {{}};
+                                            const match = crossRef[p['BBRef ID']] || crossRef[String(p['MLB API ID'] || '')];
+                                            if (!match || !match.website_url) return null;
+                                            return (
+                                                <a href={{match.website_url}} target="_blank" rel="noopener noreferrer"
+                                                   onClick={{(e) => e.stopPropagation()}}
+                                                   style={{{{
+                                                       display: 'inline-flex', alignItems: 'center', gap: '4px',
+                                                       padding: '3px 10px', background: '#0d6efd', color: 'white',
+                                                       borderRadius: '4px', fontSize: '11px', fontWeight: 600,
+                                                       textDecoration: 'none', whiteSpace: 'nowrap'
+                                                   }}}}>
+                                                    View on MLB site &#x2197;
+                                                </a>
+                                            );
+                                        }})()}}
                                     </div>
                                 </div>
                                 {{expandedPlayer === i && (
@@ -4247,6 +4519,7 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                                         background: '#fafafa'
                                     }}}}>
                                         <PlayerTimeline player={{p}} />
+                                        <DraftTimeline player={{p}} />
                                     </div>
                                 )}}
                             </div>
@@ -4262,6 +4535,29 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
             const [playerType, setPlayerType] = useState(null);
             const [milestoneLevelFilter, setMilestoneLevelFilter] = useState('All');
             const [milestoneLeagueFilter, setMilestoneLeagueFilter] = useState('All');
+            const [searchQuery, setSearchQuery] = useState('');
+            const [searchResults, setSearchResults] = useState([]);
+            const searchTimeout = useRef(null);
+
+            const handleSearch = (query) => {{
+                setSearchQuery(query);
+                if (searchTimeout.current) clearTimeout(searchTimeout.current);
+                if (!query || query.length < 2) {{ setSearchResults([]); return; }}
+                searchTimeout.current = setTimeout(() => {{
+                    const q = query.toLowerCase();
+                    const results = [];
+                    (DATA.unifiedBatters || []).forEach(b => {{
+                        if (b.name && b.name.toLowerCase().includes(q)) results.push({{...b, _type: 'batter', _category: 'Batters'}});
+                    }});
+                    (DATA.unifiedPitchers || []).forEach(p => {{
+                        if (p.name && p.name.toLowerCase().includes(q)) results.push({{...p, _type: 'pitcher', _category: 'Pitchers'}});
+                    }});
+                    (DATA.crossoverPlayers || []).forEach(c => {{
+                        if (c.Name && c.Name.toLowerCase().includes(q)) results.push({{...c, _type: 'crossover', _category: 'Crossover'}});
+                    }});
+                    setSearchResults(results.slice(0, 12));
+                }}, 300);
+            }};
 
             // Handle player click to show modal - normalizes from any source
             const handlePlayerClick = (player, type) => {{
@@ -4358,10 +4654,46 @@ def _generate_html(json_data: str, summary: Dict[str, Any]) -> str:
                 <div className="container">
                     <StatsGrid data={{DATA.summary}} />
 
-                    <div className="tabs">
+                    <div style={{{{position: 'relative', marginBottom: '16px'}}}}>
+                        <input
+                            type="text"
+                            className="search-box"
+                            placeholder="Search players across all levels..."
+                            value={{searchQuery}}
+                            onChange={{(e) => handleSearch(e.target.value)}}
+                            style={{{{maxWidth: '100%', width: '100%'}}}}
+                            role="search"
+                            aria-label="Search players"
+                        />
+                        {{searchResults.length > 0 && (
+                            <div style={{{{position: 'absolute', top: '100%', left: 0, right: 0, background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '0 0 8px 8px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)', zIndex: 100, maxHeight: '400px', overflowY: 'auto'}}}}>
+                                {{searchResults.map((r, i) => (
+                                    <div key={{i}} style={{{{padding: '10px 16px', borderBottom: '1px solid var(--border-color)', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}}}
+                                        onClick={{() => {{
+                                            handlePlayerClick(r, r._type === 'pitcher' ? 'pitcher' : 'batter');
+                                            setSearchQuery('');
+                                            setSearchResults([]);
+                                        }}}}
+                                        onMouseEnter={{(e) => e.currentTarget.style.background = 'var(--hover-color)'}}
+                                        onMouseLeave={{(e) => e.currentTarget.style.background = 'transparent'}}
+                                    >
+                                        <span>{{r.name || r.Name}}</span>
+                                        <div style={{{{display: 'flex', gap: '8px', alignItems: 'center'}}}}>
+                                            <span style={{{{fontSize: '0.75rem', color: 'var(--text-secondary)'}}}}>{{r.team || r.Team || ''}}</span>
+                                            <span style={{{{fontSize: '0.7rem', padding: '2px 8px', borderRadius: '10px', background: 'var(--accent-light)', color: 'var(--accent-color)'}}}}>{{r._category}}</span>
+                                        </div>
+                                    </div>
+                                ))}}
+                            </div>
+                        )}}
+                    </div>
+
+                    <div className="tabs" role="tablist">
                         {{tabs.map(tab => (
                             <button
                                 key={{tab.id}}
+                                role="tab"
+                                aria-selected={{activeTab === tab.id}}
                                 className={{'tab ' + (activeTab === tab.id ? 'active' : '')}}
                                 onClick={{() => setActiveTab(tab.id)}}
                             >

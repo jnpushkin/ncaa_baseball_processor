@@ -1,0 +1,1322 @@
+{
+  "processor": "ncaa",
+  "generated_at": "2026-03-22T22:13:09.549428",
+  "website_url": "https://ncaa-baseball.surge.sh",
+  "player_count": 33,
+  "players": [
+    {
+      "name": "Sebastian Kessay",
+      "bref_id": "kessay000seb",
+      "mlb_bref_id": "",
+      "mlb_api_id": 643394,
+      "levels": [
+        "High-A",
+        "Partner"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Buies Creek Astros",
+        "Fargo-Moorhead RedHawks"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 3,
+        "IP": 6.2,
+        "H": 6,
+        "R": 2,
+        "ER": 1,
+        "BB": 3,
+        "K": 11,
+        "IP_display": "6.1",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Griff O'Ferrall",
+      "bref_id": "oferra000gri",
+      "mlb_bref_id": "",
+      "mlb_api_id": 803172,
+      "levels": [
+        "NCAA",
+        "High-A"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [
+        "Aberdeen IronBirds"
+      ],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 9,
+        "H": 3,
+        "R": 2,
+        "RBI": 2,
+        "HR": 0,
+        "BB": 0,
+        "K": 1,
+        "AVG": ".333",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 1,
+        "AB": 4,
+        "H": 1,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 2,
+        "AVG": ".250",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Nate Eaton",
+      "bref_id": "eaton-000nat",
+      "mlb_bref_id": "eatonna01",
+      "mlb_api_id": 681987,
+      "levels": [
+        "NCAA",
+        "Triple-A",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "VMI"
+      ],
+      "pro_teams": [
+        "Omaha Storm Chasers"
+      ],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 5,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 1,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 1,
+        "AB": 6,
+        "H": 3,
+        "R": 3,
+        "RBI": 2,
+        "HR": 0,
+        "BB": 0,
+        "K": 2,
+        "AVG": ".500",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Maui Ahuna",
+      "bref_id": "ahuna-000mau",
+      "mlb_bref_id": "",
+      "mlb_api_id": 694757,
+      "levels": [
+        "NCAA",
+        "Single-A"
+      ],
+      "ncaa_teams": [
+        "Tennessee"
+      ],
+      "pro_teams": [
+        "San Jose Giants"
+      ],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 5,
+        "H": 3,
+        "R": 1,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 2,
+        "AVG": ".600",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 1,
+        "AB": 3,
+        "H": 2,
+        "R": 3,
+        "RBI": 2,
+        "HR": 0,
+        "BB": 1,
+        "K": 0,
+        "AVG": ".666",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Oscar Gonzalez",
+      "bref_id": "gonzal003osc",
+      "mlb_bref_id": "",
+      "mlb_api_id": 660757,
+      "levels": [
+        "Triple-A",
+        "High-A"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Columbus Clippers",
+        "Lynchburg Hillcats"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 2,
+        "AB": 9,
+        "H": 4,
+        "R": 2,
+        "RBI": 1,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".444",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Brewer Hicklen",
+      "bref_id": "hickle000bre",
+      "mlb_bref_id": "",
+      "mlb_api_id": 676551,
+      "levels": [
+        "Triple-A",
+        "High-A"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Omaha Storm Chasers",
+        "Wilmington Blue Rocks"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 2,
+        "AB": 8,
+        "H": 3,
+        "R": 1,
+        "RBI": 2,
+        "HR": 0,
+        "BB": 2,
+        "K": 4,
+        "AVG": ".375",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Clay Dungan",
+      "bref_id": "dungan000cla",
+      "mlb_bref_id": "",
+      "mlb_api_id": 687867,
+      "levels": [
+        "Triple-A",
+        "Rookie"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Idaho Falls Chukars",
+        "Omaha Storm Chasers"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 2,
+        "AB": 7,
+        "H": 3,
+        "R": 1,
+        "RBI": 2,
+        "HR": 0,
+        "BB": 2,
+        "K": 1,
+        "AVG": ".428",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Jose Marquez",
+      "bref_id": "marque003jos",
+      "mlb_bref_id": "",
+      "mlb_api_id": 660762,
+      "levels": [
+        "High-A",
+        "Rookie"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Idaho Falls Chukars",
+        "Wilmington Blue Rocks"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 2,
+        "AB": 8,
+        "H": 1,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 1,
+        "AVG": ".125",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Sam Haggerty",
+      "bref_id": "hagger000sam",
+      "mlb_bref_id": "",
+      "mlb_api_id": 664059,
+      "levels": [
+        "Double-A",
+        "High-A"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Binghamton Rumble Ponies",
+        "Lynchburg Hillcats"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 2,
+        "AB": 6,
+        "H": 3,
+        "R": 1,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 2,
+        "AVG": ".500",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Matt Angle",
+      "bref_id": "angle-001mat",
+      "mlb_bref_id": "",
+      "mlb_api_id": 518408,
+      "levels": [
+        "Triple-A",
+        "Double-A"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Bowie Baysox",
+        "Norfolk Tides"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 2,
+        "AB": 8,
+        "H": 3,
+        "R": 2,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 2,
+        "K": 1,
+        "AVG": ".375",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Blake Davis",
+      "bref_id": "davis-001bla",
+      "mlb_bref_id": "",
+      "mlb_api_id": 488819,
+      "levels": [
+        "Triple-A",
+        "Double-A"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Bowie Baysox",
+        "Norfolk Tides"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 2,
+        "AB": 6,
+        "H": 2,
+        "R": 1,
+        "RBI": 1,
+        "HR": 0,
+        "BB": 0,
+        "K": 1,
+        "AVG": ".333",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Miguel Abreu",
+      "bref_id": "abreu-002mig",
+      "mlb_bref_id": "",
+      "mlb_api_id": 488652,
+      "levels": [
+        "Triple-A",
+        "Double-A"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Bowie Baysox",
+        "Norfolk Tides"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 2,
+        "AB": 6,
+        "H": 1,
+        "R": 0,
+        "RBI": 1,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".166",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Zack Gelof",
+      "bref_id": "gelof-000zac",
+      "mlb_bref_id": "gelofza01",
+      "mlb_api_id": 680869,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 3,
+        "H": 1,
+        "R": 2,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 1,
+        "K": 1,
+        "AVG": ".333",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Kyle Teel",
+      "bref_id": "teel--000kyl",
+      "mlb_bref_id": "teelky01",
+      "mlb_api_id": 691019,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 7,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 1,
+        "K": 3,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Connelly Early",
+      "bref_id": "early-000con",
+      "mlb_bref_id": "earlyco01",
+      "mlb_api_id": 813349,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 5.0,
+        "H": 6,
+        "R": 2,
+        "ER": 2,
+        "BB": 3,
+        "K": 2,
+        "IP_display": "5.0",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Wyatt Langford",
+      "bref_id": "langfo000wya",
+      "mlb_bref_id": "langfwy01",
+      "mlb_api_id": 694671,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Florida"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 7,
+        "H": 1,
+        "R": 1,
+        "RBI": 1,
+        "HR": 1,
+        "BB": 2,
+        "K": 1,
+        "AVG": ".142",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Jac Caglianone",
+      "bref_id": "caglia000jac",
+      "mlb_bref_id": "caglija01",
+      "mlb_api_id": 695506,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Florida"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 8,
+        "H": 1,
+        "R": 1,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 1,
+        "K": 3,
+        "AVG": ".125",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Hurston Waldrep",
+      "bref_id": "waldre000hur",
+      "mlb_bref_id": "waldrhu01",
+      "mlb_api_id": 694462,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Florida"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 6.0,
+        "H": 7,
+        "R": 1,
+        "ER": 1,
+        "BB": 3,
+        "K": 12,
+        "IP_display": "6.0",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Nick Kurtz",
+      "bref_id": "kurtz-000nic",
+      "mlb_bref_id": "kurtzni01",
+      "mlb_api_id": 701762,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Wake Forest"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 5,
+        "H": 0,
+        "R": 1,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 3,
+        "K": 3,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Rhett Lowder",
+      "bref_id": "lowder000rhe",
+      "mlb_bref_id": "lowderh01",
+      "mlb_api_id": 695076,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Wake Forest"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 5.1,
+        "H": 7,
+        "R": 2,
+        "ER": 2,
+        "BB": 1,
+        "K": 6,
+        "IP_display": "5.0",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Jake McCarthy",
+      "bref_id": "mccart005jac",
+      "mlb_bref_id": "mccarja02",
+      "mlb_api_id": 664983,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 7,
+        "H": 2,
+        "R": 2,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 1,
+        "K": 1,
+        "AVG": ".285",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Christian Moore",
+      "bref_id": "moore-008chr",
+      "mlb_bref_id": "moorech03",
+      "mlb_api_id": 695681,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Tennessee"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 5,
+        "H": 1,
+        "R": 0,
+        "RBI": 2,
+        "HR": 0,
+        "BB": 0,
+        "K": 1,
+        "AVG": ".200",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Chase Dollander",
+      "bref_id": "dollan000cha",
+      "mlb_bref_id": "dollach01",
+      "mlb_api_id": 801403,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Tennessee"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 3.0,
+        "H": 4,
+        "R": 4,
+        "ER": 4,
+        "BB": 2,
+        "K": 2,
+        "IP_display": "3.0",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Chase Burns",
+      "bref_id": "burns-008cha",
+      "mlb_bref_id": "burnsch01",
+      "mlb_api_id": 695505,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Tennessee"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 6.0,
+        "H": 2,
+        "R": 0,
+        "ER": 0,
+        "BB": 0,
+        "K": 9,
+        "IP_display": "6.0",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Ernie Clement",
+      "bref_id": "clemen000ern",
+      "mlb_bref_id": "clemeer01",
+      "mlb_api_id": 676391,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 5,
+        "H": 1,
+        "R": 1,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".200",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Adam Haseley",
+      "bref_id": "hasele000ada",
+      "mlb_bref_id": "haselad01",
+      "mlb_api_id": 656514,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 4,
+        "H": 4,
+        "R": 2,
+        "RBI": 5,
+        "HR": 2,
+        "BB": 1,
+        "K": 0,
+        "AVG": ".1000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Pavin Smith",
+      "bref_id": "smith-000pav",
+      "mlb_bref_id": "smithpa04",
+      "mlb_api_id": 656976,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 4,
+        "H": 1,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".250",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Daniel Lynch IV",
+      "bref_id": "lynch-005dan",
+      "mlb_bref_id": "lynchda02",
+      "mlb_api_id": 663738,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 5.1,
+        "H": 7,
+        "R": 3,
+        "ER": 3,
+        "BB": 4,
+        "K": 3,
+        "IP_display": "5.0",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Alec Bettinger",
+      "bref_id": "bettin000ale",
+      "mlb_bref_id": "bettial01",
+      "mlb_api_id": 676424,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 2.2,
+        "H": 2,
+        "R": 0,
+        "ER": 0,
+        "BB": 0,
+        "K": 4,
+        "IP_display": "2.1",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Tommy Doyle",
+      "bref_id": "doyle-001tom",
+      "mlb_bref_id": "doyleto01",
+      "mlb_api_id": 656382,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Virginia"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 1.0,
+        "H": 1,
+        "R": 0,
+        "ER": 0,
+        "BB": 0,
+        "K": 0,
+        "IP_display": "1.0",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Brandon Sproat",
+      "bref_id": "sproat000bra",
+      "mlb_bref_id": "sproabr01",
+      "mlb_api_id": 687075,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "Florida"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "IP": 6.1,
+        "H": 5,
+        "R": 3,
+        "ER": 3,
+        "BB": 3,
+        "K": 7,
+        "IP_display": "6.0",
+        "AVG": ".000",
+        "AB": 0,
+        "is_pitcher": true
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    },
+    {
+      "name": "Dylan Crews",
+      "bref_id": "crews-000dyl",
+      "mlb_bref_id": "crewsdy01",
+      "mlb_api_id": 686611,
+      "levels": [
+        "NCAA",
+        "MLB"
+      ],
+      "ncaa_teams": [
+        "LSU"
+      ],
+      "pro_teams": [],
+      "ncaa_stats": {
+        "G": 1,
+        "AB": 3,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 1,
+        "K": 2,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": true
+    },
+    {
+      "name": "Caleb Baragar",
+      "bref_id": "barage000cal",
+      "mlb_bref_id": "",
+      "mlb_api_id": 670056,
+      "levels": [
+        "Triple-A",
+        "Double-A"
+      ],
+      "ncaa_teams": [],
+      "pro_teams": [
+        "Columbus Clippers",
+        "Richmond Flying Squirrels"
+      ],
+      "ncaa_stats": {
+        "G": 0,
+        "AB": 0,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 0,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "pro_stats": {
+        "G": 1,
+        "AB": 2,
+        "H": 0,
+        "R": 0,
+        "RBI": 0,
+        "HR": 0,
+        "BB": 0,
+        "K": 2,
+        "AVG": ".000",
+        "is_pitcher": false
+      },
+      "seen_in_mlb": false
+    }
+  ]
+}

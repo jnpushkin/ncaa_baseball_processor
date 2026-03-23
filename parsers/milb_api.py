@@ -12,13 +12,23 @@ Partner Leagues (independent):
 """
 
 import json
+import sys
 import requests
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 
+# Add parent dir for shared utils
+_parent_dir = str(Path(__file__).resolve().parent.parent)
+if _parent_dir not in sys.path:
+    sys.path.insert(0, _parent_dir)
+
+from utils.http import create_retry_session, get_with_retry
+
 
 MILB_API_BASE = "https://statsapi.mlb.com/api/v1"
+
+_session = create_retry_session()
 
 # MLB Partner Leagues (independent leagues)
 PARTNER_LEAGUES = {
@@ -43,8 +53,7 @@ def fetch_game_boxscore(game_pk: int) -> Dict[str, Any]:
         requests.RequestException: If API request fails
     """
     url = f"{MILB_API_BASE}/game/{game_pk}/boxscore"
-    response = requests.get(url, timeout=30)
-    response.raise_for_status()
+    response = get_with_retry(url, session=_session)
     return response.json()
 
 
@@ -59,8 +68,7 @@ def fetch_game_content(game_pk: int) -> Dict[str, Any]:
         Raw API response as dict
     """
     url = f"{MILB_API_BASE}/game/{game_pk}/content"
-    response = requests.get(url, timeout=30)
-    response.raise_for_status()
+    response = get_with_retry(url, session=_session)
     return response.json()
 
 
@@ -75,8 +83,7 @@ def fetch_game_feed(game_pk: int) -> Dict[str, Any]:
         Raw API response as dict
     """
     url = f"https://statsapi.mlb.com/api/v1.1/game/{game_pk}/feed/live"
-    response = requests.get(url, timeout=30)
-    response.raise_for_status()
+    response = get_with_retry(url, session=_session)
     return response.json()
 
 
