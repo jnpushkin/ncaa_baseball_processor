@@ -128,12 +128,13 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
     'RedPocket Mobiles': {
         'id': 'pioneer_redpocket',
         'bref_team_ids': {},
-        'logo': '',
+        'logo': 'https://www.oursportscentral.com/graphics/teams/resized/pl_redpocket_mobiles26-200.png',
         'stadium': '',
         'lat': 0,
         'lng': 0,
         'league': 'Pioneer League',
-        'city': '',
+        'city': 'Road-only',
+        'road_only': True,
     },
 
     # ========== ATLANTIC LEAGUE (10 teams) ==========

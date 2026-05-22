@@ -12,282 +12,27 @@ import os
 import sys
 import json
 import argparse
-import re
 import shutil
 import subprocess
-import tempfile
-from pathlib import Path
-from typing import Dict, List, Any, Optional
 
 from .utils.constants import (
-    BASE_DIR, CACHE_DIR, ROSTERS_DIR, PDF_DIR, OUTPUT_DIR,
-    MILB_DIR, MILB_CACHE_DIR, MILB_GAME_IDS_FILE,
-    PARTNER_DIR, PARTNER_CACHE_DIR, PARTNER_GAME_IDS_FILE,
-    DATA_DIR, SCHEDULE_CACHE_FILE,
+    BASE_DIR,
+    CACHE_DIR,
+    ROSTERS_DIR,
+    PDF_DIR,
+    MILB_CACHE_DIR,
+    PARTNER_CACHE_DIR,
+    PARTNER_ARTIFACT_DIR,
+    NCAA_API_CACHE_DIR,
 )
 from .excel.workbook_generator import generate_excel_workbook
-from .website.generator import generate_website_from_data, generate_nextjs_data
+from .pipeline import build_crossover_data as build_pipeline_crossover_data
+from .sources import load_source_games
+from .website.generator import generate_nextjs_data
 
 
-# Add parent directory for imports
+# Add parent directory for root-level legacy modules used by parsers/pipeline.
 sys.path.insert(0, str(BASE_DIR))
-from ncaab_parser import parse_ncaab_pdf
-from name_matcher import NameMatcher, enrich_game_data
-from parsers.milb_api import process_all_milb_games, process_milb_game
-from parsers.partner_leagues import process_all_partner_games, process_partner_game
-from player_crossover import PlayerCrossover
-
-
-def process_pdf_file(
-    file_path: str,
-    matcher: Optional[NameMatcher] = None,
-    use_cache: bool = True,
-    index: Optional[int] = None,
-    total: Optional[int] = None,
-) -> Optional[Dict[str, Any]]:
-    """
-    Process a single PDF file with caching support.
-
-    Args:
-        file_path: Path to PDF file
-        matcher: Optional NameMatcher for player linking
-        use_cache: Whether to use/update cache
-        index: Current file index (for progress)
-        total: Total files (for progress)
-
-    Returns:
-        Parsed game data dictionary
-    """
-    filename = os.path.basename(file_path)
-    filename_no_ext = os.path.splitext(filename)[0]
-    safe_filename = re.sub(r'[^\w\-_]', '_', filename_no_ext)
-    cache_path = CACHE_DIR / f"{safe_filename}.json"
-
-    if index is not None and total is not None:
-        print(f"[{index}/{total}] Processing: {filename}")
-    else:
-        print(f"Processing: {filename}")
-
-    # Check cache
-    if use_cache and cache_path.exists():
-        pdf_mtime = os.path.getmtime(file_path)
-        cache_mtime = os.path.getmtime(cache_path)
-
-        if pdf_mtime <= cache_mtime:
-            print("  Using cached data")
-            with open(cache_path, 'r', encoding='utf-8') as f:
-                return json.load(f)
-        else:
-            print("  Cache outdated, re-parsing...")
-
-    # Parse PDF
-    try:
-        game_data = parse_ncaab_pdf(file_path)
-
-        meta = game_data.get('metadata', {})
-        print(f"  {meta.get('away_team', '?')} vs {meta.get('home_team', '?')}")
-        print(f"  Score: {meta.get('away_team_score', '?')} - {meta.get('home_team_score', '?')}")
-
-        # Enrich with bref_ids if matcher provided
-        if matcher:
-            game_data = enrich_game_data(game_data, matcher)
-
-        # Save to cache
-        if use_cache:
-            with open(cache_path, 'w', encoding='utf-8') as f:
-                json.dump(game_data, f, indent=2)
-            print("  Cached")
-
-        return game_data
-
-    except Exception as e:
-        print(f"  ERROR: {e}")
-        return None
-
-
-def load_from_cache() -> List[Dict[str, Any]]:
-    """Load all NCAA games from cache directory."""
-    games = []
-    cache_files = list(CACHE_DIR.glob("*.json"))
-    print(f"Loading {len(cache_files)} NCAA games from cache...")
-
-    for cache_file in cache_files:
-        try:
-            with open(cache_file, 'r', encoding='utf-8') as f:
-                games.append(json.load(f))
-        except Exception as e:
-            print(f"  Error loading {cache_file.name}: {e}")
-
-    return games
-
-
-def load_milb_games() -> List[Dict[str, Any]]:
-    """
-    Load MiLB games from game IDs file.
-
-    Returns:
-        List of MiLB game data dicts
-    """
-    if not MILB_GAME_IDS_FILE.exists():
-        print("No MiLB game_ids.txt file found")
-        return []
-
-    # Ensure cache directory exists
-    MILB_CACHE_DIR.mkdir(parents=True, exist_ok=True)
-
-    return process_all_milb_games(MILB_GAME_IDS_FILE, MILB_CACHE_DIR)
-
-
-def load_milb_from_cache() -> List[Dict[str, Any]]:
-    """Load all MiLB games from cache directory."""
-    games = []
-
-    if not MILB_CACHE_DIR.exists():
-        return games
-
-    cache_files = list(MILB_CACHE_DIR.glob("milb_*.json"))
-    print(f"Loading {len(cache_files)} MiLB games from cache...")
-
-    for cache_file in cache_files:
-        try:
-            with open(cache_file, 'r', encoding='utf-8') as f:
-                games.append(json.load(f))
-        except Exception as e:
-            print(f"  Error loading {cache_file.name}: {e}")
-
-    return games
-
-
-def load_partner_games() -> List[Dict[str, Any]]:
-    """
-    Load Partner League games from game IDs file.
-
-    Returns:
-        List of Partner League game data dicts
-    """
-    if not PARTNER_GAME_IDS_FILE.exists():
-        print("No partner league game_ids.txt file found")
-        return []
-
-    # Ensure cache directory exists
-    PARTNER_CACHE_DIR.mkdir(parents=True, exist_ok=True)
-
-    return process_all_partner_games(PARTNER_GAME_IDS_FILE, PARTNER_CACHE_DIR)
-
-
-def load_partner_from_cache() -> List[Dict[str, Any]]:
-    """Load all Partner League games from cache directory."""
-    games = []
-
-    if not PARTNER_CACHE_DIR.exists():
-        return games
-
-    cache_files = list(PARTNER_CACHE_DIR.glob("*.json"))
-    print(f"Loading {len(cache_files)} Partner League games from cache...")
-
-    for cache_file in cache_files:
-        try:
-            with open(cache_file, 'r', encoding='utf-8') as f:
-                games.append(json.load(f))
-        except Exception as e:
-            print(f"  Error loading {cache_file.name}: {e}")
-
-    return games
-
-
-def build_crossover_data(
-    ncaa_games: List[Dict[str, Any]],
-    milb_games: List[Dict[str, Any]],
-    partner_games: Optional[List[Dict[str, Any]]] = None,
-) -> PlayerCrossover:
-    """
-    Build player crossover tracking data.
-
-    Args:
-        ncaa_games: List of NCAA game data
-        milb_games: List of MiLB game data
-        partner_games: List of Partner league game data
-
-    Returns:
-        PlayerCrossover instance with all data loaded
-    """
-    crossover = PlayerCrossover()
-
-    # Load NCAA data
-    if ncaa_games:
-        print(f"Loading {len(ncaa_games)} NCAA games for crossover...")
-        crossover.load_ncaa_data(ncaa_games)
-
-    # Load MiLB data (uses mlb_api_id for player matching)
-    if milb_games:
-        print(f"Loading {len(milb_games)} MiLB games for crossover...")
-        crossover.load_milb_data(milb_games)
-
-    # Load Partner data separately (uses bref_id for player matching)
-    if partner_games:
-        print(f"Loading {len(partner_games)} Partner games for crossover...")
-        crossover.load_partner_data(partner_games)
-
-    return crossover
-
-
-def process_games(
-    input_path: str = None,
-    use_cache: bool = True,
-    roster_dir: str = None,
-) -> List[Dict[str, Any]]:
-    """
-    Process PDF files from directory or load from cache.
-
-    Args:
-        input_path: Path to PDF file or directory
-        use_cache: Whether to use caching
-        roster_dir: Directory with roster JSON files
-
-    Returns:
-        List of parsed game dictionaries
-    """
-    # Setup name matcher
-    matcher = None
-    if roster_dir and Path(roster_dir).exists():
-        matcher = NameMatcher()
-        count = matcher.load_rosters_from_dir(roster_dir)
-        print(f"Loaded {count} rosters for player matching")
-
-    games = []
-    errors = []
-
-    if input_path is None:
-        input_path = str(PDF_DIR)
-
-    if os.path.isfile(input_path):
-        # Single file
-        if input_path.endswith('.pdf'):
-            game = process_pdf_file(input_path, matcher, use_cache)
-            if game:
-                games.append(game)
-            else:
-                errors.append((os.path.basename(input_path), "Failed to parse"))
-    elif os.path.isdir(input_path):
-        # Directory
-        pdf_files = list(Path(input_path).glob("*.pdf"))
-        print(f"Found {len(pdf_files)} PDF files")
-
-        for idx, pdf_file in enumerate(pdf_files, 1):
-            game = process_pdf_file(str(pdf_file), matcher, use_cache, idx, len(pdf_files))
-            if game:
-                games.append(game)
-            else:
-                errors.append((pdf_file.name, "Failed to parse"))
-    else:
-        print(f"Invalid path: {input_path}")
-
-    print(f"\nSuccessfully processed {len(games)} games")
-    if errors:
-        print(f"\nFailed to process {len(errors)}/{len(games) + len(errors)} PDFs:")
-        for filename, error in errors:
-            print(f"  - {filename}: {error}")
-    return games
 
 
 def main():
@@ -330,12 +75,6 @@ def main():
         '--excel-only',
         action='store_true',
         help='Generate only Excel, skip website'
-    )
-
-    parser.add_argument(
-        '--website-only',
-        action='store_true',
-        help='Generate only website, skip Excel'
     )
 
     parser.add_argument(
@@ -386,6 +125,50 @@ def main():
         '--partner-game',
         type=str,
         help='Process a single Partner League game (format: league:game_id, e.g., pioneer:20240828_fhp1)'
+    )
+    parser.add_argument(
+        '--pioneer-by-date',
+        type=str,
+        metavar='YYYY-MM-DD',
+        help='List Pioneer League games on a date, pick one to add to game_ids.txt and fetch'
+    )
+    parser.add_argument(
+        '--download-pioneer-pdfs',
+        action='store_true',
+        help='Save rendered Pioneer source HTML plus a generated PDF of the print view when processing Pioneer games'
+    )
+    parser.add_argument(
+        '--pioneer-artifact-dir',
+        default=str(PARTNER_ARTIFACT_DIR),
+        help='Directory for Pioneer source artifacts (default: partner/artifacts)'
+    )
+
+    # NCAA API options
+    parser.add_argument(
+        '--no-ncaa-api',
+        action='store_true',
+        help='Exclude NCAA API games'
+    )
+    parser.add_argument(
+        '--ncaa-api-game',
+        type=str,
+        help='Process a single NCAA API game by game ID'
+    )
+    parser.add_argument(
+        '--ncaa-api-date',
+        type=str,
+        help='Fetch all NCAA API games for a date (YYYY-MM-DD)'
+    )
+    parser.add_argument(
+        '--ncaa-api-date-range',
+        nargs=2,
+        metavar=('START', 'END'),
+        help='Fetch NCAA API games for a date range (YYYY-MM-DD YYYY-MM-DD)'
+    )
+    parser.add_argument(
+        '--ncaa-api-only',
+        action='store_true',
+        help='Process only NCAA API games (skip PDF, MiLB, Partner)'
     )
 
     # Crossover options
@@ -438,12 +221,6 @@ def main():
         help='Surge domain to deploy to (default: ncaa-baseball.surge.sh)'
     )
 
-    parser.add_argument(
-        '--nextjs',
-        action='store_true',
-        help='Generate Next.js site: output JSON data, build, and deploy'
-    )
-
     # Cross-project options
     parser.add_argument(
         '--export-players',
@@ -470,13 +247,8 @@ def main():
 
     args = parser.parse_args()
 
-    # Validate flags
-    if args.excel_only and args.website_only:
-        print("Error: Cannot use both --excel-only and --website-only")
-        return
-    if args.nextjs and args.excel_only:
-        print("Error: Cannot use both --nextjs and --excel-only")
-        return
+    if args.from_cache_only or args.from_db:
+        os.environ['NCAA_BASEBALL_OFFLINE'] = '1'
 
     # Handle database commands
     if args.migrate_cache:
@@ -486,8 +258,9 @@ def main():
         ncaa_imported, ncaa_errors = db.migrate_from_cache(CACHE_DIR, 'ncaa')
         milb_imported, milb_errors = db.migrate_from_cache(MILB_CACHE_DIR, 'milb')
         partner_imported, partner_errors = db.migrate_from_cache(PARTNER_CACHE_DIR, 'partner')
-        total = ncaa_imported + milb_imported + partner_imported
-        total_errors = ncaa_errors + milb_errors + partner_errors
+        ncaa_api_imported, ncaa_api_errors = db.migrate_from_cache(NCAA_API_CACHE_DIR, 'ncaa_api')
+        total = ncaa_imported + milb_imported + partner_imported + ncaa_api_imported
+        total_errors = ncaa_errors + milb_errors + partner_errors + ncaa_api_errors
         print(f"\nTotal: {total} games migrated, {total_errors} errors")
         stats = db.get_stats()
         print(f"Database: {stats}")
@@ -540,89 +313,29 @@ def main():
             draft_picks = fetch_draft_range(2020, dt.now().year)
         print(f"Draft: {len(draft_picks)} picks loaded")
 
-    ncaa_games = []
-    milb_games = []
-    partner_games = []
+    source_games = load_source_games(args)
+    ncaa_games = source_games.ncaa_games
+    ncaa_api_games = source_games.ncaa_api_games
+    milb_games = source_games.milb_games
+    partner_games = source_games.partner_games
 
-    # Handle single MiLB game
-    if args.milb_game:
-        print(f"\nProcessing single MiLB game: {args.milb_game}")
-        MILB_CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        game_data = process_milb_game(args.milb_game, MILB_CACHE_DIR)
-        milb_games.append(game_data)
-        meta = game_data['metadata']
-        print(f"  {meta['away_team']} @ {meta['home_team']}")
-        print(f"  Score: {meta['away_team_score']} - {meta['home_team_score']}")
-
-    # Handle single Partner League game
-    if args.partner_game:
-        if ':' not in args.partner_game:
-            print("Error: --partner-game must be in format league:game_id")
-            return
-        league, game_id = args.partner_game.split(':', 1)
-        print(f"\nProcessing single Partner League game: {league}:{game_id}")
-        PARTNER_CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        game_data = process_partner_game(game_id, league, PARTNER_CACHE_DIR)
-        partner_games.append(game_data)
-        meta = game_data['metadata']
-        print(f"  [{meta.get('league', {}).get('home', league)}] {meta['away_team']} @ {meta['home_team']}")
-        print(f"  Score: {meta['away_team_score']} - {meta['home_team_score']}")
-
-    # Load NCAA games (unless milb-only)
-    elif not args.milb_only:
-        if args.from_db:
-            from .db.database import Database
-            db = Database()
-            ncaa_games = db.get_all_games('ncaa')
-            print(f"Loaded {len(ncaa_games)} NCAA games from database")
-        elif args.from_cache_only:
-            ncaa_games = load_from_cache()
-        else:
-            roster_dir = args.roster_dir if Path(args.roster_dir).exists() else None
-            ncaa_games = process_games(args.input_path, not args.no_cache, roster_dir)
-
-    # Load MiLB games
-    if (args.include_milb or args.milb_only) and not args.no_milb:
-        if args.from_db:
-            from .db.database import Database as _DbClass
-            _db = _DbClass()
-            milb_games = _db.get_all_games('milb')
-            print(f"Loaded {len(milb_games)} MiLB games from database")
-        elif args.from_cache_only:
-            milb_games = load_milb_from_cache()
-        else:
-            milb_games = load_milb_games()
-
-    # Load Partner League games
-    if args.include_partner and not args.no_partner:
-        if args.from_db:
-            from .db.database import Database as _DbClass2
-            _db2 = _DbClass2()
-            partner_games = _db2.get_all_games('partner')
-            print(f"Loaded {len(partner_games)} Partner games from database")
-        elif args.from_cache_only:
-            partner_games = load_partner_from_cache()
-        else:
-            partner_games = load_partner_games()
-
-    # Combine games for processing (partner games are included with MiLB for stats)
-    all_games = ncaa_games + milb_games + partner_games
+    all_ncaa = source_games.all_ncaa
+    pro_minor_games = source_games.pro_minor_games
+    processing_ncaa = source_games.processing_ncaa
+    all_games = processing_ncaa + pro_minor_games
 
     if not all_games:
         print("No games to process. Exiting.")
         return
 
-    print(f"\nTotal: {len(ncaa_games)} NCAA + {len(milb_games)} MiLB + {len(partner_games)} Partner = {len(all_games)} games")
-
-    # Combine MiLB and Partner games for processing (both are minor/independent leagues)
-    pro_minor_games = milb_games + partner_games
+    print(f"\nTotal: {' + '.join(source_games.summary_parts())} = {len(all_games)} games")
 
     # Build crossover data if requested
     crossover_data = None
-    if args.crossover or milb_games or partner_games:
+    if args.crossover or milb_games or partner_games or args.export_players:
         print("\nBuilding crossover tracking data...")
-        crossover_data = build_crossover_data(
-            ncaa_games,
+        crossover_data = build_pipeline_crossover_data(
+            processing_ncaa,
             milb_games,
             partner_games,
         )
@@ -644,6 +357,7 @@ def main():
         with open(json_path, 'w', encoding='utf-8') as f:
             json.dump({
                 'ncaa_games': ncaa_games,
+                'ncaa_api_games': ncaa_api_games,
                 'milb_games': milb_games,
                 'partner_games': partner_games,
             }, f, indent=2)
@@ -656,112 +370,66 @@ def main():
 
     # Generate outputs
     try:
-        if args.nextjs:
-            print("\nGenerating Next.js website...")
-            processed_data = generate_excel_workbook(
-                all_games, args.output_excel, write_file=False,
-                milb_games=pro_minor_games, crossover_data=crossover_data
-            )
-
-            json_path = generate_nextjs_data(processed_data, all_games, schedule_games=schedule_games)
-            print(f"\nNext.js data ready: {json_path}")
-
-            # Build Next.js static site
-            web_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'web')
-            if os.path.isdir(web_dir):
-                print("\nBuilding Next.js site...")
-                build_result = subprocess.run(
-                    ['npm', 'run', 'build'],
-                    cwd=web_dir,
-                    capture_output=True, text=True
-                )
-                if build_result.returncode != 0:
-                    print(f"Next.js build failed:\n{build_result.stderr or build_result.stdout}")
-                else:
-                    print("Next.js build succeeded.")
-
-                    # Deploy to Surge if not --no-deploy
-                    if not args.no_deploy:
-                        out_dir = os.path.join(web_dir, 'out')
-                        if os.path.isdir(out_dir) and shutil.which('surge'):
-                            print(f"\nDeploying to {args.deploy_domain}...")
-                            deploy_result = subprocess.run(
-                                ['surge', out_dir, '--domain', args.deploy_domain],
-                                capture_output=True, text=True
-                            )
-                            if deploy_result.returncode == 0:
-                                print(f"Deployed to https://{args.deploy_domain}")
-                            else:
-                                print(f"Deploy failed: {deploy_result.stderr or deploy_result.stdout}")
-                        elif not shutil.which('surge'):
-                            print("Skipping deploy: 'surge' CLI not found.")
-            else:
-                print(f"Warning: web/ directory not found at {web_dir}")
-
-        elif args.website_only:
-            print("\nGenerating website only...")
-            processed_data = generate_excel_workbook(
-                all_games, args.output_excel, write_file=False,
-                milb_games=pro_minor_games, crossover_data=crossover_data
-            )
-
-            html_path = args.output_excel.replace('.xlsx', '.html')
-            generate_website_from_data(processed_data, html_path, all_games, schedule_games=schedule_games, draft_picks=draft_picks)
-
-            print(f"\nDone! Website: {os.path.abspath(html_path)}")
-
-        elif args.excel_only:
+        if args.excel_only:
             print("\nGenerating Excel only...")
             generate_excel_workbook(
                 all_games, args.output_excel, write_file=True,
                 milb_games=pro_minor_games, crossover_data=crossover_data
             )
-
             print(f"\nDone! Excel: {os.path.abspath(args.output_excel)}")
+            return
 
+        print("\nGenerating Excel and Next.js website...")
+        processed_data = generate_excel_workbook(
+            all_games, args.output_excel, write_file=True,
+            milb_games=pro_minor_games, crossover_data=crossover_data
+        )
+
+        json_path = generate_nextjs_data(processed_data, all_games, schedule_games=schedule_games)
+        print(f"\nNext.js data ready: {json_path}")
+
+        web_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'web')
+        if not os.path.isdir(web_dir):
+            print(f"Warning: web/ directory not found at {web_dir}")
+            return
+
+        print("\nBuilding Next.js site...")
+        build_result = subprocess.run(
+            ['npm', 'run', 'build'],
+            cwd=web_dir,
+            capture_output=True, text=True
+        )
+        if build_result.returncode != 0:
+            print(f"Next.js build failed:\n{build_result.stderr or build_result.stdout}")
+            return
+        print("Next.js build succeeded.")
+
+        if args.no_deploy:
+            return
+
+        out_dir = os.path.join(web_dir, 'out')
+        if not shutil.which('surge'):
+            print("Skipping deploy: 'surge' CLI not found.")
+            return
+        if not os.path.isdir(out_dir):
+            print(f"Skipping deploy: build output not found at {out_dir}")
+            return
+
+        print(f"\nDeploying to {args.deploy_domain}...")
+        deploy_result = subprocess.run(
+            ['surge', out_dir, '--domain', args.deploy_domain],
+            capture_output=True, text=True
+        )
+        if deploy_result.returncode == 0:
+            print(f"Deployed to https://{args.deploy_domain}")
         else:
-            print("\nGenerating Excel and website...")
-
-            processed_data = generate_excel_workbook(
-                all_games, args.output_excel, write_file=True,
-                milb_games=pro_minor_games, crossover_data=crossover_data
-            )
-
-            html_path = args.output_excel.replace('.xlsx', '.html')
-            generate_website_from_data(processed_data, html_path, all_games, schedule_games=schedule_games, draft_picks=draft_picks)
-
-            print(f"\nDone!")
-            print(f"Excel: {os.path.abspath(args.output_excel)}")
-            print(f"Website: {os.path.abspath(html_path)}")
+            print(f"Deploy failed: {deploy_result.stderr or deploy_result.stdout}")
 
     except Exception as e:
         print(f"Error during processing: {e}")
         import traceback
         traceback.print_exc()
         return
-
-    # Deploy to Surge after legacy HTML website generation (skip for --nextjs which deploys above)
-    if not args.excel_only and not args.no_deploy and not args.nextjs:
-        html_path = args.output_excel.replace('.xlsx', '.html')
-        if not os.path.exists(html_path):
-            print("No HTML file to deploy.")
-            return
-
-        if not shutil.which('surge'):
-            print("Error: 'surge' CLI not found. Install with: npm install -g surge")
-            return
-
-        print(f"\nDeploying to {args.deploy_domain}...")
-        with tempfile.TemporaryDirectory() as deploy_dir:
-            shutil.copy2(html_path, os.path.join(deploy_dir, 'index.html'))
-            result = subprocess.run(
-                ['surge', deploy_dir, '--domain', args.deploy_domain],
-                capture_output=True, text=True
-            )
-            if result.returncode == 0:
-                print(f"Deployed to https://{args.deploy_domain}")
-            else:
-                print(f"Deploy failed: {result.stderr or result.stdout}")
 
 
 if __name__ == '__main__':

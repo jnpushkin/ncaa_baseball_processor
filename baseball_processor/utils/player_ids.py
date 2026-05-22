@@ -28,6 +28,9 @@ CHADWICK_RAW_URL = 'https://raw.githubusercontent.com/chadwickbureau/register/ma
 # Auto-refresh cache if older than this many days
 CACHE_MAX_AGE_DAYS = 7
 
+# Set by cache/db-only processor runs so reference lookups use local data only.
+OFFLINE_ENV_VAR = 'NCAA_BASEBALL_OFFLINE'
+
 
 class PlayerIDMapper:
     """
@@ -65,6 +68,8 @@ class PlayerIDMapper:
         Ensure Chadwick data is downloaded and loaded.
 
         Auto-refreshes if cache is older than CACHE_MAX_AGE_DAYS.
+        If NCAA_BASEBALL_OFFLINE=1 is set, stale local cache is loaded as-is
+        and no network download is attempted.
 
         Args:
             force_refresh: If True, force re-download even if cache exists
@@ -76,10 +81,19 @@ class PlayerIDMapper:
             return True
 
         cache_file = CHADWICK_CACHE_DIR / 'player_id_map.json'
+        offline = os.environ.get(OFFLINE_ENV_VAR, '').lower() in {'1', 'true', 'yes'}
 
         # Check if cache needs refresh (older than max age)
         needs_refresh = force_refresh
         if cache_file.exists() and not force_refresh:
+            if offline:
+                try:
+                    self._load_from_cache(cache_file)
+                    return True
+                except Exception as e:
+                    print(f"Failed to load cache in offline mode: {e}")
+                    return False
+
             cache_age = datetime.now() - datetime.fromtimestamp(cache_file.stat().st_mtime)
             if cache_age > timedelta(days=CACHE_MAX_AGE_DAYS):
                 print(f"Chadwick cache is {cache_age.days} days old, refreshing...")
@@ -93,6 +107,10 @@ class PlayerIDMapper:
             except Exception as e:
                 print(f"Failed to load cache: {e}")
                 needs_refresh = True
+
+        if offline and not force_refresh:
+            print("Chadwick cache unavailable; offline mode, skipping download")
+            return False
 
         # Download fresh data
         if needs_refresh:
@@ -118,6 +136,23 @@ class PlayerIDMapper:
         # Save to cache
         self._save_to_cache(cache_file)
 
+        return True
+
+    def load_cached_data(self) -> bool:
+        """
+        Load Chadwick mappings from the local JSON cache without downloading.
+
+        Returns:
+            True if cached data was loaded successfully
+        """
+        if self._loaded:
+            return True
+
+        cache_file = CHADWICK_CACHE_DIR / 'player_id_map.json'
+        if not cache_file.exists():
+            return False
+
+        self._load_from_cache(cache_file)
         return True
 
     def _download_chadwick_data(self) -> bool:
@@ -303,6 +338,37 @@ class PlayerIDMapper:
             Numeric MLBAM ID or None
         """
         return self.register_to_mlbam.get(register_id)
+
+    def get_player_name(self, any_id) -> Optional[str]:
+        """
+        Get the Chadwick player name for a register, MLB, or MLBAM ID.
+
+        Args:
+            any_id: Any player ID
+
+        Returns:
+            Player name or None
+        """
+        if any_id in (None, ''):
+            return None
+
+        if isinstance(any_id, str):
+            player_id = any_id.strip()
+            if player_id in self.register_to_name:
+                return self.register_to_name.get(player_id)
+            if player_id in self.mlb_to_name:
+                return self.mlb_to_name.get(player_id)
+        else:
+            player_id = any_id
+
+        try:
+            mlbam_int = int(player_id)
+            if mlbam_int in self.mlbam_to_name:
+                return self.mlbam_to_name.get(mlbam_int)
+        except (ValueError, TypeError):
+            pass
+
+        return self.get_all_ids(player_id).get('name')
 
     def get_all_ids(self, any_id) -> Dict[str, any]:
         """

@@ -44,6 +44,13 @@ MILB_API_BASE = "https://statsapi.mlb.com/api/v1"
 PARTNER_DIR = BASE_DIR / "partner"
 PARTNER_CACHE_DIR = PARTNER_DIR / "cache"
 PARTNER_GAME_IDS_FILE = PARTNER_DIR / "game_ids.txt"
+PARTNER_ARTIFACT_DIR = PARTNER_DIR / "artifacts"
+
+# NCAA API (free NCAA stats API - ncaa-api.henrygd.me)
+NCAA_API_DIR = BASE_DIR / "ncaa_api"
+NCAA_API_CACHE_DIR = NCAA_API_DIR / "cache"
+NCAA_API_GAME_IDS_FILE = NCAA_API_DIR / "game_ids.txt"
+NCAA_API_BASE = "https://ncaa-api.henrygd.me"
 
 
 # === BASEBALL STAT COLUMNS ===

@@ -5,7 +5,7 @@ Game log processor for baseball.
 from typing import Dict, List, Any
 import pandas as pd
 
-from ..utils.helpers import safe_int, normalize_team_name, parse_date_for_sort
+from ..utils.helpers import safe_int, normalize_team_name, resolve_venue_name, parse_date_for_sort
 
 
 class GameLogProcessor:
@@ -64,7 +64,7 @@ class GameLogProcessor:
                 'Away Hits': away_hits,
                 'Home Hits': home_hits,
                 'Innings': innings,
-                'Venue': meta.get('venue', ''),
+                'Venue': resolve_venue_name(meta),
                 'Attendance': meta.get('attendance', ''),
             })
 

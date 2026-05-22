@@ -1,0 +1,1197 @@
+{
+  "metadata": {
+    "date": "06/15/2025",
+    "date_yyyymmdd": "20250615",
+    "away_team": "Arizona",
+    "away_team_short": "ARIZ",
+    "away_team_id": 43627,
+    "home_team": "Louisville",
+    "home_team_short": "LOUIS",
+    "home_team_id": 43282,
+    "away_team_score": 3,
+    "home_team_score": 8,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6448805"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Mason White",
+        "full_name": "Mason White",
+        "position": "SS",
+        "number": "24",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 1,
+        "a": 5,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tommy Splaine",
+        "full_name": "Tommy Splaine",
+        "position": "1B",
+        "number": "20",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 3,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Brendan Summerhill",
+        "full_name": "Brendan Summerhill",
+        "position": "RF",
+        "number": "4",
+        "ab": 5,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Andrew Cain",
+        "full_name": "Andrew Cain",
+        "position": "DH",
+        "number": "3",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Garen Caulfield",
+        "full_name": "Garen Caulfield",
+        "position": "2B",
+        "number": "1",
+        "ab": 3,
+        "r": 0,
+        "h": 2,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 4,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Maddox Mihalakis",
+        "full_name": "Maddox Mihalakis",
+        "position": "3B",
+        "number": "33",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 2,
+        "po": 2,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 1
+      },
+      {
+        "name": "Adonys Guzman",
+        "full_name": "Adonys Guzman",
+        "position": "C",
+        "number": "18",
+        "ab": 5,
+        "r": 2,
+        "h": 2,
+        "rbi": 2,
+        "bb": 0,
+        "k": 1,
+        "po": 4,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 1,
+        "sb": 0
+      },
+      {
+        "name": "Easton Breyfogle",
+        "full_name": "Easton Breyfogle",
+        "position": "LF",
+        "number": "12",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 3,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Aaron Walton",
+        "full_name": "Aaron Walton",
+        "position": "CF",
+        "number": "11",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 5,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "Lucas Moore",
+        "full_name": "Lucas Moore",
+        "position": "CF",
+        "number": "53",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 2,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 1
+      },
+      {
+        "name": "Kamau Neighbors",
+        "full_name": "Kamau Neighbors",
+        "position": "2B",
+        "number": "5",
+        "ab": 4,
+        "r": 1,
+        "h": 4,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Alex Alicea",
+        "full_name": "Alex Alicea",
+        "position": "SS",
+        "number": "0",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 1
+      },
+      {
+        "name": "Garret Pike",
+        "full_name": "Garret Pike",
+        "position": "DH",
+        "number": "2",
+        "ab": 4,
+        "r": 2,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Jake Munroe",
+        "full_name": "Jake Munroe",
+        "position": "3B",
+        "number": "20",
+        "ab": 4,
+        "r": 2,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 1,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tague Davis",
+        "full_name": "Tague Davis",
+        "position": "1B",
+        "number": "13",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 7,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Zion Rose",
+        "full_name": "Zion Rose",
+        "position": "LF",
+        "number": "32",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 3,
+        "bb": 0,
+        "k": 0,
+        "po": 4,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 1
+      },
+      {
+        "name": "Matt Klein",
+        "full_name": "Matt Klein",
+        "position": "C",
+        "number": "25",
+        "ab": 5,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 11,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Eddie King Jr.",
+        "full_name": "Eddie King Jr.",
+        "position": "RF",
+        "number": "42",
+        "ab": 3,
+        "r": 1,
+        "h": 2,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Smith Bailey",
+        "full_name": "Smith Bailey",
+        "number": "22",
+        "ip": "6.0",
+        "h": 7,
+        "r": 2,
+        "er": 2,
+        "bb": 2,
+        "k": 4,
+        "bf": 27,
+        "np": 55,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Tony Pluta",
+        "full_name": "Tony Pluta",
+        "number": "37",
+        "ip": "1.0",
+        "h": 5,
+        "r": 4,
+        "er": 1,
+        "bb": 0,
+        "k": 0,
+        "bf": 7,
+        "np": 10,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Garrett Hicks",
+        "full_name": "Garrett Hicks",
+        "number": "99",
+        "ip": "1.0",
+        "h": 1,
+        "r": 2,
+        "er": 1,
+        "bb": 0,
+        "k": 0,
+        "bf": 5,
+        "np": 8,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "Ethan Eberle",
+        "full_name": "Ethan Eberle",
+        "number": "51",
+        "ip": "3.2",
+        "h": 6,
+        "r": 3,
+        "er": 3,
+        "bb": 0,
+        "k": 5,
+        "bf": 18,
+        "np": 48,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Tucker Biven",
+        "full_name": "Tucker Biven",
+        "number": "22",
+        "ip": "4.0",
+        "h": 5,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 2,
+        "bf": 16,
+        "np": 34,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Wyatt Danilowicz",
+        "full_name": "Wyatt Danilowicz",
+        "number": "24",
+        "ip": "1.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 2,
+        "k": 3,
+        "bf": 6,
+        "np": 15,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [
+      {
+        "player": "guzman",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "doubles": [
+      {
+        "player": "pike",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [],
+    "stolen_bases": [
+      {
+        "player": "alicea",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "mihalakis",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "rose",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "moore",
+        "game_count": 1,
+        "season_total": null
+      }
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill struck out swinging (2-2 BKBFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walton hit by pitch (2-1 BBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White hit by pitch (3-2 BBFKBF); Walton advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman singled to left field, RBI (0-1 K); White advanced to second, out at second lf to 3b to 2b to ss; Walton scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Mihalakis singled through the right side (0-0); Guzman advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield singled through the right side, RBI (1-2 KBF); Mihalakis advanced to second; Guzman scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Cain grounded out to 2b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:3 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea flied out to lf to left center (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore struck out looking (2-2 KBSFBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein flied out to lf (1-2 KBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine singled to left field (1-2 KBKFFFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Breyfogle grounded into double play 2b to ss to 1b (2-2 KBBFF); Splaine out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill lined out to lf (1-2 FKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Munroe singled up the middle (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "King Jr. singled to left field (0-0); Munroe advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davis lined out to rf (1-0 B); Munroe advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rose reached on a fielder's choice to shortstop, RBI (0-0); King Jr. out at second ss to 2b; Munroe scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Pike fouled out to 3b (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walton struck out looking (3-2 BBFBFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White struck out swinging (0-2 FSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman homered to left field, RBI (2-2 SSBB).",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Mihalakis struck out swinging (0-2 FFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors singled up the middle (3-2 BBBKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea reached on a fielder's choice to shortstop (1-0 B); Neighbors out at second ss to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore flied out to cf (0-2 SK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein lined out to lf (3-2 BSKBFBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield grounded out to p (3-1 KBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cain hit by pitch (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine singled to left field (0-0); Cain advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Breyfogle struck out swinging (1-2 BKKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill struck out looking (2-2 BFFBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Danilowicz to p for Eberle.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Munroe struck out swinging (2-2 SFBFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "King Jr. walked (3-2 BBSBSFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davis struck out swinging (1-2 FFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rose hit by pitch (0-1 F); King Jr. advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pike flied out to cf to left center (1-1 KB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walton struck out swinging (2-2 BBKSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White flied out to lf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman struck out swinging (3-2 BBSFFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors singled to first base (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea singled to third base, bunt (1-0 B); Neighbors advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore struck out swinging (1-2 FSBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein flied out to cf (2-1 BBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Munroe flied out to cf (3-1 BFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihalakis walked (3-0 BBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihalakis stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield walked (3-2 KBBBFFFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cain popped up to p, bunt (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine lined into double play lf to 3b (0-0); Mihalakis out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Biven to p for Danilowicz.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "King Jr. grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davis walked (3-2 BSSBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rose grounded into double play ss to 2b to 1b (1-1 BF); Davis out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Breyfogle grounded out to 1b unassisted (3-2 BKBKBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill grounded out to 2b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walton singled up the middle (3-2 BBSFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White grounded out to 1b unassisted (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hicks to p for Bailey.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pike doubled down the lf line (2-1 FBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors singled to first base, bunt (1-0 B); Pike advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field is safe at first, Arizona has challenged the call.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call is confirmed as safe, Arizona loses its first challenge, one remaining.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea fouled out to 3b (0-0); Neighbors advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore flied out to cf, SF, RBI (1-0 B); Pike scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Klein grounded out to ss (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman popped up to lf (2-2 KBBFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihalakis struck out swinging (1-2 FBKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield singled down the rf line (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cain singled to center field (2-2 KKBB); Caulfield advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pluta to p for Hicks.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Munroe reached on a throwing error by ss (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "King Jr. singled to center field (1-2 FBS); Munroe advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davis singled to right center (0-1 K); King Jr. advanced to second; Munroe advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rose singled down the rf line, 2 RBI (0-0); Davis advanced to third; King Jr. scored; Munroe scored, unearned.",
+          "pitch_count": null,
+          "rbi": 2
+        },
+        {
+          "description": "Rose stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pike reached on a fielder's choice to second base (1-0 B); Davis out at home 2b to c to 3b to p.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors singled to right field, RBI (1-0 B); Pike advanced to third; Rose scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Neighbors advanced to third; Pike scored on an error by p, caught stealing, unearned.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea out at first p to 2b, SAC, bunt, RBI (1-0 B); Neighbors scored, unearned.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Moore singled up the middle (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein singled to left field, out at second lf to c to ss, RBI (2-2 BSBS); Moore scored, unearned.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Batting ends R: 6 H:6 E:2",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Breyfogle singled to first base (3-1 BBBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill fouled out to c (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walton singled through the left side (2-1 KBB); Breyfogle advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White struck out swinging (0-2 KSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman flied out to cf (2-1 BBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "ncaa_api"
+}

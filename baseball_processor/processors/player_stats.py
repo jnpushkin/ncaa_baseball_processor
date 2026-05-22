@@ -10,22 +10,37 @@ from collections import defaultdict
 from ..utils.helpers import (
     safe_int, safe_float, normalize_name,
     calculate_batting_average, calculate_era, calculate_whip,
-    parse_innings_pitched
+    parse_innings_pitched, is_placeholder_player_name,
+    resolve_player_display_name
 )
 from ..utils.constants import get_conference
+from ..normalization import alias_display_name, build_player_name_aliases, normalized_raw_sections, resolve_player_name_alias
+
+
+COMPACT_INITIAL_TOKENS = {
+    "aj", "bj", "cj", "dj", "jd", "jj", "jp", "jt", "pj", "rj", "tj", "jc",
+}
+
+
+def _smart_title_word(word: str) -> str:
+    token = re.sub(r'[^a-z]', '', word.lower())
+    if token in COMPACT_INITIAL_TOKENS:
+        if "." in word:
+            return ".".join(letter.upper() for letter in token) + "."
+        return token.upper()
+    if len(word) <= 3 and word.isupper() and word.isalpha():
+        return word
+
+    titled = word.title()
+    if re.fullmatch(r"mc[a-z]+", word.lower()) and len(word) > 2:
+        return "Mc" + word[2:].capitalize()
+    return titled
 
 
 def smart_title(name: str) -> str:
-    """Title-case a name, preserving short all-caps tokens like JT, DJ, TJ."""
+    """Title-case a name while preserving compact initial tokens like RJ, AJ, JT."""
     words = name.split()
-    result = []
-    for w in words:
-        # Preserve short all-caps words (initials like JT, DJ, TJ, AJ)
-        if len(w) <= 3 and w.isupper() and w.isalpha():
-            result.append(w)
-        else:
-            result.append(w.title())
-    return ' '.join(result)
+    return ' '.join(_smart_title_word(word) for word in words)
 from .milestones import normalize_player_name
 
 
@@ -36,33 +51,45 @@ def build_extra_base_lookup(game_notes: Dict[str, Any]) -> Dict[str, Dict[str, i
     """
     lookup = {}
 
-    def normalize_lookup_name(name: str) -> str:
-        """Normalize player name for matching (lowercase, extract last name).
-
-        Game notes use format "LastName,First" (e.g., "Moutzouridis,PJ").
-        We extract just the last name for matching against full names.
-        """
+    def clean_note_name(name: str) -> str:
         if not name:
             return ""
-        # Remove parenthetical content like "(19)" and common suffixes
         name = re.sub(r'\s*\([^)]*\)\s*', '', name)
         name = re.sub(r'\s*\d+\s*$', '', name)  # Remove trailing numbers
-        name = name.strip()
+        return name.strip()
 
-        # If it's in "LastName,First" format, extract just the last name
+    def normalize_lookup_name(name: str) -> str:
+        """Normalize player name for matching."""
+        name = clean_note_name(name)
+        if not name:
+            return ""
+        return re.sub(r'[^a-z0-9]+', ' ', normalize_player_name(name).lower()).strip()
+
+    def note_lookup_keys(name: str) -> List[str]:
+        """Build exact and comma-initial keys without unsafe surname-only guesses."""
+        name = clean_note_name(name)
+        if not name:
+            return []
+        keys = []
         if ',' in name:
-            name = name.split(',')[0]
-
-        return name.lower().strip().replace('.', '')
+            last, first = name.split(',', 1)
+            last_key = re.sub(r'[^a-z0-9]+', ' ', last.lower()).strip()
+            first_key = re.sub(r'[^a-z0-9]+', ' ', first.lower()).strip()
+            if first_key and last_key:
+                keys.append(re.sub(r'[^a-z0-9]+', ' ', f'{first_key} {last_key}').strip())
+                keys.append(f'{last_key}|{first_key[0]}')
+            elif last_key:
+                keys.append(last_key)
+        else:
+            keys.append(normalize_lookup_name(name))
+        return [key for key in dict.fromkeys(keys) if key]
 
     def add_to_lookup(name: str, stat: str, count: int):
         """Add a stat count to the lookup for a player."""
-        norm = normalize_lookup_name(name)
-        if not norm:
-            return
-        if norm not in lookup:
-            lookup[norm] = {"hr": 0, "2b": 0, "3b": 0, "sb": 0}
-        lookup[norm][stat] += count
+        for norm in note_lookup_keys(name):
+            if norm not in lookup:
+                lookup[norm] = {"hr": 0, "2b": 0, "3b": 0, "sb": 0}
+            lookup[norm][stat] += count
 
     def is_valid_player(name: str) -> bool:
         """Check if a name is a valid player (not a stat prefix)."""
@@ -84,7 +111,8 @@ def build_extra_base_lookup(game_notes: Dict[str, Any]) -> Dict[str, Dict[str, i
             count = item.get('game_count', 1)
         else:
             name = str(item)
-            count = 1
+            count_match = re.search(r'\((\d+)\)', name)
+            count = int(count_match.group(1)) if count_match else 1
         if is_valid_player(name):
             add_to_lookup(name, 'hr', count)
 
@@ -95,7 +123,8 @@ def build_extra_base_lookup(game_notes: Dict[str, Any]) -> Dict[str, Dict[str, i
             count = item.get('game_count', 1)
         else:
             name = str(item)
-            count = 1
+            count_match = re.search(r'\((\d+)\)', name)
+            count = int(count_match.group(1)) if count_match else 1
         if is_valid_player(name):
             add_to_lookup(name, '2b', count)
 
@@ -106,7 +135,8 @@ def build_extra_base_lookup(game_notes: Dict[str, Any]) -> Dict[str, Dict[str, i
             count = item.get('game_count', 1)
         else:
             name = str(item)
-            count = 1
+            count_match = re.search(r'\((\d+)\)', name)
+            count = int(count_match.group(1)) if count_match else 1
         if is_valid_player(name):
             add_to_lookup(name, '3b', count)
 
@@ -133,7 +163,7 @@ def get_player_extra_stats(player_name: str, lookup: Dict[str, Dict[str, int]]) 
     def normalize_lookup_name(name: str) -> str:
         if not name:
             return ""
-        return name.lower().strip().replace(',', '').replace('.', '')
+        return re.sub(r'[^a-z0-9]+', ' ', normalize_player_name(name).lower()).strip()
 
     # Try exact match first
     norm = normalize_lookup_name(player_name)
@@ -141,17 +171,13 @@ def get_player_extra_stats(player_name: str, lookup: Dict[str, Dict[str, int]]) 
         return lookup[norm]
 
     # Try matching by last name only (for full names like "John Smith")
-    parts = player_name.split()
+    parts = norm.split()
     if parts:
-        last_name = normalize_lookup_name(parts[-1])
-        if last_name in lookup:
-            return lookup[last_name]
-
-        # Try first part if it looks like "LastName, First"
-        if ',' in player_name:
-            last_name = normalize_lookup_name(parts[0].rstrip(','))
-            if last_name in lookup:
-                return lookup[last_name]
+        first_initial_key = f'{parts[-1]}|{parts[0][0]}'
+        if first_initial_key in lookup:
+            return lookup[first_initial_key]
+        if parts[-1] in lookup:
+            return lookup[parts[-1]]
 
     return {"hr": 0, "2b": 0, "3b": 0, "sb": 0}
 
@@ -169,6 +195,94 @@ class PlayerStatsProcessor:
         self.player_team_years = defaultdict(lambda: defaultdict(list))  # key -> team -> [years]
         self.player_bref_ids = {}
         self._bref_id_to_key = {}  # bref_id -> canonical key (for merging transfers)
+        self._name_aliases = {}  # (team, abbreviated normalized name) -> full normalized name
+        self._player_name_aliases = build_player_name_aliases(games)
+
+    @staticmethod
+    def _team_alias_key(team: str) -> str:
+        """Return a conservative source-agnostic team key for identity aliases."""
+        team = re.sub(r'\s*\(CA\)\s*$', '', str(team or '').strip(), flags=re.IGNORECASE)
+        key = re.sub(r'[^a-z0-9]', '', team.lower())
+        if key == 'loyolamarymount':
+            return 'lmu'
+        return key
+
+    @staticmethod
+    def _last_name_token(normalized_name: str) -> str:
+        parts = normalized_name.split()
+        if not parts:
+            return ''
+        return re.sub(r'[^a-z]', '', parts[-1])
+
+    @staticmethod
+    def _name_alias_key(display_name: str, team: str):
+        """Return a conservative same-team initial+surname key for name aliases."""
+        normalized = normalize_name(display_name)
+        parts = normalized.split()
+        if len(parts) < 2:
+            return None, False, normalized
+
+        first_letters = re.sub(r'[^a-z]', '', parts[0])
+        last = re.sub(r'[^a-z]', '', parts[-1])
+        if not first_letters or not last:
+            return None, False, normalized
+
+        is_initial_only = len(first_letters) == 1
+        return (PlayerStatsProcessor._team_alias_key(team), first_letters[0], last), is_initial_only, normalized
+
+    def _build_name_aliases(self):
+        """Map abbreviated NCAA API names to a unique full same-team name."""
+        initial_candidates = defaultdict(set)
+        last_name_candidates = defaultdict(set)
+        last_name_candidates_by_team = defaultdict(list)
+        abbreviated = []
+        surname_only = []
+
+        for game in self.games:
+            meta = game.get('metadata', {})
+            box_score = game.get('box_score', {})
+            for side in ['away', 'home']:
+                team = meta.get(f'{side}_team', '')
+                team_key = self._team_alias_key(team)
+                for section in [f'{side}_batting', f'{side}_pitching']:
+                    for player in box_score.get(section, []):
+                        bref_id = player.get('bref_id') or player.get('register_id')
+                        display_name = resolve_player_display_name(
+                            player.get('full_name') or player.get('name', ''),
+                            bref_id,
+                        )
+                        display_name = normalize_player_name(display_name)
+                        if is_placeholder_player_name(display_name):
+                            continue
+                        alias_key, is_initial_only, normalized = self._name_alias_key(display_name, team)
+                        if not alias_key:
+                            last = self._last_name_token(normalized)
+                            if last and len(last) >= 4:
+                                surname_only.append((team, normalized, team_key, last))
+                            continue
+
+                        last = self._last_name_token(normalized)
+                        if is_initial_only:
+                            abbreviated.append((team, normalized, alias_key))
+                        else:
+                            initial_candidates[alias_key].add(normalized)
+                            if last:
+                                last_name_candidates[(team_key, last)].add(normalized)
+                                last_name_candidates_by_team[team_key].append((last, normalized))
+
+        for team, abbreviated_name, alias_key in abbreviated:
+            candidates = initial_candidates.get(alias_key, set())
+            if len(candidates) == 1:
+                self._name_aliases[(team, abbreviated_name)] = next(iter(candidates))
+
+        for team, surname_name, team_key, last in surname_only:
+            candidates = set(last_name_candidates.get((team_key, last), set()))
+            if not candidates:
+                for candidate_last, candidate_name in last_name_candidates_by_team.get(team_key, []):
+                    if len(last) >= 5 and (candidate_last.startswith(last) or last.startswith(candidate_last)):
+                        candidates.add(candidate_name)
+            if len(candidates) == 1:
+                self._name_aliases[(team, surname_name)] = next(iter(candidates))
 
     def _build_transfer_set(self):
         """Pre-scan all games to identify bref_ids that are genuine transfers
@@ -214,15 +328,16 @@ class PlayerStatsProcessor:
         the bref_id is a known false collision (different players with
         the same name appearing in the same game).
         """
+        team_key = self._team_alias_key(team) or team
         if bref_id and bref_id not in self._false_merge_bref_ids:
             if bref_id in self._bref_id_to_key:
                 return self._bref_id_to_key[bref_id]
             # New bref_id — create canonical key using name|first_team
-            key = f"{normalized_name}|{team}"
+            key = f"{normalized_name}|{team_key}"
             self._bref_id_to_key[bref_id] = key
             return key
         # No bref_id or false collision — fall back to name|team
-        return f"{normalized_name}|{team}"
+        return f"{normalized_name}|{team_key}"
 
     def process_all_stats(self) -> Dict[str, pd.DataFrame]:
         """
@@ -243,6 +358,7 @@ class PlayerStatsProcessor:
     def _aggregate_stats(self):
         """Aggregate statistics for each player across all games."""
         self._build_transfer_set()
+        self._build_name_aliases()
 
         batting_keys = ['ab', 'r', 'h', 'rbi', 'bb', 'k', 'po', 'a', 'lob',
                         'doubles', 'triples', 'hr', 'sb', 'cs', 'hbp', 'sf', 'sh']
@@ -270,6 +386,7 @@ class PlayerStatsProcessor:
 
             # Build lookup for extra-base hits from game notes
             extra_stats_lookup = build_extra_base_lookup(game_notes)
+            batting_sections, pitching_sections = normalized_raw_sections(game, self._player_name_aliases)
 
             # Process batting stats
             for side in ['away', 'home']:
@@ -279,10 +396,12 @@ class PlayerStatsProcessor:
                 opp_score = safe_int(meta.get('home_team_score' if side == 'away' else 'away_team_score', 0))
                 won = team_score > opp_score
 
-                batters = box_score.get(f'{side}_batting', [])
+                batters = batting_sections.get(side, [])
                 for player in batters:
-                    name = normalize_player_name(player.get('full_name') or player.get('name', ''))
-                    if not name:
+                    bref_id = player.get('bref_id') or player.get('register_id')
+                    name = resolve_player_display_name(player.get('full_name') or player.get('name', ''), bref_id)
+                    name = normalize_player_name(name)
+                    if is_placeholder_player_name(name):
                         continue
 
                     # Skip totals and game notes rows
@@ -297,7 +416,12 @@ class PlayerStatsProcessor:
                         continue
 
                     normalized_name = normalize_name(name)
-                    bref_id = player.get('bref_id')
+                    alias = resolve_player_name_alias(name, team, self._player_name_aliases)
+                    if alias:
+                        name = alias_display_name(name, alias)
+                        bref_id = bref_id or alias.get('bref_id', '')
+                        normalized_name = normalize_name(name)
+                    normalized_name = self._name_aliases.get((team, normalized_name), normalized_name)
                     # Use bref_id to merge transfers; fall back to name|team
                     key = self._resolve_player_key(normalized_name, team, bref_id)
                     if bref_id:
@@ -316,15 +440,15 @@ class PlayerStatsProcessor:
                     for stat in batting_keys:
                         # For HR, 2B, 3B, SB - prefer game notes over box score
                         if stat == 'hr':
-                            val = extra_stats['hr'] or safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            val = extra_stats['hr'] or safe_int(self._stat_value(player, stat))
                         elif stat == 'doubles':
-                            val = extra_stats['2b'] or safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            val = extra_stats['2b'] or safe_int(self._stat_value(player, stat))
                         elif stat == 'triples':
-                            val = extra_stats['3b'] or safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            val = extra_stats['3b'] or safe_int(self._stat_value(player, stat))
                         elif stat == 'sb':
-                            val = extra_stats['sb'] or safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            val = extra_stats['sb'] or safe_int(self._stat_value(player, stat))
                         else:
-                            val = safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            val = safe_int(self._stat_value(player, stat))
                         self.batter_totals[key][stat] += val
 
                     # Track game-by-game
@@ -337,22 +461,24 @@ class PlayerStatsProcessor:
                     }
                     for stat in batting_keys:
                         if stat == 'hr':
-                            game_stats[stat] = extra_stats['hr'] or safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            game_stats[stat] = extra_stats['hr'] or safe_int(self._stat_value(player, stat))
                         elif stat == 'doubles':
-                            game_stats[stat] = extra_stats['2b'] or safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            game_stats[stat] = extra_stats['2b'] or safe_int(self._stat_value(player, stat))
                         elif stat == 'triples':
-                            game_stats[stat] = extra_stats['3b'] or safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            game_stats[stat] = extra_stats['3b'] or safe_int(self._stat_value(player, stat))
                         elif stat == 'sb':
-                            game_stats[stat] = extra_stats['sb'] or safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            game_stats[stat] = extra_stats['sb'] or safe_int(self._stat_value(player, stat))
                         else:
-                            game_stats[stat] = safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                            game_stats[stat] = safe_int(self._stat_value(player, stat))
                     self.batter_games[key].append(game_stats)
 
                 # Process pitching stats
-                pitchers = box_score.get(f'{side}_pitching', [])
+                pitchers = pitching_sections.get(side, [])
                 for player in pitchers:
-                    name = normalize_player_name(player.get('full_name') or player.get('name', ''))
-                    if not name:
+                    bref_id = player.get('bref_id') or player.get('register_id')
+                    name = resolve_player_display_name(player.get('full_name') or player.get('name', ''), bref_id)
+                    name = normalize_player_name(name)
+                    if is_placeholder_player_name(name):
                         continue
 
                     # Skip totals and game notes rows
@@ -366,7 +492,12 @@ class PlayerStatsProcessor:
                         continue
 
                     normalized_name = normalize_name(name)
-                    bref_id = player.get('bref_id')
+                    alias = resolve_player_name_alias(name, team, self._player_name_aliases)
+                    if alias:
+                        name = alias_display_name(name, alias)
+                        bref_id = bref_id or alias.get('bref_id', '')
+                        normalized_name = normalize_name(name)
+                    normalized_name = self._name_aliases.get((team, normalized_name), normalized_name)
                     # Use bref_id to merge transfers; fall back to name|team
                     key = self._resolve_player_key(normalized_name, team, bref_id)
                     if bref_id:
@@ -379,13 +510,13 @@ class PlayerStatsProcessor:
                     self.pitcher_totals[key]['_name'] = normalized_name  # Store original name for display
 
                     # Innings pitched needs special handling
-                    ip = parse_innings_pitched(player.get('innings_pitched', 0))
+                    ip = parse_innings_pitched(self._stat_value(player, 'ip'))
                     self.pitcher_totals[key]['ip'] += ip
 
                     for stat in pitching_keys:
                         if stat == 'ip':
                             continue
-                        val = safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                        val = safe_int(self._stat_value(player, stat))
                         self.pitcher_totals[key][stat] += val
 
                     # Track game-by-game
@@ -402,7 +533,7 @@ class PlayerStatsProcessor:
                     for stat in pitching_keys:
                         if stat == 'ip':
                             continue
-                        game_stats[stat] = safe_int(player.get(stat, player.get(self._stat_alias(stat), 0)))
+                        game_stats[stat] = safe_int(self._stat_value(player, stat))
                     self.pitcher_games[key].append(game_stats)
 
     def _stat_alias(self, stat: str) -> str:
@@ -423,6 +554,20 @@ class PlayerStatsProcessor:
             'np': 'pitches',
         }
         return aliases.get(stat, stat)
+
+    def _stat_value(self, player: Dict[str, Any], stat: str, default: Any = 0) -> Any:
+        """Read a stat across source-specific casing and aliases."""
+        keys = [stat, stat.upper(), self._stat_alias(stat)]
+        if stat == 'ip':
+            keys.extend(['IP', 'innings_pitched'])
+        elif stat == 'doubles':
+            keys.extend(['2B', '2b'])
+        elif stat == 'triples':
+            keys.extend(['3B', '3b'])
+        for key in keys:
+            if key in player and player[key] not in (None, ''):
+                return player[key]
+        return default
 
     def _get_player_conference(self, key: str) -> str:
         """Get conference for a player based on their team(s) and year(s)."""

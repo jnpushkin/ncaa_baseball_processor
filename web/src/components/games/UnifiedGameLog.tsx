@@ -12,6 +12,7 @@ import { getTeamDisplayName } from "@/lib/data";
 interface UnifiedGameLogProps {
   games: UnifiedGame[];
   data: SiteData;
+  onGameClick?: (game: UnifiedGame) => void;
 }
 
 interface TeamCellProps {
@@ -32,7 +33,7 @@ function TeamCell({ team, teamId, level, data }: TeamCellProps) {
   );
 }
 
-export default function UnifiedGameLog({ games, data }: UnifiedGameLogProps) {
+export default function UnifiedGameLog({ games, data, onGameClick }: UnifiedGameLogProps) {
   const [levelFilter, setLevelFilter] = useState("All");
   const [leagueFilter, setLeagueFilter] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
@@ -102,7 +103,21 @@ export default function UnifiedGameLog({ games, data }: UnifiedGameLogProps) {
                   />
                 </td>
                 <td className="text-center">
-                  {g.away_score} - {g.home_score}
+                  {onGameClick && g.game_id ? (
+                    <button
+                      type="button"
+                      className="score-clickable"
+                      onClick={() => onGameClick(g)}
+                      title="View game details"
+                      style={{ background: "none", border: "none", padding: 0, font: "inherit" }}
+                    >
+                      {g.away_score} - {g.home_score}
+                    </button>
+                  ) : (
+                    <>
+                      {g.away_score} - {g.home_score}
+                    </>
+                  )}
                 </td>
                 <td>
                   <TeamCell

@@ -1,0 +1,1226 @@
+{
+  "metadata": {
+    "date": "04/06/2024",
+    "date_yyyymmdd": "20240406",
+    "away_team": "Arizona",
+    "away_team_short": "ARIZ",
+    "away_team_id": 43627,
+    "home_team": "California",
+    "home_team_short": "CAL",
+    "home_team_id": 42807,
+    "away_team_score": 5,
+    "home_team_score": 0,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6236901"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Mason White",
+        "full_name": "Mason White",
+        "position": "SS",
+        "number": "24",
+        "ab": 5,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 0,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tommy Splaine",
+        "full_name": "Tommy Splaine",
+        "position": "1B",
+        "number": "20",
+        "ab": 4,
+        "r": 1,
+        "h": 3,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 9,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Brendan Summerhill",
+        "full_name": "Brendan Summerhill",
+        "position": "LF",
+        "number": "4",
+        "ab": 5,
+        "r": 1,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 1
+      },
+      {
+        "name": "Garen Caulfield",
+        "full_name": "Garen Caulfield",
+        "position": "2B",
+        "number": "1",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Brandon Rogers",
+        "full_name": "Brandon Rogers",
+        "position": "CF",
+        "number": "8",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Richie Morales",
+        "full_name": "Richie Morales",
+        "position": "3B",
+        "number": "7",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Adonys Guzman",
+        "full_name": "Adonys Guzman",
+        "position": "C",
+        "number": "18",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 11,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Xavier Esquer",
+        "full_name": "Xavier Esquer",
+        "position": "DH",
+        "number": "10",
+        "ab": 3,
+        "r": 1,
+        "h": 2,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Emilio Corona",
+        "full_name": "Emilio Corona",
+        "position": "RF",
+        "number": "11",
+        "ab": 4,
+        "r": 2,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 1,
+        "sb": 1
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "Rodney Green Jr.",
+        "full_name": "Rodney Green Jr.",
+        "position": "CF",
+        "number": "24",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 3,
+        "po": 4,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Peyton Schulze",
+        "full_name": "Peyton Schulze",
+        "position": "1B",
+        "number": "28",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 6,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Jarren Advincula",
+        "full_name": "Jarren Advincula",
+        "position": "2B",
+        "number": "1",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 3,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Carson Crawford",
+        "full_name": "Carson Crawford",
+        "position": "DH",
+        "number": "6",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Max Handron",
+        "full_name": "Max Handron",
+        "position": "3B",
+        "number": "4",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 3,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Matthew Thomas",
+        "full_name": "Matthew Thomas",
+        "position": "RF",
+        "number": "36",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 4,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Jag Burden",
+        "full_name": "Jag Burden",
+        "position": "LF",
+        "number": "39",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "PJ Moutzouridis",
+        "full_name": "PJ Moutzouridis",
+        "position": "SS",
+        "number": "10",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 1,
+        "a": 3,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Caleb Lomavita",
+        "full_name": "Caleb Lomavita",
+        "position": "C",
+        "number": "15",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 4,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Seth Gwynn",
+        "full_name": "Seth Gwynn",
+        "position": "PH",
+        "number": "21",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Ryan Tayman",
+        "full_name": "Ryan Tayman",
+        "position": "PH",
+        "number": "17",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Dawson Netz",
+        "full_name": "Dawson Netz",
+        "number": "27",
+        "ip": "2.0",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 3,
+        "bf": 7,
+        "np": 16,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Cam Walty",
+        "full_name": "Cam Walty",
+        "number": "38",
+        "ip": "7.0",
+        "h": 6,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 8,
+        "bf": 26,
+        "np": 72,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "Ian May",
+        "full_name": "Ian May",
+        "number": "3",
+        "ip": "2.0",
+        "h": 2,
+        "r": 0,
+        "er": 0,
+        "bb": 2,
+        "k": 1,
+        "bf": 10,
+        "np": 21,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Trey Newmann",
+        "full_name": "Trey Newmann",
+        "number": "34",
+        "ip": "3.1",
+        "h": 7,
+        "r": 4,
+        "er": 3,
+        "bb": 2,
+        "k": 1,
+        "bf": 18,
+        "np": 37,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Logan Piper",
+        "full_name": "Logan Piper",
+        "number": "55",
+        "ip": "0.2",
+        "h": 1,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "k": 1,
+        "bf": 3,
+        "np": 7,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Christian Becerra",
+        "full_name": "Christian Becerra",
+        "number": "18",
+        "ip": "3.0",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 1,
+        "bf": 10,
+        "np": 25,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [
+      {
+        "player": "corona, e.",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "doubles": [
+      {
+        "player": "moutzouridis",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "esquer, x.",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "summerhill",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [],
+    "stolen_bases": [
+      {
+        "player": "summerhill",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "corona, e.",
+        "game_count": 1,
+        "season_total": null
+      }
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Morales, R. grounded out to 1b unassisted (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White, M. struck out swinging (1-2 BSFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield, G walked (3-2 BBBKFFFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill singled through the left side (0-1 K)3a Caulfield, G advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman, A. flied out to cf (1-1 BS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis struck out swinging (2-2 BKFFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J singled through the left side (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lomavita,C singled through the right side (0-0)3a Advincula,J advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Green Jr.,R grounded out to ss (2-1 FBB)3a Lomavita,C advanced to second3a Advincula,J advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schulze,P grounded out to ss (2-2 BBKF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona, E. flied out to cf to right center (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine, T. singled to center field (1-1 BK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Esquer, X. walked (3-1 BBKBB)3a Splaine, T. advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rogers, B. flied out to rf (1-2 FBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Morales, R. flied out to lf (1-1 KB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M singled to left field (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas,M lined out to lf (1-2 KKBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Crawford,C grounded into double play ss to 2b to 1b (1-2 KSBF)3a Handron,M out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White, M. grounded out to 3b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield, G singled down the lf line (3-1 BBBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill reached on a fielder's choice (2-1 BKB)3a Caulfield, G out at second 2b to ss.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman, A. walked (3-2 SBKBBB)3a Summerhill out at third c to 3b, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Newmann,T to p for May,I.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Burden,J flied out to lf down the lf line (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis doubled to left center (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J flied out to cf (2-1 BBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lomavita,C grounded out to 2b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona, E. homered to left field, RBI (0-0).",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Splaine, T. flied out to cf to right center (1-1 BF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Esquer, X. doubled to right center (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rogers, B. struck out swinging (3-2 BSSFBFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Morales, R. singled, advanced to second, RBI (0-0)3a Esquer, X. scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Morales, R. advanced to third on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White, M. fouled out to 3b (3-0 BBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:3 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Green Jr.,R struck out swinging (1-2 KBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schulze,P flied out to rf down the rf line (0-2 KK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M struck out looking (2-2 BBFKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield, G flied out to cf (1-2 BKF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman, A. grounded out to ss (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas,M flied out to cf to right center (2-1 BKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Crawford,C struck out swinging (1-2 KFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Burden,J struck out swinging (2-2 BKKBFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona, E. singled through the left side (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona, E. stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine, T. singled to right field (2-2 KBBFF)3a Corona, E. advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona, E. scored on a throwing error by c, unearned.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Esquer, X. singled through the right side (1-0 B)3a Splaine, T. advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Esquer, X. advanced to second on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rogers, B. walked (3-1 BBBKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Morales, R. flied out to rf, SF, RBI (1-2 FFB)3a Esquer, X. advanced to third3a Splaine, T. scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "White, M. struck out swinging (1-2 KFBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield, G reached on a fielder's choice (1-0 B)3a Rogers, B. out at second ss to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:3 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Piper,L to p for Newmann,T.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis singled to center field (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J struck out swinging (0-2 KKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lomavita,C singled through the left side (3-2 KBBFB)3a Moutzouridis advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Green Jr.,R struck out swinging (1-2 KKFFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schulze,P struck out swinging (0-2 KFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill doubled down the rf line (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman, A. flied out to 1b (2-2 BKFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona, E. lined out to 2b (0-2 SSFFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Splaine, T. singled to left field, advanced to second on the throw, RBI (0-0)3a Summerhill scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Esquer, X. struck out looking (1-2 KBFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Becerra,C to p for Piper,L.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M grounded out to 2b (2-2 FBFBFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas,M flied out to rf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S pinch hit for Crawford,C.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S grounded out to 3b (2-2 BBSSF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rogers, B. fouled out to 2b (3-1 SBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Morales, R. flied out to rf (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White, M. flied out to rf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Netz, D. to p for Walty, C..",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tayman,R pinch hit for Burden,J.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tayman,R struck out swinging (3-2 BSBFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis grounded out to 3b (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J grounded out to 2b (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caulfield, G grounded out to 3b (2-2 KKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Summerhill fouled out to 3b (1-1 FB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman, A. flied out to lf (2-1 BBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ritch,A to lf for Tayman,R.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lomavita,C grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Green Jr.,R struck out looking (1-2 SBFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schulze,P singled to left field (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schulze,P advanced to second on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M struck out swinging (3-2 KFFBBFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "ncaa_api"
+}

@@ -1,0 +1,1170 @@
+{
+  "metadata": {
+    "date": "06/20/2023",
+    "date_yyyymmdd": "20230620",
+    "away_team": "LSU",
+    "away_team_short": "LSU",
+    "away_team_id": 43615,
+    "home_team": "Wake Forest",
+    "home_team_short": "WAKE",
+    "home_team_id": 43575,
+    "away_team_score": 2,
+    "home_team_score": 3,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6147535"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Tommy White",
+        "full_name": "Tommy White",
+        "position": "3B",
+        "number": "47",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tre' Morgan",
+        "full_name": "Tre' Morgan",
+        "position": "1B",
+        "number": "18",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 1,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Josh Pearson",
+        "full_name": "Josh Pearson",
+        "position": "LF",
+        "number": "11",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 2,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Jordan Thompson",
+        "full_name": "Jordan Thompson",
+        "position": "SS",
+        "number": "4",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 4,
+        "po": 2,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Dylan Crews",
+        "full_name": "Dylan Crews",
+        "position": "CF",
+        "number": "3",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 2,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Gavin Dugas",
+        "full_name": "Gavin Dugas",
+        "position": "2B",
+        "number": "8",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "k": 1,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Brayden Jobert",
+        "full_name": "Brayden Jobert",
+        "position": "RF",
+        "number": "6",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Hayden Travinski",
+        "full_name": "Hayden Travinski",
+        "position": "C",
+        "number": "25",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 12,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Cade Beloso",
+        "full_name": "Cade Beloso",
+        "position": "DH",
+        "number": "24",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "Tommy Hawke",
+        "full_name": "Tommy Hawke",
+        "position": "CF",
+        "number": "24",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Bennett Lee",
+        "full_name": "Bennett Lee",
+        "position": "C",
+        "number": "27",
+        "ab": 3,
+        "r": 0,
+        "h": 2,
+        "rbi": 1,
+        "bb": 1,
+        "k": 1,
+        "po": 14,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Brock Wilken",
+        "full_name": "Brock Wilken",
+        "position": "3B",
+        "number": "25",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 3,
+        "po": 0,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Adam Cecere",
+        "full_name": "Adam Cecere",
+        "position": "LF",
+        "number": "12",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 3,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Nick Kurtz",
+        "full_name": "Nick Kurtz",
+        "position": "1B",
+        "number": "8",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "k": 2,
+        "po": 9,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Marek Houston",
+        "full_name": "Marek Houston",
+        "position": "SS",
+        "number": "7",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 1,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Justin Johnson",
+        "full_name": "Justin Johnson",
+        "position": "2B",
+        "number": "6",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 1,
+        "a": 5,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Pierce Bennett",
+        "full_name": "Pierce Bennett",
+        "position": "RF",
+        "number": "5",
+        "ab": 2,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 2,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Danny Corona",
+        "full_name": "Danny Corona",
+        "position": "DH",
+        "number": "3",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Lucas Costello",
+        "full_name": "Lucas Costello",
+        "position": "LF",
+        "number": "0",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Ty Floyd",
+        "full_name": "Ty Floyd",
+        "number": "9",
+        "ip": "5.0",
+        "h": 2,
+        "r": 2,
+        "er": 2,
+        "bb": 4,
+        "k": 10,
+        "bf": 21,
+        "np": 59,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Thatcher Hurd",
+        "full_name": "Thatcher Hurd",
+        "number": "26",
+        "ip": "3.0",
+        "h": 3,
+        "r": 1,
+        "er": 1,
+        "bb": 3,
+        "k": 5,
+        "bf": 15,
+        "np": 37,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "Josh Hartle",
+        "full_name": "Josh Hartle",
+        "number": "23",
+        "ip": "6.0",
+        "h": 4,
+        "r": 2,
+        "er": 2,
+        "bb": 4,
+        "k": 9,
+        "bf": 25,
+        "np": 61,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Cole Roland",
+        "full_name": "Cole Roland",
+        "number": "28",
+        "ip": "0.2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "k": 2,
+        "bf": 3,
+        "np": 8,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Camden Minacci",
+        "full_name": "Camden Minacci",
+        "number": "14",
+        "ip": "1.2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 2,
+        "bf": 4,
+        "np": 10,
+        "hr": 0,
+        "win": true,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Michael Massey",
+        "full_name": "Michael Massey",
+        "number": "30",
+        "ip": "0.2",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 4,
+        "np": 9,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [],
+    "doubles": [
+      {
+        "player": "morgan",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "corona",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [
+      {
+        "player": "morgan",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "stolen_bases": []
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Crews struck out swinging (1-2 KSBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White grounded out to 3b (3-2 BBBKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Morgan grounded out to 2b (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hawke popped up to ss to left center (1-2 BKSF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bennett walked (3-0 BBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurtz struck out looking (1-2 BKKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wilken struck out swinging (1-2 BFKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Travinski struck out swinging (0-2 KSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Beloso walked (3-1 BBBKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dugas walked (3-2 KKBBFBB); Beloso advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jobert grounded into double play 2b to ss to 1b (1-1 BS); Dugas out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Johnson grounded out to ss (0-2 SF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona struck out swinging (1-2 KSBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lee struck out looking (1-2 BKKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thompson struck out swinging (2-2 BBKKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pearson walked (3-0 BBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pearson advanced to second on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Crews struck out swinging (2-2 BKSBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White singled to center field, advanced to second on a fielding error by cf, RBI (3-1 BBBK); Pearson scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Morgan tripled to left field, RBI (0-2 KFF); White scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Travinski struck out swinging (2-2 KSBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:2 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cecere struck out swinging (1-2 KKBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Houston popped up to rf (2-1 FBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hawke lined out to lf (1-2 BFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Beloso grounded out to 1b unassisted (1-2 BKF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dugas walked (3-2 BBKFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jobert struck out swinging (1-2 KBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thompson struck out swinging (0-2 KFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bennett singled to right field (0-2 KKFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bennett advanced to second on a passed ball.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurtz struck out swinging (3-2 KFBFFBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wilken struck out looking (3-2 BBKBSK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Johnson struck out looking (3-2 BBBKKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pearson struck out swinging (2-2 BKSBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Crews grounded out to 2b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White singled to left center (2-2 BBKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Morgan lined out to rf (1-1 BK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona struck out swinging (3-2 BBFBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lee singled to center field (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cecere struck out swinging (1-2 BSSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Houston flied out to rf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Travinski grounded out to 3b (3-1 BBBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Beloso singled to right field (2-2 BKFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dugas struck out swinging (3-2 BKKBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jobert flied out to rf to right center (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hurd to p for Floyd.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hawke walked (3-2 FKBBFBFFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hawke advanced to second on a throwing error by p, failed pickoff attempt.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bennett walked (3-0 BBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurtz walked (3-1 BBBKB); Bennett advanced to second; Hawke advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wilken singled up the middle, RBI (1-0 B); Kurtz advanced to second; Bennett advanced to third; Hawke scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Johnson grounded into double play ss to 1b (1-1 BK); Wilken out on the play; Kurtz advanced to third; Bennett scored.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona hit by pitch (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lee walked (3-1 KBBBB); Corona advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Cecere struck out swinging (2-2 FBFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:1 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thompson struck out looking (1-2 KKBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pearson struck out swinging (1-2 BKSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Crews walked (3-2 SBBKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "White out at first p to 2b to 1b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Costello to lf for Cecere.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Roland to p for Hartle.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Massey to p for Roland.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Houston walked (3-2 BKKBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hawke lined out to 3b, bunt (2-1 KBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bennett popped up to 2b to right field (1-2 KSBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurtz walked (3-2 SFBFBBB); Houston advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wilken struck out swinging (2-2 BBKFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Morgan doubled down the rf line (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Travinski reached on a fielding error by 2b (1-2 BSSFF); Morgan advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Merrifield pinch ran for Travinski.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Beloso reached on a fielder's choice to third base (2-1 BBS); Merrifield advanced to second; Morgan out at home 3b to c.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call at home was challenged by LSU.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field is confirmed, out at home.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dugas grounded into double play 3b to 2b to 1b (0-1 K); Beloso out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Milazzo to c for Merrifield.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Minacci to p for Massey.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Johnson struck out looking (2-2 KKBBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Corona doubled down the rf line (0-2 SS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lee singled to left field, RBI (1-2 SFFB); Corona scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Costello struck out looking (1-2 FKBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Houston struck out looking (2-2 BBKFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jobert struck out looking (2-2 BBKKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thompson struck out swinging (1-2 FBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pearson grounded out to p (1-1 KB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "ncaa_api"
+}

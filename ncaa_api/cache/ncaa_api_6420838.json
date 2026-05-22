@@ -1,0 +1,1147 @@
+{
+  "metadata": {
+    "date": "03/02/2025",
+    "date_yyyymmdd": "20250302",
+    "away_team": "San Jose St.",
+    "away_team_short": "SJSU",
+    "away_team_id": 43011,
+    "home_team": "San Francisco",
+    "home_team_short": "S FRAN",
+    "home_team_id": 43330,
+    "away_team_score": 3,
+    "home_team_score": 7,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6420838"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "15",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 7,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "16",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "17",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 9,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "23",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "ja. Lewis",
+        "full_name": "ja. Lewis",
+        "position": "",
+        "number": "3",
+        "ab": 1,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "je. Lewis",
+        "full_name": "je. Lewis",
+        "position": "",
+        "number": "0",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "1",
+        "ab": 3,
+        "r": 0,
+        "h": 2,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "6",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 5,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "4",
+        "ab": 2,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 5,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "20",
+        "ab": 1,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "26",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "13",
+        "ab": 1,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "15",
+        "ab": 5,
+        "r": 2,
+        "h": 2,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "83",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 6,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "29",
+        "ab": 2,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 2,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "3",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "50",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 11,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "14",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 2,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "12",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "33",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "11",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 4,
+        "a": 6,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "28",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 2,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "5",
+        "ab": 1,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "49",
+        "ip": "1.2",
+        "h": 2,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 7,
+        "np": 20,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "27",
+        "ip": "2.1",
+        "h": 4,
+        "r": 6,
+        "er": 4,
+        "bb": 0,
+        "k": 0,
+        "bf": 16,
+        "np": 43,
+        "hr": 0,
+        "win": false,
+        "loss": true,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "12",
+        "ip": "4",
+        "h": 3,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "k": 0,
+        "bf": 15,
+        "np": 37,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "28",
+        "ip": "2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 8,
+        "np": 16,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "13",
+        "ip": "2",
+        "h": 2,
+        "r": 1,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 8,
+        "np": 25,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "31",
+        "ip": "5",
+        "h": 4,
+        "r": 2,
+        "er": 2,
+        "bb": 0,
+        "k": 0,
+        "bf": 18,
+        "np": 37,
+        "hr": 0,
+        "win": true,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [
+      {
+        "player": "chamizo",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "decelle",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "doubles": [
+      {
+        "player": "fernandes",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [],
+    "stolen_bases": [
+      {
+        "player": "decelle",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "rogers walked (3-2 ssbbbb): decelle",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "rogers",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "amaral",
+        "game_count": 2,
+        "season_total": null
+      }
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Lewis, Je. grounded out to p (2-2 BSBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fernandes flied out to cf to left center (2-2 FFBBFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Chamizo homered to right center, RBI (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Osorio-Agard grounded out to ss (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "DECELLE singled to right center (2-2 BFBSF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS struck out swinging (2-2 BKBKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS walked (3-2 SSBBBB): DECELLE stole third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN reached on a fielder's choice, RBI (0-0): ROGERS out at second 3b to 2b: DECELLE scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "HARMON singled through the left side (1-1 BS): KEIGHRAN advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN singled to right center, RBI (0-2 KS): HARMON advanced to second: KEIGHRAN scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "AMARAL lined out to 2b (0-2 SFF).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Nanez grounded out to ss (1-1 KB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McCoy struck out swinging (0-2 FFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Ja. singled to center field (1-2 KBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Ja. out at second c to ss, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "HARRIES walked (3-1 BBKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE reached on a fielder's choice (2-2 FBFB): HARRIES out at second ss to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE homered to left field, 2 RBI (0-0): WATANABE scored.",
+          "pitch_count": null,
+          "rbi": 2
+        },
+        {
+          "description": "LEWIS walked (3-2 BKFBFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS reached on a fielder's choice (0-1 K): LEWIS out at second 3b to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN reached on a fielding error by rf, advanced to second (3-2 KBBFFFB): ROGERS scored, unearned.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON struck out swinging, out at first c to 1b (0-2 SKS).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Giannini singled up the middle (0-1 S).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mendoza grounded out to 2b (2-0 BB): Giannini advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Je. grounded out to 2b (2-0 BB): Giannini advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fernandes doubled to right center, RBI: Giannini scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Chamizo struck out looking (1-2 SSFBK).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "RAMPPEN popped up to 2b to right field (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL walked (3-2 BFBSFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "George to p for Scott.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES struck out swinging, grounded out to c unassisted (1-2 KFBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL stole third, scored on a throwing error by c, unearned.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE singled to center field (3-2 BKBFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE out at second c to 2b, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Osorio-Agard grounded out to 3b (2-1 BBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nanez grounded out to 2b (1-1 SB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McCoy grounded out to p (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "DECELLE popped up to 1b (2-2 BKKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS grounded out to ss (1-2 BKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (1-2 FBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Lewis, Ja. walked (3-2 KBBKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Giannini lined into double play ss to 1b (3-1 BBFB): Lewis, Ja. out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mendoza grounded out to 1b unassisted (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "KEIGHRAN struck out swinging (1-2 KBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON struck out looking (2-2 BBFKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "HOLZEMER to p for RISSE.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Je. struck out swinging (1-2 KSBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fernandes singled to right center, out at second cf to ss (3-2 KBBFBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Chamizo out at first 1b to p (1-2 SKBF).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "AMARAL singled to left center (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES grounded out to c, SAC, bunt (0-0): AMARAL advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE flied out to cf to right center (2-1 KBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE popped up to 2b (1-1 FB).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Osorio-Agard flied out to rf to right center (1-2 BFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nanez struck out looking (2-2 KKBFBFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McCoy walked (3-2 BBFBSB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jansen pinch hit for Lewis, Ja..",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jansen grounded out to ss (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "LEWIS walked (3-2 BBFSBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (0-2 FFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "KEIGHRAN singled through the left side (2-1 BBK): LEWIS advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL pinch hit for HARMON.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Albanese to p for George.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL singled to right field (0-0): KEIGHRAN advanced to second: LEWIS advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FUNG pinch ran for ESQUIVEL.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN struck out swinging (0-2 SSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FUNG advanced to second on a balk: KEIGHRAN advanced to third on a balk: LEWIS scored on a balk.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL walked (3-2 BSBBKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARRIES reached on a fielder's choice (0-2 KS): AMARAL out at second ss to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "KEIGHRAN to 1b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FUNG to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE to 3b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fabian Jr. pinch hit for Giannini.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fabian Jr. singled to right center (1-1 FB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jansen to dh.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tallerman pinch hit for Mendoza.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BROWN to p for HOLZEMER.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tallerman reached on a fielder's choice (1-2 KBS): Fabian Jr. out at second ss to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lewis, Je. struck out swinging (1-2 BSSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fernandes walked (3-2 BKBBKB): Tallerman advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Chamizo reached on a fielding error by 2b (0-0): Fernandes advanced to third: Tallerman scored, unearned.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Osorio-Agard lined out to ss (1-1 BS).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Campagna to c for Fabian Jr..",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tallerman to 1b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE flied out to lf (3-1 BKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DECELLE grounded out to ss (1-1 BK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS singled to center field (2-2 KSBFFBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LEWIS out at second c to 2b, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Nanez flied out to cf to right center (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McCoy struck out swinging (1-2 BKFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jansen grounded out to ss (3-0 BBB).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "ncaa_api"
+}

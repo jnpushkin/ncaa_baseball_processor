@@ -27,6 +27,111 @@ export interface UnifiedGame {
   home_team_id?: number;
   away_team_id?: number;
   parent_orgs?: { away: string; home: string };
+  game_id?: string | null;
+  source?: string | null;
+}
+
+export interface BoxScoreBatter {
+  name?: string;
+  full_name?: string;
+  position?: string;
+  number?: string | number;
+  jersey_number?: string | number;
+  batting_order?: number;
+  ab?: number; at_bats?: number;
+  r?: number; runs?: number;
+  h?: number; hits?: number;
+  rbi?: number;
+  bb?: number; walks?: number;
+  k?: number; strikeouts?: number;
+  doubles?: number;
+  triples?: number;
+  hr?: number;
+  sb?: number;
+  po?: number; put_outs?: number;
+  a?: number; assists?: number;
+  lob?: number; left_on_base?: number;
+  avg?: string;
+  obp?: string;
+  slg?: string;
+  bref_id?: string;
+}
+
+export interface BoxScorePitcher {
+  name?: string;
+  full_name?: string;
+  number?: string | number;
+  jersey_number?: string | number;
+  ip?: number | string;
+  h?: number;
+  r?: number;
+  er?: number;
+  bb?: number;
+  k?: number;
+  hr?: number;
+  bf?: number;
+  np?: number;
+  era?: string;
+  win?: boolean | number;
+  loss?: boolean | number;
+  save?: boolean | number;
+  wins?: number;
+  losses?: number;
+  saves?: number;
+}
+
+export interface GameNoteEvent {
+  player?: string;
+  game_count?: number;
+  season_total?: number;
+}
+
+export interface PlayByPlayEvent {
+  description?: string;
+  pitch_count?: string;
+  rbi?: number;
+}
+
+export interface PlayByPlayInning {
+  top?: PlayByPlayEvent[];
+  bottom?: PlayByPlayEvent[];
+}
+
+export interface GameDetails {
+  game_id: string;
+  source: string;
+  date: string;
+  date_yyyymmdd?: string;
+  away_team: string;
+  home_team: string;
+  away_team_id?: number | null;
+  home_team_id?: number | null;
+  away_score: number;
+  home_score: number;
+  venue?: string;
+  attendance?: string | number | null;
+  weather?: string | null;
+  duration?: string | null;
+  start_time?: string | null;
+  umpires?: { list?: string } | null;
+  league?: { away?: string; home?: string } | null;
+  level?: string | null;
+  box_score?: {
+    away_batting?: BoxScoreBatter[];
+    home_batting?: BoxScoreBatter[];
+    away_pitching?: BoxScorePitcher[];
+    home_pitching?: BoxScorePitcher[];
+  };
+  game_notes?: {
+    home_runs?: GameNoteEvent[];
+    doubles?: GameNoteEvent[];
+    triples?: GameNoteEvent[];
+    stolen_bases?: GameNoteEvent[];
+    win?: { player?: string; record?: string };
+    loss?: { player?: string; record?: string };
+    save?: { player?: string; count?: number };
+  };
+  play_by_play?: Record<string, PlayByPlayInning>;
 }
 
 export interface UnifiedBatter {
@@ -156,6 +261,12 @@ export interface ScheduleGame {
   d1bb_key?: string;
 }
 
+export interface ScheduleIndexEntry {
+  date: string;
+  path: string;
+  count: number;
+}
+
 export interface StadiumLocation {
   lat: number;
   lng: number;
@@ -194,6 +305,7 @@ export interface MilbChecklistTeam {
   logo: string;
   league: string;
   historic: boolean;
+  roadOnly?: boolean;
 }
 
 export interface MilbChecklistLevel {
@@ -241,6 +353,40 @@ export interface PlayerGame {
   er?: number;
 }
 
+export interface DataQualityIssue {
+  code?: string;
+  severity?: "warning" | "info" | string;
+  game_id?: string;
+  date?: string;
+  date_yyyymmdd?: string;
+  away_team?: string;
+  home_team?: string;
+  field?: string;
+  section?: string;
+  category?: string;
+  player?: string;
+  primary_source?: string;
+  secondary_source?: string;
+  primary_value?: string | number;
+  secondary_value?: string | number;
+}
+
+export interface DataQuality {
+  summary: {
+    mergedSourceGames: number;
+    unmergedSourceCandidates?: number;
+    sourceMergeWarnings: number;
+    sourceMergeInfos: number;
+    sourceMergeIssues: number;
+    sourceMergeReviewGames: number;
+  };
+  sourceMerge: {
+    games: Record<string, unknown>[];
+    issues: DataQualityIssue[];
+    unmergedCandidates?: Record<string, unknown>[];
+  };
+}
+
 export interface SiteData {
   summary: Summary;
   levelColors: Record<string, string>;
@@ -252,7 +398,9 @@ export interface SiteData {
   milestones: Record<string, MilestoneEntry[]>;
   scorigami: Record<string, ScorigamiEntry>;
   crossoverPlayers: CrossoverPlayer[];
+  gameDetails?: Record<string, GameDetails>;
   scheduleGames: ScheduleGame[];
+  scheduleIndex?: ScheduleIndexEntry[];
   batterGames: PlayerGame[];
   pitcherGames: PlayerGame[];
   stadiumLocations: Record<string, StadiumLocation>;
@@ -270,6 +418,7 @@ export interface SiteData {
   venueCityCoords: Record<string, { lat: number; lng: number }>;
   partnerLogos: Record<string, string>;
   localLogos: Record<string, string>;
+  dataQuality?: DataQuality;
 }
 
 export interface SortConfig {

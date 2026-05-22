@@ -1,0 +1,1322 @@
+{
+  "metadata": {
+    "date": "06/14/2025",
+    "date_yyyymmdd": "20250614",
+    "away_team": "Louisville",
+    "away_team_short": "LOUIS",
+    "away_team_id": 43282,
+    "home_team": "Oregon St.",
+    "home_team_short": "ORE ST",
+    "home_team_id": 43094,
+    "away_team_score": 3,
+    "home_team_score": 4,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6448803"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Lucas Moore",
+        "full_name": "Lucas Moore",
+        "position": "CF",
+        "number": "53",
+        "ab": 5,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 4,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Kamau Neighbors",
+        "full_name": "Kamau Neighbors",
+        "position": "2B",
+        "number": "5",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Alex Alicea",
+        "full_name": "Alex Alicea",
+        "position": "SS",
+        "number": "0",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Garret Pike",
+        "full_name": "Garret Pike",
+        "position": "RF",
+        "number": "2",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 3,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Jake Munroe",
+        "full_name": "Jake Munroe",
+        "position": "3B",
+        "number": "20",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tague Davis",
+        "full_name": "Tague Davis",
+        "position": "1B",
+        "number": "13",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
+        "k": 1,
+        "po": 6,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Zion Rose",
+        "full_name": "Zion Rose",
+        "position": "LF",
+        "number": "32",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 1,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Matt Klein",
+        "full_name": "Matt Klein",
+        "position": "C",
+        "number": "25",
+        "ab": 5,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 12,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Eddie King Jr.",
+        "full_name": "Eddie King Jr.",
+        "position": "DH",
+        "number": "42",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "Wilson Weber",
+        "full_name": "Wilson Weber",
+        "position": "C",
+        "number": "18",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 2,
+        "po": 14,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Gavin Turley",
+        "full_name": "Gavin Turley",
+        "position": "LF",
+        "number": "1",
+        "ab": 5,
+        "r": 0,
+        "h": 2,
+        "rbi": 2,
+        "bb": 0,
+        "k": 1,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Aiva Arquette",
+        "full_name": "Aiva Arquette",
+        "position": "SS",
+        "number": "13",
+        "ab": 5,
+        "r": 2,
+        "h": 3,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "AJ Singer",
+        "full_name": "AJ Singer",
+        "position": "2B",
+        "number": "7",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tyce Peterson",
+        "full_name": "Tyce Peterson",
+        "position": "DH",
+        "number": "54",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Easton Talt",
+        "full_name": "Easton Talt",
+        "position": "RF",
+        "number": "6",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Trent Caraway",
+        "full_name": "Trent Caraway",
+        "position": "3B",
+        "number": "44",
+        "ab": 5,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 3,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Canon Reeder",
+        "full_name": "Canon Reeder",
+        "position": "CF",
+        "number": "23",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Jacob Krieg",
+        "full_name": "Jacob Krieg",
+        "position": "1B",
+        "number": "22",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 7,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Carson McEntire",
+        "full_name": "Carson McEntire",
+        "position": "PH/RF",
+        "number": "9",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Dallas Macias",
+        "full_name": "Dallas Macias",
+        "position": "PH/RF",
+        "number": "4",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Patrick Forbes",
+        "full_name": "Patrick Forbes",
+        "number": "1",
+        "ip": "5.1",
+        "h": 7,
+        "r": 3,
+        "er": 3,
+        "bb": 1,
+        "k": 10,
+        "bf": 25,
+        "np": 63,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Justin West",
+        "full_name": "Justin West",
+        "number": "46",
+        "ip": "1.2",
+        "h": 2,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 2,
+        "bf": 8,
+        "np": 27,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Jake Schweitzer",
+        "full_name": "Jake Schweitzer",
+        "number": "8",
+        "ip": "1.1",
+        "h": 2,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
+        "k": 0,
+        "bf": 6,
+        "np": 13,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "Kellan Oakes",
+        "full_name": "Kellan Oakes",
+        "number": "20",
+        "ip": "1.0",
+        "h": 3,
+        "r": 2,
+        "er": 1,
+        "bb": 0,
+        "k": 1,
+        "bf": 6,
+        "np": 12,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Wyatt Queen",
+        "full_name": "Wyatt Queen",
+        "number": "19",
+        "ip": "2.0",
+        "h": 2,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "k": 3,
+        "bf": 9,
+        "np": 21,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Eric Segura",
+        "full_name": "Eric Segura",
+        "number": "16",
+        "ip": "0.2",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 1,
+        "bf": 3,
+        "np": 9,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Dax Whitney",
+        "full_name": "Dax Whitney",
+        "number": "30",
+        "ip": "5.1",
+        "h": 3,
+        "r": 1,
+        "er": 0,
+        "bb": 1,
+        "k": 9,
+        "bf": 20,
+        "np": 52,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [],
+    "doubles": [
+      {
+        "player": "turley",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [
+      {
+        "player": "rose",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "stolen_bases": []
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore struck out swinging (3-2 KBFBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein struck out swinging (2-2 KBBKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Munroe popped up to lf (0-2 KS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caraway struck out swinging (2-2 KBKBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette struck out swinging (1-2 KBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley grounded out to ss (3-2 SBBSB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "King Jr. struck out swinging (2-2 BSBKFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pike struck out swinging (1-2 FBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rose struck out swinging (2-2 BKFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Weber struck out looking (2-2 BBKSK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Singer fouled out to 1b (2-2 KKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson struck out swinging, grounded out to c unassisted (1-2 BKSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davis struck out swinging, grounded out to c unassisted (0-2 FKFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea grounded out to 2b (2-1 BFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors lined out to lf (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krieg hit by pitch (3-2 KBBBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder grounded into double play 2b to ss to 1b (0-2 KK); Krieg out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Talt struck out looking (2-2 BSSFBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore struck out looking (0-2 SKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein struck out swinging (3-2 BKBFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Munroe singled through the right side (2-2 FKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "King Jr. singled through the right side (1-2 BKS); Munroe advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pike struck out swinging (2-2 KBBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caraway singled through the right side (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette singled to third base (2-1 KBB); Caraway advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette advanced to second on a wild pitch; Caraway advanced to third on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley grounded out to 2b, RBI (2-1 BBK); Arquette advanced to third; Caraway scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Weber singled up the middle, RBI (0-0); Arquette scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Singer struck out swinging (0-2 KFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson singled to right field (1-1 BK); Weber advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krieg struck out looking (1-2 SBKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:4 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rose flied out to cf (3-1 BBFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davis popped up to cf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea grounded out to 2b (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder hit by pitch (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Talt flied out to cf (2-2 BBFFFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caraway struck out swinging (1-2 BSKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette singled to second base (0-0); Reeder advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley struck out swinging (2-2 KBBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors walked (3-2 KBBBFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors failed pickoff attempt.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors failed pickoff attempt, advanced to second on an error by 1b, assist by p.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore singled to left field (3-1 BBBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein grounded out to 1b unassisted (0-0); Moore advanced to second; Neighbors advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Munroe singled to shortstop, RBI (0-2 SF); Moore advanced to third; Neighbors scored, unearned.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Munroe singled to shortstop, RBI (0-2 SF); Moore advanced to third; Neighbors scored, unearned.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Munroe advanced to second on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "King Jr. struck out swinging (3-2 BBBSSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pike fouled out to c (2-2 FBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "West to p for Forbes.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "West to p for Forbes.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Segura to p for Whitney.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Segura to p for Whitney.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Weber struck out swinging (1-2 BKKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Singer singled to left field (1-1 KB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson singled to second base (3-2 BBFBS); Singer advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krieg walked (3-2 BKKBBB); Peterson advanced to second; Singer advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder reached on a fielder's choice to shortstop, RBI (1-2 KBK); Krieg advanced to second on a fielding error by ss; Peterson advanced to third; Singer scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Reeder reached on a fielder's choice to shortstop, RBI (1-2 KBK); Krieg advanced to second on a fielding error by ss; Peterson advanced to third; Singer scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "McEntire pinch hit for Talt.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McEntire struck out swinging (0-2 SKFFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caraway struck out looking (1-2 FBKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rose grounded out to p, bunt (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davis walked (3-2 BFSBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea singled to left field (0-0); Davis advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors grounded out to 1b unassisted (1-1 FB); Alicea advanced to second; Davis advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Louisville Challenged out call at first, call upheld.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moore struck out swinging, grounded out to c unassisted (0-2 FKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "McEntire to rf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Queen to p for Segura.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette flied out to cf (1-2 KBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley singled through the right side (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Weber lined out to ss (0-2 FFFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Singer singled to right field (1-2 KKFBF); Turley advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson fouled out to 1b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein singled to left field (3-2 FBBBKF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Munroe struck out looking (1-2 KSBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "King Jr. flied out to rf to right center (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pike struck out swinging, out at first c to 1b (1-2 KSBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schweitzer to p for West.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krieg lined out to lf to left center (1-2 BFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder walked (3-2 BKBKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Macias pinch hit for McEntire.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Macias popped up to lf (1-1 FB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder out at first p to 1b, picked off.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was picked off at first, OSU Challenged.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was confirmed, runner is out.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rose tripled to right field (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Davis singled to second base, RBI (0-1 F); Rose scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Shiver pinch ran for Davis.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Shiver out at second c to ss, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call of the field was out at second caught stealing, Louisville challenged.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field is confirmed.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alicea reached on a throwing error by ss, advanced to second on the error, advanced to third on a fielding error by c (2-1 BKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neighbors singled to center field, RBI (0-0); Alicea scored, unearned.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Moore struck out looking (1-2 KBFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Klein grounded out to p (1-2 FBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:3 E:2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hot to 1b for Shiver.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Macias to rf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Oakes to p for Queen.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caraway grounded out to 3b (1-1 BK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette singled to center field (1-2 FBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley doubled down the lf line, RBI (0-0); Arquette scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "ncaa_api"
+}

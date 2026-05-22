@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import type { SiteData, NormalizedPlayer, MilestoneEntry, UnifiedBatter, UnifiedPitcher } from "@/types";
+import type { SiteData, NormalizedPlayer, MilestoneEntry, UnifiedGame } from "@/types";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import TabBar from "@/components/layout/TabBar";
@@ -12,13 +12,14 @@ import CalendarView from "@/components/games/CalendarView";
 import UnifiedBattersTable from "@/components/tables/UnifiedBattersTable";
 import UnifiedPitchersTable from "@/components/tables/UnifiedPitchersTable";
 import TeamRecords from "@/components/tables/TeamRecords";
-import MilestonesTable from "@/components/tables/MilestonesTable";
+import MilestonesPage from "@/components/tables/MilestonesPage";
 import CrossoverPlayers from "@/components/tables/CrossoverPlayers";
 import ScorigamiGrid from "@/components/games/ScorigamiGrid";
 import Checklist from "@/components/checklist/Checklist";
 import UpcomingGames from "@/components/schedule/UpcomingGames";
 import PlayerModal from "@/components/shared/PlayerModal";
-import LevelLeagueFilter from "@/components/shared/LevelLeagueFilter";
+import GameDetailsModal from "@/components/games/GameDetailsModal";
+import { fetchJsonWithRetry } from "@/lib/fetchJson";
 
 const DynamicSchoolMap = dynamic(
   () => import("@/components/maps/DynamicSchoolMap"),
@@ -26,8 +27,69 @@ const DynamicSchoolMap = dynamic(
 );
 
 interface AppProps {
-  data: SiteData;
+  data?: SiteData;
 }
+
+const EMPTY_SITE_DATA: SiteData = {
+  summary: {
+    totalGames: 0,
+    totalBatters: 0,
+    totalPitchers: 0,
+    totalTeams: 0,
+    totalMilestones: 0,
+    milbGames: 0,
+    milbBatters: 0,
+    milbPitchers: 0,
+    crossoverPlayers: 0,
+    allGames: 0,
+    unifiedBatters: 0,
+    unifiedPitchers: 0,
+  },
+  levelColors: {},
+  levelOrder: [],
+  unifiedGameLog: [],
+  unifiedBatters: [],
+  unifiedPitchers: [],
+  teamRecords: [],
+  milestones: {},
+  scorigami: {},
+  crossoverPlayers: [],
+  gameDetails: {},
+  scheduleGames: [],
+  scheduleIndex: [],
+  batterGames: [],
+  pitcherGames: [],
+  stadiumLocations: {},
+  milbStadiumLocations: {},
+  partnerStadiumLocations: {},
+  milbVenuesVisited: [],
+  partnerVenuesVisited: [],
+  checklist: {},
+  milbChecklist: {},
+  teamsSeenHome: [],
+  teamsSeenAway: [],
+  historicalTeamLogos: {},
+  ncaaTeamLogos: {},
+  ncaaTeamNicknames: {},
+  venueCityCoords: {},
+  partnerLogos: {},
+  localLogos: {},
+  dataQuality: {
+    summary: {
+      mergedSourceGames: 0,
+      unmergedSourceCandidates: 0,
+      sourceMergeWarnings: 0,
+      sourceMergeInfos: 0,
+      sourceMergeIssues: 0,
+      sourceMergeReviewGames: 0,
+    },
+    sourceMerge: {
+      games: [],
+      issues: [],
+      unmergedCandidates: [],
+    },
+  },
+};
 
 const TAB_HASH_MAP: Record<string, string> = {
   allGames: "games",
@@ -47,7 +109,34 @@ const HASH_TAB_MAP = Object.fromEntries(
   Object.entries(TAB_HASH_MAP).map(([k, v]) => [v, k])
 );
 
-export default function App({ data }: AppProps) {
+export default function App({ data: initialData }: AppProps) {
+  const [data, setData] = useState<SiteData>(initialData ?? EMPTY_SITE_DATA);
+  const [isLoadingData, setIsLoadingData] = useState(!initialData);
+  const [dataLoadError, setDataLoadError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (initialData) return;
+    let cancelled = false;
+    fetchJsonWithRetry<SiteData>("/data/site-data.json")
+      .then((loadedData) => {
+        if (!cancelled) {
+          setData(loadedData);
+          setDataLoadError(null);
+        }
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setDataLoadError(error instanceof Error ? error.message : "Failed to load site data");
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoadingData(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [initialData]);
+
   const getInitialTab = () => {
     if (typeof window !== "undefined") {
       const hash = window.location.hash.replace("#", "");
@@ -59,8 +148,43 @@ export default function App({ data }: AppProps) {
   const [activeTab, setActiveTab] = useState(getInitialTab);
   const [selectedPlayer, setSelectedPlayer] = useState<NormalizedPlayer | null>(null);
   const [playerType, setPlayerType] = useState<"batter" | "pitcher" | null>(null);
+  const [selectedGameIndex, setSelectedGameIndex] = useState<number | null>(null);
   const [milestoneLevelFilter, setMilestoneLevelFilter] = useState("All");
   const [milestoneLeagueFilter, setMilestoneLeagueFilter] = useState("All");
+
+  const gameLog = data.unifiedGameLog;
+
+  const openGame = useCallback(
+    (game: UnifiedGame) => {
+      const idx = gameLog.findIndex(
+        (g) =>
+          g.game_id === game.game_id &&
+          g.date_sort === game.date_sort &&
+          g.away_team === game.away_team &&
+          g.home_team === game.home_team
+      );
+      if (idx >= 0) setSelectedGameIndex(idx);
+    },
+    [gameLog]
+  );
+
+  const closeGame = useCallback(() => setSelectedGameIndex(null), []);
+
+  const navigateGame = useCallback(
+    (delta: number) => {
+      setSelectedGameIndex((curr) => {
+        if (curr === null) return curr;
+        // Walk forward/back to the next game that actually has details available.
+        let next = curr + delta;
+        while (next >= 0 && next < gameLog.length) {
+          if (gameLog[next].game_id) return next;
+          next += delta;
+        }
+        return curr;
+      });
+    },
+    [gameLog]
+  );
 
   const handleTabChange = useCallback((tabId: string) => {
     setActiveTab(tabId);
@@ -125,7 +249,8 @@ export default function App({ data }: AppProps) {
       fourHitGames: "4+ Hits", cycles: "Cycle", cycleWatch: "Cycle Watch",
       sixRbiGames: "6+ RBI", fiveRbiGames: "5+ RBI", fourRbiGames: "4+ RBI",
       multiDoubleGames: "Multi-2B", multiTripleGames: "Multi-3B", multiSbGames: "Multi-SB",
-      fourWalkGames: "4+ BB", fourRunGames: "4+ Runs", threeTotalBasesGames: "8+ TB",
+      fourWalkGames: "4+ BB", perfectBattingGames: "Perfect Batting",
+      fourRunGames: "4+ Runs", threeTotalBasesGames: "8+ TB",
       perfectGames: "Perfect Game", noHitters: "No-Hitter", oneHitters: "1-Hitter",
       twoHitters: "2-Hitter", shutouts: "Shutout", cgsoNoWalks: "CGSO No BB",
       completeGames: "Complete Game", lowHitCg: "Low-Hit CG",
@@ -163,16 +288,10 @@ export default function App({ data }: AppProps) {
     }
   }, [selectedPlayer, playerType, data.unifiedBatters, data.unifiedPitchers]);
 
-  const allMilestoneData = useMemo(() => {
-    const all: MilestoneEntry[] = [];
-    Object.values(data.milestones || {}).forEach((arr) => {
-      if (Array.isArray(arr)) all.push(...arr);
-    });
-    return all;
-  }, [data.milestones]);
-
   const hasCrossover = data.crossoverPlayers && data.crossoverPlayers.length > 0;
-  const hasSchedule = data.scheduleGames && data.scheduleGames.length > 0;
+  const hasSchedule =
+    (data.scheduleGames && data.scheduleGames.length > 0) ||
+    (data.scheduleIndex && data.scheduleIndex.length > 0);
 
   const tabs = [
     { id: "allGames", label: "All Games" },
@@ -196,6 +315,32 @@ export default function App({ data }: AppProps) {
     return parts.join(" | ");
   }, [data.summary]);
 
+  if (isLoadingData) {
+    return (
+      <main className="app">
+        <div className="panel" style={{ margin: "32px auto", maxWidth: 720 }}>
+          <div className="panel-header">
+            <h2>Loading Baseball Data</h2>
+          </div>
+          <div style={{ padding: 24, color: "#666" }}>Loading site data...</div>
+        </div>
+      </main>
+    );
+  }
+
+  if (dataLoadError) {
+    return (
+      <main className="app">
+        <div className="panel" style={{ margin: "32px auto", maxWidth: 720 }}>
+          <div className="panel-header">
+            <h2>Unable to Load Data</h2>
+          </div>
+          <div style={{ padding: 24, color: "#666" }}>{dataLoadError}</div>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <>
       <Header subtitle={headerSubtitle} data={data} onPlayerClick={handlePlayerClick} />
@@ -204,64 +349,19 @@ export default function App({ data }: AppProps) {
         <TabBar tabs={tabs} activeTab={activeTab} onTabChange={handleTabChange} />
 
         <div key={activeTab} className="tab-content-enter">
-        {activeTab === "allGames" && <UnifiedGameLog games={data.unifiedGameLog} data={data} />}
+        {activeTab === "allGames" && <UnifiedGameLog games={data.unifiedGameLog} data={data} onGameClick={openGame} />}
         {activeTab === "calendar" && <CalendarView games={data.unifiedGameLog} data={data} />}
         {activeTab === "teams" && <TeamRecords teams={data.teamRecords} data={data} />}
 
         {activeTab === "milestones" && (
-          <div>
-            <LevelLeagueFilter
-              levelFilter={milestoneLevelFilter}
-              setLevelFilter={setMilestoneLevelFilter}
-              leagueFilter={milestoneLeagueFilter}
-              setLeagueFilter={setMilestoneLeagueFilter}
-              data={allMilestoneData}
-              levelOrder={data.levelOrder}
-            />
-
-            <h3 className="milestones-section-header">Elite Pitching Performances</h3>
-            <MilestonesTable title="Perfect Games" data={data.milestones.perfectGames} columns={["Date", "Player", "Team", "Opponent", "IP", "K", "Score"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="No-Hitters" data={data.milestones.noHitters} columns={["Date", "Player", "Team", "Opponent", "IP", "K", "BB", "Score"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="One-Hitters" data={data.milestones.oneHitters} columns={["Date", "Player", "Team", "Opponent", "IP", "H", "K", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Two-Hitters" data={data.milestones.twoHitters} columns={["Date", "Player", "Team", "Opponent", "IP", "H", "K", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Maddux Games (CG, <100 pitches)" data={data.milestones.madduxGames} columns={["Date", "Player", "Team", "Opponent", "IP", "H", "K", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-
-            <h3 className="milestones-section-header">Complete Games & Shutouts</h3>
-            <MilestonesTable title="CGSO No Walks" data={data.milestones.cgsoNoWalks} columns={["Date", "Player", "Team", "Opponent", "IP", "H", "K"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Shutouts" data={data.milestones.shutouts} columns={["Date", "Player", "Team", "Opponent", "IP", "K", "H", "BB"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="7+ IP Shutouts" data={data.milestones.sevenInningShutouts} columns={["Date", "Player", "Team", "Opponent", "IP", "K", "H", "BB"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Complete Games" data={data.milestones.completeGames} columns={["Date", "Player", "Team", "Opponent", "IP", "K", "H", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Low-Hit CG" data={data.milestones.lowHitCg} columns={["Date", "Player", "Team", "Opponent", "IP", "H", "K", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-
-            <h3 className="milestones-section-header">Strikeout Performances</h3>
-            <MilestonesTable title="15+ K Games" data={data.milestones.fifteenKGames} columns={["Date", "Player", "Team", "Opponent", "K", "IP", "H", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="12+ K Games" data={data.milestones.twelveKGames} columns={["Date", "Player", "Team", "Opponent", "K", "IP", "H", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="10+ K Games" data={data.milestones.tenKGames} columns={["Date", "Player", "Team", "Opponent", "K", "IP", "H", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Dominant Starts (7+ IP, 10+ K)" data={data.milestones.dominantStarts} columns={["Date", "Player", "Team", "Opponent", "IP", "K", "H", "ER"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-
-            <h3 className="milestones-section-header">Big Batting Performances</h3>
-            <MilestonesTable title="3+ HR Games" data={data.milestones.threeHrGames} columns={["Date", "Player", "Team", "Opponent", "HR", "H", "RBI", "R"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Multi-HR Games" data={data.milestones.multiHrGames} columns={["Date", "Player", "Team", "Opponent", "HR", "H", "RBI"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Cycles" data={data.milestones.cycles} columns={["Date", "Player", "Team", "Opponent", "1B", "2B", "3B", "HR"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Cycle Watch (3 of 4)" data={data.milestones.cycleWatch} columns={["Date", "Player", "Team", "Opponent", "1B", "2B", "3B", "HR"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-
-            <h3 className="milestones-section-header">Hit Milestones</h3>
-            <MilestonesTable title="5+ Hit Games" data={data.milestones.fiveHitGames} columns={["Date", "Player", "Team", "Opponent", "H", "R", "RBI"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="4+ Hit Games" data={data.milestones.fourHitGames} columns={["Date", "Player", "Team", "Opponent", "H", "R", "RBI"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Multi-Double Games" data={data.milestones.multiDoubleGames} columns={["Date", "Player", "Team", "Opponent", "2B", "H", "RBI"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="Multi-Triple Games" data={data.milestones.multiTripleGames} columns={["Date", "Player", "Team", "Opponent", "3B", "H", "RBI"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="8+ Total Bases" data={data.milestones.threeTotalBasesGames} columns={["Date", "Player", "Team", "Opponent", "H", "HR", "RBI"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-
-            <h3 className="milestones-section-header">Run Production</h3>
-            <MilestonesTable title="6+ RBI Games" data={data.milestones.sixRbiGames} columns={["Date", "Player", "Team", "Opponent", "RBI", "H", "HR"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="5+ RBI Games" data={data.milestones.fiveRbiGames} columns={["Date", "Player", "Team", "Opponent", "RBI", "H", "HR"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="4+ RBI Games" data={data.milestones.fourRbiGames} columns={["Date", "Player", "Team", "Opponent", "RBI", "H", "HR"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="4+ Run Games" data={data.milestones.fourRunGames} columns={["Date", "Player", "Team", "Opponent", "R", "H", "RBI"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-
-            <h3 className="milestones-section-header">Baserunning & Patience</h3>
-            <MilestonesTable title="Multi-SB Games" data={data.milestones.multiSbGames} columns={["Date", "Player", "Team", "Opponent", "SB", "H", "R"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-            <MilestonesTable title="4+ Walk Games" data={data.milestones.fourWalkGames} columns={["Date", "Player", "Team", "Opponent", "BB", "H", "R"]} levelFilter={milestoneLevelFilter} leagueFilter={milestoneLeagueFilter} onPlayerClick={handlePlayerClick} siteData={data} />
-          </div>
+          <MilestonesPage
+            data={data}
+            levelFilter={milestoneLevelFilter}
+            setLevelFilter={setMilestoneLevelFilter}
+            leagueFilter={milestoneLeagueFilter}
+            setLeagueFilter={setMilestoneLeagueFilter}
+            onPlayerClick={handlePlayerClick}
+          />
         )}
 
         {activeTab === "crossover" && <CrossoverPlayers players={data.crossoverPlayers} onPlayerClick={handlePlayerClick} data={data} />}
@@ -296,6 +396,18 @@ export default function App({ data }: AppProps) {
             onClose={closeModal}
             data={data}
             unifiedStats={selectedUnifiedStats}
+          />
+        )}
+
+        {selectedGameIndex !== null && gameLog[selectedGameIndex] && (
+          <GameDetailsModal
+            game={gameLog[selectedGameIndex]}
+            onClose={closeGame}
+            onPrev={() => navigateGame(1)}
+            onNext={() => navigateGame(-1)}
+            hasPrev={gameLog.slice(selectedGameIndex + 1).some((g) => !!g.game_id)}
+            hasNext={gameLog.slice(0, selectedGameIndex).some((g) => !!g.game_id)}
+            data={data}
           />
         )}
       </div>

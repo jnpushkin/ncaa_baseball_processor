@@ -1,0 +1,665 @@
+{
+  "metadata": {
+    "date": "02/21/2025",
+    "date_yyyymmdd": "20250221",
+    "away_team": "Oral Roberts",
+    "away_team_short": "ORU",
+    "away_team_id": 43203,
+    "home_team": "Arizona St.",
+    "home_team_short": "AZ ST",
+    "home_team_id": 43068,
+    "away_team_score": 8,
+    "home_team_score": 7,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6423328"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "13",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "12",
+        "ab": 5,
+        "r": 1,
+        "h": 1,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 3,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "18",
+        "ab": 3,
+        "r": 2,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "11",
+        "ab": 5,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 8,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "10",
+        "ab": 5,
+        "r": 0,
+        "h": 1,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "7",
+        "ab": 3,
+        "r": 2,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 3,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "8",
+        "ab": 3,
+        "r": 2,
+        "h": 3,
+        "rbi": 1,
+        "bb": 2,
+        "k": 0,
+        "po": 3,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "23",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "21",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 7,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "31",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "kien Vu",
+        "full_name": "kien Vu",
+        "position": "",
+        "number": "11",
+        "ab": 4,
+        "r": 2,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "b. Compton",
+        "full_name": "b. Compton",
+        "position": "",
+        "number": "27",
+        "ab": 2,
+        "r": 2,
+        "h": 1,
+        "rbi": 0,
+        "bb": 3,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "i. Jackson",
+        "full_name": "i. Jackson",
+        "position": "",
+        "number": "24",
+        "ab": 5,
+        "r": 0,
+        "h": 2,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "j. Cromwick",
+        "full_name": "j. Cromwick",
+        "position": "",
+        "number": "21",
+        "ab": 5,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 13,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "J. Hernandez",
+        "full_name": "J. Hernandez",
+        "position": "",
+        "number": "3",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "jax Ryan",
+        "full_name": "jax Ryan",
+        "position": "",
+        "number": "4",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "n Contrades",
+        "full_name": "n Contrades",
+        "position": "",
+        "number": "6",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "k": 0,
+        "po": 0,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "kyle Walker",
+        "full_name": "kyle Walker",
+        "position": "",
+        "number": "7",
+        "ab": 5,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "j. Tobias",
+        "full_name": "j. Tobias",
+        "position": "",
+        "number": "18",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 8,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "l. Hairston",
+        "full_name": "l. Hairston",
+        "position": "",
+        "number": "51",
+        "ab": 3,
+        "r": 0,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "36",
+        "ip": "2.2",
+        "h": 4,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 13,
+        "np": 28,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "31",
+        "ip": "1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 5,
+        "np": 12,
+        "hr": 0,
+        "win": true,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "32",
+        "ip": "4.1",
+        "h": 4,
+        "r": 7,
+        "er": 7,
+        "bb": 0,
+        "k": 0,
+        "bf": 22,
+        "np": 52,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "20",
+        "ip": "1",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 5,
+        "np": 13,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": true
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "lucas Kelly",
+        "full_name": "lucas Kelly",
+        "number": "15",
+        "ip": "1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 3,
+        "np": 9,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "38",
+        "ip": "0.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 1,
+        "np": 2,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "will Koger",
+        "full_name": "will Koger",
+        "number": "31",
+        "ip": "1",
+        "h": 2,
+        "r": 3,
+        "er": 3,
+        "bb": 0,
+        "k": 0,
+        "bf": 8,
+        "np": 19,
+        "hr": 0,
+        "win": false,
+        "loss": true,
+        "save": false
+      },
+      {
+        "name": "j. Giblin",
+        "full_name": "j. Giblin",
+        "number": "40",
+        "ip": "1.2",
+        "h": 3,
+        "r": 2,
+        "er": 2,
+        "bb": 0,
+        "k": 0,
+        "bf": 8,
+        "np": 15,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "ben Jacobs",
+        "full_name": "ben Jacobs",
+        "number": "22",
+        "ip": "5",
+        "h": 4,
+        "r": 3,
+        "er": 3,
+        "bb": 0,
+        "k": 0,
+        "bf": 20,
+        "np": 55,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [],
+    "doubles": [],
+    "triples": [],
+    "stolen_bases": []
+  },
+  "play_by_play": {
+    "1": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [],
+      "bottom": [
+        {
+          "description": "null",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "ncaa_api"
+}

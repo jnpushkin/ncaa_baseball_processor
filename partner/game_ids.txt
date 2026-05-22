@@ -13,6 +13,7 @@
 
 # Pioneer League (uses Playwright for dynamic content)
 pioneer:20240828_fhp1  # Idaho Falls @ Oakland, Aug 28, 2024 (Oakland 9, Idaho Falls 4)
+pioneer:20260520_6ela  # Missoula @ Oakland Ballers, May 20, 2026 - Ring Night (Oakland 13, Missoula 8)
 
 # Atlantic League
 atlantic:612414  # Lancaster @ Staten Island, May 11, 2024 (Lancaster 8, Staten Island 2)

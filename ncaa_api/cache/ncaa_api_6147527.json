@@ -1,0 +1,1325 @@
+{
+  "metadata": {
+    "date": "06/17/2023",
+    "date_yyyymmdd": "20230617",
+    "away_team": "Virginia",
+    "away_team_short": "UVA",
+    "away_team_id": 43022,
+    "home_team": "Florida",
+    "home_team_short": "FLA",
+    "home_team_id": 43492,
+    "away_team_score": 5,
+    "home_team_score": 6,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6147527"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Ethan Anderson",
+        "full_name": "Ethan Anderson",
+        "position": "1B",
+        "number": "23",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 5,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Jake Gelof",
+        "full_name": "Jake Gelof",
+        "position": "3B",
+        "number": "22",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Anthony Stephan",
+        "full_name": "Anthony Stephan",
+        "position": "DH",
+        "number": "16",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Harrison Didawick",
+        "full_name": "Harrison Didawick",
+        "position": "LF",
+        "number": "34",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 1,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Kyle Teel",
+        "full_name": "Kyle Teel",
+        "position": "C",
+        "number": "3",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 4,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Ethan O'Donnell",
+        "full_name": "Ethan O'Donnell",
+        "position": "CF",
+        "number": "2",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 2,
+        "po": 9,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Casey Saucke",
+        "full_name": "Casey Saucke",
+        "position": "RF",
+        "number": "8",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 2,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Henry Godbout",
+        "full_name": "Henry Godbout",
+        "position": "2B",
+        "number": "7",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 2,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Griff O'Ferrall",
+        "full_name": "Griff O'Ferrall",
+        "position": "SS",
+        "number": "6",
+        "ab": 5,
+        "r": 1,
+        "h": 2,
+        "rbi": 2,
+        "bb": 0,
+        "k": 1,
+        "po": 1,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "Josh Rivera",
+        "full_name": "Josh Rivera",
+        "position": "SS",
+        "number": "24",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 4,
+        "a": 5,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Richie Schiekofer",
+        "full_name": "Richie Schiekofer",
+        "position": "LF",
+        "number": "25",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Luke Heyman",
+        "full_name": "Luke Heyman",
+        "position": "DH",
+        "number": "28",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Wyatt Langford",
+        "full_name": "Wyatt Langford",
+        "position": "CF",
+        "number": "36",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 1,
+        "sb": 0
+      },
+      {
+        "name": "Colby Halter",
+        "full_name": "Colby Halter",
+        "position": "3B",
+        "number": "5",
+        "ab": 1,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tyler Shelnut",
+        "full_name": "Tyler Shelnut",
+        "position": "RF/LF",
+        "number": "6",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Cade Kurland",
+        "full_name": "Cade Kurland",
+        "position": "2B",
+        "number": "4",
+        "ab": 5,
+        "r": 0,
+        "h": 0,
+        "rbi": 1,
+        "bb": 0,
+        "k": 2,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "BT Riopelle",
+        "full_name": "BT Riopelle",
+        "position": "C",
+        "number": "15",
+        "ab": 3,
+        "r": 2,
+        "h": 2,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 9,
+        "a": 2,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 1,
+        "sb": 0
+      },
+      {
+        "name": "Jac Caglianone",
+        "full_name": "Jac Caglianone",
+        "position": "1B",
+        "number": "14",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 10,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Dale Thomas",
+        "full_name": "Dale Thomas",
+        "position": "PH/3B",
+        "number": "1",
+        "ab": 1,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Ty Evans",
+        "full_name": "Ty Evans",
+        "position": "PH/RF",
+        "number": "2",
+        "ab": 2,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 1,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Jack O'Connor",
+        "full_name": "Jack O'Connor",
+        "number": "14",
+        "ip": "0.1",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 3,
+        "np": 8,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Evan Blanco",
+        "full_name": "Evan Blanco",
+        "number": "15",
+        "ip": "0.1",
+        "h": 0,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
+        "k": 0,
+        "bf": 2,
+        "np": 2,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Jake Berry",
+        "full_name": "Jake Berry",
+        "number": "32",
+        "ip": "1.2",
+        "h": 4,
+        "r": 4,
+        "er": 4,
+        "bb": 2,
+        "k": 2,
+        "bf": 12,
+        "np": 24,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Nick Parker",
+        "full_name": "Nick Parker",
+        "number": "28",
+        "ip": "6.0",
+        "h": 4,
+        "r": 1,
+        "er": 1,
+        "bb": 3,
+        "k": 1,
+        "bf": 24,
+        "np": 51,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Jay Woolfolk",
+        "full_name": "Jay Woolfolk",
+        "number": "4",
+        "ip": "0.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 1,
+        "np": 1,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "Cade Fisher",
+        "full_name": "Cade Fisher",
+        "number": "3",
+        "ip": "0.1",
+        "h": 2,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "k": 0,
+        "bf": 3,
+        "np": 9,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Brandon Sproat",
+        "full_name": "Brandon Sproat",
+        "number": "8",
+        "ip": "6.1",
+        "h": 5,
+        "r": 3,
+        "er": 3,
+        "bb": 3,
+        "k": 7,
+        "bf": 26,
+        "np": 73,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Brandon Neely",
+        "full_name": "Brandon Neely",
+        "number": "22",
+        "ip": "2.1",
+        "h": 1,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
+        "k": 1,
+        "bf": 8,
+        "np": 16,
+        "hr": 0,
+        "win": true,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [
+      {
+        "player": "riopelle",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "evans",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "langford",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "doubles": [
+      {
+        "player": "anderson",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "riopelle",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "o'ferrall",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "evans",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [
+      {
+        "player": "didawick",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "stolen_bases": []
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Ferrall singled through the left side (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Donnell struck out swinging (0-2 KSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gelof popped up to ss (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Teel walked (3-2 BSBBFB); O'Ferrall advanced to second, out at third c to 3b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurland struck out swinging (3-2 BBKSFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Langford walked (3-1 BBFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caglianone flied out to cf (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Rivera flied out to cf (2-2 KBBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Anderson grounded out to p (0-2 KKF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Saucke struck out looking (0-2 FSFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Stephan singled up the middle (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Godbout popped up to ss (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Riopelle walked (3-2 FBBFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Heyman singled through the left side (1-0 B); Riopelle advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Shelnut reached on a fielder's choice to second base (0-1 F); Heyman out at second 2b to ss; Riopelle advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Halter singled to left center, RBI (3-2 BBFBK); Shelnut advanced to second; Riopelle scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Schiekofer flied out to lf (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurland out at first ss to 2b (2-2 KKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Didawick grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Ferrall grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Donnell hit by pitch (3-2 BFBBFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Donnell picked off, out at second p to 1b to ss, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Langford popped up to 2b (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caglianone fouled out to c (2-2 BFBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Rivera lined out to lf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gelof walked (3-1 FBBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Teel grounded into double play ss to 1b (1-0 B); Gelof out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Anderson doubled down the lf line (1-1 BK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Saucke grounded out to 3b (2-2 BFFFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Riopelle doubled to left center (3-1 BBKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Heyman flied into double play rf to 3b (1-2 FBS); Riopelle out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Shelnut singled to shortstop (1-2 BFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Halter walked (3-2 BBFFBB); Shelnut advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schiekofer flied out to cf to right center (0-2 KK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Stephan struck out swinging (1-2 FSBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Godbout struck out looking (1-2 BKFFFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Didawick hit by pitch (0-2 KF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Ferrall struck out swinging (2-2 BBFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurland flied out to rf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Langford flied out to cf (1-2 BFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caglianone grounded out to 1b unassisted (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Donnell struck out swinging (0-2 KSFFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gelof grounded out to 3b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Teel struck out swinging (2-2 SSFBBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Rivera flied out to cf (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Riopelle flied out to cf (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Heyman grounded out to 3b (3-2 BBBKFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Anderson walked (3-2 BKFBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Saucke singled through the right side (1-2 KKBFF); Anderson advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Stephan grounded out to 3b, RBI (0-0); Saucke advanced to second; Anderson scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Godbout singled to center field (3-2 BKBFBFF); Saucke advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Didawick reached on a fielder's choice to third base (0-2 SF); Godbout advanced to second; Saucke out at home 3b to c.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Ferrall doubled down the lf line, 2 RBI (1-1 KB); Didawick scored; Godbout scored.",
+          "pitch_count": null,
+          "rbi": 2
+        },
+        {
+          "description": "O'Donnell singled to center field, RBI (0-2 FKF); O'Ferrall scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "O'Donnell out at second c to 2b, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 4 H:4 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Blanco to p for Parker.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "O'Connor to p for Blanco.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Berry to p for O'Connor.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Fisher to p for Sproat.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Neely to p for Fisher.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on field was caught stealing, Virginia Challenged.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was confirmed.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Shelnut flied out to cf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas pinch hit for Halter.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas walked (3-1 BKBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Evans pinch hit for Schiekofer.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Evans doubled down the rf line (3-2 BBKBKF); Thomas advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kurland grounded out to 3b, RBI (1-1 BF); Thomas scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Langford reached on a fielding error by ss (0-1 K); Evans advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caglianone walked (3-1 BBBKB); Langford advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Rivera grounded out to p (1-2 FBFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:1 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gelof flied out to rf to right center (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Teel grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Anderson struck out swinging (3-2 BKBBSFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Shelnut to lf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas to 3b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Evans to rf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Riopelle homered to left center, RBI (1-0 B).",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Heyman grounded out to 2b (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Shelnut struck out swinging (1-2 SBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thomas flied out to cf (3-2 KBBFFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Saucke walked (3-2 BBBKKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Stephan grounded out to 3b, SAC, bunt (0-0); Saucke advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Godbout flied out to rf (2-1 BBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Didawick tripled to right field, RBI (2-2 KSBB); Saucke scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "O'Ferrall grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tuft to lf for Didawick.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Woolfolk to p for Berry.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Evans homered to left field, RBI (2-1 KBB).",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Kurland struck out looking (1-2 SBSK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Langford homered to left field, RBI (1-0 B).",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Caglianone singled to right center (1-1 SB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Rivera walked (3-2 BBBKFB); Caglianone advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Riopelle hit by pitch (0-0); J. Rivera advanced to second; Caglianone advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Heyman flied out to cf, SF, RBI (2-0 BB); Caglianone scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Batting ends R: 3 H:3 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "ncaa_api"
+}

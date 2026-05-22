@@ -8,6 +8,7 @@ import LevelBadge from "@/components/shared/LevelBadge";
 import SortableHeader from "@/components/shared/SortableHeader";
 import { getTeamDisplayName } from "@/lib/teams";
 import { useSortableData } from "@/hooks/useSortableData";
+import TeamLogo from "@/components/shared/TeamLogo";
 
 export interface MilestonesTableProps {
   title: string;
@@ -15,6 +16,7 @@ export interface MilestonesTableProps {
   columns: string[];
   levelFilter: string;
   leagueFilter: string;
+  searchTerm?: string;
   onPlayerClick?: (row: MilestoneEntry, type: "batter" | "pitcher") => void;
   siteData: SiteData;
 }
@@ -25,15 +27,32 @@ export default function MilestonesTable({
   columns,
   levelFilter,
   leagueFilter,
+  searchTerm = "",
   onPlayerClick,
   siteData,
 }: MilestonesTableProps) {
   const levelColors = siteData.levelColors ?? {};
 
-  const filtered = useMemo(
-    () => filterByLevelLeague(data ?? [], levelFilter, leagueFilter),
-    [data, levelFilter, leagueFilter]
-  );
+  const filtered = useMemo(() => {
+    const base = filterByLevelLeague(data ?? [], levelFilter, leagueFilter);
+    const tokens = searchTerm.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (!tokens.length) return base;
+    return base.filter((row) => {
+      const haystack = [
+        row.Player,
+        row.Team,
+        row.Opponent,
+        row.Level,
+        row.level,
+        row.League,
+        row.league,
+      ]
+        .filter((value) => value !== undefined)
+        .join(" ")
+        .toLowerCase();
+      return tokens.every((token) => haystack.includes(token));
+    });
+  }, [data, levelFilter, leagueFilter, searchTerm]);
 
   const { items, sortConfig, requestSort } = useSortableData(filtered, {
     key: "Date",
@@ -46,14 +65,13 @@ export default function MilestonesTable({
   const textCols = ["Player", "Team", "Opponent", "Date", "Level"];
 
   return (
-    <div className="panel" style={{ marginTop: "16px" }}>
-      <div className="panel-header">
-        <h2>
-          {title} ({filtered.length})
-        </h2>
+    <div className="panel milestone-table-panel">
+      <div className="panel-header milestone-table-header">
+        <h2>{title}</h2>
+        <span>{filtered.length.toLocaleString()}</span>
       </div>
       <div className="table-container">
-        <table className="data-table">
+        <table className="data-table milestones-table">
           <thead>
             <tr>
               {allColumns.map((col) => (
@@ -83,22 +101,33 @@ export default function MilestonesTable({
                           levelColors={levelColors}
                         />
                       ) : col === "Player" ? (
-                        <span
-                          className="clickable-name"
+                        <button
+                          type="button"
+                          className="clickable-name milestone-player-button"
                           onClick={() =>
                             onPlayerClick?.(row, isPitcher ? "pitcher" : "batter")
                           }
                         >
                           {row[col]}
-                        </span>
+                        </button>
                       ) : col === "Date" ? (
                         formatDate(String(row[col] ?? ""))
                       ) : col === "Team" || col === "Opponent" ? (
-                        getTeamDisplayName(
-                          String(row[col] ?? ""),
-                          siteData.ncaaTeamNicknames ?? {},
-                          siteData.ncaaTeamLogos ?? {}
-                        )
+                        <span className="milestone-team-cell">
+                          <TeamLogo
+                            team={String(row[col] ?? "")}
+                            level={String(row.Level ?? row.level ?? "")}
+                            size={20}
+                            data={siteData}
+                          />
+                          <span>
+                            {getTeamDisplayName(
+                              String(row[col] ?? ""),
+                              siteData.ncaaTeamNicknames ?? {},
+                              siteData.ncaaTeamLogos ?? {}
+                            )}
+                          </span>
+                        </span>
                       ) : (
                         row[col]
                       )}

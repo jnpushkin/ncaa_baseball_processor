@@ -135,6 +135,7 @@ class NameMatcher:
     # Known typos in source PDFs: {typo: correction}
     TYPO_CORRECTIONS = {
         'FUNY, Matty': 'Fung, Matty',
+        'Matty Funy': 'Matty Fung',
         'FUNY': 'Fung',
     }
 
@@ -394,6 +395,20 @@ class NameMatcher:
                     confidence=1.0,
                     match_type="exact"
                 )
+
+            first_prefix = re.sub(r'[^a-z]', '', first_lower)
+            if len(first_prefix) > 1:
+                prefix_matches = [
+                    p for p in candidates
+                    if p.get('first_name', '').lower().startswith(first_prefix)
+                ]
+                if len(prefix_matches) == 1:
+                    return MatchResult(
+                        matched=True,
+                        player=prefix_matches[0],
+                        confidence=0.95 if (team_filtered or year_filtered) else 0.85,
+                        match_type="first_prefix"
+                    )
 
         # Try first initial match
         if parsed['first_initial']:

@@ -1,0 +1,1052 @@
+{
+  "metadata": {
+    "date": "03/14/2025",
+    "date_yyyymmdd": "20250314",
+    "away_team": "Virginia",
+    "away_team_short": "UVA",
+    "away_team_id": 43022,
+    "home_team": "California",
+    "home_team_short": "CAL",
+    "home_team_id": 42807,
+    "away_team_score": 1,
+    "home_team_score": 6,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6423464"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "34",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 5,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "21",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 1,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "23",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "3",
+        "ab": 2,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "2",
+        "ab": 5,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "h. Ford",
+        "full_name": "h. Ford",
+        "position": "",
+        "number": "9",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 5,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "8",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 4,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "a. Teel",
+        "full_name": "a. Teel",
+        "position": "",
+        "number": "7",
+        "ab": 2,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "5",
+        "ab": 3,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "28",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 4,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "19",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "A Birge",
+        "full_name": "A Birge",
+        "position": "",
+        "number": "22",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 11,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "C Campbell",
+        "full_name": "C Campbell",
+        "position": "",
+        "number": "2",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "S Gwynn",
+        "full_name": "S Gwynn",
+        "position": "",
+        "number": "3",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 2,
+        "bb": 1,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 1,
+        "sb": 0
+      },
+      {
+        "name": "J Advincula",
+        "full_name": "J Advincula",
+        "position": "",
+        "number": "1",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "position": "",
+        "number": "10",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 3,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "M Handron",
+        "full_name": "M Handron",
+        "position": "",
+        "number": "4",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "R Tayman",
+        "full_name": "R Tayman",
+        "position": "",
+        "number": "17",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "J French",
+        "full_name": "J French",
+        "position": "",
+        "number": "15",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "D Smaldino",
+        "full_name": "D Smaldino",
+        "position": "",
+        "number": "38",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 7,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "25",
+        "ip": "1.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 4,
+        "np": 10,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "45",
+        "ip": "1.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 4,
+        "np": 9,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "38",
+        "ip": "0.1",
+        "h": 2,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "k": 0,
+        "bf": 4,
+        "np": 8,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Unknown",
+        "full_name": "Unknown",
+        "number": "4",
+        "ip": "5",
+        "h": 6,
+        "r": 5,
+        "er": 4,
+        "bb": 0,
+        "k": 0,
+        "bf": 24,
+        "np": 52,
+        "hr": 0,
+        "win": false,
+        "loss": true,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "S Dessart",
+        "full_name": "S Dessart",
+        "number": "98",
+        "ip": "1.2",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 8,
+        "np": 23,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "D Shaw",
+        "full_name": "D Shaw",
+        "number": "51",
+        "ip": "0.2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 2,
+        "np": 7,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "A Turkington",
+        "full_name": "A Turkington",
+        "number": "5",
+        "ip": "6.2",
+        "h": 3,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "k": 0,
+        "bf": 28,
+        "np": 63,
+        "hr": 0,
+        "win": true,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [
+      {
+        "player": "gwynn,s",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "doubles": [
+      {
+        "player": "birge,a",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [],
+    "stolen_bases": [
+      {
+        "player": "moutzouridis",
+        "game_count": 1,
+        "season_total": null
+      }
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Becker lined out to cf (1-1 BF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Godbout grounded out to ss (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arroyo singled through the right side (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ford, H. grounded out to 3b (1-1 KB).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Advincula,J flied out to cf (2-2 KBBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S walked (3-2 KBBKBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,C fouled out to 1b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tayman,R flied out to cf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Teel, A. fouled out to c (1-1 BF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Didawick struck out swinging (3-2 BBFSFBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Wells struck out looking (3-2 BBFFFBK).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Moutzouridis walked (3-2 BSKBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M singled to left center (0-0)3a Moutzouridis advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A fouled out to 3b (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Birge foul out challenged by Cal, call on field stands.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis stole third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D singled to left center, RBI, advanced to second (0-2 FKF)3a Handron,M advanced to third, scored on a throwing error by ss3a Moutzouridis scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "French,J singled to shortstop (0-1 F)3a Smaldino,D advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J flied out to lf, SF, RBI (0-0)3a Smaldino,D scored, unearned.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Gwynn,S popped up to ss (2-2 FBKFB).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Nunnallee lined out to lf (1-1 BK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hanson singled to right field (2-2 KBSB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Becker grounded into double play p to ss to 1b (1-2 KBS)3a Hanson out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Campbell,C struck out swinging (0-2 FSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tayman,R singled to right center (2-2 BSBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis flied out to rf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M walked (3-1 BBKBB)3a Tayman,R advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A struck out swinging (0-2 SKS).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Godbout grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arroyo walked (3-0 BBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ford, H. struck out swinging (1-2 KKBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Teel, A. hit by pitch (0-1 K)3a Arroyo advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Didawick popped up to ss (0-2 SK).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Smaldino,D struck out looking (2-2 KBBKK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "French,J singled up the middle (3-1 BBBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J flied out to rf (3-1 BFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S homered to left field, 2 RBI (3-1 BBFB)3a French,J scored.",
+          "pitch_count": null,
+          "rbi": 2
+        },
+        {
+          "description": "Campbell,C lined out to lf (3-1 SBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Wells struck out swinging (3-2 BBKKBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nunnallee hit by pitch (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nunnallee advanced to second on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hanson singled to center field (3-2 KBBSBF)3a Nunnallee advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Becker flied out to lf, SF, RBI (0-0)3a Nunnallee scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Godbout fouled out to 1b (0-2 KFF).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Tayman,R lined out to 3b (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis flied out to lf (1-2 BFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M struck out looking (0-2 KFK).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Arroyo grounded out to 2b (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ford, H. struck out swinging (2-2 BKBFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Teel, A. walked (3-1 KBBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Didawick struck out swinging (1-2 KBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ference to c for Wells.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kampschror to p for Woolfolk.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A doubled down the rf line (0-2 FK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D reached on a fielding error by p (2-0 BB)3a Birge,A advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "French,J flied out to lf (1-1 BF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Advincula,J singled up the middle, RBI (1-1 BF)3a Smaldino,D advanced to second3a Birge,A scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Arrington to p for Kampschror.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gwynn,S struck out looking (2-2 KBBSK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Campbell,C lined out to rf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Ference hit by pitch (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nunnallee grounded out to p (2-2 BKFB)3a Ference advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hanson struck out swinging (2-2 KKBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Becker walked (3-1 SBBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dessart,S to p for Turkington,A.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Godbout lined out to cf (1-1 BK).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Tayman,R lined out to lf (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moutzouridis flied out to rf (2-2 FBSB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "M. Buchanan to p for Arrington.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Handron,M struck out swinging (1-2 BSSS).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Thomas,M to rf for Tayman,R.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "French,J to lf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arroyo popped up to ss (2-2 KBBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ford, H. struck out swinging (3-2 KFBBFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Teel, A. singled up the middle (0-2 KK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Harris pinch hit for Didawick.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Harris reached on a fielder's choice (1-1 BS)3a Teel, A. out at second 2b unassisted.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Harris to lf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Birge,A struck out swinging (1-2 BKSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Smaldino,D flied out to rf (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "French,J struck out swinging (2-2 SBBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Kodama,E to lf for French,J.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ference struck out swinging (2-2 KBBFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nunnallee hit by pitch (1-2 KBFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hanson walked (3-2 FBFBBB)3a Nunnallee advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Shaw,D to p for Dessart,S.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Becker struck out swinging (2-2 BSBFFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Godbout reached on a fielder's choice (3-1 BFBB)3a Hanson out at second ss to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "ncaa_api"
+}

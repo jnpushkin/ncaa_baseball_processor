@@ -1,3 +1,3 @@
 """Website generation."""
 
-from .generator import generate_website_from_data
+from .generator import generate_nextjs_data

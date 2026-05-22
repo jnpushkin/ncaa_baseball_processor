@@ -15,7 +15,7 @@ import requests
 from bs4 import BeautifulSoup
 from pathlib import Path
 from typing import Dict, List, Any, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 
 # Add parent dir for shared utils
@@ -208,6 +208,221 @@ PARTNER_LEAGUES = {
 }
 
 
+def _default_partner_artifact_dir() -> Path:
+    """Return the default location for partner source artifacts."""
+    return Path(__file__).resolve().parent.parent / 'partner' / 'artifacts'
+
+
+def _relative_artifact_path(path: Path) -> str:
+    """Store artifact paths relative to the project root when possible."""
+    project_root = Path(__file__).resolve().parent.parent
+    try:
+        return str(path.resolve().relative_to(project_root))
+    except ValueError:
+        return str(path)
+
+
+def pioneer_boxscore_urls(game_code: str, year: Optional[int] = None) -> Dict[str, str]:
+    """Build the Pioneer boxscore, print, and coach-view URLs for a game."""
+    season = year or (int(game_code[:4]) if len(game_code) >= 4 and game_code[:4].isdigit() else 2024)
+    base = f"https://www.pioneerleague.com/sports/bsb/{season}/boxscores/{game_code}.xml"
+    return {
+        'boxscore': base,
+        'print': f"{base}?dec=printer-decorator",
+        'coach_view': f"{base}?tmpl=bsxml-monospace-template",
+    }
+
+
+def pioneer_artifact_paths(
+    game_code: str,
+    year: Optional[int] = None,
+    output_dir: Optional[Path] = None,
+) -> Dict[str, Path]:
+    """Return local artifact paths for a Pioneer game."""
+    season = year or (int(game_code[:4]) if len(game_code) >= 4 and game_code[:4].isdigit() else 2024)
+    root = Path(output_dir) if output_dir else _default_partner_artifact_dir()
+    game_dir = root / 'pioneer' / str(season)
+    return {
+        'boxscore_html': game_dir / f'{game_code}.boxscore.html',
+        'print_html': game_dir / f'{game_code}.print.html',
+        'coach_view_html': game_dir / f'{game_code}.coach.html',
+        'print_pdf': game_dir / f'{game_code}.print.pdf',
+    }
+
+
+def _pioneer_source_artifact_metadata(
+    game_code: str,
+    year: Optional[int],
+    artifact_paths: Optional[Dict[str, Path]] = None,
+    downloaded_at: Optional[str] = None,
+) -> Dict[str, Any]:
+    """Build cache metadata for Pioneer source URLs and local artifacts."""
+    urls = pioneer_boxscore_urls(game_code, year)
+    metadata: Dict[str, Any] = {
+        'source_urls': urls,
+    }
+    if artifact_paths:
+        metadata['source_artifacts'] = {
+            'downloaded_at': downloaded_at or datetime.now(timezone.utc).isoformat(timespec='seconds'),
+            'files': {
+                key: _relative_artifact_path(path)
+                for key, path in artifact_paths.items()
+                if path.exists()
+            },
+            'urls': urls,
+            'note': 'Pioneer does not expose an official PDF link here; print_pdf is generated from the rendered print view.',
+        }
+    return metadata
+
+
+def attach_pioneer_source_metadata(
+    game_data: Dict[str, Any],
+    game_code: str,
+    year: Optional[int] = None,
+    artifact_paths: Optional[Dict[str, Path]] = None,
+) -> Dict[str, Any]:
+    """Attach Pioneer source URL/artifact metadata to a parsed or cached game."""
+    metadata = game_data.setdefault('metadata', {})
+    source_metadata = _pioneer_source_artifact_metadata(game_code, year, artifact_paths)
+    metadata['source_urls'] = source_metadata['source_urls']
+    if 'source_artifacts' in source_metadata:
+        metadata['source_artifacts'] = source_metadata['source_artifacts']
+    return game_data
+
+
+def download_pioneer_boxscore_artifacts(
+    game_code: str,
+    year: Optional[int] = None,
+    output_dir: Optional[Path] = None,
+    overwrite: bool = False,
+    include_pdf: bool = True,
+    include_html: bool = True,
+    timeout_ms: int = 45000,
+) -> Dict[str, Any]:
+    """
+    Save local source artifacts for a Pioneer boxscore.
+
+    Pioneer exposes rendered HTML/print views, not a direct official PDF. This
+    function preserves the rendered boxscore HTML, print HTML, coach-view HTML,
+    and a generated PDF of the print view.
+    """
+    if not include_pdf and not include_html:
+        raise ValueError("At least one of include_pdf or include_html must be true")
+
+    season = year or (int(game_code[:4]) if len(game_code) >= 4 and game_code[:4].isdigit() else 2024)
+    urls = pioneer_boxscore_urls(game_code, season)
+    paths = pioneer_artifact_paths(game_code, season, output_dir)
+    requested = set()
+    if include_html:
+        requested.update({'boxscore_html', 'print_html', 'coach_view_html'})
+    if include_pdf:
+        requested.add('print_pdf')
+
+    for path in paths.values():
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+    needed = {key for key in requested if overwrite or not paths[key].exists()}
+    downloaded: List[str] = []
+    skipped_existing = sorted(requested - needed)
+
+    if needed:
+        from playwright.sync_api import sync_playwright
+
+        view_targets = [
+            ('boxscore', urls['boxscore'], {'boxscore_html'}),
+            ('print', urls['print'], {'print_html', 'print_pdf'}),
+            ('coach_view', urls['coach_view'], {'coach_view_html'}),
+        ]
+
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            try:
+                for _view_name, url, keys in view_targets:
+                    if not (keys & needed):
+                        continue
+                    page.goto(url, wait_until='networkidle', timeout=timeout_ms)
+                    if 'boxscore_html' in keys and 'boxscore_html' in needed:
+                        paths['boxscore_html'].write_text(page.content(), encoding='utf-8')
+                        downloaded.append('boxscore_html')
+                    if 'print_html' in keys and 'print_html' in needed:
+                        paths['print_html'].write_text(page.content(), encoding='utf-8')
+                        downloaded.append('print_html')
+                    if 'print_pdf' in keys and 'print_pdf' in needed:
+                        page.emulate_media(media='print')
+                        page.pdf(
+                            path=str(paths['print_pdf']),
+                            format='Letter',
+                            print_background=True,
+                            margin={
+                                'top': '0.4in',
+                                'right': '0.4in',
+                                'bottom': '0.4in',
+                                'left': '0.4in',
+                            },
+                        )
+                        downloaded.append('print_pdf')
+                    if 'coach_view_html' in keys and 'coach_view_html' in needed:
+                        paths['coach_view_html'].write_text(page.content(), encoding='utf-8')
+                        downloaded.append('coach_view_html')
+            finally:
+                browser.close()
+
+    return {
+        'game_code': game_code,
+        'year': season,
+        'source_urls': urls,
+        'artifacts': {
+            key: _relative_artifact_path(path)
+            for key, path in paths.items()
+            if key in requested and path.exists()
+        },
+        'downloaded': downloaded,
+        'skipped_existing': skipped_existing,
+        'generated_pdf': include_pdf,
+    }
+
+
+def list_pioneer_games_for_date(date_str: str) -> List[Dict[str, str]]:
+    """
+    Scrape pioneerleague.com schedule and return all games on the given date.
+
+    Args:
+        date_str: Date in YYYY-MM-DD format
+
+    Returns:
+        List of dicts with keys: game_code, away_team, home_team, date_yyyymmdd
+    """
+    dt = datetime.strptime(date_str, '%Y-%m-%d')
+    year = dt.year
+    yyyymmdd = dt.strftime('%Y%m%d')
+
+    url = f'https://www.pioneerleague.com/sports/bsb/{year}/schedule'
+    resp = _session.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30)
+    resp.raise_for_status()
+    html = resp.text
+
+    games = []
+    seen = set()
+    pattern = re.compile(r'href="[^"]*boxscores/(' + yyyymmdd + r'_[a-z0-9]+)\.xml[^"]*"')
+    for m in pattern.finditer(html):
+        code = m.group(1)
+        if code in seen:
+            continue
+        seen.add(code)
+        before = html[max(0, m.start() - 5000):m.start()]
+        alts = re.findall(r'alt="([^"]+?) team logo"', before)
+        away = alts[-2] if len(alts) >= 2 else '?'
+        home = alts[-1] if len(alts) >= 1 else '?'
+        games.append({
+            'game_code': code,
+            'away_team': away,
+            'home_team': home,
+            'date_yyyymmdd': yyyymmdd,
+        })
+    return games
+
+
 def fetch_pioneer_boxscore(game_code: str, year: int = 2024) -> Dict[str, Any]:
     """
     Fetch and parse a Pioneer League box score using Playwright.
@@ -234,7 +449,137 @@ def fetch_pioneer_boxscore(game_code: str, year: int = 2024) -> Dict[str, Any]:
         html_content = page.content()
         browser.close()
 
-    return parse_pioneer_html(html_content, game_code)
+    game_data = parse_pioneer_html(html_content, game_code)
+    attach_pioneer_source_metadata(game_data, game_code, year)
+    return game_data
+
+
+def _safe_int_text(value: Any, default: int = 0) -> int:
+    """Parse an integer from a table cell or scalar value."""
+    try:
+        return int(str(value or '').strip())
+    except (TypeError, ValueError):
+        return default
+
+
+def _pioneer_cell_text(cells: List[Any], index: int, default: str = '') -> str:
+    if index < 0 or index >= len(cells):
+        return default
+    return cells[index].get_text(strip=True)
+
+
+def _pioneer_header_index(table) -> Dict[str, int]:
+    rows = table.find_all('tr') if table else []
+    if not rows:
+        return {}
+    headers = rows[0].find_all(['th', 'td'])
+    return {
+        cell.get_text(strip=True).lower(): index
+        for index, cell in enumerate(headers)
+        if cell.get_text(strip=True)
+    }
+
+
+def _pioneer_index_for(headers: Dict[str, int], label: str, fallback: int) -> int:
+    return headers.get(label.lower(), fallback)
+
+
+def _split_pioneer_note_items(text: str) -> List[str]:
+    text = re.sub(r'\s+', ' ', text or '').strip()
+    if not text:
+        return []
+    return [item.strip() for item in re.split(r'\s*,\s*', text) if item.strip()]
+
+
+def _parse_pioneer_counted_item(item: str) -> tuple[str, int]:
+    item = re.sub(r'\s+', ' ', item or '').strip()
+    count_match = re.search(r'\((\d+)\)\s*$', item)
+    count = int(count_match.group(1)) if count_match else 1
+    name = re.sub(r'\s*\(\d+\)\s*$', '', item).strip()
+    return name, count
+
+
+def _pioneer_note_name_key(name: str) -> str:
+    name = re.sub(r'\s*\([^)]*\)\s*$', '', name or '')
+    return re.sub(r'[^a-z0-9]+', ' ', name.lower()).strip()
+
+
+def _merge_game_notes(target: Dict[str, List[str]], source: Dict[str, List[str]]) -> None:
+    for key, values in source.items():
+        if values:
+            target.setdefault(key, []).extend(values)
+
+
+def parse_pioneer_batting_summary(stats_box) -> Dict[str, List[str]]:
+    """Parse XBH/SB notes from a Pioneer batting stats summary block."""
+    summary = stats_box.select_one('.stats-summary') if stats_box else None
+    if not summary:
+        return {}
+
+    label_to_key = {
+        '2B': 'doubles',
+        '3B': 'triples',
+        'HR': 'home_runs',
+        'SB': 'stolen_bases',
+    }
+    notes: Dict[str, List[str]] = {}
+    for row in summary.find_all('div', recursive=False):
+        label_elem = row.find('strong')
+        value_elem = row.find('span')
+        if not label_elem or not value_elem:
+            continue
+        label = label_elem.get_text(strip=True).rstrip(':').upper()
+        key = label_to_key.get(label)
+        if not key:
+            continue
+        items = _split_pioneer_note_items(value_elem.get_text(' ', strip=True))
+        if items:
+            notes.setdefault(key, []).extend(items)
+    return notes
+
+
+def apply_pioneer_batting_summary(batters: List[Dict[str, Any]], notes: Dict[str, List[str]]) -> None:
+    """Merge Pioneer summary-derived XBH/SB counts into parsed batter rows."""
+    if not batters or not notes:
+        return
+
+    by_name = {_pioneer_note_name_key(row.get('name', '')): row for row in batters}
+    by_last_name: Dict[str, List[Dict[str, Any]]] = {}
+    for row in batters:
+        key = _pioneer_note_name_key(row.get('name', ''))
+        if not key:
+            continue
+        last = key.split()[-1]
+        by_last_name.setdefault(last, []).append(row)
+
+    note_to_row_stat = {
+        'doubles': 'doubles',
+        'triples': 'triples',
+        'home_runs': 'hr',
+        'stolen_bases': 'sb',
+    }
+    for note_key, row_stat in note_to_row_stat.items():
+        for item in notes.get(note_key, []):
+            name, count = _parse_pioneer_counted_item(item)
+            key = _pioneer_note_name_key(name)
+            row = by_name.get(key)
+            if not row and key:
+                last_matches = by_last_name.get(key.split()[-1], [])
+                if len(last_matches) == 1:
+                    row = last_matches[0]
+            if row:
+                row[row_stat] = max(_safe_int_text(row.get(row_stat)), count)
+
+
+def _pioneer_stats_boxes_by_table_header(soup: BeautifulSoup, header: str) -> List[Any]:
+    boxes = soup.select('#boxscore-tabpanel .stats-box.half') or soup.select('.stats-box.half')
+    matches = []
+    for box in boxes:
+        table = box.find('table')
+        headers = _pioneer_header_index(table)
+        if headers and header.lower() in headers and headers.get(header.lower()) == 0:
+            matches.append(box)
+    return matches
 
 
 def parse_pioneer_html(html_content: str, game_code: str = '') -> Dict[str, Any]:
@@ -329,20 +674,40 @@ def parse_pioneer_html(html_content: str, game_code: str = '') -> Dict[str, Any]
                 else:
                     home_score = runs
 
-    # Parse batting tables (Tables 1 and 2)
+    batting_boxes = _pioneer_stats_boxes_by_table_header(soup, 'Hitters')
+    pitching_boxes = _pioneer_stats_boxes_by_table_header(soup, 'Pitchers')
+
+    # Parse batting tables and merge summary-only XBH/SB data.
     away_batters = []
     home_batters = []
-    if len(tables) > 1:
+    game_notes: Dict[str, List[str]] = {}
+    if len(batting_boxes) > 0:
+        away_batters = parse_pioneer_html_batting(batting_boxes[0].find('table'))
+        away_notes = parse_pioneer_batting_summary(batting_boxes[0])
+        apply_pioneer_batting_summary(away_batters, away_notes)
+        _merge_game_notes(game_notes, away_notes)
+    elif len(tables) > 1:
         away_batters = parse_pioneer_html_batting(tables[1])
-    if len(tables) > 2:
+
+    if len(batting_boxes) > 1:
+        home_batters = parse_pioneer_html_batting(batting_boxes[1].find('table'))
+        home_notes = parse_pioneer_batting_summary(batting_boxes[1])
+        apply_pioneer_batting_summary(home_batters, home_notes)
+        _merge_game_notes(game_notes, home_notes)
+    elif len(tables) > 2:
         home_batters = parse_pioneer_html_batting(tables[2])
 
     # Parse pitching tables (Tables 3 and 4)
     away_pitchers = []
     home_pitchers = []
-    if len(tables) > 3:
+    if len(pitching_boxes) > 0:
+        away_pitchers = parse_pioneer_html_pitching(pitching_boxes[0].find('table'))
+    elif len(tables) > 3:
         away_pitchers = parse_pioneer_html_pitching(tables[3])
-    if len(tables) > 4:
+
+    if len(pitching_boxes) > 1:
+        home_pitchers = parse_pioneer_html_pitching(pitching_boxes[1].find('table'))
+    elif len(tables) > 4:
         home_pitchers = parse_pioneer_html_pitching(tables[4])
 
     # Look up team IDs and logos from partner team data
@@ -376,7 +741,7 @@ def parse_pioneer_html(html_content: str, game_code: str = '') -> Dict[str, Any]
             'away_pitching': away_pitchers,
             'home_pitching': home_pitchers,
         },
-        'game_notes': {},
+        'game_notes': game_notes,
         'format': 'pioneer_html',
     }
 
@@ -386,6 +751,7 @@ def parse_pioneer_html_batting(table) -> List[Dict[str, Any]]:
     batters = []
 
     rows = table.find_all('tr')
+    headers = _pioneer_header_index(table)
     for row in rows[1:]:  # Skip header row
         cells = row.find_all(['th', 'td'])
         if len(cells) < 8:
@@ -398,7 +764,7 @@ def parse_pioneer_html_batting(table) -> List[Dict[str, Any]]:
 
         # Extract position (lowercase letters/numbers at start like "ss", "2b", "lf") and name
         # Position can be: ss, 2b, 3b, 1b, c, lf, cf, rf, dh, p, pr, ph
-        pos_match = re.match(r'^([a-z0-9]{1,4})([A-Z].*)$', first_cell)
+        pos_match = re.match(r'^([a-z0-9]{1,4})\s*([A-Z].*)$', first_cell)
         if pos_match:
             position = pos_match.group(1).upper()
             name = pos_match.group(2).strip()
@@ -412,12 +778,13 @@ def parse_pioneer_html_batting(table) -> List[Dict[str, Any]]:
                 'name': name,
                 'player_id': None,
                 'position': position,
-                'ab': int(cells[1].get_text(strip=True) or 0),
-                'r': int(cells[2].get_text(strip=True) or 0),
-                'h': int(cells[3].get_text(strip=True) or 0),
-                'rbi': int(cells[4].get_text(strip=True) or 0),
-                'bb': int(cells[5].get_text(strip=True) or 0),
-                'k': int(cells[6].get_text(strip=True) or 0),
+                'ab': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'AB', 1))),
+                'r': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'R', 2))),
+                'h': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'H', 3))),
+                'rbi': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'RBI', 4))),
+                'bb': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'BB', 5))),
+                'k': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'SO', 6))),
+                'lob': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'LOB', 7))),
                 'doubles': 0,
                 'triples': 0,
                 'hr': 0,
@@ -434,6 +801,7 @@ def parse_pioneer_html_pitching(table) -> List[Dict[str, Any]]:
     pitchers = []
 
     rows = table.find_all('tr')
+    headers = _pioneer_header_index(table)
     for row in rows[1:]:  # Skip header row
         cells = row.find_all(['th', 'td'])
         if len(cells) < 7:
@@ -454,14 +822,16 @@ def parse_pioneer_html_pitching(table) -> List[Dict[str, Any]]:
             pitchers.append({
                 'name': name,
                 'player_id': None,
-                'ip': cells[1].get_text(strip=True) or '0',
-                'h': int(cells[2].get_text(strip=True) or 0),
-                'r': int(cells[3].get_text(strip=True) or 0),
-                'er': int(cells[4].get_text(strip=True) or 0),
-                'bb': int(cells[5].get_text(strip=True) or 0),
-                'k': int(cells[6].get_text(strip=True) or 0),
-                'hr': 0,
-                'np': 0,
+                'ip': _pioneer_cell_text(cells, _pioneer_index_for(headers, 'IP', 1), '0') or '0',
+                'h': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'H', 2))),
+                'r': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'R', 3))),
+                'er': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'ER', 4))),
+                'bb': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'BB', 5))),
+                'k': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'SO', 6))),
+                'hr': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'HR', 7))),
+                'wp': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'WP', 8))),
+                'bf': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'BF', 9))),
+                'np': _safe_int_text(_pioneer_cell_text(cells, _pioneer_index_for(headers, 'NP', 11))),
                 'win': win,
                 'loss': loss,
                 'save': save,
@@ -957,7 +1327,9 @@ def process_partner_game(
     game_id: str,
     league: str,
     cache_dir: Optional[Path] = None,
-    enrich_with_bref_ids: bool = True
+    enrich_with_bref_ids: bool = True,
+    download_artifacts: bool = False,
+    artifact_dir: Optional[Path] = None,
 ) -> Dict[str, Any]:
     """
     Process a partner league game with optional caching.
@@ -967,6 +1339,8 @@ def process_partner_game(
         league: League identifier ('pioneer', 'atlantic', 'american_association', 'frontier')
         cache_dir: Optional cache directory
         enrich_with_bref_ids: Whether to look up bref_ids for players (requires network for uncached rosters)
+        download_artifacts: Whether to save Pioneer rendered source HTML and generated print PDF artifacts
+        artifact_dir: Optional artifact root directory
 
     Returns:
         Processed game data dict
@@ -981,14 +1355,52 @@ def process_partner_game(
                 # Enrich with bref_ids if requested and not already populated
                 if enrich_with_bref_ids:
                     enrich_players_with_bref_ids(game_data)
+                if league == 'pioneer':
+                    year = int(game_id[:4]) if len(game_id) >= 4 and game_id[:4].isdigit() else 2024
+                    if download_artifacts:
+                        try:
+                            artifact_result = download_pioneer_boxscore_artifacts(
+                                game_id,
+                                year=year,
+                                output_dir=artifact_dir,
+                            )
+                            artifact_paths = {
+                                key: Path(path)
+                                for key, path in pioneer_artifact_paths(game_id, year, artifact_dir).items()
+                                if key in artifact_result.get('artifacts', {})
+                            }
+                            attach_pioneer_source_metadata(game_data, game_id, year, artifact_paths)
+                            with open(cache_file, 'w', encoding='utf-8') as out:
+                                json.dump(game_data, out, indent=2)
+                            print(f"Saved Pioneer source artifacts for {game_id}")
+                        except Exception as e:
+                            print(f"Warning: could not save Pioneer source artifacts for {game_id}: {e}")
+                    else:
+                        attach_pioneer_source_metadata(game_data, game_id, year)
                 return game_data
 
     # Fetch based on league format
     if league == 'pioneer':
         # game_id is the game code (e.g., "20240828_fhp1")
         # Extract year from game code
-        year = int(game_id[:4]) if len(game_id) >= 4 else 2024
+        year = int(game_id[:4]) if len(game_id) >= 4 and game_id[:4].isdigit() else 2024
         game_data = fetch_pioneer_boxscore(game_id, year)
+        if download_artifacts:
+            try:
+                artifact_result = download_pioneer_boxscore_artifacts(
+                    game_id,
+                    year=year,
+                    output_dir=artifact_dir,
+                )
+                artifact_paths = {
+                    key: Path(path)
+                    for key, path in pioneer_artifact_paths(game_id, year, artifact_dir).items()
+                    if key in artifact_result.get('artifacts', {})
+                }
+                attach_pioneer_source_metadata(game_data, game_id, year, artifact_paths)
+                print(f"Saved Pioneer source artifacts for {game_id}")
+            except Exception as e:
+                print(f"Warning: could not save Pioneer source artifacts for {game_id}: {e}")
     else:
         # Pointstreak format
         game_data = fetch_pointstreak_boxscore(int(game_id), league)
@@ -1054,7 +1466,9 @@ def load_partner_game_ids(game_ids_file: Path) -> List[Dict[str, str]]:
 
 def process_all_partner_games(
     game_ids_file: Path,
-    cache_dir: Path
+    cache_dir: Path,
+    download_artifacts: bool = False,
+    artifact_dir: Optional[Path] = None,
 ) -> List[Dict[str, Any]]:
     """
     Process all partner league games listed in the game IDs file.
@@ -1062,6 +1476,8 @@ def process_all_partner_games(
     Args:
         game_ids_file: Path to text file with game IDs
         cache_dir: Cache directory
+        download_artifacts: Whether to save Pioneer source artifacts while processing
+        artifact_dir: Optional artifact root directory
 
     Returns:
         List of processed game data dicts
@@ -1079,7 +1495,13 @@ def process_all_partner_games(
         game_id = entry['game_id']
 
         try:
-            game_data = process_partner_game(game_id, league, cache_dir)
+            game_data = process_partner_game(
+                game_id,
+                league,
+                cache_dir,
+                download_artifacts=download_artifacts,
+                artifact_dir=artifact_dir,
+            )
             games.append(game_data)
 
             meta = game_data['metadata']

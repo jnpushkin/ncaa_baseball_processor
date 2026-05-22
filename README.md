@@ -18,19 +18,21 @@ python3 -m baseball_processor
 ```
 
 This parses all PDFs in `pdfs/`, fetches any MiLB/Partner League games listed in their respective `game_ids.txt` files, detects milestones, and generates:
-- `Baseball_Stats.html` — interactive single-page website (auto-deployed to Surge.sh)
+- `web/out/` — Next.js static site (auto-deployed to Surge.sh)
 - `Baseball_Stats.xlsx` — Excel workbook with detailed statistics
 
 To regenerate output from previously cached data without re-parsing:
 ```bash
 python3 -m baseball_processor --from-cache-only
 ```
+Cache-only and database-only runs also keep Chadwick player-ID reference lookups local, so stale reference caches are loaded as-is instead of refreshing over the network. When `--from-cache-only` is combined with a single-game or NCAA API date flag, the processor reads matching cache files instead of falling through to a fetch.
 
 ## Features
 
 - Parse NCAA PDF box scores with automatic format detection
 - Fetch MiLB game data from the MLB Stats API
 - Fetch Partner League games (Pioneer, Atlantic, American Association, Frontier)
+- Normalize NCAA PDF/API, MiLB, and Partner source rows into one processor contract
 - Track player crossover between NCAA and MiLB via Chadwick Bureau Register
 - Detect 43 types of statistical milestones
 - Generate interactive single-page HTML website with game log, player stats, team records, stadium map, scorigami, and schedule
@@ -131,7 +133,7 @@ python3 -m baseball_processor /path/to/pdfs
 | Option | Description |
 |--------|-------------|
 | `input_path` | Path to PDF file or directory (default: `pdfs/`) |
-| `--from-cache-only` | Load all games from cache (no parsing or API calls) |
+| `--from-cache-only` | Load all games from cache and keep reference-data lookups local |
 | `--no-cache` | Re-parse all PDFs (ignore cache) |
 
 **Output Options:**
@@ -141,18 +143,21 @@ python3 -m baseball_processor /path/to/pdfs
 | `-o`, `--output-excel FILE` | Excel output filename (default: `Baseball_Stats.xlsx`) |
 | `--save-json` | Save intermediate JSON data file |
 | `--excel-only` | Generate only Excel, skip website |
-| `--website-only` | Generate only website, skip Excel |
 
 **Game Source Options:**
 
 | Option | Description |
 |--------|-------------|
 | `--no-milb` | Exclude MiLB games |
-| `--milb-only` | Process only MiLB games (skip NCAA) |
+| `--milb-only` | Process only MiLB games (skip NCAA/API/Partner defaults) |
 | `--milb-game ID` | Process a single MiLB game by `game_pk` |
+| `--ncaa-api-only` | Process only NCAA API games |
+| `--ncaa-api-game ID` | Process a single NCAA API game |
 | `--no-partner` | Exclude Partner League games |
 | `--partner-game ID` | Process a single Partner League game (format: `league:game_id`) |
 | `--crossover` | Generate player crossover report |
+
+Single-game/date source options are exclusive source modes: they process the requested source data without silently adding the default NCAA PDF/API/MiLB/Partner batches.
 
 **Schedule Options:**
 
@@ -175,12 +180,13 @@ python3 -m baseball_processor /path/to/pdfs
 ncaa_baseball_processor/
 ├── baseball_processor/     # Main Python package
 │   ├── main.py            # Entry point
-│   ├── engines/           # Milestone detection (43 types)
-│   ├── parsers/           # HTML parsing for NCAA stats
+│   ├── engines/           # Source-neutral event detection
+│   ├── processors/        # Player stats, game logs, team records, milestones
+│   ├── normalization.py   # Canonical game adapter for mixed source shapes
 │   ├── excel/             # Excel workbook generation
 │   ├── utils/             # Constants, stadium data
-│   └── website/           # HTML website generation
-├── parsers/               # Box score format parsers
+│   └── website/           # Next.js data generation
+├── parsers/               # NCAA PDF/API, MiLB API, and Partner League parsers
 ├── pdfs/                  # Input NCAA PDF box scores
 ├── cache/                 # Cached parsed NCAA game data
 ├── milb/
@@ -193,6 +199,24 @@ ncaa_baseball_processor/
 ├── data/                  # Miscellaneous data files
 └── README.md
 ```
+
+## Development Checks
+
+```bash
+scripts/check.sh
+```
+
+This compiles the key Python modules, runs the pytest suite, runs the data-integrity audit, and builds the Next.js site.
+
+For refactors that should preserve every cached game in the generated website, run:
+
+```bash
+python3 scripts/audit_data_integrity.py --strict-generated-from-cache
+```
+
+The strict audit verifies cache normalization, source counts, exact generated game IDs, detail JSON coverage, and frontend box-score aliases.
+
+See `docs/normalized-game-shape.md` for the source adapter contract processors should use.
 
 ## Data Sources
 

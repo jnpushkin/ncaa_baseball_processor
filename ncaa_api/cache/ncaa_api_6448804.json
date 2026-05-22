@@ -1,0 +1,1219 @@
+{
+  "metadata": {
+    "date": "06/16/2025",
+    "date_yyyymmdd": "20250616",
+    "away_team": "Coastal Carolina",
+    "away_team_short": "CO CAR",
+    "away_team_id": 43259,
+    "home_team": "Oregon St.",
+    "home_team_short": "ORE ST",
+    "home_team_id": 43094,
+    "away_team_score": 6,
+    "home_team_score": 2,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6448804"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Blagen Pado",
+        "full_name": "Blagen Pado",
+        "position": "RF",
+        "number": "22",
+        "ab": 5,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 3,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Wells Sykes",
+        "full_name": "Wells Sykes",
+        "position": "CF",
+        "number": "20",
+        "ab": 2,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Blake Barthol",
+        "full_name": "Blake Barthol",
+        "position": "2B",
+        "number": "7",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "k": 3,
+        "po": 0,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Dean Mihos",
+        "full_name": "Dean Mihos",
+        "position": "DH",
+        "number": "8",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 2,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Colby Thorndyke",
+        "full_name": "Colby Thorndyke",
+        "position": "1B",
+        "number": "16",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 3,
+        "bb": 0,
+        "k": 1,
+        "po": 10,
+        "a": 1,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Caden Bodine",
+        "full_name": "Caden Bodine",
+        "position": "C",
+        "number": "17",
+        "ab": 4,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 10,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Ty Dooley",
+        "full_name": "Ty Dooley",
+        "position": "SS",
+        "number": "3",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Walker Mitchell",
+        "full_name": "Walker Mitchell",
+        "position": "3B",
+        "number": "5",
+        "ab": 2,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Sebastian Alexander",
+        "full_name": "Sebastian Alexander",
+        "position": "LF",
+        "number": "1",
+        "ab": 5,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "Wilson Weber",
+        "full_name": "Wilson Weber",
+        "position": "C",
+        "number": "18",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 13,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Gavin Turley",
+        "full_name": "Gavin Turley",
+        "position": "LF",
+        "number": "1",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "k": 1,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 1,
+        "sb": 0
+      },
+      {
+        "name": "Aiva Arquette",
+        "full_name": "Aiva Arquette",
+        "position": "SS",
+        "number": "13",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "AJ Singer",
+        "full_name": "AJ Singer",
+        "position": "2B",
+        "number": "7",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 0,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tyce Peterson",
+        "full_name": "Tyce Peterson",
+        "position": "DH",
+        "number": "54",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Easton Talt",
+        "full_name": "Easton Talt",
+        "position": "RF",
+        "number": "6",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 2,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 1,
+        "sb": 0
+      },
+      {
+        "name": "Trent Caraway",
+        "full_name": "Trent Caraway",
+        "position": "3B",
+        "number": "44",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 1,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Canon Reeder",
+        "full_name": "Canon Reeder",
+        "position": "CF",
+        "number": "23",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Jacob Krieg",
+        "full_name": "Jacob Krieg",
+        "position": "1B",
+        "number": "22",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 6,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Jacob Morrison",
+        "full_name": "Jacob Morrison",
+        "number": "51",
+        "ip": "7.2",
+        "h": 5,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "k": 7,
+        "bf": 28,
+        "np": 79,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Hayden Johnson",
+        "full_name": "Hayden Johnson",
+        "number": "18",
+        "ip": "1.0",
+        "h": 2,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
+        "k": 2,
+        "bf": 6,
+        "np": 14,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Ryan Lynch",
+        "full_name": "Ryan Lynch",
+        "number": "49",
+        "ip": "0.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 1,
+        "bf": 1,
+        "np": 3,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "Zach Edwards",
+        "full_name": "Zach Edwards",
+        "number": "50",
+        "ip": "2.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "k": 3,
+        "bf": 7,
+        "np": 16,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Zach Kmatz",
+        "full_name": "Zach Kmatz",
+        "number": "35",
+        "ip": "1.0",
+        "h": 2,
+        "r": 0,
+        "er": 0,
+        "bb": 2,
+        "k": 1,
+        "bf": 7,
+        "np": 14,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Laif Palmer",
+        "full_name": "Laif Palmer",
+        "number": "33",
+        "ip": "1.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 1,
+        "bf": 4,
+        "np": 9,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Ethan Kleinschmit",
+        "full_name": "Ethan Kleinschmit",
+        "number": "24",
+        "ip": "4.2",
+        "h": 3,
+        "r": 6,
+        "er": 2,
+        "bb": 3,
+        "k": 7,
+        "bf": 24,
+        "np": 56,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [
+      {
+        "player": "talt",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "turley",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "doubles": [
+      {
+        "player": "thorndyke",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "mihos",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [],
+    "stolen_bases": []
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine reached on a throwing error by ss (1-1 FB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine advanced to second on a balk.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander struck out looking (0-2 FFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Barthol walked (3-1 BBBKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell hit by pitch (1-0 B); Barthol advanced to second; Bodine advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pado struck out looking (3-2 BKBFBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ruling on the field was the batter intentionally moved to be hit.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CCU Challenged the call.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was confirmed. CCU loses its first challenge.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke doubled to right center, 3 RBI (1-1 BS); Mitchell scored, unearned; Barthol scored, unearned; Bodine scored, unearned.",
+          "pitch_count": null,
+          "rbi": 3
+        },
+        {
+          "description": "Mihos struck out looking (1-2 BSSFFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 3 H:1 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caraway lined out to cf (1-2 FBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette fouled out to c (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley singled to left field (3-2 BBSKBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Weber grounded out to p (1-1 BS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dooley walked (3-2 BBKFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sykes grounded out to 3b, SAC, bunt (0-0); Dooley advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine reached on a fielder's choice to shortstop (2-0 BB); Dooley out at third ss to 3b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander struck out swinging (2-2 BFKBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Singer struck out swinging (3-2 KBBBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson singled to left field, advanced to second on a fielding error by lf (1-2 KFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krieg grounded out to 2b (0-1 F); Peterson advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder grounded out to ss (3-2 BFBBFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Barthol struck out swinging (2-2 KSBBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell grounded out to 3b (2-2 BKFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pado singled to second base (1-1 SB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke reached on a fielder's choice to second base (0-0); Pado out at second 2b to ss.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Talt homered to right center, RBI (2-1 BBK).",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Caraway struck out looking (0-2 KFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette flied out to rf to right center (1-2 KFBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley flied out to lf (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihos singled to left center (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dooley fouled out to c, bunt (3-1 BBFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sykes walked (3-1 BBKBB); Mihos advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine reached on a fielder's choice to second base (1-2 BKS); Sykes advanced to second on a fielding error by 2b, advanced to third on the error; Mihos advanced to third, scored on the error.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine advanced to second on a wild pitch; Sykes scored on a wild pitch, unearned.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander flied out to lf to left center (2-2 BBFSF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Barthol struck out swinging (2-2 FSBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:1 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Weber grounded out to ss (2-2 BKFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Singer grounded out to 3b, bunt (1-1 BK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson lined out to lf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell lined out to cf to right center (3-1 BFBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pado struck out looking (3-2 SFBBFBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke hit by pitch (3-2 FBSBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihos doubled to left center, RBI (2-0 BB); Thorndyke scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Dooley grounded out to 3b (1-2 KBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Kmatz to p for Kleinschmit.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krieg grounded out to ss (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder out at first 1b to p (3-2 BBKFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Talt struck out swinging (1-2 KBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sykes flied out to rf (2-2 BBKF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine walked (3-0 BBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander singled to right field (0-0); Bodine advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Barthol struck out swinging (2-2 BSFFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell walked (3-2 BSBFBB); Alexander advanced to second; Bodine advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pado lined out to rf (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Palmer to p for Kmatz.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caraway struck out swinging (0-2 FFFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette flied out to cf to left center (2-1 SBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley struck out swinging (0-2 KKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke grounded out to 2b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mihos struck out swinging (3-2 BBKBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Dooley flied out to lf (3-2 KBBBF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Weber grounded out to 3b (0-2 KS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Singer grounded out to ss (2-2 KBBKFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson struck out swinging (0-2 SKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "No play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Sykes grounded out to 2b (1-1 BS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bodine struck out swinging (1-2 KSBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Alexander out at first 1b to p (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Johnson to p for Morrison.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Edwards to p for Palmer.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krieg grounded out to 3b (3-2 SBBFFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder singled to center field (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Talt struck out swinging (1-2 SFFFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Caraway singled to center field (0-0); Reeder advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Arquette fouled out to rf down the rf line (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Barthol walked (3-2 BBKSBFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Mitchell grounded out to p, SAC, bunt (0-0); Barthol advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pado struck out swinging (0-2 KSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Barthol advanced to third on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Thorndyke struck out swinging (3-2 SFBBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lynch to p for Johnson.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Turley homered to left field, RBI (0-1 F).",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Weber struck out swinging, out at first c to 1b (1-2 KBFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Singer singled to right center (0-2 KF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson struck out swinging (0-2 KSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Krieg walked (3-2 BKBSBB); Singer advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reeder struck out swinging (2-2 SBSBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:2 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "ncaa_api"
+}

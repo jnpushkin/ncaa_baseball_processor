@@ -649,6 +649,189 @@ tr:hover {
   max-height: calc(80vh - 60px);
 }
 
+/* Game Details Modal */
+.gdm-modal {
+  max-width: 1100px;
+  width: 95vw;
+}
+.gdm-nav {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.gdm-nav:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+.gdm-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.gdm-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 12px;
+  background: var(--color-bg-alt, #f5f7fa);
+  border-radius: 6px;
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+  color: #555;
+}
+.gdm-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--color-border, #e0e0e0);
+  margin-bottom: 14px;
+}
+.gdm-tab {
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.gdm-tab:hover:not(:disabled) {
+  color: var(--color-accent, #1e3a5f);
+}
+.gdm-tab.active {
+  color: var(--color-accent, #1e3a5f);
+  border-bottom-color: var(--color-accent, #1e3a5f);
+}
+.gdm-tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.gdm-empty {
+  padding: 24px;
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+.gdm-team-block {
+  margin-bottom: 20px;
+}
+.gdm-team-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+.gdm-team-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+}
+.gdm-subhead {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin: 12px 0 4px 0;
+  font-weight: 600;
+}
+.gdm-box-table th,
+.gdm-box-table td {
+  text-align: center;
+  font-size: 0.82rem;
+  padding: 4px 6px;
+}
+.gdm-box-table th:first-child,
+.gdm-box-table td:first-child {
+  text-align: left;
+}
+.gdm-decisions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.gdm-decision-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--color-bg-alt, #f5f7fa);
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+.gdm-decision-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+}
+.gdm-plays-section h4 {
+  margin: 12px 0 6px 0;
+  font-size: 0.9rem;
+}
+.gdm-play-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.88rem;
+}
+.gdm-play-list li {
+  margin: 2px 0;
+}
+.gdm-pbp {
+  font-size: 0.85rem;
+}
+.gdm-inning {
+  margin-bottom: 14px;
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.gdm-inning-header {
+  background: var(--color-bg-alt, #f5f7fa);
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.gdm-half {
+  padding: 8px 12px;
+  border-top: 1px solid var(--color-border, #e0e0e0);
+}
+.gdm-half:first-of-type {
+  border-top: none;
+}
+.gdm-half-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin-bottom: 4px;
+}
+.gdm-pbp-list {
+  margin: 0;
+  padding-left: 16px;
+}
+.gdm-pbp-list li {
+  margin: 1px 0;
+  line-height: 1.4;
+}
+.score-clickable {
+  cursor: pointer;
+  color: var(--color-accent, #1e3a5f);
+  font-weight: 600;
+  text-decoration: none;
+}
+.score-clickable:hover {
+  text-decoration: underline;
+}
+
 .clickable-name {
   color: var(--color-accent);
   cursor: pointer;
@@ -702,19 +885,209 @@ tr:hover {
   font-weight: 600;
 }
 
-/* ===== Milestones Section Header ===== */
-.milestones-section-header {
-  margin: 28px 0 14px 0;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--color-border);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  letter-spacing: -0.01em;
+/* ===== Milestones ===== */
+.milestones-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.milestones-section-header:first-of-type {
-  margin-top: 0;
+.milestones-toolbar {
+  overflow: visible;
+}
+
+.milestones-toolbar .filter-bar {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.milestones-toolbar .filter-input {
+  max-width: 360px;
+}
+
+.milestones-summary-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px 14px;
+}
+
+.milestones-summary-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  background: #fafbfc;
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.milestones-summary-strip .source-review-warning {
+  background: #fff7e8;
+  border-color: #f2d28b;
+  color: #764600;
+}
+
+.milestone-section-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.milestone-section-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.milestone-section-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.milestone-section-tab:hover {
+  border-color: rgba(30, 58, 95, 0.35);
+  color: var(--color-accent);
+}
+
+.milestone-section-tab.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.milestone-section-tab span {
+  min-width: 22px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(30, 58, 95, 0.08);
+  color: inherit;
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+.milestone-section-tab.active span {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.milestones-quality-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 10px 12px;
+  border: 1px solid #f2d28b;
+  border-left: 4px solid #d48921;
+  border-radius: var(--radius-sm);
+  background: #fff9ed;
+  color: #704200;
+  font-size: 0.82rem;
+}
+
+.milestones-quality-note strong {
+  font-weight: 700;
+}
+
+.milestones-quality-note span {
+  color: #7d5d25;
+}
+
+.milestone-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.milestone-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.milestone-section-heading h3 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.milestone-section-heading span {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.milestone-table-panel {
+  border-radius: var(--radius-md);
+}
+
+.milestone-table-panel .table-container {
+  max-height: 430px;
+}
+
+.milestone-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f7f8fb;
+}
+
+.milestone-table-header span {
+  min-width: 32px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: #e9eef6;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.milestones-table td {
+  vertical-align: middle;
+}
+
+.milestone-team-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 210px;
+}
+
+.milestone-team-cell img,
+.milestone-team-cell .team-logo-fallback {
+  flex-shrink: 0;
+}
+
+.milestone-player-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+}
+
+.milestones-table .text-center {
+  white-space: nowrap;
 }
 
 /* ===== Checklist ===== */

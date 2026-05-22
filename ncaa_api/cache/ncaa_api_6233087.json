@@ -1,0 +1,1133 @@
+{
+  "metadata": {
+    "date": "02/16/2024",
+    "date_yyyymmdd": "20240216",
+    "away_team": "FDU",
+    "away_team_short": "FDU",
+    "away_team_id": 43491,
+    "home_team": "San Francisco",
+    "home_team_short": "S FRAN",
+    "home_team_id": 43330,
+    "away_team_score": 2,
+    "home_team_score": 4,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6233087"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Brian SANDERS",
+        "full_name": "Brian SANDERS",
+        "position": "RF",
+        "number": "21",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 1,
+        "bb": 0,
+        "k": 1,
+        "po": 3,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Hunter D'AMATO",
+        "full_name": "Hunter D'AMATO",
+        "position": "2B",
+        "number": "2",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Justin SIERRA",
+        "full_name": "Justin SIERRA",
+        "position": "CF",
+        "number": "12",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 3,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Franklin GOMEZ JR.",
+        "full_name": "Franklin GOMEZ JR.",
+        "position": "DH",
+        "number": "1",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Joan SOSA",
+        "full_name": "Joan SOSA",
+        "position": "SS",
+        "number": "6",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 2,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Zack WILL",
+        "full_name": "Zack WILL",
+        "position": "3B",
+        "number": "4",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 3,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Tommy VERGA",
+        "full_name": "Tommy VERGA",
+        "position": "1B",
+        "number": "17",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 2,
+        "po": 8,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Brelon HARDEN",
+        "full_name": "Brelon HARDEN",
+        "position": "LF",
+        "number": "9",
+        "ab": 2,
+        "r": 1,
+        "h": 2,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 2
+      },
+      {
+        "name": "Ben AVILA",
+        "full_name": "Ben AVILA",
+        "position": "C",
+        "number": "31",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "po": 6,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "Tyvon MOORE",
+        "full_name": "Tyvon MOORE",
+        "position": "CF",
+        "number": "17",
+        "ab": 2,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "JT AMARAL",
+        "full_name": "JT AMARAL",
+        "position": "RF",
+        "number": "29",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "TJ ROGERS",
+        "full_name": "TJ ROGERS",
+        "position": "SS",
+        "number": "32",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 3,
+        "po": 0,
+        "a": 6,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Michael CAMPAGNA",
+        "full_name": "Michael CAMPAGNA",
+        "position": "C",
+        "number": "38",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "k": 1,
+        "po": 10,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Zack RAMPPEN",
+        "full_name": "Zack RAMPPEN",
+        "position": "DH",
+        "number": "83",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Mattie THOMAS",
+        "full_name": "Mattie THOMAS",
+        "position": "1B",
+        "number": "44",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 1,
+        "po": 13,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Matty FUNY",
+        "full_name": "Matty FUNY",
+        "position": "2B",
+        "number": "1",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Kody WATANABE",
+        "full_name": "Kody WATANABE",
+        "position": "3B",
+        "number": "3",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 2,
+        "bb": 1,
+        "k": 1,
+        "po": 1,
+        "a": 4,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "AJ GUILIANA",
+        "full_name": "AJ GUILIANA",
+        "position": "LF",
+        "number": "2",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Logan LEAX",
+        "full_name": "Logan LEAX",
+        "position": "RF",
+        "number": "7",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Jeremy CHEESEMAN",
+        "full_name": "Jeremy CHEESEMAN",
+        "number": "3",
+        "ip": "4.0",
+        "h": 2,
+        "r": 4,
+        "er": 4,
+        "bb": 6,
+        "k": 4,
+        "bf": 20,
+        "np": 54,
+        "hr": 0,
+        "win": false,
+        "loss": true,
+        "save": false
+      },
+      {
+        "name": "Jake SIMON",
+        "full_name": "Jake SIMON",
+        "number": "14",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 1,
+        "bf": 3,
+        "np": 6,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Ben PIKA",
+        "full_name": "Ben PIKA",
+        "number": "43",
+        "ip": "3.0",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "k": 1,
+        "bf": 12,
+        "np": 22,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "Adam SHEW",
+        "full_name": "Adam SHEW",
+        "number": "24",
+        "ip": "6.0",
+        "h": 4,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "k": 3,
+        "bf": 23,
+        "np": 63,
+        "hr": 0,
+        "win": true,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "Andrew HAZELL",
+        "full_name": "Andrew HAZELL",
+        "number": "9",
+        "ip": "3.0",
+        "h": 1,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
+        "k": 7,
+        "bf": 10,
+        "np": 25,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": true
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [],
+    "doubles": [
+      {
+        "player": "harden, b.",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "watanabe",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "will, z.",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [],
+    "stolen_bases": [
+      {
+        "player": "d'amato, h.",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "harden, b.",
+        "game_count": 2,
+        "season_total": null
+      }
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SOSA, J. hit by pitch (1-2 FFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AVILA, B. singled up the middle (0-0); SOSA, J. advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D'AMATO, H. grounded out to c, SAC, bunt (2-1 BKB); AVILA, B. advanced to second; SOSA, J. advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SANDERS, B. grounded out to 2b, RBI (1-2 KBS); AVILA, B. advanced to third; SOSA, J. scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "GOMEZ JR., F grounded out to 3b (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE grounded out to ss (1-2 KKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL hit by pitch (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL out at second c to ss, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FUNG walked (3-2 BBBKFFFFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GUILIANA walked (3-0 BBBB); FUNG advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA walked (3-2 BBSBKB); GUILIANA advanced to second; FUNG advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN singled to center field, 2 RBI (0-2 KK); CAMPAGNA advanced to second; GUILIANA scored; FUNG scored.",
+          "pitch_count": null,
+          "rbi": 2
+        },
+        {
+          "description": "THOMAS struck out swinging (1-2 KKBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SIERRA, J. flied out to cf (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARDEN, B. doubled to left field (1-2 KSFBFFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "VERGA, T. grounded out to 3b (0-0); HARDEN, B. advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WILL, Z. grounded out to ss (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (1-2 KKFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MOORE flied out to lf to left center (3-2 SFBFFBBFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE struck out swinging (0-2 KKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SOSA, J. grounded out to ss (0-1 F).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AVILA, B. singled to center field (2-2 BFSB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D'AMATO, H. reached on a fielder's choice (1-2 KFBF); AVILA, B. out at second ss to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D'AMATO, H. stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SANDERS, B. grounded out to 1b unassisted (2-1 FBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AMARAL reached on a throwing error by 3b (2-1 BKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FUNG flied out to cf (1-2 BFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GUILIANA reached on a fielder's choice (3-2 BFBBK); AMARAL out at second 2b to ss.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA walked (3-1 BBBKB); GUILIANA advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA out at first p to 1b, picked off.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GOMEZ JR., F grounded out to 2b (0-2 KK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SIERRA, J. grounded out to 3b (0-2 KF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARDEN, B. singled to right field (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARDEN, B. stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "VERGA, T. struck out swinging (1-2 BFKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "LEAX to rf for AMARAL.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN grounded out to 3b (1-2 FKFB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "THOMAS walked (3-1 BBBKB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (0-2 SKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MOORE walked (3-2 BKSBBFB); THOMAS advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE doubled to right center, 2 RBI (2-1 FBB); MOORE scored; THOMAS scored.",
+          "pitch_count": null,
+          "rbi": 2
+        },
+        {
+          "description": "LEAX flied out to cf (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 2 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WILL, Z. grounded out to 3b (2-2 KBSB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SOSA, J. struck out looking (2-2 FFBBFK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AVILA, B. grounded out to ss (2-1 FBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "PIKA, B. to p for CHEESEMAN, J.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FUNG flied out to cf (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GUILIANA grounded out to ss (0-2 FS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA struck out swinging (0-2 KFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D'AMATO, H. grounded out to ss (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SANDERS, B. grounded out to ss (2-2 KBBSFFFF).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GOMEZ JR., F struck out swinging (0-2 FFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN hit by pitch (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "THOMAS singled through the right side (1-2 FFB); RAMPPEN advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS reached on a fielder's choice (0-0); THOMAS advanced to second; RAMPPEN out at third p to 3b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "MOORE flied out to rf (0-0).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WATANABE walked (3-1 BBFBB); ROGERS advanced to second; THOMAS advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "LEAX grounded out to 3b (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:1 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SIERRA, J. struck out swinging (0-2 SFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARDEN, B. walked (3-1 BKBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARDEN, B. stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARDEN, B. advanced to third on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "VERGA, T. struck out swinging (3-2 BSBBSS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WILL, Z. doubled, advanced to third on a throwing error by lf, RBI (2-0 BB); HARDEN, B. scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "WILL, Z. out at third c to 3b, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 1 H:1 E:1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "HAZELL to p for SHEW.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "FUNG grounded out to p (0-1 K).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GUILIANA flied out to rf (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "CAMPAGNA grounded out to 3b (3-2 SKFBBB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SOSA, J. struck out swinging (2-2 SBFBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "AVILA, B. struck out swinging (3-2 BKFBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D'AMATO, H. flied out to cf to left center (1-0 B).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SIMON, J. to p for PIKA, B..",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN flied out to rf to right center (2-0 BB).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "THOMAS grounded out to 2b (3-1 BBBK).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging (3-2 KSBBBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Batting starts",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SANDERS, B. struck out swinging (0-2 FKFS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GOMEZ JR., F struck out swinging (1-2 BKKS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "SIERRA, J. struck out swinging (1-2 KKBS).",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Batting ends R: 0 H:0 E:0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "ncaa_api"
+}

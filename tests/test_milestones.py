@@ -75,6 +75,21 @@ class TestBattingMilestones:
         assert len(result['hr_games']) == 1
         assert len(result.get('multi_hr_games', pd.DataFrame())) == 0
 
+    def test_game_note_last_first_hr_matches_full_player_name(self):
+        """Game-note names like 'Monge, Isaiah' should match 'Isaiah Monge'."""
+        game = self._create_game(batting_stats=[
+            {'name': 'Isaiah Monge', 'h': 2, 'hr': 0, 'rbi': 3, 'ab': 4}
+        ])
+        game['game_notes'] = {
+            'home_runs': [{'player': 'Monge, Isaiah', 'game_count': 1}],
+        }
+
+        result = MilestonesProcessor([game]).process_all_milestones()
+
+        assert len(result['hr_games']) == 1
+        assert result['hr_games'].iloc[0]['Player'] == 'Isaiah Monge'
+        assert result['three_rbi_games'].iloc[0]['HR'] == 1
+
     def test_five_hit_game(self):
         """Player with 5+ hits should be in five_hit_games."""
         game = self._create_game(batting_stats=[
@@ -85,6 +100,17 @@ class TestBattingMilestones:
 
         assert len(result['five_hit_games']) == 1
         assert result['five_hit_games'].iloc[0]['H'] == 5
+
+    def test_placeholder_batter_names_do_not_create_milestones(self):
+        """Unidentified rows should not appear as fake milestone players."""
+        game = self._create_game(batting_stats=[
+            {'name': 'Unknown', 'h': 5, 'hr': 3, 'rbi': 9, 'ab': 5, 'r': 4}
+        ])
+        processor = MilestonesProcessor([game])
+        result = processor.process_all_milestones()
+
+        assert len(result['five_hit_games']) == 0
+        assert len(result['three_hr_games']) == 0
 
     def test_four_hit_game(self):
         """Player with exactly 4 hits should be in four_hit_games."""
@@ -274,6 +300,17 @@ class TestPitchingMilestones:
 
         assert len(result['perfect_games']) == 1
         assert result['perfect_games'].iloc[0]['Player'] == 'Perfect Pete'
+
+    def test_placeholder_pitcher_names_do_not_create_milestones(self):
+        """Unidentified pitching rows should not appear as fake milestones."""
+        game = self._create_game(pitching_stats=[
+            {'name': 'Unknown', 'innings_pitched': 9.0, 'k': 12, 'h': 0, 'bb': 0, 'er': 0}
+        ])
+        processor = MilestonesProcessor([game])
+        result = processor.process_all_milestones()
+
+        assert len(result['perfect_games']) == 0
+        assert len(result['ten_k_games']) == 0
 
     def test_no_hitter(self):
         """CG with 0 H but walks should be in no_hitters."""

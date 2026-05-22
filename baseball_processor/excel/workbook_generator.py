@@ -12,6 +12,7 @@ from ..processors.player_stats import PlayerStatsProcessor
 from ..processors.milestones import MilestonesProcessor
 from ..processors.team_records import TeamRecordsProcessor
 from ..processors.game_log import GameLogProcessor
+from ..utils.helpers import resolve_venue_name
 
 
 def create_milb_game_log(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
@@ -33,7 +34,7 @@ def create_milb_game_log(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
             'Away Team': meta.get('away_team', ''),
             'Home Team': home_team,
             'Score': f"{meta.get('away_team_score', 0)}-{meta.get('home_team_score', 0)}",
-            'Venue': meta.get('venue', ''),
+            'Venue': resolve_venue_name(meta),
             'Away Parent': meta.get('parent_orgs', {}).get('away', ''),
             'Home Parent': meta.get('parent_orgs', {}).get('home', ''),
             'Game PK': meta.get('game_pk', ''),
@@ -55,12 +56,14 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
 
     from collections import defaultdict
     from ..utils.constants import resolve_level_and_league
+    from ..normalization import build_player_name_aliases, resolve_player_name_alias
 
     # Key by (player_id_or_name, team) to create separate rows per team.
     # This preserves correct level per team and enables proper grouping in the UI.
     batter_totals = defaultdict(lambda: defaultdict(int))
     batter_info = {}
     batter_level_league = {}
+    player_name_aliases = build_player_name_aliases(milb_games)
 
     for game in milb_games:
         meta = game.get('metadata', {})
@@ -70,9 +73,13 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
             team = meta.get(f'{side}_team', '')
             for player in game.get('box_score', {}).get(f'{side}_batting', []):
                 player_id = player.get('player_id')
-                name = player.get('name', '')
+                name = player.get('full_name') or player.get('name', '')
                 if not name:
                     continue
+                alias = resolve_player_name_alias(name, team, player_name_aliases)
+                if alias:
+                    name = alias.get('display_name') or name
+                    player_id = player_id or alias.get('bref_id', '')
 
                 player_key = player_id or name
                 key = (player_key, team)
@@ -81,8 +88,13 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
                     batter_level_league[key] = (level, league)
 
                 batter_totals[key]['games'] += 1
-                for stat in ['ab', 'r', 'h', 'rbi', 'bb', 'k', 'hr', 'doubles', 'triples', 'sb']:
+                for stat in ['ab', 'r', 'h', 'rbi', 'bb', 'k', 'hr', 'doubles', 'triples', 'sb', 'hbp', 'sf']:
                     batter_totals[key][stat] += player.get(stat, 0)
+
+    def format_rate(value: float) -> str:
+        if value >= 1:
+            return f"{value:.3f}"
+        return f"{value:.3f}".lstrip('0') if value > 0 else '.000'
 
     rows = []
     for key, totals in batter_totals.items():
@@ -90,6 +102,15 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
         ab = totals['ab']
         h = totals['h']
         avg = h / ab if ab > 0 else 0
+        bb = totals['bb']
+        hbp = totals['hbp']
+        sf = totals['sf']
+        pa_for_obp = ab + bb + hbp + sf
+        obp = (h + bb + hbp) / pa_for_obp if pa_for_obp > 0 else 0
+        singles = max(0, h - totals['doubles'] - totals['triples'] - totals['hr'])
+        total_bases = singles + (2 * totals['doubles']) + (3 * totals['triples']) + (4 * totals['hr'])
+        slg = total_bases / ab if ab > 0 else 0
+        ops = obp + slg
         lvl, lg = batter_level_league.get(key, ('', ''))
 
         rows.append({
@@ -109,7 +130,10 @@ def create_milb_batters(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
             '2B': totals['doubles'],
             '3B': totals['triples'],
             'SB': totals['sb'],
-            'AVG': f"{avg:.3f}",
+            'AVG': format_rate(avg),
+            'OBP': format_rate(obp),
+            'SLG': format_rate(slg),
+            'OPS': format_rate(ops),
         })
 
     df = pd.DataFrame(rows)
@@ -125,11 +149,13 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
 
     from collections import defaultdict
     from ..utils.constants import resolve_level_and_league
+    from ..normalization import build_player_name_aliases, resolve_player_name_alias
 
     # Key by (player_id_or_name, team) to create separate rows per team.
     pitcher_totals = defaultdict(lambda: defaultdict(float))
     pitcher_info = {}
     pitcher_level_league = {}
+    player_name_aliases = build_player_name_aliases(milb_games)
 
     for game in milb_games:
         meta = game.get('metadata', {})
@@ -139,9 +165,13 @@ def create_milb_pitchers(milb_games: List[Dict[str, Any]]) -> pd.DataFrame:
             team = meta.get(f'{side}_team', '')
             for player in game.get('box_score', {}).get(f'{side}_pitching', []):
                 player_id = player.get('player_id')
-                name = player.get('name', '')
+                name = player.get('full_name') or player.get('name', '')
                 if not name:
                     continue
+                alias = resolve_player_name_alias(name, team, player_name_aliases)
+                if alias:
+                    name = alias.get('display_name') or name
+                    player_id = player_id or alias.get('bref_id', '')
 
                 player_key = player_id or name
                 key = (player_key, team)

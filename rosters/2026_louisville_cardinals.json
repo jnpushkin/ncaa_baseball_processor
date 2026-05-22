@@ -1,0 +1,358 @@
+{
+  "team_name": "2026 Louisville Cardinals",
+  "team_id": "300b4c98",
+  "year": "2026",
+  "players": [
+    {
+      "name": "Alex Alicea",
+      "bref_id": "alicea001ale",
+      "first_name": "Alex",
+      "last_name": "Alicea",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "George Baker",
+      "bref_id": "baker-014geo",
+      "first_name": "George",
+      "last_name": "Baker",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Kyle Campbell",
+      "bref_id": "campbe004kyl",
+      "first_name": "Kyle",
+      "last_name": "Campbell",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Griffin Crain",
+      "bref_id": "crain-000gri",
+      "first_name": "Griffin",
+      "last_name": "Crain",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Tague Davis",
+      "bref_id": "davis-000tag",
+      "first_name": "Tague",
+      "last_name": "Davis",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Zach Davis",
+      "bref_id": "davis-012zac",
+      "first_name": "Zach",
+      "last_name": "Davis",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Kade Elam",
+      "bref_id": "elam--000kad",
+      "first_name": "Kade",
+      "last_name": "Elam",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Drew Freeman",
+      "bref_id": "freema001dre",
+      "first_name": "Drew",
+      "last_name": "Freeman",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Jax Hisle",
+      "bref_id": "hisle-000jax",
+      "first_name": "Jax",
+      "last_name": "Hisle",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Bayram Hot",
+      "bref_id": "hot---000bay",
+      "first_name": "Bayram",
+      "last_name": "Hot",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "A.J. Martin",
+      "bref_id": "martin002aj-",
+      "first_name": "A.J.",
+      "last_name": "Martin",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Lucas Moore",
+      "bref_id": "moore-000luc",
+      "first_name": "Lucas",
+      "last_name": "Moore",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Collin Mowry",
+      "bref_id": "mowry-000col",
+      "first_name": "Collin",
+      "last_name": "Mowry",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Jimmy Nugent",
+      "bref_id": "nugent000jam",
+      "first_name": "Jimmy",
+      "last_name": "Nugent",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Zion Rose",
+      "bref_id": "rose--000zio",
+      "first_name": "Zion",
+      "last_name": "Rose",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Kaden Schoenly",
+      "bref_id": "schoen000kad",
+      "first_name": "Kaden",
+      "last_name": "Schoenly",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Ben Slanker",
+      "bref_id": "slanke000ben",
+      "first_name": "Ben",
+      "last_name": "Slanker",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Nicholas Ballard",
+      "bref_id": "ballar000nic",
+      "first_name": "Nicholas",
+      "last_name": "Ballard",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Jake Bean",
+      "bref_id": "bean--000jak",
+      "first_name": "Jake",
+      "last_name": "Bean",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Jack Brown",
+      "bref_id": "brown-023jac",
+      "first_name": "Jack",
+      "last_name": "Brown",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Wyatt Danilowicz",
+      "bref_id": "danilo000wya",
+      "first_name": "Wyatt",
+      "last_name": "Danilowicz",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Ethan Eberle",
+      "bref_id": "eberle000eth",
+      "first_name": "Ethan",
+      "last_name": "Eberle",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Aaron England",
+      "bref_id": "englan000aar",
+      "first_name": "Aaron",
+      "last_name": "England",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Coen Evrard",
+      "bref_id": "evrard000coe",
+      "first_name": "Coen",
+      "last_name": "Evrard",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Jake Gregor",
+      "bref_id": "gregor000jak",
+      "first_name": "Jake",
+      "last_name": "Gregor",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Colton Hartman",
+      "bref_id": "hartma001col",
+      "first_name": "Colton",
+      "last_name": "Hartman",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Eli Hoyt",
+      "bref_id": "hoyt--000eli",
+      "first_name": "Eli",
+      "last_name": "Hoyt",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Anthony Karbowski",
+      "bref_id": "karbow000ant",
+      "first_name": "Anthony",
+      "last_name": "Karbowski",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Bryce Koch",
+      "bref_id": "koch--002bry",
+      "first_name": "Bryce",
+      "last_name": "Koch",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Peter Michael",
+      "bref_id": "michae000pet",
+      "first_name": "Peter",
+      "last_name": "Michael",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Casen Murphy",
+      "bref_id": "murphy001cas",
+      "first_name": "Casen",
+      "last_name": "Murphy",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Joe Olson",
+      "bref_id": "olson-002joe",
+      "first_name": "Joe",
+      "last_name": "Olson",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "TJ Schlageter",
+      "bref_id": "schlag000tj-",
+      "first_name": "TJ",
+      "last_name": "Schlageter",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Jake Schweitzer",
+      "bref_id": "schwei002jak",
+      "first_name": "Jake",
+      "last_name": "Schweitzer",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Brandon Shannon",
+      "bref_id": "shanno002bra",
+      "first_name": "Brandon",
+      "last_name": "Shannon",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Zane Stahl",
+      "bref_id": "stahl-000zan",
+      "first_name": "Zane",
+      "last_name": "Stahl",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Ty Starke",
+      "bref_id": "starke000ty-",
+      "first_name": "Ty",
+      "last_name": "Starke",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Tanner Thomas",
+      "bref_id": "thomas004tan",
+      "first_name": "Tanner",
+      "last_name": "Thomas",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    },
+    {
+      "name": "Kian Vorster",
+      "bref_id": "vorste000kia",
+      "first_name": "Kian",
+      "last_name": "Vorster",
+      "position": null,
+      "number": null,
+      "year": "2026"
+    }
+  ]
+}

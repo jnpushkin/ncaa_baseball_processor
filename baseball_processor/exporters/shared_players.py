@@ -93,8 +93,8 @@ def generate_shared_export(
                 reached_mlb = True
                 mlb_bref_id = player.bref_id
 
-        if not player.is_crossover() and not has_mlb and not reached_mlb:
-            continue
+        # Export ALL players so the MLB processor can check any
+        # college/minor league player against MLB appearances
 
         # Aggregate NCAA batting stats
         ncaa_stats = _aggregate_stats(player.ncaa_appearances)

@@ -12,6 +12,7 @@ from typing import Optional
 # Known typos in source PDFs: {typo: correction}
 TYPO_CORRECTIONS = {
     'FUNY, Matty': 'Fung, Matty',
+    'Matty Funy': 'Matty Fung',
     'FUNY': 'Fung',
 }
 

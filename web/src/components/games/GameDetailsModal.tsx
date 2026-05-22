@@ -1,0 +1,532 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import type {
+  GameDetails,
+  SiteData,
+  UnifiedGame,
+  BoxScoreBatter,
+  BoxScorePitcher,
+  PlayByPlayInning,
+} from "@/types";
+import { formatDate } from "@/lib/baseball";
+import { getTeamDisplayName } from "@/lib/data";
+import { fetchJsonWithRetry } from "@/lib/fetchJson";
+import LevelBadge from "@/components/shared/LevelBadge";
+import TeamLogo from "@/components/shared/TeamLogo";
+
+type Tab = "box" | "plays" | "pbp";
+
+interface Props {
+  game: UnifiedGame;
+  onClose: () => void;
+  onPrev?: () => void;
+  onNext?: () => void;
+  hasPrev?: boolean;
+  hasNext?: boolean;
+  data: SiteData;
+}
+
+const num = (v: unknown) => {
+  const n = parseInt(String(v ?? 0));
+  return Number.isFinite(n) ? n : 0;
+};
+
+const pick = <T,>(...vals: (T | undefined | null)[]): T | undefined => {
+  for (const v of vals) if (v !== undefined && v !== null) return v;
+  return undefined;
+};
+
+function BatterTable({ rows }: { rows: BoxScoreBatter[] }) {
+  if (!rows || rows.length === 0)
+    return <div className="gdm-empty">No batting data</div>;
+  return (
+    <div className="table-container">
+      <table className="data-table gdm-box-table">
+        <thead>
+          <tr>
+            <th style={{ textAlign: "left" }}>Batter</th>
+            <th>Pos</th>
+            <th>AB</th>
+            <th>R</th>
+            <th>H</th>
+            <th>2B</th>
+            <th>3B</th>
+            <th>HR</th>
+            <th>RBI</th>
+            <th>BB</th>
+            <th>K</th>
+            <th>SB</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i}>
+              <td style={{ textAlign: "left" }}>
+                {pick(r.full_name, r.name)}
+              </td>
+              <td>{r.position ?? ""}</td>
+              <td>{num(pick(r.ab, r.at_bats))}</td>
+              <td>{num(pick(r.r, r.runs))}</td>
+              <td>{num(pick(r.h, r.hits))}</td>
+              <td>{num(r.doubles)}</td>
+              <td>{num(r.triples)}</td>
+              <td>{num(r.hr)}</td>
+              <td>{num(r.rbi)}</td>
+              <td>{num(pick(r.bb, r.walks))}</td>
+              <td>{num(pick(r.k, r.strikeouts))}</td>
+              <td>{num(r.sb)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function PitcherTable({ rows }: { rows: BoxScorePitcher[] }) {
+  if (!rows || rows.length === 0)
+    return <div className="gdm-empty">No pitching data</div>;
+  return (
+    <div className="table-container">
+      <table className="data-table gdm-box-table">
+        <thead>
+          <tr>
+            <th style={{ textAlign: "left" }}>Pitcher</th>
+            <th>IP</th>
+            <th>H</th>
+            <th>R</th>
+            <th>ER</th>
+            <th>BB</th>
+            <th>K</th>
+            <th>HR</th>
+            <th>NP</th>
+            <th>Dec</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => {
+            const win = r.win || (r as { wins?: number }).wins;
+            const loss = r.loss || (r as { losses?: number }).losses;
+            const save = r.save || (r as { saves?: number }).saves;
+            const dec = win ? "W" : loss ? "L" : save ? "S" : "";
+            return (
+              <tr key={i}>
+                <td style={{ textAlign: "left" }}>
+                  {pick(r.full_name, r.name)}
+                </td>
+                <td>{String(r.ip ?? "")}</td>
+                <td>{num(r.h)}</td>
+                <td>{num(r.r)}</td>
+                <td>{num(r.er)}</td>
+                <td>{num(r.bb)}</td>
+                <td>{num(r.k)}</td>
+                <td>{num(r.hr)}</td>
+                <td>{num(r.np)}</td>
+                <td>
+                  <strong>{dec}</strong>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function TeamBlock({
+  label,
+  teamName,
+  teamId,
+  level,
+  batters,
+  pitchers,
+  data,
+}: {
+  label: string;
+  teamName: string;
+  teamId?: number;
+  level: string;
+  batters: BoxScoreBatter[];
+  pitchers: BoxScorePitcher[];
+  data: SiteData;
+}) {
+  return (
+    <div className="gdm-team-block">
+      <div className="gdm-team-header">
+        <TeamLogo team={teamName} teamId={teamId} level={level} size={22} data={data} />
+        <span className="gdm-team-label">{label}</span>
+        <strong>{getTeamDisplayName(teamName, data)}</strong>
+      </div>
+      <div className="gdm-subhead">Batting</div>
+      <BatterTable rows={batters} />
+      <div className="gdm-subhead">Pitching</div>
+      <PitcherTable rows={pitchers} />
+    </div>
+  );
+}
+
+function KeyPlays({ notes }: { notes: GameDetails["game_notes"] }) {
+  if (!notes)
+    return <div className="gdm-empty">No key plays available for this game.</div>;
+
+  const sections: { label: string; rows: { player?: string; season_total?: number; game_count?: number }[] }[] = [
+    { label: "Home Runs", rows: notes.home_runs ?? [] },
+    { label: "Doubles", rows: notes.doubles ?? [] },
+    { label: "Triples", rows: notes.triples ?? [] },
+    { label: "Stolen Bases", rows: notes.stolen_bases ?? [] },
+  ].filter((s) => s.rows.length > 0);
+
+  const decisions: { label: string; value: string }[] = [];
+  if (notes.win?.player)
+    decisions.push({ label: "Win", value: `${notes.win.player}${notes.win.record ? ` (${notes.win.record})` : ""}` });
+  if (notes.loss?.player)
+    decisions.push({ label: "Loss", value: `${notes.loss.player}${notes.loss.record ? ` (${notes.loss.record})` : ""}` });
+  if (notes.save?.player)
+    decisions.push({ label: "Save", value: notes.save.player });
+
+  if (sections.length === 0 && decisions.length === 0)
+    return <div className="gdm-empty">No key plays recorded for this game.</div>;
+
+  return (
+    <div>
+      {decisions.length > 0 && (
+        <div className="gdm-decisions">
+          {decisions.map((d, i) => (
+            <div key={i} className="gdm-decision-chip">
+              <span className="gdm-decision-label">{d.label}</span>
+              <span>{d.value}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {sections.map((s) => (
+        <div key={s.label} className="gdm-plays-section">
+          <h4>{s.label}</h4>
+          <ul className="gdm-play-list">
+            {s.rows.map((r, i) => (
+              <li key={i}>
+                <strong>{r.player}</strong>
+                {r.game_count && r.game_count > 1 ? ` (${r.game_count}x)` : ""}
+                {r.season_total ? ` — season total: ${r.season_total}` : ""}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function PlayByPlay({ pbp }: { pbp: Record<string, PlayByPlayInning> | undefined }) {
+  if (!pbp || Object.keys(pbp).length === 0)
+    return <div className="gdm-empty">Play-by-play not available for this game.</div>;
+
+  const innings = Object.keys(pbp)
+    .map((k) => parseInt(k, 10))
+    .filter((n) => !Number.isNaN(n))
+    .sort((a, b) => a - b);
+
+  return (
+    <div className="gdm-pbp">
+      {innings.map((n) => {
+        const inning = pbp[String(n)] ?? {};
+        const top = inning.top ?? [];
+        const bot = inning.bottom ?? [];
+        if (top.length === 0 && bot.length === 0) return null;
+        return (
+          <div key={n} className="gdm-inning">
+            <div className="gdm-inning-header">Inning {n}</div>
+            {top.length > 0 && (
+              <div className="gdm-half">
+                <div className="gdm-half-label">Top</div>
+                <ul className="gdm-pbp-list">
+                  {top.map((ev, i) => (
+                    <li key={i}>{ev.description}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {bot.length > 0 && (
+              <div className="gdm-half">
+                <div className="gdm-half-label">Bottom</div>
+                <ul className="gdm-pbp-list">
+                  {bot.map((ev, i) => (
+                    <li key={i}>{ev.description}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default function GameDetailsModal({
+  game,
+  onClose,
+  onPrev,
+  onNext,
+  hasPrev,
+  hasNext,
+  data,
+}: Props) {
+  const levelColors = data.levelColors ?? {};
+  const [details, setDetails] = useState<GameDetails | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [tab, setTab] = useState<Tab>("box");
+  const embeddedDetails = game.game_id ? data.gameDetails?.[game.game_id] : undefined;
+
+  useEffect(() => {
+    if (!game.game_id) {
+      setDetails(null);
+      setLoading(false);
+      setError(null);
+      return;
+    }
+    if (embeddedDetails) {
+      setDetails(embeddedDetails);
+      setLoading(false);
+      setError(null);
+      return;
+    }
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    setDetails(null);
+    fetchJsonWithRetry<GameDetails>(`/games/${game.game_id}.json`)
+      .then((d: GameDetails) => {
+        if (!cancelled) {
+          setDetails(d);
+          setLoading(false);
+        }
+      })
+      .catch((e) => {
+        if (!cancelled) {
+          setError(String(e));
+          setLoading(false);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [game.game_id, embeddedDetails]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowLeft" && hasPrev) onPrev?.();
+      else if (e.key === "ArrowRight" && hasNext) onNext?.();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose, onPrev, onNext, hasPrev, hasNext]);
+
+  const box = details?.box_score ?? {};
+  const notes = details?.game_notes;
+  const pbp = details?.play_by_play;
+
+  const hasBox = useMemo(
+    () =>
+      (box.away_batting?.length || 0) +
+        (box.home_batting?.length || 0) +
+        (box.away_pitching?.length || 0) +
+        (box.home_pitching?.length || 0) >
+      0,
+    [box]
+  );
+
+  const hasKeyPlays = useMemo(() => {
+    if (!notes) return false;
+    return (
+      (notes.home_runs?.length || 0) +
+        (notes.doubles?.length || 0) +
+        (notes.triples?.length || 0) +
+        (notes.stolen_bases?.length || 0) > 0 ||
+      !!notes.win?.player ||
+      !!notes.loss?.player ||
+      !!notes.save?.player
+    );
+  }, [notes]);
+
+  const hasPbp = useMemo(() => {
+    if (!pbp) return false;
+    return Object.values(pbp).some(
+      (i) => (i.top?.length || 0) + (i.bottom?.length || 0) > 0
+    );
+  }, [pbp]);
+
+  useEffect(() => {
+    // If the current tab is unavailable for this game, fall back to the first available.
+    if (tab === "plays" && !hasKeyPlays) setTab("box");
+    else if (tab === "pbp" && !hasPbp) setTab("box");
+  }, [tab, hasKeyPlays, hasPbp]);
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div
+        className="modal-content gdm-modal"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="modal-header">
+          <div style={{ flex: 1 }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                flexWrap: "wrap",
+              }}
+            >
+              <LevelBadge level={game.level} levelColors={levelColors} />
+              <span style={{ opacity: 0.85 }}>{formatDate(game.date)}</span>
+              {game.venue && (
+                <span style={{ opacity: 0.7, fontSize: "0.85rem" }}>
+                  · {game.venue}
+                </span>
+              )}
+            </div>
+            <h3 style={{ margin: "6px 0 0 0", fontSize: "1.1rem" }}>
+              <span>
+                <TeamLogo
+                  team={game.away_team}
+                  teamId={game.away_team_id}
+                  level={game.level}
+                  size={18}
+                  data={data}
+                />{" "}
+                {getTeamDisplayName(game.away_team, data)}{" "}
+                <strong>{game.away_score}</strong>
+              </span>
+              <span style={{ margin: "0 8px", opacity: 0.6 }}>@</span>
+              <span>
+                <TeamLogo
+                  team={game.home_team}
+                  teamId={game.home_team_id}
+                  level={game.level}
+                  size={18}
+                  data={data}
+                />{" "}
+                {getTeamDisplayName(game.home_team, data)}{" "}
+                <strong>{game.home_score}</strong>
+              </span>
+            </h3>
+          </div>
+          <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+            <button
+              className="gdm-nav"
+              onClick={onPrev}
+              disabled={!hasPrev}
+              title="Previous game (←)"
+              aria-label="Previous game"
+            >
+              ‹
+            </button>
+            <button
+              className="gdm-nav"
+              onClick={onNext}
+              disabled={!hasNext}
+              title="Next game (→)"
+              aria-label="Next game"
+            >
+              ›
+            </button>
+            <button className="modal-close" onClick={onClose} aria-label="Close">
+              &times;
+            </button>
+          </div>
+        </div>
+
+        <div className="modal-body">
+          {!game.game_id && (
+            <div className="gdm-empty">
+              Detailed box score is not available for this game.
+            </div>
+          )}
+          {game.game_id && loading && (
+            <div className="gdm-empty">Loading game details…</div>
+          )}
+          {game.game_id && error && (
+            <div className="gdm-empty">
+              Could not load game details ({error}).
+            </div>
+          )}
+
+          {details && (
+            <>
+              {(details.attendance || details.weather || details.duration || details.start_time) && (
+                <div className="gdm-meta-row">
+                  {details.start_time && <span>Start: {details.start_time}</span>}
+                  {details.attendance && <span>Attendance: {details.attendance}</span>}
+                  {details.weather && <span>Weather: {details.weather}</span>}
+                  {details.duration && <span>Duration: {details.duration}</span>}
+                </div>
+              )}
+
+              <div className="gdm-tabs">
+                <button
+                  className={`gdm-tab ${tab === "box" ? "active" : ""}`}
+                  onClick={() => setTab("box")}
+                  disabled={!hasBox}
+                >
+                  Box Score
+                </button>
+                {hasKeyPlays && (
+                  <button
+                    className={`gdm-tab ${tab === "plays" ? "active" : ""}`}
+                    onClick={() => setTab("plays")}
+                  >
+                    Key Plays
+                  </button>
+                )}
+                {hasPbp && (
+                  <button
+                    className={`gdm-tab ${tab === "pbp" ? "active" : ""}`}
+                    onClick={() => setTab("pbp")}
+                  >
+                    Play-by-Play
+                  </button>
+                )}
+              </div>
+
+              <div className="gdm-tab-content">
+                {tab === "box" && (
+                  hasBox ? (
+                    <>
+                      <TeamBlock
+                        label="Away"
+                        teamName={game.away_team}
+                        teamId={game.away_team_id}
+                        level={game.level}
+                        batters={box.away_batting ?? []}
+                        pitchers={box.away_pitching ?? []}
+                        data={data}
+                      />
+                      <TeamBlock
+                        label="Home"
+                        teamName={game.home_team}
+                        teamId={game.home_team_id}
+                        level={game.level}
+                        batters={box.home_batting ?? []}
+                        pitchers={box.home_pitching ?? []}
+                        data={data}
+                      />
+                    </>
+                  ) : (
+                    <div className="gdm-empty">No box score available.</div>
+                  )
+                )}
+                {tab === "plays" && <KeyPlays notes={notes} />}
+                {tab === "pbp" && <PlayByPlay pbp={pbp} />}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

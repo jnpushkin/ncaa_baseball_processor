@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import type { ScheduleGame, SiteData } from "@/types";
+import { fetchJsonWithRetry } from "@/lib/fetchJson";
 import { convertEasternToLocal } from "@/lib/timezone";
 
 const ScheduleMap = dynamic(() => import("@/components/maps/ScheduleMap"), {
@@ -18,6 +19,8 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
   const [statusFilter, setStatusFilter] = useState("scheduled");
   const [searchText, setSearchText] = useState("");
   const [showMap, setShowMap] = useState(false);
+  const [loadedScheduleGames, setLoadedScheduleGames] = useState<Record<string, ScheduleGame[]>>({});
+  const [scheduleError, setScheduleError] = useState<string | null>(null);
 
   const todayStr = useMemo(() => new Date().toISOString().slice(0, 10), []);
   const weekLaterStr = useMemo(() => {
@@ -29,6 +32,7 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
   const [endDate, setEndDate] = useState(weekLaterStr);
 
   const statusOptions = ["All", "scheduled", "in_progress", "final", "canceled", "postponed"];
+  const scheduleIndex = useMemo(() => data.scheduleIndex ?? [], [data.scheduleIndex]);
 
   const setQuickFilter = (preset: string) => {
     const now = new Date();
@@ -58,8 +62,69 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
     }
   };
 
+  const requiredScheduleEntries = useMemo(() => {
+    if (scheduleIndex.length === 0) return [];
+    return scheduleIndex.filter((entry) => {
+      if (startDate && entry.date < startDate) return false;
+      if (endDate && entry.date > endDate) return false;
+      return true;
+    });
+  }, [scheduleIndex, startDate, endDate]);
+
+  useEffect(() => {
+    if (requiredScheduleEntries.length === 0) return;
+    const missingEntries = requiredScheduleEntries.filter(
+      (entry) => !loadedScheduleGames[entry.date]
+    );
+    if (missingEntries.length === 0) return;
+
+    let cancelled = false;
+
+    Promise.all(
+      missingEntries.map((entry) =>
+        fetchJsonWithRetry<ScheduleGame[]>(entry.path)
+          .then((loadedGames) => [entry.date, loadedGames] as const)
+      )
+    )
+      .then((loadedEntries) => {
+        if (cancelled) return;
+        setScheduleError(null);
+        setLoadedScheduleGames((current) => {
+          const next = { ...current };
+          loadedEntries.forEach(([date, loadedGames]) => {
+            next[date] = loadedGames;
+          });
+          return next;
+        });
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setScheduleError(error instanceof Error ? error.message : "Failed to load schedule");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [requiredScheduleEntries, loadedScheduleGames]);
+
+  const pendingScheduleCount = useMemo(() => {
+    return requiredScheduleEntries.filter((entry) => !loadedScheduleGames[entry.date]).length;
+  }, [loadedScheduleGames, requiredScheduleEntries]);
+  const isLoadingSchedule = pendingScheduleCount > 0 && !scheduleError;
+
+  const activeGames = useMemo(() => {
+    if (scheduleIndex.length === 0) return games;
+    return requiredScheduleEntries.flatMap((entry) => loadedScheduleGames[entry.date] ?? []);
+  }, [games, loadedScheduleGames, requiredScheduleEntries, scheduleIndex.length]);
+
+  const expectedGameCount = useMemo(() => {
+    if (scheduleIndex.length === 0) return games.length;
+    return requiredScheduleEntries.reduce((sum, entry) => sum + entry.count, 0);
+  }, [games.length, requiredScheduleEntries, scheduleIndex.length]);
+
   const filtered = useMemo(() => {
-    return games.filter((g) => {
+    return activeGames.filter((g) => {
       if (statusFilter !== "All" && g.status !== statusFilter) return false;
       if (startDate || endDate) {
         const gameDate = (g.date || "").slice(0, 10);
@@ -78,7 +143,7 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
       }
       return true;
     });
-  }, [games, statusFilter, startDate, endDate, searchText]);
+  }, [activeGames, statusFilter, startDate, endDate, searchText]);
 
   const grouped = useMemo(() => {
     const groups: Record<string, ScheduleGame[]> = {};
@@ -140,7 +205,11 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
             </option>
           ))}
         </select>
-        <span className="filter-count">{filtered.length} games</span>
+        <span className="filter-count">
+          {isLoadingSchedule && filtered.length === 0
+            ? `Loading ${expectedGameCount} games`
+            : `${filtered.length} games`}
+        </span>
         <button
           onClick={() => setShowMap(!showMap)}
           className={`toggle-btn${showMap ? " active" : ""}`}
@@ -182,6 +251,16 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
       </div>
 
       {showMap && <ScheduleMap games={filtered} data={data} />}
+
+      {scheduleError && (
+        <div className="empty-state">
+          Could not load schedule data ({scheduleError}).
+        </div>
+      )}
+
+      {isLoadingSchedule && filtered.length === 0 && !scheduleError && (
+        <div className="empty-state">Loading schedule...</div>
+      )}
 
       {Object.entries(grouped).map(([dateLabel, dateGames]) => (
         <div key={dateLabel} className="schedule-day-group">
@@ -244,7 +323,7 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
         </div>
       ))}
 
-      {filtered.length === 0 && (
+      {filtered.length === 0 && !isLoadingSchedule && !scheduleError && (
         <div className="empty-state">
           No games match your filters. Try adjusting the search or filters above.
         </div>
