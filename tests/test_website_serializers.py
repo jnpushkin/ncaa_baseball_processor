@@ -138,6 +138,7 @@ def test_data_quality_report_summarizes_source_merge_warnings():
                 "sources": ["ncaa_pdf", "ncaa_api"],
                 "stats_source": "ncaa_pdf",
                 "identity_source": "ncaa_api",
+                "api_game_id": "6294409",
                 "confidence": "review",
                 "warning_count": 1,
                 "info_count": 0,
@@ -165,6 +166,101 @@ def test_data_quality_report_summarizes_source_merge_warnings():
     assert report["summary"]["sourceMergeReviewGames"] == 1
     assert report["sourceMerge"]["issues"][0]["game_id"] == "ncaa_pdf_20250314_virginia_at_california_1_6"
     assert report["sourceMerge"]["issues"][0]["field"] == "HR"
+    assert report["sourceMerge"]["issues"][0]["detail_path"] == "/games/ncaa_pdf_20250314_virginia_at_california_1_6.json"
+    assert report["sourceMerge"]["issues"][0]["api_boxscore_url"].endswith("/game/6294409/boxscore")
+    assert report["sourceMerge"]["games"][0]["detail_path"] == "/games/ncaa_pdf_20250314_virginia_at_california_1_6.json"
+
+
+def test_data_quality_report_resolves_truncated_source_issue_players():
+    raw_game = {
+        "metadata": {
+            "date": "03/02/2025",
+            "date_yyyymmdd": "20250302",
+            "away_team": "San Jose State",
+            "home_team": "San Francisco",
+            "away_team_score": 3,
+            "home_team_score": 7,
+        },
+        "box_score": {"away_batting": [], "home_batting": [], "away_pitching": [], "home_pitching": []},
+        "data_quality": {
+            "source_merge": {
+                "sources": ["ncaa_pdf", "ncaa_api"],
+                "stats_source": "ncaa_pdf",
+                "identity_source": "ncaa_api",
+                "warning_count": 0,
+                "info_count": 1,
+                "issue_count": 1,
+                "issues": [
+                    {
+                        "code": "api_only_player_row",
+                        "severity": "info",
+                        "section": "away_batting",
+                        "player": "ja. Lewis",
+                    }
+                ],
+            }
+        },
+    }
+    aliases = {
+        ("sanjosestate", "ja. lewis"): {
+            "display_name": "Jared Lewis",
+            "bref_id": "lewis-001jar",
+            "source": "roster",
+        }
+    }
+
+    report = _build_data_quality_report([raw_game], aliases)
+    issue = report["sourceMerge"]["issues"][0]
+
+    assert issue["player"] == "Jared Lewis"
+    assert issue["source_player"] == "ja. Lewis"
+    assert issue["bref_id"] == "lewis-001jar"
+
+
+def test_data_quality_report_preserves_already_full_source_issue_player_names():
+    raw_game = {
+        "metadata": {
+            "date": "06/15/2025",
+            "date_yyyymmdd": "20250615",
+            "away_team": "Arizona",
+            "home_team": "Louisville",
+            "away_team_score": 3,
+            "home_team_score": 8,
+        },
+        "box_score": {"away_batting": [], "home_batting": [], "away_pitching": [], "home_pitching": []},
+        "data_quality": {
+            "source_merge": {
+                "sources": ["ncaa_pdf", "ncaa_api"],
+                "stats_source": "ncaa_pdf",
+                "identity_source": "ncaa_api",
+                "warning_count": 0,
+                "info_count": 1,
+                "issue_count": 1,
+                "issues": [
+                    {
+                        "code": "api_only_player_row",
+                        "severity": "info",
+                        "section": "home_batting",
+                        "player": "Eddie King Jr.",
+                    }
+                ],
+            }
+        },
+    }
+    aliases = {
+        ("louisville", "eddie king"): {
+            "display_name": "Eddie King",
+            "bref_id": "king--000edd",
+            "source": "roster",
+        }
+    }
+
+    report = _build_data_quality_report([raw_game], aliases)
+    issue = report["sourceMerge"]["issues"][0]
+
+    assert issue["player"] == "Eddie King Jr."
+    assert "source_player" not in issue
+    assert issue["bref_id"] == "king--000edd"
 
 
 def test_data_quality_report_includes_unmerged_source_candidates():
@@ -197,6 +293,7 @@ def test_data_quality_report_includes_unmerged_source_candidates():
     assert report["summary"]["mergedSourceGames"] == 0
     assert report["summary"]["unmergedSourceCandidates"] == 1
     assert report["sourceMerge"]["unmergedCandidates"][0]["reason"] == "score_mismatch"
+    assert report["sourceMerge"]["unmergedCandidates"][0]["api_boxscore_url"].endswith("/game/6294409/boxscore")
 
 
 def test_scrub_json_value_replaces_nan_and_infinity():

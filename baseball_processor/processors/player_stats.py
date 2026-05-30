@@ -15,6 +15,8 @@ from ..utils.helpers import (
 )
 from ..utils.constants import get_conference
 from ..normalization import alias_display_name, build_player_name_aliases, normalized_raw_sections, resolve_player_name_alias
+from ..player_display import best_display_name as _best_display_name, row_source_display_name as _row_source_display_name
+from .milestones import normalize_player_name
 
 
 COMPACT_INITIAL_TOKENS = {
@@ -41,7 +43,6 @@ def smart_title(name: str) -> str:
     """Title-case a name while preserving compact initial tokens like RJ, AJ, JT."""
     words = name.split()
     return ' '.join(_smart_title_word(word) for word in words)
-from .milestones import normalize_player_name
 
 
 def build_extra_base_lookup(game_notes: Dict[str, Any]) -> Dict[str, Dict[str, int]]:
@@ -248,7 +249,7 @@ class PlayerStatsProcessor:
                     for player in box_score.get(section, []):
                         bref_id = player.get('bref_id') or player.get('register_id')
                         display_name = resolve_player_display_name(
-                            player.get('full_name') or player.get('name', ''),
+                            _row_source_display_name(player),
                             bref_id,
                         )
                         display_name = normalize_player_name(display_name)
@@ -399,7 +400,7 @@ class PlayerStatsProcessor:
                 batters = batting_sections.get(side, [])
                 for player in batters:
                     bref_id = player.get('bref_id') or player.get('register_id')
-                    name = resolve_player_display_name(player.get('full_name') or player.get('name', ''), bref_id)
+                    name = resolve_player_display_name(_row_source_display_name(player), bref_id)
                     name = normalize_player_name(name)
                     if is_placeholder_player_name(name):
                         continue
@@ -432,6 +433,10 @@ class PlayerStatsProcessor:
                         self.player_team_years[key][team].append(game_year)
                     self.batter_totals[key]['games'] += 1
                     self.batter_totals[key]['_name'] = normalized_name  # Store original name for display
+                    self.batter_totals[key]['_display_name'] = _best_display_name(
+                        self.batter_totals[key].get('_display_name', ''),
+                        name,
+                    )
 
                     # Get extra-base hit stats from game notes lookup
                     extra_stats = get_player_extra_stats(name, extra_stats_lookup)
@@ -476,7 +481,7 @@ class PlayerStatsProcessor:
                 pitchers = pitching_sections.get(side, [])
                 for player in pitchers:
                     bref_id = player.get('bref_id') or player.get('register_id')
-                    name = resolve_player_display_name(player.get('full_name') or player.get('name', ''), bref_id)
+                    name = resolve_player_display_name(_row_source_display_name(player), bref_id)
                     name = normalize_player_name(name)
                     if is_placeholder_player_name(name):
                         continue
@@ -508,6 +513,10 @@ class PlayerStatsProcessor:
                         self.player_team_years[key][team].append(game_year)
                     self.pitcher_totals[key]['games'] += 1
                     self.pitcher_totals[key]['_name'] = normalized_name  # Store original name for display
+                    self.pitcher_totals[key]['_display_name'] = _best_display_name(
+                        self.pitcher_totals[key].get('_display_name', ''),
+                        name,
+                    )
 
                     # Innings pitched needs special handling
                     ip = parse_innings_pitched(self._stat_value(player, 'ip'))
@@ -569,6 +578,10 @@ class PlayerStatsProcessor:
                 return player[key]
         return default
 
+    def _display_name_for_key(self, key: str, stats: Dict[str, Any]) -> str:
+        display_name = stats.get('_display_name') or stats.get('_name') or key.split('|')[0]
+        return smart_title(str(display_name))
+
     def _get_player_conference(self, key: str) -> str:
         """Get conference for a player based on their team(s) and year(s)."""
         team_years = self.player_team_years.get(key, {})
@@ -617,9 +630,7 @@ class PlayerStatsProcessor:
             slg = tb / ab if ab > 0 else 0
             ops = obp + slg
 
-            # Get display name from stored _name or parse from key
-            display_name = stats.get('_name', key.split('|')[0])
-            display_name = smart_title(display_name)
+            display_name = self._display_name_for_key(key, stats)
 
             rows.append({
                 'Name': display_name,
@@ -670,9 +681,7 @@ class PlayerStatsProcessor:
             k_per_9 = (k * 9) / ip if ip > 0 else 0
             bb_per_9 = (bb * 9) / ip if ip > 0 else 0
 
-            # Get display name from stored _name or parse from key
-            display_name = stats.get('_name', key.split('|')[0])
-            display_name = smart_title(display_name)
+            display_name = self._display_name_for_key(key, stats)
 
             rows.append({
                 'Name': display_name,
@@ -702,9 +711,7 @@ class PlayerStatsProcessor:
         """Create game-by-game batting DataFrame."""
         rows = []
         for key, games in self.batter_games.items():
-            # Get display name from stored stats or parse from key
-            display_name = self.batter_totals[key].get('_name', key.split('|')[0])
-            display_name = smart_title(display_name)
+            display_name = self._display_name_for_key(key, self.batter_totals[key])
             for game in games:
                 row = {'Name': display_name, **game}
                 rows.append(row)
@@ -721,9 +728,7 @@ class PlayerStatsProcessor:
         """Create game-by-game pitching DataFrame."""
         rows = []
         for key, games in self.pitcher_games.items():
-            # Get display name from stored stats or parse from key
-            display_name = self.pitcher_totals[key].get('_name', key.split('|')[0])
-            display_name = smart_title(display_name)
+            display_name = self._display_name_for_key(key, self.pitcher_totals[key])
             for game in games:
                 row = {'Name': display_name, **game}
                 rows.append(row)

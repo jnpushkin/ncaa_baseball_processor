@@ -130,6 +130,65 @@ class TestPlayerStatsProcessor:
         assert set(result['batters']['Name']) == {'Henry Ford'}
         assert set(result['batter_games']['Name']) == {'Henry Ford'}
 
+    def test_player_tables_preserve_display_suffixes(self):
+        """Aggregation keys strip suffixes for merging, but public names should not."""
+        games = [
+            {
+                'metadata': {
+                    'date': '2025-06-14',
+                    'away_team': 'Louisville',
+                    'home_team': 'Oregon State',
+                    'away_team_score': 3,
+                    'home_team_score': 4,
+                },
+                'box_score': {
+                    'away_batting': [
+                        {
+                            'name': 'Eddie King Jr.',
+                            'full_name': 'Eddie King',
+                            'bref_id': 'king--000edd',
+                            'ab': 4,
+                            'h': 2,
+                        },
+                    ],
+                    'home_batting': [],
+                    'away_pitching': [],
+                    'home_pitching': [],
+                },
+                'game_notes': {},
+            },
+            {
+                'metadata': {
+                    'date': '2025-06-15',
+                    'away_team': 'Arizona',
+                    'home_team': 'Louisville',
+                    'away_team_score': 3,
+                    'home_team_score': 8,
+                },
+                'box_score': {
+                    'away_batting': [],
+                    'home_batting': [
+                        {
+                            'name': 'Eddie King',
+                            'bref_id': 'king--000edd',
+                            'ab': 3,
+                            'h': 1,
+                        },
+                    ],
+                    'away_pitching': [],
+                    'home_pitching': [],
+                },
+                'game_notes': {},
+            },
+        ]
+
+        result = PlayerStatsProcessor(games).process_all_stats()
+
+        assert set(result['batters']['Name']) == {'Eddie King Jr.'}
+        assert set(result['batter_games']['Name']) == {'Eddie King Jr.'}
+        assert result['batters'].iloc[0]['G'] == 2
+        assert result['batters'].iloc[0]['AB'] == 7
+
     def test_merges_unique_initial_surname_aliases(self):
         """Same-team initial-only rows should merge into the unique full-name row."""
         games = [

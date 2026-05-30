@@ -1922,6 +1922,46 @@ tr:hover {
   font-weight: 400;
 }
 
+.quality-game-link {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.quality-game-link:hover {
+  text-decoration: underline;
+}
+
+.quality-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.quality-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-primary);
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.quality-link:hover {
+  border-color: var(--color-accent);
+  background: #f5f9ff;
+}
+
+.quality-muted {
+  color: var(--color-text-muted);
+}
+
 .quality-pill,
 .quality-severity {
   display: inline-flex;

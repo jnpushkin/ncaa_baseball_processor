@@ -183,6 +183,7 @@ def _is_pitcher_stat_echo(player: Dict[str, Any], batter_stats: Dict[str, Any]) 
         ('hits', 'hitsAllowed'),
         ('runsScored', 'runsAllowed'),
         ('walks', 'walksAllowed'),
+        ('strikeouts', 'strikeouts'),
     )
     return any(
         _safe_int(batter_stats.get(batter_key)) == _safe_int(pitcher_stats.get(pitcher_key)) > 0

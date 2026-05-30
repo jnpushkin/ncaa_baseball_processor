@@ -410,6 +410,129 @@ def test_processing_games_treats_all_zero_api_strikeouts_as_unavailable():
     assert source_merge["issues"][0]["field"] == "K"
 
 
+def test_processing_games_treats_placeholder_only_api_strikeouts_as_unavailable():
+    pdf_game = {
+        "metadata": {
+            "date": "3/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [
+                {"number": "4", "name": "Jay Woolfolk", "strikeouts": 2},
+                {"number": "5", "name": "Named Batter", "strikeouts": 1},
+            ],
+        },
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "date": "03/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [
+                {"number": "4", "name": "Jay Woolfolk", "k": 0},
+                {"number": "5", "name": "Named Batter", "k": 0},
+                {"number": "99", "name": "Unknown", "ab": 4, "k": 1},
+            ],
+        },
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+    source_merge = loaded.processing_games[0]["data_quality"]["source_merge"]
+
+    assert source_merge["confidence"] == "high"
+    assert source_merge["warning_count"] == 0
+    assert source_merge["info_count"] == 1
+    assert source_merge["issues"][0]["code"] == "secondary_stat_field_unavailable"
+    assert source_merge["issues"][0]["field"] == "K"
+
+
+def test_processing_games_does_not_use_clipped_api_names_for_merge_quality_or_rows():
+    pdf_game = {
+        "metadata": {
+            "date": "3/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [{"name": "Aiden Taurek", "rbi": 1}],
+        },
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "date": "03/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [{"name": "aide Taurek", "rbi": 2}],
+        },
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+    merged = loaded.processing_games[0]
+    source_merge = merged["data_quality"]["source_merge"]
+
+    assert merged["box_score"]["away_batting"][0]["name"] == "Aiden Taurek"
+    assert source_merge["warning_count"] == 1
+    assert source_merge["issues"][0]["player"] == "Aiden Taurek"
+
+
+def test_processing_games_ignores_impossible_api_batting_strikeout_echoes():
+    pdf_game = {
+        "metadata": {
+            "date": "3/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [
+                {"name": "Aiden Taurek", "strikeouts": 1},
+                {"name": "Daniel Guevara", "at_bats": 0, "walks": 0, "strikeouts": 0},
+            ],
+        },
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "date": "03/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [
+                {"name": "aide Taurek", "ab": 4, "k": 0},
+                {"name": "dani Castro", "ab": 0, "bb": 1, "k": 1},
+            ],
+        },
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+    source_merge = loaded.processing_games[0]["data_quality"]["source_merge"]
+
+    assert source_merge["confidence"] == "high"
+    assert source_merge["warning_count"] == 0
+    assert source_merge["info_count"] == 1
+    assert source_merge["issues"][0]["code"] == "secondary_stat_field_unavailable"
+    assert source_merge["issues"][0]["field"] == "K"
+
+
 def test_milb_only_cache_mode_does_not_load_ncaa_api_or_partner(monkeypatch):
     def fail_loader():
         raise AssertionError("unexpected default source load")

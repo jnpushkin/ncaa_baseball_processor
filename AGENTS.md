@@ -38,6 +38,8 @@ python3 -m baseball_processor [input_path]
 - Single-game/date source flags are exclusive source modes; do not silently add default NCAA/API/MiLB/Partner batches when they are used
 - Pioneer League HTML hitter tables omit XBH/SB columns; parse `.stats-summary` batting notes and merge them back into player rows before processing
 - NCAA API pitching `np` is currently a strikes proxy and pitcher `hr` is fabricated as zero; do not treat those as authoritative source-disagreement fields against PDF box scores
+- NCAA API batting `k` can be unavailable even when placeholder or pitcher-echo rows have strikeout values; ignore placeholder rows and impossible `AB=0, K>0` batting echoes when deciding source-disagreement authority
+- NCAA API names can be initial-only or lowercase-clipped (`A. Anderson`, `aide Taurek`); do not let those overwrite better PDF/roster display names or source-quality labels
 - Sports-Reference sites hide tables in HTML comments for lazy loading - must extract and parse them with BeautifulSoup Comment class
 
 ## Error Handling
@@ -50,3 +52,4 @@ When encountering repeated errors or discovering project-specific quirks:
 - Create nested `baseball_processor/baseball_processor/` directory structure
 - Use `python` command (always `python3`)
 - Do not fill missing player `bref_id` values from a name-only global Chadwick match when multiple same-name candidates exist; fetch/use the Baseball-Reference roster for that team and season
+- Do not treat NCAA API player names that start lowercase or use single initials as full names when merging with PDF rows

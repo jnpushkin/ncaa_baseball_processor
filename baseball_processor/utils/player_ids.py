@@ -209,7 +209,10 @@ class PlayerIDMapper:
                     # Build player name
                     name_first = row.get('name_first', '').strip()
                     name_last = row.get('name_last', '').strip()
+                    name_suffix = row.get('name_suffix', '').strip()
                     full_name = f"{name_first} {name_last}".strip()
+                    if full_name and name_suffix:
+                        full_name = f"{full_name} {name_suffix}"
 
                     # Map register to MLB
                     if key_bbref_minors and key_bbref:

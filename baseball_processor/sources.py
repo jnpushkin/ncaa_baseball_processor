@@ -277,7 +277,23 @@ def _is_placeholder_name(value: Any) -> bool:
 
 def _has_full_player_name(row: Dict[str, Any]) -> bool:
     name = str(row.get("full_name") or row.get("name") or "").strip()
-    return not _is_placeholder_name(name) and len(name.split()) >= 2
+    if _is_placeholder_name(name):
+        return False
+
+    parts = name.split()
+    if len(parts) < 2:
+        return False
+
+    first_token = re.sub(r"[^A-Za-z.]", "", parts[0])
+    first_letters = re.sub(r"[^A-Za-z]", "", first_token)
+    if len(first_letters) <= 1:
+        return False
+    if first_token.endswith("."):
+        return False
+    if parts[0][:1].islower():
+        return False
+
+    return True
 
 
 _SECTION_STAT_FIELDS = {
@@ -303,6 +319,35 @@ _SECTION_STAT_FIELDS = {
         ("BF", ("batters_faced", "bf")),
     ),
 }
+
+
+def _has_source_batting_signal(row: Dict[str, Any]) -> bool:
+    if str(row.get("position") or "").strip():
+        return True
+    for _field, aliases in _SECTION_STAT_FIELDS["batting"]:
+        if (_compare_stat_value(_field, _first_stat_value(row, aliases)) or 0) > 0:
+            return True
+    return False
+
+
+def _has_impossible_batting_strikeout(row: Dict[str, Any]) -> bool:
+    stat_fields = dict(_SECTION_STAT_FIELDS["batting"])
+    at_bats_raw = _first_stat_value(row, stat_fields["AB"])
+    if at_bats_raw is None:
+        return False
+    at_bats = _compare_stat_value("AB", at_bats_raw) or 0
+    strikeouts = _compare_stat_value("K", _first_stat_value(row, stat_fields["K"])) or 0
+    return at_bats == 0 and strikeouts > 0
+
+
+def _source_quality_rows(section: str, rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    if "batting" not in section:
+        return rows
+    return [
+        row
+        for row in rows
+        if _has_source_batting_signal(row) and not _has_impossible_batting_strikeout(row)
+    ]
 
 
 def _first_stat_value(row: Dict[str, Any], aliases: tuple[str, ...]) -> Any:
@@ -376,6 +421,9 @@ def _source_stat_disagreements(
     api_rows: List[Dict[str, Any]],
 ) -> tuple[Dict[str, int], list[Dict[str, Any]]]:
     category = "pitching" if "pitching" in section else "batting"
+    raw_api_rows = api_rows
+    primary_rows = _source_quality_rows(section, primary_rows)
+    api_rows = _source_quality_rows(section, api_rows)
     pairs, primary_only, api_only = _matched_row_pairs(primary_rows, api_rows)
     coverage = {
         "pdf_rows": len(primary_rows),
@@ -385,7 +433,7 @@ def _source_stat_disagreements(
         "api_only_rows": len(api_only),
     }
     issues: list[Dict[str, Any]] = []
-    unavailable_fields = _secondary_unavailable_fields(category, section, primary_rows, api_rows)
+    unavailable_fields = _secondary_unavailable_fields(category, section, primary_rows, raw_api_rows)
     for field, primary_positive_rows in unavailable_fields.items():
         issues.append({
             "code": "secondary_stat_field_unavailable",
@@ -455,9 +503,15 @@ def _secondary_unavailable_fields(
 
     for field in candidate_fields:
         aliases = stat_fields[field]
+        api_stat_rows = [
+            row
+            for row in api_rows
+            if not _is_placeholder_name(row.get("full_name") or row.get("name"))
+            and not ("batting" in section and _has_impossible_batting_strikeout(row))
+        ]
         api_values = [
             _compare_stat_value(field, _first_stat_value(row, aliases))
-            for row in api_rows
+            for row in api_stat_rows
         ]
         if any(value not in (None, 0) for value in api_values):
             continue

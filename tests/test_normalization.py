@@ -57,6 +57,81 @@ def test_normalizes_box_score_single_initial_display_names(monkeypatch):
     assert normalized["batting"]["away"][0]["full_name"] == "Henry Ford"
 
 
+def test_preserves_source_suffix_when_roster_alias_lacks_suffix():
+    aliases = {
+        ("louisville", "eddie king"): {
+            "display_name": "Eddie King",
+            "bref_id": "king--000edd",
+            "source": "roster",
+        }
+    }
+    game = {
+        "metadata": {
+            "date": "06/15/2025",
+            "away_team": "Arizona",
+            "home_team": "Louisville",
+            "away_team_score": 3,
+            "home_team_score": 8,
+        },
+        "box_score": {
+            "away_batting": [],
+            "home_batting": [
+                {
+                    "name": "Eddie King Jr.",
+                    "full_name": "Eddie King",
+                    "bref_id": "king--000edd",
+                    "ab": 4,
+                    "h": 1,
+                }
+            ],
+            "away_pitching": [],
+            "home_pitching": [],
+        },
+    }
+
+    normalized = normalize_game(game, aliases)
+
+    assert normalized["batting"]["home"][0]["name"] == "Eddie King Jr."
+    assert normalized["batting"]["home"][0]["full_name"] == "Eddie King Jr."
+
+
+def test_preserves_suffix_without_leaking_source_caps_jank():
+    aliases = {
+        ("example", "harris williams"): {
+            "display_name": "Harris Williams",
+            "bref_id": "willia000har",
+            "source": "roster",
+        }
+    }
+    game = {
+        "metadata": {
+            "date": "03/15/2025",
+            "away_team": "Example",
+            "home_team": "Other",
+            "away_team_score": 5,
+            "home_team_score": 2,
+        },
+        "box_score": {
+            "away_batting": [
+                {
+                    "name": "Harris WILLIAMS III",
+                    "full_name": "Harris Williams",
+                    "bref_id": "willia000har",
+                    "ab": 4,
+                    "h": 1,
+                }
+            ],
+            "home_batting": [],
+            "away_pitching": [],
+            "home_pitching": [],
+        },
+    }
+
+    normalized = normalize_game(game, aliases)
+
+    assert normalized["batting"]["away"][0]["name"] == "Harris Williams III"
+
+
 def test_builds_roster_backed_aliases_for_rows_without_bref_ids():
     games = [
         {

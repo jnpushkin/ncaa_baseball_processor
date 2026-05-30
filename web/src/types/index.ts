@@ -385,6 +385,9 @@ export interface DataQualityIssue {
   primary_value?: string | number;
   secondary_value?: string | number;
   date_diff_days?: number;
+  detail_path?: string;
+  api_boxscore_url?: string;
+  api_play_by_play_url?: string;
 }
 
 export interface SourceMergeGame {
@@ -406,6 +409,9 @@ export interface SourceMergeGame {
   stats_source?: string;
   identity_source?: string;
   api_game_id?: string | number;
+  detail_path?: string;
+  api_boxscore_url?: string;
+  api_play_by_play_url?: string;
   reason?: string;
   issues?: DataQualityIssue[];
   sections?: Record<string, Record<string, number>>;

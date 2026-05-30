@@ -80,3 +80,19 @@ def test_load_cached_data_reads_names_without_downloading(tmp_path, monkeypatch)
     assert mapper.get_player_name("sample01") == "Sample Player"
     assert mapper.get_player_name(123) == "Sample Player"
     assert mapper.get_player_name("123") == "Sample Player"
+
+
+def test_process_chadwick_data_preserves_name_suffix(tmp_path, monkeypatch):
+    (tmp_path / "people-4.csv").write_text(
+        "key_bbref,key_bbref_minors,key_mlbam,name_first,name_last,name_suffix\n"
+        "kinged01,king--000edd,695652,Eddie,King,Jr.\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(player_ids, "CHADWICK_CACHE_DIR", tmp_path)
+
+    mapper = player_ids.PlayerIDMapper(auto_download=False)
+    mapper._process_chadwick_data()
+
+    assert mapper.get_player_name("king--000edd") == "Eddie King Jr."
+    assert mapper.get_player_name("kinged01") == "Eddie King Jr."
+    assert mapper.get_player_name(695652) == "Eddie King Jr."

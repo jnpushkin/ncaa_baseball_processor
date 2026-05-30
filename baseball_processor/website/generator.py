@@ -11,12 +11,13 @@ from typing import Dict, List, Any
 import pandas as pd
 
 from ..engines.milestone_engine import build_extra_base_lookup, get_player_extra_stats
-from ..normalization import build_player_name_aliases, normalize_game, resolve_player_name_alias
+from ..normalization import alias_display_name, build_player_name_aliases, normalize_game, resolve_player_name_alias
 from ..utils.stadiums import STADIUM_DATA, NCAA_TEAM_LOGOS, NCAA_TEAM_NICKNAMES
 from ..utils.milb_stadiums import MILB_STADIUM_DATA, HISTORIC_MILB_TEAMS, LOGO_OVERRIDES, HISTORICAL_TEAM_LOGOS
 from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_partner_stadium_locations
 from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEAGUE_LEVEL_MAP,
                                 PRO_LEVELS, LEVEL_ORDER, LEVEL_COLORS, resolve_level_and_league)
+from ..utils.constants import NCAA_API_BASE
 from ..utils.helpers import is_placeholder_player_name, normalize_team_name, resolve_player_display_name, safe_int
 from ..utils.player_ids import PlayerIDMapper
 from .parity import collect_website_data_parity_issues
@@ -205,6 +206,83 @@ def _serialize_detail_box_score(normalized_game: Dict[str, Any]) -> Dict[str, Li
     }
 
 
+def _resolve_quality_issue_player(
+    issue: Dict[str, Any],
+    basic: Dict[str, Any],
+    player_name_aliases: Dict | None = None,
+) -> Dict[str, Any]:
+    """Resolve raw source-quality player labels through the same team-scoped aliases as box scores."""
+    player = str(issue.get('player') or '').strip()
+    if not player or not player_name_aliases:
+        return dict(issue)
+
+    section = str(issue.get('section') or '')
+    team = ''
+    if section.startswith('away'):
+        team = basic.get('away_team', '') or ''
+    elif section.startswith('home'):
+        team = basic.get('home_team', '') or ''
+    if not team:
+        return dict(issue)
+
+    alias = resolve_player_name_alias(player, team, player_name_aliases)
+    if not alias:
+        return dict(issue)
+
+    resolved = alias_display_name(player, alias)
+    updated = dict(issue)
+    if resolved and resolved != player and _is_weak_quality_player_label(player):
+        updated['source_player'] = player
+        updated['player'] = resolved
+    if alias.get('bref_id') and not updated.get('bref_id'):
+        updated['bref_id'] = alias.get('bref_id')
+    return updated
+
+
+def _is_weak_quality_player_label(player: str) -> bool:
+    parts = player.split()
+    if not parts:
+        return False
+    first = parts[0]
+    first_letters = ''.join(ch for ch in first if ch.isalpha())
+    if first[:1].islower():
+        return True
+    if len(first_letters) <= 1:
+        return True
+    if first.endswith('.'):
+        return True
+    return any(
+        token.isupper() and len(''.join(ch for ch in token if ch.isalpha())) > 1
+        for token in parts[1:]
+    )
+
+
+def _normalize_quality_payload(
+    quality: Dict[str, Any],
+    basic: Dict[str, Any],
+    player_name_aliases: Dict | None = None,
+) -> Dict[str, Any]:
+    """Return a website-safe copy of data-quality payloads with resolved player labels."""
+    if not isinstance(quality, dict):
+        return {}
+
+    normalized: Dict[str, Any] = {}
+    for key, value in quality.items():
+        if not isinstance(value, dict):
+            normalized[key] = value
+            continue
+        section_payload = dict(value)
+        issues = value.get('issues')
+        if isinstance(issues, list):
+            section_payload['issues'] = [
+                _resolve_quality_issue_player(issue, basic, player_name_aliases)
+                if isinstance(issue, dict) else issue
+                for issue in issues
+            ]
+        normalized[key] = section_payload
+    return normalized
+
+
 def _build_per_game_details(raw_game_index: Dict, player_name_aliases: Dict | None = None) -> Dict[str, Dict[str, Any]]:
     """Build the game-detail payloads used by the modal and static JSON files."""
     details: Dict[str, Dict[str, Any]] = {}
@@ -242,7 +320,11 @@ def _build_per_game_details(raw_game_index: Dict, player_name_aliases: Dict | No
                 'box_score': _serialize_detail_box_score(normalized),
                 'game_notes': normalized.get('game_notes', {}),
                 'play_by_play': normalized.get('play_by_play', {}),
-                'data_quality': rg.get('data_quality', {}),
+                'data_quality': _normalize_quality_payload(
+                    rg.get('data_quality', {}),
+                    basic,
+                    player_name_aliases,
+                ),
             }
             details[gid] = detail
     return details
@@ -658,7 +740,21 @@ def _build_data_metadata(
     }
 
 
-def _build_data_quality_report(raw_games: List[Dict]) -> Dict[str, Any]:
+def _game_source_links(game_id: Any, api_game_id: Any = None) -> Dict[str, Any]:
+    """Build source/debug links for website quality-review tables."""
+    links: Dict[str, Any] = {}
+    if game_id:
+        links['detail_path'] = f'/games/{game_id}.json'
+    if api_game_id:
+        links['api_boxscore_url'] = f'{NCAA_API_BASE}/game/{api_game_id}/boxscore'
+        links['api_play_by_play_url'] = f'{NCAA_API_BASE}/game/{api_game_id}/play-by-play'
+    return links
+
+
+def _build_data_quality_report(
+    raw_games: List[Dict],
+    player_name_aliases: Dict | None = None,
+) -> Dict[str, Any]:
     """Summarize generated-data provenance and source disagreement signals."""
     source_merge_games: list[Dict[str, Any]] = []
     source_merge_issues: list[Dict[str, Any]] = []
@@ -670,35 +766,41 @@ def _build_data_quality_report(raw_games: List[Dict]) -> Dict[str, Any]:
     for raw_game in raw_games or []:
         normalized = normalize_game(raw_game)
         basic = normalized.get('basic_info', {}) or {}
+        game_id = normalized.get('game_id')
         game_context = {
-            'game_id': normalized.get('game_id'),
+            'game_id': game_id,
             'date': basic.get('date', ''),
             'date_yyyymmdd': basic.get('date_yyyymmdd', ''),
             'away_team': basic.get('away_team', ''),
             'home_team': basic.get('home_team', ''),
             'away_score': basic.get('away_score_value', 0),
             'home_score': basic.get('home_score_value', 0),
+            **_game_source_links(game_id),
         }
 
         quality = raw_game.get('data_quality') or {}
         source_candidate = quality.get('source_candidate')
         if isinstance(source_candidate, dict):
+            api_game_id = source_candidate.get('api_game_id')
             source_candidates.append({
                 **game_context,
                 'confidence': source_candidate.get('confidence'),
                 'reason': source_candidate.get('reason'),
                 'pdf_score': source_candidate.get('pdf_score'),
                 'api_score': source_candidate.get('api_score'),
-                'api_game_id': source_candidate.get('api_game_id'),
+                'api_game_id': api_game_id,
+                **_game_source_links(game_id, api_game_id),
             })
 
         source_merge = quality.get('source_merge')
         if not isinstance(source_merge, dict):
             continue
 
+        api_game_id = source_merge.get('api_game_id')
         merged_source_games += 1
         game_context = {
             **game_context,
+            **_game_source_links(game_id, api_game_id),
             'confidence': source_merge.get('confidence', 'high'),
             'warning_count': int(source_merge.get('warning_count') or 0),
             'info_count': int(source_merge.get('info_count') or 0),
@@ -712,6 +814,7 @@ def _build_data_quality_report(raw_games: List[Dict]) -> Dict[str, Any]:
         for issue in source_merge.get('issues', []) or []:
             if not isinstance(issue, dict):
                 continue
+            issue = _resolve_quality_issue_player(issue, basic, player_name_aliases)
             issue_record = {**game_context, **issue}
             game_issues.append(issue_record)
             source_merge_issues.append(issue_record)
@@ -721,7 +824,7 @@ def _build_data_quality_report(raw_games: List[Dict]) -> Dict[str, Any]:
             'sources': source_merge.get('sources', []),
             'stats_source': source_merge.get('stats_source'),
             'identity_source': source_merge.get('identity_source'),
-            'api_game_id': source_merge.get('api_game_id'),
+            'api_game_id': api_game_id,
             'sections': source_merge.get('sections', {}),
             'issues': game_issues[:25],
         })
@@ -1456,5 +1559,5 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         'venueCityCoords': {f"{city},{state}": {'lat': lat, 'lng': lng} for (city, state), (lat, lng) in VENUE_CITY_COORDS.items()},
         'partnerLogos': partner_logos,
         'localLogos': local_logos,
-        'dataQuality': _build_data_quality_report(raw_games),
+        'dataQuality': _build_data_quality_report(raw_games, player_name_aliases),
     }

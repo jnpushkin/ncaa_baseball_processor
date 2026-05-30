@@ -54,6 +54,58 @@ def test_ncaa_api_batting_skips_pitcher_stat_echo_rows():
     assert [row["name"] for row in batters] == ["actual Batter"]
 
 
+def test_ncaa_api_batting_skips_strikeout_only_pitcher_echo_rows():
+    players = [
+        {
+            "firstName": "relief",
+            "lastName": "Pitcher",
+            "position": "",
+            "number": 14,
+            "starter": False,
+            "participated": True,
+            "batterStats": {
+                "atBats": "0",
+                "runsScored": "0",
+                "hits": "0",
+                "runsBattedIn": "0",
+                "walks": "0",
+                "strikeouts": "1",
+            },
+            "pitcherStats": {
+                "hitsAllowed": "0",
+                "runsAllowed": "0",
+                "walksAllowed": "0",
+                "strikeouts": "1",
+                "inningsPitched": "1",
+                "battersFaced": "4",
+            },
+            "fieldStats": {},
+        },
+        {
+            "firstName": "actual",
+            "lastName": "Batter",
+            "position": "PH",
+            "number": 7,
+            "starter": False,
+            "participated": True,
+            "batterStats": {
+                "atBats": "0",
+                "runsScored": "0",
+                "hits": "0",
+                "runsBattedIn": "0",
+                "walks": "1",
+                "strikeouts": "0",
+            },
+            "pitcherStats": {},
+            "fieldStats": {},
+        },
+    ]
+
+    batters = parse_ncaa_api_batting(players)
+
+    assert [row["name"] for row in batters] == ["actual Batter"]
+
+
 def test_ncaa_api_pbp_enrichment_uses_comma_initial_for_duplicate_last_names():
     batters = [
         {"name": "Kuhio Aloy", "doubles": 0, "triples": 0, "hr": 0, "sb": 0},

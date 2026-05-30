@@ -28,6 +28,37 @@ function reviewGameSortKey(game: SourceMergeGame) {
   return `${game.warning_count ? "0" : "1"}-${game.date_yyyymmdd ?? ""}-${game.game_id ?? ""}`;
 }
 
+function gameHref(gameId?: string) {
+  return gameId ? `#games/${encodeURIComponent(gameId)}` : "#games";
+}
+
+function SourceLinks({ item }: { item: SourceMergeGame | DataQualityIssue }) {
+  const detailPath = item.detail_path ?? (item.game_id ? `/games/${item.game_id}.json` : "");
+  const hasLinks = item.game_id || detailPath || item.api_boxscore_url || item.api_play_by_play_url;
+  if (!hasLinks) return <span className="quality-muted">-</span>;
+
+  return (
+    <div className="quality-actions" aria-label="Source links">
+      {item.game_id && <a className="quality-link" href={gameHref(item.game_id)}>Open</a>}
+      {detailPath && (
+        <a className="quality-link" href={detailPath} target="_blank" rel="noreferrer">
+          JSON
+        </a>
+      )}
+      {item.api_boxscore_url && (
+        <a className="quality-link" href={item.api_boxscore_url} target="_blank" rel="noreferrer">
+          API
+        </a>
+      )}
+      {item.api_play_by_play_url && (
+        <a className="quality-link" href={item.api_play_by_play_url} target="_blank" rel="noreferrer">
+          PBP
+        </a>
+      )}
+    </div>
+  );
+}
+
 export default function DataQualityPanel({ data }: DataQualityPanelProps) {
   const quality = data.dataQuality;
   const summary = quality?.summary;
@@ -92,6 +123,7 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
                 <th>Identity</th>
                 <th className="text-center">Warnings</th>
                 <th className="text-center">Info</th>
+                <th>Sources</th>
               </tr>
             </thead>
             <tbody>
@@ -99,9 +131,11 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
                 <tr key={game.game_id ?? `${game.date}-${game.away_team}-${game.home_team}`}>
                   <td>{formatDate(game.date ?? "")}</td>
                   <td>
-                    <strong>{game.away_team ?? "Unknown"}</strong>
-                    <span className="quality-game-separator"> @ </span>
-                    <strong>{game.home_team ?? "Unknown"}</strong>
+                    <a className="quality-game-link" href={gameHref(game.game_id)}>
+                      <strong>{game.away_team ?? "Unknown"}</strong>
+                      <span className="quality-game-separator"> @ </span>
+                      <strong>{game.home_team ?? "Unknown"}</strong>
+                    </a>
                   </td>
                   <td>
                     <LevelBadge level={game.level ?? ""} levelColors={data.levelColors ?? {}} />
@@ -114,11 +148,12 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
                     </span>
                   </td>
                   <td className="text-center">{game.info_count ?? 0}</td>
+                  <td><SourceLinks item={game} /></td>
                 </tr>
               ))}
               {reviewGames.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="text-center">No source merge records found.</td>
+                  <td colSpan={8} className="text-center">No source merge records found.</td>
                 </tr>
               )}
             </tbody>
@@ -139,13 +174,18 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
                 <th>Issue</th>
                 <th>Primary</th>
                 <th>Secondary</th>
+                <th>Sources</th>
               </tr>
             </thead>
             <tbody>
               {issues.slice(0, 200).map((issue, index) => (
                 <tr key={`${issue.game_id ?? "issue"}-${index}`}>
                   <td>{formatDate(issue.date ?? "")}</td>
-                  <td>{issue.away_team ?? "Unknown"} @ {issue.home_team ?? "Unknown"}</td>
+                  <td>
+                    <a className="quality-game-link" href={gameHref(issue.game_id)}>
+                      {issue.away_team ?? "Unknown"} @ {issue.home_team ?? "Unknown"}
+                    </a>
+                  </td>
                   <td>
                     <span className={`quality-severity ${issue.severity === "warning" ? "warning" : ""}`}>
                       {issue.severity ?? "info"}
@@ -154,11 +194,12 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
                   </td>
                   <td>{formatIssueValue(issue.primary_value)}</td>
                   <td>{formatIssueValue(issue.secondary_value)}</td>
+                  <td><SourceLinks item={issue} /></td>
                 </tr>
               ))}
               {issues.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="text-center">No source issues reported.</td>
+                  <td colSpan={6} className="text-center">No source issues reported.</td>
                 </tr>
               )}
             </tbody>

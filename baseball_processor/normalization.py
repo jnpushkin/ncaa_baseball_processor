@@ -15,6 +15,12 @@ from .utils.helpers import (
     resolve_venue_name,
     safe_int,
 )
+from .player_display import (
+    display_suffix as _display_suffix,
+    has_display_suffix as _has_display_suffix,
+    has_richer_source_suffix as _has_richer_source_suffix,
+    row_source_display_name as _row_source_display_name,
+)
 from utils.names import clean_player_name, normalize_player_name
 
 
@@ -251,7 +257,7 @@ def build_player_name_aliases(games: Iterable[Mapping[str, Any]]) -> PlayerNameA
             for rows in sections:
                 for row in rows:
                     bref_id = first_present(row, "bref_id", "register_id")
-                    display_name = resolve_player_display_name(first_present(row, "full_name", "name"), bref_id)
+                    display_name = resolve_player_display_name(_row_source_display_name(row), bref_id)
                     if is_placeholder_player_name(display_name):
                         continue
 
@@ -328,8 +334,14 @@ def alias_display_name(name: str, alias: Mapping[str, str]) -> str:
     display_name = alias.get("display_name") or ""
     if not display_name:
         return name
-    if alias.get("source") == "game" and normalize_name(display_name) == normalize_name(name):
+    if normalize_name(display_name) == normalize_name(name) and (
+        alias.get("source") == "game" or _has_richer_source_suffix(name, display_name)
+    ):
         return name
+    if normalize_name(display_name) == normalize_name(name):
+        suffix = _display_suffix(name)
+        if suffix and not _has_display_suffix(display_name):
+            return f"{display_name} {suffix}"
     return display_name
 
 
@@ -440,14 +452,14 @@ def _raw_pitching_rows(game: Mapping[str, Any], side: str) -> Iterable[Mapping[s
 
 def _row_identity(row: Mapping[str, Any]) -> str:
     bref_id = first_present(row, "bref_id", "register_id")
-    name = resolve_player_display_name(first_present(row, "full_name", "name"), bref_id)
+    name = resolve_player_display_name(_row_source_display_name(row), bref_id)
     return normalize_name(normalize_player_name(clean_player_name(str(name or "").strip())))
 
 
 def _loose_player_name_key(row: Mapping[str, Any]) -> str:
     """Return a first-initial/last-name key for nickname-aware artifact checks."""
     bref_id = first_present(row, "bref_id", "register_id")
-    name = resolve_player_display_name(first_present(row, "full_name", "name"), bref_id)
+    name = resolve_player_display_name(_row_source_display_name(row), bref_id)
     normalized = normalize_name(normalize_player_name(clean_player_name(str(name or "").strip())))
     parts = normalized.split()
     if len(parts) < 2:
@@ -507,7 +519,7 @@ def _row_has_roster_match(
     player_name_aliases: Optional[PlayerNameAliases],
 ) -> bool:
     bref_id = first_present(row, "bref_id", "register_id")
-    name = resolve_player_display_name(first_present(row, "full_name", "name"), bref_id)
+    name = resolve_player_display_name(_row_source_display_name(row), bref_id)
     alias = resolve_player_name_alias(name, team, player_name_aliases)
     if alias and alias.get("bref_id"):
         return True
@@ -521,7 +533,7 @@ def _row_player_identity_key(
     player_name_aliases: Optional[PlayerNameAliases],
 ) -> str:
     bref_id = first_present(row, "bref_id", "register_id")
-    name = resolve_player_display_name(first_present(row, "full_name", "name"), bref_id)
+    name = resolve_player_display_name(_row_source_display_name(row), bref_id)
     alias = resolve_player_name_alias(name, team, player_name_aliases)
     if alias:
         name = alias_display_name(name, alias)
@@ -529,7 +541,7 @@ def _row_player_identity_key(
     if not bref_id:
         roster_record = _roster_alias_record(name, team, year, first_present(row, "number", "jersey", "jersey_number"))
         if roster_record:
-            name = roster_record.get("display_name") or name
+            name = alias_display_name(name, roster_record)
             bref_id = roster_record.get("bref_id", "")
     if bref_id:
         return f"id:{bref_id}"
@@ -622,7 +634,7 @@ def _with_roster_identity(
     player_name_aliases: Optional[PlayerNameAliases],
 ) -> Mapping[str, Any]:
     bref_id = first_present(row, "bref_id", "register_id")
-    name = resolve_player_display_name(first_present(row, "full_name", "name"), bref_id)
+    name = resolve_player_display_name(_row_source_display_name(row), bref_id)
     record = resolve_player_name_alias(name, team, player_name_aliases)
     if not record or record.get("source") == "game":
         roster_record = _roster_alias_record(name, team, year, first_present(row, "number", "jersey", "jersey_number"))
@@ -631,9 +643,10 @@ def _with_roster_identity(
     if not record:
         return row
 
+    display_name = alias_display_name(name, record)
     updated = dict(row)
-    updated["full_name"] = record.get("display_name") or updated.get("full_name") or updated.get("name")
-    updated["name"] = record.get("display_name") or updated.get("name") or updated.get("full_name")
+    updated["full_name"] = display_name or updated.get("full_name") or updated.get("name")
+    updated["name"] = display_name or updated.get("name") or updated.get("full_name")
     if record.get("bref_id") and not updated.get("bref_id"):
         updated["bref_id"] = record["bref_id"]
     return updated
@@ -724,7 +737,7 @@ def normalize_batter(
 ) -> Dict[str, Any]:
     """Normalize one batting row while preserving the source row."""
     bref_id = first_present(row, "bref_id", "register_id")
-    name = resolve_player_display_name(first_present(row, "full_name", "name"), bref_id)
+    name = resolve_player_display_name(_row_source_display_name(row), bref_id)
     alias = resolve_player_name_alias(name, team, player_name_aliases)
     if alias:
         name = alias_display_name(name, alias)
@@ -766,10 +779,10 @@ def normalize_pitcher(
 ) -> Dict[str, Any]:
     """Normalize one pitching row while preserving the source row."""
     bref_id = first_present(row, "bref_id", "register_id")
-    name = resolve_player_display_name(first_present(row, "full_name", "name"), bref_id)
+    name = resolve_player_display_name(_row_source_display_name(row), bref_id)
     alias = resolve_player_name_alias(name, team, player_name_aliases)
     if alias:
-        name = alias.get("display_name") or name
+        name = alias_display_name(name, alias)
         bref_id = bref_id or alias.get("bref_id", "")
     decision = str(first_present(row, "decision", default="") or "").upper()
     if not decision:
