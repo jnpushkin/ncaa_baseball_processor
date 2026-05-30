@@ -19,5 +19,6 @@ python3 -m pytest
 python3 scripts/audit_data_integrity.py
 
 if [ -d web ]; then
+  npm run lint --prefix web
   npm run build --prefix web
 fi

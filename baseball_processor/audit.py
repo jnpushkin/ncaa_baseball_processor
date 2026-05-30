@@ -592,18 +592,29 @@ def run_integrity_audit(*, strict_generated_from_cache: bool = False) -> tuple[d
     """Run all local data-preservation checks."""
     cache_summary, cache_issues = audit_cached_games()
     expected_game_ids = None
+    expected_game_count = cache_summary["normalized_games"]
     if strict_generated_from_cache:
         from .website.generator import _build_raw_game_index
+        from .sources import merge_duplicate_ncaa_games
 
-        raw_games = [
-            game
-            for _source_group, _path, game in _load_cache_entries()
-            if "__load_error__" not in game
-        ]
-        index = _build_raw_game_index(raw_games)
+        ncaa_games: list[Dict[str, Any]] = []
+        ncaa_api_games: list[Dict[str, Any]] = []
+        pro_minor_games: list[Dict[str, Any]] = []
+        for source_group, _path, game in _load_cache_entries():
+            if "__load_error__" in game:
+                continue
+            if source_group == "ncaa":
+                ncaa_games.append(game)
+            elif source_group == "ncaa_api":
+                ncaa_api_games.append(game)
+            else:
+                pro_minor_games.append(game)
+        processing_games = merge_duplicate_ncaa_games(ncaa_games + ncaa_api_games) + pro_minor_games
+        index = _build_raw_game_index(processing_games)
         expected_game_ids = {record[0] for bucket in index.values() for record in bucket}
+        expected_game_count = len(expected_game_ids)
     site_summary, site_issues, warnings = audit_generated_website(
-        expected_cache_games=cache_summary["normalized_games"],
+        expected_cache_games=expected_game_count,
         expected_game_ids=expected_game_ids,
         strict_cache_count=strict_generated_from_cache,
     )

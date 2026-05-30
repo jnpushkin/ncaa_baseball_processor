@@ -27,19 +27,34 @@ const TAB_ICONS: Record<string, string> = {
 
 export default function TabBar({ tabs, activeTab, onTabChange }: TabBarProps) {
   return (
-    <div className="tabs" role="tablist">
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          role="tab"
-          aria-selected={activeTab === tab.id}
-          className={"tab " + (activeTab === tab.id ? "active" : "")}
-          onClick={() => onTabChange(tab.id)}
-        >
-          <span className="tab-icon" aria-hidden="true">{TAB_ICONS[tab.id] ?? ""}</span>
-          {tab.label}
-        </button>
-      ))}
-    </div>
+    <>
+      <label className="tab-select-label" htmlFor="section-select">Section</label>
+      <select
+        id="section-select"
+        className="tab-select"
+        value={activeTab}
+        onChange={(event) => onTabChange(event.target.value)}
+      >
+        {tabs.map((tab) => (
+          <option key={tab.id} value={tab.id}>
+            {tab.label}
+          </option>
+        ))}
+      </select>
+      <div className="tabs" role="tablist">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            role="tab"
+            aria-selected={activeTab === tab.id}
+            className={"tab " + (activeTab === tab.id ? "active" : "")}
+            onClick={() => onTabChange(tab.id)}
+          >
+            <span className="tab-icon" aria-hidden="true">{TAB_ICONS[tab.id] ?? ""}</span>
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </>
   );
 }

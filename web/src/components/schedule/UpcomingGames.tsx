@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
+
 import { useEffect, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import type { ScheduleGame, SiteData } from "@/types";
@@ -15,50 +17,86 @@ interface UpcomingGamesProps {
   data: SiteData;
 }
 
+type DateRangeOverride = {
+  start: string;
+  end: string;
+} | null;
+
+const SCHEDULE_PAGE_SIZE = 250;
+
+function toISODate(date: Date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function addDays(dateString: string, days: number) {
+  const date = new Date(`${dateString}T00:00:00`);
+  date.setDate(date.getDate() + days);
+  return toISODate(date);
+}
+
+function deriveDefaultRange(scheduleDates: string[], today: string) {
+  const weekEnd = addDays(today, 6);
+  if (!scheduleDates.length) return { start: today, end: weekEnd, mode: "current" };
+
+  const first = scheduleDates[0];
+  const last = scheduleDates[scheduleDates.length - 1];
+  const hasCurrentWindow = scheduleDates.some((date) => date >= today && date <= weekEnd);
+  if (hasCurrentWindow) return { start: today, end: weekEnd, mode: "current" };
+
+  const nextAvailable = scheduleDates.find((date) => date >= today);
+  if (nextAvailable) {
+    return { start: nextAvailable, end: addDays(nextAvailable, 6), mode: "nextAvailable" };
+  }
+
+  return { start: addDays(last, -6) < first ? first : addDays(last, -6), end: last, mode: "latestAvailable" };
+}
+
 export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
   const [statusFilter, setStatusFilter] = useState("scheduled");
   const [searchText, setSearchText] = useState("");
   const [showMap, setShowMap] = useState(false);
   const [loadedScheduleGames, setLoadedScheduleGames] = useState<Record<string, ScheduleGame[]>>({});
   const [scheduleError, setScheduleError] = useState<string | null>(null);
+  const [dateOverride, setDateOverride] = useState<DateRangeOverride>(null);
+  const [visibleLimitState, setVisibleLimitState] = useState({ key: "", limit: SCHEDULE_PAGE_SIZE });
 
-  const todayStr = useMemo(() => new Date().toISOString().slice(0, 10), []);
-  const weekLaterStr = useMemo(() => {
-    const d = new Date();
-    d.setDate(d.getDate() + 7);
-    return d.toISOString().slice(0, 10);
-  }, []);
-  const [startDate, setStartDate] = useState(todayStr);
-  const [endDate, setEndDate] = useState(weekLaterStr);
+  const todayStr = useMemo(() => toISODate(new Date()), []);
 
   const statusOptions = ["All", "scheduled", "in_progress", "final", "canceled", "postponed"];
   const scheduleIndex = useMemo(() => data.scheduleIndex ?? [], [data.scheduleIndex]);
+  const scheduleDates = useMemo(
+    () => scheduleIndex.map((entry) => entry.date).filter((date) => date && date !== "unknown").sort(),
+    [scheduleIndex]
+  );
+  const defaultRange = useMemo(() => deriveDefaultRange(scheduleDates, todayStr), [scheduleDates, todayStr]);
+  const startDate = dateOverride?.start ?? defaultRange.start;
+  const endDate = dateOverride?.end ?? defaultRange.end;
+  const scheduleCoverage = data.dataMetadata?.schedule;
+  const isShowingFallbackRange = !dateOverride && defaultRange.mode !== "current";
 
   const setQuickFilter = (preset: string) => {
     const now = new Date();
-    const toISO = (d: Date) => d.toISOString().slice(0, 10);
     if (preset === "today") {
-      setStartDate(toISO(now));
-      setEndDate(toISO(now));
+      const today = toISODate(now);
+      setDateOverride({ start: today, end: today });
     } else if (preset === "week") {
-      setStartDate(toISO(now));
+      const today = toISODate(now);
       const end = new Date(now);
       end.setDate(end.getDate() + 6);
-      setEndDate(toISO(end));
+      setDateOverride({ start: today, end: toISODate(end) });
     } else if (preset === "nextweek") {
       const start = new Date(now);
       start.setDate(start.getDate() + (7 - start.getDay()));
       const end = new Date(start);
       end.setDate(end.getDate() + 6);
-      setStartDate(toISO(start));
-      setEndDate(toISO(end));
+      setDateOverride({ start: toISODate(start), end: toISODate(end) });
     } else if (preset === "month") {
-      setStartDate(toISO(now));
       const end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-      setEndDate(toISO(end));
+      setDateOverride({ start: toISODate(now), end: toISODate(end) });
     } else if (preset === "all") {
-      setStartDate("");
-      setEndDate("");
+      setDateOverride({ start: "", end: "" });
+    } else if (preset === "auto") {
+      setDateOverride(null);
     }
   };
 
@@ -145,15 +183,24 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
     });
   }, [activeGames, statusFilter, startDate, endDate, searchText]);
 
+  const filterKey = `${statusFilter}|${searchText}|${startDate}|${endDate}`;
+  const visibleLimit =
+    visibleLimitState.key === filterKey ? visibleLimitState.limit : SCHEDULE_PAGE_SIZE;
+  const visibleFiltered = useMemo(
+    () => filtered.slice(0, visibleLimit),
+    [filtered, visibleLimit]
+  );
+  const hiddenCount = Math.max(0, filtered.length - visibleFiltered.length);
+
   const grouped = useMemo(() => {
     const groups: Record<string, ScheduleGame[]> = {};
-    filtered.forEach((g) => {
+    visibleFiltered.forEach((g) => {
       const key = g.date_display || "Unknown";
       if (!groups[key]) groups[key] = [];
       groups[key].push(g);
     });
     return groups;
-  }, [filtered]);
+  }, [visibleFiltered]);
 
   const statusColors: Record<string, string> = {
     scheduled: "#28a745",
@@ -172,17 +219,18 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
   };
 
   const activeQuick = useMemo((): string => {
+    if (!dateOverride) return "auto";
     if (!startDate && !endDate) return "all";
     const now = new Date();
-    const toISO = (d: Date) => d.toISOString().slice(0, 10);
-    if (startDate === toISO(now) && endDate === toISO(now)) return "today";
+    const today = toISODate(now);
+    if (startDate === today && endDate === today) return "today";
     const weekEnd = new Date(now);
     weekEnd.setDate(weekEnd.getDate() + 6);
-    if (startDate === toISO(now) && endDate === toISO(weekEnd)) return "week";
+    if (startDate === today && endDate === toISODate(weekEnd)) return "week";
     const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-    if (startDate === toISO(now) && endDate === toISO(monthEnd)) return "month";
+    if (startDate === today && endDate === toISODate(monthEnd)) return "month";
     return "";
-  }, [startDate, endDate]);
+  }, [dateOverride, startDate, endDate]);
 
   return (
     <div>
@@ -223,17 +271,18 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
         <input
           type="date"
           value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
+          onChange={(e) => setDateOverride({ start: e.target.value, end: endDate })}
           className="schedule-date-input"
         />
         <span className="schedule-date-sep">to</span>
         <input
           type="date"
           value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
+          onChange={(e) => setDateOverride({ start: startDate, end: e.target.value })}
           className="schedule-date-input"
         />
         {[
+          { key: "auto", label: "Available" },
           { key: "today", label: "Today" },
           { key: "week", label: "This Week" },
           { key: "nextweek", label: "Next Week" },
@@ -250,7 +299,18 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
         ))}
       </div>
 
-      {showMap && <ScheduleMap games={filtered} data={data} />}
+      {(isShowingFallbackRange || scheduleCoverage?.first_date || scheduleCoverage?.last_date) && (
+        <div className={`schedule-coverage-note${isShowingFallbackRange ? " stale" : ""}`}>
+          <strong>
+            {isShowingFallbackRange ? "Showing available schedule data" : "Schedule coverage"}
+          </strong>
+          {scheduleCoverage?.first_date && scheduleCoverage?.last_date && (
+            <span>{scheduleCoverage.first_date} to {scheduleCoverage.last_date}</span>
+          )}
+        </div>
+      )}
+
+      {showMap && <ScheduleMap games={visibleFiltered} data={data} />}
 
       {scheduleError && (
         <div className="empty-state">
@@ -322,6 +382,26 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
           </div>
         </div>
       ))}
+
+      {hiddenCount > 0 && (
+        <div className="schedule-show-more">
+          <span>
+            Showing {visibleFiltered.length.toLocaleString()} of {filtered.length.toLocaleString()} games
+          </span>
+          <button
+            type="button"
+            className="toggle-btn"
+            onClick={() =>
+              setVisibleLimitState({
+                key: filterKey,
+                limit: visibleLimit + SCHEDULE_PAGE_SIZE,
+              })
+            }
+          >
+            Show More
+          </button>
+        </div>
+      )}
 
       {filtered.length === 0 && !isLoadingSchedule && !scheduleError && (
         <div className="empty-state">

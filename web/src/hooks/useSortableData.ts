@@ -4,8 +4,8 @@ import { useState, useMemo } from "react";
 import { SortConfig } from "@/types";
 
 function compareValues(
-  aVal: any,
-  bVal: any,
+  aVal: unknown,
+  bVal: unknown,
   direction: "asc" | "desc",
   key: string
 ): number {
@@ -26,11 +26,11 @@ function compareValues(
       return 0;
     };
     return direction === "asc"
-      ? parseDate(aVal) - parseDate(bVal)
-      : parseDate(bVal) - parseDate(aVal);
+      ? parseDate(String(aVal ?? "")) - parseDate(String(bVal ?? ""))
+      : parseDate(String(bVal ?? "")) - parseDate(String(aVal ?? ""));
   }
-  const aNum = parseFloat(aVal);
-  const bNum = parseFloat(bVal);
+  const aNum = parseFloat(String(aVal ?? ""));
+  const bNum = parseFloat(String(bVal ?? ""));
   if (!isNaN(aNum) && !isNaN(bNum)) {
     return direction === "asc" ? aNum - bNum : bNum - aNum;
   }
@@ -51,17 +51,19 @@ export function useSortableData<T extends object>(
   const sortedItems = useMemo(() => {
     if (!sortConfig || !items) return items;
     return [...items].sort((a, b) => {
+      const aRecord = a as Record<string, unknown>;
+      const bRecord = b as Record<string, unknown>;
       const primary = compareValues(
-        (a as any)[sortConfig.key],
-        (b as any)[sortConfig.key],
+        aRecord[sortConfig.key],
+        bRecord[sortConfig.key],
         sortConfig.direction,
         sortConfig.key
       );
       if (primary !== 0 || !secondaryKey) return primary;
       // Tiebreaker: always same direction as primary for secondary
       return compareValues(
-        (a as any)[secondaryKey],
-        (b as any)[secondaryKey],
+        aRecord[secondaryKey],
+        bRecord[secondaryKey],
         sortConfig.direction,
         secondaryKey
       );

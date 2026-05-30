@@ -14,7 +14,10 @@ export function getTeamDisplayName(
   const canonicalKey = Object.keys(ncaaTeamNicknames).find(
     (k) => k.toLowerCase() === lower
   );
-  const proper = canonicalKey ?? team;
+  const logoKey = Object.keys(ncaaTeamLogos).find(
+    (k) => k.toLowerCase() === lower
+  );
+  const proper = canonicalKey ?? logoKey ?? team;
   const nickname = ncaaTeamNicknames[canonicalKey ?? ""];
   return nickname ? `${proper} ${nickname}` : team;
 }

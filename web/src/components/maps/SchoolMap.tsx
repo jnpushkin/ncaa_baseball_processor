@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type {
@@ -9,7 +9,6 @@ import type {
   MilbStadiumLocation,
   PartnerStadiumLocation,
   ChecklistConference,
-  MilbChecklistLevel,
 } from "@/types";
 
 interface SchoolMapProps {
@@ -51,7 +50,7 @@ export default function SchoolMap({
     return ["All", ...Object.keys(checklist).sort()];
   }, [checklist]);
 
-  const getTeamDisplayName = (team: string) => {
+  const getTeamDisplayName = useCallback((team: string) => {
     if (!team) return team;
     const lower = team.toLowerCase();
     const nicknames = data.ncaaTeamNicknames || {};
@@ -65,7 +64,7 @@ export default function SchoolMap({
       }
     }
     return nickname ? `${proper} ${nickname}` : team;
-  };
+  }, [data.ncaaTeamNicknames]);
 
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
@@ -199,10 +198,8 @@ export default function SchoolMap({
   }, [
     stadiums, teamsSeenHome, teamsSeenAway, selectedConf, filter, checklist,
     showMilb, milbStadiums, milbVenuesVisited, showPartner, partnerStadiums,
-    partnerVenuesVisited, data,
+    partnerVenuesVisited, data, getTeamDisplayName,
   ]);
-
-  const levelColors = data.levelColors || {};
 
   return (
     <div className="panel">

@@ -16,7 +16,6 @@ export interface ScorigamiGridProps {
 
 export default function ScorigamiGrid({
   scorigami,
-  games: _games,
   data,
 }: ScorigamiGridProps) {
   const [levelFilter, setLevelFilter] = useState("All");

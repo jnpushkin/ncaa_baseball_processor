@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
+
 import { useState } from "react";
 import { SiteData } from "@/types";
 import { getTeamLogoUrl } from "@/lib/logos";

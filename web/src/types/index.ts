@@ -132,6 +132,10 @@ export interface GameDetails {
     save?: { player?: string; count?: number };
   };
   play_by_play?: Record<string, PlayByPlayInning>;
+  data_quality?: {
+    source_merge?: SourceMergeGame;
+    source_candidate?: SourceMergeGame;
+  };
 }
 
 export interface UnifiedBatter {
@@ -267,6 +271,17 @@ export interface ScheduleIndexEntry {
   count: number;
 }
 
+export interface DataMetadata {
+  generated_at?: string;
+  game_details_count?: number;
+  schedule?: {
+    chunk_count?: number;
+    total_games?: number;
+    first_date?: string;
+    last_date?: string;
+  };
+}
+
 export interface StadiumLocation {
   lat: number;
   lng: number;
@@ -369,6 +384,33 @@ export interface DataQualityIssue {
   secondary_source?: string;
   primary_value?: string | number;
   secondary_value?: string | number;
+  date_diff_days?: number;
+}
+
+export interface SourceMergeGame {
+  game_id?: string;
+  date?: string;
+  date_yyyymmdd?: string;
+  away_team?: string;
+  home_team?: string;
+  away_score?: number;
+  home_score?: number;
+  venue?: string;
+  level?: string;
+  source?: string;
+  confidence?: string;
+  warning_count?: number;
+  info_count?: number;
+  issue_count?: number;
+  sources?: string[];
+  stats_source?: string;
+  identity_source?: string;
+  api_game_id?: string | number;
+  reason?: string;
+  issues?: DataQualityIssue[];
+  sections?: Record<string, Record<string, number>>;
+  pdf_score?: [number, number] | null;
+  api_score?: [number, number] | null;
 }
 
 export interface DataQuality {
@@ -381,9 +423,9 @@ export interface DataQuality {
     sourceMergeReviewGames: number;
   };
   sourceMerge: {
-    games: Record<string, unknown>[];
+    games: SourceMergeGame[];
     issues: DataQualityIssue[];
-    unmergedCandidates?: Record<string, unknown>[];
+    unmergedCandidates?: SourceMergeGame[];
   };
 }
 
@@ -401,6 +443,7 @@ export interface SiteData {
   gameDetails?: Record<string, GameDetails>;
   scheduleGames: ScheduleGame[];
   scheduleIndex?: ScheduleIndexEntry[];
+  dataMetadata?: DataMetadata;
   batterGames: PlayerGame[];
   pitcherGames: PlayerGame[];
   stadiumLocations: Record<string, StadiumLocation>;

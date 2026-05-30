@@ -282,6 +282,34 @@ def test_detail_box_score_filters_placeholder_player_rows():
     assert [row["name"] for row in box_score["away_pitching"]] == ["Named Pitcher"]
 
 
+def test_detail_box_score_filters_zero_stat_pitcher_batting_artifacts():
+    raw_game = {
+        "metadata": {
+            "date": "05/20/2026",
+            "away_team": "Missoula PaddleHeads",
+            "home_team": "Oakland Ballers",
+            "away_team_score": 8,
+            "home_team_score": 13,
+        },
+        "box_score": {
+            "away_batting": [
+                {"name": "Real Batter", "position": "CF", "ab": 4, "h": 1},
+                {"name": "Pitcher Only", "position": "", "ab": 0, "r": 0, "h": 0, "rbi": 0, "bb": 0, "so": 0},
+            ],
+            "home_batting": [],
+            "away_pitching": [
+                {"name": "Pitcher Only", "ip": "1.0", "h": 1, "r": 0, "er": 0, "bb": 0, "so": 1},
+            ],
+            "home_pitching": [],
+        },
+    }
+
+    box_score = _serialize_detail_box_score(normalize_game(raw_game))
+
+    assert [row["name"] for row in box_score["away_batting"]] == ["Real Batter"]
+    assert [row["name"] for row in box_score["away_pitching"]] == ["Pitcher Only"]
+
+
 def test_detail_box_score_merges_game_note_extra_base_stats():
     raw_game = {
         "metadata": {

@@ -17,6 +17,7 @@ import CrossoverPlayers from "@/components/tables/CrossoverPlayers";
 import ScorigamiGrid from "@/components/games/ScorigamiGrid";
 import Checklist from "@/components/checklist/Checklist";
 import UpcomingGames from "@/components/schedule/UpcomingGames";
+import DataQualityPanel from "@/components/quality/DataQualityPanel";
 import PlayerModal from "@/components/shared/PlayerModal";
 import GameDetailsModal from "@/components/games/GameDetailsModal";
 import { fetchJsonWithRetry } from "@/lib/fetchJson";
@@ -29,6 +30,20 @@ const DynamicSchoolMap = dynamic(
 interface AppProps {
   data?: SiteData;
 }
+
+type PlayerClickRow = {
+  Name?: string;
+  name?: string;
+  Player?: string;
+  Team?: string;
+  team?: string;
+  "BBRef ID"?: string;
+  bref_id?: string;
+  Level?: string;
+  level?: string;
+  levels?: ({ level: string } | string)[];
+  "Level Details"?: ({ level: string } | string)[];
+};
 
 const EMPTY_SITE_DATA: SiteData = {
   summary: {
@@ -57,6 +72,16 @@ const EMPTY_SITE_DATA: SiteData = {
   gameDetails: {},
   scheduleGames: [],
   scheduleIndex: [],
+  dataMetadata: {
+    generated_at: "",
+    game_details_count: 0,
+    schedule: {
+      chunk_count: 0,
+      total_games: 0,
+      first_date: "",
+      last_date: "",
+    },
+  },
   batterGames: [],
   pitcherGames: [],
   stadiumLocations: {},
@@ -103,11 +128,32 @@ const TAB_HASH_MAP: Record<string, string> = {
   scorigami: "scorigami",
   checklist: "checklist",
   map: "map",
+  quality: "quality",
 };
 
 const HASH_TAB_MAP = Object.fromEntries(
   Object.entries(TAB_HASH_MAP).map(([k, v]) => [v, k])
 );
+
+function parseLocationHash() {
+  if (typeof window === "undefined") return { tabId: "allGames", gameId: "" };
+  const hash = window.location.hash.replace(/^#/, "");
+  if (!hash) return { tabId: "allGames", gameId: "" };
+  const [tabHash, ...rest] = hash.split("/");
+  const tabId = HASH_TAB_MAP[tabHash] || "allGames";
+  const gameId = rest.length > 0 ? decodeURIComponent(rest.join("/")) : "";
+  return { tabId, gameId };
+}
+
+function writeHash(hash: string, mode: "push" | "replace" = "replace") {
+  if (typeof window === "undefined") return;
+  const nextUrl = `${window.location.pathname}${hash}`;
+  if (mode === "push") {
+    window.history.pushState(null, "", nextUrl);
+  } else {
+    window.history.replaceState(null, "", nextUrl);
+  }
+}
 
 export default function App({ data: initialData }: AppProps) {
   const [data, setData] = useState<SiteData>(initialData ?? EMPTY_SITE_DATA);
@@ -138,11 +184,7 @@ export default function App({ data: initialData }: AppProps) {
   }, [initialData]);
 
   const getInitialTab = () => {
-    if (typeof window !== "undefined") {
-      const hash = window.location.hash.replace("#", "");
-      if (hash && HASH_TAB_MAP[hash]) return HASH_TAB_MAP[hash];
-    }
-    return "allGames";
+    return parseLocationHash().tabId;
   };
 
   const [activeTab, setActiveTab] = useState(getInitialTab);
@@ -154,6 +196,10 @@ export default function App({ data: initialData }: AppProps) {
 
   const gameLog = data.unifiedGameLog;
 
+  const setGameHash = useCallback((gameId: string, mode: "push" | "replace" = "replace") => {
+    writeHash(gameId ? `#games/${encodeURIComponent(gameId)}` : `#${TAB_HASH_MAP.allGames}`, mode);
+  }, []);
+
   const openGame = useCallback(
     (game: UnifiedGame) => {
       const idx = gameLog.findIndex(
@@ -163,31 +209,43 @@ export default function App({ data: initialData }: AppProps) {
           g.away_team === game.away_team &&
           g.home_team === game.home_team
       );
-      if (idx >= 0) setSelectedGameIndex(idx);
+      if (idx >= 0) {
+        setActiveTab("allGames");
+        setSelectedGameIndex(idx);
+        if (game.game_id) setGameHash(game.game_id, "push");
+      }
     },
-    [gameLog]
+    [gameLog, setGameHash]
   );
 
-  const closeGame = useCallback(() => setSelectedGameIndex(null), []);
+  const closeGame = useCallback(() => {
+    setSelectedGameIndex(null);
+    if (parseLocationHash().gameId) {
+      writeHash(`#${TAB_HASH_MAP[activeTab] ?? TAB_HASH_MAP.allGames}`);
+    }
+  }, [activeTab]);
 
   const navigateGame = useCallback(
     (delta: number) => {
-      setSelectedGameIndex((curr) => {
-        if (curr === null) return curr;
-        // Walk forward/back to the next game that actually has details available.
-        let next = curr + delta;
-        while (next >= 0 && next < gameLog.length) {
-          if (gameLog[next].game_id) return next;
-          next += delta;
+      if (selectedGameIndex === null) return;
+      // Walk forward/back to the next game that actually has details available.
+      let next = selectedGameIndex + delta;
+      while (next >= 0 && next < gameLog.length) {
+        const nextGameId = gameLog[next].game_id;
+        if (nextGameId) {
+          setSelectedGameIndex(next);
+          setGameHash(nextGameId, "replace");
+          return;
         }
-        return curr;
-      });
+        next += delta;
+      }
     },
-    [gameLog]
+    [gameLog, selectedGameIndex, setGameHash]
   );
 
   const handleTabChange = useCallback((tabId: string) => {
     setActiveTab(tabId);
+    setSelectedGameIndex(null);
     const hash = TAB_HASH_MAP[tabId];
     if (hash && typeof window !== "undefined") {
       window.history.replaceState(null, "", `#${hash}`);
@@ -195,28 +253,37 @@ export default function App({ data: initialData }: AppProps) {
   }, []);
 
   useEffect(() => {
-    const onHashChange = () => {
-      const hash = window.location.hash.replace("#", "");
-      if (hash && HASH_TAB_MAP[hash]) {
-        setActiveTab(HASH_TAB_MAP[hash]);
+    const syncFromHash = () => {
+      const { tabId, gameId } = parseLocationHash();
+      setActiveTab(tabId);
+      if (gameId) {
+        const idx = gameLog.findIndex((g) => g.game_id === gameId);
+        setSelectedGameIndex(idx >= 0 ? idx : null);
+      } else {
+        setSelectedGameIndex(null);
       }
     };
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    window.addEventListener("popstate", syncFromHash);
+    return () => {
+      window.removeEventListener("hashchange", syncFromHash);
+      window.removeEventListener("popstate", syncFromHash);
+    };
+  }, [gameLog]);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handlePlayerClick = (player: any, type: "batter" | "pitcher") => {
+  const handlePlayerClick = (player: PlayerClickRow, type: "batter" | "pitcher") => {
+    const rawLevels = player.levels ||
+      player["Level Details"] ||
+      (player.Level || player.level ? [player.Level || player.level || ""] : []);
     const normalized: NormalizedPlayer = {
-      name: (player.Name || player.name || player.Player || "") as string,
-      team: (player.Team || player.team || "") as string,
-      bref_id: (player["BBRef ID"] || player.bref_id || "") as string,
-      level: (player.Level || player.level || "") as string,
-      levels: (player.levels ||
-        player["Level Details"] ||
-        (player.Level || player.level
-          ? [{ level: (player.Level || player.level) as string }]
-          : [])) as { level: string }[],
+      name: player.Name || player.name || player.Player || "",
+      team: player.Team || player.team || "",
+      bref_id: player["BBRef ID"] || player.bref_id || "",
+      level: player.Level || player.level || "",
+      levels: rawLevels.map((entry) =>
+        typeof entry === "string" ? { level: entry } : entry
+      ),
     };
     setSelectedPlayer(normalized);
     setPlayerType(type);
@@ -305,6 +372,7 @@ export default function App({ data: initialData }: AppProps) {
     { id: "scorigami", label: "Scorigami" },
     { id: "checklist", label: "Checklist" },
     { id: "map", label: "Map" },
+    { id: "quality", label: "Quality" },
   ];
 
   // Build header subtitle
@@ -370,6 +438,7 @@ export default function App({ data: initialData }: AppProps) {
         {activeTab === "schedule" && <UpcomingGames games={data.scheduleGames} data={data} />}
         {activeTab === "scorigami" && <ScorigamiGrid scorigami={data.scorigami} games={data.unifiedGameLog} data={data} />}
         {activeTab === "checklist" && <Checklist checklist={data.checklist} milbChecklist={data.milbChecklist} data={data} />}
+        {activeTab === "quality" && <DataQualityPanel data={data} />}
         {activeTab === "map" && (
           <DynamicSchoolMap
             stadiums={data.stadiumLocations}
@@ -385,7 +454,7 @@ export default function App({ data: initialData }: AppProps) {
         )}
         </div>
 
-        <Footer generatedTime={new Date().toISOString().replace("T", " ").slice(0, 19)} />
+        <Footer generatedTime={data.dataMetadata?.generated_at} data={data} />
 
         {selectedPlayer && (
           <PlayerModal

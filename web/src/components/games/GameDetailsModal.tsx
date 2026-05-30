@@ -8,6 +8,7 @@ import type {
   BoxScoreBatter,
   BoxScorePitcher,
   PlayByPlayInning,
+  DataQualityIssue,
 } from "@/types";
 import { formatDate } from "@/lib/baseball";
 import { getTeamDisplayName } from "@/lib/data";
@@ -36,6 +37,79 @@ const pick = <T,>(...vals: (T | undefined | null)[]): T | undefined => {
   for (const v of vals) if (v !== undefined && v !== null) return v;
   return undefined;
 };
+
+const SOURCE_LABELS: Record<string, string> = {
+  ncaa_pdf: "NCAA PDF",
+  ncaa_api: "NCAA API",
+  milb: "MLB Stats API",
+  partner: "Partner source",
+};
+
+function formatSource(source?: string) {
+  if (!source) return "Unknown";
+  return SOURCE_LABELS[source] ?? source.replace(/_/g, " ").toUpperCase();
+}
+
+function formatIssue(issue: DataQualityIssue) {
+  const section = issue.section?.replace(/_/g, " ");
+  const player = issue.player;
+  const scope = [section, player].filter(Boolean).join(" · ");
+
+  if (issue.code === "source_stat_disagreement") {
+    return `${scope || "Stat"}: ${issue.field ?? "value"} ${formatSource(issue.primary_source)} ${issue.primary_value ?? "?"} vs ${formatSource(issue.secondary_source)} ${issue.secondary_value ?? "?"}`;
+  }
+  if (issue.code === "secondary_stat_field_unavailable") {
+    return `${formatSource(issue.secondary_source)} missing ${issue.field ?? "stat"} values for ${section ?? "this section"}`;
+  }
+  if (issue.code === "api_only_player_row") {
+    return `${formatSource(issue.secondary_source)} only row${player ? `: ${player}` : ""}`;
+  }
+
+  return [scope, issue.field, issue.code].filter(Boolean).join(" · ") || "Source issue";
+}
+
+function SourceQualityNote({ quality }: { quality: GameDetails["data_quality"] }) {
+  const merge = quality?.source_merge;
+  const candidate = quality?.source_candidate;
+  if (!merge && !candidate) return null;
+
+  const warnings = merge?.warning_count ?? 0;
+  const infos = merge?.info_count ?? 0;
+  const isWarning = warnings > 0 || merge?.confidence === "review";
+  const issues = (merge?.issues ?? [])
+    .filter((issue) => (isWarning ? issue.severity === "warning" : true))
+    .slice(0, 3);
+
+  return (
+    <div className={`gdm-source-note${isWarning ? " warning" : ""}`}>
+      <div className="gdm-source-summary">
+        <strong>{isWarning ? "Source Review" : "Source Check"}</strong>
+        {merge && (
+          <>
+            <span>Stats: {formatSource(merge.stats_source)}</span>
+            <span>Identities: {formatSource(merge.identity_source)}</span>
+            {merge.confidence && <span>Confidence: {merge.confidence}</span>}
+          </>
+        )}
+        {warnings > 0 && <span className="quality-pill warning">{warnings} warnings</span>}
+        {infos > 0 && <span className="quality-pill">{infos} info</span>}
+      </div>
+      {candidate && (
+        <div className="gdm-source-candidate">
+          Same-date/team source candidate kept separate
+          {candidate.reason ? `: ${candidate.reason}` : ""}.
+        </div>
+      )}
+      {issues.length > 0 && (
+        <ul className="gdm-source-issues">
+          {issues.map((issue, index) => (
+            <li key={`${issue.code ?? "issue"}-${index}`}>{formatIssue(issue)}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 function BatterTable({ rows }: { rows: BoxScoreBatter[] }) {
   if (!rows || rows.length === 0)
@@ -275,46 +349,37 @@ export default function GameDetailsModal({
   data,
 }: Props) {
   const levelColors = data.levelColors ?? {};
-  const [details, setDetails] = useState<GameDetails | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [fetchedDetails, setFetchedDetails] = useState<{
+    gameId: string;
+    details: GameDetails | null;
+    error: string | null;
+  }>({ gameId: "", details: null, error: null });
   const [tab, setTab] = useState<Tab>("box");
-  const embeddedDetails = game.game_id ? data.gameDetails?.[game.game_id] : undefined;
+  const gameId = game.game_id ?? "";
+  const embeddedDetails = gameId ? data.gameDetails?.[gameId] : undefined;
+  const fetchedForGame = fetchedDetails.gameId === gameId ? fetchedDetails : null;
+  const details = embeddedDetails ?? fetchedForGame?.details ?? null;
+  const error = fetchedForGame?.error ?? null;
+  const loading = Boolean(gameId && !embeddedDetails && !fetchedForGame);
 
   useEffect(() => {
-    if (!game.game_id) {
-      setDetails(null);
-      setLoading(false);
-      setError(null);
-      return;
-    }
-    if (embeddedDetails) {
-      setDetails(embeddedDetails);
-      setLoading(false);
-      setError(null);
-      return;
-    }
+    if (!gameId || embeddedDetails || fetchedDetails.gameId === gameId) return;
     let cancelled = false;
-    setLoading(true);
-    setError(null);
-    setDetails(null);
-    fetchJsonWithRetry<GameDetails>(`/games/${game.game_id}.json`)
+    fetchJsonWithRetry<GameDetails>(`/games/${gameId}.json`)
       .then((d: GameDetails) => {
         if (!cancelled) {
-          setDetails(d);
-          setLoading(false);
+          setFetchedDetails({ gameId, details: d, error: null });
         }
       })
       .catch((e) => {
         if (!cancelled) {
-          setError(String(e));
-          setLoading(false);
+          setFetchedDetails({ gameId, details: null, error: String(e) });
         }
       });
     return () => {
       cancelled = true;
     };
-  }, [game.game_id, embeddedDetails]);
+  }, [gameId, embeddedDetails, fetchedDetails.gameId]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -326,16 +391,16 @@ export default function GameDetailsModal({
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose, onPrev, onNext, hasPrev, hasNext]);
 
-  const box = details?.box_score ?? {};
+  const box = details?.box_score;
   const notes = details?.game_notes;
   const pbp = details?.play_by_play;
 
   const hasBox = useMemo(
     () =>
-      (box.away_batting?.length || 0) +
-        (box.home_batting?.length || 0) +
-        (box.away_pitching?.length || 0) +
-        (box.home_pitching?.length || 0) >
+      (box?.away_batting?.length || 0) +
+        (box?.home_batting?.length || 0) +
+        (box?.away_pitching?.length || 0) +
+        (box?.home_pitching?.length || 0) >
       0,
     [box]
   );
@@ -360,11 +425,10 @@ export default function GameDetailsModal({
     );
   }, [pbp]);
 
-  useEffect(() => {
-    // If the current tab is unavailable for this game, fall back to the first available.
-    if (tab === "plays" && !hasKeyPlays) setTab("box");
-    else if (tab === "pbp" && !hasPbp) setTab("box");
-  }, [tab, hasKeyPlays, hasPbp]);
+  const activeTab: Tab =
+    (tab === "plays" && !hasKeyPlays) || (tab === "pbp" && !hasPbp)
+      ? "box"
+      : tab;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -442,15 +506,15 @@ export default function GameDetailsModal({
         </div>
 
         <div className="modal-body">
-          {!game.game_id && (
+          {!gameId && (
             <div className="gdm-empty">
               Detailed box score is not available for this game.
             </div>
           )}
-          {game.game_id && loading && (
+          {gameId && loading && (
             <div className="gdm-empty">Loading game details…</div>
           )}
-          {game.game_id && error && (
+          {gameId && error && (
             <div className="gdm-empty">
               Could not load game details ({error}).
             </div>
@@ -467,9 +531,11 @@ export default function GameDetailsModal({
                 </div>
               )}
 
+              <SourceQualityNote quality={details.data_quality} />
+
               <div className="gdm-tabs">
                 <button
-                  className={`gdm-tab ${tab === "box" ? "active" : ""}`}
+                  className={`gdm-tab ${activeTab === "box" ? "active" : ""}`}
                   onClick={() => setTab("box")}
                   disabled={!hasBox}
                 >
@@ -477,7 +543,7 @@ export default function GameDetailsModal({
                 </button>
                 {hasKeyPlays && (
                   <button
-                    className={`gdm-tab ${tab === "plays" ? "active" : ""}`}
+                    className={`gdm-tab ${activeTab === "plays" ? "active" : ""}`}
                     onClick={() => setTab("plays")}
                   >
                     Key Plays
@@ -485,7 +551,7 @@ export default function GameDetailsModal({
                 )}
                 {hasPbp && (
                   <button
-                    className={`gdm-tab ${tab === "pbp" ? "active" : ""}`}
+                    className={`gdm-tab ${activeTab === "pbp" ? "active" : ""}`}
                     onClick={() => setTab("pbp")}
                   >
                     Play-by-Play
@@ -494,7 +560,7 @@ export default function GameDetailsModal({
               </div>
 
               <div className="gdm-tab-content">
-                {tab === "box" && (
+                {activeTab === "box" && (
                   hasBox ? (
                     <>
                       <TeamBlock
@@ -502,8 +568,8 @@ export default function GameDetailsModal({
                         teamName={game.away_team}
                         teamId={game.away_team_id}
                         level={game.level}
-                        batters={box.away_batting ?? []}
-                        pitchers={box.away_pitching ?? []}
+                        batters={box?.away_batting ?? []}
+                        pitchers={box?.away_pitching ?? []}
                         data={data}
                       />
                       <TeamBlock
@@ -511,8 +577,8 @@ export default function GameDetailsModal({
                         teamName={game.home_team}
                         teamId={game.home_team_id}
                         level={game.level}
-                        batters={box.home_batting ?? []}
-                        pitchers={box.home_pitching ?? []}
+                        batters={box?.home_batting ?? []}
+                        pitchers={box?.home_pitching ?? []}
                         data={data}
                       />
                     </>
@@ -520,8 +586,8 @@ export default function GameDetailsModal({
                     <div className="gdm-empty">No box score available.</div>
                   )
                 )}
-                {tab === "plays" && <KeyPlays notes={notes} />}
-                {tab === "pbp" && <PlayByPlay pbp={pbp} />}
+                {activeTab === "plays" && <KeyPlays notes={notes} />}
+                {activeTab === "pbp" && <PlayByPlay pbp={pbp} />}
               </div>
             </>
           )}

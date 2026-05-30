@@ -11,11 +11,36 @@ interface PlayerModalProps {
   player: NormalizedPlayer;
   games: PlayerGame[];
   type: "batter" | "pitcher";
-  milestones?: MilestoneEntry[];
+  milestones?: (MilestoneEntry & { milestoneType?: string })[];
   onClose: () => void;
   data: SiteData;
   unifiedStats?: UnifiedBatter | UnifiedPitcher | null;
 }
+
+type BatterSummary = {
+  kind: "batter";
+  g: number;
+  ab: number;
+  h: number;
+  hr: number;
+  rbi: number;
+  bb: number;
+  k: number;
+  avg: string;
+};
+
+type PitcherSummary = {
+  kind: "pitcher";
+  g: number;
+  ip: number;
+  h: number;
+  er: number;
+  bb: number;
+  k: number;
+  era: string;
+};
+
+type PlayerSummary = BatterSummary | PitcherSummary;
 
 export default function PlayerModal({
   player,
@@ -26,12 +51,10 @@ export default function PlayerModal({
   data,
   unifiedStats,
 }: PlayerModalProps) {
-  if (!player) return null;
-
   const isBatter = type === "batter";
   const levelColors = data.levelColors ?? {};
 
-  const summary = useMemo(() => {
+  const summary = useMemo<PlayerSummary | null>(() => {
     if (games && games.length > 0) {
       if (isBatter) {
         const g = games.length;
@@ -42,7 +65,7 @@ export default function PlayerModal({
         const bb = games.reduce((s, x) => s + (parseInt(String(x.bb ?? 0)) || 0), 0);
         const k = games.reduce((s, x) => s + (parseInt(String(x.k ?? 0)) || 0), 0);
         const avg = ab > 0 ? (h / ab).toFixed(3) : ".000";
-        return { g, ab, h, hr, rbi, bb, k, avg };
+        return { kind: "batter", g, ab, h, hr, rbi, bb, k, avg };
       } else {
         const g = games.length;
         const ip = addIP(games.map((x) => x.ip ?? 0));
@@ -52,17 +75,17 @@ export default function PlayerModal({
         const k = games.reduce((s, x) => s + (parseInt(String(x.k ?? 0)) || 0), 0);
         const inn = ipToInnings(ip);
         const era = inn > 0 ? ((er * 9) / inn).toFixed(2) : "0.00";
-        return { g, ip, h, er, bb, k, era };
+        return { kind: "pitcher", g, ip, h, er, bb, k, era };
       }
     }
     // Fallback to unified season stats when no game log available
     if (unifiedStats) {
       if (isBatter) {
         const b = unifiedStats as UnifiedBatter;
-        return { g: b.g, ab: b.ab, h: b.h, hr: b.hr, rbi: b.rbi, bb: b.bb, k: b.k, avg: b.avg };
+        return { kind: "batter", g: b.g, ab: b.ab, h: b.h, hr: b.hr, rbi: b.rbi, bb: b.bb, k: b.k, avg: b.avg };
       } else {
         const p = unifiedStats as UnifiedPitcher;
-        return { g: p.g, ip: p.ip, h: p.h, er: p.er, bb: p.bb, k: p.k, era: p.era };
+        return { kind: "pitcher", g: p.g, ip: p.ip, h: p.h, er: p.er, bb: p.bb, k: p.k, era: p.era };
       }
     }
     return null;
@@ -71,7 +94,7 @@ export default function PlayerModal({
   const isFromUnifiedStats = (!games || games.length === 0) && !!unifiedStats;
 
   const levelBadges = (player.levels ?? []).map((l, i) => {
-    const lvl = (l as any).level ?? l;
+    const lvl = l.level;
     return (
       <span key={i} style={{ marginRight: "4px" }}>
         <LevelBadge level={lvl} levelColors={levelColors} />
@@ -117,53 +140,53 @@ export default function PlayerModal({
         <div className="modal-body">
           {summary && (
             <div className="player-summary">
-              {isBatter ? (
+              {summary.kind === "batter" ? (
                 <>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).g}</div>
+                    <div className="value">{summary.g}</div>
                     <div className="label">Games</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).avg}</div>
+                    <div className="value">{summary.avg}</div>
                     <div className="label">AVG</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).h}</div>
+                    <div className="value">{summary.h}</div>
                     <div className="label">Hits</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).hr}</div>
+                    <div className="value">{summary.hr}</div>
                     <div className="label">HR</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).rbi}</div>
+                    <div className="value">{summary.rbi}</div>
                     <div className="label">RBI</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).bb}</div>
+                    <div className="value">{summary.bb}</div>
                     <div className="label">BB</div>
                   </div>
                 </>
               ) : (
                 <>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).g}</div>
+                    <div className="value">{summary.g}</div>
                     <div className="label">Games</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).ip}</div>
+                    <div className="value">{summary.ip}</div>
                     <div className="label">IP</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).era}</div>
+                    <div className="value">{summary.era}</div>
                     <div className="label">ERA</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).k}</div>
+                    <div className="value">{summary.k}</div>
                     <div className="label">K</div>
                   </div>
                   <div className="player-summary-stat">
-                    <div className="value">{(summary as any).bb}</div>
+                    <div className="value">{summary.bb}</div>
                     <div className="label">BB</div>
                   </div>
                 </>
@@ -177,7 +200,7 @@ export default function PlayerModal({
               <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                 {milestones.map((m, i) => (
                   <span key={i} className="milestone-chip">
-                    <span className="chip-type">{(m as any).milestoneType}</span>
+                    <span className="chip-type">{m.milestoneType}</span>
                     {m.Date && <span>{formatDate(m.Date)}</span>}
                     {m.Opponent && <span>vs {m.Opponent}</span>}
                   </span>

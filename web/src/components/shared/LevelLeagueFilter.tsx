@@ -11,12 +11,21 @@ const DEFAULT_LEVEL_ORDER = [
   "Independent",
 ];
 
+interface FilterableItem {
+  level?: unknown;
+  Level?: unknown;
+  league?: unknown;
+  League?: unknown;
+  conference?: unknown;
+  Conference?: unknown;
+}
+
 interface LevelLeagueFilterProps {
   levelFilter: string;
   setLevelFilter: (level: string) => void;
   leagueFilter: string;
   setLeagueFilter?: (league: string) => void;
-  data: any[];
+  data: FilterableItem[];
   levelOrder?: string[];
   showSearch?: boolean;
   searchTerm?: string;
@@ -40,7 +49,7 @@ export default function LevelLeagueFilter({
     if (!data) return [];
     const levels = new Set<string>();
     data.forEach((d) => {
-      const l = d.level ?? d.Level;
+      const l = String(d.level ?? d.Level ?? "");
       if (l) levels.add(l);
     });
     return levelOrder.filter((l) => levels.has(l));
@@ -50,9 +59,9 @@ export default function LevelLeagueFilter({
     if (!data || levelFilter === "All") return [];
     const leagues = new Set<string>();
     data.forEach((d) => {
-      const itemLevel = d.level ?? d.Level ?? "";
+      const itemLevel = String(d.level ?? d.Level ?? "");
       const itemLeague =
-        d.league ?? d.League ?? d.conference ?? d.Conference ?? "";
+        String(d.league ?? d.League ?? d.conference ?? d.Conference ?? "");
       if (itemLevel === levelFilter && itemLeague) leagues.add(itemLeague);
     });
     return Array.from(leagues).sort();

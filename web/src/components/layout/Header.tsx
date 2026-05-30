@@ -56,7 +56,7 @@ export default function Header({ subtitle, data, onPlayerClick }: HeaderProps) {
           </div>
         </div>
         <div className="header-meta">
-          <div ref={searchRef} style={{ position: "relative" }}>
+          <div ref={searchRef} className="header-search-wrap">
             <input
               className="header-search"
               type="text"

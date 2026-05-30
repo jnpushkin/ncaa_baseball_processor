@@ -5,6 +5,7 @@ Website generator for interactive HTML output.
 import os
 import json
 import base64
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any
 import pandas as pd
@@ -16,7 +17,7 @@ from ..utils.milb_stadiums import MILB_STADIUM_DATA, HISTORIC_MILB_TEAMS, LOGO_O
 from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_partner_stadium_locations
 from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEAGUE_LEVEL_MAP,
                                 PRO_LEVELS, LEVEL_ORDER, LEVEL_COLORS, resolve_level_and_league)
-from ..utils.helpers import is_placeholder_player_name, normalize_team_name, resolve_player_display_name
+from ..utils.helpers import is_placeholder_player_name, normalize_team_name, resolve_player_display_name, safe_int
 from ..utils.player_ids import PlayerIDMapper
 from .parity import collect_website_data_parity_issues
 from .serializers import count_notable_milestones, df_to_list, scrub_json_value, serialize_milestones
@@ -187,9 +188,18 @@ def _serialize_detail_box_score(normalized_game: Dict[str, Any]) -> Dict[str, Li
     def has_player_identity(row: Dict[str, Any]) -> bool:
         return not is_placeholder_player_name(row.get('full_name') or row.get('name'))
 
+    def has_batting_signal(row: Dict[str, Any]) -> bool:
+        """Keep real batting lines while dropping pitcher-only rows with no stats."""
+        if not has_player_identity(row):
+            return False
+        stat_fields = ('AB', 'R', 'H', 'RBI', 'BB', 'SO', '2B', '3B', 'HR', 'SB', 'CS', 'HBP', 'SF', 'SH')
+        if any(safe_int(row.get(field)) for field in stat_fields):
+            return True
+        return bool(str(row.get('position') or '').strip())
+
     return {
-        'away_batting': [_detail_batter_row(row, extra_stats_lookup) for row in batting.get('away', []) if has_player_identity(row)],
-        'home_batting': [_detail_batter_row(row, extra_stats_lookup) for row in batting.get('home', []) if has_player_identity(row)],
+        'away_batting': [_detail_batter_row(row, extra_stats_lookup) for row in batting.get('away', []) if has_batting_signal(row)],
+        'home_batting': [_detail_batter_row(row, extra_stats_lookup) for row in batting.get('home', []) if has_batting_signal(row)],
         'away_pitching': [_detail_pitcher_row(row) for row in pitching.get('away', []) if has_player_identity(row)],
         'home_pitching': [_detail_pitcher_row(row) for row in pitching.get('home', []) if has_player_identity(row)],
     }
@@ -524,7 +534,6 @@ def generate_nextjs_data(processed_data: Dict[str, Any], raw_games: List[Dict] =
     game_index = _build_raw_game_index(raw_games or [])
     game_details = _build_per_game_details(game_index, player_name_aliases)
     games_written = _write_per_game_details(game_details, web_dir)
-    data['gameDetails'] = game_details
     print(f"Per-game details written: {games_written} files to {web_dir / 'public' / 'games'}")
 
     # Add D1 schedule metadata. The full schedule is written as daily chunks so
@@ -532,6 +541,7 @@ def generate_nextjs_data(processed_data: Dict[str, Any], raw_games: List[Dict] =
     schedule_index = _write_schedule_chunks(schedule_games or [], web_dir)
     data['scheduleGames'] = []
     data['scheduleIndex'] = schedule_index
+    data['dataMetadata'] = _build_data_metadata(games_written, schedule_index)
     print(f"Schedule chunks written: {len(schedule_index)} files to {web_dir / 'public' / 'data' / 'schedule'}")
 
     parity_issues = collect_website_data_parity_issues(processed_data, data)
@@ -624,6 +634,28 @@ def _write_schedule_chunks(schedule_games: List[Dict], web_dir: Path) -> List[Di
         })
 
     return schedule_index
+
+
+def _build_data_metadata(
+    game_details_count: int,
+    schedule_index: List[Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Build generation metadata the frontend can show without guessing."""
+    schedule_dates = [
+        str(entry.get('date') or '')
+        for entry in schedule_index
+        if entry.get('date') and entry.get('date') != 'unknown'
+    ]
+    return {
+        'generated_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),
+        'game_details_count': game_details_count,
+        'schedule': {
+            'chunk_count': len(schedule_index),
+            'total_games': sum(safe_int(entry.get('count')) for entry in schedule_index),
+            'first_date': min(schedule_dates) if schedule_dates else '',
+            'last_date': max(schedule_dates) if schedule_dates else '',
+        },
+    }
 
 
 def _build_data_quality_report(raw_games: List[Dict]) -> Dict[str, Any]:
