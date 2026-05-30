@@ -39,6 +39,7 @@ export default function SchoolMap({
   const markersRef = useRef<L.Marker[]>([]);
   const [selectedConf, setSelectedConf] = useState("All");
   const [filter, setFilter] = useState("all");
+  const [showNcaa, setShowNcaa] = useState(true);
   const [showMilb, setShowMilb] = useState(true);
   const [showPartner, setShowPartner] = useState(true);
 
@@ -110,27 +111,29 @@ export default function SchoolMap({
     }
 
     // NCAA markers
-    teamsToShow.forEach((team) => {
-      const info = stadiums[team];
-      if (!info) return;
-      const isHome = teamsSeenHome.includes(team);
-      const isAway = teamsSeenAway.includes(team);
-      const color = isHome ? "#28a745" : isAway ? "#007bff" : "#999";
+    if (showNcaa) {
+      teamsToShow.forEach((team) => {
+        const info = stadiums[team];
+        if (!info) return;
+        const isHome = teamsSeenHome.includes(team);
+        const isAway = teamsSeenAway.includes(team);
+        const color = isHome ? "#28a745" : isAway ? "#007bff" : "#999";
 
-      const icon = L.divIcon({
-        className: "custom-marker",
-        html: `<div style="width: 14px; height: 14px; background: ${color}; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
-        iconSize: [14, 14],
-        iconAnchor: [7, 7],
+        const icon = L.divIcon({
+          className: "custom-marker",
+          html: `<div style="width: 14px; height: 14px; background: ${color}; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+          iconSize: [14, 14],
+          iconAnchor: [7, 7],
+        });
+
+        const marker = L.marker([info.lat, info.lng], { icon })
+          .bindPopup(
+            `<strong>${team}</strong><br>${info.stadium}<br><em>${isHome ? "Visited" : isAway ? "Seen (Away)" : "Not Seen"}</em>`
+          )
+          .addTo(mapInstance.current!);
+        markersRef.current.push(marker);
       });
-
-      const marker = L.marker([info.lat, info.lng], { icon })
-        .bindPopup(
-          `<strong>${team}</strong><br>${info.stadium}<br><em>${isHome ? "Visited" : isAway ? "Seen (Away)" : "Not Seen"}</em>`
-        )
-        .addTo(mapInstance.current!);
-      markersRef.current.push(marker);
-    });
+    }
 
     // MiLB markers
     if (showMilb && milbStadiums && (selectedConf === "All" || selectedConf === "MiLB")) {
@@ -197,7 +200,7 @@ export default function SchoolMap({
     }
   }, [
     stadiums, teamsSeenHome, teamsSeenAway, selectedConf, filter, checklist,
-    showMilb, milbStadiums, milbVenuesVisited, showPartner, partnerStadiums,
+    showNcaa, showMilb, milbStadiums, milbVenuesVisited, showPartner, partnerStadiums,
     partnerVenuesVisited, data, getTeamDisplayName,
   ]);
 
@@ -230,6 +233,10 @@ export default function SchoolMap({
             <option value="visited">Visited</option>
             <option value="unseen">Not Seen</option>
           </select>
+          <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer" }}>
+            <input type="checkbox" checked={showNcaa} onChange={(e) => setShowNcaa(e.target.checked)} />
+            Show NCAA
+          </label>
           {hasMilbData && (
             <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer" }}>
               <input type="checkbox" checked={showMilb} onChange={(e) => setShowMilb(e.target.checked)} />
@@ -245,18 +252,24 @@ export default function SchoolMap({
         </div>
         <div ref={mapRef} style={{ height: "500px", borderRadius: "8px", border: "1px solid #ddd" }}></div>
         <div style={{ marginTop: "12px", display: "flex", gap: "16px", fontSize: "14px", color: "#666", flexWrap: "wrap", alignItems: "center" }}>
-          <span>
-            <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#28a745", marginRight: "4px" }}></span>
-            NCAA Visited
-          </span>
-          <span>
-            <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#007bff", marginRight: "4px" }}></span>
-            NCAA Seen (Away)
-          </span>
-          <span>
-            <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#999", marginRight: "4px" }}></span>
-            NCAA Not Seen
-          </span>
+          {showNcaa && (
+            <span>
+              <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#28a745", marginRight: "4px" }}></span>
+              NCAA Visited
+            </span>
+          )}
+          {showNcaa && (
+            <span>
+              <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#007bff", marginRight: "4px" }}></span>
+              NCAA Seen (Away)
+            </span>
+          )}
+          {showNcaa && (
+            <span>
+              <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#999", marginRight: "4px" }}></span>
+              NCAA Not Seen
+            </span>
+          )}
           {hasMilbData && (
             <span>
               <span style={{ display: "inline-block", width: "16px", height: "16px", borderRadius: "50%", border: "2px solid #ff6b35", background: "white", marginRight: "4px" }}></span>
