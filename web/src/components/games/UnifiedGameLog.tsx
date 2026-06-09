@@ -5,6 +5,10 @@ import { UnifiedGame, SiteData } from "@/types";
 import LevelLeagueFilter from "@/components/shared/LevelLeagueFilter";
 import LevelBadge from "@/components/shared/LevelBadge";
 import TeamLogo from "@/components/shared/TeamLogo";
+import SortableHeader from "@/components/shared/SortableHeader";
+import PaginationControls from "@/components/shared/PaginationControls";
+import { useSortableData } from "@/hooks/useSortableData";
+import { usePagination } from "@/hooks/usePagination";
 import { filterByLevelLeague } from "@/lib/filters";
 import { formatDate } from "@/lib/baseball";
 import { getTeamDisplayName } from "@/lib/data";
@@ -21,6 +25,10 @@ interface TeamCellProps {
   level: string;
   data: SiteData;
 }
+
+type SortableGame = UnifiedGame & {
+  total_runs: number;
+};
 
 function TeamCell({ team, teamId, level, data }: TeamCellProps) {
   const displayName = getTeamDisplayName(team, data);
@@ -51,13 +59,27 @@ export default function UnifiedGameLog({ games, data, onGameClick }: UnifiedGame
           g.venue?.toLowerCase().includes(s)
       );
     }
-    return result;
+    return result.map((game) => ({
+      ...game,
+      total_runs: Number(game.away_score ?? 0) + Number(game.home_score ?? 0),
+    }));
   }, [games, levelFilter, leagueFilter, searchTerm]);
+
+  const { items, sortConfig, requestSort } = useSortableData<SortableGame>(
+    filtered,
+    { key: "date_sort", direction: "desc" },
+    "total_runs"
+  );
+  const pagination = usePagination(items, 100);
+
+  const openClickableGame = (game: SortableGame) => {
+    if (onGameClick && game.game_id) onGameClick(game);
+  };
 
   return (
     <div className="panel">
       <div className="panel-header">
-        <h2>All Games ({filtered.length})</h2>
+        <h2>All Games ({items.length})</h2>
       </div>
       <LevelLeagueFilter
         levelFilter={levelFilter}
@@ -74,18 +96,57 @@ export default function UnifiedGameLog({ games, data, onGameClick }: UnifiedGame
         <table className="data-table">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Level</th>
-              <th>Away</th>
-              <th className="text-center">Score</th>
-              <th>Home</th>
-              <th>Venue</th>
+              <SortableHeader
+                label="Date"
+                sortKey="date_sort"
+                sortConfig={sortConfig}
+                onSort={requestSort}
+              />
+              <SortableHeader
+                label="Level"
+                sortKey="level"
+                sortConfig={sortConfig}
+                onSort={requestSort}
+              />
+              <SortableHeader
+                label="Away"
+                sortKey="away_team"
+                sortConfig={sortConfig}
+                onSort={requestSort}
+              />
+              <SortableHeader
+                label="Score"
+                sortKey="total_runs"
+                sortConfig={sortConfig}
+                onSort={requestSort}
+              />
+              <SortableHeader
+                label="Home"
+                sortKey="home_team"
+                sortConfig={sortConfig}
+                onSort={requestSort}
+              />
+              <SortableHeader
+                label="Venue"
+                sortKey="venue"
+                sortConfig={sortConfig}
+                onSort={requestSort}
+              />
             </tr>
           </thead>
           <tbody>
-            {filtered.map((g, i) => (
+            {pagination.pageItems.map((g) => (
               <tr
-                key={i}
+                key={g.game_id ?? `${g.date_sort}-${g.away_team}-${g.home_team}`}
+                className={onGameClick && g.game_id ? "clickable-row" : ""}
+                tabIndex={onGameClick && g.game_id ? 0 : undefined}
+                onClick={() => openClickableGame(g)}
+                onKeyDown={(event) => {
+                  if ((event.key === "Enter" || event.key === " ") && g.game_id) {
+                    event.preventDefault();
+                    openClickableGame(g);
+                  }
+                }}
                 style={{
                   borderLeft: `4px solid ${levelColors[g.level] ?? "#ccc"}`,
                 }}
@@ -107,7 +168,10 @@ export default function UnifiedGameLog({ games, data, onGameClick }: UnifiedGame
                     <button
                       type="button"
                       className="score-clickable"
-                      onClick={() => onGameClick(g)}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onGameClick(g);
+                      }}
                       title="View game details"
                       style={{ background: "none", border: "none", padding: 0, font: "inherit" }}
                     >
@@ -133,6 +197,7 @@ export default function UnifiedGameLog({ games, data, onGameClick }: UnifiedGame
           </tbody>
         </table>
       </div>
+      <PaginationControls {...pagination} />
     </div>
   );
 }

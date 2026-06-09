@@ -3,42 +3,73 @@
 import { useState, useMemo } from "react";
 import { SortConfig } from "@/types";
 
+function isMissingValue(value: unknown): boolean {
+  if (value === undefined || value === null) return true;
+  const normalized = String(value).trim().toLowerCase();
+  return normalized === "" || normalized === "unknown" || normalized === "-";
+}
+
+function parseDateValue(value: unknown): number {
+  if (isMissingValue(value)) return 0;
+  const str = String(value).trim();
+  if (/^\d{8}$/.test(str)) {
+    const year = Number(str.slice(0, 4));
+    const month = Number(str.slice(4, 6));
+    const day = Number(str.slice(6, 8));
+    return new Date(year, month - 1, day).getTime();
+  }
+
+  const iso = Date.parse(str);
+  if (!Number.isNaN(iso)) return iso;
+
+  const parts = str.split("/");
+  if (parts.length === 3) {
+    const month = Number(parts[0]);
+    const day = Number(parts[1]);
+    const year = Number(parts[2]);
+    if (month && day && year) {
+      return new Date(year, month - 1, day).getTime();
+    }
+  }
+
+  return 0;
+}
+
 function compareValues(
   aVal: unknown,
   bVal: unknown,
   direction: "asc" | "desc",
   key: string
 ): number {
+  const aMissing = isMissingValue(aVal);
+  const bMissing = isMissingValue(bVal);
+  if (aMissing || bMissing) {
+    if (aMissing && bMissing) return 0;
+    return aMissing ? 1 : -1;
+  }
+
+  const keyLower = key.toLowerCase();
+  if (keyLower === "date" || keyLower === "datesort" || keyLower === "date_sort") {
+    return direction === "asc"
+      ? parseDateValue(aVal) - parseDateValue(bVal)
+      : parseDateValue(bVal) - parseDateValue(aVal);
+  }
+
   if (typeof aVal === "number" && typeof bVal === "number") {
     return direction === "asc" ? aVal - bVal : bVal - aVal;
   }
-  if (key === "Date" || key === "DateSort") {
-    const parseDate = (d: string) => {
-      if (!d) return 0;
-      const parts = d.split("/");
-      if (parts.length === 3) {
-        return new Date(
-          Number(parts[2]),
-          Number(parts[0]) - 1,
-          Number(parts[1])
-        ).getTime();
-      }
-      return 0;
-    };
-    return direction === "asc"
-      ? parseDate(String(aVal ?? "")) - parseDate(String(bVal ?? ""))
-      : parseDate(String(bVal ?? "")) - parseDate(String(aVal ?? ""));
-  }
+
   const aNum = parseFloat(String(aVal ?? ""));
   const bNum = parseFloat(String(bVal ?? ""));
   if (!isNaN(aNum) && !isNaN(bNum)) {
     return direction === "asc" ? aNum - bNum : bNum - aNum;
   }
+
   const aStr = String(aVal ?? "").toLowerCase();
   const bStr = String(bVal ?? "").toLowerCase();
-  if (aStr < bStr) return direction === "asc" ? -1 : 1;
-  if (aStr > bStr) return direction === "asc" ? 1 : -1;
-  return 0;
+  return direction === "asc"
+    ? aStr.localeCompare(bStr, undefined, { numeric: true, sensitivity: "base" })
+    : bStr.localeCompare(aStr, undefined, { numeric: true, sensitivity: "base" });
 }
 
 export function useSortableData<T extends object>(
@@ -50,24 +81,28 @@ export function useSortableData<T extends object>(
 
   const sortedItems = useMemo(() => {
     if (!sortConfig || !items) return items;
-    return [...items].sort((a, b) => {
-      const aRecord = a as Record<string, unknown>;
-      const bRecord = b as Record<string, unknown>;
-      const primary = compareValues(
-        aRecord[sortConfig.key],
-        bRecord[sortConfig.key],
-        sortConfig.direction,
-        sortConfig.key
-      );
-      if (primary !== 0 || !secondaryKey) return primary;
-      // Tiebreaker: always same direction as primary for secondary
-      return compareValues(
-        aRecord[secondaryKey],
-        bRecord[secondaryKey],
-        sortConfig.direction,
-        secondaryKey
-      );
-    });
+    return items
+      .map((item, index) => ({ item, index }))
+      .sort((a, b) => {
+        const aRecord = a.item as Record<string, unknown>;
+        const bRecord = b.item as Record<string, unknown>;
+        const primary = compareValues(
+          aRecord[sortConfig.key],
+          bRecord[sortConfig.key],
+          sortConfig.direction,
+          sortConfig.key
+        );
+        if (primary !== 0) return primary;
+        if (!secondaryKey) return a.index - b.index;
+        const secondary = compareValues(
+          aRecord[secondaryKey],
+          bRecord[secondaryKey],
+          sortConfig.direction,
+          secondaryKey
+        );
+        return secondary !== 0 ? secondary : a.index - b.index;
+      })
+      .map(({ item }) => item);
   }, [items, sortConfig, secondaryKey]);
 
   const requestSort = (key: string) => {

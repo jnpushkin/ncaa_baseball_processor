@@ -388,6 +388,15 @@ body {
   background: var(--color-hover);
 }
 
+.data-table tr.clickable-row {
+  cursor: pointer;
+}
+
+.data-table tr.clickable-row:focus {
+  outline: 2px solid rgba(30, 58, 95, 0.35);
+  outline-offset: -2px;
+}
+
 /* Sticky first column (Name) — only on data tables */
 .data-table td:first-child,
 .data-table th:first-child {
@@ -548,6 +557,75 @@ tr:hover {
   font-size: 0.82rem;
   color: var(--color-text-muted);
   font-weight: 500;
+}
+
+/* ===== Pagination ===== */
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--color-border-light);
+  background: #fafbfc;
+}
+
+.pagination-summary {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.pagination-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.pagination-actions label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pagination-actions select {
+  height: 30px;
+  padding: 3px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: white;
+  color: var(--color-text-primary);
+  font: inherit;
+}
+
+.pagination-actions button {
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: white;
+  color: var(--color-text-primary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.pagination-actions button:hover:not(:disabled) {
+  border-color: rgba(30, 58, 95, 0.35);
+  color: var(--color-accent);
+}
+
+.pagination-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pagination-page {
+  min-width: 56px;
+  text-align: center;
+  color: var(--color-text-muted);
 }
 
 /* ===== Pill Buttons ===== */
@@ -2122,6 +2200,15 @@ select:focus-visible {
 
   .quality-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pagination-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination-actions {
+    flex-wrap: wrap;
   }
 
   .checklist-stats {

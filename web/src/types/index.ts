@@ -349,6 +349,7 @@ export interface PlayerGame {
   league?: string;
   opponent?: string;
   Opponent?: string;
+  game_id?: string;
   bref_id?: string;
   player_id?: string;
   Name?: string;

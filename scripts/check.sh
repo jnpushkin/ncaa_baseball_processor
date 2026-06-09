@@ -16,7 +16,7 @@ python3 -m py_compile \
   baseball_processor/website/serializers.py
 
 python3 -m pytest
-python3 scripts/audit_data_integrity.py
+python3 scripts/audit_data_integrity.py --source-truth
 
 if [ -d web ]; then
   npm run lint --prefix web

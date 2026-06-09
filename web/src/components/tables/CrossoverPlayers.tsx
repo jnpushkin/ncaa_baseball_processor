@@ -1,58 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CrossoverPlayer, SiteData, SortConfig } from "@/types";
+import { CrossoverPlayer, SiteData } from "@/types";
 import { BREF_BASE } from "@/lib/constants";
-
-// ---------------------------------------------------------------------------
-// useSortableData hook (mirrors generator.py useSortableData)
-// ---------------------------------------------------------------------------
-
-function compareValues(
-  aVal: unknown,
-  bVal: unknown,
-  direction: "asc" | "desc"
-): number {
-  if (typeof aVal === "number" && typeof bVal === "number") {
-    return direction === "asc" ? aVal - bVal : bVal - aVal;
-  }
-  const aNum = parseFloat(String(aVal));
-  const bNum = parseFloat(String(bVal));
-  if (!isNaN(aNum) && !isNaN(bNum)) {
-    return direction === "asc" ? aNum - bNum : bNum - aNum;
-  }
-  const aStr = String(aVal ?? "").toLowerCase();
-  const bStr = String(bVal ?? "").toLowerCase();
-  if (aStr < bStr) return direction === "asc" ? -1 : 1;
-  if (aStr > bStr) return direction === "asc" ? 1 : -1;
-  return 0;
-}
-
-function useSortableData(
-  items: CrossoverPlayer[],
-  defaultSort: SortConfig | null = null
-) {
-  const [sortConfig, setSortConfig] = useState<SortConfig | null>(defaultSort);
-
-  const sortedItems = useMemo(() => {
-    if (!sortConfig || !items) return items;
-    return [...items].sort((a, b) =>
-      compareValues(
-        (a as unknown as Record<string, unknown>)[sortConfig.key],
-        (b as unknown as Record<string, unknown>)[sortConfig.key],
-        sortConfig.direction
-      )
-    );
-  }, [items, sortConfig]);
-
-  const requestSort = (key: string) => {
-    const direction: "asc" | "desc" =
-      sortConfig?.key === key && sortConfig.direction === "asc" ? "desc" : "asc";
-    setSortConfig({ key, direction });
-  };
-
-  return { items: sortedItems, sortConfig, requestSort };
-}
+import { useSortableData } from "@/hooks/useSortableData";
 
 // ---------------------------------------------------------------------------
 // PlayerTimeline sub-component

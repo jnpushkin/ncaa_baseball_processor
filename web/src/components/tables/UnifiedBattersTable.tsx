@@ -7,7 +7,9 @@ import TeamLogo from "@/components/shared/TeamLogo";
 import PlayerLink from "@/components/shared/PlayerLink";
 import LevelLeagueFilter from "@/components/shared/LevelLeagueFilter";
 import SortableHeader from "@/components/shared/SortableHeader";
+import PaginationControls from "@/components/shared/PaginationControls";
 import { useSortableData } from "@/hooks/useSortableData";
+import { usePagination } from "@/hooks/usePagination";
 import { filterByLevelLeague, groupByPlayer } from "@/lib/filters";
 import { getTeamDisplayName } from "@/lib/data";
 
@@ -72,6 +74,8 @@ export default function UnifiedBattersTable({
     { key: "g", direction: "desc" },
     "ab"
   );
+  const sortedBatters = items as CombinedBatter[];
+  const pagination = usePagination(sortedBatters, 100);
 
   const renderBatterRow = (
     b: CombinedBatter,
@@ -188,7 +192,7 @@ export default function UnifiedBattersTable({
   return (
     <div className="panel">
       <div className="panel-header">
-        <h2>All Batters ({filtered.length})</h2>
+        <h2>All Batters ({sortedBatters.length})</h2>
       </div>
       <LevelLeagueFilter
         levelFilter={levelFilter}
@@ -298,20 +302,24 @@ export default function UnifiedBattersTable({
             </tr>
           </thead>
           <tbody>
-            {(items as CombinedBatter[]).slice(0, 200).map((b, i) => (
-              <Fragment key={i}>
-                {renderBatterRow(b, i, false)}
-                {b.isCombined &&
-                  b.bref_id &&
-                  expandedPlayers.has(b.bref_id) &&
-                  (b.subRows ?? []).map((sub, j) =>
-                    renderBatterRow(sub, `${i}-${j}`, true)
-                  )}
-              </Fragment>
-            ))}
+            {pagination.pageItems.map((b, i) => {
+              const rowKey = b.bref_id || `${b.name}-${b.team}-${pagination.start + i}`;
+              return (
+                <Fragment key={rowKey}>
+                  {renderBatterRow(b, rowKey, false)}
+                  {b.isCombined &&
+                    b.bref_id &&
+                    expandedPlayers.has(b.bref_id) &&
+                    (b.subRows ?? []).map((sub, j) =>
+                      renderBatterRow(sub, `${rowKey}-${j}`, true)
+                    )}
+                </Fragment>
+              );
+            })}
           </tbody>
         </table>
       </div>
+      <PaginationControls {...pagination} />
     </div>
   );
 }

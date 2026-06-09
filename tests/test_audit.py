@@ -15,6 +15,58 @@ def _write_site(web_dir, site_data, details):
         (games_dir / f"{game_id}.json").write_text(json.dumps(detail), encoding="utf-8")
 
 
+def _empty_site(game_id):
+    return {
+        "unifiedGameLog": [{"game_id": game_id}],
+        "unifiedBatters": [],
+        "unifiedPitchers": [],
+        "batterGames": [],
+        "pitcherGames": [],
+        "milestones": {},
+    }
+
+
+def _detail_payload(game_id, box_score):
+    return {
+        "game_id": game_id,
+        "source": "ncaa",
+        "date_yyyymmdd": "20250222",
+        "away_team": "Source Away",
+        "home_team": "Source Home",
+        "away_score": 5,
+        "home_score": 3,
+        "venue": "Source Field",
+        "box_score": box_score,
+    }
+
+
+def _source_truth_payload(game_id, box_score):
+    return {
+        game_id: {
+            "game_id": game_id,
+            "source": "ncaa",
+            "date_yyyymmdd": "20250222",
+            "away_team": "Source Away",
+            "home_team": "Source Home",
+            "away_score": 5,
+            "home_score": 3,
+            "venue": "Source Field",
+            "box_score": box_score,
+        }
+    }
+
+
+def _box_score(**sections):
+    box_score = {
+        "away_batting": [],
+        "home_batting": [],
+        "away_pitching": [],
+        "home_pitching": [],
+    }
+    box_score.update(sections)
+    return box_score
+
+
 def test_generated_audit_flags_impossible_detail_batting_stats(tmp_path):
     game_id = "bad_game"
     _write_site(
@@ -321,3 +373,143 @@ def test_generated_audit_accepts_mckenzie_golden_game(tmp_path):
     _summary, issues, _warnings = audit_generated_website(tmp_path)
 
     assert issues == []
+
+
+def test_source_truth_mismatches_warn_without_blocking(tmp_path):
+    game_id = "source_truth_warning"
+    actual_row = {
+        "name": "Source Batter",
+        "full_name": "Source Batter",
+        "team": "Source Away",
+        "bref_id": "source-batter-1",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0,
+        "cs": 0,
+    }
+    expected_row = {**actual_row, "h": 2}
+    _write_site(
+        tmp_path,
+        _empty_site(game_id),
+        {game_id: _detail_payload(game_id, _box_score(away_batting=[actual_row]))},
+    )
+
+    summary, issues, warnings = audit_generated_website(
+        tmp_path,
+        expected_source_truth=_source_truth_payload(game_id, _box_score(away_batting=[expected_row])),
+    )
+
+    assert issues == []
+    assert summary["source_truth_mismatches"] == 1
+    assert any("source_truth" in warning and "generated h=1" in warning for warning in warnings)
+
+
+def test_source_truth_mismatches_can_be_strict_errors(tmp_path):
+    game_id = "source_truth_strict"
+    actual_row = {
+        "name": "Source Batter",
+        "full_name": "Source Batter",
+        "team": "Source Away",
+        "bref_id": "source-batter-1",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0,
+        "cs": 0,
+    }
+    expected_row = {**actual_row, "h": 2}
+    _write_site(
+        tmp_path,
+        _empty_site(game_id),
+        {game_id: _detail_payload(game_id, _box_score(away_batting=[actual_row]))},
+    )
+
+    _summary, issues, warnings = audit_generated_website(
+        tmp_path,
+        expected_source_truth=_source_truth_payload(game_id, _box_score(away_batting=[expected_row])),
+        strict_source_truth=True,
+    )
+
+    assert warnings == []
+    assert any("source_truth" in issue and "generated h=1" in issue for issue in issues)
+
+
+def test_source_truth_flags_missing_generated_rows(tmp_path):
+    game_id = "source_truth_missing_row"
+    expected_row = {
+        "name": "Missing Batter",
+        "full_name": "Missing Batter",
+        "team": "Source Away",
+        "bref_id": "missing-batter-1",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "k": 1,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0,
+        "cs": 0,
+    }
+    _write_site(
+        tmp_path,
+        _empty_site(game_id),
+        {game_id: _detail_payload(game_id, _box_score())},
+    )
+
+    _summary, issues, _warnings = audit_generated_website(
+        tmp_path,
+        expected_source_truth=_source_truth_payload(game_id, _box_score(away_batting=[expected_row])),
+        strict_source_truth=True,
+    )
+
+    assert any("missing generated row for Missing Batter" in issue for issue in issues)
+
+
+def test_source_truth_skips_untrusted_pitcher_np_and_hr(tmp_path):
+    game_id = "source_truth_untrusted_pitching"
+    actual_row = {
+        "name": "Source Pitcher",
+        "full_name": "Source Pitcher",
+        "team": "Source Away",
+        "bref_id": "source-pitcher-1",
+        "ip": "1.0",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 2,
+        "hr": 0,
+        "bf": 4,
+        "np": 0,
+    }
+    expected_row = {**actual_row, "hr": 3, "np": 99}
+    _write_site(
+        tmp_path,
+        _empty_site(game_id),
+        {game_id: _detail_payload(game_id, _box_score(away_pitching=[actual_row]))},
+    )
+
+    _summary, issues, warnings = audit_generated_website(
+        tmp_path,
+        expected_source_truth=_source_truth_payload(game_id, _box_score(away_pitching=[expected_row])),
+        strict_source_truth=True,
+    )
+
+    assert not any(issue.startswith("source_truth") for issue in issues)
+    assert warnings == []

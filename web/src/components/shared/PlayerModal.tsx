@@ -15,6 +15,7 @@ interface PlayerModalProps {
   onClose: () => void;
   data: SiteData;
   unifiedStats?: UnifiedBatter | UnifiedPitcher | null;
+  onGameClick?: (game: PlayerGame) => void;
 }
 
 type BatterSummary = {
@@ -50,6 +51,7 @@ export default function PlayerModal({
   onClose,
   data,
   unifiedStats,
+  onGameClick,
 }: PlayerModalProps) {
   const isBatter = type === "batter";
   const levelColors = data.levelColors ?? {};
@@ -217,7 +219,7 @@ export default function PlayerModal({
 
           <h4 style={{ marginBottom: "12px" }}>Game Log ({games.length})</h4>
           <div className="table-container" style={{ maxHeight: "400px" }}>
-            <table>
+            <table className="data-table player-game-log-table">
               <thead>
                 <tr>
                   <th>Date</th>
@@ -249,43 +251,63 @@ export default function PlayerModal({
                 </tr>
               </thead>
               <tbody>
-                {games.map((g, i) => (
-                  <tr key={i}>
-                    <td>{formatDate(g.date ?? g.Date ?? "")}</td>
-                    <td>
-                      <LevelBadge
-                        level={g.level ?? g.Level ?? ""}
-                        levelColors={levelColors}
-                      />
-                    </td>
-                    <td>
-                      {getTeamDisplayName(g.opponent ?? g.Opponent ?? "", data)}
-                    </td>
-                    {isBatter ? (
-                      <>
-                        <td className="text-center">{g.ab}</td>
-                        <td className="text-center">{g.r}</td>
-                        <td className="text-center">{g.h}</td>
-                        <td className="text-center">{g.doubles ?? 0}</td>
-                        <td className="text-center">{g.triples ?? 0}</td>
-                        <td className="text-center">{g.hr ?? 0}</td>
-                        <td className="text-center">{g.rbi}</td>
-                        <td className="text-center">{g.bb}</td>
-                        <td className="text-center">{g.k}</td>
-                        <td className="text-center">{g.sb ?? 0}</td>
-                      </>
-                    ) : (
-                      <>
-                        <td className="text-center">{g.ip}</td>
-                        <td className="text-center">{g.h}</td>
-                        <td className="text-center">{g.r}</td>
-                        <td className="text-center">{g.er}</td>
-                        <td className="text-center">{g.bb}</td>
-                        <td className="text-center">{g.k}</td>
-                      </>
-                    )}
-                  </tr>
-                ))}
+                {games.map((g, i) => {
+                  const canOpenGame = Boolean(
+                    onGameClick &&
+                      (g.game_id || ((g.date || g.Date) && (g.opponent || g.Opponent)))
+                  );
+                  return (
+                    <tr
+                      key={`${g.game_id ?? g.date ?? g.Date ?? "game"}-${i}`}
+                      className={canOpenGame ? "clickable-row" : ""}
+                      tabIndex={canOpenGame ? 0 : undefined}
+                      title={canOpenGame ? "Open game details" : undefined}
+                      onClick={() => {
+                        if (canOpenGame) onGameClick?.(g);
+                      }}
+                      onKeyDown={(event) => {
+                        if (canOpenGame && (event.key === "Enter" || event.key === " ")) {
+                          event.preventDefault();
+                          onGameClick?.(g);
+                        }
+                      }}
+                    >
+                      <td>{formatDate(g.date ?? g.Date ?? "")}</td>
+                      <td>
+                        <LevelBadge
+                          level={g.level ?? g.Level ?? ""}
+                          levelColors={levelColors}
+                        />
+                      </td>
+                      <td>
+                        {getTeamDisplayName(g.opponent ?? g.Opponent ?? "", data)}
+                      </td>
+                      {isBatter ? (
+                        <>
+                          <td className="text-center">{g.ab}</td>
+                          <td className="text-center">{g.r}</td>
+                          <td className="text-center">{g.h}</td>
+                          <td className="text-center">{g.doubles ?? 0}</td>
+                          <td className="text-center">{g.triples ?? 0}</td>
+                          <td className="text-center">{g.hr ?? 0}</td>
+                          <td className="text-center">{g.rbi}</td>
+                          <td className="text-center">{g.bb}</td>
+                          <td className="text-center">{g.k}</td>
+                          <td className="text-center">{g.sb ?? 0}</td>
+                        </>
+                      ) : (
+                        <>
+                          <td className="text-center">{g.ip}</td>
+                          <td className="text-center">{g.h}</td>
+                          <td className="text-center">{g.r}</td>
+                          <td className="text-center">{g.er}</td>
+                          <td className="text-center">{g.bb}</td>
+                          <td className="text-center">{g.k}</td>
+                        </>
+                      )}
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

@@ -8,13 +8,14 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
 
-from .normalization import normalize_game
+from .normalization import build_player_name_aliases, normalize_game
 from .sources import _team_slug
 from .utils.constants import BASE_DIR, CACHE_DIR, MILB_CACHE_DIR, NCAA_API_CACHE_DIR, PARTNER_CACHE_DIR
 from .utils.helpers import (
     is_placeholder_player_name,
     is_single_initial_player_name,
     normalize_player_name,
+    parse_innings_pitched,
     safe_int,
 )
 
@@ -29,6 +30,20 @@ SOURCE_CACHE_GROUPS = [
     ("partner", PARTNER_CACHE_DIR, "*.json"),
 ]
 
+SOURCE_TRUTH_BATTING_FIELDS = ("ab", "r", "h", "rbi", "bb", "k", "doubles", "triples", "hr", "sb", "cs")
+
+# NCAA API pitcher pitch counts are currently a strikes proxy and pitcher HR can be
+# fabricated as zero, so keep those out of the source-truth comparison until they
+# are authoritative for every source shape.
+SOURCE_TRUTH_PITCHING_FIELDS = ("ip", "h", "r", "er", "bb", "k", "bf")
+
+SOURCE_TRUTH_SECTIONS = {
+    "away_batting": SOURCE_TRUTH_BATTING_FIELDS,
+    "home_batting": SOURCE_TRUTH_BATTING_FIELDS,
+    "away_pitching": SOURCE_TRUTH_PITCHING_FIELDS,
+    "home_pitching": SOURCE_TRUTH_PITCHING_FIELDS,
+}
+
 
 def _load_cache_entries() -> List[CacheEntry]:
     entries: List[CacheEntry] = []
@@ -42,6 +57,24 @@ def _load_cache_entries() -> List[CacheEntry]:
             except Exception as exc:
                 entries.append((source_group, path, {"__load_error__": str(exc)}))
     return entries
+
+
+def _processing_games_from_cache() -> list[Dict[str, Any]]:
+    from .sources import merge_duplicate_ncaa_games
+
+    ncaa_games: list[Dict[str, Any]] = []
+    ncaa_api_games: list[Dict[str, Any]] = []
+    pro_minor_games: list[Dict[str, Any]] = []
+    for source_group, _path, game in _load_cache_entries():
+        if "__load_error__" in game:
+            continue
+        if source_group == "ncaa":
+            ncaa_games.append(game)
+        elif source_group == "ncaa_api":
+            ncaa_api_games.append(game)
+        else:
+            pro_minor_games.append(game)
+    return merge_duplicate_ncaa_games(ncaa_games + ncaa_api_games) + pro_minor_games
 
 
 def _row_count(normalized_game: Dict[str, Any], section: str) -> int:
@@ -130,6 +163,159 @@ def _detail_rows(detail: Dict[str, Any], key: str) -> Iterable[Dict[str, Any]]:
 def _person_key(name: Any) -> str:
     normalized = normalize_player_name(str(name or ""))
     return re.sub(r"[^a-z0-9]+", " ", normalized.lower()).strip()
+
+
+def _source_truth_expected_from_games(processing_games: list[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    from .website.generator import _build_raw_game_index, _serialize_detail_box_score
+
+    expected: Dict[str, Dict[str, Any]] = {}
+    player_name_aliases = build_player_name_aliases(processing_games)
+    game_index = _build_raw_game_index(processing_games)
+    for records in game_index.values():
+        for game_id, source, raw_game in records:
+            normalized = normalize_game(raw_game, player_name_aliases=player_name_aliases)
+            basic = normalized.get("basic_info", {}) or {}
+            expected[game_id] = {
+                "game_id": game_id,
+                "source": source,
+                "date_yyyymmdd": basic.get("date_yyyymmdd", ""),
+                "away_team": basic.get("away_team", ""),
+                "home_team": basic.get("home_team", ""),
+                "away_score": basic.get("away_score_value", 0),
+                "home_score": basic.get("home_score_value", 0),
+                "venue": basic.get("venue", ""),
+                "box_score": _serialize_detail_box_score(normalized),
+            }
+    return expected
+
+
+def _source_truth_row_label(row: Dict[str, Any]) -> str:
+    return str(
+        row.get("full_name")
+        or row.get("name")
+        or row.get("player_id")
+        or row.get("bref_id")
+        or "Unknown"
+    )
+
+
+def _source_truth_row_key(row: Dict[str, Any]) -> str:
+    bref_id = str(row.get("bref_id") or "").strip()
+    if bref_id:
+        return f"bref:{bref_id}"
+    player_id = str(row.get("player_id") or "").strip()
+    if player_id:
+        return f"player:{player_id}"
+    name = _person_key(row.get("full_name") or row.get("name"))
+    if not name:
+        return ""
+    team = _team_slug(row.get("team") or "")
+    return f"name:{team}:{name}"
+
+
+def _source_truth_row_map(
+    game_id: str,
+    section: str,
+    rows: Iterable[Dict[str, Any]],
+) -> tuple[Dict[str, Dict[str, Any]], list[str]]:
+    mapped: Dict[str, Dict[str, Any]] = {}
+    issues: list[str] = []
+    for index, row in enumerate(rows):
+        key = _source_truth_row_key(row)
+        label = _source_truth_row_label(row)
+        if not key:
+            issues.append(f"source_truth:{game_id}:{section}[{index}] {label}: missing row identity")
+            continue
+        if key in mapped:
+            issues.append(f"source_truth:{game_id}:{section}: duplicate row identity for {label}")
+            continue
+        mapped[key] = row
+    return mapped, issues
+
+
+def _source_truth_stat_value(field: str, value: Any) -> Any:
+    if field == "ip":
+        return round(parse_innings_pitched(str(value or "0").strip()), 3)
+    return safe_int(value)
+
+
+def _source_truth_detail_value(field: str, value: Any) -> Any:
+    if field in {"away_score", "home_score"}:
+        return safe_int(value)
+    if field in {"away_team", "home_team"}:
+        return _team_slug(value)
+    return str(value or "").strip()
+
+
+def _source_truth_findings(
+    expected_by_id: Dict[str, Dict[str, Any]],
+    detail_payloads: Dict[str, Dict[str, Any]],
+) -> list[str]:
+    findings: list[str] = []
+    for game_id in sorted(expected_by_id):
+        expected = expected_by_id[game_id]
+        actual = detail_payloads.get(game_id)
+        if not actual:
+            findings.append(f"source_truth:{game_id}: missing generated detail JSON")
+            continue
+
+        for field in ("source", "date_yyyymmdd", "away_team", "home_team", "away_score", "home_score", "venue"):
+            expected_value = _source_truth_detail_value(field, expected.get(field))
+            if expected_value in {"", "0"} and field not in {"away_score", "home_score"}:
+                continue
+            actual_value = _source_truth_detail_value(field, actual.get(field))
+            if actual_value != expected_value:
+                findings.append(
+                    f"source_truth:{game_id}: detail {field}={actual.get(field)!r} "
+                    f"does not match source {expected.get(field)!r}"
+                )
+
+        expected_box = expected.get("box_score", {}) or {}
+        actual_box = actual.get("box_score", {}) or {}
+        for section, fields in SOURCE_TRUTH_SECTIONS.items():
+            expected_rows, row_issues = _source_truth_row_map(
+                game_id,
+                section,
+                expected_box.get(section, []) or [],
+            )
+            findings.extend(row_issues)
+            actual_rows, row_issues = _source_truth_row_map(
+                game_id,
+                section,
+                actual_box.get(section, []) or [],
+            )
+            findings.extend(row_issues)
+
+            missing_keys = sorted(set(expected_rows) - set(actual_rows))
+            extra_keys = sorted(set(actual_rows) - set(expected_rows))
+            for key in missing_keys:
+                label = _source_truth_row_label(expected_rows[key])
+                findings.append(f"source_truth:{game_id}:{section}: missing generated row for {label}")
+            for key in extra_keys:
+                label = _source_truth_row_label(actual_rows[key])
+                findings.append(f"source_truth:{game_id}:{section}: generated extra row for {label}")
+
+            for key in sorted(set(expected_rows) & set(actual_rows)):
+                expected_row = expected_rows[key]
+                actual_row = actual_rows[key]
+                label = _source_truth_row_label(expected_row)
+                for field in fields:
+                    if field not in actual_row:
+                        findings.append(f"source_truth:{game_id}:{section}:{label}: missing generated {field}")
+                        continue
+                    expected_value = _source_truth_stat_value(field, expected_row.get(field))
+                    actual_value = _source_truth_stat_value(field, actual_row.get(field))
+                    if actual_value != expected_value:
+                        findings.append(
+                            f"source_truth:{game_id}:{section}:{label}: generated {field}={actual_row.get(field)!r} "
+                            f"does not match source {expected_row.get(field)!r}"
+                        )
+
+    extra_detail_ids = sorted(set(detail_payloads) - set(expected_by_id))
+    for game_id in extra_detail_ids:
+        findings.append(f"source_truth:{game_id}: generated detail JSON has no source-truth cache game")
+
+    return findings
 
 
 def _rate_string(value: float) -> str:
@@ -399,7 +585,9 @@ def audit_generated_website(
     *,
     expected_cache_games: int | None = None,
     expected_game_ids: set[str] | None = None,
+    expected_source_truth: Dict[str, Dict[str, Any]] | None = None,
     strict_cache_count: bool = False,
+    strict_source_truth: bool = False,
 ) -> tuple[dict[str, Any], list[str], list[str]]:
     """Audit generated website data without requiring a specific architecture."""
     web_dir = web_dir or (BASE_DIR / "web")
@@ -566,6 +754,14 @@ def audit_generated_website(
         issues.extend(_detail_batting_stat_issues(path, detail))
         issues.extend(_detail_pitching_stat_issues(path, detail))
 
+    source_truth_findings: list[str] = []
+    if expected_source_truth is not None:
+        source_truth_findings = _source_truth_findings(expected_source_truth, detail_payloads)
+        if strict_source_truth:
+            issues.extend(source_truth_findings)
+        else:
+            warnings.extend(source_truth_findings)
+
     stat_issues = (
         _milestone_detail_consistency_issues(site_data, detail_payloads)
         + _unified_batter_rate_issues(site_data)
@@ -582,41 +778,46 @@ def audit_generated_website(
         "detail_files": len(detail_files),
         "missing_detail_files": len(missing_details),
         "stat_accuracy_errors": len(stat_issues),
+        "source_truth_mismatches": len(source_truth_findings),
         "source_merge_warnings": source_merge_warnings,
         "unmerged_source_candidates": unmerged_source_candidates,
     }
     return summary, issues, warnings
 
 
-def run_integrity_audit(*, strict_generated_from_cache: bool = False) -> tuple[dict[str, Any], list[str], list[str]]:
+def run_integrity_audit(
+    *,
+    strict_generated_from_cache: bool = False,
+    source_truth: bool = False,
+    strict_source_truth: bool = False,
+) -> tuple[dict[str, Any], list[str], list[str]]:
     """Run all local data-preservation checks."""
     cache_summary, cache_issues = audit_cached_games()
     expected_game_ids = None
     expected_game_count = cache_summary["normalized_games"]
+    expected_source_truth = None
+    processing_games = None
+    if strict_generated_from_cache or source_truth or strict_source_truth:
+        processing_games = _processing_games_from_cache()
+
     if strict_generated_from_cache:
         from .website.generator import _build_raw_game_index
-        from .sources import merge_duplicate_ncaa_games
 
-        ncaa_games: list[Dict[str, Any]] = []
-        ncaa_api_games: list[Dict[str, Any]] = []
-        pro_minor_games: list[Dict[str, Any]] = []
-        for source_group, _path, game in _load_cache_entries():
-            if "__load_error__" in game:
-                continue
-            if source_group == "ncaa":
-                ncaa_games.append(game)
-            elif source_group == "ncaa_api":
-                ncaa_api_games.append(game)
-            else:
-                pro_minor_games.append(game)
-        processing_games = merge_duplicate_ncaa_games(ncaa_games + ncaa_api_games) + pro_minor_games
+        processing_games = processing_games or _processing_games_from_cache()
         index = _build_raw_game_index(processing_games)
         expected_game_ids = {record[0] for bucket in index.values() for record in bucket}
         expected_game_count = len(expected_game_ids)
+
+    if source_truth or strict_source_truth:
+        processing_games = processing_games or _processing_games_from_cache()
+        expected_source_truth = _source_truth_expected_from_games(processing_games)
+
     site_summary, site_issues, warnings = audit_generated_website(
         expected_cache_games=expected_game_count,
         expected_game_ids=expected_game_ids,
+        expected_source_truth=expected_source_truth,
         strict_cache_count=strict_generated_from_cache,
+        strict_source_truth=strict_source_truth,
     )
     summary = {
         "cache": cache_summary,

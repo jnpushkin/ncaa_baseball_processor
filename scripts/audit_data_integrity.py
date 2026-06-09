@@ -22,10 +22,24 @@ def main() -> int:
         action="store_true",
         help="Require generated website game/detail counts to match all cached games.",
     )
+    parser.add_argument(
+        "--source-truth",
+        action="store_true",
+        help="Compare generated detail JSON to normalized source-truth rows and report mismatches as warnings.",
+    )
+    parser.add_argument(
+        "--strict-source-truth",
+        action="store_true",
+        help="Fail when generated detail JSON disagrees with normalized source-truth rows.",
+    )
     parser.add_argument("--json", action="store_true", help="Print machine-readable audit output.")
     args = parser.parse_args()
 
-    summary, issues, warnings = run_integrity_audit(strict_generated_from_cache=args.strict_generated_from_cache)
+    summary, issues, warnings = run_integrity_audit(
+        strict_generated_from_cache=args.strict_generated_from_cache,
+        source_truth=args.source_truth,
+        strict_source_truth=args.strict_source_truth,
+    )
 
     if args.json:
         print(json.dumps({"summary": summary, "warnings": warnings, "issues": issues}, indent=2, sort_keys=True))
@@ -47,7 +61,8 @@ def main() -> int:
                 f"{website['linked_games']} linked game(s), "
                 f"{website['detail_files']} detail file(s), "
                 f"{website['missing_detail_files']} missing detail file(s), "
-                f"{website.get('stat_accuracy_errors', 0)} stat accuracy error(s)"
+                f"{website.get('stat_accuracy_errors', 0)} stat accuracy error(s), "
+                f"{website.get('source_truth_mismatches', 0)} source-truth mismatch(es)"
             )
         for warning in warnings:
             print(f"WARNING: {warning}")

@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import type { SiteData, NormalizedPlayer, MilestoneEntry, UnifiedGame } from "@/types";
+import type { SiteData, NormalizedPlayer, MilestoneEntry, UnifiedGame, PlayerGame } from "@/types";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import TabBar from "@/components/layout/TabBar";
@@ -155,6 +155,21 @@ function writeHash(hash: string, mode: "push" | "replace" = "replace") {
   }
 }
 
+function normalizeSlashDate(value?: string) {
+  if (!value) return "";
+  const parts = value.split("/");
+  if (parts.length !== 3) return value;
+  const month = Number(parts[0]);
+  const day = Number(parts[1]);
+  const year = Number(parts[2]);
+  if (!month || !day || !year) return value;
+  return `${month}/${day}/${year}`;
+}
+
+function normalizeMatchName(value?: string) {
+  return String(value ?? "").trim().toLowerCase();
+}
+
 export default function App({ data: initialData }: AppProps) {
   const [data, setData] = useState<SiteData>(initialData ?? EMPTY_SITE_DATA);
   const [isLoadingData, setIsLoadingData] = useState(!initialData);
@@ -213,6 +228,35 @@ export default function App({ data: initialData }: AppProps) {
         setActiveTab("allGames");
         setSelectedGameIndex(idx);
         if (game.game_id) setGameHash(game.game_id, "push");
+      }
+    },
+    [gameLog, setGameHash]
+  );
+
+  const openPlayerGame = useCallback(
+    (playerGame: PlayerGame) => {
+      const rawGameId = playerGame.game_id;
+      const playerDate = normalizeSlashDate(playerGame.date ?? playerGame.Date);
+      const team = normalizeMatchName(playerGame.team);
+      const opponent = normalizeMatchName(playerGame.opponent ?? playerGame.Opponent);
+      const idx = gameLog.findIndex((game) => {
+        if (rawGameId && game.game_id === rawGameId) return true;
+        const sameDate = normalizeSlashDate(game.date) === playerDate;
+        if (!sameDate || !team || !opponent) return false;
+        const away = normalizeMatchName(game.away_team);
+        const home = normalizeMatchName(game.home_team);
+        return (
+          (away === team && home === opponent) ||
+          (away === opponent && home === team)
+        );
+      });
+      if (idx >= 0) {
+        setSelectedPlayer(null);
+        setPlayerType(null);
+        setActiveTab("allGames");
+        setSelectedGameIndex(idx);
+        const gameId = gameLog[idx].game_id;
+        if (gameId) setGameHash(gameId, "push");
       }
     },
     [gameLog, setGameHash]
@@ -465,6 +509,7 @@ export default function App({ data: initialData }: AppProps) {
             onClose={closeModal}
             data={data}
             unifiedStats={selectedUnifiedStats}
+            onGameClick={openPlayerGame}
           />
         )}
 

@@ -41,6 +41,7 @@ python3 -m baseball_processor [input_path]
 - NCAA API batting `k` can be unavailable even when placeholder or pitcher-echo rows have strikeout values; ignore placeholder rows and impossible `AB=0, K>0` batting echoes when deciding source-disagreement authority
 - NCAA API names can be initial-only or lowercase-clipped (`A. Anderson`, `aide Taurek`); do not let those overwrite better PDF/roster display names or source-quality labels
 - Sports-Reference sites hide tables in HTML comments for lazy loading - must extract and parse them with BeautifulSoup Comment class
+- MiLB Partner League detection must use exact normalized league-name matching; substring checks make `Atlantic League` match affiliated `South Atlantic League` games and misclassify them as Partner/Independent
 
 ## Error Handling
 When encountering repeated errors or discovering project-specific quirks:

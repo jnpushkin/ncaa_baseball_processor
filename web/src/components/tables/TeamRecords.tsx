@@ -5,7 +5,9 @@ import { TeamRecord, SiteData } from "@/types";
 import LevelBadge from "@/components/shared/LevelBadge";
 import LevelLeagueFilter from "@/components/shared/LevelLeagueFilter";
 import SortableHeader from "@/components/shared/SortableHeader";
+import PaginationControls from "@/components/shared/PaginationControls";
 import { useSortableData } from "@/hooks/useSortableData";
+import { usePagination } from "@/hooks/usePagination";
 import { filterByLevelLeague } from "@/lib/filters";
 import { getTeamDisplayName } from "@/lib/data";
 
@@ -17,18 +19,29 @@ interface TeamRecordsProps {
 export default function TeamRecords({ teams, data }: TeamRecordsProps) {
   const [levelFilter, setLevelFilter] = useState("All");
   const [leagueFilter, setLeagueFilter] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const levelColors = data.levelColors ?? {};
 
   const filtered = useMemo(() => {
     if (!teams) return [];
-    return filterByLevelLeague(teams, levelFilter, leagueFilter);
-  }, [teams, levelFilter, leagueFilter]);
+    let result = filterByLevelLeague(teams, levelFilter, leagueFilter);
+    if (searchTerm) {
+      const s = searchTerm.toLowerCase();
+      result = result.filter(
+        (team) =>
+          team.Team?.toLowerCase().includes(s) ||
+          team.League?.toLowerCase().includes(s)
+      );
+    }
+    return result;
+  }, [teams, levelFilter, leagueFilter, searchTerm]);
 
   const { items, sortConfig, requestSort } = useSortableData(filtered, {
     key: "W",
     direction: "desc",
   });
+  const pagination = usePagination(items, 100);
 
   return (
     <div className="panel">
@@ -41,6 +54,10 @@ export default function TeamRecords({ teams, data }: TeamRecordsProps) {
         leagueFilter={leagueFilter}
         setLeagueFilter={setLeagueFilter}
         data={teams}
+        showSearch
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        searchPlaceholder="Search teams or leagues..."
       />
       <div className="table-container">
         <table className="data-table">
@@ -103,8 +120,8 @@ export default function TeamRecords({ teams, data }: TeamRecordsProps) {
             </tr>
           </thead>
           <tbody>
-            {items.map((t, i) => (
-              <tr key={i}>
+            {pagination.pageItems.map((t, i) => (
+              <tr key={`${t.Team}-${t.Level}-${pagination.start + i}`}>
                 <td>
                   <LevelBadge level={t.Level} levelColors={levelColors} />
                 </td>
@@ -124,6 +141,7 @@ export default function TeamRecords({ teams, data }: TeamRecordsProps) {
           </tbody>
         </table>
       </div>
+      <PaginationControls {...pagination} />
     </div>
   );
 }

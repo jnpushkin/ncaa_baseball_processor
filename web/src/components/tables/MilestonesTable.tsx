@@ -6,8 +6,10 @@ import { filterByLevelLeague } from "@/lib/filters";
 import { formatDate } from "@/lib/baseball";
 import LevelBadge from "@/components/shared/LevelBadge";
 import SortableHeader from "@/components/shared/SortableHeader";
+import PaginationControls from "@/components/shared/PaginationControls";
 import { getTeamDisplayName } from "@/lib/teams";
 import { useSortableData } from "@/hooks/useSortableData";
+import { usePagination } from "@/hooks/usePagination";
 import TeamLogo from "@/components/shared/TeamLogo";
 
 export interface MilestonesTableProps {
@@ -58,6 +60,7 @@ export default function MilestonesTable({
     key: "Date",
     direction: "desc",
   });
+  const pagination = usePagination(items, 50);
 
   if (!filtered || filtered.length === 0) return null;
 
@@ -86,10 +89,10 @@ export default function MilestonesTable({
             </tr>
           </thead>
           <tbody>
-            {items.slice(0, 50).map((row, i) => {
+            {pagination.pageItems.map((row, i) => {
               const isPitcher = row["IP"] !== undefined;
               return (
-                <tr key={i}>
+                <tr key={`${row.Date}-${row.Player}-${row.Team}-${pagination.start + i}`}>
                   {allColumns.map((col) => (
                     <td
                       key={col}
@@ -139,6 +142,7 @@ export default function MilestonesTable({
           </tbody>
         </table>
       </div>
+      <PaginationControls {...pagination} pageSizeOptions={[25, 50, 100, 200]} />
     </div>
   );
 }

@@ -3,6 +3,8 @@
 import type { DataQualityIssue, SiteData, SourceMergeGame } from "@/types";
 import { formatDate } from "@/lib/baseball";
 import LevelBadge from "@/components/shared/LevelBadge";
+import PaginationControls from "@/components/shared/PaginationControls";
+import { usePagination } from "@/hooks/usePagination";
 
 interface DataQualityPanelProps {
   data: SiteData;
@@ -70,6 +72,8 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
   const issues = quality?.sourceMerge.issues ?? [];
   const warnings = issues.filter((issue) => issue.severity === "warning");
   const unmerged = quality?.sourceMerge.unmergedCandidates ?? [];
+  const reviewPagination = usePagination(reviewGames, 100);
+  const issuePagination = usePagination(issues, 100);
 
   return (
     <div className="quality-page">
@@ -127,7 +131,7 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
               </tr>
             </thead>
             <tbody>
-              {reviewGames.map((game) => (
+              {reviewPagination.pageItems.map((game) => (
                 <tr key={game.game_id ?? `${game.date}-${game.away_team}-${game.home_team}`}>
                   <td>{formatDate(game.date ?? "")}</td>
                   <td>
@@ -159,6 +163,7 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
             </tbody>
           </table>
         </div>
+        <PaginationControls {...reviewPagination} />
       </div>
 
       <div className="panel">
@@ -178,7 +183,7 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
               </tr>
             </thead>
             <tbody>
-              {issues.slice(0, 200).map((issue, index) => (
+              {issuePagination.pageItems.map((issue, index) => (
                 <tr key={`${issue.game_id ?? "issue"}-${index}`}>
                   <td>{formatDate(issue.date ?? "")}</td>
                   <td>
@@ -205,6 +210,7 @@ export default function DataQualityPanel({ data }: DataQualityPanelProps) {
             </tbody>
           </table>
         </div>
+        <PaginationControls {...issuePagination} />
       </div>
     </div>
   );

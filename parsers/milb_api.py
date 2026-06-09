@@ -38,6 +38,46 @@ PARTNER_LEAGUES = {
     'Pioneer League',
 }
 
+AFFILIATED_MILB_LEAGUES = {
+    'International League',
+    'Pacific Coast League',
+    'Eastern League',
+    'Southern League',
+    'Texas League',
+    'Midwest League',
+    'South Atlantic League',
+    'Northwest League',
+    'California League',
+    'Carolina League',
+    'Florida State League',
+    'Arizona Complex League',
+    'Florida Complex League',
+    'Dominican Summer League',
+}
+
+
+def _normalized_league_name(name: Any) -> str:
+    return ' '.join(str(name or '').casefold().replace('-', ' ').split())
+
+
+def _is_partner_league_name(name: Any) -> bool:
+    normalized = _normalized_league_name(name)
+    if not normalized:
+        return False
+    partner_names = {_normalized_league_name(league) for league in PARTNER_LEAGUES}
+    partner_names.update(
+        _normalized_league_name(f'{league} of Professional Baseball')
+        for league in PARTNER_LEAGUES
+    )
+    return normalized in partner_names
+
+
+def _is_affiliated_milb_league_name(name: Any) -> bool:
+    normalized = _normalized_league_name(name)
+    if not normalized:
+        return False
+    return normalized in {_normalized_league_name(league) for league in AFFILIATED_MILB_LEAGUES}
+
 
 def fetch_game_boxscore(game_pk: int) -> Dict[str, Any]:
     """
@@ -162,6 +202,40 @@ def parse_pitching_stats(player_data: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def _pitching_rows_in_appearance_order(team_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    players = team_data.get('players', {}) or {}
+    ordered_pitcher_ids = team_data.get('pitchers', []) or []
+    rows: List[Dict[str, Any]] = []
+    seen_ids = set()
+
+    def maybe_append(player_data: Dict[str, Any]) -> None:
+        if not player_data.get('stats', {}).get('pitching'):
+            return
+        stats = parse_pitching_stats(player_data)
+        if stats.get('ip', '0.0') == '0.0' and stats.get('bf', 0) <= 0:
+            return
+        player_id = stats.get('player_id')
+        if player_id:
+            seen_ids.add(str(player_id))
+        rows.append(stats)
+
+    for pitcher_id in ordered_pitcher_ids:
+        player_data = players.get(f'ID{pitcher_id}')
+        if player_data:
+            maybe_append(player_data)
+
+    # Fallback for malformed API responses where the pitchers list is missing
+    # or incomplete. Keep this after the ordered pass so normal games preserve
+    # appearance order instead of arbitrary player-map order.
+    for player_data in players.values():
+        player_id = player_data.get('person', {}).get('id')
+        if player_id and str(player_id) in seen_ids:
+            continue
+        maybe_append(player_data)
+
+    return rows
+
+
 def parse_boxscore(boxscore_data: Dict[str, Any], game_feed: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     """
     Parse API boxscore response into NCAA processor format.
@@ -225,20 +299,8 @@ def parse_boxscore(boxscore_data: Dict[str, Any], game_feed: Optional[Dict[str, 
     home_batters.sort(key=lambda x: x.get('batting_order') or 999)
 
     # Parse pitching
-    away_pitchers = []
-    home_pitchers = []
-
-    for player_key, player_data in away_data.get('players', {}).items():
-        if player_data.get('stats', {}).get('pitching'):
-            stats = parse_pitching_stats(player_data)
-            if stats.get('ip', '0.0') != '0.0' or stats.get('bf', 0) > 0:
-                away_pitchers.append(stats)
-
-    for player_key, player_data in home_data.get('players', {}).items():
-        if player_data.get('stats', {}).get('pitching'):
-            stats = parse_pitching_stats(player_data)
-            if stats.get('ip', '0.0') != '0.0' or stats.get('bf', 0) > 0:
-                home_pitchers.append(stats)
+    away_pitchers = _pitching_rows_in_appearance_order(away_data)
+    home_pitchers = _pitching_rows_in_appearance_order(home_data)
 
     # Get team totals
     away_batting_totals = away_data.get('teamStats', {}).get('batting', {})
@@ -250,15 +312,19 @@ def parse_boxscore(boxscore_data: Dict[str, Any], game_feed: Optional[Dict[str, 
     away_parent = away_team.get('parentOrgName', '')
     home_parent = home_team.get('parentOrgName', '')
 
-    # Check if either team is from a Partner League
-    is_partner = False
-    for league in PARTNER_LEAGUES:
-        if league in away_league or league in home_league:
-            is_partner = True
-            break
+    # Check if either team is from a Partner League. Use exact normalized names
+    # so affiliated leagues like "South Atlantic League" do not match
+    # "Atlantic League".
+    is_partner = _is_partner_league_name(away_league) or _is_partner_league_name(home_league)
 
-    # Also check if no parent org (independent team)
-    if not away_parent and not home_parent:
+    # Also check if no parent org (independent team), unless the league name is
+    # an affiliated MiLB league and the API simply omitted parent org metadata.
+    if (
+        not away_parent
+        and not home_parent
+        and not _is_affiliated_milb_league_name(away_league)
+        and not _is_affiliated_milb_league_name(home_league)
+    ):
         is_partner = True
 
     source = 'partner' if is_partner else 'milb'

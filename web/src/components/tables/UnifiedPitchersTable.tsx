@@ -7,7 +7,9 @@ import TeamLogo from "@/components/shared/TeamLogo";
 import PlayerLink from "@/components/shared/PlayerLink";
 import LevelLeagueFilter from "@/components/shared/LevelLeagueFilter";
 import SortableHeader from "@/components/shared/SortableHeader";
+import PaginationControls from "@/components/shared/PaginationControls";
 import { useSortableData } from "@/hooks/useSortableData";
+import { usePagination } from "@/hooks/usePagination";
 import { filterByLevelLeague, groupByPlayer } from "@/lib/filters";
 import { ipToInnings } from "@/lib/baseball";
 import { getTeamDisplayName } from "@/lib/data";
@@ -75,6 +77,8 @@ export default function UnifiedPitchersTable({
     { key: "g", direction: "desc" },
     "ip"
   );
+  const sortedPitchers = items as CombinedPitcher[];
+  const pagination = usePagination(sortedPitchers, 100);
 
   const renderPitcherRow = (
     p: CombinedPitcher,
@@ -188,7 +192,7 @@ export default function UnifiedPitchersTable({
   return (
     <div className="panel">
       <div className="panel-header">
-        <h2>All Pitchers ({filtered.length})</h2>
+        <h2>All Pitchers ({sortedPitchers.length})</h2>
       </div>
       <LevelLeagueFilter
         levelFilter={levelFilter}
@@ -280,20 +284,24 @@ export default function UnifiedPitchersTable({
             </tr>
           </thead>
           <tbody>
-            {(items as CombinedPitcher[]).slice(0, 200).map((p, i) => (
-              <Fragment key={i}>
-                {renderPitcherRow(p, i, false)}
-                {p.isCombined &&
-                  p.bref_id &&
-                  expandedPlayers.has(p.bref_id) &&
-                  (p.subRows ?? []).map((sub, j) =>
-                    renderPitcherRow(sub, `${i}-${j}`, true)
-                  )}
-              </Fragment>
-            ))}
+            {pagination.pageItems.map((p, i) => {
+              const rowKey = p.bref_id || `${p.name}-${p.team}-${pagination.start + i}`;
+              return (
+                <Fragment key={rowKey}>
+                  {renderPitcherRow(p, rowKey, false)}
+                  {p.isCombined &&
+                    p.bref_id &&
+                    expandedPlayers.has(p.bref_id) &&
+                    (p.subRows ?? []).map((sub, j) =>
+                      renderPitcherRow(sub, `${rowKey}-${j}`, true)
+                    )}
+                </Fragment>
+              );
+            })}
           </tbody>
         </table>
       </div>
+      <PaginationControls {...pagination} />
     </div>
   );
 }
