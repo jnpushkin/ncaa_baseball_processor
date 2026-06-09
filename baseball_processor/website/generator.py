@@ -18,7 +18,14 @@ from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_partner_stadium_loca
 from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEAGUE_LEVEL_MAP,
                                 PRO_LEVELS, LEVEL_ORDER, LEVEL_COLORS, resolve_level_and_league)
 from ..utils.constants import NCAA_API_BASE
-from ..utils.helpers import is_placeholder_player_name, normalize_team_name, resolve_player_display_name, safe_int
+from ..utils.helpers import (
+    is_placeholder_player_name,
+    normalize_name,
+    normalize_player_name,
+    normalize_team_name,
+    resolve_player_display_name,
+    safe_int,
+)
 from ..utils.player_ids import PlayerIDMapper
 from .parity import collect_website_data_parity_issues
 from .serializers import count_notable_milestones, df_to_list, scrub_json_value, serialize_milestones
@@ -120,6 +127,135 @@ def _build_raw_game_index(raw_games: List[Dict]) -> Dict:
         home_score = str(basic.get('home_score_value', '')).strip()
         index.setdefault((ymd, away, home, away_score, home_score), []).append((gid, source, rg))
     return index
+
+
+def _date_lookup_key(value: Any) -> str:
+    if not value:
+        return ""
+    text = str(value).strip()
+    if len(text) == 8 and text.isdigit():
+        return text
+    for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y"):
+        try:
+            return datetime.strptime(text, fmt).strftime("%Y%m%d")
+        except ValueError:
+            pass
+    return ""
+
+
+def _text_lookup_key(value: Any) -> str:
+    return str(value or "").lower().strip()
+
+
+def _player_name_lookup_key(value: Any) -> str:
+    return normalize_name(normalize_player_name(str(value or "").strip()))
+
+
+def _ip_lookup_key(value: Any) -> str:
+    text = str(value or "0").strip()
+    try:
+        parsed = float(text)
+    except (TypeError, ValueError):
+        return text
+    whole = int(parsed)
+    thirds = int(round((parsed - whole) * 10))
+    return f"{whole}.{thirds}"
+
+
+def _build_player_game_lookup(raw_game_index: Dict, player_name_aliases: Dict | None = None) -> Dict:
+    """Build lookup: (yyyymmdd, team, opponent) -> canonical game candidates."""
+    lookup: Dict[tuple[str, str, str], List[Dict[str, Any]]] = {}
+    for records in raw_game_index.values():
+        for gid, source, raw_game in records:
+            normalized = normalize_game(raw_game, player_name_aliases=player_name_aliases)
+            basic = normalized.get("basic_info", {})
+            ymd = basic.get("date_yyyymmdd", "")
+            away = basic.get("away_team", "")
+            home = basic.get("home_team", "")
+            for side, team, opponent in (("away", away, home), ("home", home, away)):
+                key = (_date_lookup_key(ymd), _text_lookup_key(team), _text_lookup_key(opponent))
+                lookup.setdefault(key, []).append(
+                    {
+                        "game_id": gid,
+                        "source": source,
+                        "side": side,
+                        "batting": normalized.get("batting", {}).get(side, []),
+                        "pitching": normalized.get("pitching", {}).get(side, []),
+                    }
+                )
+    return lookup
+
+
+def _candidate_has_player_line(row: Dict[str, Any], candidate: Dict[str, Any], kind: str) -> bool:
+    rows = candidate.get("batting" if kind == "batter" else "pitching", [])
+    row_bref = str(row.get("bref_id") or "").strip()
+    row_name = _player_name_lookup_key(row.get("Name") or row.get("name"))
+
+    batter_fields = (
+        ("ab", "AB"),
+        ("r", "R"),
+        ("h", "H"),
+        ("rbi", "RBI"),
+        ("bb", "BB"),
+        ("k", "SO"),
+    )
+    pitcher_fields = (
+        ("h", "H"),
+        ("r", "R"),
+        ("er", "ER"),
+        ("bb", "BB"),
+        ("k", "SO"),
+        ("hr", "HR"),
+    )
+
+    for line in rows:
+        line_bref = str(line.get("bref_id") or line.get("register_id") or "").strip()
+        line_name = _player_name_lookup_key(line.get("full_name") or line.get("name"))
+        identity_matches = (
+            (row_bref and line_bref and row_bref == line_bref)
+            or (row_name and line_name and row_name == line_name)
+        )
+        if not identity_matches:
+            continue
+
+        if kind == "pitcher":
+            if _ip_lookup_key(row.get("ip")) != _ip_lookup_key(line.get("IP")):
+                continue
+            if all(safe_int(row.get(row_key)) == safe_int(line.get(line_key)) for row_key, line_key in pitcher_fields):
+                return True
+        else:
+            if all(safe_int(row.get(row_key)) == safe_int(line.get(line_key)) for row_key, line_key in batter_fields):
+                return True
+
+    return False
+
+
+def _canonical_player_game_reference(
+    row: Dict[str, Any],
+    kind: str,
+    player_game_lookup: Dict,
+) -> tuple[str | None, str | None]:
+    key = (
+        _date_lookup_key(row.get("date") or row.get("Date")),
+        _text_lookup_key(row.get("team")),
+        _text_lookup_key(row.get("opponent") or row.get("Opponent")),
+    )
+    candidates = player_game_lookup.get(key, [])
+    if not candidates:
+        return None, None
+
+    if len(candidates) == 1:
+        candidate = candidates[0]
+        return candidate.get("game_id"), candidate.get("source")
+
+    stat_matches = [
+        candidate for candidate in candidates if _candidate_has_player_line(row, candidate, kind)
+    ]
+    if len(stat_matches) == 1:
+        candidate = stat_matches[0]
+        return candidate.get("game_id"), candidate.get("source")
+
+    return None, None
 
 
 def _detail_batter_row(row: Dict[str, Any], extra_stats_lookup: Dict[str, Dict[str, int]] | None = None) -> Dict[str, Any]:
@@ -1160,6 +1296,11 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
     except Exception:
         id_mapper = None
 
+    # Build canonical game lookups before enriching player logs so per-player rows
+    # point at the same detail JSON ids as unifiedGameLog.
+    raw_game_index = _build_raw_game_index(raw_games)
+    player_game_lookup = _build_player_game_lookup(raw_game_index, player_name_aliases)
+
     # Get game-by-game data for players and enrich with level + bref_id
     batter_games_df = processed_data.get('batter_games', pd.DataFrame())
     pitcher_games_df = processed_data.get('pitcher_games', pd.DataFrame())
@@ -1191,7 +1332,12 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         name = bg.get('Name', '')
         team = bg.get('team', '')
         bref_id = ncaa_batter_bref.get(f"{name}|{team}", ncaa_batter_bref.get(name, ''))
-        enriched_batter_games.append({**bg, 'level': 'NCAA', 'bref_id': bref_id})
+        enriched = {**bg, 'level': 'NCAA', 'bref_id': bref_id}
+        canonical_gid, source = _canonical_player_game_reference(enriched, 'batter', player_game_lookup)
+        if canonical_gid:
+            enriched['game_id'] = canonical_gid
+            enriched['source'] = source
+        enriched_batter_games.append(enriched)
 
     # Convert NCAA pitcher_games to enriched list
     enriched_pitcher_games = []
@@ -1199,7 +1345,12 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         name = pg.get('Name', '')
         team = pg.get('team', '')
         bref_id = ncaa_pitcher_bref.get(f"{name}|{team}", ncaa_pitcher_bref.get(name, ''))
-        enriched_pitcher_games.append({**pg, 'level': 'NCAA', 'bref_id': bref_id})
+        enriched = {**pg, 'level': 'NCAA', 'bref_id': bref_id}
+        canonical_gid, source = _canonical_player_game_reference(enriched, 'pitcher', player_game_lookup)
+        if canonical_gid:
+            enriched['game_id'] = canonical_gid
+            enriched['source'] = source
+        enriched_pitcher_games.append(enriched)
 
     # Extract MiLB/Partner per-player game records from raw_games
     for game in raw_games:
@@ -1210,6 +1361,9 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         date = meta.get('date', '')
         home_team = meta.get('home_team', '')
         game_level, game_league = resolve_level_and_league(meta, home_team)
+        normalized_game = normalize_game(game, player_name_aliases=player_name_aliases)
+        game_id = normalized_game.get('game_id')
+        game_source = normalized_game.get('source')
 
         for side in ['away', 'home']:
             team = meta.get(f'{side}_team', '')
@@ -1231,9 +1385,10 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
                 if alias:
                     pname = alias.get('display_name') or pname
                     bref_id = bref_id or alias.get('bref_id', '')
-                enriched_batter_games.append({
+                enriched = {
                     'Name': pname, 'name': pname,
                     'date': date, 'team': team, 'opponent': opponent,
+                    'game_id': game_id, 'source': game_source,
                     'level': game_level, 'league': game_league,
                     'bref_id': bref_id, 'player_id': str(pid) if pid else '',
                     'ab': player.get('ab', 0), 'r': player.get('r', 0),
@@ -1241,7 +1396,12 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
                     'triples': player.get('triples', 0), 'hr': player.get('hr', 0),
                     'rbi': player.get('rbi', 0), 'bb': player.get('bb', 0),
                     'k': player.get('k', 0), 'sb': player.get('sb', 0),
-                })
+                }
+                canonical_gid, source = _canonical_player_game_reference(enriched, 'batter', player_game_lookup)
+                if canonical_gid:
+                    enriched['game_id'] = canonical_gid
+                    enriched['source'] = source
+                enriched_batter_games.append(enriched)
 
             # Pitching records
             for player in box_score.get(f'{side}_pitching', []):
@@ -1259,19 +1419,22 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
                 if alias:
                     pname = alias.get('display_name') or pname
                     bref_id = bref_id or alias.get('bref_id', '')
-                enriched_pitcher_games.append({
+                enriched = {
                     'Name': pname, 'name': pname,
                     'date': date, 'team': team, 'opponent': opponent,
+                    'game_id': game_id, 'source': game_source,
                     'level': game_level, 'league': game_league,
                     'bref_id': bref_id, 'player_id': str(pid) if pid else '',
                     'ip': player.get('ip', 0), 'h': player.get('h', 0),
                     'r': player.get('r', 0), 'er': player.get('er', 0),
                     'bb': player.get('bb', 0), 'k': player.get('k', 0),
                     'hr': player.get('hr', 0),
-                })
-
-    # Build lookup from raw_games so we can attach stable game_id + source to each entry
-    raw_game_index = _build_raw_game_index(raw_games)
+                }
+                canonical_gid, source = _canonical_player_game_reference(enriched, 'pitcher', player_game_lookup)
+                if canonical_gid:
+                    enriched['game_id'] = canonical_gid
+                    enriched['source'] = source
+                enriched_pitcher_games.append(enriched)
 
     lookup_offsets = {}
 

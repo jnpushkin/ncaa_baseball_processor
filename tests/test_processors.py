@@ -319,6 +319,34 @@ class TestPlayerStatsProcessor:
         assert row['IP'] == '4.2'
         assert row['ERA'] == '1.93'
 
+    def test_pitcher_game_logs_preserve_two_out_ip_notation(self):
+        """Game logs should not truncate 3.2 IP to 3.1 through float precision."""
+        game = {
+            'metadata': {
+                'date': '2026-02-14',
+                'away_team': 'Western Illinois',
+                'home_team': 'San Francisco',
+                'away_team_score': 6,
+                'home_team_score': 10,
+            },
+            'box_score': {
+                'away_batting': [],
+                'home_batting': [],
+                'away_pitching': [],
+                'home_pitching': [
+                    {'name': 'Gauge Lockhart', 'ip': '3.2', 'h': 2, 'r': 3, 'er': 2, 'bb': 1, 'k': 5},
+                    {'name': 'Kai Yovanovich', 'ip': '1.2', 'h': 2, 'r': 0, 'er': 0, 'bb': 1, 'k': 1},
+                ],
+            },
+            'game_notes': {},
+        }
+
+        result = PlayerStatsProcessor([game]).process_all_stats()
+
+        game_ips = dict(zip(result['pitcher_games']['Name'], result['pitcher_games']['ip']))
+        assert game_ips['Gauge Lockhart'] == '3.2'
+        assert game_ips['Kai Yovanovich'] == '1.2'
+
     def test_comma_initial_game_notes_do_not_match_duplicate_last_names(self):
         """A note like 'Aloy, W.' should not also attach to Kuhio Aloy."""
         game = {

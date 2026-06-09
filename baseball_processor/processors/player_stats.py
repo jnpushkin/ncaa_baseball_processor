@@ -10,7 +10,7 @@ from collections import defaultdict
 from ..utils.helpers import (
     safe_int, safe_float, normalize_name,
     calculate_batting_average, calculate_era, calculate_whip,
-    parse_innings_pitched, is_placeholder_player_name,
+    format_innings_pitched, parse_innings_pitched, is_placeholder_player_name,
     resolve_player_display_name
 )
 from ..utils.constants import get_conference
@@ -530,7 +530,7 @@ class PlayerStatsProcessor:
 
                     # Track game-by-game
                     # Format IP in baseball notation (6.2 = 6 and 2/3 innings)
-                    ip_formatted = f"{int(ip)}.{int((ip % 1) * 3)}"
+                    ip_formatted = format_innings_pitched(ip)
                     game_stats = {
                         'date': date,
                         'team': team,

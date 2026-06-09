@@ -92,6 +92,132 @@ def test_raw_game_index_preserves_duplicate_matchups_with_unique_ids():
     ]
 
 
+def test_player_game_logs_use_canonical_detail_game_ids():
+    raw_game = {
+        "metadata": {
+            "date": "03/15/2024",
+            "away_team": "Texas",
+            "home_team": "Oklahoma",
+            "away_team_score": 5,
+            "home_team_score": 1,
+        },
+        "box_score": {
+            "away_batting": [
+                {"name": "Joe Slugger", "ab": 4, "r": 1, "h": 2, "rbi": 3, "bb": 0, "k": 1}
+            ],
+            "home_batting": [],
+            "away_pitching": [],
+            "home_pitching": [
+                {"name": "Sam Starter", "ip": "6.0", "h": 2, "r": 1, "er": 1, "bb": 2, "k": 7, "hr": 0}
+            ],
+        },
+    }
+    processed = {
+        "batter_games": pd.DataFrame(
+            [
+                {
+                    "Name": "Joe Slugger",
+                    "date": "3/15/2024",
+                    "team": "Texas",
+                    "opponent": "Oklahoma",
+                    "game_id": "3/15/2024_Texas_Oklahoma",
+                    "ab": 4,
+                    "r": 1,
+                    "h": 2,
+                    "rbi": 3,
+                    "bb": 0,
+                    "k": 1,
+                }
+            ]
+        ),
+        "pitcher_games": pd.DataFrame(
+            [
+                {
+                    "Name": "Sam Starter",
+                    "date": "3/15/2024",
+                    "team": "Oklahoma",
+                    "opponent": "Texas",
+                    "game_id": "3/15/2024_Texas_Oklahoma",
+                    "ip": "6.0",
+                    "h": 2,
+                    "r": 1,
+                    "er": 1,
+                    "bb": 2,
+                    "k": 7,
+                    "hr": 0,
+                }
+            ]
+        ),
+    }
+
+    payload = _serialize_data(processed, [raw_game])
+
+    assert payload["batterGames"][0]["game_id"] == "ncaa_pdf_20240315_texas_at_oklahoma_5_1"
+    assert payload["batterGames"][0]["source"] == "ncaa"
+    assert payload["pitcherGames"][0]["game_id"] == "ncaa_pdf_20240315_texas_at_oklahoma_5_1"
+    assert payload["pitcherGames"][0]["source"] == "ncaa"
+
+
+def test_player_game_logs_disambiguate_same_date_matchups_by_stat_line():
+    raw_game_early = {
+        "metadata": {
+            "date": "03/15/2024",
+            "away_team": "Texas",
+            "home_team": "Oklahoma",
+            "away_team_score": 5,
+            "home_team_score": 1,
+        },
+        "box_score": {
+            "away_batting": [
+                {"name": "Joe Slugger", "ab": 4, "r": 1, "h": 1, "rbi": 1, "bb": 0, "k": 2}
+            ],
+            "home_batting": [],
+            "away_pitching": [],
+            "home_pitching": [],
+        },
+    }
+    raw_game_late = {
+        "metadata": {
+            "date": "03/15/2024",
+            "away_team": "Texas",
+            "home_team": "Oklahoma",
+            "away_team_score": 2,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [
+                {"name": "Joe Slugger", "ab": 5, "r": 2, "h": 3, "rbi": 4, "bb": 1, "k": 0}
+            ],
+            "home_batting": [],
+            "away_pitching": [],
+            "home_pitching": [],
+        },
+    }
+    processed = {
+        "batter_games": pd.DataFrame(
+            [
+                {
+                    "Name": "Joe Slugger",
+                    "date": "3/15/2024",
+                    "team": "Texas",
+                    "opponent": "Oklahoma",
+                    "game_id": "3/15/2024_Texas_Oklahoma",
+                    "ab": 5,
+                    "r": 2,
+                    "h": 3,
+                    "rbi": 4,
+                    "bb": 1,
+                    "k": 0,
+                }
+            ]
+        )
+    }
+
+    payload = _serialize_data(processed, [raw_game_early, raw_game_late])
+
+    assert payload["batterGames"][0]["game_id"] == "ncaa_pdf_20240315_texas_at_oklahoma_2_6"
+
+
 def test_road_only_partner_team_counts_as_home_equivalent_when_seen():
     raw_game = {
         "metadata": {
