@@ -389,7 +389,7 @@ def stable_game_id(game: Mapping[str, Any]) -> str:
     source = infer_source(game)
     ymd = _date_yyyymmdd(meta)
 
-    if source == "milb" or game.get("format") == "milb_api":
+    if source == "milb":
         game_pk = meta.get("game_pk") or meta.get("game_id")
         if game_pk:
             return f"milb_{game_pk}"

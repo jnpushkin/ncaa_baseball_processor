@@ -89,6 +89,20 @@ def test_atlantic_league_of_professional_baseball_is_classified_as_partner():
     assert game["metadata"]["source"] == "partner"
 
 
+def test_mlb_draft_league_is_classified_as_partner():
+    game = parse_boxscore(
+        _boxscore(
+            "MLB Draft League",
+            "MLB Draft League",
+            away_parent="Office of the Commissioner",
+            home_parent="Office of the Commissioner",
+        ),
+        _feed(),
+    )
+
+    assert game["metadata"]["source"] == "partner"
+
+
 def test_pitchers_preserve_api_appearance_order():
     boxscore = _boxscore(
         "South Atlantic League",

@@ -282,6 +282,7 @@ LEAGUE_LEVEL_MAP = {
     'Atlantic League': 'Independent',
     'American Association': 'Independent',
     'Frontier League': 'Independent',
+    'MLB Draft League': 'Independent',
 }
 
 # Ordered display levels with their associated leagues
@@ -290,7 +291,7 @@ PRO_LEVELS = {
     'Double-A': ['Eastern League', 'Southern League', 'Texas League'],
     'High-A': ['Midwest League', 'South Atlantic League', 'Northwest League'],
     'Single-A': ['Carolina League', 'California League', 'Florida State League'],
-    'Independent': ['Pioneer League', 'Atlantic League', 'American Association', 'Frontier League'],
+    'Independent': ['Pioneer League', 'Atlantic League', 'American Association', 'Frontier League', 'MLB Draft League'],
 }
 
 # Ordered list of all levels for consistent display
@@ -329,6 +330,12 @@ def resolve_level_and_league(metadata: dict, team_name: str = '') -> tuple:
         canonical = get_canonical_team_name(team_name)
         partner_data = PARTNER_TEAM_DATA.get(canonical, {})
         league = partner_data.get('league', '')
+        if not league:
+            league_info = metadata.get('league', {})
+            if isinstance(league_info, dict):
+                league = league_info.get('home', '') or league_info.get('away', '')
+            elif isinstance(league_info, str):
+                league = league_info
         return ('Independent', league)
 
     # MiLB games - try league name first
@@ -354,7 +361,17 @@ def resolve_level_and_league(metadata: dict, team_name: str = '') -> tuple:
     if sport_level and isinstance(sport_level, str) and sport_level in SPORT_LEVEL_MAP:
         return (SPORT_LEVEL_MAP[sport_level], league_name or '')
 
-    # Try to resolve from MILB_STADIUM_DATA via team name
+    # Try to resolve from generated current MiLB metadata via team name
+    from ..utils.milb_metadata import active_affiliated_registry_teams
+    current_teams, _source = active_affiliated_registry_teams()
+    current_team_leagues = {team['team']: team['league'] for team in current_teams.values()}
+    if team_name and team_name in current_team_leagues:
+        league = current_team_leagues[team_name]
+        level = LEAGUE_LEVEL_MAP.get(league, '')
+        if level:
+            return (level, league)
+
+    # Fall back to legacy static stadium metadata for historical teams
     from ..utils.milb_stadiums import MILB_TEAM_LEAGUES
     if team_name and team_name in MILB_TEAM_LEAGUES:
         league = MILB_TEAM_LEAGUES[team_name]

@@ -13,7 +13,15 @@ import pandas as pd
 from ..engines.milestone_engine import build_extra_base_lookup, get_player_extra_stats
 from ..normalization import alias_display_name, build_player_name_aliases, normalize_game, resolve_player_name_alias
 from ..utils.stadiums import STADIUM_DATA, NCAA_TEAM_LOGOS, NCAA_TEAM_NICKNAMES
-from ..utils.milb_stadiums import MILB_STADIUM_DATA, HISTORIC_MILB_TEAMS, LOGO_OVERRIDES, HISTORICAL_TEAM_LOGOS
+from ..utils.milb_stadiums import (
+    MILB_STADIUM_DATA,
+    HISTORIC_MILB_TEAMS,
+    LOGO_OVERRIDES,
+    HISTORICAL_TEAM_LOGOS,
+    get_milb_venue_display_name,
+    iter_milb_stadium_entries,
+)
+from ..utils.milb_metadata import iter_current_affiliated_team_entries
 from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_partner_stadium_locations
 from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEAGUE_LEVEL_MAP,
                                 PRO_LEVELS, LEVEL_ORDER, LEVEL_COLORS, resolve_level_and_league)
@@ -500,9 +508,12 @@ def _load_local_logos() -> Dict[str, str]:
 
 def _team_id_for_name(team_name: str):
     """Return MiLB/Partner team id for a display team name."""
-    for info in MILB_STADIUM_DATA.values():
-        if info[2] == team_name:
-            return info[4]
+    for entry in iter_current_affiliated_team_entries():
+        if entry['team'] == team_name:
+            return entry['team_id']
+    for entry in iter_milb_stadium_entries():
+        if entry['team'] == team_name:
+            return entry['team_id']
     if team_name in PARTNER_TEAM_DATA:
         return PARTNER_TEAM_DATA[team_name].get('id')
     return None
@@ -1032,18 +1043,36 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         lat, lng, stadium_name = info
         stadium_locations[team] = {'lat': lat, 'lng': lng, 'stadium': stadium_name, 'type': 'ncaa'}
 
+    current_milb_entries = list(iter_current_affiliated_team_entries())
+
     # Build MiLB stadium locations (includes defunct teams for historical visits)
     milb_stadium_locations = {}
-    for venue_name, info in MILB_STADIUM_DATA.items():
-        lat, lng, team_name, level_code, team_id, league_name = info
-        resolved_level = SPORT_LEVEL_MAP.get(level_code, level_code)
+
+    def add_milb_stadium_location(entry):
+        if entry.get('lat') in (None, '') or entry.get('lng') in (None, ''):
+            return
+        venue_key = entry['venue_key']
+        venue_name = entry['venue']
+        lat = entry['lat']
+        lng = entry['lng']
+        team_name = entry['team']
+        team_id = entry['team_id']
+        league_name = entry['league']
+        level_code = entry.get('level_code', '')
+        resolved_level = entry.get('level') or SPORT_LEVEL_MAP.get(level_code, level_code)
         # Check for logo override, otherwise use mlbstatic
-        logo_url = LOGO_OVERRIDES.get(team_id, f'https://www.mlbstatic.com/team-logos/{team_id}.svg')
-        milb_stadium_locations[venue_name] = {
+        logo_url = entry.get('logo') or LOGO_OVERRIDES.get(team_id, f'https://www.mlbstatic.com/team-logos/{team_id}.svg')
+        milb_stadium_locations[venue_key] = {
             'lat': lat, 'lng': lng, 'stadium': venue_name,
             'team': team_name, 'level': resolved_level, 'league': league_name, 'type': 'milb',
             'teamId': team_id, 'logo': logo_url
         }
+
+    for entry in current_milb_entries:
+        add_milb_stadium_location(entry)
+    for entry in iter_milb_stadium_entries():
+        if entry['historic']:
+            add_milb_stadium_location(entry)
 
     # Build Partner (independent league) stadium locations
     partner_stadium_locations = get_partner_stadium_locations()
@@ -1057,21 +1086,28 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
 
     # MiLB venue name mappings (old names -> current names)
     milb_venue_aliases = {
-        'Calvin Falwell Field': 'Bank of the James Stadium',  # Lynchburg Hillcats
+        'AT&T Field': 'Erlanger Park',  # Chattanooga Lookouts
+        'Bank of the James Stadium': 'City Stadium',  # Hill City Howlers
+        'Calvin Falwell Field': 'City Stadium',  # Lynchburg/Hill City
+        'Canal Park': '7 17 Credit Union Park',  # Akron RubberDucks
+        'Coolray Field': 'Gwinnett Field',  # Gwinnett Stripers
+        'Funko Field': 'Everett Memorial Stadium',  # Everett AquaSox
+        'Hammons Field': 'Route 66 Stadium',  # Springfield Cardinals
+        'Hillsboro Hops Ballpark': 'Hops Ballpark',  # Hillsboro Hops
+        'Innovative Field': 'ESL Ballpark',  # Rochester Red Wings
+        'LoanMart Field': 'Morongo Field',  # Rancho Cucamonga Quakes
+        'McCormick Field': 'HomeTrust Park',  # Asheville Tourists
+        'Montgomery Riverwalk Stadium': 'DABOS Park',  # Montgomery Biscuits
+        'Ontario Sports Empire Baseball Stadium': 'ONT Field',  # Ontario Tower Buzzers
         'Perfect Game Field': 'Veterans Memorial Stadium',  # Cedar Rapids Kernels
+        'Yankee Complex Field 2': 'George M. Steinbrenner Field',  # Tampa Tarpons
     }
 
     # Track MiLB and Partner venues visited
     milb_venues_visited = set()
     partner_venues_visited = set()
     for game in raw_games:
-        if game.get('format') == 'milb_api':
-            venue = game.get('metadata', {}).get('venue', '')
-            if venue:
-                # Map old venue names to current names
-                mapped_venue = milb_venue_aliases.get(venue, venue)
-                milb_venues_visited.add(mapped_venue)
-        elif game.get('metadata', {}).get('source') == 'partner':
+        if game.get('metadata', {}).get('source') == 'partner':
             # Partner league games - track both teams' stadiums as "visited"
             metadata = game.get('metadata', {})
             home_team = metadata.get('home_team', '')
@@ -1079,6 +1115,12 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
                 stadium = PARTNER_TEAM_DATA[home_team].get('stadium')
                 if stadium:
                     partner_venues_visited.add(stadium)
+        elif game.get('format') == 'milb_api':
+            venue = game.get('metadata', {}).get('venue', '')
+            if venue:
+                # Map old venue names to current names
+                mapped_venue = milb_venue_aliases.get(venue, venue)
+                milb_venues_visited.add(mapped_venue)
 
     # Build checklist data - track which teams/venues have been seen
     teams_seen_home = set()  # Teams seen at their actual home stadium
@@ -1181,15 +1223,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
     milb_teams_seen_away = set()  # Teams we saw play (as away team at a venue we visited)
 
     for game in raw_games:
-        if game.get('format') == 'milb_api':
-            metadata = game.get('metadata', {})
-            home_team = metadata.get('home_team', '')
-            away_team = metadata.get('away_team', '')
-            if home_team:
-                milb_teams_seen_home.add(home_team)
-            if away_team:
-                milb_teams_seen_away.add(away_team)
-        elif game.get('metadata', {}).get('source') == 'partner':
+        if game.get('metadata', {}).get('source') == 'partner':
             metadata = game.get('metadata', {})
             home_team = metadata.get('home_team', '')
             away_team = metadata.get('away_team', '')
@@ -1200,6 +1234,14 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
                     milb_teams_seen_home.add(away_team)
                 else:
                     milb_teams_seen_away.add(away_team)
+        elif game.get('format') == 'milb_api':
+            metadata = game.get('metadata', {})
+            home_team = metadata.get('home_team', '')
+            away_team = metadata.get('away_team', '')
+            if home_team:
+                milb_teams_seen_home.add(home_team)
+            if away_team:
+                milb_teams_seen_away.add(away_team)
 
     # Organize MiLB teams by level → league
     milb_by_level = {}
@@ -1209,12 +1251,14 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             milb_by_level[level][league] = []
 
     # Add active MiLB teams (skip defunct/historic teams)
-    for venue_name, info in MILB_STADIUM_DATA.items():
-        lat, lng, team_name, level_code, team_id, league_name = info
-        if team_name in HISTORIC_MILB_TEAMS:
-            continue
-        mapped_level = SPORT_LEVEL_MAP.get(level_code, level_code)
-        logo_url = LOGO_OVERRIDES.get(team_id, f'https://www.mlbstatic.com/team-logos/{team_id}.svg')
+    for entry in current_milb_entries:
+        venue_name = entry['venue']
+        team_name = entry['team']
+        level_code = entry.get('level_code', '')
+        team_id = entry['team_id']
+        league_name = entry['league']
+        mapped_level = entry.get('level') or SPORT_LEVEL_MAP.get(level_code, level_code)
+        logo_url = entry.get('logo') or LOGO_OVERRIDES.get(team_id, f'https://www.mlbstatic.com/team-logos/{team_id}.svg')
         team_entry = {
             'team': team_name,
             'venue': venue_name,
@@ -1232,10 +1276,8 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
     # Track team names already added from MILB_STADIUM_DATA to avoid duplicates
     # Only include non-historic teams; historic teams may also appear in PARTNER_TEAM_DATA
     seen_milb_team_names = set()
-    for venue_info in MILB_STADIUM_DATA.values():
-        team_name = venue_info[2]
-        if team_name not in HISTORIC_MILB_TEAMS:
-            seen_milb_team_names.add(team_name)
+    for entry in current_milb_entries:
+        seen_milb_team_names.add(entry['team'])
 
     # Add Partner (independent league) teams
     seen_partner_ids = set()

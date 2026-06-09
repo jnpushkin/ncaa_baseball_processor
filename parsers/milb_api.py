@@ -2,13 +2,14 @@
 MiLB Stats API client for fetching Minor League Baseball box scores.
 
 Uses the MLB Stats API (statsapi.mlb.com) which provides data for all
-affiliated minor league games and MLB Partner Leagues (independent leagues).
+affiliated minor league games and MLB Partner/partner-style leagues.
 
-Partner Leagues (independent):
+Partner/partner-style leagues:
 - Atlantic League of Professional Baseball
 - American Association of Professional Baseball
 - Frontier League
 - Pioneer League
+- MLB Draft League
 """
 
 import json
@@ -35,6 +36,7 @@ PARTNER_LEAGUES = {
     'Atlantic League',
     'American Association',
     'Frontier League',
+    'MLB Draft League',
     'Pioneer League',
 }
 

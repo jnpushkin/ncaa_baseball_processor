@@ -138,7 +138,8 @@ export default function SchoolMap({
     // MiLB markers
     if (showMilb && milbStadiums && (selectedConf === "All" || selectedConf === "MiLB")) {
       Object.entries(milbStadiums).forEach(([venueName, info]) => {
-        const isVisited = milbVenuesVisited?.includes(venueName);
+        const stadiumName = info.stadium || venueName;
+        const isVisited = milbVenuesVisited?.includes(venueName) || milbVenuesVisited?.includes(stadiumName);
         if (filter === "visited" && !isVisited) return;
         if (filter === "unseen" && isVisited) return;
         if (filter === "seen" && !isVisited) return;
@@ -160,7 +161,7 @@ export default function SchoolMap({
         const displayName = getTeamDisplayName(info.team);
         const marker = L.marker([info.lat, info.lng], { icon })
           .bindPopup(
-            `<div style="text-align:center;"><img src="${logo}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>&#9918;</span>'" /><br><strong>${displayName}</strong><br>${venueName}<br><em>MiLB (${info.level}) - ${isVisited ? "Visited" : "Not Visited"}</em></div>`
+            `<div style="text-align:center;"><img src="${logo}" style="width:50px;height:50px;margin-bottom:8px;" onerror="this.outerHTML='<span style=\\'font-size:40px;\\'>&#9918;</span>'" /><br><strong>${displayName}</strong><br>${stadiumName}<br><em>MiLB (${info.level}) - ${isVisited ? "Visited" : "Not Visited"}</em></div>`
           )
           .addTo(mapInstance.current!);
         markersRef.current.push(marker);

@@ -1,11 +1,12 @@
 """
 Partner League team data: logos, stadiums, and coordinates.
 
-Covers 4 MLB Partner Leagues:
+Covers MLB Partner and partner-style leagues:
 - Pioneer League (12 teams)
 - Atlantic League (10 teams)
 - American Association (12 teams)
 - Frontier League (18 teams)
+- MLB Draft League
 """
 
 from typing import Dict, Optional, Any
@@ -14,6 +15,18 @@ from typing import Dict, Optional, Any
 # Partner League team data
 # Structure: team_name -> {id, logo, stadium, lat, lng, league, city}
 PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
+    # ========== MLB DRAFT LEAGUE ==========
+    'Aberdeen IronBirds': {
+        'id': 488,
+        'bref_team_ids': {},
+        'logo': 'https://www.mlbstatic.com/team-logos/488.svg',
+        'stadium': 'IBEW 24 Union Field at Ripken Stadium',
+        'lat': 39.5072,
+        'lng': -76.1641,
+        'league': 'MLB Draft League',
+        'city': 'Aberdeen, MD',
+    },
+
     # ========== PIONEER LEAGUE (12 teams) ==========
     'Billings Mustangs': {
         'id': 'pioneer_billings',

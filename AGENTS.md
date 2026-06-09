@@ -36,6 +36,10 @@ python3 -m baseball_processor [input_path]
 - `--from-cache-only` and `--from-db` set `NCAA_BASEBALL_OFFLINE=1` so stale Chadwick cache data is loaded locally instead of refreshing over the network
 - `--from-cache-only` with a single-game or NCAA API date source flag must not fetch on a cache miss
 - Single-game/date source flags are exclusive source modes; do not silently add default NCAA/API/MiLB/Partner batches when they are used
+- Current affiliated MiLB team/league/venue metadata is season-dependent; run `python3 scripts/sync_milb_metadata.py --strict-location` to refresh `data/milb_active_teams_<season>.json`, then run `python3 scripts/audit_milb_metadata.py --strict --require-generated` before deploys where the pro checklist/map matters
+- `MILB_STADIUM_DATA` should be treated as coordinate/logo/history overrides; active affiliated checklist identity should come from generated MiLB metadata when present
+- MLB Draft League games can arrive through the MLB Stats API with `format='milb_api'`; parser/normalization/generator logic must let `metadata.source='partner'` take precedence over transport format
+- MiLB venues can host multiple active teams; keep unique internal venue keys separate from display venue names rather than assuming the stadium-map dict key is always the public stadium label
 - Pioneer League HTML hitter tables omit XBH/SB columns; parse `.stats-summary` batting notes and merge them back into player rows before processing
 - NCAA API pitching `np` is currently a strikes proxy and pitcher `hr` is fabricated as zero; do not treat those as authoritative source-disagreement fields against PDF box scores
 - NCAA API batting `k` can be unavailable even when placeholder or pitcher-echo rows have strikeout values; ignore placeholder rows and impossible `AB=0, K>0` batting echoes when deciding source-disagreement authority
@@ -54,3 +58,4 @@ When encountering repeated errors or discovering project-specific quirks:
 - Use `python` command (always `python3`)
 - Do not fill missing player `bref_id` values from a name-only global Chadwick match when multiple same-name candidates exist; fetch/use the Baseball-Reference roster for that team and season
 - Do not treat NCAA API player names that start lowercase or use single initials as full names when merging with PDF rows
+- Do not classify a parsed partner/Draft League game as affiliated MiLB just because it was fetched through the MLB Stats API

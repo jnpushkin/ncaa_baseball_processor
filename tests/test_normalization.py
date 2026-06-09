@@ -471,3 +471,29 @@ def test_normalizes_milb_shape_and_boolean_decision():
     assert normalized["batting"]["away"][0]["2B"] == 2
     assert normalized["pitching"]["away"][0]["batters_faced"] == 22
     assert normalized["pitching"]["away"][0]["decision"] == "W"
+
+
+def test_partner_source_takes_precedence_over_milb_api_format_for_game_id():
+    game = {
+        "format": "milb_api",
+        "metadata": {
+            "source": "partner",
+            "date": "2026-06-01",
+            "date_yyyymmdd": "20260601",
+            "away_team": "Aberdeen IronBirds",
+            "home_team": "Trenton Thunder",
+            "away_team_score": 3,
+            "home_team_score": 4,
+            "game_pk": 999999,
+            "sport_level": {"home": "College Baseball", "away": "College Baseball"},
+            "league": {"home": "MLB Draft League", "away": "MLB Draft League"},
+        },
+        "box_score": {"away_batting": [], "home_batting": [], "away_pitching": [], "home_pitching": []},
+    }
+
+    normalized = normalize_game(game)
+
+    assert normalized["source"] == "partner"
+    assert normalized["basic_info"]["level"] == "Independent"
+    assert normalized["basic_info"]["league"] == "MLB Draft League"
+    assert normalized["game_id"] == "partner_mlb_draft_league_999999"

@@ -501,7 +501,7 @@ def _secondary_unavailable_fields(
     unavailable: Dict[str, int] = {}
     stat_fields = dict(_SECTION_STAT_FIELDS[category])
 
-    for field in candidate_fields:
+    for field in sorted(candidate_fields):
         aliases = stat_fields[field]
         api_stat_rows = [
             row
