@@ -13,7 +13,7 @@
     "venue": "Perfect Game Field",
     "venue_city": "Cedar Rapids",
     "venue_state": "Iowa",
-    "attendance": "Kessinger (by Palm).",
+    "attendance": 2611,
     "parent_orgs": {
       "away": "Houston Astros",
       "home": "Minnesota Twins"
@@ -474,26 +474,6 @@
     ],
     "home_pitching": [
       {
-        "name": "Austin Schulfer",
-        "player_id": 662165,
-        "jersey_number": "16",
-        "ip": "2.0",
-        "h": 1,
-        "r": 0,
-        "er": 0,
-        "bb": 0,
-        "k": 3,
-        "hr": 0,
-        "np": 32,
-        "era": "0.00",
-        "bf": 7,
-        "win": false,
-        "loss": false,
-        "save": false,
-        "hold": false,
-        "blown_save": false
-      },
-      {
         "name": "Tyler Palm",
         "player_id": 682446,
         "jersey_number": "25",
@@ -509,6 +489,26 @@
         "bf": 22,
         "win": false,
         "loss": true,
+        "save": false,
+        "hold": false,
+        "blown_save": false
+      },
+      {
+        "name": "Austin Schulfer",
+        "player_id": 662165,
+        "jersey_number": "16",
+        "ip": "2.0",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 3,
+        "hr": 0,
+        "np": 32,
+        "era": "0.00",
+        "bf": 7,
+        "win": false,
+        "loss": false,
         "save": false,
         "hold": false,
         "blown_save": false

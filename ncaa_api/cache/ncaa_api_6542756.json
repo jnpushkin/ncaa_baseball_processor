@@ -1,0 +1,1186 @@
+{
+  "metadata": {
+    "date": "02/28/2026",
+    "date_yyyymmdd": "20260228",
+    "away_team": "California Baptist",
+    "away_team_short": "CALBAP",
+    "away_team_id": 51171,
+    "home_team": "San Francisco",
+    "home_team_short": "S FRAN",
+    "home_team_id": 43330,
+    "away_team_score": 7,
+    "home_team_score": 1,
+    "away_team_record": "",
+    "home_team_record": "",
+    "venue": "",
+    "conference": {
+      "away": "",
+      "home": ""
+    },
+    "source": "ncaa_api",
+    "game_id": "6542756"
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "name": "Chr Ramirez",
+        "full_name": "Chr Ramirez",
+        "position": "SS",
+        "number": "1",
+        "ab": 4,
+        "r": 0,
+        "h": 4,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 1,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 1
+      },
+      {
+        "name": "Cole Hansen",
+        "full_name": "Cole Hansen",
+        "position": "C",
+        "number": "4",
+        "ab": 3,
+        "r": 1,
+        "h": 2,
+        "rbi": 2,
+        "bb": 0,
+        "k": 0,
+        "po": 14,
+        "a": 1,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Ca Eberhard",
+        "full_name": "Ca Eberhard",
+        "position": "1B",
+        "number": "2",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 10,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Bry McFeely",
+        "full_name": "Bry McFeely",
+        "position": "RF",
+        "number": "8",
+        "ab": 5,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 2
+      },
+      {
+        "name": "Be Castelli",
+        "full_name": "Be Castelli",
+        "position": "2B",
+        "number": "25",
+        "ab": 5,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 6,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Connor Ross",
+        "full_name": "Connor Ross",
+        "position": "3B",
+        "number": "7",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Matth Bline",
+        "full_name": "Matth Bline",
+        "position": "LF",
+        "number": "29",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Col Howarth",
+        "full_name": "Col Howarth",
+        "position": "DH",
+        "number": "12",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Ry Hunsaker",
+        "full_name": "Ry Hunsaker",
+        "position": "CF",
+        "number": "13",
+        "ab": 3,
+        "r": 2,
+        "h": 2,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 1,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Matt Chavez",
+        "full_name": "Matt Chavez",
+        "position": "PH",
+        "number": "28",
+        "ab": 1,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 1
+      },
+      {
+        "name": "Bubba Rocha",
+        "full_name": "Bubba Rocha",
+        "position": "LF",
+        "number": "11",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Eric Ruiz",
+        "full_name": "Eric Ruiz",
+        "position": "PH",
+        "number": "16",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "Samue Lopez",
+        "full_name": "Samue Lopez",
+        "position": "SS",
+        "number": "37",
+        "ab": 1,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "home_batting": [
+      {
+        "name": "RAMPPEN",
+        "full_name": "RAMPPEN",
+        "position": "C",
+        "number": "83",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 10,
+        "a": 3,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "BURKE",
+        "full_name": "BURKE",
+        "position": "1B",
+        "number": "25",
+        "ab": 2,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 3,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "VASELL",
+        "full_name": "VASELL",
+        "position": "3B",
+        "number": "21",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "DAVIS",
+        "full_name": "DAVIS",
+        "position": "DH",
+        "number": "29",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "NYSTROM",
+        "full_name": "NYSTROM",
+        "position": "RF",
+        "number": "48",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "k": 0,
+        "po": 4,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "GARRISON",
+        "full_name": "GARRISON",
+        "position": "CF",
+        "number": "26",
+        "ab": 2,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 1,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "ESQUIVEL",
+        "full_name": "ESQUIVEL",
+        "position": "LF",
+        "number": "5",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "JA LEWIS",
+        "full_name": "JA LEWIS",
+        "position": "2B",
+        "number": "6",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "ROGERS",
+        "full_name": "ROGERS",
+        "position": "SS",
+        "number": "12",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 4,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "WALSH",
+        "full_name": "WALSH",
+        "position": "2B",
+        "number": "22",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 2,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "JO LEWIS",
+        "full_name": "JO LEWIS",
+        "position": "PH",
+        "number": "7",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 0,
+        "a": 0,
+        "lob": 0,
+        "doubles": 0,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      },
+      {
+        "name": "HARMON",
+        "full_name": "HARMON",
+        "position": "PH/1B",
+        "number": "50",
+        "ab": 1,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "k": 0,
+        "po": 2,
+        "a": 0,
+        "lob": 0,
+        "doubles": 1,
+        "triples": 0,
+        "hr": 0,
+        "sb": 0
+      }
+    ],
+    "away_pitching": [
+      {
+        "name": "Nic Urquidi",
+        "full_name": "Nic Urquidi",
+        "number": "27",
+        "ip": "4",
+        "h": 3,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "k": 0,
+        "bf": 14,
+        "np": 0,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": true
+      },
+      {
+        "name": "Bryan Peck",
+        "full_name": "Bryan Peck",
+        "number": "15",
+        "ip": "5",
+        "h": 3,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "k": 0,
+        "bf": 21,
+        "np": 0,
+        "hr": 0,
+        "win": true,
+        "loss": false,
+        "save": false
+      }
+    ],
+    "home_pitching": [
+      {
+        "name": "BARRETT",
+        "full_name": "BARRETT",
+        "number": "40",
+        "ip": "5",
+        "h": 9,
+        "r": 5,
+        "er": 4,
+        "bb": 0,
+        "k": 0,
+        "bf": 23,
+        "np": 0,
+        "hr": 0,
+        "win": false,
+        "loss": true,
+        "save": false
+      },
+      {
+        "name": "WELLEN",
+        "full_name": "WELLEN",
+        "number": "14",
+        "ip": "1",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 4,
+        "np": 0,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "HOLZEMER",
+        "full_name": "HOLZEMER",
+        "number": "13",
+        "ip": "1",
+        "h": 2,
+        "r": 2,
+        "er": 0,
+        "bb": 0,
+        "k": 0,
+        "bf": 6,
+        "np": 0,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      },
+      {
+        "name": "HARWELL",
+        "full_name": "HARWELL",
+        "number": "52",
+        "ip": "2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 2,
+        "k": 0,
+        "bf": 7,
+        "np": 0,
+        "hr": 0,
+        "win": false,
+        "loss": false,
+        "save": false
+      }
+    ]
+  },
+  "game_notes": {
+    "home_runs": [],
+    "doubles": [
+      {
+        "player": "mcfeely, bry",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "hansen, cole",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "harmon",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "triples": [
+      {
+        "player": "hunsaker, ry",
+        "game_count": 1,
+        "season_total": null
+      }
+    ],
+    "stolen_bases": [
+      {
+        "player": "mcfeely, bry struck out swinging3a ramirez, chr",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "ramirez, chr",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "chavez, matt",
+        "game_count": 1,
+        "season_total": null
+      },
+      {
+        "player": "mcfeely, bry",
+        "game_count": 1,
+        "season_total": null
+      }
+    ]
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Ramirez, Chr singled up the middle.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Castelli, Be struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McFeely, Bry struck out swinging3a Ramirez, Chr stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ramirez, Chr out at third c to 3b, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "VASELL grounded out to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "JA LEWIS struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Ross, Connor struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Eberhard, Ca struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howarth, Col struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "DAVIS struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL singled to right field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BURKE singled up the middle3a ESQUIVEL advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NYSTROM struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Hunsaker, Ry flied out to lf to left center.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hansen, Cole singled up the middle.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bline, Matth lined out to rf down the rf line.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ramirez, Chr singled to center field3a Hansen, Cole advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Castelli, Be popped up to ss.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "GARRISON struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "VASELL walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "JA LEWIS struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS grounded out to p.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "McFeely, Bry doubled to right center.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ross, Connor grounded out to ss3a McFeely, Bry advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Eberhard, Ca grounded out to ss, RBI3a McFeely, Bry scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Howarth, Col struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "DAVIS struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL struck out swinging, out at first c to 1b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "BURKE grounded out to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Hunsaker, Ry tripled to center field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hansen, Cole doubled to right center, RBI3a Hunsaker, Ry scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Bline, Matth grounded out to c, SAC, bunt3a Hansen, Cole advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ramirez, Chr singled up the middle, RBI3a Hansen, Cole scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Ramirez, Chr stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Castelli, Be flied out to rf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McFeely, Bry flied out to rf.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "NYSTROM reached on catcher's interference.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN grounded out to p, SAC, bunt3a NYSTROM advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "GARRISON hit by pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "VASELL singled through the right side3a GARRISON advanced to second3a NYSTROM advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "JA LEWIS reached on a fielder's choice to pitcher, SAC, bunt3a VASELL advanced to second3a GARRISON advanced to third3a NYSTROM out at home p to c.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Ross, Connor singled to right field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Eberhard, Ca singled to center field3a Ross, Connor advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HOLZEMER to p for BARRETT.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howarth, Col struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hunsaker, Ry singled to left center3a Eberhard, Ca advanced to second3a Ross, Connor advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hansen, Cole fouled out to rf, SF, RBI3a Hunsaker, Ry advanced to second3a Eberhard, Ca advanced to third3a Ross, Connor scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Chavez, Matt pinch hit for Bline, Matth.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Chavez, Matt reached on a throwing error by 2b3a Hunsaker, Ry scored, unearned3a Eberhard, Ca scored, unearned.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Chavez, Matt stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ramirez, Chr singled to second base, RBI3a Chavez, Matt scored, unearned.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Ramirez, Chr failed pickoff attempt, advanced to second on a fielding error by 1b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Castelli, Be flied out to cf.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Rocha, Bubba to lf for Chavez, Matt.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Urquidi, Nic to p for Peck, Bryan.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "DAVIS grounded out to 1b unassisted.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL grounded out to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON pinch hit for BURKE.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON doubled to right field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NYSTROM singled up the middle, RBI3a HARMON scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "RAMPPEN struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "WALSH to 2b for JA LEWIS.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON to 1b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARWELL to p for HOLZEMER.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McFeely, Bry flied out to lf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ross, Connor hit by pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Eberhard, Ca struck out swinging3a Ross, Connor out at second c to ss, caught stealing.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "GARRISON singled up the middle.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "VASELL grounded into double play 2b to ss to 1b3a GARRISON out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WALSH struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Howarth, Col walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hunsaker, Ry walked3a Howarth, Col advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hansen, Cole grounded into double play ss to 2b to 1b3a Hunsaker, Ry out on the play3a Howarth, Col advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rocha, Bubba grounded out to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Lopez, Samue to ss for Ramirez, Chr.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ROGERS struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "JO LEWIS pinch hit for DAVIS.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "JO LEWIS struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "ESQUIVEL grounded out to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "JO LEWIS to dh.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "WELLEN to p for HARWELL.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lopez, Samue singled through the right side.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Castelli, Be struck out swinging.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McFeely, Bry reached on a fielder's choice to shortstop3a Lopez, Samue out at second ss to 2b.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ruiz, Eric pinch hit for Ross, Connor.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "McFeely, Bry stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Ruiz, Eric struck out looking.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Entrekin, Th to 3b for Ruiz, Eric.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "HARMON hit by pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "NYSTROM flied out to cf.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "RAMPPEN grounded into double play 3b to 2b to 1b3a HARMON out on the play.",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "ncaa_api"
+}

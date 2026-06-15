@@ -208,6 +208,42 @@ def test_processing_games_merge_state_abbreviation_and_nickname_variants():
     assert merged["box_score"]["away_batting"][0]["name"] == "API Player"
 
 
+def test_processing_games_merge_period_abbreviated_state_name_variants():
+    # NCAA API emits "Western Ill." while the PDF box score reads
+    # "Western Illinois Leathernecks"; these must merge into one game.
+    pdf_game = {
+        "metadata": {
+            "date": "2/14/2026",
+            "away_team": "Western Illinois Leathernecks",
+            "home_team": "San Francisco Dons",
+            "away_team_score": 4,
+            "home_team_score": 5,
+            "venue": "Dante Benedetti Diamond",
+        },
+        "box_score": {"away_batting": [{"number": "1", "name": "PDF Player"}]},
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "game_id": "6544183",
+            "date": "02/14/2026",
+            "date_yyyymmdd": "20260214",
+            "away_team": "Western Ill.",
+            "home_team": "San Francisco",
+            "away_team_score": 4,
+            "home_team_score": 5,
+        },
+        "box_score": {"away_batting": [{"number": "1", "name": "API Player"}]},
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+
+    processing_games = loaded.processing_games
+
+    assert len(processing_games) == 1
+    assert processing_games[0]["metadata"]["venue"] == "Dante Benedetti Diamond"
+
+
 def test_processing_games_merge_one_day_offset_suspended_game():
     pdf_game = {
         "metadata": {

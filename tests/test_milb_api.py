@@ -124,3 +124,28 @@ def test_pitchers_preserve_api_appearance_order():
         "Second Pitcher",
         "Third Pitcher",
     ]
+
+
+def test_attendance_is_parsed_from_labeled_info_entry_not_first():
+    # The first info entry is a decoy (umpire-style name); attendance must be
+    # read from the entry whose label is "Att"/"Attendance", not info[0].
+    boxscore = _boxscore("Pacific Coast League", "Pacific Coast League")
+    boxscore["info"] = [
+        {"label": "Weather", "value": "72 degrees, Clear."},
+        {"label": "Wind", "value": "5 mph, Out To LF."},
+        {"label": "Att", "value": "5,123."},
+        {"label": "Venue", "value": "Werner Park"},
+    ]
+
+    game = parse_boxscore(boxscore, _feed())
+
+    assert game["metadata"]["attendance"] == 5123
+
+
+def test_attendance_is_none_when_absent():
+    boxscore = _boxscore("Pacific Coast League", "Pacific Coast League")
+    boxscore["info"] = [{"label": "Weather", "value": "72 degrees, Clear."}]
+
+    game = parse_boxscore(boxscore, _feed())
+
+    assert game["metadata"]["attendance"] is None

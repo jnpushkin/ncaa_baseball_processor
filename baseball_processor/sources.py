@@ -138,8 +138,39 @@ _TEAM_SLUG_ALIASES = {
 }
 
 
+# AP/NCAA-style state abbreviations used in short team names (e.g. NCAA API
+# emits "Western Ill." where the PDF box score reads "Western Illinois").
+# "St." is intentionally omitted: it is ambiguous (State vs Saint) and the
+# trailing "st"->"state" case is handled by _expand_state_suffix.
+_STATE_ABBREVIATIONS = {
+    "ala": "alabama", "ariz": "arizona", "ark": "arkansas", "calif": "california",
+    "colo": "colorado", "conn": "connecticut", "dak": "dakota", "del": "delaware",
+    "fla": "florida", "ga": "georgia", "ill": "illinois", "ind": "indiana",
+    "kan": "kansas", "ky": "kentucky", "la": "louisiana", "md": "maryland",
+    "mass": "massachusetts", "mich": "michigan", "minn": "minnesota",
+    "miss": "mississippi", "mo": "missouri", "mont": "montana", "neb": "nebraska",
+    "nev": "nevada", "okla": "oklahoma", "ore": "oregon", "pa": "pennsylvania",
+    "tenn": "tennessee", "tex": "texas", "va": "virginia", "wash": "washington",
+    "wis": "wisconsin", "wyo": "wyoming", "caro": "carolina",
+}
+
+
+def _expand_name_abbreviations(name: str) -> str:
+    """Expand AP/NCAA state abbreviations (period-terminated) to full words.
+
+    Only tokens immediately followed by a period are treated as abbreviations,
+    so "Western Ill." -> "Western Illinois" while full names are unchanged.
+    """
+    return re.sub(
+        r"\b([A-Za-z]+)\.",
+        lambda m: _STATE_ABBREVIATIONS.get(m.group(1).lower(), m.group(1)),
+        name,
+    )
+
+
 def _compact_team_slug(value: Any) -> str:
     team = re.sub(r"\s*\(CA\)\s*$", "", str(value or "").strip(), flags=re.IGNORECASE)
+    team = _expand_name_abbreviations(team)
     team = team.replace("&", "and")
     return "".join(c for c in team.lower() if c.isalnum())
 

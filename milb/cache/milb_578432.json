@@ -13,7 +13,7 @@
     "venue": "Gesa Stadium",
     "venue_city": "Pasco",
     "venue_state": "Washington",
-    "attendance": "Holton 88-60; Snyder 33-14; Arroyo 19-14; Arias, L 72-48; Acevedo 32-24.",
+    "attendance": 1009,
     "parent_orgs": {
       "away": "Arizona Diamondbacks",
       "home": "San Diego Padres"
@@ -452,26 +452,6 @@
         "blown_save": false
       },
       {
-        "name": "Mailon Arroyo",
-        "player_id": 658788,
-        "jersey_number": "45",
-        "ip": "1.0",
-        "h": 0,
-        "r": 0,
-        "er": 0,
-        "bb": 0,
-        "k": 1,
-        "hr": 0,
-        "np": 19,
-        "era": "0.00",
-        "bf": 3,
-        "win": false,
-        "loss": false,
-        "save": true,
-        "hold": false,
-        "blown_save": false
-      },
-      {
         "name": "Nick Snyder",
         "player_id": 680235,
         "jersey_number": "41",
@@ -488,6 +468,26 @@
         "win": true,
         "loss": false,
         "save": false,
+        "hold": false,
+        "blown_save": false
+      },
+      {
+        "name": "Mailon Arroyo",
+        "player_id": 658788,
+        "jersey_number": "45",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "k": 1,
+        "hr": 0,
+        "np": 19,
+        "era": "0.00",
+        "bf": 3,
+        "win": false,
+        "loss": false,
+        "save": true,
         "hold": false,
         "blown_save": false
       }

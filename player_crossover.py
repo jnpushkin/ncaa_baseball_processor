@@ -149,6 +149,39 @@ def get_name_match_keys(name: str) -> List[str]:
     return keys
 
 
+def _first_name_token(name: str) -> str:
+    """Return a lowercased first-name token from 'First Last' or 'Last, First'."""
+    if not name:
+        return ""
+    if "," in name:
+        first = name.split(",", 1)[1].strip()
+    else:
+        tokens = name.strip().split()
+        first = tokens[0] if tokens else ""
+    return first.rstrip(".").lower()
+
+
+def _is_name_initial(token: str) -> bool:
+    """True when the token is a single-letter first name (e.g. 'K' in 'Johnson, K')."""
+    return len(re.sub(r"[^a-z]", "", token)) <= 1
+
+
+def _first_names_compatible(name_a: str, name_b: str) -> bool:
+    """Whether two names could be the same person by first name.
+
+    The partial (first-initial + last) match exists to link an initial-only
+    name like "Johnson, K" to a full name like "Kyle Johnson". It must NOT link
+    two distinct full first names that merely share an initial (e.g. "Jake" vs
+    "Jaren"). So accept only when one side is an initial, or the full first
+    names match.
+    """
+    first_a = _first_name_token(name_a)
+    first_b = _first_name_token(name_b)
+    if _is_name_initial(first_a) or _is_name_initial(first_b):
+        return True
+    return first_a == first_b
+
+
 class PlayerCrossover:
     """
     Track players across NCAA baseball and MiLB.
@@ -227,12 +260,16 @@ class PlayerCrossover:
                 key = self.name_map[normalized][0]
                 return key
 
-            # Try partial name match (first initial + last name)
-            # This handles cases like "Johnson, K" matching "Kyle Johnson"
+            # Try partial name match (first initial + last name).
+            # This handles cases like "Johnson, K" matching "Kyle Johnson", but
+            # must not merge two different full first names that share an initial
+            # (e.g. "Jake Jackson" vs "Jaren Jackson").
             for name_key in name_keys:
                 if name_key.startswith('_') and name_key in self.partial_name_map:
-                    key = self.partial_name_map[name_key][0]
-                    return key
+                    for candidate_key in self.partial_name_map[name_key]:
+                        candidate = self.players.get(candidate_key)
+                        if candidate and _first_names_compatible(name, candidate.name):
+                            return candidate_key
 
         # Create new player
         key = bref_id or (f"mlb_{mlb_api_id}" if mlb_api_id else f"name_{normalized}")

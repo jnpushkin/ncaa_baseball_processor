@@ -35,9 +35,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "robbin000aid",
+        "full_name": "Aiden Robbins",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -52,9 +52,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "tinney000car",
+        "full_name": "Carson Tinney",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -69,9 +69,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "pack--000ant",
+        "full_name": "Anthony Pack",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -86,9 +86,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 1,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "becerr000tem",
+        "full_name": "Temo Becerra",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -103,9 +103,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "rodrig014adr",
+        "full_name": "Adrian Rodriguez",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -120,9 +120,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "mendoz000eth",
+        "full_name": "Ethan Mendoza",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -137,9 +137,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "early-000cal",
+        "full_name": "Callum Early",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -154,9 +154,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 1,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "larson000ash",
+        "full_name": "Ashton Larson",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -171,9 +171,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "borba-000cas",
+        "full_name": "Casey Borba",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -188,9 +188,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "pender003dar",
+        "full_name": "Dariyan Pendergrass",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -205,9 +205,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 1,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "living001jos",
+        "full_name": "Josh Livingston",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -222,9 +222,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "monsou000mad",
+        "full_name": "Maddox Monsour",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -239,9 +239,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "crossl002bre",
+        "full_name": "Brett Crossland",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -256,9 +256,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "winter005mic",
+        "full_name": "Michael Winter",
+        "match_confidence": 0.95
       }
     ],
     "home_batting": [
@@ -275,9 +275,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 3,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "phelps000tre",
+        "full_name": "Tre Phelps",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -292,9 +292,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "jackso015dan",
+        "full_name": "Daniel Jackson",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -309,9 +309,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 2,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "lujo--000ryl",
+        "full_name": "Rylan Lujo",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -326,9 +326,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "oshaug000mic",
+        "full_name": "Michael O'Shaughnessy",
+        "match_confidence": 0.85
       },
       {
         "number": "",
@@ -343,9 +343,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "ishika000ken",
+        "full_name": "Kenny Ishikawa",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -360,9 +360,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "wynn--001rya",
+        "full_name": "Ryan Wynn",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -377,9 +377,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "hudson000bre",
+        "full_name": "Brennan Hudson",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -394,9 +394,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 3,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "branch000kol",
+        "full_name": "Kolby Branch",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -411,9 +411,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "black-004rya",
+        "full_name": "Ryan Black",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -428,9 +428,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "newman000sco",
+        "full_name": "Scott Newman",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -445,9 +445,9 @@
         "put_outs": 0,
         "assists": 0,
         "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "volchk000joe",
+        "full_name": "Joey Volchko",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -480,9 +480,9 @@
         "batters_faced": 32,
         "at_bats": 27,
         "pitches": 104,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "volant000dyl",
+        "full_name": "Dylan Volantis",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -496,9 +496,9 @@
         "batters_faced": 3,
         "at_bats": 3,
         "pitches": 13,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "crossl002bre",
+        "full_name": "Brett Crossland",
+        "match_confidence": 0.95
       },
       {
         "number": "",
@@ -512,9 +512,9 @@
         "batters_faced": 4,
         "at_bats": 3,
         "pitches": 14,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "winter005mic",
+        "full_name": "Michael Winter",
+        "match_confidence": 0.95
       }
     ],
     "home_pitching": [
@@ -530,9 +530,9 @@
         "batters_faced": 31,
         "at_bats": 30,
         "pitches": 113,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "bref_id": "volchk000joe",
+        "full_name": "Joey Volchko",
+        "match_confidence": 0.95
       }
     ],
     "line_score": {

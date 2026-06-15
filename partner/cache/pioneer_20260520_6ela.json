@@ -51,8 +51,8 @@
   "box_score": {
     "away_batting": [
       {
-        "name": "Michael Koszewski",
-        "player_id": null,
+        "name": "Mike Koszewski",
+        "player_id": "koszew000mik",
         "position": "CF",
         "ab": 4,
         "r": 2,
@@ -64,11 +64,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "koszew000mik"
       },
       {
         "name": "Nich Klemp",
-        "player_id": null,
+        "player_id": "klemp-002nic",
         "position": "DH",
         "ab": 5,
         "r": 1,
@@ -80,11 +81,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "klemp-002nic"
       },
       {
-        "name": "William Bermudez",
-        "player_id": null,
+        "name": "Will Bermudez",
+        "player_id": "bermud000wil",
         "position": "2B",
         "ab": 3,
         "r": 0,
@@ -96,11 +98,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "bermud000wil"
       },
       {
         "name": "Tyler Stone",
-        "player_id": null,
+        "player_id": "stone-003tyl",
         "position": "1B",
         "ab": 5,
         "r": 0,
@@ -112,11 +115,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "stone-003tyl"
       },
       {
         "name": "Xavier Casserilla",
-        "player_id": null,
+        "player_id": "casser000xav",
         "position": "3B",
         "ab": 5,
         "r": 2,
@@ -128,11 +132,12 @@
         "doubles": 1,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "casser000xav"
       },
       {
         "name": "Enzo Apodaca",
-        "player_id": null,
+        "player_id": "apodac000enz",
         "position": "RF",
         "ab": 4,
         "r": 2,
@@ -144,11 +149,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 2,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "apodac000enz"
       },
       {
         "name": "Joskar Feliciano",
-        "player_id": null,
+        "player_id": "felici001jos",
         "position": "C",
         "ab": 3,
         "r": 0,
@@ -160,11 +166,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "felici001jos"
       },
       {
         "name": "Leyton Barry",
-        "player_id": null,
+        "player_id": "barry-000ley",
         "position": "LF",
         "ab": 4,
         "r": 0,
@@ -176,11 +183,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "barry-000ley"
       },
       {
         "name": "Jeremy Piatkiewicz",
-        "player_id": null,
+        "player_id": "piatki000jer",
         "position": "SS",
         "ab": 2,
         "r": 1,
@@ -192,11 +200,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "piatki000jer"
       },
       {
         "name": "Jaren Jackson",
-        "player_id": null,
+        "player_id": "jackso004jar",
         "position": "P",
         "ab": 0,
         "r": 0,
@@ -208,11 +217,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "jackso004jar"
       },
       {
         "name": "Jose Ballista",
-        "player_id": null,
+        "player_id": "ballis000jos",
         "position": "",
         "ab": 0,
         "r": 0,
@@ -224,11 +234,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "ballis000jos"
       },
       {
         "name": "Jaydon Bishop",
-        "player_id": null,
+        "player_id": "bishop000jay",
         "position": "",
         "ab": 0,
         "r": 0,
@@ -240,11 +251,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "bishop000jay"
       },
       {
         "name": "Parker McMan",
-        "player_id": null,
+        "player_id": "mcman-000par",
         "position": "P",
         "ab": 0,
         "r": 0,
@@ -256,13 +268,14 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "mcman-000par"
       }
     ],
     "home_batting": [
       {
         "name": "Tremayne Cobb",
-        "player_id": null,
+        "player_id": "cobb--003tre",
         "position": "SS",
         "ab": 5,
         "r": 1,
@@ -274,11 +287,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "cobb--003tre"
       },
       {
         "name": "Jacoby Long",
-        "player_id": null,
+        "player_id": "long--004jac",
         "position": "LF",
         "ab": 3,
         "r": 1,
@@ -290,11 +304,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "long--004jac"
       },
       {
         "name": "Jeter Ybarra",
-        "player_id": null,
+        "player_id": "ybarra000jet",
         "position": "1B",
         "ab": 5,
         "r": 1,
@@ -306,11 +321,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "ybarra000jet"
       },
       {
         "name": "Noah Blythe",
-        "player_id": null,
+        "player_id": "blythe000noa",
         "position": "RF",
         "ab": 4,
         "r": 2,
@@ -322,11 +338,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 1,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "blythe000noa"
       },
       {
         "name": "Jaden Sheppard",
-        "player_id": null,
+        "player_id": "sheppa000jad",
         "position": "DH",
         "ab": 4,
         "r": 1,
@@ -338,11 +355,12 @@
         "doubles": 1,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "sheppa000jad"
       },
       {
         "name": "Jake Allgeyer",
-        "player_id": null,
+        "player_id": "allgey000jak",
         "position": "3B",
         "ab": 4,
         "r": 0,
@@ -354,11 +372,12 @@
         "doubles": 2,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "allgey000jak"
       },
       {
         "name": "Nick Leehey",
-        "player_id": null,
+        "player_id": "leehey000nic",
         "position": "2B",
         "ab": 4,
         "r": 1,
@@ -370,11 +389,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "leehey000nic"
       },
       {
         "name": "Nick Poss",
-        "player_id": null,
+        "player_id": "poss--000nic",
         "position": "C",
         "ab": 2,
         "r": 2,
@@ -386,11 +406,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "poss--000nic"
       },
       {
         "name": "T.J. McKenzie",
-        "player_id": null,
+        "player_id": "mckenz000tyl",
         "position": "CF",
         "ab": 3,
         "r": 4,
@@ -402,11 +423,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 3,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "mckenz000tyl"
       },
       {
         "name": "Aidan Risse",
-        "player_id": null,
+        "player_id": "risse-000aid",
         "position": "P",
         "ab": 0,
         "r": 0,
@@ -418,11 +440,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "risse-000aid"
       },
       {
         "name": "Liam Rocha",
-        "player_id": null,
+        "player_id": "rocha-000lia",
         "position": "",
         "ab": 0,
         "r": 0,
@@ -434,11 +457,12 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "rocha-000lia"
       },
       {
         "name": "Langston Burkett",
-        "player_id": null,
+        "player_id": "burket000lan",
         "position": "",
         "ab": 0,
         "r": 0,
@@ -450,7 +474,8 @@
         "doubles": 0,
         "triples": 0,
         "hr": 0,
-        "sb": 0
+        "sb": 0,
+        "bref_id": "burket000lan"
       },
       {
         "name": "Braydon Nelson",
@@ -473,7 +498,7 @@
     "away_pitching": [
       {
         "name": "Jaren Jackson",
-        "player_id": null,
+        "player_id": "jackso004jar",
         "ip": "2.1",
         "h": 4,
         "r": 5,
@@ -486,11 +511,12 @@
         "np": 67,
         "win": false,
         "loss": false,
-        "save": false
+        "save": false,
+        "bref_id": "jackso004jar"
       },
       {
         "name": "Jose Ballista",
-        "player_id": null,
+        "player_id": "ballis000jos",
         "ip": "1.2",
         "h": 1,
         "r": 1,
@@ -503,11 +529,12 @@
         "np": 26,
         "win": false,
         "loss": false,
-        "save": false
+        "save": false,
+        "bref_id": "ballis000jos"
       },
       {
         "name": "Jaydon Bishop",
-        "player_id": null,
+        "player_id": "bishop000jay",
         "ip": "0.2",
         "h": 1,
         "r": 4,
@@ -520,11 +547,12 @@
         "np": 32,
         "win": false,
         "loss": true,
-        "save": false
+        "save": false,
+        "bref_id": "bishop000jay"
       },
       {
         "name": "Parker McMan",
-        "player_id": null,
+        "player_id": "mcman-000par",
         "ip": "3.1",
         "h": 5,
         "r": 3,
@@ -537,13 +565,14 @@
         "np": 77,
         "win": false,
         "loss": false,
-        "save": false
+        "save": false,
+        "bref_id": "mcman-000par"
       }
     ],
     "home_pitching": [
       {
         "name": "Aidan Risse",
-        "player_id": null,
+        "player_id": "risse-000aid",
         "ip": "3.0",
         "h": 7,
         "r": 6,
@@ -556,11 +585,12 @@
         "np": 68,
         "win": false,
         "loss": false,
-        "save": false
+        "save": false,
+        "bref_id": "risse-000aid"
       },
       {
         "name": "Liam Rocha",
-        "player_id": null,
+        "player_id": "rocha-000lia",
         "ip": "3.0",
         "h": 2,
         "r": 2,
@@ -573,11 +603,12 @@
         "np": 56,
         "win": true,
         "loss": false,
-        "save": false
+        "save": false,
+        "bref_id": "rocha-000lia"
       },
       {
         "name": "Langston Burkett",
-        "player_id": null,
+        "player_id": "burket000lan",
         "ip": "2.0",
         "h": 0,
         "r": 0,
@@ -590,7 +621,8 @@
         "np": 44,
         "win": false,
         "loss": false,
-        "save": false
+        "save": false,
+        "bref_id": "burket000lan"
       },
       {
         "name": "Braydon Nelson",
