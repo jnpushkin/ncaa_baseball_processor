@@ -746,13 +746,14 @@ def _merge_ncaa_pdf_api_duplicate(pdf_game: Dict[str, Any], api_game: Dict[str, 
     merged_meta["merged_sources"] = ["ncaa", "ncaa_api"]
     if api_meta.get("game_id"):
         merged_meta["ncaa_api_game_id"] = api_meta["game_id"]
-    if _date_diff_days(pdf_game, api_game) == 1:
-        # Suspended tournament games may use the start date in PDF box scores and
-        # the resumption/final date in the NCAA API. Prefer the official API date
-        # while keeping the PDF venue and richer shell data.
-        for field in ("date", "date_yyyymmdd"):
-            if api_meta.get(field):
-                merged_meta[field] = api_meta[field]
+    # The PDF box score is the authoritative record of when the game was played;
+    # the NCAA API sometimes reports a different date (e.g. a +1 day offset, as
+    # for the 2023 CWS Virginia/Florida game). Keep the PDF date and backfill
+    # date_yyyymmdd from it when the PDF lacked one, so sorting stays correct.
+    if not merged_meta.get("date_yyyymmdd"):
+        derived_yyyymmdd = _date_key(merged)
+        if derived_yyyymmdd:
+            merged_meta["date_yyyymmdd"] = derived_yyyymmdd
 
     primary_box = merged.setdefault("box_score", {})
     api_box = api_game.get("box_score", {}) or {}

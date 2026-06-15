@@ -244,7 +244,12 @@ def test_processing_games_merge_period_abbreviated_state_name_variants():
     assert processing_games[0]["metadata"]["venue"] == "Dante Benedetti Diamond"
 
 
-def test_processing_games_merge_one_day_offset_suspended_game():
+def test_processing_games_merge_one_day_offset_keeps_pdf_box_score_date():
+    # When a PDF and NCAA API record for the same game differ by one day, the
+    # PDF box-score date is authoritative (the NCAA API sometimes reports a +1
+    # day offset, e.g. the 2023 CWS Virginia/Florida game). The games still
+    # merge into one, but the merged date comes from the PDF, with date_yyyymmdd
+    # backfilled from it.
     pdf_game = {
         "metadata": {
             "date": "6/16/2025",
@@ -276,8 +281,8 @@ def test_processing_games_merge_one_day_offset_suspended_game():
 
     assert len(processing_games) == 1
     merged = processing_games[0]
-    assert merged["metadata"]["date"] == "06/17/2025"
-    assert merged["metadata"]["date_yyyymmdd"] == "20250617"
+    assert merged["metadata"]["date"] == "6/16/2025"
+    assert merged["metadata"]["date_yyyymmdd"] == "20250616"
     assert merged["metadata"]["venue"] == "Charles Schwab Field (Omaha, Neb.)"
     assert merged["metadata"]["ncaa_api_game_id"] == "6455125"
     assert merged["box_score"]["away_batting"][0]["name"] == "API Player"
