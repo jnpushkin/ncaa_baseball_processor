@@ -1,0 +1,1041 @@
+{
+  "metadata": {
+    "date": "6/13/2026",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Oklahoma",
+    "away_team_rank": null,
+    "away_team_record": "39-22",
+    "away_team_score": 9,
+    "home_team": "Alabama",
+    "home_team_rank": null,
+    "home_team_record": "42-20",
+    "home_team_score": 0,
+    "attendance": 24579,
+    "duration": "2:42",
+    "start_time": "2:09 pm",
+    "weather": "78-Cloudy-W:8 MPH NNW-H:68%",
+    "umpires": {
+      "list": "Home Plate: Linus Baker First: Kevin Sweeney Second Base: Billy Van Raaphorst Third Base: Jason Bradley"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Jason Walk",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Camden Johnson",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Deiten LaChance",
+        "position": "c",
+        "at_bats": 5,
+        "runs": 3,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Jaxon Willits",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Trey Gambill",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Brendan Brock",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Dasan Harris",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Dayton Tockey",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Kyle Branch",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Cord Rager",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "LJ Mercurius",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Sam Mitchell",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Bryce Fowler",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Justin Lebron",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Brady Neal",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Jason Torres",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "John Lemm",
+        "position": "dh",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Eric Hines",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Brennan Holt",
+        "position": "2b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Luke Vaughn",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Peyton Steele",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Tyler Fay",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Ashton Crowther",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Cord Rager",
+        "innings_pitched": 7.0,
+        "hits": 3,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 8,
+        "batters_faced": 24,
+        "at_bats": 23,
+        "pitches": 88,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "LJ Mercurius",
+        "innings_pitched": 2.0,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 7,
+        "at_bats": 7,
+        "pitches": 32,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Tyler Fay",
+        "innings_pitched": 6.0,
+        "hits": 6,
+        "runs": 5,
+        "earned_runs": 5,
+        "walks": 2,
+        "strikeouts": 6,
+        "batters_faced": 24,
+        "at_bats": 21,
+        "pitches": 101,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Ashton Crowther",
+        "innings_pitched": 1.2,
+        "hits": 3,
+        "runs": 4,
+        "earned_runs": 4,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 9,
+        "at_bats": 8,
+        "pitches": 33,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Evan Steckmesser",
+        "innings_pitched": 0.1,
+        "hits": 2,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 10,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      },
+      {
+        "number": "",
+        "name": "Sam Mitchell",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 3,
+        "at_bats": 3,
+        "pitches": 13,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        4,
+        0
+      ],
+      "home_innings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [],
+    "double_plays": {
+      "count": 2
+    },
+    "doubles": [
+      {
+        "player": "Trey Gambill",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "Deiten LaChance",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [
+      {
+        "player": "Jason Walk",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "caught_stealing": [
+      "Brendan Brock (1) HBP: John Lemm (1)"
+    ],
+    "hit_by_pitch": [
+      "Camden Johnson (1) DP: 2"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Cord Rager",
+      "record": "6-3"
+    },
+    "loss": {
+      "player": "Tyler Fay",
+      "record": "11-5"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Walk, J. singled to center field (1-2 KFFFB). 0 0",
+          "pitch_count": "1-2 KFFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Johnson, C. flied out to cf to left center (2-0 BB). 0 0",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "LaChance, D. reached on a fielder's choice to shortstop (1-1 BF); Walk, J. out at second ss to 2b. 0 0",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "Willits, J. singled to center field (2-1 BKB); LaChance, D. advanced to second. 0 0",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        },
+        {
+          "description": "Gambill, T. doubled to left center, 2 RBI (2-2 BSFB); Willits, J. scored; LaChance, D. scored. 2 0",
+          "pitch_count": "2-2 BSFB",
+          "rbi": 2
+        },
+        {
+          "description": "Brock, B. flied out to rf (1-2 SSB). 2 0",
+          "pitch_count": "1-2 SSB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Fowler, B. struck out swinging (1-2 BFFS). 2 0",
+          "pitch_count": "1-2 BFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Lebron, J. popped up to 1b (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Neal, B. struck out swinging (1-2 BFKS). 2 0",
+          "pitch_count": "1-2 BFKS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Harris, Das. singled to third base (1-2 FSB). 2 0",
+          "pitch_count": "1-2 FSB",
+          "rbi": 0
+        },
+        {
+          "description": "Tockey, D. struck out swinging (3-2 BBBKKS). 2 0",
+          "pitch_count": "3-2 BBBKKS",
+          "rbi": 0
+        },
+        {
+          "description": "Branch, K. grounded into double play 3b to 2b to 1b (0-2 KK); Harris, Das. out on the play. 2 0",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Torres, J. struck out swinging (2-2 KFBFBS). 2 0",
+          "pitch_count": "2-2 KFBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Lemm, J. hit by pitch (1-0 B). 2 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Hines, E. struck out swinging (2-2 KBFFFFFFBS). 2 0",
+          "pitch_count": "2-2 KBFFFFFFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Holt, B. flied out to rf (0-0). 2 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Walk, J. walked (3-1 BFBBB). 2 0",
+          "pitch_count": "3-1 BFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Walk, J. stole second. 2 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Johnson, C. singled to right field (3-2 BKBBF); Walk, J. advanced to third. 2 0",
+          "pitch_count": "3-2 BKBBF",
+          "rbi": 0
+        },
+        {
+          "description": "LaChance, D. grounded into double play 3b to 2b to 1b (0-0); Johnson, C. out on the play; Walk, J. scored. 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Willits, J. struck out swinging (2-2 BBFFS). 3 0",
+          "pitch_count": "2-2 BBFFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Vaughn, L. grounded out to ss (0-2 SF). 3 0",
+          "pitch_count": "0-2 SF",
+          "rbi": 0
+        },
+        {
+          "description": "Steele, P. grounded out to 3b (1-0 B). 3 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Fowler, B. flied out to lf (0-0). 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Gambill, T. struck out looking (3-2 KFBBBK). 3 0",
+          "pitch_count": "3-2 KFBBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Brock, B. walked (3-2 KSBFFBBB). 3 0",
+          "pitch_count": "3-2 KSBFFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Harris, Das. fouled out to 3b (0-1 S). 3 0",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "Brock, B. out at second c to ss, caught stealing. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Lebron, J. popped up to 2b (1-0 B). 3 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Neal, B. grounded out to 2b (3-2 BBFKFBF). 3 0",
+          "pitch_count": "3-2 BBFKFBF",
+          "rbi": 0
+        },
+        {
+          "description": "Torres, J. fouled out to c (1-0 B). 3 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Tockey, D. flied out to cf to left center (0-0). 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Branch, K. struck out swinging (2-2 BKBKFS). 3 0",
+          "pitch_count": "2-2 BKBKFS",
+          "rbi": 0
+        },
+        {
+          "description": "Walk, J. lined out to lf (0-0). 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Lemm, J. singled to center field (0-0). 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Hines, E. singled through the left side (0-0); Lemm, J. advanced to second. 3 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Holt, B. grounded into double play 1b to ss to 1b (1-2 BKF); Hines, E. out on the play; Lemm, J. advanced",
+          "pitch_count": "1-2 BKF",
+          "rbi": 0
+        },
+        {
+          "description": "to third. 3 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Vaughn, L. grounded out to 2b (0-2 FF). 3 0",
+          "pitch_count": "0-2 FF",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Johnson, C. hit by pitch (0-1 S). 3 0",
+          "pitch_count": "0-1 S",
+          "rbi": 0
+        },
+        {
+          "description": "LaChance, D. homered to left field, 2 RBI (0-0); Johnson, C. scored. 5 0",
+          "pitch_count": "0-0",
+          "rbi": 2
+        },
+        {
+          "description": "Willits, J. struck out swinging (3-2 BBFFFBFS). 5 0",
+          "pitch_count": "3-2 BBFFFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Gambill, T. struck out swinging (0-2 FKS). 5 0",
+          "pitch_count": "0-2 FKS",
+          "rbi": 0
+        },
+        {
+          "description": "Brock, B. grounded out to ss (3-2 FBBBK). 5 0",
+          "pitch_count": "3-2 FBBBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Steele, P. flied out to cf to right center (2-2 BBFFF). 5 0",
+          "pitch_count": "2-2 BBFFF",
+          "rbi": 0
+        },
+        {
+          "description": "Fowler, B. singled to right field (0-1 F). 5 0",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Lebron, J. struck out swinging (2-2 FBBKS). 5 0",
+          "pitch_count": "2-2 FBBKS",
+          "rbi": 0
+        },
+        {
+          "description": "Neal, B. grounded out to 1b unassisted (2-1 BKB). 5 0",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Crowther, A. to p for Fay, T.. 5 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Harris, Das. grounded out to 2b (2-2 BFBS). 5 0",
+          "pitch_count": "2-2 BFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Tockey, D. grounded out to 1b unassisted (1-1 BK). 5 0",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Branch, K. flied out to lf to left center (0-2 KFF). 5 0",
+          "pitch_count": "0-2 KFF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Torres, J. struck out swinging (0-2 KFFS). 5 0",
+          "pitch_count": "0-2 KFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Lemm, J. struck out swinging (3-2 BBKBFS). 5 0",
+          "pitch_count": "3-2 BBKBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Hines, E. struck out swinging (1-2 FBSFFS). 5 0",
+          "pitch_count": "1-2 FBSFFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Walk, J. walked (3-2 SBBFBFB). 5 0",
+          "pitch_count": "3-2 SBBFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Johnson, C. struck out swinging (1-2 BKFS). 5 0",
+          "pitch_count": "1-2 BKFS",
+          "rbi": 0
+        },
+        {
+          "description": "LaChance, D. singled to center field (0-0); Walk, J. advanced to second. 5 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Willits, J. singled to left center, RBI (2-1 BBK); LaChance, D. advanced to second; Walk, J. scored. 6 0",
+          "pitch_count": "2-1 BBK",
+          "rbi": 1
+        },
+        {
+          "description": "Gambill, T. popped up to lf (1-2 KBK). 6 0",
+          "pitch_count": "1-2 KBK",
+          "rbi": 0
+        },
+        {
+          "description": "Brock, B. doubled to left center, RBI (0-0); Willits, J. advanced to third; LaChance, D. scored. 7 0",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Steckmes, E. to p for Crowther, A.. 7 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Harris, Das. singled to right center, 2 RBI (1-2 KFB); Brock, B. scored; Willits, J. scored. 9 0",
+          "pitch_count": "1-2 KFB",
+          "rbi": 2
+        },
+        {
+          "description": "Tockey, D. doubled down the lf line (3-1 BBBK); Harris, Das. advanced to third. 9 0",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Branch, K. grounded out to 3b (0-0). 9 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Mercurius, L to p for Rager, C.. 9 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Holt, B. singled to third base (2-2 SSBBF). 9 0",
+          "pitch_count": "2-2 SSBBF",
+          "rbi": 0
+        },
+        {
+          "description": "Vaughn, L. struck out swinging (1-2 KKBS). 9 0",
+          "pitch_count": "1-2 KKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Steele, P. grounded into double play ss to 2b to 1b (0-0); Holt, B. out on the play. 9 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Mitchell, S. to p for Steckmes, E.. 9 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walk, J. struck out looking (2-2 KFBBK). 9 0",
+          "pitch_count": "2-2 KFBBK",
+          "rbi": 0
+        },
+        {
+          "description": "Johnson, C. grounded out to 3b (0-2 FK). 9 0",
+          "pitch_count": "0-2 FK",
+          "rbi": 0
+        },
+        {
+          "description": "LaChance, D. grounded out to 3b (2-2 BBSF). 9 0",
+          "pitch_count": "2-2 BBSF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Fowler, B. grounded out to 1b unassisted (0-2 FFF). 9 0",
+          "pitch_count": "0-2 FFF",
+          "rbi": 0
+        },
+        {
+          "description": "Lebron, J. singled to center field (2-2 FSBBF). 9 0",
+          "pitch_count": "2-2 FSBBF",
+          "rbi": 0
+        },
+        {
+          "description": "Neal, B. struck out swinging (2-2 FBKBS). 9 0",
+          "pitch_count": "2-2 FBKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Lebron, J. advanced to second. 9 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Torres, J. grounded out to 3b (2-2 KBSFB). 9 0",
+          "pitch_count": "2-2 KBSFB",
+          "rbi": 0
+        }
+      ]
+    }
+  },
+  "format": "format_b"
+}
