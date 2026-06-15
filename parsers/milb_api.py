@@ -13,6 +13,7 @@ Partner/partner-style leagues:
 """
 
 import json
+import re
 import sys
 import requests
 from pathlib import Path
@@ -238,6 +239,25 @@ def _pitching_rows_in_appearance_order(team_data: Dict[str, Any]) -> List[Dict[s
     return rows
 
 
+def parse_attendance(boxscore_data: Dict[str, Any]) -> Optional[int]:
+    """Find and parse the attendance value from the boxscore ``info`` list.
+
+    The MLB Stats API ``info`` field is a list of ``{label, value}`` display
+    rows (labels like "Weather", "Wind", "Venue", "T", "Att"). Attendance uses
+    label "Att"/"Attendance" and a value formatted like ``"5,123."`` (thousands
+    commas and a trailing period). Umpires live in a separate ``officials`` list,
+    so indexing ``info`` by position can surface an umpire name instead.
+
+    Returns the attendance as an int, or None if absent/unparseable.
+    """
+    for entry in boxscore_data.get('info') or []:
+        label = str(entry.get('label', '')).strip().rstrip(':').casefold()
+        if label in ('att', 'attendance'):
+            digits = re.sub(r'[^0-9]', '', str(entry.get('value', '')))
+            return int(digits) if digits else None
+    return None
+
+
 def parse_boxscore(boxscore_data: Dict[str, Any], game_feed: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     """
     Parse API boxscore response into NCAA processor format.
@@ -347,7 +367,7 @@ def parse_boxscore(boxscore_data: Dict[str, Any], game_feed: Optional[Dict[str, 
             'venue': venue_info.get('name', ''),
             'venue_city': venue_info.get('location', {}).get('city', ''),
             'venue_state': venue_info.get('location', {}).get('state', ''),
-            'attendance': boxscore_data.get('info', [{}])[0].get('value') if boxscore_data.get('info') else None,
+            'attendance': parse_attendance(boxscore_data),
             # MiLB-specific fields
             'parent_orgs': {
                 'away': away_parent,

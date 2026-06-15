@@ -13,7 +13,7 @@
     "venue": "Calvin Falwell Field",
     "venue_city": "Lynchburg",
     "venue_state": "Virginia",
-    "attendance": "Kowar; Dye.",
+    "attendance": 2105,
     "parent_orgs": {
       "away": "Kansas City Royals",
       "home": "Cleveland Indians"
@@ -208,7 +208,7 @@
         "lob": 0
       },
       {
-        "name": "Rudy Martin",
+        "name": "Rudy Martin Jr.",
         "player_id": 657675,
         "position": "DH",
         "jersey_number": "4",
@@ -476,26 +476,6 @@
     ],
     "away_pitching": [
       {
-        "name": "Tyler Zuber",
-        "player_id": 676604,
-        "jersey_number": "23",
-        "ip": "1.0",
-        "h": 1,
-        "r": 1,
-        "er": 0,
-        "bb": 2,
-        "k": 1,
-        "hr": 0,
-        "np": 33,
-        "era": "0.00",
-        "bf": 6,
-        "win": false,
-        "loss": false,
-        "save": false,
-        "hold": false,
-        "blown_save": true
-      },
-      {
         "name": "Jackson Kowar",
         "player_id": 663804,
         "jersey_number": "28",
@@ -514,6 +494,26 @@
         "save": false,
         "hold": false,
         "blown_save": false
+      },
+      {
+        "name": "Tyler Zuber",
+        "player_id": 676604,
+        "jersey_number": "23",
+        "ip": "1.0",
+        "h": 1,
+        "r": 1,
+        "er": 0,
+        "bb": 2,
+        "k": 1,
+        "hr": 0,
+        "np": 33,
+        "era": "0.00",
+        "bf": 6,
+        "win": false,
+        "loss": false,
+        "save": false,
+        "hold": false,
+        "blown_save": true
       },
       {
         "name": "Josh Dye",

@@ -90,7 +90,7 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
     },
     'Missoula PaddleHeads': {
         'id': 'pioneer_missoula',
-        'bref_team_ids': {2024: '455f3d7e'},
+        'bref_team_ids': {2024: '455f3d7e', 2026: '89e08d5b'},
         'logo': 'https://upload.wikimedia.org/wikipedia/en/a/a7/Missoula_PaddleHeads_logo.png',
         'stadium': 'Ogren Park at Allegiance Field',
         'lat': 46.8422,
@@ -110,7 +110,7 @@ PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
     },
     'Oakland Ballers': {
         'id': 'pioneer_oakland',
-        'bref_team_ids': {2024: 'cceedd0a'},
+        'bref_team_ids': {2024: 'cceedd0a', 2026: 'cd70cac5'},
         'logo': 'https://upload.wikimedia.org/wikipedia/en/c/c6/Oakland_Ballers_insignia.svg',
         'stadium': 'Raimondi Park',
         'lat': 37.7983,
@@ -713,24 +713,19 @@ def get_bref_team_id(team_name: str, year: int) -> Optional[str]:
     if not bref_team_ids:
         return None
 
-    # Try exact year match first
+    # Require an exact-year match. Baseball Reference register rosters are
+    # season-specific, so falling back to a different year silently pulls the
+    # wrong roster -- which mis-links (or fails to link) players who only played
+    # in the requested season. Better to return None and skip enrichment than
+    # to attach a different season's roster.
     if year in bref_team_ids:
         return bref_team_ids[year]
 
-    # Fall back to closest available year
-    available_years = sorted(bref_team_ids.keys())
-    if not available_years:
-        return None
-
-    # Use the most recent year that's <= requested year, or oldest if all are newer
-    closest_year = None
-    for y in available_years:
-        if y <= year:
-            closest_year = y
-    if closest_year is None:
-        closest_year = available_years[0]  # Use oldest available
-
-    return bref_team_ids.get(closest_year)
+    print(
+        f"No Baseball Reference roster id for {team_name} in {year} "
+        f"(have: {sorted(bref_team_ids)}); skipping roster enrichment for this year."
+    )
+    return None
 
 
 def get_partner_logo(team_name: str) -> Optional[str]:

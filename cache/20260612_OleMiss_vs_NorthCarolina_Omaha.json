@@ -1,0 +1,1087 @@
+{
+  "metadata": {
+    "date": "6/12/2026",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Ole Miss",
+    "away_team_rank": null,
+    "away_team_record": "41-22",
+    "away_team_score": 2,
+    "home_team": "North Carolina",
+    "home_team_rank": null,
+    "home_team_record": "51-12-1",
+    "home_team_score": 6,
+    "attendance": 24883,
+    "duration": "2:57",
+    "start_time": "6:10 pm",
+    "weather": "81-Cloudy-W:12 MPH S-H:43%",
+    "umpires": {
+      "list": "Home Plate: Derek Mollica First: Brian Miller Second Base: Mark Wagers Third Base: Brandon Cooper"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Dom Decker",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "decker000dom",
+        "full_name": "Dom Decker",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Judd Utermark",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "uterma000jud",
+        "full_name": "Judd Utermark",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Will Furniss",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "furnis002wil",
+        "full_name": "Will Furniss",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Tristan Bissetta lf/rf",
+        "position": "",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bisset000tri",
+        "full_name": "Tristan Bissetta",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Hayden Federico cf/lf",
+        "position": "",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "federi000hay",
+        "full_name": "Hayden Federico",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Owen Paino",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "paino-000owe",
+        "full_name": "Owen Paino",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Austin Fawley",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "fawley000aus",
+        "full_name": "Austin Fawley",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Brayden Randle",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "randle000bra",
+        "full_name": "Brayden Randle",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Brett Moseley",
+        "position": "cf",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mosele000bre",
+        "full_name": "Brett Moseley",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Luke Romine",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "romine000luk",
+        "full_name": "Luke Romine",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Cannon Goldin",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "goldin000can",
+        "full_name": "Cannon Goldin",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Collin Reuter",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "reuter000col",
+        "full_name": "Collin Reuter",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Hudson Calhoun",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "calhou000hud",
+        "full_name": "Hudson Calhoun",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Walker Hooks",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hooks-000wal",
+        "full_name": "Walker Hooks",
+        "match_confidence": 0.95
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Jake Schaffner",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "schaff000jak",
+        "full_name": "Jake Schaffner",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Gavin Gallaher",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "gallah000gav",
+        "full_name": "Gavin Gallaher",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Owen Hull",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "hull--000owe",
+        "full_name": "Owen Hull",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Macon Winslow",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "winslo000mac",
+        "full_name": "Macon Winslow",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Erik Paulsen",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "paulse001eri",
+        "full_name": "Erik Paulsen",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Cooper Nicholson",
+        "position": "3b",
+        "at_bats": 1,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "nichol000coo",
+        "full_name": "Cooper Nicholson",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Tyler Howe",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "howe--003tyl",
+        "full_name": "Tyler Howe",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Colin Hynek",
+        "position": "c",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 3,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "hynek-000col",
+        "full_name": "Colin Hynek",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Carter French",
+        "position": "rf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "french000car",
+        "full_name": "Carter French",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Jason DeCaro",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "decaro000jas",
+        "full_name": "Jason DeCaro",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Caden Glauber",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "glaube000cad",
+        "full_name": "Caden Glauber",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Taylor Rabe",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": null,
+        "full_name": null,
+        "match_confidence": 0.0
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Taylor Rabe",
+        "innings_pitched": 5.2,
+        "hits": 2,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 4,
+        "strikeouts": 7,
+        "batters_faced": 23,
+        "at_bats": 19,
+        "pitches": 0,
+        "bref_id": "rabe--000tay",
+        "full_name": "Taylor Rabe",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Hudson Calhoun",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 3,
+        "at_bats": 1,
+        "pitches": 0,
+        "bref_id": "calhou000hud",
+        "full_name": "Hudson Calhoun",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Walker Hooks",
+        "innings_pitched": 2.0,
+        "hits": 3,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 10,
+        "at_bats": 7,
+        "pitches": 0,
+        "bref_id": "hooks-000wal",
+        "full_name": "Walker Hooks",
+        "match_confidence": 0.95
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Jason DeCaro",
+        "innings_pitched": 6.2,
+        "hits": 5,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 3,
+        "strikeouts": 9,
+        "batters_faced": 28,
+        "at_bats": 25,
+        "pitches": 0,
+        "bref_id": "decaro000jas",
+        "full_name": "Jason DeCaro",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Caden Glauber",
+        "innings_pitched": 2.1,
+        "hits": 3,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 9,
+        "at_bats": 9,
+        "pitches": 0,
+        "bref_id": "glaube000cad",
+        "full_name": "Caden Glauber",
+        "match_confidence": 0.95
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "home_innings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [],
+    "double_plays": {
+      "count": 1
+    },
+    "doubles": [
+      {
+        "player": "Dom Decker",
+        "game_count": 1,
+        "season_total": 2
+      }
+    ],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "Owen Hull",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Cooper Nicholson (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Caden Glauber",
+      "record": "11-0"
+    },
+    "loss": {
+      "player": "Hudson Calhoun",
+      "record": "5-4"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Decker, D. flied out to lf. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Utermark, J. struck out swinging. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Furniss, W. grounded out to 2b. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Schaffner, J struck out swinging. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gallaher, G. grounded out to 1b unassisted. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hull, O. struck out swinging. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Bissetta, T. fouled out to 3b. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Federico, H. walked. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paino, O. struck out looking. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fawley, A. flied out to cf. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Winslow, M. popped up to 1b. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paulsen, E. lined out to ss. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nicholson, C walked. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howe, T. singled to right field; Nicholson, C advanced to third. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hynek, C. struck out looking. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Randle, B. doubled down the lf line. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reuter, C. grounded out to ss; Randle, B. advanced to third. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Decker, D. doubled to left center, RBI; Randle, B. scored. 1 0",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Utermark, J. popped up to 2b. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Furniss, W. struck out swinging. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "French, C. struck out swinging. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schaffner, J grounded out to 2b. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gallaher, G. flied out to cf. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Bissetta, T. struck out swinging. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Federico, H. grounded out to ss. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paino, O. struck out swinging. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hull, O. struck out swinging. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Winslow, M. walked. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paulsen, E. lined out to 3b. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nicholson, C walked; Winslow, M. advanced to second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howe, T. grounded out to p. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Fawley, A. walked. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Randle, B. struck out swinging. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reuter, C. singled to second base; Fawley, A. advanced to second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Decker, D. flied out to lf. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Utermark, J. grounded out to 3b. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hynek, C. grounded out to ss. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "French, C. walked. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schaffner, J flied out to cf; French, C. advanced to second. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gallaher, G. struck out swinging. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Furniss, W. flied out to lf to left center. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Bissetta, T. struck out swinging, grounded out to c unassisted. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Federico, H. walked. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paino, O. singled to center field, advanced to second on the throw; Federico, H. advanced to third. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fawley, A. struck out swinging. 1 0",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hull, O. homered to left field, RBI. 1 1",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Winslow, M. struck out swinging. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paulsen, E. flied out to lf to left center. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Calhoun, H. to p for Rabe, T.. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nicholson, C struck out looking. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Randle, B. grounded out to ss. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reuter, C. struck out swinging. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Decker, D. doubled to left center. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Glauber, C. to p for DeCaro, J.. 1 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Utermark, J. singled to left center, RBI; Decker, D. scored. 2 1",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Furniss, W. struck out swinging, out at first c to 1b. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Bissetta, T. to rf. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Federico, H. to lf. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Moseley, B. to cf for Randle, B.. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howe, T. walked. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howe, T. advanced to second on a wild pitch. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hynek, C. walked. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hooks, W. to p for Calhoun, H.. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "French, C. out at first 1b to 2b, SAC, bunt; Hynek, C. advanced to second; Howe, T. advanced to third. 2 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schaffner, J flied out to rf, SF, RBI; Howe, T. scored. 2 2",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Gallaher, G. singled up the middle, RBI; Hynek, C. scored. 2 3",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "Hull, O. grounded out to 2b. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Bissetta, T. grounded out to ss. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Federico, H. grounded out to 3b. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paino, O. singled to left field. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Fawley, A. struck out swinging. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Winslow, M. flied out to rf. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paulsen, E. struck out swinging. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nicholson, C hit by pitch. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howe, T. doubled down the lf line; Nicholson, C advanced to third. 2 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hynek, C. homered to left center, 3 RBI; Howe, T. scored; Nicholson, C scored. 2 6",
+          "pitch_count": null,
+          "rbi": 3
+        },
+        {
+          "description": "French, C. flied out to lf. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Romine, L. pinch hit for Moseley, B.. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Romine, L. singled to right field. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Goldin, C. pinch ran for Romine, L.. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Reuter, C. grounded into double play ss to 2b to 1b; Goldin, C. out on the play. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Decker, D. flied out to lf. 2 6",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}

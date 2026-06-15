@@ -321,6 +321,47 @@ def parse_side_by_side_pitching_line(line: str) -> tuple:
         return (None, None)
 
 
+def _parse_score_by_innings(header_line: str, following_lines: list) -> tuple:
+    """Parse a 'Score by Innings' block into (away_innings, home_innings).
+
+    By box-score convention the first data row is the away team and the second
+    is the home team, so rows are assigned by order rather than by team name
+    (the previous implementation hardcoded 'VMI'/'Virginia'). Team names may
+    contain spaces and unplayed half-innings are marked 'X'/'x'; both are
+    handled by counting inning columns from the header and anchoring each data
+    row on its trailing R/H/E summary columns.
+    """
+    # Inning columns are the integer tokens in the header (1..N), before R/H/E.
+    num_innings = sum(1 for tok in header_line.split() if tok.isdigit())
+    if num_innings == 0:
+        return [], []
+
+    rows = []
+    for line in following_lines:
+        parts = line.strip().split()
+        # Need at least: team name (1+) + innings (num_innings) + R/H/E (3).
+        if len(parts) < num_innings + 4:
+            continue
+        inning_tokens = parts[len(parts) - num_innings - 3:len(parts) - 3]
+        innings = []
+        for tok in inning_tokens:
+            if tok.isdigit():
+                innings.append(int(tok))
+            elif tok in ('X', 'x', '-'):
+                innings.append(0)  # half-inning not batted
+            else:
+                innings = None
+                break
+        if innings is not None and len(innings) == num_innings:
+            rows.append(innings)
+        if len(rows) == 2:
+            break
+
+    away = rows[0] if len(rows) >= 1 else []
+    home = rows[1] if len(rows) >= 2 else []
+    return away, home
+
+
 def parse_box_score_from_tables(pdf_page) -> dict:
     """Parse box score using text parsing for side-by-side layout."""
     result = {
@@ -442,19 +483,13 @@ def parse_box_score_from_tables(pdf_page) -> dict:
 
         # Parse score by innings
         if 'Score by Innings' in stripped:
-            for j in range(i+1, min(i+4, len(lines))):
-                score_line = lines[j].strip()
-                parts = score_line.split()
-                if len(parts) >= 13:
-                    team_name = parts[0]
-                    try:
-                        innings = [int(parts[k]) for k in range(1, 10)]
-                        if team_name == 'VMI':
-                            result["line_score"]["away_innings"] = innings
-                        elif team_name == 'Virginia':
-                            result["line_score"]["home_innings"] = innings
-                    except ValueError:
-                        pass
+            away_innings, home_innings = _parse_score_by_innings(
+                stripped, lines[i+1:i+4]
+            )
+            if away_innings:
+                result["line_score"]["away_innings"] = away_innings
+            if home_innings:
+                result["line_score"]["home_innings"] = home_innings
 
     return result
 
@@ -533,19 +568,13 @@ def parse_box_score_page_text(text: str) -> dict:
 
         # Parse score by innings
         if 'Score by Innings' in stripped:
-            for j in range(i+1, min(i+4, len(lines))):
-                score_line = lines[j].strip()
-                parts = score_line.split()
-                if len(parts) >= 13 and parts[0] == 'VMI':
-                    try:
-                        result["line_score"]["away_innings"] = [int(parts[k]) for k in range(1, 10)]
-                    except ValueError:
-                        pass
-                elif len(parts) >= 13 and parts[0] == 'Virginia':
-                    try:
-                        result["line_score"]["home_innings"] = [int(parts[k]) for k in range(1, 10)]
-                    except ValueError:
-                        pass
+            away_innings, home_innings = _parse_score_by_innings(
+                stripped, lines[i+1:i+4]
+            )
+            if away_innings:
+                result["line_score"]["away_innings"] = away_innings
+            if home_innings:
+                result["line_score"]["home_innings"] = home_innings
 
     return result
 

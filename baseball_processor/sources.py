@@ -138,8 +138,39 @@ _TEAM_SLUG_ALIASES = {
 }
 
 
+# AP/NCAA-style state abbreviations used in short team names (e.g. NCAA API
+# emits "Western Ill." where the PDF box score reads "Western Illinois").
+# "St." is intentionally omitted: it is ambiguous (State vs Saint) and the
+# trailing "st"->"state" case is handled by _expand_state_suffix.
+_STATE_ABBREVIATIONS = {
+    "ala": "alabama", "ariz": "arizona", "ark": "arkansas", "calif": "california",
+    "colo": "colorado", "conn": "connecticut", "dak": "dakota", "del": "delaware",
+    "fla": "florida", "ga": "georgia", "ill": "illinois", "ind": "indiana",
+    "kan": "kansas", "ky": "kentucky", "la": "louisiana", "md": "maryland",
+    "mass": "massachusetts", "mich": "michigan", "minn": "minnesota",
+    "miss": "mississippi", "mo": "missouri", "mont": "montana", "neb": "nebraska",
+    "nev": "nevada", "okla": "oklahoma", "ore": "oregon", "pa": "pennsylvania",
+    "tenn": "tennessee", "tex": "texas", "va": "virginia", "wash": "washington",
+    "wis": "wisconsin", "wyo": "wyoming", "caro": "carolina",
+}
+
+
+def _expand_name_abbreviations(name: str) -> str:
+    """Expand AP/NCAA state abbreviations (period-terminated) to full words.
+
+    Only tokens immediately followed by a period are treated as abbreviations,
+    so "Western Ill." -> "Western Illinois" while full names are unchanged.
+    """
+    return re.sub(
+        r"\b([A-Za-z]+)\.",
+        lambda m: _STATE_ABBREVIATIONS.get(m.group(1).lower(), m.group(1)),
+        name,
+    )
+
+
 def _compact_team_slug(value: Any) -> str:
     team = re.sub(r"\s*\(CA\)\s*$", "", str(value or "").strip(), flags=re.IGNORECASE)
+    team = _expand_name_abbreviations(team)
     team = team.replace("&", "and")
     return "".join(c for c in team.lower() if c.isalnum())
 
@@ -715,13 +746,14 @@ def _merge_ncaa_pdf_api_duplicate(pdf_game: Dict[str, Any], api_game: Dict[str, 
     merged_meta["merged_sources"] = ["ncaa", "ncaa_api"]
     if api_meta.get("game_id"):
         merged_meta["ncaa_api_game_id"] = api_meta["game_id"]
-    if _date_diff_days(pdf_game, api_game) == 1:
-        # Suspended tournament games may use the start date in PDF box scores and
-        # the resumption/final date in the NCAA API. Prefer the official API date
-        # while keeping the PDF venue and richer shell data.
-        for field in ("date", "date_yyyymmdd"):
-            if api_meta.get(field):
-                merged_meta[field] = api_meta[field]
+    # The PDF box score is the authoritative record of when the game was played;
+    # the NCAA API sometimes reports a different date (e.g. a +1 day offset, as
+    # for the 2023 CWS Virginia/Florida game). Keep the PDF date and backfill
+    # date_yyyymmdd from it when the PDF lacked one, so sorting stays correct.
+    if not merged_meta.get("date_yyyymmdd"):
+        derived_yyyymmdd = _date_key(merged)
+        if derived_yyyymmdd:
+            merged_meta["date_yyyymmdd"] = derived_yyyymmdd
 
     primary_box = merged.setdefault("box_score", {})
     api_box = api_game.get("box_score", {}) or {}

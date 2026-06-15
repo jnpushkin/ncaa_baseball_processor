@@ -1,0 +1,1096 @@
+{
+  "metadata": {
+    "date": "6/14/2026",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "West Virginia",
+    "away_team_rank": null,
+    "away_team_record": "46-16",
+    "away_team_score": 2,
+    "home_team": "North Carolina",
+    "home_team_rank": null,
+    "home_team_record": "52-12-1",
+    "home_team_score": 5,
+    "attendance": 24414,
+    "duration": "2:45",
+    "start_time": "6:12 pm",
+    "weather": "73-Sunny-W: 9 MPH NW-H:37%",
+    "umpires": {
+      "list": "Home Plate: Brian Miller First: Brandon Cooper Second Base: Derek Mollica Third Base: Jake Uhlenhopp"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Armani Guzman",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "guzman000arm",
+        "full_name": "Armani Guzman",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Gavin Kelly",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "kelly-000gav",
+        "full_name": "Gavin Kelly",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Paul Schoenfeld",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "schoen004pau",
+        "full_name": "Paul Schoenfeld",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Sean Smith",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "smith-009sea",
+        "full_name": "Sean Smith",
+        "match_confidence": 1.0
+      },
+      {
+        "number": "",
+        "name": "Matthew Graveline",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "gravel001mat",
+        "full_name": "Matthew Graveline",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Matt Ineich",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "ineich000mat",
+        "full_name": "Matt Ineich",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Brodie Kresser",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "kresse000bro",
+        "full_name": "Brodie Kresser",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Ben Lumsden",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lumsde001ben",
+        "full_name": "Ben Lumsden",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Tyrus Hall",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "hall--000tyr",
+        "full_name": "Ty Hall",
+        "match_confidence": 0.8
+      },
+      {
+        "number": "",
+        "name": "Maxx Yehl",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "yehl--000max",
+        "full_name": "Maxx Yehl",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Reese Bassinger",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "bassin000ree",
+        "full_name": "Reese Bassinger",
+        "match_confidence": 0.95
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Jake Schaffner",
+        "position": "ss",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "schaff000jak",
+        "full_name": "Jake Schaffner",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Gavin Gallaher",
+        "position": "2b",
+        "at_bats": 5,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "gallah000gav",
+        "full_name": "Gavin Gallaher",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Owen Hull",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hull--000owe",
+        "full_name": "Owen Hull",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Macon Winslow",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "winslo000mac",
+        "full_name": "Macon Winslow",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Erik Paulsen",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "paulse001eri",
+        "full_name": "Erik Paulsen",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Cooper Nicholson",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "nichol000coo",
+        "full_name": "Cooper Nicholson",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Tyler Howe",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "howe--003tyl",
+        "full_name": "Tyler Howe",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Colin Hynek",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "hynek-000col",
+        "full_name": "Colin Hynek",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Carter French",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "french000car",
+        "full_name": "Carter French",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Ryan Lynch",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lynch-006rya",
+        "full_name": "Ryan Lynch",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Walker McDuffie",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mcduff000wal",
+        "full_name": "Walker McDuffie",
+        "match_confidence": 0.95
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Maxx Yehl",
+        "innings_pitched": 7.0,
+        "hits": 8,
+        "runs": 5,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 7,
+        "batters_faced": 33,
+        "at_bats": 31,
+        "pitches": 109,
+        "bref_id": "yehl--000max",
+        "full_name": "Maxx Yehl",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Reese Bassinger",
+        "innings_pitched": 1.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 5,
+        "at_bats": 2,
+        "pitches": 15,
+        "bref_id": "bassin000ree",
+        "full_name": "Reese Bassinger",
+        "match_confidence": 0.95
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Ryan Lynch",
+        "innings_pitched": 4.2,
+        "hits": 5,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 2,
+        "batters_faced": 19,
+        "at_bats": 17,
+        "pitches": 73,
+        "bref_id": "lynch-006rya",
+        "full_name": "Ryan Lynch",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Walker McDuffie",
+        "innings_pitched": 3.2,
+        "hits": 3,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 2,
+        "strikeouts": 4,
+        "batters_faced": 15,
+        "at_bats": 13,
+        "pitches": 63,
+        "bref_id": "mcduff000wal",
+        "full_name": "Walker McDuffie",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Caden Glauber",
+        "innings_pitched": 0.2,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 2,
+        "at_bats": 2,
+        "pitches": 9,
+        "bref_id": "glaube000cad",
+        "full_name": "Caden Glauber",
+        "match_confidence": 0.95
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Brodie Kresser (1)",
+      "Guzman, A. advanced to second. 0 0\nSchoen, P. struck out swinging (2-2 KBBFS). 0 0\nSmith, S. grounded out to 2b (1-2 FFB). 0 0\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nNorth Carolina - Bottom of 1st WVU UNC\nSchaffner, J singled up the middle (2-2 BKFFB). 0 0\nGallaher, G. reached on a fielder's choice to third base (1-0 B)",
+      "Schaffner, J out at second 3b to 2b. 0 0\nHull, O. singled through the left side (0-0)",
+      "Gallaher, G. advanced to second. 0 0\nWinslow, M. hit by pitch (0-0)",
+      "Hull, O. advanced to second",
+      "Gallaher, G. advanced to third. 0 0\nWest Virginia challenged the HBP call. 0 0\nCall on the field was confirmed, West Virginia has one challenge remaining. 0 0\nPaulsen, E. walked, RBI (3-0 BBBB)",
+      "Winslow, M. advanced to second",
+      "Hull, O. advanced to third",
+      "Gallaher,\nG. scored. 0 1\nNicholson, C grounded out to p, RBI (0-2 KS)",
+      "Paulsen, E. advanced to second",
+      "Winslow, M. advanced to\nthird",
+      "Hull, O. scored. 0 2\nHowe, T. flied out to lf (0-0). 0 2\nRuns: 2 Hits: 2 Errors: 0 Left On Base: 2\nWest Virginia - Top of 2nd WVU UNC\nGraveline, M flied out to rf down the rf line (0-0). 0 2\nIneich, M. popped up to ss (2-1 BBK). 0 2\nKresser, B. grounded out to 2b (3-1 BBBK). 0 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nNorth Carolina - Bottom of 2nd WVU UNC\nHynek, C. struck out looking (0-2 KSK). 0 2\nFrench, C. singled to third base (0-0). 0 2\nSchaffner, J flied out to cf (1-1 BK). 0 2\nGallaher, G. struck out swinging (1-2 KFBS). 0 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nWest Virginia - Top of 3rd WVU UNC\nLumsden, B. singled to right field (1-0 B). 0 2\nHall, T. grounded out to 1b unassisted (1-2 SFB)",
+      "Lumsden, B. advanced to second. 0 2\nGuzman, A. singled up the middle, RBI (2-0 BB)",
+      "Lumsden, B. scored. 1 2\nKelly, G. singled to left center (0-0)",
+      "Guzman, A. advanced to second. 1 2\nKelly, G. advanced to second",
+      "Guzman, A. out at third c to 3b, caught stealing. 1 2\nNorth Carolina Challenged Stolen Base call. 1 2\nCall is overturned, runner is out at third. UNC retains both challenges. 1 2\nSchoen, P. struck out looking (3-2 BKBBFFFFK). 1 2\nRuns: 1 Hits: 3 Errors: 0 Left On Base: 1\nNorth Carolina - Bottom of 3rd WVU UNC\nHull, O. struck out swinging, out at first c to 1b (1-2 BFKS). 1 2\nWinslow, M. grounded out to 2b (1-2 SKFB). 1 2\nPaulsen, E. singled to left field (0-0). 1 2\nNicholson, C popped up to 2b (1-2 FBF). 1 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nWest Virginia - Top of 4th WVU UNC\nSmith, S. walked (3-1 BFBBB). 1 2\nGraveline, M singled to right center (2-2 BBKKF)",
+      "Smith, S. advanced to third. 1 2\nIneich, M. grounded into double play 2b to ss to 1b (0-0)",
+      "Graveline, M out on the play",
+      "Smith, S. scored. 2 2\nKresser, B. grounded out to ss (2-2 FKBB). 2 2\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 0\nNorth Carolina - Bottom of 4th WVU UNC\nHowe, T. struck out swinging (3-2 KBSBBS). 2 2\nHynek, C. struck out swinging (2-2 KFFBBS). 2 2\nFrench, C. singled to center field (1-2 BKK). 2 2\nSchaffner, J popped up to 3b (0-0). 2 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nWest Virginia - Top of 5th WVU UNC\nLumsden, B. grounded out to ss (0-2 KK). 2 2\nHall, T. grounded out to 1b unassisted (1-1 BK). 2 2\nGuzman, A. singled up the middle (1-0 B). 2 2\nMcDuffie, W. to p for Lynch, R.. 2 2\nKelly, G. struck out swinging (1-2 BKSS). 2 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nNorth Carolina - Bottom of 5th WVU UNC\nGallaher, G. fouled out to 1b (2-1 BBK). 2 2\nHull, O. grounded out to 3b (1-1 BK). 2 2\nUNC Challenged the out call at first base. 2 2\nCall of out is confirmed. 2 2\nUNC has one challenge remaining. 2 2\nWinslow, M. struck out swinging (1-2 KKFBS). 2 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nWest Virginia - Top of 6th WVU UNC\nSchoen, P. grounded out to 2b (0-1 K). 2 2\nSmith, S. singled up the middle (0-0). 2 2\nGraveline, M walked (3-2 FBBKBB)",
+      "Smith, S. advanced to second. 2 2\nIneich, M. grounded into double play 2b to ss to 1b (1-1 KB)",
+      "Graveline, M out on the play. 2 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nNorth Carolina - Bottom of 6th WVU UNC\nPaulsen, E. lined out to lf to left center (1-1 KB). 2 2\nNicholson, C struck out swinging (3-2 FBFBFBS). 2 2\nHowe, T. flied out to cf (2-0 BB). 2 2\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nWest Virginia - Top of 7th WVU UNC\nKresser, B. lined out to 2b (0-1 F). 2 2\nLumsden, B. struck out looking (3-2 BSBKBK). 2 2\nHall, T. singled to left center (2-2 KSBB). 2 2\nHall, T. stole second. 2 2\nGuzman, A. lined out to rf (2-2 SBBSF). 2 2\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nNorth Carolina - Bottom of 7th WVU UNC\nHynek, C. reached on a fielding error by 3b (1-2 KFB). 2 2\nFrench, C. reached on a fielder's choice to catcher, bunt (0-0)",
+      "Hynek, C. out at second c to ss. 2 2\nSchaffner, J reached on a fielder's choice to second base (0-1 K)",
+      "French, C. advanced to second on a\nfielding error by 2b. 2 2\nGallaher, G. tripled to right center, 2 RBI (1-2 BFF)",
+      "Schaffner, J scored, unearned",
+      "French, C. scored,\nunearned. 2 4\nHull, O. singled up the middle, RBI (0-1 F)",
+      "Gallaher, G. scored, unearned. 2 5\nWinslow, M. grounded out to 3b (0-0)",
+      "Hull, O. advanced to second. 2 5\nPaulsen, E. popped up to cf (0-2 KFF). 2 5\nRuns: 3 Hits: 2 Errors: 2 Left On Base: 1\nWest Virginia - Top of 8th WVU UNC\nKelly, G. lined out to 3b (1-1 KB). 2 5\nSchoen, P. struck out swinging (2-2 BFBKS). 2 5\nSmith, S. struck out swinging (2-2 BBKSS). 2 5\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nNorth Carolina - Bottom of 8th WVU UNC\nNicholson, C singled through the left side (3-2 KFBBB). 2 5\nBassinger, R to p for Yehl, M.. 2 5\nHowe, T. out at first p to 2b, SAC, bunt (0-0)",
+      "Nicholson, C advanced to second. 2 5\nHynek, C. struck out swinging (1-2 KKBS). 2 5\nFrench, C. walked (3-1 BBFBB). 2 5\nFrench, C. advanced to second on a passed ball",
+      "Nicholson, C advanced to third on a passed ball. 2 5\nSchaffner, J intentionally walked. 2 5\nGallaher, G. flied out to cf (1-2 KFFB). 2 5\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 3\nWest Virginia - Top of 9th WVU UNC\nGraveline, M grounded out to p (2-2 BBKK). 2 5\nIneich, M. walked (3-2 BBBKKB). 2 5\nKresser, B. singled to right center (0-2 KKF)",
+      "Ineich, M. advanced to second. 2 5\nGlauber, C. to p for McDuffie, W.. 2 5\nLumsden, B. struck out swinging (3-2 BSBBFS). 2 5\nHall, T. struck out looking (0-2 SSK). 2 5\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 2\nNorth Carolina - Bottom of 9th WVU UNC\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {
+      "count": 2
+    },
+    "doubles": [],
+    "triples": [],
+    "home_runs": [],
+    "stolen_bases": [
+      {
+        "player": "Tyrus Hall",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "caught_stealing": [
+      "Armani Guzman (1) 3B: Gavin Gallaher (1)"
+    ],
+    "hit_by_pitch": [
+      "Macon Winslow (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [
+      "Gavin Kelly (1)"
+    ],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Walker McDuffie",
+      "record": "9-3"
+    },
+    "loss": {
+      "player": "Maxx Yehl",
+      "record": "9-3"
+    },
+    "save": {
+      "player": "Caden Glauber",
+      "count": 5
+    }
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Guzman, A. walked (3-2 BBKFBB). 0 0",
+          "pitch_count": "3-2 BBKFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Kelly, G. grounded out to 2b (1-2 BKK); Guzman, A. advanced to second. 0 0",
+          "pitch_count": "1-2 BKK",
+          "rbi": 0
+        },
+        {
+          "description": "Schoen, P. struck out swinging (2-2 KBBFS). 0 0",
+          "pitch_count": "2-2 KBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Smith, S. grounded out to 2b (1-2 FFB). 0 0",
+          "pitch_count": "1-2 FFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Schaffner, J singled up the middle (2-2 BKFFB). 0 0",
+          "pitch_count": "2-2 BKFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Gallaher, G. reached on a fielder's choice to third base (1-0 B); Schaffner, J out at second 3b to 2b. 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Hull, O. singled through the left side (0-0); Gallaher, G. advanced to second. 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Winslow, M. hit by pitch (0-0); Hull, O. advanced to second; Gallaher, G. advanced to third. 0 0",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "West Virginia challenged the HBP call. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call on the field was confirmed, West Virginia has one challenge remaining. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Paulsen, E. walked, RBI (3-0 BBBB); Winslow, M. advanced to second; Hull, O. advanced to third; Gallaher,",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 1
+        },
+        {
+          "description": "G. scored. 0 1",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nicholson, C grounded out to p, RBI (0-2 KS); Paulsen, E. advanced to second; Winslow, M. advanced to",
+          "pitch_count": "0-2 KS",
+          "rbi": 1
+        },
+        {
+          "description": "third; Hull, O. scored. 0 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howe, T. flied out to lf (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Graveline, M flied out to rf down the rf line (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Ineich, M. popped up to ss (2-1 BBK). 0 2",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "Kresser, B. grounded out to 2b (3-1 BBBK). 0 2",
+          "pitch_count": "3-1 BBBK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hynek, C. struck out looking (0-2 KSK). 0 2",
+          "pitch_count": "0-2 KSK",
+          "rbi": 0
+        },
+        {
+          "description": "French, C. singled to third base (0-0). 0 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Schaffner, J flied out to cf (1-1 BK). 0 2",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Gallaher, G. struck out swinging (1-2 KFBS). 0 2",
+          "pitch_count": "1-2 KFBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Lumsden, B. singled to right field (1-0 B). 0 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Hall, T. grounded out to 1b unassisted (1-2 SFB); Lumsden, B. advanced to second. 0 2",
+          "pitch_count": "1-2 SFB",
+          "rbi": 0
+        },
+        {
+          "description": "Guzman, A. singled up the middle, RBI (2-0 BB); Lumsden, B. scored. 1 2",
+          "pitch_count": "2-0 BB",
+          "rbi": 1
+        },
+        {
+          "description": "Kelly, G. singled to left center (0-0); Guzman, A. advanced to second. 1 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Kelly, G. advanced to second; Guzman, A. out at third c to 3b, caught stealing. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "North Carolina Challenged Stolen Base call. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call is overturned, runner is out at third. UNC retains both challenges. 1 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schoen, P. struck out looking (3-2 BKBBFFFFK). 1 2",
+          "pitch_count": "3-2 BKBBFFFFK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hull, O. struck out swinging, out at first c to 1b (1-2 BFKS). 1 2",
+          "pitch_count": "1-2 BFKS",
+          "rbi": 0
+        },
+        {
+          "description": "Winslow, M. grounded out to 2b (1-2 SKFB). 1 2",
+          "pitch_count": "1-2 SKFB",
+          "rbi": 0
+        },
+        {
+          "description": "Paulsen, E. singled to left field (0-0). 1 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Nicholson, C popped up to 2b (1-2 FBF). 1 2",
+          "pitch_count": "1-2 FBF",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Smith, S. walked (3-1 BFBBB). 1 2",
+          "pitch_count": "3-1 BFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Graveline, M singled to right center (2-2 BBKKF); Smith, S. advanced to third. 1 2",
+          "pitch_count": "2-2 BBKKF",
+          "rbi": 0
+        },
+        {
+          "description": "Ineich, M. grounded into double play 2b to ss to 1b (0-0); Graveline, M out on the play; Smith, S. scored. 2 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Kresser, B. grounded out to ss (2-2 FKBB). 2 2",
+          "pitch_count": "2-2 FKBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Howe, T. struck out swinging (3-2 KBSBBS). 2 2",
+          "pitch_count": "3-2 KBSBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Hynek, C. struck out swinging (2-2 KFFBBS). 2 2",
+          "pitch_count": "2-2 KFFBBS",
+          "rbi": 0
+        },
+        {
+          "description": "French, C. singled to center field (1-2 BKK). 2 2",
+          "pitch_count": "1-2 BKK",
+          "rbi": 0
+        },
+        {
+          "description": "Schaffner, J popped up to 3b (0-0). 2 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Lumsden, B. grounded out to ss (0-2 KK). 2 2",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "Hall, T. grounded out to 1b unassisted (1-1 BK). 2 2",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Guzman, A. singled up the middle (1-0 B). 2 2",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "McDuffie, W. to p for Lynch, R.. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kelly, G. struck out swinging (1-2 BKSS). 2 2",
+          "pitch_count": "1-2 BKSS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Gallaher, G. fouled out to 1b (2-1 BBK). 2 2",
+          "pitch_count": "2-1 BBK",
+          "rbi": 0
+        },
+        {
+          "description": "Hull, O. grounded out to 3b (1-1 BK). 2 2",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "UNC Challenged the out call at first base. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Call of out is confirmed. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "UNC has one challenge remaining. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Winslow, M. struck out swinging (1-2 KKFBS). 2 2",
+          "pitch_count": "1-2 KKFBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Schoen, P. grounded out to 2b (0-1 K). 2 2",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Smith, S. singled up the middle (0-0). 2 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Graveline, M walked (3-2 FBBKBB); Smith, S. advanced to second. 2 2",
+          "pitch_count": "3-2 FBBKBB",
+          "rbi": 0
+        },
+        {
+          "description": "Ineich, M. grounded into double play 2b to ss to 1b (1-1 KB); Graveline, M out on the play. 2 2",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Paulsen, E. lined out to lf to left center (1-1 KB). 2 2",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Nicholson, C struck out swinging (3-2 FBFBFBS). 2 2",
+          "pitch_count": "3-2 FBFBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Howe, T. flied out to cf (2-0 BB). 2 2",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Kresser, B. lined out to 2b (0-1 F). 2 2",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "Lumsden, B. struck out looking (3-2 BSBKBK). 2 2",
+          "pitch_count": "3-2 BSBKBK",
+          "rbi": 0
+        },
+        {
+          "description": "Hall, T. singled to left center (2-2 KSBB). 2 2",
+          "pitch_count": "2-2 KSBB",
+          "rbi": 0
+        },
+        {
+          "description": "Hall, T. stole second. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Guzman, A. lined out to rf (2-2 SBBSF). 2 2",
+          "pitch_count": "2-2 SBBSF",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hynek, C. reached on a fielding error by 3b (1-2 KFB). 2 2",
+          "pitch_count": "1-2 KFB",
+          "rbi": 0
+        },
+        {
+          "description": "French, C. reached on a fielder's choice to catcher, bunt (0-0); Hynek, C. out at second c to ss. 2 2",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Schaffner, J reached on a fielder's choice to second base (0-1 K); French, C. advanced to second on a",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "fielding error by 2b. 2 2",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gallaher, G. tripled to right center, 2 RBI (1-2 BFF); Schaffner, J scored, unearned; French, C. scored,",
+          "pitch_count": "1-2 BFF",
+          "rbi": 2
+        },
+        {
+          "description": "unearned. 2 4",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Hull, O. singled up the middle, RBI (0-1 F); Gallaher, G. scored, unearned. 2 5",
+          "pitch_count": "0-1 F",
+          "rbi": 1
+        },
+        {
+          "description": "Winslow, M. grounded out to 3b (0-0); Hull, O. advanced to second. 2 5",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Paulsen, E. popped up to cf (0-2 KFF). 2 5",
+          "pitch_count": "0-2 KFF",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Kelly, G. lined out to 3b (1-1 KB). 2 5",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        },
+        {
+          "description": "Schoen, P. struck out swinging (2-2 BFBKS). 2 5",
+          "pitch_count": "2-2 BFBKS",
+          "rbi": 0
+        },
+        {
+          "description": "Smith, S. struck out swinging (2-2 BBKSS). 2 5",
+          "pitch_count": "2-2 BBKSS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Nicholson, C singled through the left side (3-2 KFBBB). 2 5",
+          "pitch_count": "3-2 KFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Bassinger, R to p for Yehl, M.. 2 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howe, T. out at first p to 2b, SAC, bunt (0-0); Nicholson, C advanced to second. 2 5",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Hynek, C. struck out swinging (1-2 KKBS). 2 5",
+          "pitch_count": "1-2 KKBS",
+          "rbi": 0
+        },
+        {
+          "description": "French, C. walked (3-1 BBFBB). 2 5",
+          "pitch_count": "3-1 BBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "French, C. advanced to second on a passed ball; Nicholson, C advanced to third on a passed ball. 2 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Schaffner, J intentionally walked. 2 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Gallaher, G. flied out to cf (1-2 KFFB). 2 5",
+          "pitch_count": "1-2 KFFB",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Graveline, M grounded out to p (2-2 BBKK). 2 5",
+          "pitch_count": "2-2 BBKK",
+          "rbi": 0
+        },
+        {
+          "description": "Ineich, M. walked (3-2 BBBKKB). 2 5",
+          "pitch_count": "3-2 BBBKKB",
+          "rbi": 0
+        },
+        {
+          "description": "Kresser, B. singled to right center (0-2 KKF); Ineich, M. advanced to second. 2 5",
+          "pitch_count": "0-2 KKF",
+          "rbi": 0
+        },
+        {
+          "description": "Glauber, C. to p for McDuffie, W.. 2 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Lumsden, B. struck out swinging (3-2 BSBBFS). 2 5",
+          "pitch_count": "3-2 BSBBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Hall, T. struck out looking (0-2 SSK). 2 5",
+          "pitch_count": "0-2 SSK",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}
