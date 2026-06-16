@@ -545,7 +545,13 @@
       "count": 2
     },
     "doubles": [],
-    "triples": [],
+    "triples": [
+      {
+        "player": "Gavin Gallaher",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
     "home_runs": [],
     "stolen_bases": [
       {

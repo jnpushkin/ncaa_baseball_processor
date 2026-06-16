@@ -4,6 +4,53 @@ Game notes extraction from NCAA baseball box score PDFs.
 
 import re
 
+# Stat labels that can appear in the box-score notes section. Used to find the
+# end of one stat's player list (the next label) and to filter stray prefixes.
+_STAT_LABELS = (
+    "2B", "3B", "HR", "SB", "CS", "SH", "SF", "SFA", "WP", "PB", "KL",
+    "HBP", "GDP", "LOB", "DP", "BK", "IBB", "E",
+)
+
+
+def _extract_stat_entries(text: str, label: str) -> list:
+    """Extract all "<label>: Player (count)" entries for a counting stat.
+
+    Handles three layouts seen in NCAA box scores:
+      * Format A — one stat per line ("2B - Player (5)")
+      * Format B — several stats on one line ("2B: P1 (1) 3B: P2 (1)")
+      * Two-column box scores where pdfplumber merges the home/away note
+        columns, so a label can appear mid-line after the other column's
+        "(count) " (e.g. "SB: Lebron (1) 2B: Robbins (1); Mendoza (1)").
+
+    The label is matched wherever it is not preceded by an alphanumeric (so it
+    is a real prefix, not part of a name), and its player list is captured up to
+    the next stat label or end of line, then split on ';'. Items without a
+    "(count)" (e.g. base-umpire names in the umpires line) are skipped.
+    """
+    others = "|".join(l for l in _STAT_LABELS if l != label)
+    pattern = (
+        r"(?<![A-Za-z0-9])" + label + r"\s*[-:]\s*"
+        r"(.+?)(?=(?<![A-Za-z0-9])(?:" + others + r")\s*[-:]|$)"
+    )
+    any_label = r"^(?:" + "|".join(_STAT_LABELS) + r")\b"
+    entries = []
+    for segment in re.findall(pattern, text, re.MULTILINE):
+        for item in segment.split(";"):
+            item = item.strip()
+            if not item or re.match(any_label, item, re.IGNORECASE):
+                continue
+            match = re.match(r"([^(]+?)(?:\s*(\d+))?\s*\((\d+)\)", item)
+            if not match:
+                continue
+            player_name = match.group(1).strip()
+            if player_name and not re.match(any_label, player_name, re.IGNORECASE):
+                entries.append({
+                    "player": player_name,
+                    "game_count": int(match.group(2)) if match.group(2) else 1,
+                    "season_total": int(match.group(3)),
+                })
+    return entries
+
 
 def extract_game_notes(text: str) -> dict:
     """Extract additional game statistics from the notes section.
@@ -49,93 +96,14 @@ def extract_game_notes(text: str) -> dict:
                 if len(parts) == 2 and parts[1].isdigit():
                     notes["double_plays"][parts[0].strip()] = int(parts[1])
 
-    # Extract doubles: 2B - Player (season) ; or 2B: Player (count)
-    # Common stat prefixes to filter out
-    stat_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|3B|HR)\b'
-    doubles_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|3B|HR)\b'
-
-    # Use findall to capture ALL 2B entries
-    # Format A: "2B - Player (count)" at start of line
-    # Format B: "2B - Player (count)" mid-line, terminated by ; or next stat
-    # Note: "2B: Umpire Name" in umpire line doesn't have parentheses - skip those
-    doubles_matches = re.findall(r'(?:^|;\s*)2B\s*[-:]\s*([^;]+?)(?=\s*;|\s*$|\s*(?:3B|HR|SB|CS|SH|SF|WP|PB|KL|HBP|GDP|LOB|DP|BK|IBB|E)\s*[-:])', text, re.MULTILINE)
-    for doubles_line in doubles_matches:
-        for item in doubles_line.split(';'):
-            item = item.strip()
-            # Skip items that are clearly not doubles
-            if item and not re.match(doubles_prefixes, item, re.IGNORECASE):
-                match = re.match(r'([^(]+?)(?:\s*(\d+))?\s*\((\d+)\)', item)
-                if match:
-                    player_name = match.group(1).strip()
-                    # Skip if player name looks like a stat prefix
-                    if not re.match(doubles_prefixes, player_name, re.IGNORECASE):
-                        notes["doubles"].append({
-                            "player": player_name,
-                            "game_count": int(match.group(2)) if match.group(2) else 1,
-                            "season_total": int(match.group(3))
-                        })
-                # Don't add items without parentheses - they might be umpire names
-
-    # Extract triples: 3B - Player count (season) ;
-    # Use findall to capture ALL 3B entries (Format A at line start, Format B mid-line)
-    # Note: "3B: Umpire Name" in umpire line doesn't have parentheses - skip those
-    triples_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E|2B|HR)\b'
-    triples_matches = re.findall(r'(?:^|;\s*)3B\s*[-:]\s*([^;]+?)(?=\s*;|\s*$|\s*(?:2B|HR|SB|CS|SH|SF|WP|PB|KL|HBP|GDP|LOB|DP|BK|IBB|E)\s*[-:])', text, re.MULTILINE)
-    for triples_line in triples_matches:
-        for item in triples_line.split(';'):
-            item = item.strip()
-            if item and not re.match(triples_prefixes, item, re.IGNORECASE):
-                match = re.match(r'([^(]+?)(?:\s*(\d+))?\s*\((\d+)\)', item)
-                if match:
-                    player_name = match.group(1).strip()
-                    if not re.match(triples_prefixes, player_name, re.IGNORECASE):
-                        notes["triples"].append({
-                            "player": player_name,
-                            "game_count": int(match.group(2)) if match.group(2) else 1,
-                            "season_total": int(match.group(3))
-                        })
-                # Don't add items without parentheses - they might be umpire names
-
-    # Extract home runs: HR - Player count (season) ; or HR: Player (count)
-    # Use findall to capture ALL HR entries (Format A at line start, Format B mid-line)
-    hr_matches = re.findall(r'(?:^|;\s*)HR\s*[-:]\s*([^;]+?)(?=\s*;|\s*$|\s*(?:2B|3B|SB|CS|SH|SF|WP|PB|KL|HBP|GDP|LOB|DP|BK|IBB|E)\s*[-:])', text, re.MULTILINE)
-    for hr_line in hr_matches:
-        for item in hr_line.split(';'):
-            item = item.strip()
-            # Skip items that are clearly not home runs (SH, SF, HBP, CS, SB, etc.)
-            # Use word boundary \b to catch formats like "HBP - Player" or "SF Player"
-            stat_prefixes = r'^(SH|SF|SFA|HBP|CS|SB|GDP|LOB|DP|WP|PB|BK|IBB|E)\b'
-            if item and not re.match(stat_prefixes, item, re.IGNORECASE):
-                match = re.match(r'([^(]+?)(?:\s*(\d+))?\s*\((\d+)\)', item)
-                if match:
-                    player_name = match.group(1).strip()
-                    # Skip if player name looks like a stat prefix
-                    if not re.match(stat_prefixes, player_name, re.IGNORECASE):
-                        notes["home_runs"].append({
-                            "player": player_name,
-                            "game_count": int(match.group(2)) if match.group(2) else 1,
-                            "season_total": int(match.group(3))
-                        })
-
-    # Extract stolen bases: SB - Player count (season) ;
-    # Use findall to capture ALL SB entries (Format A at line start, Format B mid-line)
-    sb_prefixes = r'^(CS|GDP|LOB|DP|WP|PB|BK|IBB|E)\b'
-    sb_matches = re.findall(r'(?:^|;\s*)SB\s*[-:]\s*([^;]+?)(?=\s*;|\s*$|\s*(?:2B|3B|HR|CS|SH|SF|WP|PB|KL|HBP|GDP|LOB|DP|BK|IBB|E)\s*[-:])', text, re.MULTILINE)
-    for sb_line in sb_matches:
-        for item in sb_line.split(';'):
-            item = item.strip()
-            if item and 'CS' not in item and not re.match(sb_prefixes, item, re.IGNORECASE):
-                match = re.match(r'([^(]+?)(?:\s*(\d+))?\s*\((\d+)\)', item)
-                if match:
-                    player_name = match.group(1).strip()
-                    if not re.match(sb_prefixes, player_name, re.IGNORECASE):
-                        notes["stolen_bases"].append({
-                            "player": player_name,
-                            "game_count": int(match.group(2)) if match.group(2) else 1,
-                            "season_total": int(match.group(3))
-                        })
-                elif item and not re.match(sb_prefixes, item, re.IGNORECASE):
-                    notes["stolen_bases"].append({"player": item, "game_count": 1, "season_total": None})
+    # Extract doubles, triples, home runs, and stolen bases. Each handles
+    # Format A (one stat per line), Format B (several stats per line), and
+    # two-column box scores where a label appears mid-line. Items without a
+    # "(count)" (e.g. base-umpire names) are skipped.
+    notes["doubles"] = _extract_stat_entries(text, "2B")
+    notes["triples"] = _extract_stat_entries(text, "3B")
+    notes["home_runs"] = _extract_stat_entries(text, "HR")
+    notes["stolen_bases"] = _extract_stat_entries(text, "SB")
 
     # Extract caught stealing: CS - Player (count) ; (single line only)
     cs_match = re.search(r'^CS\s*[-:]\s*(.+?)$', text, re.MULTILINE)

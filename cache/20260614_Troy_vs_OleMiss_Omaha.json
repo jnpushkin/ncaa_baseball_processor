@@ -714,12 +714,37 @@
         "player": "Aaron Piasecki",
         "game_count": 1,
         "season_total": 1
+      },
+      {
+        "player": "Jabe Boroff",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [],
     "home_runs": [
       {
         "player": "Blake Cavill",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Jimmy Janicki",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Sean Darnell",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Brayden Randle",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Collin Reuter",
         "game_count": 1,
         "season_total": 1
       }

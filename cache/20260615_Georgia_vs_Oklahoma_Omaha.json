@@ -560,6 +560,16 @@
     },
     "doubles": [
       {
+        "player": "Jason Walk",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Dayton Tockey",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
         "player": "Ryan Wynn",
         "game_count": 1,
         "season_total": 1
@@ -573,12 +583,33 @@
         "season_total": 1
       },
       {
+        "player": "Brendan Brock",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
         "player": "Daniel Jackson",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Kenny Ishikawa",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Brennan Hudson",
         "game_count": 1,
         "season_total": 1
       }
     ],
-    "stolen_bases": [],
+    "stolen_bases": [
+      {
+        "player": "Camden Johnson",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
     "caught_stealing": [],
     "hit_by_pitch": [
       "Cole Johnson (1)"

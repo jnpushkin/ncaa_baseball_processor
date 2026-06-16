@@ -768,6 +768,31 @@
         "player": "Trevor Cohen",
         "game_count": 1,
         "season_total": 2
+      },
+      {
+        "player": "JT Thompson",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Matt Chatelle",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Boever, Cael",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Peery, Cannon",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Paton, Eli",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [
@@ -780,6 +805,11 @@
     "home_runs": [
       {
         "player": "Pablo Santos",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Diaz, Michael",
         "game_count": 1,
         "season_total": 1
       }

@@ -583,15 +583,30 @@
     },
     "doubles": [
       {
+        "player": "Tyler Howe",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
         "player": "Dom Decker",
         "game_count": 1,
         "season_total": 2
+      },
+      {
+        "player": "Brayden Randle",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [],
     "home_runs": [
       {
         "player": "Owen Hull",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Colin Hynek",
         "game_count": 1,
         "season_total": 1
       }
