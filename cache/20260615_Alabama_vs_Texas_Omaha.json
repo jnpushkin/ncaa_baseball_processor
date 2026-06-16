@@ -727,11 +727,43 @@
       "Pack Jr., A. scored. 2 14\nBecerra, T. struck out swinging (2-2 BBKSS). 2 14\nLarson, A. grounded out to 1b unassisted (0-0). 2 14\nRuns: 3 Hits: 2 Errors: 1 Left On Base: 1\nAlabama - Top of 9th UA TX\nCourville, P to c. 2 14\nWalker, E. to p for Walls, B.. 2 14\nHolt, B. struck out swinging (1-2 KBFS). 2 14\nPlattner, W. pinch hit for Vaughn, L.. 2 14\nHoward, C. to p for Walker, E.. 2 14\nPlattner, W. grounded out to 2b (1-0 B). 2 14\nKroberger, C pinch hit for Steele, P.. 2 14\nKroberger, C struck out swinging (2-2 KBBSS). 2 14\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nTexas - Bottom of 9th UA TX\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
     ],
     "double_plays": {},
-    "doubles": [],
-    "triples": [],
+    "doubles": [
+      {
+        "player": "Aiden Robbins",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Ethan Mendoza",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Adrian Rodriguez",
+        "game_count": 1,
+        "season_total": 2
+      }
+    ],
+    "triples": [
+      {
+        "player": "Adrian Rodriguez",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
     "home_runs": [
       {
         "player": "John Lemm",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Anthony Pack Jr.",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Adrian Rodriguez",
         "game_count": 1,
         "season_total": 1
       }
@@ -744,6 +776,11 @@
       },
       {
         "player": "Callum Early",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Temo Becerra",
         "game_count": 1,
         "season_total": 1
       }

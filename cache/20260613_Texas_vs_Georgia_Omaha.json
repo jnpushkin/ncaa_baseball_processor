@@ -584,7 +584,13 @@
     "double_plays": {
       "count": 1
     },
-    "doubles": [],
+    "doubles": [
+      {
+        "player": "Rylan Lujo",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
     "triples": [],
     "home_runs": [
       {
@@ -594,6 +600,11 @@
       }
     ],
     "stolen_bases": [
+      {
+        "player": "Ryan Wynn",
+        "game_count": 1,
+        "season_total": 1
+      },
       {
         "player": "Adrian Rodriguez",
         "game_count": 1,

@@ -539,12 +539,32 @@
         "player": "Jimmy Janicki",
         "game_count": 1,
         "season_total": 1
+      },
+      {
+        "player": "Sean Darnell",
+        "game_count": 1,
+        "season_total": 2
+      },
+      {
+        "player": "Armani Guzman",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Tyrus Hall",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [],
     "home_runs": [
       {
         "player": "Jimmy Janicki",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Sean Smith",
         "game_count": 1,
         "season_total": 1
       }
