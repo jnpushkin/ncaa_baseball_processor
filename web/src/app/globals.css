@@ -697,6 +697,8 @@ tr:hover {
   width: 90%;
   overflow: hidden;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
@@ -734,7 +736,11 @@ tr:hover {
 .modal-body {
   padding: 20px;
   overflow-y: auto;
-  max-height: calc(80vh - 60px);
+  /* Fill the space left by the header (which varies in height) and scroll
+     within it, rather than assuming a fixed header height -- a hardcoded
+     max-height clipped the bottom of taller headers. */
+  flex: 1;
+  min-height: 0;
 }
 
 /* Game Details Modal */
@@ -2177,9 +2183,9 @@ select:focus-visible {
     border-radius: 0;
   }
 
-  .modal-body {
-    max-height: calc(100vh - 60px);
-  }
+  /* On mobile the modal is full-screen; the base flex layout (.modal-content
+     is a flex column, .modal-body is flex:1) already fits the body to the
+     space under the header, so no hardcoded max-height override is needed. */
 
   .panel-header {
     padding: 12px 14px;
