@@ -244,6 +244,59 @@ def test_processing_games_merge_period_abbreviated_state_name_variants():
     assert processing_games[0]["metadata"]["venue"] == "Dante Benedetti Diamond"
 
 
+def test_processing_games_preserve_pdf_names_when_api_names_are_clipped():
+    pdf_game = {
+        "metadata": {
+            "date": "2/14/2026",
+            "away_team": "Western Illinois",
+            "home_team": "San Francisco",
+            "away_team_score": 6,
+            "home_team_score": 10,
+        },
+        "box_score": {
+            "away_batting": [
+                {"name": "Wandel Campana", "at_bats": 4, "hits": 1, "rbi": 2},
+                {"name": "Kenneth Perez", "at_bats": 4, "hits": 0},
+            ],
+            "away_pitching": [
+                {"name": "Harrison Dubois", "innings_pitched": 2.2, "hits": 7},
+            ],
+        },
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "game_id": "6544183",
+            "date": "02/14/2026",
+            "date_yyyymmdd": "20260214",
+            "away_team": "Western Ill.",
+            "home_team": "San Francisco",
+            "away_team_score": 6,
+            "home_team_score": 10,
+        },
+        "box_score": {
+            "away_batting": [
+                {"number": "2", "name": "Wandel Campa", "full_name": "Wandel Campa", "ab": 4, "h": 1, "rbi": 2},
+                {"number": "3", "name": "Kenneth Pere", "full_name": "Kenneth Pere", "ab": 4, "h": 0},
+            ],
+            "away_pitching": [
+                {"number": "10", "name": "Harrison Dub", "full_name": "Harrison Dub", "ip": "2.2", "h": 7},
+            ],
+        },
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+    merged = loaded.processing_games[0]
+
+    assert [row["name"] for row in merged["box_score"]["away_batting"]] == [
+        "Wandel Campana",
+        "Kenneth Perez",
+    ]
+    assert [row["name"] for row in merged["box_score"]["away_pitching"]] == [
+        "Harrison Dubois",
+    ]
+
+
 def test_processing_games_merge_one_day_offset_keeps_pdf_box_score_date():
     # When a PDF and NCAA API record for the same game differ by one day, the
     # PDF box-score date is authoritative (the NCAA API sometimes reports a +1

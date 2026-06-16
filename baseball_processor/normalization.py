@@ -471,6 +471,39 @@ def _loose_player_name_key(row: Mapping[str, Any]) -> str:
     return f"{first[0]}:{last}"
 
 
+def _has_durable_player_id(row: Mapping[str, Any]) -> bool:
+    return bool(first_present(row, "bref_id", "register_id", "player_id", "mlb_api_id"))
+
+
+def _has_batting_contribution(row: Mapping[str, Any]) -> bool:
+    stat_groups = (
+        ("AB", "ab", "at_bats"),
+        ("R", "r", "runs"),
+        ("H", "h", "hits"),
+        ("RBI", "rbi"),
+        ("BB", "bb", "walks"),
+        ("SO", "so", "k", "strikeouts"),
+        ("2B", "2b", "doubles"),
+        ("3B", "3b", "triples"),
+        ("HR", "hr", "home_runs"),
+        ("SB", "sb", "stolen_bases"),
+        ("CS", "cs", "caught_stealing"),
+        ("HBP", "hbp", "hit_by_pitch"),
+        ("SF", "sf", "sac_flies"),
+        ("SH", "sh", "sac_bunts"),
+        ("PO", "po", "put_outs"),
+        ("A", "a", "assists"),
+        ("LOB", "lob", "left_on_base"),
+    )
+    return any(first_int(row, *keys) != 0 for keys in stat_groups)
+
+
+def _is_zero_contribution_batting_artifact(row: Mapping[str, Any]) -> bool:
+    if _has_durable_player_id(row):
+        return False
+    return not _has_batting_contribution(row)
+
+
 def _is_pitcher_only_batting_artifact(
     row: Mapping[str, Any],
     pitcher_identities: set[str],
@@ -723,6 +756,7 @@ def normalized_raw_sections(
                 year,
                 player_name_aliases,
             )
+            and not _is_zero_contribution_batting_artifact(row)
         ]
         for side, rows in batting.items()
     }

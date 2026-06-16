@@ -336,6 +336,42 @@ def test_drops_zero_pitcher_batting_artifact_when_pitcher_uses_nickname_alias():
     assert [row["name"] for row in normalized["pitching"]["home"]] == ["Gabe Barrett"]
 
 
+def test_drops_zero_contribution_batting_artifacts_without_stable_identity():
+    game = {
+        "metadata": {
+            "date": "06/15/2026",
+            "away_team": "Georgia",
+            "home_team": "Oklahoma",
+        },
+        "box_score": {
+            "away_batting": [],
+            "home_batting": [
+                {
+                    "name": "Scott Newman",
+                    "position": "cf",
+                    "at_bats": 0,
+                    "runs": 0,
+                    "hits": 0,
+                    "rbi": 0,
+                    "walks": 0,
+                    "strikeouts": 0,
+                    "put_outs": 0,
+                    "assists": 0,
+                    "left_on_base": 0,
+                },
+                {"name": "Real Batter", "position": "rf", "at_bats": 4, "hits": 2},
+                {"name": "Known Defender", "position": "lf", "bref_id": "known000def", "at_bats": 0},
+            ],
+            "away_pitching": [],
+            "home_pitching": [],
+        },
+    }
+
+    normalized = normalize_game(game)
+
+    assert [row["name"] for row in normalized["batting"]["home"]] == ["Real Batter", "Known Defender"]
+
+
 def test_dedupes_batting_rows_by_roster_identity_without_merging_siblings():
     game = {
         "metadata": {

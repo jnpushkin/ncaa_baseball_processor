@@ -149,11 +149,16 @@ def audit_cached_games() -> tuple[dict[str, Any], list[str]]:
 
 
 def _load_generated_site(web_dir: Path) -> tuple[dict[str, Any] | None, list[str]]:
-    site_path = web_dir / "src" / "data" / "site-data.json"
-    if not site_path.exists():
-        return None, [f"generated site data not found at {site_path}; skipping generated-output audit"]
-    with open(site_path, "r", encoding="utf-8") as f:
-        return json.load(f), []
+    candidates = [
+        web_dir / "public" / "data" / "site-data.json",
+        web_dir / "src" / "data" / "site-data.json",
+    ]
+    for site_path in candidates:
+        if site_path.exists():
+            with open(site_path, "r", encoding="utf-8") as f:
+                return json.load(f), []
+    candidate_text = " or ".join(str(path) for path in candidates)
+    return None, [f"generated site data not found at {candidate_text}; skipping generated-output audit"]
 
 
 def _detail_rows(detail: Dict[str, Any], key: str) -> Iterable[Dict[str, Any]]:

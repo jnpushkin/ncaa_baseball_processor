@@ -15,6 +15,16 @@ def _write_site(web_dir, site_data, details):
         (games_dir / f"{game_id}.json").write_text(json.dumps(detail), encoding="utf-8")
 
 
+def _write_public_site(web_dir, site_data, details):
+    data_dir = web_dir / "public" / "data"
+    games_dir = web_dir / "public" / "games"
+    data_dir.mkdir(parents=True)
+    games_dir.mkdir(parents=True)
+    (data_dir / "site-data.json").write_text(json.dumps(site_data), encoding="utf-8")
+    for game_id, detail in details.items():
+        (games_dir / f"{game_id}.json").write_text(json.dumps(detail), encoding="utf-8")
+
+
 def _empty_site(game_id):
     return {
         "unifiedGameLog": [{"game_id": game_id}],
@@ -105,6 +115,22 @@ def test_cached_audit_allows_partner_games_from_milb_api_cache(tmp_path, monkeyp
 
     assert summary["source_counts"] == {"milb": 1}
     assert not issues
+
+
+def test_generated_audit_reads_committed_public_site_data(tmp_path):
+    game_id = "public_game"
+    _write_public_site(
+        tmp_path,
+        _empty_site(game_id),
+        {game_id: _detail_payload(game_id, _box_score())},
+    )
+
+    summary, issues, warnings = audit_generated_website(tmp_path)
+
+    assert summary["generated"] is True
+    assert summary["linked_games"] == 1
+    assert not issues
+    assert not warnings
 
 
 def test_generated_audit_flags_impossible_detail_batting_stats(tmp_path):

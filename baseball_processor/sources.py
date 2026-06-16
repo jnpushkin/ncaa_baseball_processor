@@ -302,6 +302,31 @@ def _row_last_name_key(row: Dict[str, Any]) -> str:
     return re.sub(r"[^a-z]", "", last)
 
 
+def _row_first_name_key(row: Dict[str, Any]) -> str:
+    name = str(row.get("full_name") or row.get("name") or "").strip().lower()
+    if not name:
+        return ""
+    if "," in name:
+        first = name.split(",", 1)[1].strip().split()[0] if name.split(",", 1)[1].strip() else ""
+    else:
+        first = name.split()[0] if name.split() else ""
+    return re.sub(r"[^a-z]", "", first)
+
+
+def _same_player_with_clipped_name(primary_row: Dict[str, Any], api_row: Dict[str, Any]) -> bool:
+    """Return true when an API row looks like a clipped version of the PDF name."""
+    primary_first = _row_first_name_key(primary_row)
+    api_first = _row_first_name_key(api_row)
+    primary_last = _row_last_name_key(primary_row)
+    api_last = _row_last_name_key(api_row)
+    if not primary_first or not api_first or primary_first != api_first:
+        return False
+    if not primary_last or not api_last or primary_last == api_last:
+        return False
+    shorter, longer = sorted((primary_last, api_last), key=len)
+    return len(shorter) >= 3 and longer.startswith(shorter)
+
+
 def _is_placeholder_name(value: Any) -> bool:
     return str(value or "").strip().lower() in {"", "unknown", "none", "null", "n/a", "-", "--"}
 
@@ -693,6 +718,16 @@ def _merge_box_section(primary_rows: List[Dict[str, Any]], api_rows: List[Dict[s
         primary_last_counts[last] = primary_last_counts.get(last, 0) + 1
         primary_by_last[last] = row
 
+    def primary_row_for_clipped_api_name(api_row: Dict[str, Any]) -> Dict[str, Any] | None:
+        if any(api_row.get(field) for field in ("bref_id", "register_id", "player_id")):
+            return None
+        matches = [
+            row
+            for row in primary_rows
+            if _same_player_with_clipped_name(row, api_row)
+        ]
+        return matches[0] if len(matches) == 1 else None
+
     merged_rows = []
     matched_keys = set()
     for api_row in api_rows:
@@ -703,10 +738,14 @@ def _merge_box_section(primary_rows: List[Dict[str, Any]], api_rows: List[Dict[s
             if last and primary_last_counts.get(last) == 1:
                 primary_row = primary_by_last[last]
                 row_key = _row_identity_key(primary_row)
+        if not primary_row:
+            primary_row = primary_row_for_clipped_api_name(api_row)
+            if primary_row:
+                row_key = _row_identity_key(primary_row)
         if primary_row:
             row = deepcopy(primary_row)
             matched_keys.add(row_key)
-            if _has_full_player_name(api_row):
+            if _has_full_player_name(api_row) and not _same_player_with_clipped_name(primary_row, api_row):
                 row["name"] = api_row.get("name") or api_row.get("full_name")
                 row["full_name"] = api_row.get("full_name") or api_row.get("name")
             for field in ("player_id", "register_id", "decision", "win", "loss", "save"):
