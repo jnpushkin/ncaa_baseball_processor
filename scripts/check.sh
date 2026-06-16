@@ -15,11 +15,14 @@ python3 -m py_compile \
   baseball_processor/utils/milb_metadata_audit.py \
   baseball_processor/website/generator.py \
   baseball_processor/website/parity.py \
-  baseball_processor/website/serializers.py
+  baseball_processor/website/serializers.py \
+  scripts/audit_mlb_draft_league_metadata.py \
+  scripts/sync_mlb_draft_league_metadata.py
 
 python3 -m pytest
 python3 scripts/audit_data_integrity.py --source-truth
 python3 scripts/audit_milb_metadata.py --require-generated
+python3 scripts/audit_mlb_draft_league_metadata.py --require-generated
 
 if [ -d web ]; then
   npm run lint --prefix web

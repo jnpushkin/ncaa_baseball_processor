@@ -2,7 +2,7 @@
 
 import json
 
-from baseball_processor.audit import audit_generated_website
+from baseball_processor.audit import audit_cached_games, audit_generated_website
 
 
 def _write_site(web_dir, site_data, details):
@@ -65,6 +65,46 @@ def _box_score(**sections):
     }
     box_score.update(sections)
     return box_score
+
+
+def test_cached_audit_allows_partner_games_from_milb_api_cache(tmp_path, monkeypatch):
+    milb_cache = tmp_path / "milb"
+    milb_cache.mkdir()
+    (milb_cache / "milb_999999.json").write_text(
+        json.dumps(
+            {
+                "format": "milb_api",
+                "metadata": {
+                    "source": "partner",
+                    "date": "2026-06-01",
+                    "date_yyyymmdd": "20260601",
+                    "away_team": "Aberdeen IronBirds",
+                    "home_team": "Trenton Thunder",
+                    "away_team_score": 3,
+                    "home_team_score": 4,
+                    "game_pk": 999999,
+                    "league": {"away": "MLB Draft League", "home": "MLB Draft League"},
+                    "sport_level": {"away": "College Baseball", "home": "College Baseball"},
+                },
+                "box_score": {
+                    "away_batting": [{"name": "Draft Hitter", "ab": 1, "h": 1}],
+                    "home_batting": [],
+                    "away_pitching": [],
+                    "home_pitching": [],
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        "baseball_processor.audit.SOURCE_CACHE_GROUPS",
+        [("milb", milb_cache, "milb_*.json")],
+    )
+
+    summary, issues = audit_cached_games()
+
+    assert summary["source_counts"] == {"milb": 1}
+    assert not issues
 
 
 def test_generated_audit_flags_impossible_detail_batting_stats(tmp_path):

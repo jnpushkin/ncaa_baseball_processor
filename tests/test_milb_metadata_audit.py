@@ -6,7 +6,9 @@ from baseball_processor.utils.milb_metadata_audit import (
 )
 from baseball_processor.utils.milb_metadata import (
     build_active_affiliated_registry,
+    build_mlb_draft_league_registry,
     static_active_affiliated_teams,
+    static_mlb_draft_league_teams,
 )
 
 
@@ -65,3 +67,50 @@ def test_generated_registry_uses_live_identity_and_static_location_overrides():
     assert team["lat"] == 39.4016031
     assert team["lng"] == -77.4142135
     assert team["logo"] == "https://www.mlbstatic.com/team-logos/493.svg"
+
+
+def test_static_mlb_draft_league_metadata_uses_six_official_clubs():
+    static = static_mlb_draft_league_teams()
+    by_team = {team["team"]: team for team in static.values()}
+
+    assert set(by_team) == {
+        "Aberdeen IronBirds",
+        "Mahoning Valley Scrappers",
+        "State College Spikes",
+        "Trenton Thunder",
+        "West Virginia Black Bears",
+        "Williamsport Crosscutters",
+    }
+    assert "Canada" not in by_team
+    assert "Mexico" not in by_team
+    assert by_team["Mahoning Valley Scrappers"]["league"] == "MLB Draft League"
+    assert by_team["Mahoning Valley Scrappers"]["venue"] == "7 17 Credit Union Field at Eastwood"
+    assert by_team["Mahoning Valley Scrappers"]["lat"] == 41.21861
+    assert by_team["Mahoning Valley Scrappers"]["lng"] == -80.755
+
+
+def test_mlb_draft_league_registry_filters_to_official_club_overrides():
+    registry = build_mlb_draft_league_registry({
+        545: {
+            "team_id": 545,
+            "team": "Mahoning Valley Scrappers",
+            "level": "Independent",
+            "level_code": "IND",
+            "league": "MLB Draft League",
+            "venue": "7 17 Credit Union Field at Eastwood",
+            "sport_id": 22,
+        }
+    }, season=2026, official_club_names=("Mahoning Valley Scrappers",))
+
+    team = registry["teams"][0]
+
+    assert registry["season"] == 2026
+    assert registry["official_club_names"] == ["Mahoning Valley Scrappers"]
+    assert team["team"] == "Mahoning Valley Scrappers"
+    assert team["team_id"] == 545
+    assert team["level"] == "Independent"
+    assert team["league"] == "MLB Draft League"
+    assert team["city"] == "Niles, OH"
+    assert team["lat"] == 41.21861
+    assert team["lng"] == -80.755
+    assert team["logo"] == "https://www.mlbstatic.com/team-logos/545.svg"

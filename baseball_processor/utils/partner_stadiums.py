@@ -772,6 +772,7 @@ def get_all_partner_teams() -> Dict[str, Dict[str, Any]]:
         'Atlantic League': [],
         'American Association': [],
         'Frontier League': [],
+        'MLB Draft League': [],
     }
 
     seen_ids = set()

@@ -21,7 +21,7 @@ from ..utils.milb_stadiums import (
     get_milb_venue_display_name,
     iter_milb_stadium_entries,
 )
-from ..utils.milb_metadata import iter_current_affiliated_team_entries
+from ..utils.milb_metadata import iter_current_affiliated_team_entries, iter_current_mlb_draft_league_team_entries
 from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_partner_stadium_locations
 from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEAGUE_LEVEL_MAP,
                                 PRO_LEVELS, LEVEL_ORDER, LEVEL_COLORS, resolve_level_and_league)
@@ -509,6 +509,9 @@ def _load_local_logos() -> Dict[str, str]:
 def _team_id_for_name(team_name: str):
     """Return MiLB/Partner team id for a display team name."""
     for entry in iter_current_affiliated_team_entries():
+        if entry['team'] == team_name:
+            return entry['team_id']
+    for entry in iter_current_mlb_draft_league_team_entries():
         if entry['team'] == team_name:
             return entry['team_id']
     for entry in iter_milb_stadium_entries():
@@ -1044,6 +1047,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         stadium_locations[team] = {'lat': lat, 'lng': lng, 'stadium': stadium_name, 'type': 'ncaa'}
 
     current_milb_entries = list(iter_current_affiliated_team_entries())
+    current_draft_league_entries = list(iter_current_mlb_draft_league_team_entries())
 
     # Build MiLB stadium locations (includes defunct teams for historical visits)
     milb_stadium_locations = {}
@@ -1074,15 +1078,59 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         if entry['historic']:
             add_milb_stadium_location(entry)
 
-    # Build Partner (independent league) stadium locations
-    partner_stadium_locations = get_partner_stadium_locations()
+    # Build Partner (independent league) stadium locations.
+    # Generated Draft League entries replace the legacy static Aberdeen-only marker.
+    partner_stadium_locations = {
+        stadium: data
+        for stadium, data in get_partner_stadium_locations().items()
+        if data.get('league') != 'MLB Draft League'
+    }
+
+    def add_partner_stadium_location(entry):
+        if entry.get('lat') in (None, '') or entry.get('lng') in (None, ''):
+            return
+        venue_key = entry.get('venue_key') or entry.get('venue')
+        venue_name = entry.get('venue')
+        if not venue_key or not venue_name:
+            return
+        partner_stadium_locations[venue_key] = {
+            'lat': entry.get('lat'),
+            'lng': entry.get('lng'),
+            'stadium': venue_name,
+            'team': entry.get('team'),
+            'league': entry.get('league', 'Partner'),
+            'level': 'Partner',
+            'type': 'partner',
+            'teamId': entry.get('team_id'),
+            'logo': entry.get('logo'),
+            'city': entry.get('city', ''),
+        }
+
+    for entry in current_draft_league_entries:
+        add_partner_stadium_location(entry)
 
     # Build partner logos mapping (team name -> logo URL)
     partner_logos = {team_name: data.get('logo') for team_name, data in PARTNER_TEAM_DATA.items() if data.get('logo')}
+    partner_logos.update({
+        entry['team']: entry.get('logo')
+        for entry in current_draft_league_entries
+        if entry.get('logo')
+    })
 
     # Load local logos (base64 data URIs) and override partner/historical logos
     local_logos = _load_local_logos()
     partner_logos.update({k: v for k, v in local_logos.items() if k in partner_logos or k in PARTNER_TEAM_DATA})
+
+    partner_team_stadiums = {
+        team_name: data.get('stadium')
+        for team_name, data in PARTNER_TEAM_DATA.items()
+        if data.get('stadium')
+    }
+    partner_team_stadiums.update({
+        entry['team']: entry.get('venue')
+        for entry in current_draft_league_entries
+        if entry.get('venue')
+    })
 
     # MiLB venue name mappings (old names -> current names)
     milb_venue_aliases = {
@@ -1111,8 +1159,8 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             # Partner league games - track both teams' stadiums as "visited"
             metadata = game.get('metadata', {})
             home_team = metadata.get('home_team', '')
-            if home_team and home_team in PARTNER_TEAM_DATA:
-                stadium = PARTNER_TEAM_DATA[home_team].get('stadium')
+            if home_team:
+                stadium = partner_team_stadiums.get(home_team)
                 if stadium:
                     partner_venues_visited.add(stadium)
         elif game.get('format') == 'milb_api':
@@ -1281,6 +1329,31 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
 
     # Add Partner (independent league) teams
     seen_partner_ids = set()
+
+    def add_partner_team_entry(team_entry):
+        league_name = team_entry.get('league', '')
+        if 'Independent' in milb_by_level:
+            if league_name in milb_by_level['Independent']:
+                milb_by_level['Independent'][league_name].append(team_entry)
+            else:
+                milb_by_level['Independent'][league_name] = [team_entry]
+
+    for entry in current_draft_league_entries:
+        team_name = entry['team']
+        team_id = entry['team_id']
+        if team_id in seen_partner_ids or team_name in seen_milb_team_names:
+            continue
+        seen_partner_ids.add(team_id)
+        add_partner_team_entry({
+            'team': team_name,
+            'venue': entry.get('venue', ''),
+            'teamId': team_id,
+            'logo': entry.get('logo', ''),
+            'league': entry.get('league', 'MLB Draft League'),
+            'historic': False,
+            'roadOnly': bool(entry.get('road_only')),
+        })
+
     for team_name, data in PARTNER_TEAM_DATA.items():
         team_id = data.get('id')
         if team_id in seen_partner_ids or team_name in seen_milb_team_names:
@@ -1296,11 +1369,7 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
             'historic': False,
             'roadOnly': bool(data.get('road_only')),
         }
-        if 'Independent' in milb_by_level:
-            if league_name in milb_by_level['Independent']:
-                milb_by_level['Independent'][league_name].append(team_entry)
-            else:
-                milb_by_level['Independent'][league_name] = [team_entry]
+        add_partner_team_entry(team_entry)
 
     # Build flat milb_checklist per level (with league breakdown)
     milb_checklist = {}

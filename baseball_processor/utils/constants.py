@@ -371,6 +371,16 @@ def resolve_level_and_league(metadata: dict, team_name: str = '') -> tuple:
         if level:
             return (level, league)
 
+    # Try to resolve from generated current MLB Draft League metadata via team name
+    from ..utils.milb_metadata import active_mlb_draft_league_registry_teams
+    draft_league_teams, _source = active_mlb_draft_league_registry_teams()
+    draft_team_leagues = {team['team']: team['league'] for team in draft_league_teams.values()}
+    if team_name and team_name in draft_team_leagues:
+        league = draft_team_leagues[team_name]
+        level = LEAGUE_LEVEL_MAP.get(league, '')
+        if level:
+            return (level, league)
+
     # Fall back to legacy static stadium metadata for historical teams
     from ..utils.milb_stadiums import MILB_TEAM_LEAGUES
     if team_name and team_name in MILB_TEAM_LEAGUES:

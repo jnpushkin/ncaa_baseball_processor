@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import urllib.request
 from datetime import date
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
@@ -14,6 +15,93 @@ from .milb_stadiums import LOGO_OVERRIDES, iter_milb_stadium_entries
 
 ACTIVE_AFFILIATED_SPORT_IDS = (11, 12, 13, 14)
 LEVEL_CODE_BY_NAME = {value: key for key, value in SPORT_LEVEL_MAP.items()}
+MLB_DRAFT_LEAGUE_SPORT_ID = 22
+MLB_DRAFT_LEAGUE_NAME = "MLB Draft League"
+MLB_DRAFT_LEAGUE_TEAMS_URL = "https://www.mlbdraftleague.com/teams"
+MLB_DRAFT_LEAGUE_CLUB_FALLBACK = (
+    "Aberdeen IronBirds",
+    "Mahoning Valley Scrappers",
+    "State College Spikes",
+    "Trenton Thunder",
+    "West Virginia Black Bears",
+    "Williamsport Crosscutters",
+)
+MLB_DRAFT_LEAGUE_LOCATION_OVERRIDES: dict[int, dict[str, Any]] = {
+    488: {
+        "team": "Aberdeen IronBirds",
+        "venue": "IBEW 24 Union Field at Ripken Stadium",
+        "lat": 39.5072,
+        "lng": -76.1641,
+        "city": "Aberdeen, MD",
+    },
+    545: {
+        "team": "Mahoning Valley Scrappers",
+        "venue": "7 17 Credit Union Field at Eastwood",
+        "lat": 41.21861,
+        "lng": -80.755,
+        "city": "Niles, OH",
+    },
+    1174: {
+        "team": "State College Spikes",
+        "venue": "Medlar Field at Lubrano Park",
+        "lat": 40.81235,
+        "lng": -77.85223,
+        "city": "State College, PA",
+    },
+    567: {
+        "team": "Trenton Thunder",
+        "venue": "Trenton Thunder Ballpark",
+        "lat": 40.2032,
+        "lng": -74.7609,
+        "city": "Trenton, NJ",
+    },
+    5020: {
+        "team": "West Virginia Black Bears",
+        "venue": "Wagener Field at Kendrick Family Ballpark",
+        "lat": 39.64473,
+        "lng": -79.995838,
+        "city": "Granville, WV",
+    },
+    449: {
+        "team": "Williamsport Crosscutters",
+        "venue": "Journey Bank Ballpark",
+        "lat": 41.2423,
+        "lng": -77.0471,
+        "city": "Williamsport, PA",
+    },
+}
+
+
+class _HeadingTextParser(HTMLParser):
+    """Collect plain text from heading tags on simple server-rendered pages."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self._current_heading: str | None = None
+        self._parts: list[str] = []
+        self.headings: list[str] = []
+        self.h2_headings: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() in {"h1", "h2", "h3"}:
+            self._current_heading = tag.lower()
+            self._parts = []
+
+    def handle_data(self, data: str) -> None:
+        if self._current_heading:
+            text = data.strip()
+            if text:
+                self._parts.append(text)
+
+    def handle_endtag(self, tag: str) -> None:
+        if self._current_heading and tag.lower() == self._current_heading:
+            heading = " ".join(self._parts).strip()
+            if heading:
+                self.headings.append(heading)
+                if self._current_heading == "h2":
+                    self.h2_headings.append(heading)
+            self._current_heading = None
+            self._parts = []
 
 
 def default_milb_season() -> int:
@@ -31,6 +119,12 @@ def _fetch_json(url: str, timeout: int = 10) -> dict[str, Any]:
     req = urllib.request.Request(url, headers={"User-Agent": "ncaa-baseball-processor/1.0"})
     with urllib.request.urlopen(req, timeout=timeout) as response:
         return json.load(response)
+
+
+def _fetch_text(url: str, timeout: int = 10) -> str:
+    req = urllib.request.Request(url, headers={"User-Agent": "ncaa-baseball-processor/1.0"})
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        return response.read().decode("utf-8", errors="replace")
 
 
 def fetch_active_affiliated_teams(season: int | None = None, timeout: int = 10) -> dict[int, dict[str, Any]]:
@@ -53,6 +147,62 @@ def fetch_active_affiliated_teams(season: int | None = None, timeout: int = 10) 
                 "venue": (team.get("venue") or {}).get("name", ""),
                 "sport_id": sport_id,
             }
+    return teams
+
+
+def generated_mlb_draft_league_metadata_path(
+    season: int | None = None,
+    data_dir: Path | None = None,
+) -> Path:
+    """Return the generated current-season MLB Draft League metadata path."""
+    metadata_season = season or default_milb_season()
+    return (data_dir or DATA_DIR) / f"mlb_draft_league_teams_{metadata_season}.json"
+
+
+def fetch_mlb_draft_league_club_names(timeout: int = 10) -> tuple[str, ...]:
+    """Fetch the official current club list from the MLB Draft League teams page."""
+    html = _fetch_text(MLB_DRAFT_LEAGUE_TEAMS_URL, timeout=timeout)
+    parser = _HeadingTextParser()
+    parser.feed(html)
+    names = [
+        heading
+        for heading in parser.h2_headings
+        if heading and heading not in {"Teams", "MLB Draft League Teams"}
+    ]
+    if not names:
+        raise ValueError("Could not find MLB Draft League club headings on official teams page")
+    return tuple(dict.fromkeys(names))
+
+
+def fetch_mlb_draft_league_teams(
+    season: int | None = None,
+    timeout: int = 10,
+    club_names: tuple[str, ...] | None = None,
+) -> dict[int, dict[str, Any]]:
+    """Fetch current MLB Draft League clubs from Stats API, filtered by official club names."""
+    metadata_season = season or default_milb_season()
+    official_clubs = set(club_names or fetch_mlb_draft_league_club_names(timeout=timeout))
+    url = (
+        f"{MILB_API_BASE}/teams?sportId={MLB_DRAFT_LEAGUE_SPORT_ID}"
+        f"&season={metadata_season}&activeStatus=Y"
+    )
+    payload = _fetch_json(url, timeout=timeout)
+    teams: dict[int, dict[str, Any]] = {}
+    for team in payload.get("teams", []) or []:
+        team_id = team.get("id")
+        league_name = (team.get("league") or {}).get("name", "")
+        team_name = team.get("name", "")
+        if team_id is None or league_name != MLB_DRAFT_LEAGUE_NAME or team_name not in official_clubs:
+            continue
+        teams[int(team_id)] = {
+            "team_id": int(team_id),
+            "team": team_name,
+            "level": "Independent",
+            "level_code": "IND",
+            "league": league_name,
+            "venue": (team.get("venue") or {}).get("name", ""),
+            "sport_id": MLB_DRAFT_LEAGUE_SPORT_ID,
+        }
     return teams
 
 
@@ -108,6 +258,29 @@ def static_active_affiliated_teams() -> dict[int, dict[str, Any]]:
     return teams
 
 
+def static_mlb_draft_league_teams() -> dict[int, dict[str, Any]]:
+    """Return current MLB Draft League clubs from local static overrides."""
+    teams: dict[int, dict[str, Any]] = {}
+    for team_id, override in MLB_DRAFT_LEAGUE_LOCATION_OVERRIDES.items():
+        teams[team_id] = {
+            "team_id": team_id,
+            "team": override["team"],
+            "level": "Independent",
+            "level_code": "IND",
+            "league": MLB_DRAFT_LEAGUE_NAME,
+            "venue": override["venue"],
+            "venue_key": override["venue"],
+            "lat": override["lat"],
+            "lng": override["lng"],
+            "city": override["city"],
+            "logo": _team_logo(team_id),
+            "sport_id": MLB_DRAFT_LEAGUE_SPORT_ID,
+            "source": "static",
+            "historic": False,
+        }
+    return teams
+
+
 def build_active_affiliated_registry(
     live_teams: dict[int, dict[str, Any]],
     season: int | None = None,
@@ -147,6 +320,47 @@ def build_active_affiliated_registry(
     }
 
 
+def build_mlb_draft_league_registry(
+    live_teams: dict[int, dict[str, Any]],
+    season: int | None = None,
+    official_club_names: tuple[str, ...] | None = None,
+) -> dict[str, Any]:
+    """Merge live MLB Draft League team identity with local coordinate/logo overrides."""
+    metadata_season = season or default_milb_season()
+    official_names = list(official_club_names or MLB_DRAFT_LEAGUE_CLUB_FALLBACK)
+    registry_teams: list[dict[str, Any]] = []
+    for team_id in sorted(live_teams):
+        team = live_teams[team_id]
+        override = MLB_DRAFT_LEAGUE_LOCATION_OVERRIDES.get(team_id, {})
+        venue = team.get("venue") or override.get("venue") or ""
+        registry_teams.append({
+            "team_id": team_id,
+            "team": team.get("team", ""),
+            "level": "Independent",
+            "level_code": "IND",
+            "league": team.get("league") or MLB_DRAFT_LEAGUE_NAME,
+            "venue": venue,
+            "venue_key": override.get("venue") or venue,
+            "lat": override.get("lat"),
+            "lng": override.get("lng"),
+            "city": override.get("city", ""),
+            "logo": _team_logo(team_id),
+            "sport_id": team.get("sport_id") or MLB_DRAFT_LEAGUE_SPORT_ID,
+            "source": "statsapi",
+            "historic": False,
+        })
+
+    registry_teams.sort(key=_entry_sort_key)
+    return {
+        "season": metadata_season,
+        "source": "MLB Draft League official teams page + MLB Stats API",
+        "official_source_url": MLB_DRAFT_LEAGUE_TEAMS_URL,
+        "statsapi_sport_id": MLB_DRAFT_LEAGUE_SPORT_ID,
+        "official_club_names": official_names,
+        "teams": registry_teams,
+    }
+
+
 def write_active_affiliated_registry(
     registry: dict[str, Any],
     path: Path | None = None,
@@ -160,12 +374,37 @@ def write_active_affiliated_registry(
     return output_path
 
 
+def write_mlb_draft_league_registry(
+    registry: dict[str, Any],
+    path: Path | None = None,
+) -> Path:
+    """Write a generated current-season MLB Draft League team registry."""
+    output_path = path or generated_mlb_draft_league_metadata_path(int(registry["season"]))
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(registry, f, indent=2, sort_keys=True)
+        f.write("\n")
+    return output_path
+
+
 def load_active_affiliated_registry(
     season: int | None = None,
     path: Path | None = None,
 ) -> dict[str, Any] | None:
     """Load generated current-season affiliated-team metadata, if present."""
     registry_path = path or generated_metadata_path(season)
+    if not registry_path.exists():
+        return None
+    with open(registry_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_mlb_draft_league_registry(
+    season: int | None = None,
+    path: Path | None = None,
+) -> dict[str, Any] | None:
+    """Load generated current-season MLB Draft League metadata, if present."""
+    registry_path = path or generated_mlb_draft_league_metadata_path(season)
     if not registry_path.exists():
         return None
     with open(registry_path, "r", encoding="utf-8") as f:
@@ -189,12 +428,39 @@ def active_affiliated_registry_teams(
     return static_active_affiliated_teams(), "static"
 
 
+def active_mlb_draft_league_registry_teams(
+    season: int | None = None,
+    prefer_generated: bool = True,
+) -> tuple[dict[int, dict[str, Any]], str]:
+    """Return current MLB Draft League clubs and the backing source label."""
+    if prefer_generated:
+        registry = load_mlb_draft_league_registry(season)
+        if registry:
+            teams = {
+                int(team["team_id"]): team
+                for team in registry.get("teams", [])
+                if team.get("team_id") is not None
+            }
+            return teams, "generated"
+    return static_mlb_draft_league_teams(), "static"
+
+
 def iter_current_affiliated_team_entries(
     season: int | None = None,
     prefer_generated: bool = True,
 ):
     """Yield current affiliated teams from generated metadata, falling back to static data."""
     teams, _source = active_affiliated_registry_teams(season, prefer_generated=prefer_generated)
+    for team in sorted(teams.values(), key=_entry_sort_key):
+        yield team
+
+
+def iter_current_mlb_draft_league_team_entries(
+    season: int | None = None,
+    prefer_generated: bool = True,
+):
+    """Yield current MLB Draft League clubs from generated metadata, falling back to static data."""
+    teams, _source = active_mlb_draft_league_registry_teams(season, prefer_generated=prefer_generated)
     for team in sorted(teams.values(), key=_entry_sort_key):
         yield team
 
@@ -206,4 +472,3 @@ def missing_location_teams(teams: dict[int, dict[str, Any]]) -> list[dict[str, A
         for team in sorted(teams.values(), key=_entry_sort_key)
         if team.get("lat") in (None, "") or team.get("lng") in (None, "")
     ]
-

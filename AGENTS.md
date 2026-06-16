@@ -37,8 +37,10 @@ python3 -m baseball_processor [input_path]
 - `--from-cache-only` with a single-game or NCAA API date source flag must not fetch on a cache miss
 - Single-game/date source flags are exclusive source modes; do not silently add default NCAA/API/MiLB/Partner batches when they are used
 - Current affiliated MiLB team/league/venue metadata is season-dependent; run `python3 scripts/sync_milb_metadata.py --strict-location` to refresh `data/milb_active_teams_<season>.json`, then run `python3 scripts/audit_milb_metadata.py --strict --require-generated` before deploys where the pro checklist/map matters
+- Current MLB Draft League club metadata is season-dependent; run `python3 scripts/sync_mlb_draft_league_metadata.py --strict-location` to refresh `data/mlb_draft_league_teams_<season>.json`, then run `python3 scripts/audit_mlb_draft_league_metadata.py --strict --require-generated`
 - `MILB_STADIUM_DATA` should be treated as coordinate/logo/history overrides; active affiliated checklist identity should come from generated MiLB metadata when present
 - MLB Draft League games can arrive through the MLB Stats API with `format='milb_api'`; parser/normalization/generator logic must let `metadata.source='partner'` take precedence over transport format
+- MLB Stats API `sportId=22` includes non-Draft-League clubs, college/tournament teams, and special opponents like Canada/Mexico; filter generated MLB Draft League checklist metadata through the official `mlbdraftleague.com/teams` club list
 - MiLB venues can host multiple active teams; keep unique internal venue keys separate from display venue names rather than assuming the stadium-map dict key is always the public stadium label
 - Pioneer League HTML hitter tables omit XBH/SB columns; parse `.stats-summary` batting notes and merge them back into player rows before processing
 - NCAA API pitching `np` is currently a strikes proxy and pitcher `hr` is fabricated as zero; do not treat those as authoritative source-disagreement fields against PDF box scores
@@ -59,3 +61,4 @@ When encountering repeated errors or discovering project-specific quirks:
 - Do not fill missing player `bref_id` values from a name-only global Chadwick match when multiple same-name candidates exist; fetch/use the Baseball-Reference roster for that team and season
 - Do not treat NCAA API player names that start lowercase or use single initials as full names when merging with PDF rows
 - Do not classify a parsed partner/Draft League game as affiliated MiLB just because it was fetched through the MLB Stats API
+- Do not add Canada/Mexico or other special-opponent `sportId=22` entries to the MLB Draft League checklist/map unless they appear on the official Draft League teams page

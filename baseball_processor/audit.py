@@ -94,7 +94,9 @@ def audit_cached_games() -> tuple[dict[str, Any], list[str]]:
     expected_source_by_group = {
         "ncaa": {"ncaa"},
         "ncaa_api": {"ncaa_api"},
-        "milb": {"milb"},
+        # Partner/Draft League games can be delivered by the MLB Stats API and
+        # live in milb/cache while still correctly normalizing as partner.
+        "milb": {"milb", "partner"},
         "partner": {"partner"},
     }
 
