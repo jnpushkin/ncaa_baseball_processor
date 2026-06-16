@@ -469,7 +469,17 @@
       }
     ],
     "line_score": {
-      "away_innings": [],
+      "away_innings": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
       "home_innings": [
         1,
         0,

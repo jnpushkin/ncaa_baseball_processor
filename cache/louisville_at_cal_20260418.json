@@ -423,7 +423,31 @@
         "loss": false,
         "save": true
       }
-    ]
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        1,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        1
+      ],
+      "home_innings": [
+        0,
+        0,
+        3,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
   },
   "game_notes": {
     "home_runs": [
