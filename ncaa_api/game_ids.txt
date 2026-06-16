@@ -17,7 +17,9 @@
 6420126  # 2/14/2025: Nevada @ California
 6416188  # 2/17/2025: Sacramento State @ San Francisco
 6423328  # 2/21/2025: Oral Roberts @ Arizona State
-6416348  # 2/22/2025: Rutgers @ Grand Canyon
+# 6416348 (2/22/2025 Rutgers @ Grand Canyon) intentionally omitted: this is the
+# doubleheader game 1 (3-10); only game 2 (8-13, from the PDF) is tracked, and the
+# NCAA API record has no line score.
 6422320  # 3/1/2025: Xavier @ Stanford
 6420838  # 3/2/2025: San Jose State @ San Francisco
 6423464  # 3/14/2025: Virginia @ California

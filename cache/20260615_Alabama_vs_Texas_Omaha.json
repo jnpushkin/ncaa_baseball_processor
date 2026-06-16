@@ -1,0 +1,1313 @@
+{
+  "metadata": {
+    "date": "6/15/2026",
+    "venue": "Charles Schwab Field (Omaha, Neb.)",
+    "stadium": "Charles Schwab Field",
+    "city": "Omaha, Neb.",
+    "away_team": "Alabama",
+    "away_team_rank": null,
+    "away_team_record": "42-21",
+    "away_team_score": 2,
+    "home_team": "Texas",
+    "home_team_rank": null,
+    "home_team_record": "46-14",
+    "home_team_score": 14,
+    "attendance": 22687,
+    "duration": "3:18",
+    "start_time": "1:08 pm",
+    "weather": "77-Sunny-W: 10 MPH W-H:33%",
+    "umpires": {
+      "list": "Home Plate: Mark Wagers First: Derek Mollica Second Base: Jake Uhlenhopp Third Base: Brian Miller"
+    }
+  },
+  "box_score": {
+    "away_batting": [
+      {
+        "number": "",
+        "name": "Bryce Fowler",
+        "position": "cf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "fowler003bry",
+        "full_name": "Bryce Fowler",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Justin Lebron",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lebron002jus",
+        "full_name": "Justin Lebron",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Brady Neal",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "neal--000bra",
+        "full_name": "Brady Neal",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Jason Torres",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "torres002jas",
+        "full_name": "Jason Torres",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "John Lemm",
+        "position": "dh",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "lemm--000joh",
+        "full_name": "John Lemm",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Eric Hines",
+        "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 2,
+        "bref_id": "hines-000eri",
+        "full_name": "Eric Hines",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Brennan Holt",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "holt--000bre",
+        "full_name": "Brennan Holt",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Luke Vaughn",
+        "position": "1b",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "vaughn000luk",
+        "full_name": "Luke Vaughn",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Will Plattner",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "plattn000wil",
+        "full_name": "Will Plattner",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Peyton Steele",
+        "position": "rf",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 3,
+        "bref_id": "steele000pey",
+        "full_name": "Peyton Steele",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Chase Kroberger",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "krober000cha",
+        "full_name": "Chase Kroberger",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Zane Adams",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "adams-000zan",
+        "full_name": "Zane Adams",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Matthew Heiberger",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "heiber000mat",
+        "full_name": "Matthew Heiberger",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Hagan Banks",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "banks-000hag",
+        "full_name": "Hagan Banks",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Myles Upchurch",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "upchur000myl",
+        "full_name": "Myles Upchurch",
+        "match_confidence": 0.95
+      }
+    ],
+    "home_batting": [
+      {
+        "number": "",
+        "name": "Aiden Robbins",
+        "position": "rf",
+        "at_bats": 4,
+        "runs": 3,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "robbin000aid",
+        "full_name": "Aiden Robbins",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Carson Tinney",
+        "position": "c",
+        "at_bats": 1,
+        "runs": 2,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 4,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "tinney000car",
+        "full_name": "Carson Tinney",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Presley Courville pr/c",
+        "position": "",
+        "at_bats": 0,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "courvi000pre",
+        "full_name": "Presley Courville",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Anthony Pack Jr.",
+        "position": "lf",
+        "at_bats": 5,
+        "runs": 3,
+        "hits": 3,
+        "rbi": 4,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pack--000ant",
+        "full_name": "Anthony Pack",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Ethan Mendoza",
+        "position": "dh",
+        "at_bats": 4,
+        "runs": 2,
+        "hits": 3,
+        "rbi": 2,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "mendoz000eth",
+        "full_name": "Ethan Mendoza",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Callum Early",
+        "position": "pr",
+        "at_bats": 0,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "early-000cal",
+        "full_name": "Callum Early",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Peterson, B.",
+        "position": "ph",
+        "at_bats": 1,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 1,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "peters008bla",
+        "full_name": "Blake Peterson",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "",
+        "name": "Adrian Rodriguez",
+        "position": "ss",
+        "at_bats": 5,
+        "runs": 1,
+        "hits": 5,
+        "rbi": 7,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "rodrig014adr",
+        "full_name": "Adrian Rodriguez",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Temo Becerra",
+        "position": "2b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 3,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "becerr000tem",
+        "full_name": "Temo Becerra",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Ashton Larson",
+        "position": "1b",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 4,
+        "bref_id": "larson000ash",
+        "full_name": "Ashton Larson",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Casey Borba",
+        "position": "3b",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 1,
+        "bref_id": "borba-000cas",
+        "full_name": "Casey Borba",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Dariyan Pendergrass",
+        "position": "cf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "pender003dar",
+        "full_name": "Dariyan Pendergrass",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Ruger Riojas",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "riojas000rug",
+        "full_name": "Ruger Riojas",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Brody Walls",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "walls-000bro",
+        "full_name": "Brody Walls",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Ethan Walker",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "walker003eth",
+        "full_name": "Ethan Walker",
+        "match_confidence": 0.95
+      }
+    ],
+    "away_pitching": [
+      {
+        "number": "",
+        "name": "Zane Adams",
+        "innings_pitched": 1.2,
+        "hits": 7,
+        "runs": 7,
+        "earned_runs": 7,
+        "walks": 3,
+        "strikeouts": 2,
+        "batters_faced": 15,
+        "at_bats": 11,
+        "pitches": 63,
+        "bref_id": "adams-000zan",
+        "full_name": "Zane Adams",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Matthew Heiberger",
+        "innings_pitched": 4.0,
+        "hits": 3,
+        "runs": 3,
+        "earned_runs": 3,
+        "walks": 2,
+        "strikeouts": 1,
+        "batters_faced": 16,
+        "at_bats": 13,
+        "pitches": 57,
+        "bref_id": "heiber000mat",
+        "full_name": "Matthew Heiberger",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Hagan Banks",
+        "innings_pitched": 1.0,
+        "hits": 1,
+        "runs": 1,
+        "earned_runs": 1,
+        "walks": 0,
+        "strikeouts": 2,
+        "batters_faced": 4,
+        "at_bats": 4,
+        "pitches": 23,
+        "bref_id": "banks-000hag",
+        "full_name": "Hagan Banks",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Myles Upchurch",
+        "innings_pitched": 1.1,
+        "hits": 2,
+        "runs": 3,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 1,
+        "batters_faced": 8,
+        "at_bats": 7,
+        "pitches": 27,
+        "bref_id": "upchur000myl",
+        "full_name": "Myles Upchurch",
+        "match_confidence": 0.95
+      }
+    ],
+    "home_pitching": [
+      {
+        "number": "",
+        "name": "Ruger Riojas",
+        "innings_pitched": 6.0,
+        "hits": 6,
+        "runs": 2,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 7,
+        "batters_faced": 24,
+        "at_bats": 22,
+        "pitches": 105,
+        "bref_id": "riojas000rug",
+        "full_name": "Ruger Riojas",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Brody Walls",
+        "innings_pitched": 2.0,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 1,
+        "strikeouts": 2,
+        "batters_faced": 9,
+        "at_bats": 7,
+        "pitches": 38,
+        "bref_id": "walls-000bro",
+        "full_name": "Brody Walls",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Ethan Walker",
+        "innings_pitched": 0.1,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 1,
+        "at_bats": 1,
+        "pitches": 4,
+        "bref_id": "walker003eth",
+        "full_name": "Ethan Walker",
+        "match_confidence": 0.95
+      },
+      {
+        "number": "",
+        "name": "Cody Howard",
+        "innings_pitched": 0.2,
+        "hits": 0,
+        "runs": 0,
+        "earned_runs": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "batters_faced": 2,
+        "at_bats": 2,
+        "pitches": 7,
+        "bref_id": "howard002cod",
+        "full_name": "Cody Howard",
+        "match_confidence": 0.95
+      }
+    ],
+    "line_score": {
+      "away_innings": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "home_innings": [
+        3,
+        4,
+        0,
+        0,
+        0,
+        4,
+        0,
+        3,
+        0
+      ]
+    }
+  },
+  "game_notes": {
+    "errors": [
+      "Justin Lebron (1) HR: Anthony Pack Jr. (1)",
+      "Tinney, C. advanced to third",
+      "Robbins, A. scored. 0 1\nRodriguez, A doubled down the rf line, 2 RBI (1-0 B)",
+      "Mendoza, E. scored",
+      "Tinney, C. scored. 0 3\nBecerra, T. grounded out to 3b (2-1 FBB)",
+      "Rodriguez, A advanced to third. 0 3\nLarson, A. struck out swinging (1-2 BFFS). 0 3\nRuns: 3 Hits: 3 Errors: 0 Left On Base: 1\nAlabama - Top of 2nd UA TX\nLemm, J. walked (3-2 KFFBFBFFFBB). 0 3\nHines, E. walked (3-0 BBBB)",
+      "Lemm, J. advanced to second. 0 3\nHolt, B. lined into double play 1b unassisted (0-2 KF)",
+      "Hines, E. out on the play. 0 3\nVaughn, L. singled to left field, RBI (0-1 F)",
+      "Lemm, J. scored. 1 3\nSteele, P. grounded out to ss (3-2 BSSBB). 1 3\nRuns: 1 Hits: 1 Errors: 0 Left On Base: 1\nTexas - Bottom of 2nd UA TX\nBorba, C. singled to left center (0-1 K). 1 3\nPender, D. grounded out to p, SAC, bunt (2-2 FBFB)",
+      "Borba, C. advanced to second. 1 3\nRobbins, A. struck out swinging (0-2 FSS). 1 3\nBorba, C. advanced to third on a wild pitch. 1 3\nTinney, C. walked (3-2 BBKBFFB). 1 3\nPack Jr., A. singled to left field, RBI (1-2 FKB)",
+      "Tinney, C. advanced to second",
+      "Borba, C. scored. 1 4\nMendoza, E. singled through the right side, advanced to second on the throw, RBI (1-2 KBF)",
+      "Pack Jr., A.\nadvanced to third",
+      "Tinney, C. scored. 1 5\nRodriguez, A tripled to left center, 2 RBI (0-1 S)",
+      "Mendoza, E. scored",
+      "Pack Jr., A. scored. 1 7\nBecerra, T. walked (3-2 BSFFBFBB). 1 7\nHeiberger, M to p for Adams, Z.. 1 7\nBecerra, T. stole second. 1 7\nLarson, A. grounded out to ss (1-2 KBF). 1 7\nRuns: 4 Hits: 4 Errors: 0 Left On Base: 2\nAlabama - Top of 3rd UA TX\nFowler, B. singled to right field (3-2 BFFBB). 1 7\nLebron, J. reached on a fielder's choice to third base (3-2 FFBBB)",
+      "Fowler, B. out at second 3b to 2b. 1 7\nNeal, B. grounded into double play 2b to ss to 1b (1-1 FB)",
+      "Lebron, J. out on the play. 1 7\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 0\nTexas - Bottom of 3rd UA TX\nBorba, C. grounded out to ss (0-2 SF). 1 7\nPender, D. grounded out to 2b (0-0). 1 7\nRobbins, A. out at first 1b to p (1-2 KBF). 1 7\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nAlabama - Top of 4th UA TX\nTorres, J. struck out swinging (2-2 BSBFS). 1 7\nLemm, J. homered to right center, RBI (2-1 BBK). 2 7\nHines, E. singled to right center (1-0 B). 2 7\nHolt, B. singled to left field (3-1 BBSB)",
+      "Hines, E. advanced to second. 2 7\nVaughn, L. lined out to cf (1-0 B). 2 7\nSteele, P. struck out swinging (1-2 KBKFS). 2 7\nRuns: 1 Hits: 3 Errors: 0 Left On Base: 2\nTexas - Bottom of 4th UA TX\nTinney, C. walked (3-1 BKBBB). 2 7\nPack Jr., A. grounded into double play 2b to ss to 1b (0-1 K)",
+      "Tinney, C. out on the play. 2 7\nMendoza, E. out at first 1b to p (2-2 BBKF). 2 7\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nAlabama - Top of 5th UA TX\nFowler, B. struck out swinging (3-2 BBFSBS). 2 7\nLebron, J. popped up to ss (1-1 BS). 2 7\nNeal, B. grounded out to ss (0-1 K). 2 7\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nTexas - Bottom of 5th UA TX\nRodriguez, A singled through the left side (1-1 BK). 2 7\nBecerra, T. struck out looking (3-2 BKBFFBK). 2 7\nLarson, A. walked (3-2 BBFBFB)",
+      "Rodriguez, A advanced to second. 2 7\nBorba, C. grounded into double play ss to 2b to 1b (0-0)",
+      "Larson, A. out on the play. 2 7\nRuns: 0 Hits: 1 Errors: 0 Left On Base: 1\nAlabama - Top of 6th UA TX\nTorres, J. grounded out to 2b (3-2 BFSBB). 2 7\nLemm, J. grounded out to ss (1-2 BFF). 2 7\nHines, E. struck out looking (0-2 FFK). 2 7\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nTexas - Bottom of 6th UA TX\nPender, D. out at first 1b to p (3-2 BBKBKF). 2 7\nRobbins, A. hit by pitch (0-1 K). 2 7\nTinney, C. flied out to rf (2-0 BB). 2 7\nPack Jr., A. homered to left field, 2 RBI (0-1 K)",
+      "Robbins, A. scored. 2 9\nMendoza, E. singled to first base (1-0 B). 2 9\nEarly, C. pinch ran for Mendoza, E.. 2 9\nBanks, H. to p for Heiberger, M. 2 9\nEarly, C. stole second. 2 9\nRodriguez, A homered to right field, 2 RBI (3-2 KBSBBF)",
+      "Early, C. scored. 2 11\nBecerra, T. struck out swinging (3-2 KBBBKS). 2 11\nRuns: 4 Hits: 3 Errors: 0 Left On Base: 0\nAlabama - Top of 7th UA TX\nWalls, B. to p for Riojas, R.. 2 11\nHolt, B. grounded out to 1b unassisted (0-0). 2 11\nVaughn, L. flied out to cf (2-1 BKB). 2 11\nSteele, P. walked (3-1 FBBBB). 2 11\nFowler, B. flied out to rf to right center (1-2 BSK). 2 11\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 1\nTexas - Bottom of 7th UA TX\nLarson, A. grounded out to 1b unassisted (1-2 KBK). 2 11\nBorba, C. struck out swinging (2-2 KBBFFS). 2 11\nUpchurch, M. to p for Banks, H.. 2 11\nPender, D. grounded out to 1b unassisted (0-2 FF). 2 11\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nAlabama - Top of 8th UA TX\nLebron, J. hit by pitch (0-2 KF). 2 11\nNeal, B. struck out swinging (3-2 KBKBFBS). 2 11\nTorres, J. reached on a throwing error by ss (0-2 KF)",
+      "Lebron, J. advanced to second. 2 11\nLemm, J. struck out swinging (2-2 KBKBS). 2 11\nHines, E. flied out to lf (3-2 BSFBB). 2 11\nRuns: 0 Hits: 0 Errors: 1 Left On Base: 2\nTexas - Bottom of 8th UA TX\nRobbins, A. reached on a fielding error by ss (0-2 KK). 2 11\nTinney, C. walked (3-2 BBFBFB)",
+      "Robbins, A. advanced to second. 2 11\nPack Jr., A. singled to left field, advanced to second on the throw, RBI (0-0)",
+      "Tinney, C. advanced to third",
+      "Robbins, A. scored, unearned. 2 12\nCourville, P pinch ran for Tinney, C.. 2 12\nPeterson, B. pinch hit for Early, C.. 2 12\nPeterson, B. out at first 1b to p, RBI (2-2 BKBK)",
+      "Pack Jr., A. advanced to third",
+      "Courville, P scored. 2 13\nRodriguez, A doubled down the rf line, RBI (0-2 KK)",
+      "Pack Jr., A. scored. 2 14\nBecerra, T. struck out swinging (2-2 BBKSS). 2 14\nLarson, A. grounded out to 1b unassisted (0-0). 2 14\nRuns: 3 Hits: 2 Errors: 1 Left On Base: 1\nAlabama - Top of 9th UA TX\nCourville, P to c. 2 14\nWalker, E. to p for Walls, B.. 2 14\nHolt, B. struck out swinging (1-2 KBFS). 2 14\nPlattner, W. pinch hit for Vaughn, L.. 2 14\nHoward, C. to p for Walker, E.. 2 14\nPlattner, W. grounded out to 2b (1-0 B). 2 14\nKroberger, C pinch hit for Steele, P.. 2 14\nKroberger, C struck out swinging (2-2 KBBSS). 2 14\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0\nTexas - Bottom of 9th UA TX\nRuns: 0 Hits: 0 Errors: 0 Left On Base: 0"
+    ],
+    "double_plays": {},
+    "doubles": [],
+    "triples": [],
+    "home_runs": [
+      {
+        "player": "John Lemm",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "stolen_bases": [
+      {
+        "player": "Justin Lebron",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Callum Early",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
+    "caught_stealing": [],
+    "hit_by_pitch": [
+      "Justin Lebron (1) 3B: Adrian Rodriguez (1)"
+    ],
+    "intentional_walks": [],
+    "strikeouts_looking": [],
+    "grounded_into_dp": [],
+    "wild_pitches": [],
+    "passed_balls": [],
+    "hit_batters": [],
+    "balks": [],
+    "win": {
+      "player": "Ruger Riojas",
+      "record": "6-2"
+    },
+    "loss": {
+      "player": "Zane Adams",
+      "record": "8-5"
+    },
+    "save": null
+  },
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Fowler, B. struck out looking (2-2 SBSBK). 0 0",
+          "pitch_count": "2-2 SBSBK",
+          "rbi": 0
+        },
+        {
+          "description": "Lebron, J. singled up the middle (2-2 KBSB). 0 0",
+          "pitch_count": "2-2 KBSB",
+          "rbi": 0
+        },
+        {
+          "description": "Neal, B. struck out swinging (0-2 KFS). 0 0",
+          "pitch_count": "0-2 KFS",
+          "rbi": 0
+        },
+        {
+          "description": "Lebron, J. stole second. 0 0",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Torres, J. struck out swinging (1-2 KKBS). 0 0",
+          "pitch_count": "1-2 KKBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Robbins, A. doubled down the lf line (1-0 B). 0 0",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Tinney, C. walked (3-2 BFKBFBB). 0 0",
+          "pitch_count": "3-2 BFKBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Pack Jr., A. flied out to lf (3-2 BBKFFB). 0 0",
+          "pitch_count": "3-2 BBKFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Mendoza, E. doubled down the lf line, RBI (1-0 B); Tinney, C. advanced to third; Robbins, A. scored. 0 1",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "Rodriguez, A doubled down the rf line, 2 RBI (1-0 B); Mendoza, E. scored; Tinney, C. scored. 0 3",
+          "pitch_count": "1-0 B",
+          "rbi": 2
+        },
+        {
+          "description": "Becerra, T. grounded out to 3b (2-1 FBB); Rodriguez, A advanced to third. 0 3",
+          "pitch_count": "2-1 FBB",
+          "rbi": 0
+        },
+        {
+          "description": "Larson, A. struck out swinging (1-2 BFFS). 0 3",
+          "pitch_count": "1-2 BFFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Lemm, J. walked (3-2 KFFBFBFFFBB). 0 3",
+          "pitch_count": "3-2 KFFBFBFFFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Hines, E. walked (3-0 BBBB); Lemm, J. advanced to second. 0 3",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Holt, B. lined into double play 1b unassisted (0-2 KF); Hines, E. out on the play. 0 3",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "Vaughn, L. singled to left field, RBI (0-1 F); Lemm, J. scored. 1 3",
+          "pitch_count": "0-1 F",
+          "rbi": 1
+        },
+        {
+          "description": "Steele, P. grounded out to ss (3-2 BSSBB). 1 3",
+          "pitch_count": "3-2 BSSBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Borba, C. singled to left center (0-1 K). 1 3",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Pender, D. grounded out to p, SAC, bunt (2-2 FBFB); Borba, C. advanced to second. 1 3",
+          "pitch_count": "2-2 FBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Robbins, A. struck out swinging (0-2 FSS). 1 3",
+          "pitch_count": "0-2 FSS",
+          "rbi": 0
+        },
+        {
+          "description": "Borba, C. advanced to third on a wild pitch. 1 3",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tinney, C. walked (3-2 BBKBFFB). 1 3",
+          "pitch_count": "3-2 BBKBFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Pack Jr., A. singled to left field, RBI (1-2 FKB); Tinney, C. advanced to second; Borba, C. scored. 1 4",
+          "pitch_count": "1-2 FKB",
+          "rbi": 1
+        },
+        {
+          "description": "Mendoza, E. singled through the right side, advanced to second on the throw, RBI (1-2 KBF); Pack Jr., A.",
+          "pitch_count": "1-2 KBF",
+          "rbi": 1
+        },
+        {
+          "description": "advanced to third; Tinney, C. scored. 1 5",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rodriguez, A tripled to left center, 2 RBI (0-1 S); Mendoza, E. scored; Pack Jr., A. scored. 1 7",
+          "pitch_count": "0-1 S",
+          "rbi": 2
+        },
+        {
+          "description": "Becerra, T. walked (3-2 BSFFBFBB). 1 7",
+          "pitch_count": "3-2 BSFFBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Heiberger, M to p for Adams, Z.. 1 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Becerra, T. stole second. 1 7",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Larson, A. grounded out to ss (1-2 KBF). 1 7",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Fowler, B. singled to right field (3-2 BFFBB). 1 7",
+          "pitch_count": "3-2 BFFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Lebron, J. reached on a fielder's choice to third base (3-2 FFBBB); Fowler, B. out at second 3b to 2b. 1 7",
+          "pitch_count": "3-2 FFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Neal, B. grounded into double play 2b to ss to 1b (1-1 FB); Lebron, J. out on the play. 1 7",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Borba, C. grounded out to ss (0-2 SF). 1 7",
+          "pitch_count": "0-2 SF",
+          "rbi": 0
+        },
+        {
+          "description": "Pender, D. grounded out to 2b (0-0). 1 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Robbins, A. out at first 1b to p (1-2 KBF). 1 7",
+          "pitch_count": "1-2 KBF",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Torres, J. struck out swinging (2-2 BSBFS). 1 7",
+          "pitch_count": "2-2 BSBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Lemm, J. homered to right center, RBI (2-1 BBK). 2 7",
+          "pitch_count": "2-1 BBK",
+          "rbi": 1
+        },
+        {
+          "description": "Hines, E. singled to right center (1-0 B). 2 7",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Holt, B. singled to left field (3-1 BBSB); Hines, E. advanced to second. 2 7",
+          "pitch_count": "3-1 BBSB",
+          "rbi": 0
+        },
+        {
+          "description": "Vaughn, L. lined out to cf (1-0 B). 2 7",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Steele, P. struck out swinging (1-2 KBKFS). 2 7",
+          "pitch_count": "1-2 KBKFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Tinney, C. walked (3-1 BKBBB). 2 7",
+          "pitch_count": "3-1 BKBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Pack Jr., A. grounded into double play 2b to ss to 1b (0-1 K); Tinney, C. out on the play. 2 7",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Mendoza, E. out at first 1b to p (2-2 BBKF). 2 7",
+          "pitch_count": "2-2 BBKF",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Fowler, B. struck out swinging (3-2 BBFSBS). 2 7",
+          "pitch_count": "3-2 BBFSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Lebron, J. popped up to ss (1-1 BS). 2 7",
+          "pitch_count": "1-1 BS",
+          "rbi": 0
+        },
+        {
+          "description": "Neal, B. grounded out to ss (0-1 K). 2 7",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Rodriguez, A singled through the left side (1-1 BK). 2 7",
+          "pitch_count": "1-1 BK",
+          "rbi": 0
+        },
+        {
+          "description": "Becerra, T. struck out looking (3-2 BKBFFBK). 2 7",
+          "pitch_count": "3-2 BKBFFBK",
+          "rbi": 0
+        },
+        {
+          "description": "Larson, A. walked (3-2 BBFBFB); Rodriguez, A advanced to second. 2 7",
+          "pitch_count": "3-2 BBFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Borba, C. grounded into double play ss to 2b to 1b (0-0); Larson, A. out on the play. 2 7",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Torres, J. grounded out to 2b (3-2 BFSBB). 2 7",
+          "pitch_count": "3-2 BFSBB",
+          "rbi": 0
+        },
+        {
+          "description": "Lemm, J. grounded out to ss (1-2 BFF). 2 7",
+          "pitch_count": "1-2 BFF",
+          "rbi": 0
+        },
+        {
+          "description": "Hines, E. struck out looking (0-2 FFK). 2 7",
+          "pitch_count": "0-2 FFK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Pender, D. out at first 1b to p (3-2 BBKBKF). 2 7",
+          "pitch_count": "3-2 BBKBKF",
+          "rbi": 0
+        },
+        {
+          "description": "Robbins, A. hit by pitch (0-1 K). 2 7",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Tinney, C. flied out to rf (2-0 BB). 2 7",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Pack Jr., A. homered to left field, 2 RBI (0-1 K); Robbins, A. scored. 2 9",
+          "pitch_count": "0-1 K",
+          "rbi": 2
+        },
+        {
+          "description": "Mendoza, E. singled to first base (1-0 B). 2 9",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Early, C. pinch ran for Mendoza, E.. 2 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Banks, H. to p for Heiberger, M. 2 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Early, C. stole second. 2 9",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Rodriguez, A homered to right field, 2 RBI (3-2 KBSBBF); Early, C. scored. 2 11",
+          "pitch_count": "3-2 KBSBBF",
+          "rbi": 2
+        },
+        {
+          "description": "Becerra, T. struck out swinging (3-2 KBBBKS). 2 11",
+          "pitch_count": "3-2 KBBBKS",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Walls, B. to p for Riojas, R.. 2 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Holt, B. grounded out to 1b unassisted (0-0). 2 11",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Vaughn, L. flied out to cf (2-1 BKB). 2 11",
+          "pitch_count": "2-1 BKB",
+          "rbi": 0
+        },
+        {
+          "description": "Steele, P. walked (3-1 FBBBB). 2 11",
+          "pitch_count": "3-1 FBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Fowler, B. flied out to rf to right center (1-2 BSK). 2 11",
+          "pitch_count": "1-2 BSK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Larson, A. grounded out to 1b unassisted (1-2 KBK). 2 11",
+          "pitch_count": "1-2 KBK",
+          "rbi": 0
+        },
+        {
+          "description": "Borba, C. struck out swinging (2-2 KBBFFS). 2 11",
+          "pitch_count": "2-2 KBBFFS",
+          "rbi": 0
+        },
+        {
+          "description": "Upchurch, M. to p for Banks, H.. 2 11",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Pender, D. grounded out to 1b unassisted (0-2 FF). 2 11",
+          "pitch_count": "0-2 FF",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Lebron, J. hit by pitch (0-2 KF). 2 11",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "Neal, B. struck out swinging (3-2 KBKBFBS). 2 11",
+          "pitch_count": "3-2 KBKBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Torres, J. reached on a throwing error by ss (0-2 KF); Lebron, J. advanced to second. 2 11",
+          "pitch_count": "0-2 KF",
+          "rbi": 0
+        },
+        {
+          "description": "Lemm, J. struck out swinging (2-2 KBKBS). 2 11",
+          "pitch_count": "2-2 KBKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Hines, E. flied out to lf (3-2 BSFBB). 2 11",
+          "pitch_count": "3-2 BSFBB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Robbins, A. reached on a fielding error by ss (0-2 KK). 2 11",
+          "pitch_count": "0-2 KK",
+          "rbi": 0
+        },
+        {
+          "description": "Tinney, C. walked (3-2 BBFBFB); Robbins, A. advanced to second. 2 11",
+          "pitch_count": "3-2 BBFBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Pack Jr., A. singled to left field, advanced to second on the throw, RBI (0-0); Tinney, C. advanced to third;",
+          "pitch_count": "0-0",
+          "rbi": 1
+        },
+        {
+          "description": "Robbins, A. scored, unearned. 2 12",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Courville, P pinch ran for Tinney, C.. 2 12",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson, B. pinch hit for Early, C.. 2 12",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Peterson, B. out at first 1b to p, RBI (2-2 BKBK); Pack Jr., A. advanced to third; Courville, P scored. 2 13",
+          "pitch_count": "2-2 BKBK",
+          "rbi": 1
+        },
+        {
+          "description": "Rodriguez, A doubled down the rf line, RBI (0-2 KK); Pack Jr., A. scored. 2 14",
+          "pitch_count": "0-2 KK",
+          "rbi": 1
+        },
+        {
+          "description": "Becerra, T. struck out swinging (2-2 BBKSS). 2 14",
+          "pitch_count": "2-2 BBKSS",
+          "rbi": 0
+        },
+        {
+          "description": "Larson, A. grounded out to 1b unassisted (0-0). 2 14",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Courville, P to c. 2 14",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Walker, E. to p for Walls, B.. 2 14",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Holt, B. struck out swinging (1-2 KBFS). 2 14",
+          "pitch_count": "1-2 KBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Plattner, W. pinch hit for Vaughn, L.. 2 14",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Howard, C. to p for Walker, E.. 2 14",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Plattner, W. grounded out to 2b (1-0 B). 2 14",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Kroberger, C pinch hit for Steele, P.. 2 14",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Kroberger, C struck out swinging (2-2 KBBSS). 2 14",
+          "pitch_count": "2-2 KBBSS",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  },
+  "format": "format_b"
+}
