@@ -123,17 +123,25 @@ export default function Dashboard({
     });
 
     const proTeams = new Set<string>();
+    const proVenues = new Set<string>();
     const proSeen = new Set<string>();
     Object.values(data.milbChecklist ?? {}).forEach((level) => {
-      level.teams.forEach((team) => proTeams.add(team.team));
+      level.teams.forEach((team) => {
+        proTeams.add(team.team);
+        if (!team.roadOnly) {
+          const venueKey = team.venueKey || team.venue;
+          if (venueKey) proVenues.add(venueKey);
+        }
+      });
       Object.entries(level.teamStatus).forEach(([team, status]) => {
         if (status !== "none") proSeen.add(team);
       });
     });
 
-    const proVisited = uniqueCount(data.milbVenuesVisited ?? []) + uniqueCount(data.partnerVenuesVisited ?? []);
-    const partnerVenueTotal = Object.keys(data.partnerStadiumLocations ?? {}).length;
-    const proVenueTotal = Object.keys(data.milbStadiumLocations ?? {}).length + partnerVenueTotal;
+    const proVisited = uniqueCount([
+      ...(data.milbVenuesVisited ?? []),
+      ...(data.partnerVenuesVisited ?? []),
+    ]);
 
     return {
       ncaaSeen: ncaaSeen.size,
@@ -142,14 +150,12 @@ export default function Dashboard({
       proSeen: proSeen.size,
       proTotal: proTeams.size,
       proVisited,
-      proVenueTotal,
+      proVenueTotal: proVenues.size,
     };
   }, [
     data.checklist,
     data.milbChecklist,
-    data.milbStadiumLocations,
     data.milbVenuesVisited,
-    data.partnerStadiumLocations,
     data.partnerVenuesVisited,
   ]);
 

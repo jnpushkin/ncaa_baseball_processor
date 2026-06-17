@@ -12,6 +12,34 @@ Covers MLB Partner and partner-style leagues:
 from typing import Dict, Optional, Any
 
 
+def _coordinate_value(value: Any) -> Optional[float]:
+    """Return a usable coordinate float, excluding empty and 0.0 placeholders."""
+    if value in (None, ''):
+        return None
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError):
+        return None
+    return numeric
+
+
+def partner_venue_identity_key(stadium: str, data: Dict[str, Any]) -> str:
+    """Return a stable physical-venue key for partner-league stadium data."""
+    if not stadium:
+        return ''
+
+    lat = _coordinate_value(data.get('lat'))
+    lng = _coordinate_value(data.get('lng'))
+    if lat is not None and lng is not None and (lat != 0 or lng != 0):
+        return f"{stadium}|{lat:.5f},{lng:.5f}"
+
+    city = data.get('city')
+    if city:
+        return f"{stadium}|{city}"
+
+    return stadium
+
+
 # Partner League team data
 # Structure: team_name -> {id, logo, stadium, lat, lng, league, city}
 PARTNER_TEAM_DATA: Dict[str, Dict[str, Any]] = {
@@ -740,16 +768,40 @@ def get_partner_stadium_locations() -> Dict[str, Dict[str, Any]]:
 
     Returns dict of stadium_name -> location data
     """
+    physical_keys_by_stadium: Dict[str, set[str]] = {}
+    for data in PARTNER_TEAM_DATA.values():
+        stadium = data.get('stadium', '')
+        if not stadium:
+            continue
+        physical_keys_by_stadium.setdefault(stadium, set()).add(
+            partner_venue_identity_key(stadium, data)
+        )
+
+    duplicated_stadium_names = {
+        stadium
+        for stadium, physical_keys in physical_keys_by_stadium.items()
+        if len(physical_keys) > 1
+    }
+
     locations = {}
-    seen_stadiums = set()
+    seen_physical_locations = set()
 
     for team_name, data in PARTNER_TEAM_DATA.items():
         stadium = data.get('stadium', '')
-        if not stadium or stadium in seen_stadiums:
+        if not stadium:
             continue
-        seen_stadiums.add(stadium)
 
-        locations[stadium] = {
+        physical_key = partner_venue_identity_key(stadium, data)
+        if physical_key in seen_physical_locations:
+            continue
+        seen_physical_locations.add(physical_key)
+
+        location_key = stadium
+        if stadium in duplicated_stadium_names:
+            city = data.get('city', '')
+            location_key = f"{stadium} ({city or team_name})"
+
+        locations[location_key] = {
             'lat': data.get('lat'),
             'lng': data.get('lng'),
             'stadium': stadium,

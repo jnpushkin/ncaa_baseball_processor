@@ -42,6 +42,7 @@ python3 -m baseball_processor [input_path]
 - MLB Draft League games can arrive through the MLB Stats API with `format='milb_api'`; parser/normalization/generator logic must let `metadata.source='partner'` take precedence over transport format
 - MLB Stats API `sportId=22` includes non-Draft-League clubs, college/tournament teams, and special opponents like Canada/Mexico; filter generated MLB Draft League checklist metadata through the official `mlbdraftleague.com/teams` club list
 - MiLB venues can host multiple active teams; keep unique internal venue keys separate from display venue names rather than assuming the stadium-map dict key is always the public stadium label
+- Pro venue checklist/dashboard totals should use physical venue identity, not display name alone: same-name parks such as the Kansas City and Lexington `Legends Field` entries are separate venues, true shared parks such as Roger Dean Chevrolet Stadium count once, and road-only partner teams do not count as physical venues
 - Pioneer League HTML hitter tables omit XBH/SB columns; parse `.stats-summary` batting notes and merge them back into player rows before processing
 - NCAA API pitching `np` is currently a strikes proxy and pitcher `hr` is fabricated as zero; do not treat those as authoritative source-disagreement fields against PDF box scores
 - NCAA API batting `k` can be unavailable even when placeholder or pitcher-echo rows have strikeout values; ignore placeholder rows and impossible `AB=0, K>0` batting echoes when deciding source-disagreement authority

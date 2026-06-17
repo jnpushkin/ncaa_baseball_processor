@@ -250,6 +250,62 @@ def test_road_only_partner_team_counts_as_home_equivalent_when_seen():
     )
 
 
+def test_pro_venue_identity_keeps_same_name_different_locations_separate():
+    payload = _serialize_data({}, [])
+
+    legends_locations = {
+        key: location
+        for key, location in payload["partnerStadiumLocations"].items()
+        if location.get("stadium") == "Legends Field"
+    }
+    assert len(legends_locations) == 2
+    assert {location["city"] for location in legends_locations.values()} == {
+        "Kansas City, KS",
+        "Lexington, KY",
+    }
+    assert {
+        (location["lat"], location["lng"])
+        for location in legends_locations.values()
+    } == {
+        (39.1189, -94.8311),
+        (38.0406, -84.4856),
+    }
+
+    independent_leagues = payload["milbChecklist"]["Independent"]["leagues"]
+    monarchs = next(
+        team
+        for team in independent_leagues["American Association"]["teams"]
+        if team["team"] == "Kansas City Monarchs"
+    )
+    lexington = next(
+        team
+        for team in independent_leagues["Atlantic League"]["teams"]
+        if team["team"] == "Lexington Legends"
+    )
+    assert monarchs["venue"] == lexington["venue"] == "Legends Field"
+    assert monarchs["venueKey"] != lexington["venueKey"]
+
+    all_pro_teams = [
+        team
+        for level in payload["milbChecklist"].values()
+        for team in level["teams"]
+    ]
+    roger_dean_teams = [
+        team
+        for team in all_pro_teams
+        if team["venue"] == "Roger Dean Chevrolet Stadium"
+    ]
+    assert {team["team"] for team in roger_dean_teams} == {
+        "Jupiter Hammerheads",
+        "Palm Beach Cardinals",
+    }
+    assert len({team["venueKey"] for team in roger_dean_teams}) == 1
+
+    redpocket = next(team for team in all_pro_teams if team["team"] == "RedPocket Mobiles")
+    assert redpocket["roadOnly"] is True
+    assert redpocket["venueKey"] == ""
+
+
 def test_data_quality_report_summarizes_source_merge_warnings():
     raw_game = {
         "metadata": {

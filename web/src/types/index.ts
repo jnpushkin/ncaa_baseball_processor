@@ -316,6 +316,7 @@ export interface ChecklistConference {
 export interface MilbChecklistTeam {
   team: string;
   venue: string;
+  venueKey?: string;
   teamId: number;
   logo: string;
   league: string;

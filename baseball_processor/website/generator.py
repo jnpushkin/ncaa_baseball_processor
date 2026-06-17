@@ -8,7 +8,7 @@ import base64
 import re
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 import pandas as pd
 
 from ..engines.milestone_engine import build_extra_base_lookup, get_player_extra_stats
@@ -23,7 +23,11 @@ from ..utils.milb_stadiums import (
     iter_milb_stadium_entries,
 )
 from ..utils.milb_metadata import iter_current_affiliated_team_entries, iter_current_mlb_draft_league_team_entries
-from ..utils.partner_stadiums import PARTNER_TEAM_DATA, get_partner_stadium_locations
+from ..utils.partner_stadiums import (
+    PARTNER_TEAM_DATA,
+    get_partner_stadium_locations,
+    partner_venue_identity_key,
+)
 from ..utils.constants import (CONFERENCES, get_conference, SPORT_LEVEL_MAP, LEAGUE_LEVEL_MAP,
                                 PRO_LEVELS, LEVEL_ORDER, LEVEL_COLORS, resolve_level_and_league)
 from ..utils.constants import NCAA_API_BASE
@@ -105,6 +109,32 @@ LOCAL_LOGO_MAP = {
     # Historic
     'Savannah Sand Gnats': 'Savannah_Sand_Gnats.png',
 }
+
+
+def _coordinate_value(value: Any) -> Optional[float]:
+    """Return a usable coordinate float for physical venue identity keys."""
+    if value in (None, ''):
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _venue_identity_key(venue: str, lat: Any = None, lng: Any = None, city: str = '') -> str:
+    """Return a stable key for one physical venue while preserving display names."""
+    if not venue:
+        return ''
+
+    lat_value = _coordinate_value(lat)
+    lng_value = _coordinate_value(lng)
+    if lat_value is not None and lng_value is not None and (lat_value != 0 or lng_value != 0):
+        return f"{venue}|{lat_value:.5f},{lng_value:.5f}"
+
+    if city:
+        return f"{venue}|{city}"
+
+    return venue
 
 def _classify_and_id_raw_game(rg: Dict[str, Any]):
     """Return (game_id, source) for a raw game dict, or (None, None) if indeterminate."""
@@ -1542,6 +1572,12 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         team_entry = {
             'team': team_name,
             'venue': venue_name,
+            'venueKey': _venue_identity_key(
+                venue_name,
+                entry.get('lat'),
+                entry.get('lng'),
+                entry.get('city', ''),
+            ),
             'teamId': team_id,
             'logo': logo_url,
             'league': league_name,
@@ -1579,6 +1615,12 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         add_partner_team_entry({
             'team': team_name,
             'venue': entry.get('venue', ''),
+            'venueKey': _venue_identity_key(
+                entry.get('venue', ''),
+                entry.get('lat'),
+                entry.get('lng'),
+                entry.get('city', ''),
+            ),
             'teamId': team_id,
             'logo': entry.get('logo', ''),
             'league': entry.get('league', 'MLB Draft League'),
@@ -1595,6 +1637,11 @@ def _serialize_data(processed_data: Dict[str, Any], raw_games: List[Dict]) -> Di
         team_entry = {
             'team': team_name,
             'venue': 'Road-only team' if data.get('road_only') else data.get('stadium', ''),
+            'venueKey': (
+                ''
+                if data.get('road_only')
+                else partner_venue_identity_key(data.get('stadium', ''), data)
+            ),
             'teamId': team_id,
             'logo': data.get('logo', ''),
             'league': league_name,
