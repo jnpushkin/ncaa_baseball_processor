@@ -377,7 +377,7 @@ def test_processing_games_drop_unmatched_api_placeholders_when_pdf_has_section()
     assert [row["name"] for row in away_batting] == ["Jay Woolfolk", "Named API Player"]
 
 
-def test_processing_games_records_source_merge_stat_disagreements():
+def test_processing_games_records_source_merge_stat_disagreements_as_info():
     pdf_game = {
         "metadata": {
             "date": "3/14/2025",
@@ -408,12 +408,13 @@ def test_processing_games_records_source_merge_stat_disagreements():
     loaded = sources.SourceGames([pdf_game], [api_game], [], [])
     source_merge = loaded.processing_games[0]["data_quality"]["source_merge"]
 
-    assert source_merge["confidence"] == "review"
-    assert source_merge["warning_count"] == 1
+    assert source_merge["confidence"] == "high"
+    assert source_merge["warning_count"] == 0
+    assert source_merge["info_count"] == 1
     assert source_merge["sections"]["away_batting"]["matched_rows"] == 1
     assert source_merge["issues"][0] == {
         "code": "source_stat_disagreement",
-        "severity": "warning",
+        "severity": "info",
         "section": "away_batting",
         "category": "batting",
         "player": "Jay Woolfolk",
@@ -475,7 +476,7 @@ def test_processing_games_treats_api_whole_inning_ip_as_info():
     }
 
 
-def test_processing_games_warns_on_non_partial_out_ip_disagreements():
+def test_processing_games_records_non_partial_out_ip_disagreements_as_info():
     pdf_game = {
         "metadata": {
             "date": "3/14/2025",
@@ -506,9 +507,11 @@ def test_processing_games_warns_on_non_partial_out_ip_disagreements():
     loaded = sources.SourceGames([pdf_game], [api_game], [], [])
     source_merge = loaded.processing_games[0]["data_quality"]["source_merge"]
 
-    assert source_merge["confidence"] == "review"
-    assert source_merge["warning_count"] == 1
+    assert source_merge["confidence"] == "high"
+    assert source_merge["warning_count"] == 0
+    assert source_merge["info_count"] == 1
     assert source_merge["issues"][0]["code"] == "source_stat_disagreement"
+    assert source_merge["issues"][0]["severity"] == "info"
     assert source_merge["issues"][0]["field"] == "IP"
 
 
@@ -666,7 +669,9 @@ def test_processing_games_does_not_use_clipped_api_names_for_merge_quality_or_ro
     source_merge = merged["data_quality"]["source_merge"]
 
     assert merged["box_score"]["away_batting"][0]["name"] == "Aiden Taurek"
-    assert source_merge["warning_count"] == 1
+    assert source_merge["warning_count"] == 0
+    assert source_merge["info_count"] == 1
+    assert source_merge["issues"][0]["severity"] == "info"
     assert source_merge["issues"][0]["player"] == "Aiden Taurek"
 
 

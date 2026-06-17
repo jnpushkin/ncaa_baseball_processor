@@ -543,7 +543,7 @@ def _source_stat_disagreements(
                 continue
             issues.append({
                 "code": "source_stat_disagreement",
-                "severity": "warning",
+                "severity": "info",
                 "section": section,
                 "category": category,
                 "player": player,
