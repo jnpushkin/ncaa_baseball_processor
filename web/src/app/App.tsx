@@ -7,6 +7,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import TabBar from "@/components/layout/TabBar";
 import StatsGrid from "@/components/stats/StatsGrid";
+import Dashboard from "@/components/dashboard/Dashboard";
 import UnifiedGameLog from "@/components/games/UnifiedGameLog";
 import CalendarView from "@/components/games/CalendarView";
 import UnifiedBattersTable from "@/components/tables/UnifiedBattersTable";
@@ -117,6 +118,7 @@ const EMPTY_SITE_DATA: SiteData = {
 };
 
 const TAB_HASH_MAP: Record<string, string> = {
+  dashboard: "dashboard",
   allGames: "games",
   calendar: "calendar",
   unifiedBatters: "batters",
@@ -136,11 +138,11 @@ const HASH_TAB_MAP = Object.fromEntries(
 );
 
 function parseLocationHash() {
-  if (typeof window === "undefined") return { tabId: "allGames", gameId: "" };
+  if (typeof window === "undefined") return { tabId: "dashboard", gameId: "" };
   const hash = window.location.hash.replace(/^#/, "");
-  if (!hash) return { tabId: "allGames", gameId: "" };
+  if (!hash) return { tabId: "dashboard", gameId: "" };
   const [tabHash, ...rest] = hash.split("/");
-  const tabId = HASH_TAB_MAP[tabHash] || "allGames";
+  const tabId = HASH_TAB_MAP[tabHash] || "dashboard";
   const gameId = rest.length > 0 ? decodeURIComponent(rest.join("/")) : "";
   return { tabId, gameId };
 }
@@ -405,18 +407,19 @@ export default function App({ data: initialData }: AppProps) {
     (data.scheduleIndex && data.scheduleIndex.length > 0);
 
   const tabs = [
-    { id: "allGames", label: "All Games" },
+    { id: "dashboard", label: "Dashboard" },
+    { id: "allGames", label: "Games" },
     { id: "calendar", label: "Calendar" },
+    { id: "milestones", label: "Milestones" },
     { id: "unifiedBatters", label: "Batters" },
     { id: "unifiedPitchers", label: "Pitchers" },
     { id: "teams", label: "Teams" },
-    { id: "milestones", label: "Milestones" },
     ...(hasCrossover ? [{ id: "crossover", label: "Crossover" }] : []),
     ...(hasSchedule ? [{ id: "schedule", label: "Schedule" }] : []),
     { id: "scorigami", label: "Scorigami" },
-    { id: "checklist", label: "Checklist" },
+    { id: "checklist", label: "Progress" },
     { id: "map", label: "Map" },
-    { id: "quality", label: "Quality" },
+    { id: "quality", label: "Data Health" },
   ];
 
   // Build header subtitle
@@ -461,6 +464,14 @@ export default function App({ data: initialData }: AppProps) {
         <TabBar tabs={tabs} activeTab={activeTab} onTabChange={handleTabChange} />
 
         <div key={activeTab} className="tab-content-enter">
+        {activeTab === "dashboard" && (
+          <Dashboard
+            data={data}
+            onTabChange={handleTabChange}
+            onGameClick={openGame}
+            onPlayerClick={handlePlayerClick}
+          />
+        )}
         {activeTab === "allGames" && <UnifiedGameLog games={data.unifiedGameLog} data={data} onGameClick={openGame} />}
         {activeTab === "calendar" && <CalendarView games={data.unifiedGameLog} data={data} />}
         {activeTab === "teams" && <TeamRecords teams={data.teamRecords} data={data} />}

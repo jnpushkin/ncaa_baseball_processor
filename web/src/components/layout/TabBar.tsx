@@ -12,6 +12,7 @@ interface TabBarProps {
 }
 
 const TAB_ICONS: Record<string, string> = {
+  dashboard: "\u25C6",
   allGames: "\u{1F4CB}",
   calendar: "\u{1F4C5}",
   unifiedBatters: "\u{1F3CF}",
@@ -23,6 +24,7 @@ const TAB_ICONS: Record<string, string> = {
   scorigami: "\u{1F9E9}",
   checklist: "\u2611\uFE0F",
   map: "\u{1F5FA}\uFE0F",
+  quality: "\u271A",
 };
 
 export default function TabBar({ tabs, activeTab, onTabChange }: TabBarProps) {
