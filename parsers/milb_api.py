@@ -161,11 +161,37 @@ def parse_batting_stats(player_data: Dict[str, Any]) -> Dict[str, Any]:
         'hr': stats.get('homeRuns', 0),
         'sb': stats.get('stolenBases', 0),
         'cs': stats.get('caughtStealing', 0),
+        'hbp': stats.get('hitByPitch', 0),
+        'sf': stats.get('sacFlies', 0),
+        'sh': stats.get('sacBunts', 0),
         'avg': stats.get('avg', '.000'),
         'obp': stats.get('obp', '.000'),
         'slg': stats.get('slg', '.000'),
         'lob': stats.get('leftOnBase', 0),
     }
+
+
+def _has_batting_or_baserunning_signal(stats: Dict[str, Any]) -> bool:
+    """Return true for real batting rows, including pinch runners with no PA."""
+    return any(
+        int(stats.get(key, 0) or 0) > 0
+        for key in (
+            'ab',
+            'r',
+            'h',
+            'rbi',
+            'bb',
+            'k',
+            'doubles',
+            'triples',
+            'hr',
+            'sb',
+            'cs',
+            'hbp',
+            'sf',
+            'sh',
+        )
+    )
 
 
 def parse_pitching_stats(player_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -203,6 +229,54 @@ def parse_pitching_stats(player_data: Dict[str, Any]) -> Dict[str, Any]:
         'hold': stats.get('holds', 0) > 0,
         'blown_save': stats.get('blownSaves', 0) > 0,
     }
+
+
+def _pitch_count_text(count: Dict[str, Any]) -> Optional[str]:
+    balls = count.get('balls')
+    strikes = count.get('strikes')
+    if balls is None or strikes is None:
+        return None
+    return f"{balls}-{strikes}"
+
+
+def parse_game_feed_play_by_play(game_feed: Optional[Dict[str, Any]]) -> Dict[int, Dict[str, List[Dict[str, Any]]]]:
+    """Convert MLB Stats API feed/live allPlays into canonical inning buckets."""
+    if not game_feed:
+        return {}
+
+    all_plays = (
+        game_feed.get('liveData', {})
+        .get('plays', {})
+        .get('allPlays', [])
+    )
+    innings: Dict[int, Dict[str, List[Dict[str, Any]]]] = {}
+
+    for play in all_plays:
+        about = play.get('about', {}) or {}
+        result = play.get('result', {}) or {}
+        inning = about.get('inning')
+        description = result.get('description') or ''
+        if not inning or not description:
+            continue
+
+        half = str(about.get('halfInning') or '').lower()
+        if half not in {'top', 'bottom'}:
+            half = 'top' if about.get('isTopInning') else 'bottom'
+
+        matchup = play.get('matchup', {}) or {}
+        event = {
+            'description': description,
+            'pitch_count': _pitch_count_text(play.get('count', {}) or {}),
+            'rbi': int(result.get('rbi') or 0),
+            'event': result.get('event') or '',
+            'away_score': int(result.get('awayScore') or 0),
+            'home_score': int(result.get('homeScore') or 0),
+            'batter': (matchup.get('batter') or {}).get('fullName', ''),
+            'pitcher': (matchup.get('pitcher') or {}).get('fullName', ''),
+        }
+        innings.setdefault(int(inning), {'top': [], 'bottom': []})[half].append(event)
+
+    return innings
 
 
 def _pitching_rows_in_appearance_order(team_data: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -307,13 +381,13 @@ def parse_boxscore(boxscore_data: Dict[str, Any], game_feed: Optional[Dict[str, 
     for player_key, player_data in away_data.get('players', {}).items():
         if player_data.get('stats', {}).get('batting'):
             stats = parse_batting_stats(player_data)
-            if stats.get('ab', 0) > 0 or stats.get('bb', 0) > 0:  # Had plate appearance
+            if _has_batting_or_baserunning_signal(stats):
                 away_batters.append(stats)
 
     for player_key, player_data in home_data.get('players', {}).items():
         if player_data.get('stats', {}).get('batting'):
             stats = parse_batting_stats(player_data)
-            if stats.get('ab', 0) > 0 or stats.get('bb', 0) > 0:
+            if _has_batting_or_baserunning_signal(stats):
                 home_batters.append(stats)
 
     # Sort by batting order
@@ -393,9 +467,7 @@ def parse_boxscore(boxscore_data: Dict[str, Any], game_feed: Optional[Dict[str, 
         'game_notes': {
             # TODO: Parse game notes from API if available
         },
-        'play_by_play': {
-            # TODO: Parse play by play if needed
-        },
+        'play_by_play': parse_game_feed_play_by_play(game_feed),
         'format': 'milb_api',
     }
 

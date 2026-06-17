@@ -8,6 +8,7 @@ import {
   MilbChecklistTeam,
 } from "@/types";
 import LevelBadge from "@/components/shared/LevelBadge";
+import TeamLogo from "@/components/shared/TeamLogo";
 import { getTeamDisplayName } from "@/lib/teams";
 
 // ---------------------------------------------------------------------------
@@ -66,6 +67,33 @@ function ProTeamCard({
         <div className="pro-team-card-name">{team}</div>
         <div className="pro-team-card-venue">{venue}</div>
       </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// NcaaTeamChip – renders a compact NCAA checklist team with logo
+// ---------------------------------------------------------------------------
+
+interface NcaaTeamChipProps {
+  team: string;
+  status: "home" | "away" | "none";
+  data: SiteData;
+}
+
+function NcaaTeamChip({ team, status, data }: NcaaTeamChipProps) {
+  const displayName = getTeamDisplayName(
+    team,
+    data.ncaaTeamNicknames ?? {},
+    data.ncaaTeamLogos ?? {}
+  );
+
+  return (
+    <div className={`team-chip team-chip--${status}`}>
+      <span className={`team-chip-logo team-chip-logo--${status}`}>
+        <TeamLogo team={team} level="NCAA" size={22} data={data} />
+      </span>
+      <span className="team-chip-name">{displayName}</span>
     </div>
   );
 }
@@ -256,12 +284,12 @@ export default function Checklist({
                               {[...confData.teams].sort().map((team) => {
                                 const status = confData.teamStatus[team] ?? "none";
                                 return (
-                                  <div key={team} className={`team-chip team-chip--${status}`}>
-                                    <span className={`team-chip-dot team-chip-dot--${status}`} />
-                                    <span className="team-chip-name">
-                                      {getTeamDisplayName(team, data.ncaaTeamNicknames ?? {}, data.ncaaTeamLogos ?? {})}
-                                    </span>
-                                  </div>
+                                  <NcaaTeamChip
+                                    key={team}
+                                    team={team}
+                                    status={status}
+                                    data={data}
+                                  />
                                 );
                               })}
                             </div>

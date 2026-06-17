@@ -24,7 +24,7 @@ export function getTeamDisplayName(
 
 /**
  * Resolve the logo URL for a team given site data maps.
- * Checks local logos, historical logos, ESPN NCAA logos, partner logos,
+ * Checks local logos, historical logos, direct or ESPN NCAA logos, partner logos,
  * and finally MiLB static CDN in that priority order.
  */
 export function getTeamLogoSrc(
@@ -41,10 +41,13 @@ export function getTeamLogoSrc(
   if (historicalTeamLogos[team]) return historicalTeamLogos[team];
   if (level === "NCAA") {
     const lower = team.toLowerCase();
-    const espnId = Object.entries(ncaaTeamLogos).find(
+    const ncaaLogo = Object.entries(ncaaTeamLogos).find(
       ([k]) => k.toLowerCase() === lower
     )?.[1];
-    if (espnId) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${espnId}.png`;
+    if (typeof ncaaLogo === "string" && /^https?:\/\//.test(ncaaLogo)) {
+      return ncaaLogo;
+    }
+    if (ncaaLogo) return `https://a.espncdn.com/i/teamlogos/ncaa/500/${ncaaLogo}.png`;
     return null;
   }
   if (level === "Independent") {

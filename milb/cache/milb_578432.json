@@ -27,7 +27,9 @@
       "home": "Class A Short Season"
     },
     "source": "milb",
-    "game_pk": 578432
+    "game_pk": 578432,
+    "source_feed_url": "https://statsapi.mlb.com/api/v1.1/game/578432/feed/live",
+    "source_box_score_url": "https://statsapi.mlb.com/api/v1/game/578432/boxscore"
   },
   "box_score": {
     "away_batting": [
@@ -536,6 +538,701 @@
     ]
   },
   "game_notes": {},
-  "play_by_play": {},
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Ricky Martinez pops out to first baseman Luke Becker in foul territory.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ricky Martinez",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Corbin Carroll flies out to left fielder Jack Stronach.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Corbin Carroll",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Tristin English strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Tristin English",
+          "pitcher": "Luarbert Arias"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Reinaldo Ilarraza flies out to center fielder Corbin Carroll.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Reinaldo Ilarraza",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Jordy Barley strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jordy Barley",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Logan Driscoll strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Logan Driscoll",
+          "pitcher": "Tyler Holton"
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Dominic Canzone grounds out, pitcher Luarbert Arias to first baseman Luke Becker.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Dominic Canzone",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Liover Peguero strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Liover Peguero",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Jorge Barrosa grounds out to first baseman Luke Becker.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jorge Barrosa",
+          "pitcher": "Luarbert Arias"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Kelvin Melean pops out to second baseman Ricky Martinez.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Kelvin Melean",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Jack Stronach called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jack Stronach",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Luke Becker grounds out, second baseman Ricky Martinez to first baseman Andy Yerzy.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Luke Becker",
+          "pitcher": "Tyler Holton"
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Andy Yerzy lines out softly to right fielder Logan Driscoll.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Andy Yerzy",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Jesus Marriaga called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jesus Marriaga",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Ryan January strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ryan January",
+          "pitcher": "Luarbert Arias"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Sean Guilbe called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Sean Guilbe",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Jonny Homza strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jonny Homza",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Tre Carter singles on a bunt ground ball to catcher Ryan January.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Tre Carter",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Reinaldo Ilarraza strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Reinaldo Ilarraza",
+          "pitcher": "Tyler Holton"
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Ricky Martinez lines out sharply to first baseman Luke Becker.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ricky Martinez",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Corbin Carroll flies out to left fielder Jack Stronach.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Corbin Carroll",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Tristin English singles on a line drive to right fielder Logan Driscoll.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Tristin English",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Dominic Canzone lines out to second baseman Reinaldo Ilarraza.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Dominic Canzone",
+          "pitcher": "Luarbert Arias"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jordy Barley singles on a line drive to left fielder Jesus Marriaga.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jordy Barley",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Logan Driscoll flies out to left fielder Jesus Marriaga.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Logan Driscoll",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Kelvin Melean strikes out swinging, catcher Ryan January to first baseman Andy Yerzy.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Kelvin Melean",
+          "pitcher": "Tyler Holton"
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Liover Peguero strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Liover Peguero",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Jorge Barrosa flies out to center fielder Tre Carter.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jorge Barrosa",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Andy Yerzy called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Andy Yerzy",
+          "pitcher": "Luarbert Arias"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jack Stronach singles on a soft line drive to center fielder Corbin Carroll.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jack Stronach",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Luke Becker grounds into a double play, third baseman Tristin English to second baseman Ricky Martinez to first baseman Andy Yerzy. Jack Stronach out at 2nd. Luke Becker out at 1st.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Grounded Into DP",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Luke Becker",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Sean Guilbe strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Sean Guilbe",
+          "pitcher": "Tyler Holton"
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Jesus Marriaga walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jesus Marriaga",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Ryan January pops out to shortstop Jordy Barley.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ryan January",
+          "pitcher": "Luarbert Arias"
+        },
+        {
+          "description": "Ricky Martinez grounds out sharply, third baseman Kelvin Melean to first baseman Luke Becker.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ricky Martinez",
+          "pitcher": "Luarbert Arias"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jonny Homza pops out to catcher Ryan January in foul territory.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jonny Homza",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Tre Carter strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Tre Carter",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Reinaldo Ilarraza grounds out, pitcher Tyler Holton to first baseman Andy Yerzy.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Reinaldo Ilarraza",
+          "pitcher": "Tyler Holton"
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Corbin Carroll lines out to shortstop Jordy Barley.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Corbin Carroll",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Tristin English flies out to center fielder Tre Carter.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Tristin English",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Dominic Canzone grounds out, second baseman Reinaldo Ilarraza to first baseman Luke Becker.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Dominic Canzone",
+          "pitcher": "Angel Acevedo"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jordy Barley grounds out, pitcher Tyler Holton to first baseman Andy Yerzy.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jordy Barley",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Logan Driscoll singles on a line drive to left fielder Jesus Marriaga.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Logan Driscoll",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Kelvin Melean flies out to right fielder Jorge Barrosa.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Kelvin Melean",
+          "pitcher": "Tyler Holton"
+        },
+        {
+          "description": "Jack Stronach flies out to center fielder Corbin Carroll.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jack Stronach",
+          "pitcher": "Tyler Holton"
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Liover Peguero reaches on a fielding error by shortstop Jordy Barley.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Field Error",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Liover Peguero",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Jorge Barrosa grounds out to first baseman Luke Becker. Liover Peguero to 2nd.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jorge Barrosa",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Andy Yerzy flies out to left fielder Jack Stronach. Liover Peguero to 3rd.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Andy Yerzy",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Jesus Marriaga strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jesus Marriaga",
+          "pitcher": "Angel Acevedo"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Luke Becker walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Luke Becker",
+          "pitcher": "Nick Snyder"
+        },
+        {
+          "description": "Sean Guilbe out on a sacrifice bunt, third baseman Tristin English to first baseman Andy Yerzy. Luke Becker to 2nd.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Sac Bunt",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Sean Guilbe",
+          "pitcher": "Nick Snyder"
+        },
+        {
+          "description": "Jonny Homza grounds out, third baseman Tristin English to first baseman Andy Yerzy.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jonny Homza",
+          "pitcher": "Nick Snyder"
+        },
+        {
+          "description": "Tre Carter pops out to catcher Ryan January in foul territory.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Tre Carter",
+          "pitcher": "Nick Snyder"
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Ryan January flies out to center fielder Tre Carter.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ryan January",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Ricky Martinez strikes out swinging, catcher Jonny Homza to first baseman Luke Becker.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ricky Martinez",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Corbin Carroll singles on a sharp ground ball to shortstop Jordy Barley.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Corbin Carroll",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Tristin English homers (1) on a line drive to left center field. Corbin Carroll scores.",
+          "pitch_count": "0-1",
+          "rbi": 2,
+          "event": "Home Run",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Tristin English",
+          "pitcher": "Angel Acevedo"
+        },
+        {
+          "description": "Dominic Canzone lines out to center fielder Tre Carter.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Dominic Canzone",
+          "pitcher": "Angel Acevedo"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Reinaldo Ilarraza singles on a line drive to left fielder Jesus Marriaga.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Reinaldo Ilarraza",
+          "pitcher": "Nick Snyder"
+        },
+        {
+          "description": "Jordy Barley walks. Reinaldo Ilarraza to 2nd.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jordy Barley",
+          "pitcher": "Nick Snyder"
+        },
+        {
+          "description": "Logan Driscoll walks. Reinaldo Ilarraza to 3rd. Jordy Barley to 2nd.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Logan Driscoll",
+          "pitcher": "Nick Snyder"
+        },
+        {
+          "description": "Kelvin Melean lines out to right fielder Jorge Barrosa.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Kelvin Melean",
+          "pitcher": "Mailon Arroyo"
+        },
+        {
+          "description": "Jack Stronach grounds out sharply to first baseman Andy Yerzy. Reinaldo Ilarraza scores. Jordy Barley to 3rd. Logan Driscoll to 2nd.",
+          "pitch_count": "0-0",
+          "rbi": 1,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Jack Stronach",
+          "pitcher": "Mailon Arroyo"
+        },
+        {
+          "description": "Luke Becker called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Luke Becker",
+          "pitcher": "Mailon Arroyo"
+        }
+      ]
+    }
+  },
   "format": "milb_api"
 }

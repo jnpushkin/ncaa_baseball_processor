@@ -7,7 +7,7 @@ import type { SiteData } from "../types/index";
  * 2. historicalTeamLogos – logos for defunct / renamed teams.
  * 3. partnerLogos – logos for Independent-level partner league teams.
  *    Only consulted when level is "Independent".
- * 4. ESPN CDN – used for NCAA teams when ncaaTeamLogos has a numeric ESPN ID.
+ * 4. Direct URL or ESPN CDN – used for NCAA teams via ncaaTeamLogos.
  *    Only consulted when level is "NCAA".
  * 5. mlbstatic CDN – used for non-NCAA teams when a numeric teamId is available.
  *    Skipped for level "NCAA".
@@ -43,11 +43,14 @@ export function getTeamLogoUrl(
     if (partner) return partner;
   }
 
-  // 4. ESPN CDN for NCAA teams.
+  // 4. Direct URL or ESPN CDN for NCAA teams.
   if (level === "NCAA" && data.ncaaTeamLogos) {
-    const espnId = data.ncaaTeamLogos[team];
-    if (espnId) {
-      return `https://a.espncdn.com/i/teamlogos/ncaa/500/${espnId}.png`;
+    const ncaaLogo = data.ncaaTeamLogos[team];
+    if (typeof ncaaLogo === "string" && /^https?:\/\//.test(ncaaLogo)) {
+      return ncaaLogo;
+    }
+    if (ncaaLogo) {
+      return `https://a.espncdn.com/i/teamlogos/ncaa/500/${ncaaLogo}.png`;
     }
   }
 

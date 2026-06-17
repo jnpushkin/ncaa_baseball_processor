@@ -133,6 +133,33 @@ def test_generated_audit_reads_committed_public_site_data(tmp_path):
     assert not warnings
 
 
+def test_strict_generated_audit_flags_missing_play_by_play(tmp_path):
+    game_id = "missing_pbp_game"
+    _write_site(
+        tmp_path,
+        _empty_site(game_id),
+        {game_id: _detail_payload(game_id, _box_score())},
+    )
+
+    _summary, issues, _warnings = audit_generated_website(tmp_path, require_play_by_play=True)
+
+    assert any("missing play-by-play" in issue for issue in issues)
+
+
+def test_strict_generated_audit_allows_known_unavailable_pointstreak_play_by_play(tmp_path):
+    game_id = "partner_american_association_497562"
+    _write_site(
+        tmp_path,
+        _empty_site(game_id),
+        {game_id: _detail_payload(game_id, _box_score())},
+    )
+
+    _summary, issues, _warnings = audit_generated_website(tmp_path, require_play_by_play=True)
+
+    assert not issues
+    assert not _warnings
+
+
 def test_generated_audit_flags_impossible_detail_batting_stats(tmp_path):
     game_id = "bad_game"
     _write_site(

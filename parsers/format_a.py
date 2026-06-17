@@ -12,11 +12,20 @@ from .models import PlayerBattingStats, PitcherStats
 
 
 # Valid baseball positions
+_POSITION_CODES = ('p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh', 'ph', 'pr')
+_POSITION_RE = re.compile(
+    r'^(?:' + '|'.join(_POSITION_CODES) + r')(?:/(?:' + '|'.join(_POSITION_CODES) + r'))*$',
+    re.IGNORECASE,
+)
 VALID_POSITIONS = {
     'ss', 'cf', 'rf', 'lf', '1b', '2b', '3b', 'c', 'p', 'dh', 'ph',
     'ph/ss', 'ph/lf', 'ph/1b', 'ph/rf', 'ph/cf', 'ph/3b', 'ph/2b', 'ph/c', 'ph/dh',
     'pr', 'pr/ss', 'pr/lf', 'pr/rf'
 }
+
+
+def is_valid_position(value: str) -> bool:
+    return bool(_POSITION_RE.match(str(value or '').strip()))
 
 
 def find_player_boundary(parts: list, start_idx: int) -> int:
@@ -32,7 +41,7 @@ def find_player_boundary(parts: list, start_idx: int) -> int:
             continue
         # This might be a jersey number - check if there's a position within next 3 fields
         for j in range(i + 1, min(i + 4, len(parts))):
-            if parts[j].lower() in VALID_POSITIONS:
+            if is_valid_position(parts[j]):
                 # Found position - verify this is a valid player start
                 # Check if there are 9 numbers after the position
                 pos_idx = j
@@ -125,7 +134,7 @@ def parse_side_by_side_batting_line(line: str) -> tuple:
         # First, find the away player's position
         away_pos_idx = None
         for i in range(1, min(5, len(parts))):  # Position should be in first few fields
-            if parts[i].lower() in VALID_POSITIONS:
+            if is_valid_position(parts[i]):
                 away_pos_idx = i
                 break
 
@@ -168,7 +177,7 @@ def parse_side_by_side_batting_line(line: str) -> tuple:
         # Find home player's position
         home_pos_idx = None
         for i in range(home_start + 1, min(home_start + 5, len(parts))):
-            if parts[i].lower() in VALID_POSITIONS:
+            if is_valid_position(parts[i]):
                 home_pos_idx = i
                 break
 

@@ -1,9 +1,22 @@
 """Tests for independent/partner league parsers."""
 
 import json
+import re
+from pathlib import Path
 
 from parsers import partner_leagues
-from parsers.partner_leagues import parse_pioneer_html
+from bs4 import BeautifulSoup
+
+from parsers.partner_leagues import parse_pioneer_html, parse_pioneer_play_by_play, parse_pointstreak_html
+
+
+def _name_key(value):
+    return re.sub(r"[^a-z0-9]", "", str(value or "").lower())
+
+
+def _roster_names(path):
+    roster = json.loads(Path(path).read_text(encoding="utf-8"))
+    return {_name_key(player.get("name")) for player in roster.get("players", [])}
 
 
 def test_pioneer_artifact_urls_and_paths(tmp_path):
@@ -151,3 +164,119 @@ def test_pioneer_html_merges_batting_summaries_and_pitching_columns():
     assert game["box_score"]["away_pitching"][0]["hr"] == 1
     assert game["box_score"]["away_pitching"][0]["bf"] == 14
     assert game["box_score"]["away_pitching"][0]["np"] == 67
+
+
+def test_pioneer_play_by_play_tables_are_grouped_by_half_inning():
+    soup = BeautifulSoup(
+        """
+        <section id="pbp-tabpanel" class="plays">
+          <table>
+            <tr><td><h3>Missoula PaddleHeads Top of 1st Inning</h3></td></tr>
+            <tr><td class="text">Michael Koszewski flied out to lf (2-2 BKBFF). (1 out)</td></tr>
+            <tr><td class="text">Tyler Stone singled, RBI (1-1 BK); Nich Klemp scored.</td></tr>
+            <tr class="totals"><td>Inning Summary: 1 Runs, 2 Hits, 0 Errors, 1 LOB</td></tr>
+          </table>
+          <table>
+            <tr><td><h3>Oakland Ballers Bottom of 1st Inning</h3></td></tr>
+            <tr><td class="text">Tremayne Cobb homered, 2 RBI (3-1 BBKB).</td></tr>
+          </table>
+        </section>
+        """,
+        "html.parser",
+    )
+
+    pbp = parse_pioneer_play_by_play(soup)
+
+    assert pbp[1]["top"][0]["pitch_count"] == "2-2 BKBFF"
+    assert pbp[1]["top"][1]["rbi"] == 1
+    assert pbp[1]["bottom"][0]["rbi"] == 2
+
+
+def test_pointstreak_html_stats_tables_are_away_first_and_scores_follow_batting_totals():
+    def batting_table(team, player, runs):
+        return f"""
+        <table class="nova-stats-table">
+          <tr><td colspan="10">{team} Batting</td></tr>
+          <tr><td>#</td><td>Name</td><td>Pos</td><td>AB</td><td>R</td><td>H</td><td>RBI</td><td>BB</td><td>K</td><td>AVG</td></tr>
+          <tr><td>12</td><td>{player}</td><td>CF</td><td>4</td><td>{runs}</td><td>2</td><td>1</td><td>0</td><td>1</td><td>.500</td></tr>
+        </table>
+        """
+
+    def pitching_table(team, player, runs):
+        return f"""
+        <table class="nova-stats-table">
+          <tr><td colspan="9">{team} Pitching</td></tr>
+          <tr><td>#</td><td>Name</td><td>IP</td><td>H</td><td>R</td><td>ER</td><td>BB</td><td>K</td><td>ERA</td></tr>
+          <tr><td>34</td><td>{player}</td><td>9.0</td><td>6</td><td>{runs}</td><td>{runs}</td><td>1</td><td>7</td><td>3.00</td></tr>
+        </table>
+        """
+
+    html = f"""
+    <html>
+      <head><title>Home Club vs. Away Club - Atlantic League - boxscore</title></head>
+      <body>
+        <span class="nova-boxscore__record">99</span>
+        <span class="nova-boxscore__record">88</span>
+        {batting_table("Away Club", "Away Hitter", 4)}
+        {batting_table("Home Club", "Home Hitter", 3)}
+        {pitching_table("Away Club", "Away Pitcher", 3)}
+        {pitching_table("Home Club", "Home Pitcher", 4)}
+      </body>
+    </html>
+    """
+
+    game = parse_pointstreak_html(html, 123, "atlantic")
+
+    assert game["metadata"]["away_team"] == "Away Club"
+    assert game["metadata"]["home_team"] == "Home Club"
+    assert game["metadata"]["away_team_score"] == 4
+    assert game["metadata"]["home_team_score"] == 3
+    assert game["box_score"]["away_batting"][0]["name"] == "Away Hitter"
+    assert game["box_score"]["away_batting"][0]["r"] == 4
+    assert game["box_score"]["home_batting"][0]["name"] == "Home Hitter"
+    assert game["box_score"]["home_batting"][0]["r"] == 3
+    assert game["box_score"]["away_pitching"][0]["name"] == "Away Pitcher"
+    assert game["box_score"]["away_pitching"][0]["r"] == 3
+    assert game["box_score"]["home_pitching"][0]["name"] == "Home Pitcher"
+    assert game["box_score"]["home_pitching"][0]["r"] == 4
+
+
+def test_cached_pointstreak_sections_match_local_partner_rosters():
+    cases = [
+        (
+            "partner/cache/american_association_497562.json",
+            "partner/rosters/fargo_moorhead_redhawks_2019.json",
+            "partner/rosters/st._paul_saints_2019.json",
+        ),
+        (
+            "partner/cache/american_association_497575.json",
+            "partner/rosters/cleburne_railroaders_2019.json",
+            "partner/rosters/fargo_moorhead_redhawks_2019.json",
+        ),
+        (
+            "partner/cache/atlantic_612414.json",
+            "partner/rosters/lancaster_stormers_2024.json",
+            "partner/rosters/staten_island_ferryhawks_2024.json",
+        ),
+    ]
+
+    for cache_path, away_roster_path, home_roster_path in cases:
+        game = json.loads(Path(cache_path).read_text(encoding="utf-8"))
+        away_names = _roster_names(away_roster_path)
+        home_names = _roster_names(home_roster_path)
+
+        for side, side_names, other_names in (
+            ("away", away_names, home_names),
+            ("home", home_names, away_names),
+        ):
+            for section in ("batting", "pitching"):
+                rows = game["box_score"][f"{side}_{section}"]
+                assert rows
+                for row in rows:
+                    name = _name_key(row.get("name"))
+                    assert not (name in other_names and name not in side_names), (
+                        cache_path,
+                        side,
+                        section,
+                        row.get("name"),
+                    )

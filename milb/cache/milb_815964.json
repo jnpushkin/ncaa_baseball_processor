@@ -27,7 +27,9 @@
       "home": "Triple-A"
     },
     "source": "milb",
-    "game_pk": 815964
+    "game_pk": 815964,
+    "source_feed_url": "https://statsapi.mlb.com/api/v1.1/game/815964/feed/live",
+    "source_box_score_url": "https://statsapi.mlb.com/api/v1/game/815964/boxscore"
   },
   "box_score": {
     "away_batting": [
@@ -554,7 +556,7 @@
         "blown_save": false
       },
       {
-        "name": "Andrew P\u00e9rez",
+        "name": "Andrew Pérez",
         "player_id": 680970,
         "jersey_number": "57",
         "ip": "2.0",
@@ -636,6 +638,811 @@
     ]
   },
   "game_notes": {},
-  "play_by_play": {},
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Joshua Kuroda-Grauer strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Joshua Kuroda-Grauer",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Darell Hernaiz pops out to first baseman Gavin Cross.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Darell Hernaiz",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Cade Marlowe strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Cade Marlowe",
+          "pitcher": "Aaron Sanchez"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Josh Rojas pops out to shortstop Darell Hernaiz.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Josh Rojas",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "Abraham Toro strikes out on a foul tip.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Abraham Toro",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "John Rave flies out to center fielder Cade Marlowe.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "John Rave",
+          "pitcher": "Aaron Civale"
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Joey Meneses strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Joey Meneses",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Michael Stefanic walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Michael Stefanic",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Jared Dickey walks. Michael Stefanic to 2nd.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jared Dickey",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Brian Serven lines out to third baseman Abraham Toro.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Brian Serven",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Chad Wallach flies out to center fielder Drew Waters.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Chad Wallach",
+          "pitcher": "Aaron Sanchez"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Matthew Lugo strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Matthew Lugo",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "Brett Squires lines out to right fielder Colby Halter.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Brett Squires",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "Luca Tresh pops out to catcher Brian Serven in foul territory.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Luca Tresh",
+          "pitcher": "Aaron Civale"
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Colby Halter singles on a soft bunt ground ball to pitcher Aaron Sanchez.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Colby Halter",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Joshua Kuroda-Grauer pops out to first baseman Gavin Cross in foul territory.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Joshua Kuroda-Grauer",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Darell Hernaiz singles on a ground ball to right fielder Matthew Lugo.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Darell Hernaiz",
+          "pitcher": "Aaron Sanchez"
+        },
+        {
+          "description": "Cade Marlowe grounds out, second baseman Josh Rojas to first baseman Gavin Cross.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Cade Marlowe",
+          "pitcher": "Aaron Sanchez"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Drew Waters called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Drew Waters",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "Gavin Cross strikes out on a foul tip.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Gavin Cross",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "Connor Kaiser called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Connor Kaiser",
+          "pitcher": "Aaron Civale"
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Joey Meneses singles on a ground ball to center fielder Drew Waters.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Joey Meneses",
+          "pitcher": "Andrew Pérez"
+        },
+        {
+          "description": "Michael Stefanic doubles (11) on a sharp ground ball to left fielder Brett Squires. Joey Meneses to 3rd.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Michael Stefanic",
+          "pitcher": "Andrew Pérez"
+        },
+        {
+          "description": "Jared Dickey strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jared Dickey",
+          "pitcher": "Andrew Pérez"
+        },
+        {
+          "description": "Brian Serven flies into a double play, left fielder Brett Squires to catcher Luca Tresh to third baseman Abraham Toro. Michael Stefanic out at 3rd.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Double Play",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Brian Serven",
+          "pitcher": "Andrew Pérez"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Josh Rojas flies out to right fielder Colby Halter in foul territory.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Josh Rojas",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "Abraham Toro grounds out softly, pitcher Aaron Civale to first baseman Joey Meneses.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Abraham Toro",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "John Rave strikes out on a foul tip.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "John Rave",
+          "pitcher": "Aaron Civale"
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Chad Wallach grounds out, second baseman Josh Rojas to first baseman Gavin Cross.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Chad Wallach",
+          "pitcher": "Andrew Pérez"
+        },
+        {
+          "description": "Colby Halter singles on a line drive to right fielder Matthew Lugo.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Colby Halter",
+          "pitcher": "Andrew Pérez"
+        },
+        {
+          "description": "Joshua Kuroda-Grauer singles on a ground ball to right fielder Matthew Lugo. Colby Halter to 3rd.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Joshua Kuroda-Grauer",
+          "pitcher": "Andrew Pérez"
+        },
+        {
+          "description": "Darell Hernaiz pops out to second baseman Josh Rojas.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Darell Hernaiz",
+          "pitcher": "Andrew Pérez"
+        },
+        {
+          "description": "Cade Marlowe strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Cade Marlowe",
+          "pitcher": "Andrew Pérez"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Matthew Lugo called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Matthew Lugo",
+          "pitcher": "Aaron Civale"
+        },
+        {
+          "description": "Brett Squires pops out to third baseman Michael Stefanic in foul territory.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Brett Squires",
+          "pitcher": "Wander Suero"
+        },
+        {
+          "description": "Luca Tresh walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Luca Tresh",
+          "pitcher": "Wander Suero"
+        },
+        {
+          "description": "Drew Waters grounds out to first baseman Joey Meneses.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Drew Waters",
+          "pitcher": "Wander Suero"
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Joey Meneses grounds out, second baseman Josh Rojas to first baseman Gavin Cross.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Joey Meneses",
+          "pitcher": "Jose Cuas"
+        },
+        {
+          "description": "Michael Stefanic walks.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Michael Stefanic",
+          "pitcher": "Jose Cuas"
+        },
+        {
+          "description": "Jared Dickey lines out sharply to third baseman Abraham Toro.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Jared Dickey",
+          "pitcher": "Jose Cuas"
+        },
+        {
+          "description": "Brian Serven singles on a sharp ground ball to right fielder Matthew Lugo. Michael Stefanic to 3rd.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Brian Serven",
+          "pitcher": "Jose Cuas"
+        },
+        {
+          "description": "Chad Wallach singles on a line drive to right fielder Matthew Lugo. Michael Stefanic scores. Brian Serven to 3rd.",
+          "pitch_count": "1-0",
+          "rbi": 1,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Chad Wallach",
+          "pitcher": "Jose Cuas"
+        },
+        {
+          "description": "Colby Halter strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Colby Halter",
+          "pitcher": "Jose Cuas"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Gavin Cross strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Gavin Cross",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Connor Kaiser grounds out, third baseman Michael Stefanic to first baseman Joey Meneses.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Connor Kaiser",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Josh Rojas grounds out, first baseman Joey Meneses to pitcher Luis Morales.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Josh Rojas",
+          "pitcher": "Luis Morales"
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Joshua Kuroda-Grauer singles on a line drive to center fielder Drew Waters.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Joshua Kuroda-Grauer",
+          "pitcher": "Anthony Gose"
+        },
+        {
+          "description": "Darell Hernaiz singles on a soft fly ball to second baseman Josh Rojas. Joshua Kuroda-Grauer to 2nd.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Darell Hernaiz",
+          "pitcher": "Anthony Gose"
+        },
+        {
+          "description": "Cade Marlowe strikes out on a foul bunt.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Cade Marlowe",
+          "pitcher": "Anthony Gose"
+        },
+        {
+          "description": "Joey Meneses homers (9) on a fly ball to left field. Joshua Kuroda-Grauer scores. Darell Hernaiz scores.",
+          "pitch_count": "1-0",
+          "rbi": 3,
+          "event": "Home Run",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Joey Meneses",
+          "pitcher": "Anthony Gose"
+        },
+        {
+          "description": "Michael Stefanic walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Michael Stefanic",
+          "pitcher": "Anthony Gose"
+        },
+        {
+          "description": "Jared Dickey grounds into a double play, first baseman Gavin Cross to shortstop Connor Kaiser. Michael Stefanic out at 2nd. Jared Dickey out at 1st.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Grounded Into DP",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Jared Dickey",
+          "pitcher": "Anthony Gose"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Abraham Toro strikes out on a foul tip.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Abraham Toro",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "John Rave singles on a ground ball to right fielder Colby Halter.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "John Rave",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Matthew Lugo doubles (4) on a line drive to left fielder Jared Dickey. John Rave to 3rd.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Matthew Lugo",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Brett Squires out on a sacrifice fly to center fielder Cade Marlowe. John Rave scores. Matthew Lugo to 3rd.",
+          "pitch_count": "3-2",
+          "rbi": 1,
+          "event": "Sac Fly",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Brett Squires",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Luca Tresh doubles (11) on a line drive to left fielder Jared Dickey. Matthew Lugo scores.",
+          "pitch_count": "0-1",
+          "rbi": 1,
+          "event": "Double",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Luca Tresh",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Drew Waters challenged (pitch result), call on the field was confirmed: Drew Waters called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Drew Waters",
+          "pitcher": "Luis Morales"
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Brian Serven flies out to right fielder Matthew Lugo.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Brian Serven",
+          "pitcher": "Anthony Gose"
+        },
+        {
+          "description": "Chad Wallach strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Chad Wallach",
+          "pitcher": "Anthony Gose"
+        },
+        {
+          "description": "Colby Halter called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Colby Halter",
+          "pitcher": "Anthony Gose"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Gavin Cross flies out to center fielder Cade Marlowe.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Gavin Cross",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Connor Kaiser walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Connor Kaiser",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Josh Rojas walks. Connor Kaiser to 2nd.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Josh Rojas",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "Abraham Toro flies out to center fielder Cade Marlowe.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Abraham Toro",
+          "pitcher": "Luis Morales"
+        },
+        {
+          "description": "John Rave strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "John Rave",
+          "pitcher": "Matt Krook"
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Joshua Kuroda-Grauer grounds out, shortstop Connor Kaiser to first baseman Gavin Cross.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Joshua Kuroda-Grauer",
+          "pitcher": "Eric Cerantola"
+        },
+        {
+          "description": "Darell Hernaiz doubles (1) on a sharp ground ball to left fielder Brett Squires.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Darell Hernaiz",
+          "pitcher": "Eric Cerantola"
+        },
+        {
+          "description": "Cade Marlowe strikes out swinging, catcher Luca Tresh to first baseman Gavin Cross.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Cade Marlowe",
+          "pitcher": "Eric Cerantola"
+        },
+        {
+          "description": "Joey Meneses walks.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Joey Meneses",
+          "pitcher": "Eric Cerantola"
+        },
+        {
+          "description": "Michael Stefanic called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Michael Stefanic",
+          "pitcher": "Eric Cerantola"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Matthew Lugo pops out to third baseman Michael Stefanic in foul territory.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Matthew Lugo",
+          "pitcher": "Michael Kelly"
+        },
+        {
+          "description": "Brett Squires singles on a line drive to center fielder Cade Marlowe.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Brett Squires",
+          "pitcher": "Michael Kelly"
+        },
+        {
+          "description": "Luca Tresh strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Luca Tresh",
+          "pitcher": "Michael Kelly"
+        },
+        {
+          "description": "Drew Waters strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 2,
+          "batter": "Drew Waters",
+          "pitcher": "Michael Kelly"
+        }
+      ]
+    }
+  },
   "format": "milb_api"
 }

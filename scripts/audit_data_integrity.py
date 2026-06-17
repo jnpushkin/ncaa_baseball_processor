@@ -62,7 +62,8 @@ def main() -> int:
                 f"{website['detail_files']} detail file(s), "
                 f"{website['missing_detail_files']} missing detail file(s), "
                 f"{website.get('stat_accuracy_errors', 0)} stat accuracy error(s), "
-                f"{website.get('source_truth_mismatches', 0)} source-truth mismatch(es)"
+                f"{website.get('source_truth_mismatches', 0)} source-truth mismatch(es), "
+                f"{website.get('unexpected_missing_play_by_play', 0)} unexpected missing play-by-play file(s)"
             )
         for warning in warnings:
             print(f"WARNING: {warning}")

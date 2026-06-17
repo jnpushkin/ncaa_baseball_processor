@@ -27,7 +27,9 @@
       "home": "Single-A"
     },
     "source": "milb",
-    "game_pk": 788401
+    "game_pk": 788401,
+    "source_feed_url": "https://statsapi.mlb.com/api/v1.1/game/788401/feed/live",
+    "source_box_score_url": "https://statsapi.mlb.com/api/v1/game/788401/boxscore"
   },
   "box_score": {
     "away_batting": [
@@ -598,6 +600,840 @@
     ]
   },
   "game_notes": {},
-  "play_by_play": {},
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Felnin Celesten singles on a line drive to left fielder Jean Carlos Sio.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Felnin Celesten",
+          "pitcher": "Gerelmi Maldonado"
+        },
+        {
+          "description": "Carlos Jimenez pops into a force out, center fielder Lisbel Diaz to shortstop Maui Ahuna. Felnin Celesten out at 2nd. Carlos Jimenez to 1st.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Forceout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Carlos Jimenez",
+          "pitcher": "Gerelmi Maldonado"
+        },
+        {
+          "description": "Ricardo Cova strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ricardo Cova",
+          "pitcher": "Gerelmi Maldonado"
+        },
+        {
+          "description": "Matthew Ellis called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Matthew Ellis",
+          "pitcher": "Gerelmi Maldonado"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jean Carlos Sio grounds out, second baseman Dervy Ventura to first baseman Carter Dorighi.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jean Carlos Sio",
+          "pitcher": "Ryan Sloan"
+        },
+        {
+          "description": "Maui Ahuna grounds out, second baseman Dervy Ventura to first baseman Carter Dorighi.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Maui Ahuna",
+          "pitcher": "Ryan Sloan"
+        },
+        {
+          "description": "Sam Huff strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Sam Huff",
+          "pitcher": "Ryan Sloan"
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Carter Dorighi grounds out, third baseman Walker Martin to first baseman Robert Hipwell.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Carter Dorighi",
+          "pitcher": "Gerelmi Maldonado"
+        },
+        {
+          "description": "Austin St. Laurent pops out to third baseman Walker Martin.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Austin St. Laurent",
+          "pitcher": "Gerelmi Maldonado"
+        },
+        {
+          "description": "Dervy Ventura strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Dervy Ventura",
+          "pitcher": "Gerelmi Maldonado"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Walker Martin strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Walker Martin",
+          "pitcher": "Ryan Sloan"
+        },
+        {
+          "description": "Lisbel Diaz grounds out, first baseman Carter Dorighi to pitcher Ryan Sloan.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Lisbel Diaz",
+          "pitcher": "Ryan Sloan"
+        },
+        {
+          "description": "Jeremiah Jenkins strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jeremiah Jenkins",
+          "pitcher": "Ryan Sloan"
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "George Feliz strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "George Feliz",
+          "pitcher": "Gerelmi Maldonado"
+        },
+        {
+          "description": "Starlin Aguilar strikes out on a foul tip.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Starlin Aguilar",
+          "pitcher": "Gerelmi Maldonado"
+        },
+        {
+          "description": "Felnin Celesten strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Felnin Celesten",
+          "pitcher": "Gerelmi Maldonado"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Robert Hipwell grounds out, second baseman Dervy Ventura to first baseman Carter Dorighi.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Robert Hipwell",
+          "pitcher": "Ryan Sloan"
+        },
+        {
+          "description": "Ryan Reckley grounds out, second baseman Dervy Ventura to first baseman Carter Dorighi.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ryan Reckley",
+          "pitcher": "Ryan Sloan"
+        },
+        {
+          "description": "Zander Darby pops out to shortstop Felnin Celesten.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Zander Darby",
+          "pitcher": "Ryan Sloan"
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Carlos Jimenez walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Carlos Jimenez",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Ricardo Cova singles on a line drive to center fielder Lisbel Diaz. Carlos Jimenez to 2nd.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ricardo Cova",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Matthew Ellis singles on a ground ball to second baseman Zander Darby. Carlos Jimenez scores. Ricardo Cova to 2nd.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Matthew Ellis",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Carter Dorighi singles on a soft ground ball to catcher Sam Huff. Ricardo Cova to 3rd. Matthew Ellis to 2nd.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Carter Dorighi",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Austin St. Laurent out on a sacrifice fly to right fielder Ryan Reckley. Ricardo Cova scores. Matthew Ellis to 3rd.",
+          "pitch_count": "0-1",
+          "rbi": 1,
+          "event": "Sac Fly",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Austin St. Laurent",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Dervy Ventura strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Dervy Ventura",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "George Feliz lines out to right fielder Ryan Reckley.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "George Feliz",
+          "pitcher": "Tyler Switalski"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jean Carlos Sio walks.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jean Carlos Sio",
+          "pitcher": "Jean Munoz"
+        },
+        {
+          "description": "Maui Ahuna walks. Jean Carlos Sio to 2nd.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Maui Ahuna",
+          "pitcher": "Jean Munoz"
+        },
+        {
+          "description": "Sam Huff flies out to left fielder Ricardo Cova.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Sam Huff",
+          "pitcher": "Jean Munoz"
+        },
+        {
+          "description": "Walker Martin grounds out to first baseman Carter Dorighi. Jean Carlos Sio to 3rd. Maui Ahuna to 2nd.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Walker Martin",
+          "pitcher": "Jean Munoz"
+        },
+        {
+          "description": "Lisbel Diaz grounds out, third baseman Austin St. Laurent to first baseman Carter Dorighi.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Lisbel Diaz",
+          "pitcher": "Jean Munoz"
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Starlin Aguilar called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Starlin Aguilar",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Felnin Celesten singles on a sharp line drive to left fielder Jean Carlos Sio.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Felnin Celesten",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Carlos Jimenez lines out to third baseman Walker Martin.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Carlos Jimenez",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Ricardo Cova strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Ricardo Cova",
+          "pitcher": "Tyler Switalski"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jeremiah Jenkins strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jeremiah Jenkins",
+          "pitcher": "Jean Munoz"
+        },
+        {
+          "description": "Robert Hipwell walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Robert Hipwell",
+          "pitcher": "Jean Munoz"
+        },
+        {
+          "description": "Ryan Reckley singles on a sharp ground ball to right fielder George Feliz, deflected by second baseman Dervy Ventura. Robert Hipwell to 2nd.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Ryan Reckley",
+          "pitcher": "Jean Munoz"
+        },
+        {
+          "description": "Zander Darby grounds into a force out, second baseman Dervy Ventura to shortstop Felnin Celesten. Robert Hipwell to 3rd. Ryan Reckley out at 2nd. Zander Darby to 1st.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Forceout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Zander Darby",
+          "pitcher": "Jean Munoz"
+        },
+        {
+          "description": "Jean Carlos Sio flies out to right fielder George Feliz.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jean Carlos Sio",
+          "pitcher": "Jean Munoz"
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Matthew Ellis grounds out, pitcher Tyler Switalski to third baseman Walker Martin to first baseman Robert Hipwell.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Matthew Ellis",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Carter Dorighi grounds out, second baseman Zander Darby to first baseman Robert Hipwell.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Carter Dorighi",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Austin St. Laurent grounds out, shortstop Maui Ahuna to first baseman Robert Hipwell.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Austin St. Laurent",
+          "pitcher": "Tyler Switalski"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Maui Ahuna hit by pitch.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Hit By Pitch",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Maui Ahuna",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Sam Huff walks. Maui Ahuna to 2nd.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Sam Huff",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Walker Martin flies out to right fielder George Feliz. Maui Ahuna to 3rd.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Walker Martin",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Lisbel Diaz homers (8) on a fly ball to left field. Maui Ahuna scores. Sam Huff scores.",
+          "pitch_count": "0-0",
+          "rbi": 3,
+          "event": "Home Run",
+          "away_score": 2,
+          "home_score": 3,
+          "batter": "Lisbel Diaz",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Jeremiah Jenkins strikes out on a foul tip.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 3,
+          "batter": "Jeremiah Jenkins",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Robert Hipwell strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 3,
+          "batter": "Robert Hipwell",
+          "pitcher": "Yensy Bello"
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Dervy Ventura walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 3,
+          "batter": "Dervy Ventura",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "George Feliz singles on a sharp ground ball to third baseman Walker Martin. Dervy Ventura to 2nd.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 3,
+          "batter": "George Feliz",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Starlin Aguilar grounds out, pitcher Tyler Switalski to first baseman Robert Hipwell. Dervy Ventura to 3rd. George Feliz to 2nd.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 3,
+          "batter": "Starlin Aguilar",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Felnin Celesten singles on a ground ball to center fielder Lisbel Diaz. Dervy Ventura scores. George Feliz scores. Felnin Celesten out at 2nd, pitcher Tyler Switalski to second baseman Zander Darby.",
+          "pitch_count": "2-2",
+          "rbi": 2,
+          "event": "Single",
+          "away_score": 4,
+          "home_score": 3,
+          "batter": "Felnin Celesten",
+          "pitcher": "Tyler Switalski"
+        },
+        {
+          "description": "Carlos Jimenez flies out to center fielder Lisbel Diaz.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 4,
+          "home_score": 3,
+          "batter": "Carlos Jimenez",
+          "pitcher": "Tyler Switalski"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ryan Reckley grounds out, third baseman Austin St. Laurent to first baseman Carter Dorighi.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 4,
+          "home_score": 3,
+          "batter": "Ryan Reckley",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Zander Darby walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 4,
+          "home_score": 3,
+          "batter": "Zander Darby",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Jean Carlos Sio singles on a fly ball to center fielder Carlos Jimenez. Zander Darby to 2nd.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 4,
+          "home_score": 3,
+          "batter": "Jean Carlos Sio",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Maui Ahuna doubles (9) on a line drive to right fielder George Feliz. Zander Darby scores. Jean Carlos Sio out at home on the throw, right fielder George Feliz to shortstop Felnin Celesten to catcher Matthew Ellis.",
+          "pitch_count": "0-2",
+          "rbi": 1,
+          "event": "Double",
+          "away_score": 4,
+          "home_score": 4,
+          "batter": "Maui Ahuna",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Sam Huff walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 4,
+          "home_score": 4,
+          "batter": "Sam Huff",
+          "pitcher": "Yensy Bello"
+        },
+        {
+          "description": "Walker Martin walks. Maui Ahuna to 3rd. Sam Huff to 2nd.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 4,
+          "home_score": 4,
+          "batter": "Walker Martin",
+          "pitcher": "Justin Sanchez"
+        },
+        {
+          "description": "Lisbel Diaz walks. Maui Ahuna scores. Sam Huff to 3rd. Walker Martin to 2nd.",
+          "pitch_count": "4-0",
+          "rbi": 1,
+          "event": "Walk",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Lisbel Diaz",
+          "pitcher": "Justin Sanchez"
+        },
+        {
+          "description": "Jeremiah Jenkins flies out to left fielder Ricardo Cova.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Jeremiah Jenkins",
+          "pitcher": "Justin Sanchez"
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Ricardo Cova walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Ricardo Cova",
+          "pitcher": "Cole Hillier"
+        },
+        {
+          "description": "Matthew Ellis pops out to second baseman Zander Darby.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Matthew Ellis",
+          "pitcher": "Cole Hillier"
+        },
+        {
+          "description": "Carter Dorighi flies out to left fielder Jean Carlos Sio.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Carter Dorighi",
+          "pitcher": "Cole Hillier"
+        },
+        {
+          "description": "Austin St. Laurent singles on a line drive to left fielder Jean Carlos Sio. Ricardo Cova to 2nd.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Austin St. Laurent",
+          "pitcher": "Cole Hillier"
+        },
+        {
+          "description": "Dervy Ventura lines out to first baseman Robert Hipwell.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Dervy Ventura",
+          "pitcher": "Cole Hillier"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Robert Hipwell called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Robert Hipwell",
+          "pitcher": "Justin Sanchez"
+        },
+        {
+          "description": "Ryan Reckley singles on a ground ball to center fielder Carlos Jimenez.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 4,
+          "home_score": 5,
+          "batter": "Ryan Reckley",
+          "pitcher": "Justin Sanchez"
+        },
+        {
+          "description": "Zander Darby doubles (13) on a sharp line drive to center fielder Carlos Jimenez. Ryan Reckley scores.",
+          "pitch_count": "2-0",
+          "rbi": 1,
+          "event": "Double",
+          "away_score": 4,
+          "home_score": 6,
+          "batter": "Zander Darby",
+          "pitcher": "Justin Sanchez"
+        },
+        {
+          "description": "Jean Carlos Sio pops out to third baseman Austin St. Laurent in foul territory.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 4,
+          "home_score": 6,
+          "batter": "Jean Carlos Sio",
+          "pitcher": "Justin Sanchez"
+        },
+        {
+          "description": "Maui Ahuna triples (2) on a sharp line drive to right fielder George Feliz. Zander Darby scores.",
+          "pitch_count": "1-0",
+          "rbi": 1,
+          "event": "Triple",
+          "away_score": 4,
+          "home_score": 7,
+          "batter": "Maui Ahuna",
+          "pitcher": "Justin Sanchez"
+        },
+        {
+          "description": "Juan Perez walks.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 4,
+          "home_score": 7,
+          "batter": "Juan Perez",
+          "pitcher": "Justin Sanchez"
+        },
+        {
+          "description": "Walker Martin doubles (14) on a line drive to left fielder Ricardo Cova. Maui Ahuna scores. Juan Perez out at 3rd on the throw, left fielder Ricardo Cova to third baseman Austin St. Laurent.",
+          "pitch_count": "2-1",
+          "rbi": 1,
+          "event": "Double",
+          "away_score": 4,
+          "home_score": 8,
+          "batter": "Walker Martin",
+          "pitcher": "Justin Sanchez"
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "George Feliz strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 4,
+          "home_score": 8,
+          "batter": "George Feliz",
+          "pitcher": "Cole Hillier"
+        },
+        {
+          "description": "Starlin Aguilar walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 4,
+          "home_score": 8,
+          "batter": "Starlin Aguilar",
+          "pitcher": "Cole Hillier"
+        },
+        {
+          "description": "Felnin Celesten pops out to second baseman Zander Darby.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 4,
+          "home_score": 8,
+          "batter": "Felnin Celesten",
+          "pitcher": "Cole Hillier"
+        },
+        {
+          "description": "Carlos Jimenez strikes out swinging, catcher Juan Perez to first baseman Robert Hipwell.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 4,
+          "home_score": 8,
+          "batter": "Carlos Jimenez",
+          "pitcher": "Cole Hillier"
+        }
+      ],
+      "bottom": []
+    }
+  },
   "format": "milb_api"
 }

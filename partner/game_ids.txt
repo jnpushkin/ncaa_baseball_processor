@@ -19,5 +19,5 @@ pioneer:20260520_6ela  # Missoula @ Oakland Ballers, May 20, 2026 - Ring Night (
 atlantic:612414  # Lancaster @ Staten Island, May 11, 2024 (Lancaster 8, Staten Island 2)
 
 # American Association
-american_association:497562  # St. Paul @ Fargo-Moorhead, Aug 30, 2019 (St. Paul 4, Fargo 3)
-american_association:497575  # Fargo-Moorhead @ Cleburne, Sep 2, 2019 (Cleburne 2, Fargo 0)
+american_association:497562  # Fargo-Moorhead @ St. Paul, Aug 30, 2019 (St. Paul 4, Fargo 3)
+american_association:497575  # Cleburne @ Fargo-Moorhead, Sep 2, 2019 (Cleburne 2, Fargo 0)

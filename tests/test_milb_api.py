@@ -1,6 +1,6 @@
 """Tests for MiLB Stats API parsing."""
 
-from parsers.milb_api import parse_boxscore
+from parsers.milb_api import parse_boxscore, parse_game_feed_play_by_play
 
 
 def _boxscore(away_league, home_league, away_parent="", home_parent=""):
@@ -126,6 +126,55 @@ def test_pitchers_preserve_api_appearance_order():
     ]
 
 
+def test_pinchrunners_with_runs_are_kept_without_plate_appearance():
+    boxscore = _boxscore(
+        "Carolina League",
+        "Carolina League",
+        away_parent="Houston Astros",
+        home_parent="Kansas City Royals",
+    )
+    boxscore["teams"]["home"]["players"] = {
+        "ID100": {
+            "person": {"id": 100, "fullName": "Starting Batter"},
+            "position": {"abbreviation": "CF"},
+            "battingOrder": "101",
+            "stats": {
+                "batting": {
+                    "atBats": 4,
+                    "runs": 0,
+                    "hits": 1,
+                    "rbi": 0,
+                    "baseOnBalls": 0,
+                    "strikeOuts": 1,
+                }
+            },
+        },
+        "ID200": {
+            "person": {"id": 200, "fullName": "Pinch Runner"},
+            "position": {"abbreviation": "PR"},
+            "battingOrder": "102",
+            "stats": {
+                "batting": {
+                    "atBats": 0,
+                    "runs": 1,
+                    "hits": 0,
+                    "rbi": 0,
+                    "baseOnBalls": 0,
+                    "strikeOuts": 0,
+                }
+            },
+        },
+    }
+
+    game = parse_boxscore(boxscore, _feed())
+
+    home_names = [row["name"] for row in game["box_score"]["home_batting"]]
+    assert "Pinch Runner" in home_names
+    pinch_runner = next(row for row in game["box_score"]["home_batting"] if row["name"] == "Pinch Runner")
+    assert pinch_runner["ab"] == 0
+    assert pinch_runner["r"] == 1
+
+
 def test_attendance_is_parsed_from_labeled_info_entry_not_first():
     # The first info entry is a decoy (umpire-style name); attendance must be
     # read from the entry whose label is "Att"/"Attendance", not info[0].
@@ -149,3 +198,51 @@ def test_attendance_is_none_when_absent():
     game = parse_boxscore(boxscore, _feed())
 
     assert game["metadata"]["attendance"] is None
+
+
+def test_parse_game_feed_play_by_play_groups_all_plays_by_inning_half():
+    pbp = parse_game_feed_play_by_play(
+        {
+            "liveData": {
+                "plays": {
+                    "allPlays": [
+                        {
+                            "about": {"inning": 1, "halfInning": "top"},
+                            "result": {
+                                "description": "Away Batter singles on a line drive.",
+                                "rbi": 0,
+                                "awayScore": 0,
+                                "homeScore": 0,
+                                "event": "Single",
+                            },
+                            "count": {"balls": 1, "strikes": 2},
+                            "matchup": {
+                                "batter": {"fullName": "Away Batter"},
+                                "pitcher": {"fullName": "Home Pitcher"},
+                            },
+                        },
+                        {
+                            "about": {"inning": 1, "halfInning": "bottom"},
+                            "result": {
+                                "description": "Home Batter doubles. Runner scores.",
+                                "rbi": 1,
+                                "awayScore": 0,
+                                "homeScore": 1,
+                                "event": "Double",
+                            },
+                            "count": {"balls": 0, "strikes": 1},
+                            "matchup": {
+                                "batter": {"fullName": "Home Batter"},
+                                "pitcher": {"fullName": "Away Pitcher"},
+                            },
+                        },
+                    ]
+                }
+            }
+        }
+    )
+
+    assert pbp[1]["top"][0]["description"] == "Away Batter singles on a line drive."
+    assert pbp[1]["top"][0]["pitch_count"] == "1-2"
+    assert pbp[1]["bottom"][0]["rbi"] == 1
+    assert pbp[1]["bottom"][0]["home_score"] == 1

@@ -22,13 +22,15 @@
       "second_base": "Ryan Bleiberg",
       "third_base": "Stephen Fritzoni"
     },
-    "_teams_swapped": false
+    "_teams_swapped": false,
+    "source_box_score_url": "https://static.virginiasports.com/custompages/sports/m-basebl/stats/2024-2025/16Cal.pdf",
+    "source_box_score_format": "format_a_no_num_pdf"
   },
   "box_score": {
     "away_batting": [
       {
-        "number": "21",
-        "name": "Becker",
+        "number": "",
+        "name": "Eric Becker",
         "position": "ss",
         "at_bats": 3,
         "runs": 0,
@@ -38,14 +40,11 @@
         "strikeouts": 1,
         "put_outs": 1,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "becker000eri",
-        "full_name": "Eric Becker",
-        "match_confidence": 0.85
+        "left_on_base": 0
       },
       {
-        "number": "2",
-        "name": "Godbout",
+        "number": "",
+        "name": "Henry Godbout",
         "position": "2b",
         "at_bats": 5,
         "runs": 0,
@@ -55,14 +54,11 @@
         "strikeouts": 0,
         "put_outs": 0,
         "assists": 0,
-        "left_on_base": 5,
-        "bref_id": "godbou000hen",
-        "full_name": "Henry Godbout",
-        "match_confidence": 0.85
+        "left_on_base": 5
       },
       {
-        "number": "23",
-        "name": "Arroyo",
+        "number": "",
+        "name": "Chris Arroyo",
         "position": "1b",
         "at_bats": 3,
         "runs": 0,
@@ -72,14 +68,11 @@
         "strikeouts": 0,
         "put_outs": 1,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "arroyo001chr",
-        "full_name": "Chris Arroyo",
-        "match_confidence": 0.85
+        "left_on_base": 0
       },
       {
-        "number": "9",
-        "name": "Ford, H.",
+        "number": "",
+        "name": "Henry Ford",
         "position": "rf",
         "at_bats": 4,
         "runs": 0,
@@ -89,14 +82,11 @@
         "strikeouts": 3,
         "put_outs": 5,
         "assists": 0,
-        "left_on_base": 1,
-        "bref_id": "ford--002hen",
-        "full_name": "Henry Ford",
-        "match_confidence": 0.85
+        "left_on_base": 1
       },
       {
-        "number": "7",
-        "name": "Teel, A.",
+        "number": "",
+        "name": "Aidan Teel",
         "position": "cf",
         "at_bats": 2,
         "runs": 0,
@@ -106,15 +96,26 @@
         "strikeouts": 0,
         "put_outs": 2,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "teel--000aid",
-        "full_name": "Aidan Teel",
-        "match_confidence": 0.85
+        "left_on_base": 0
       },
       {
-        "number": "19",
-        "name": "Harris (ph/lf)",
+        "number": "",
+        "name": "Harrison Didawick",
         "position": "lf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 5,
+        "assists": 0,
+        "left_on_base": 3
+      },
+      {
+        "number": "",
+        "name": "Aiden Harris",
+        "position": "ph/lf",
         "at_bats": 1,
         "runs": 0,
         "hits": 0,
@@ -123,14 +124,25 @@
         "strikeouts": 0,
         "put_outs": 0,
         "assists": 0,
-        "left_on_base": 1,
-        "bref_id": "harris000aid",
-        "full_name": "Aiden Harris",
-        "match_confidence": 0.85
+        "left_on_base": 1
       },
       {
-        "number": "28",
-        "name": "Ference",
+        "number": "",
+        "name": "Trey Wells",
+        "position": "c",
+        "at_bats": 2,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 4,
+        "assists": 0,
+        "left_on_base": 0
+      },
+      {
+        "number": "",
+        "name": "Jacob Ference",
         "position": "c",
         "at_bats": 1,
         "runs": 0,
@@ -140,14 +152,11 @@
         "strikeouts": 1,
         "put_outs": 4,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "ferenc000jac",
-        "full_name": "Jacob Ference",
-        "match_confidence": 0.85
+        "left_on_base": 0
       },
       {
-        "number": "3",
-        "name": "Nunnallee",
+        "number": "",
+        "name": "James Nunnallee",
         "position": "dh",
         "at_bats": 2,
         "runs": 1,
@@ -157,14 +166,11 @@
         "strikeouts": 0,
         "put_outs": 0,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "nunnal000jam",
-        "full_name": "James Nunnallee",
-        "match_confidence": 0.85
+        "left_on_base": 0
       },
       {
-        "number": "5",
-        "name": "Hanson",
+        "number": "",
+        "name": "Luke Hanson",
         "position": "3b",
         "at_bats": 3,
         "runs": 0,
@@ -174,15 +180,68 @@
         "strikeouts": 1,
         "put_outs": 2,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "hanson003luk",
-        "full_name": "Luke Hanson",
-        "match_confidence": 0.85
+        "left_on_base": 0
+      },
+      {
+        "number": "",
+        "name": "Jay Woolfolk",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0
+      },
+      {
+        "number": "",
+        "name": "Dean Kampschror",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0
+      },
+      {
+        "number": "",
+        "name": "Wes Arrington",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0
+      },
+      {
+        "number": "",
+        "name": "Matthew Buchanan",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0
       }
     ],
     "home_batting": [
       {
-        "number": "1",
+        "number": "",
         "name": "Advincula,J",
         "position": "2b",
         "at_bats": 3,
@@ -193,13 +252,10 @@
         "strikeouts": 0,
         "put_outs": 2,
         "assists": 1,
-        "left_on_base": 0,
-        "bref_id": "advinc000jar",
-        "full_name": "Jarren Advincula",
-        "match_confidence": 0.85
+        "left_on_base": 0
       },
       {
-        "number": "3",
+        "number": "",
         "name": "Gwynn,S",
         "position": "cf",
         "at_bats": 3,
@@ -210,13 +266,10 @@
         "strikeouts": 1,
         "put_outs": 2,
         "assists": 0,
-        "left_on_base": 1,
-        "bref_id": "gwynn-000set",
-        "full_name": "Seth Gwynn",
-        "match_confidence": 0.85
+        "left_on_base": 1
       },
       {
-        "number": "2",
+        "number": "",
         "name": "Campbell,C",
         "position": "3b",
         "at_bats": 4,
@@ -227,13 +280,24 @@
         "strikeouts": 1,
         "put_outs": 0,
         "assists": 1,
-        "left_on_base": 2,
-        "bref_id": "campbe001cad",
-        "full_name": "Cade Campbell",
-        "match_confidence": 0.85
+        "left_on_base": 2
       },
       {
-        "number": "36",
+        "number": "",
+        "name": "Tayman,R",
+        "position": "lf",
+        "at_bats": 4,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 2,
+        "assists": 0,
+        "left_on_base": 1
+      },
+      {
+        "number": "",
         "name": "Thomas,M",
         "position": "rf",
         "at_bats": 0,
@@ -244,13 +308,24 @@
         "strikeouts": 0,
         "put_outs": 0,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": null,
-        "full_name": null,
-        "match_confidence": 0.0
+        "left_on_base": 0
       },
       {
-        "number": "4",
+        "number": "",
+        "name": "Moutzouridis",
+        "position": "ss",
+        "at_bats": 3,
+        "runs": 1,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 0,
+        "put_outs": 3,
+        "assists": 4,
+        "left_on_base": 0
+      },
+      {
+        "number": "",
         "name": "Handron,M",
         "position": "dh",
         "at_bats": 3,
@@ -261,13 +336,24 @@
         "strikeouts": 2,
         "put_outs": 0,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "handro000max",
-        "full_name": "Max Handron",
-        "match_confidence": 0.85
+        "left_on_base": 0
       },
       {
-        "number": "38",
+        "number": "",
+        "name": "Birge,A",
+        "position": "c",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 2,
+        "put_outs": 11,
+        "assists": 0,
+        "left_on_base": 2
+      },
+      {
+        "number": "",
         "name": "Smaldino,D",
         "position": "1b",
         "at_bats": 4,
@@ -278,13 +364,24 @@
         "strikeouts": 1,
         "put_outs": 7,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "smaldi000dom",
-        "full_name": "Dominic Smaldino",
-        "match_confidence": 0.85
+        "left_on_base": 0
       },
       {
-        "number": "6",
+        "number": "",
+        "name": "French,J",
+        "position": "rf/lf",
+        "at_bats": 4,
+        "runs": 1,
+        "hits": 2,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 1,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0
+      },
+      {
+        "number": "",
         "name": "Kodama,E",
         "position": "lf",
         "at_bats": 0,
@@ -295,16 +392,55 @@
         "strikeouts": 0,
         "put_outs": 0,
         "assists": 0,
-        "left_on_base": 0,
-        "bref_id": "kodama000eth",
-        "full_name": "Ethan Kodama",
-        "match_confidence": 0.85
+        "left_on_base": 0
+      },
+      {
+        "number": "",
+        "name": "Turkington,A",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 2,
+        "left_on_base": 0
+      },
+      {
+        "number": "",
+        "name": "Dessart,S",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0
+      },
+      {
+        "number": "",
+        "name": "Shaw,D",
+        "position": "p",
+        "at_bats": 0,
+        "runs": 0,
+        "hits": 0,
+        "rbi": 0,
+        "walks": 0,
+        "strikeouts": 0,
+        "put_outs": 0,
+        "assists": 0,
+        "left_on_base": 0
       }
     ],
     "away_pitching": [
       {
-        "number": "4",
-        "name": "Woolfolk",
+        "number": "",
+        "name": "Jay Woolfolk",
         "innings_pitched": 5.0,
         "hits": 6,
         "runs": 5,
@@ -313,14 +449,11 @@
         "strikeouts": 4,
         "batters_faced": 24,
         "at_bats": 20,
-        "pitches": 86,
-        "bref_id": "woolfo000jay",
-        "full_name": "Jay Woolfolk",
-        "match_confidence": 0.85
+        "pitches": 86
       },
       {
-        "number": "38",
-        "name": "Kampschror",
+        "number": "",
+        "name": "Dean Kampschror",
         "innings_pitched": 0.1,
         "hits": 2,
         "runs": 1,
@@ -329,14 +462,11 @@
         "strikeouts": 0,
         "batters_faced": 4,
         "at_bats": 4,
-        "pitches": 12,
-        "bref_id": "kampsc000dea",
-        "full_name": "Dean Kampschror",
-        "match_confidence": 0.85
+        "pitches": 12
       },
       {
-        "number": "45",
-        "name": "Arrington",
+        "number": "",
+        "name": "Wes Arrington",
         "innings_pitched": 1.1,
         "hits": 0,
         "runs": 0,
@@ -345,14 +475,11 @@
         "strikeouts": 1,
         "batters_faced": 4,
         "at_bats": 4,
-        "pitches": 13,
-        "bref_id": "arring000wes",
-        "full_name": "Wes Arrington",
-        "match_confidence": 0.85
+        "pitches": 13
       },
       {
-        "number": "25",
-        "name": "M. Buchanan",
+        "number": "",
+        "name": "Matthew Buchanan",
         "innings_pitched": 1.1,
         "hits": 0,
         "runs": 0,
@@ -361,15 +488,12 @@
         "strikeouts": 3,
         "batters_faced": 4,
         "at_bats": 4,
-        "pitches": 15,
-        "bref_id": "buchan000mat",
-        "full_name": "Matthew Buchanan",
-        "match_confidence": 0.85
+        "pitches": 15
       }
     ],
     "home_pitching": [
       {
-        "number": "5",
+        "number": "",
         "name": "Turkington,A",
         "innings_pitched": 6.2,
         "hits": 3,
@@ -379,13 +503,10 @@
         "strikeouts": 7,
         "batters_faced": 28,
         "at_bats": 21,
-        "pitches": 107,
-        "bref_id": "turkin000aus",
-        "full_name": "Austin Turkington",
-        "match_confidence": 0.85
+        "pitches": 107
       },
       {
-        "number": "98",
+        "number": "",
         "name": "Dessart,S",
         "innings_pitched": 1.2,
         "hits": 1,
@@ -395,13 +516,10 @@
         "strikeouts": 2,
         "batters_faced": 8,
         "at_bats": 6,
-        "pitches": 38,
-        "bref_id": "dessar000spe",
-        "full_name": "Spencer Dessart",
-        "match_confidence": 0.85
+        "pitches": 38
       },
       {
-        "number": "51",
+        "number": "",
         "name": "Shaw,D",
         "innings_pitched": 0.2,
         "hits": 0,
@@ -411,10 +529,7 @@
         "strikeouts": 1,
         "batters_faced": 2,
         "at_bats": 2,
-        "pitches": 12,
-        "bref_id": "shaw--000dav",
-        "full_name": "David Shaw",
-        "match_confidence": 0.85
+        "pitches": 12
       }
     ],
     "line_score": {
@@ -466,7 +581,13 @@
         "season_total": 2
       }
     ],
-    "stolen_bases": [],
+    "stolen_bases": [
+      {
+        "player": "Moutzouridis",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
     "caught_stealing": [],
     "hit_by_pitch": [],
     "intentional_walks": [],
@@ -991,5 +1112,5 @@
       "bottom": []
     }
   },
-  "format": "format_a"
+  "format": "format_a_no_num"
 }

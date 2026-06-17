@@ -22,7 +22,9 @@
       "second_base": "Greg Howard",
       "third_base": "Mike Goleski"
     },
-    "_teams_swapped": false
+    "_teams_swapped": false,
+    "source_box_score_url": "https://vmi_ftp.sidearmsports.com/stats/2018-19/baseball/4vmi.htm",
+    "source_box_score_format": "statcrew_html"
   },
   "box_score": {
     "away_batting": [
@@ -75,7 +77,8 @@
         "left_on_base": 0,
         "bref_id": "smoot-000rya",
         "full_name": "Ryan Smoot",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "hit_by_pitch": 1
       },
       {
         "number": "9",
@@ -126,6 +129,23 @@
         "left_on_base": 1,
         "bref_id": "cook--000noa",
         "full_name": "Noah Cook",
+        "match_confidence": 0.85
+      },
+      {
+        "number": "20",
+        "name": "Knight",
+        "position": "rf/cf",
+        "at_bats": 3,
+        "runs": 0,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 2,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "knight005wil",
+        "full_name": "Will Knight",
         "match_confidence": 0.85
       },
       {
@@ -281,7 +301,8 @@
         "left_on_base": 0,
         "bref_id": "richar000cay",
         "full_name": "Cayman Richardson",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "sac_bunts": 2
       },
       {
         "number": "10",
@@ -298,7 +319,9 @@
         "left_on_base": 0,
         "bref_id": "morris000tan",
         "full_name": "Tanner Morris",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "doubles": 1,
+        "hit_by_pitch": 1
       },
       {
         "number": "20",
@@ -332,7 +355,27 @@
         "left_on_base": 0,
         "bref_id": "rivoli000bre",
         "full_name": "Brendan Rivoli",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "doubles": 1,
+        "sac_flies": 1
+      },
+      {
+        "number": "13",
+        "name": "Tappen, A.",
+        "position": "rf",
+        "at_bats": 3,
+        "runs": 2,
+        "hits": 1,
+        "rbi": 1,
+        "walks": 1,
+        "strikeouts": 1,
+        "put_outs": 1,
+        "assists": 0,
+        "left_on_base": 0,
+        "bref_id": "tappen000ale",
+        "full_name": "Alex Tappen",
+        "match_confidence": 0.85,
+        "doubles": 1
       },
       {
         "number": "32",
@@ -349,7 +392,9 @@
         "left_on_base": 0,
         "bref_id": "eikhof000nat",
         "full_name": "Nate Eikhoff",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "doubles": 1,
+        "hit_by_pitch": 1
       },
       {
         "number": "9",
@@ -383,7 +428,8 @@
         "left_on_base": 0,
         "bref_id": "kent--000nic",
         "full_name": "Nic Kent",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "hit_by_pitch": 1
       },
       {
         "number": "12",
@@ -400,7 +446,8 @@
         "left_on_base": 0,
         "bref_id": "michae001log",
         "full_name": "Logan Michaels",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "hit_by_pitch": 1
       },
       {
         "number": "5",
@@ -589,6 +636,21 @@
       {
         "player": "Morris, T.",
         "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Rivoli, B.",
+        "game_count": 1,
+        "season_total": 2
+      },
+      {
+        "player": "Tappen, A.",
+        "game_count": 1,
+        "season_total": 1
+      },
+      {
+        "player": "Eikhoff, N.",
+        "game_count": 1,
         "season_total": 2
       }
     ],
@@ -596,7 +658,13 @@
     "home_runs": [],
     "stolen_bases": [],
     "caught_stealing": [],
-    "hit_by_pitch": [],
+    "hit_by_pitch": [
+      "Smoot",
+      "Morris, T.",
+      "Eikhoff, N.",
+      "Kent, N.",
+      "Michaels, L."
+    ],
     "intentional_walks": [],
     "strikeouts_looking": [],
     "grounded_into_dp": [],
@@ -619,7 +687,13 @@
       "player": "Clines",
       "record": "1-1"
     },
-    "save": null
+    "save": null,
+    "sacrifice_hits": [
+      "Richardson 2(2)"
+    ],
+    "sacrifice_flies": [
+      "Rivoli, B. (2)"
+    ]
   },
   "play_by_play": {
     "1": {

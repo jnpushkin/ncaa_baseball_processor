@@ -6,6 +6,7 @@ from baseball_processor.website.parity import collect_website_data_parity_issues
 from baseball_processor.normalization import normalize_game
 from baseball_processor.website.generator import (
     _build_data_quality_report,
+    _build_per_game_details,
     _build_raw_game_index,
     _classify_and_id_raw_game,
     _serialize_detail_box_score,
@@ -475,6 +476,114 @@ def test_detail_box_score_uses_frontend_aliases_for_ncaa_pdf_rows():
     assert box_score["away_pitching"][0]["er"] == 1
     assert box_score["away_pitching"][0]["k"] == 8
     assert box_score["away_pitching"][0]["np"] == 92
+
+
+def test_detail_box_score_backfills_and_capitalizes_batter_positions_from_pbp():
+    raw_game = {
+        "metadata": {
+            "date": "06/15/2026",
+            "away_team": "Alabama",
+            "home_team": "Texas",
+            "away_team_score": 2,
+            "home_team_score": 14,
+        },
+        "box_score": {
+            "away_batting": [],
+            "home_batting": [
+                {"name": "Aiden Robbins", "position": "rf", "ab": 4, "h": 1},
+                {"name": "Presley Courville", "position": "", "ab": 0, "r": 1},
+                {"name": "Ryan Tayman", "position": "", "ab": 4, "h": 1},
+            ],
+            "away_pitching": [],
+            "home_pitching": [],
+        },
+        "play_by_play": {
+            "8": {
+                "top": [
+                    {"description": "Thomas,M to rf for Tayman,R."},
+                ],
+                "bottom": [
+                    {"description": "Courville, P pinch ran for Tinney, C.. 2 12"},
+                ],
+            },
+            "9": {
+                "top": [
+                    {"description": "Courville, P to c. 2 14"},
+                ],
+                "bottom": [],
+            }
+        },
+    }
+
+    box_score = _serialize_detail_box_score(normalize_game(raw_game))
+
+    assert box_score["home_batting"][0]["position"] == "RF"
+    assert box_score["home_batting"][1]["position"] == "PR/C"
+    assert box_score["home_batting"][2]["position"] == "RF"
+
+
+def test_per_game_details_backfills_only_stable_player_position_history():
+    raw_games = [
+        {
+            "metadata": {
+                "date": "04/01/2025",
+                "away_team": "Virginia",
+                "home_team": "California",
+                "away_team_score": 1,
+                "home_team_score": 2,
+            },
+            "box_score": {
+                "away_batting": [],
+                "home_batting": [
+                    {"name": "Alex Birge", "position": "c", "ab": 4, "h": 1},
+                    {"name": "Seth Gwynn", "position": "cf", "ab": 4, "h": 1},
+                ],
+                "away_pitching": [],
+                "home_pitching": [],
+            },
+        },
+        {
+            "metadata": {
+                "date": "04/02/2025",
+                "away_team": "Virginia",
+                "home_team": "California",
+                "away_team_score": 3,
+                "home_team_score": 4,
+            },
+            "box_score": {
+                "away_batting": [],
+                "home_batting": [
+                    {"name": "Seth Gwynn", "position": "lf", "ab": 4, "h": 1},
+                ],
+                "away_pitching": [],
+                "home_pitching": [],
+            },
+        },
+        {
+            "metadata": {
+                "date": "04/03/2025",
+                "away_team": "Virginia",
+                "home_team": "California",
+                "away_team_score": 5,
+                "home_team_score": 6,
+            },
+            "box_score": {
+                "away_batting": [],
+                "home_batting": [
+                    {"name": "Alex Birge", "position": "", "ab": 4, "h": 1},
+                    {"name": "Seth Gwynn", "position": "", "ab": 4, "h": 1},
+                ],
+                "away_pitching": [],
+                "home_pitching": [],
+            },
+        },
+    ]
+
+    details = _build_per_game_details(_build_raw_game_index(raw_games))
+    target = details["ncaa_pdf_20250403_virginia_at_california_5_6"]["box_score"]["home_batting"]
+
+    assert target[0]["position"] == "C"
+    assert target[1]["position"] == ""
 
 
 def test_detail_box_score_filters_placeholder_player_rows():

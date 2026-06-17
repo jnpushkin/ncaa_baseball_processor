@@ -97,6 +97,50 @@ def test_processing_games_merge_exact_ncaa_pdf_api_duplicates():
     assert merged["play_by_play"] == {"1": {"top": [{"description": "PDF detail"}]}}
 
 
+def test_processing_games_preserves_statcrew_positions_for_api_initial_rows():
+    pdf_game = {
+        "metadata": {
+            "date": "3/15/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 10,
+            "home_team_score": 8,
+        },
+        "box_score": {
+            "home_batting": [
+                {"name": "Gwynn,S", "position": "cf", "at_bats": 6, "hits": 1},
+                {"name": "Tayman,R", "position": "dh", "at_bats": 5, "hits": 3},
+            ],
+        },
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "game_id": "6423465",
+            "date": "03/15/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 10,
+            "home_team_score": 8,
+        },
+        "box_score": {
+            "home_batting": [
+                {"name": "S Gwynn", "position": "", "ab": 6, "h": 1},
+                {"name": "R Tayman", "position": "", "ab": 5, "h": 3},
+            ],
+        },
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+
+    rows = loaded.processing_games[0]["box_score"]["home_batting"]
+
+    assert [(row["name"], row["position"]) for row in rows] == [
+        ("Gwynn,S", "cf"),
+        ("Tayman,R", "dh"),
+    ]
+
+
 def test_processing_games_does_not_merge_same_date_matchup_when_scores_differ():
     pdf_game = {
         "metadata": {
@@ -205,7 +249,7 @@ def test_processing_games_merge_state_abbreviation_and_nickname_variants():
     merged = processing_games[0]
     assert merged["metadata"]["ncaa_api_game_id"] == "6455124"
     assert merged["metadata"]["venue"] == "Charles Schwab Field (Omaha, Neb.)"
-    assert merged["box_score"]["away_batting"][0]["name"] == "API Player"
+    assert merged["box_score"]["away_batting"][0]["name"] == "PDF Player"
 
 
 def test_processing_games_merge_period_abbreviated_state_name_variants():
@@ -338,7 +382,7 @@ def test_processing_games_merge_one_day_offset_keeps_pdf_box_score_date():
     assert merged["metadata"]["date_yyyymmdd"] == "20250616"
     assert merged["metadata"]["venue"] == "Charles Schwab Field (Omaha, Neb.)"
     assert merged["metadata"]["ncaa_api_game_id"] == "6455125"
-    assert merged["box_score"]["away_batting"][0]["name"] == "API Player"
+    assert merged["box_score"]["away_batting"][0]["name"] == "PDF Player"
 
 
 def test_processing_games_drop_unmatched_api_placeholders_when_pdf_has_section():
@@ -367,6 +411,42 @@ def test_processing_games_drop_unmatched_api_placeholders_when_pdf_has_section()
             "away_batting": [
                 {"number": "4", "name": "Unknown"},
                 {"number": "99", "name": "Named API Player"},
+            ],
+        },
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+    away_batting = loaded.processing_games[0]["box_score"]["away_batting"]
+
+    assert [row["name"] for row in away_batting] == ["Jay Woolfolk"]
+
+
+def test_processing_games_keeps_unmatched_api_rows_with_stat_signal():
+    pdf_game = {
+        "metadata": {
+            "date": "3/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [{"number": "4", "name": "Jay Woolfolk"}],
+        },
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "date": "03/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "away_batting": [
+                {"number": "4", "name": "Jay Woolfolk"},
+                {"number": "99", "name": "Named API Player", "h": 1},
             ],
         },
     }

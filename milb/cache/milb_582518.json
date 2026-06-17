@@ -27,7 +27,9 @@
       "home": "Rookie Advanced"
     },
     "source": "partner",
-    "game_pk": 582518
+    "game_pk": 582518,
+    "source_feed_url": "https://statsapi.mlb.com/api/v1.1/game/582518/feed/live",
+    "source_box_score_url": "https://statsapi.mlb.com/api/v1/game/582518/boxscore"
   },
   "box_score": {
     "away_batting": [
@@ -186,7 +188,7 @@
         "lob": 3
       },
       {
-        "name": "Anderson Com\u00e1s",
+        "name": "Anderson Comás",
         "player_id": 672624,
         "position": "CF",
         "jersey_number": "22",
@@ -598,6 +600,821 @@
     ]
   },
   "game_notes": {},
-  "play_by_play": {},
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Cabera Weaver singles on a ground ball to left fielder Ismaldo Rodriguez.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Caberea Weaver",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Kelvin Maldonado strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Kelvin Maldonado",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Harvin Mendoza strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Harvin Mendoza",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Luis Curbelo grounds out, third baseman Kember Nacero to first baseman Hector Pineda.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Luis Curbelo",
+          "pitcher": "Cole Watts"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jose Marquez grounds out, pitcher Dan Metzdorf to first baseman Harvin Mendoza.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jose Marquez",
+          "pitcher": "Dan Metzdorf"
+        },
+        {
+          "description": "Clay Dungan lines out to third baseman Luis Curbelo.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Clay Dungan",
+          "pitcher": "Dan Metzdorf"
+        },
+        {
+          "description": "Travis Jones walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Travis Jones",
+          "pitcher": "Dan Metzdorf"
+        },
+        {
+          "description": "Juan Carlos Negret singles on a ground ball to shortstop Lency Delgado. Travis Jones to 3rd. Travis Jones advances to 3rd, on a throwing error by shortstop Lency Delgado.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Juan Carlos Negret",
+          "pitcher": "Dan Metzdorf"
+        },
+        {
+          "description": "Isaiah Henry singles on a line drive to center fielder Cabera Weaver. Travis Jones scores. Juan Carlos Negret to 2nd.",
+          "pitch_count": "2-1",
+          "rbi": 1,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Isaiah Henry",
+          "pitcher": "Dan Metzdorf"
+        },
+        {
+          "description": "Wyatt Mascarella strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Wyatt Mascarella",
+          "pitcher": "Dan Metzdorf"
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Lency Delgado singles on a line drive to right fielder Juan Carlos Negret.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Lency Delgado",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Ivan Gonzalez singles on a line drive to left fielder Ismaldo Rodriguez. Lency Delgado to 2nd.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Ivan Gonzalez",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Anderson Comas lines out to left fielder Ismaldo Rodriguez.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Anderson Comás",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Bryan Connell doubles (2) on a ground ball to right fielder Juan Carlos Negret. Lency Delgado scores. Ivan Gonzalez to 3rd.",
+          "pitch_count": "0-2",
+          "rbi": 1,
+          "event": "Double",
+          "away_score": 1,
+          "home_score": 1,
+          "batter": "Bryan Connell",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Tom Archer grounds out, third baseman Kember Nacero to first baseman Hector Pineda.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 1,
+          "home_score": 1,
+          "batter": "Tom Archer",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Cabera Weaver walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Caberea Weaver",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Kelvin Maldonado grounds out, second baseman Jose Marquez to first baseman Hector Pineda.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Kelvin Maldonado",
+          "pitcher": "Cole Watts"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ismaldo Rodriguez flies out to right fielder Bryan Connell.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Ismaldo Rodriguez",
+          "pitcher": "Dan Metzdorf"
+        },
+        {
+          "description": "Hector Pineda reaches on a fielding error by first baseman Harvin Mendoza. Hector Pineda to 2nd.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Field Error",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Hector Pineda",
+          "pitcher": "Dan Metzdorf"
+        },
+        {
+          "description": "Kember Nacero grounds out, shortstop Lency Delgado to first baseman Harvin Mendoza.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Kember Nacero",
+          "pitcher": "Dan Metzdorf"
+        },
+        {
+          "description": "Jose Marquez grounds out, third baseman Luis Curbelo to first baseman Harvin Mendoza.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Jose Marquez",
+          "pitcher": "Dan Metzdorf"
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Harvin Mendoza pops out to shortstop Clay Dungan.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Harvin Mendoza",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Luis Curbelo strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Luis Curbelo",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Lency Delgado strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Lency Delgado",
+          "pitcher": "Cole Watts"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Clay Dungan grounds out, catcher Ivan Gonzalez to first baseman Harvin Mendoza.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Clay Dungan",
+          "pitcher": "Kaleb Roper"
+        },
+        {
+          "description": "Travis Jones singles on a ground ball to center fielder Cabera Weaver.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Travis Jones",
+          "pitcher": "Kaleb Roper"
+        },
+        {
+          "description": "Juan Carlos Negret strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Juan Carlos Negret",
+          "pitcher": "Kaleb Roper"
+        },
+        {
+          "description": "Isaiah Henry singles on a ground ball to center fielder Cabera Weaver. Travis Jones to 2nd.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Isaiah Henry",
+          "pitcher": "Kaleb Roper"
+        },
+        {
+          "description": "Wyatt Mascarella strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Wyatt Mascarella",
+          "pitcher": "Kaleb Roper"
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Ivan Gonzalez flies out to center fielder Isaiah Henry.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Ivan Gonzalez",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Anderson Comas flies out to left fielder Ismaldo Rodriguez.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Anderson Comás",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Bryan Connell strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Bryan Connell",
+          "pitcher": "Cole Watts"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ismaldo Rodriguez reaches on a fielding error by shortstop Lency Delgado.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Field Error",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Ismaldo Rodriguez",
+          "pitcher": "Kaleb Roper"
+        },
+        {
+          "description": "Hector Pineda strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Hector Pineda",
+          "pitcher": "Kaleb Roper"
+        },
+        {
+          "description": "Kember Nacero called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Kember Nacero",
+          "pitcher": "Kaleb Roper"
+        },
+        {
+          "description": "Jose Marquez strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Jose Marquez",
+          "pitcher": "Kaleb Roper"
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Tom Archer pops out to first baseman Hector Pineda.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Tom Archer",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Cabera Weaver called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Caberea Weaver",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Kelvin Maldonado flies out to right fielder Juan Carlos Negret.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Kelvin Maldonado",
+          "pitcher": "Cole Watts"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Clay Dungan lines out to second baseman Kelvin Maldonado.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Clay Dungan",
+          "pitcher": "Sammy Peralta"
+        },
+        {
+          "description": "Travis Jones flies out to right fielder Bryan Connell.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Travis Jones",
+          "pitcher": "Sammy Peralta"
+        },
+        {
+          "description": "Juan Carlos Negret called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Juan Carlos Negret",
+          "pitcher": "Sammy Peralta"
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Harvin Mendoza singles on a line drive to right fielder Juan Carlos Negret.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Harvin Mendoza",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Luis Curbelo grounds into a force out, third baseman Kember Nacero to second baseman Jose Marquez. Harvin Mendoza out at 2nd. Luis Curbelo to 1st.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Forceout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Luis Curbelo",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Lency Delgado lines out to center fielder Isaiah Henry.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Lency Delgado",
+          "pitcher": "Cole Watts"
+        },
+        {
+          "description": "Ivan Gonzalez strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Ivan Gonzalez",
+          "pitcher": "Cole Watts"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Isaiah Henry strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Isaiah Henry",
+          "pitcher": "Sammy Peralta"
+        },
+        {
+          "description": "Wyatt Mascarella strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Wyatt Mascarella",
+          "pitcher": "Sammy Peralta"
+        },
+        {
+          "description": "Ismaldo Rodriguez grounds out, third baseman Luis Curbelo to first baseman Harvin Mendoza.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Ismaldo Rodriguez",
+          "pitcher": "Sammy Peralta"
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Anderson Comas strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Anderson Comás",
+          "pitcher": "Brad Bonnenfant"
+        },
+        {
+          "description": "Bryan Connell homers (5) on a line drive to left center field.",
+          "pitch_count": "0-0",
+          "rbi": 1,
+          "event": "Home Run",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Bryan Connell",
+          "pitcher": "Brad Bonnenfant"
+        },
+        {
+          "description": "Tom Archer grounds out, third baseman Kember Nacero to first baseman Hector Pineda.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Tom Archer",
+          "pitcher": "Brad Bonnenfant"
+        },
+        {
+          "description": "Cabera Weaver doubles (13) on a line drive to left fielder Ismaldo Rodriguez.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Caberea Weaver",
+          "pitcher": "Brad Bonnenfant"
+        },
+        {
+          "description": "Kelvin Maldonado grounds out, shortstop Clay Dungan to first baseman Hector Pineda.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Kelvin Maldonado",
+          "pitcher": "Brad Bonnenfant"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Hector Pineda pops out to second baseman Kelvin Maldonado.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Hector Pineda",
+          "pitcher": "Sammy Peralta"
+        },
+        {
+          "description": "Kember Nacero called out on strikes.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Kember Nacero",
+          "pitcher": "Sammy Peralta"
+        },
+        {
+          "description": "Jose Marquez flies out to left fielder Anderson Comas.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Jose Marquez",
+          "pitcher": "Sammy Peralta"
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Harvin Mendoza doubles (17) on a line drive to right fielder Juan Carlos Negret.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Harvin Mendoza",
+          "pitcher": "Joe Lienhard"
+        },
+        {
+          "description": "Luis Curbelo singles on a line drive to left fielder Ismaldo Rodriguez. Harvin Mendoza to 3rd.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Luis Curbelo",
+          "pitcher": "Joe Lienhard"
+        },
+        {
+          "description": "Lency Delgado strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Lency Delgado",
+          "pitcher": "Joe Lienhard"
+        },
+        {
+          "description": "Ivan Gonzalez grounds into a double play, shortstop Clay Dungan to first baseman Hector Pineda. Luis Curbelo out at 2nd. Ivan Gonzalez out at 1st.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Grounded Into DP",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Ivan Gonzalez",
+          "pitcher": "Joe Lienhard"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Clay Dungan doubles (19) on a line drive to center fielder Cabera Weaver.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Clay Dungan",
+          "pitcher": "Pauly Milto"
+        },
+        {
+          "description": "Travis Jones walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Travis Jones",
+          "pitcher": "Pauly Milto"
+        },
+        {
+          "description": "Juan Carlos Negret strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Juan Carlos Negret",
+          "pitcher": "Pauly Milto"
+        },
+        {
+          "description": "Isaiah Henry strikes out on a foul tip.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Isaiah Henry",
+          "pitcher": "Pauly Milto"
+        },
+        {
+          "description": "Wyatt Mascarella strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Wyatt Mascarella",
+          "pitcher": "Pauly Milto"
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Anderson Comas strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Anderson Comás",
+          "pitcher": "Joe Lienhard"
+        },
+        {
+          "description": "Bryan Connell homers (6) on a fly ball to center field.",
+          "pitch_count": "1-1",
+          "rbi": 1,
+          "event": "Home Run",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Bryan Connell",
+          "pitcher": "Joe Lienhard"
+        },
+        {
+          "description": "Tom Archer doubles (2) on a ground ball to right fielder Juan Carlos Negret.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Tom Archer",
+          "pitcher": "Joe Lienhard"
+        },
+        {
+          "description": "Luis Mieses called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Luis Mieses",
+          "pitcher": "Joe Lienhard"
+        },
+        {
+          "description": "Kelvin Maldonado strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Kelvin Maldonado",
+          "pitcher": "Joe Lienhard"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ismaldo Rodriguez walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Ismaldo Rodriguez",
+          "pitcher": "Pauly Milto"
+        },
+        {
+          "description": "Hector Pineda hit by pitch. Ismaldo Rodriguez to 2nd.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Hit By Pitch",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Hector Pineda",
+          "pitcher": "Pauly Milto"
+        },
+        {
+          "description": "Kember Nacero strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Kember Nacero",
+          "pitcher": "Pauly Milto"
+        },
+        {
+          "description": "Jose Marquez grounds into a force out, first baseman Harvin Mendoza to shortstop Lency Delgado. Ismaldo Rodriguez to 3rd. Hector Pineda out at 2nd. Jose Marquez to 1st.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Forceout",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Jose Marquez",
+          "pitcher": "Pauly Milto"
+        },
+        {
+          "description": "Clay Dungan strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 4,
+          "home_score": 1,
+          "batter": "Clay Dungan",
+          "pitcher": "Pauly Milto"
+        }
+      ]
+    }
+  },
   "format": "milb_api"
 }

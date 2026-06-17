@@ -7,6 +7,7 @@ into structured JSON format.
 
 import pdfplumber
 import json
+import re
 from pathlib import Path
 from typing import Optional
 
@@ -23,6 +24,7 @@ from .format_a import (
 from .format_a_no_num import parse_format_a_no_num_box_score
 from .format_b import parse_format_b_box_score
 from .play_by_play import parse_play_by_play, parse_format_b_play_by_play
+from .statcrew_html import parse_statcrew_html
 
 
 def parse_ncaab_pdf(pdf_path: str) -> dict:
@@ -44,10 +46,14 @@ def parse_ncaab_pdf(pdf_path: str) -> dict:
     }
 
     with pdfplumber.open(pdf_path) as pdf:
-        full_text = ""
-        for page in pdf.pages:
-            page_text = page.extract_text() or ""
-            full_text += page_text + "\n"
+        page_texts = [page.extract_text() or "" for page in pdf.pages]
+        full_text = "\n".join(page_texts) + "\n"
+
+        def first_page_matching(pattern: str, default_index: int = 0) -> int:
+            for page_index, page_text in enumerate(page_texts):
+                if re.search(pattern, page_text, re.IGNORECASE):
+                    return page_index
+            return default_index if pdf.pages else 0
 
         # Detect PDF format
         pdf_format = detect_pdf_format(full_text)
@@ -75,13 +81,17 @@ def parse_ncaab_pdf(pdf_path: str) -> dict:
             # Format A without jersey numbers
             result["metadata"] = extract_game_metadata(full_text)
 
-            # Parse box score from page 2
-            if len(pdf.pages) >= 2:
-                result["box_score"] = parse_format_a_no_num_box_score(pdf.pages[1])
+            # Parse the page that contains the box table. Some StatCrew PDFs are
+            # one-page box scores, while older exports place the table on page 2.
+            box_page_index = 0
+            if pdf.pages:
+                box_page_index = first_page_matching(r'Player\s+ab\s+r\s+h\s+rbi', 1 if len(pdf.pages) >= 2 else 0)
+                result["box_score"] = parse_format_a_no_num_box_score(pdf.pages[box_page_index])
 
             # Parse play-by-play
             pbp_text = ""
-            for page in pdf.pages[2:]:
+            pbp_start = (box_page_index + 1) if pdf.pages else 0
+            for page in pdf.pages[pbp_start:]:
                 page_text = page.extract_text() or ""
                 if 'Scoring Innings - Final' in page_text:
                     break
@@ -92,13 +102,16 @@ def parse_ncaab_pdf(pdf_path: str) -> dict:
             # Use format A parsers (original format with jersey numbers)
             result["metadata"] = extract_game_metadata(full_text)
 
-            # Parse box score (primarily from page 2)
-            if len(pdf.pages) >= 2:
-                result["box_score"] = parse_box_score_from_tables(pdf.pages[1])
+            # Parse the page that contains the box table (usually page 2).
+            box_page_index = 0
+            if pdf.pages:
+                box_page_index = first_page_matching(r'#\s*player\s+pos\s+ab\s+r\s+h\s+rbi', 1 if len(pdf.pages) >= 2 else 0)
+                result["box_score"] = parse_box_score_from_tables(pdf.pages[box_page_index])
 
             # Parse play-by-play (pages 3 onward)
             pbp_text = ""
-            for page in pdf.pages[2:]:
+            pbp_start = (box_page_index + 1) if pdf.pages else 0
+            for page in pdf.pages[pbp_start:]:
                 page_text = page.extract_text() or ""
                 if 'Scoring Innings - Final' in page_text:
                     break
@@ -150,6 +163,7 @@ def convert_pdf_to_json(pdf_path: str, output_path: Optional[str] = None) -> str
 
 __all__ = [
     'parse_ncaab_pdf',
+    'parse_statcrew_html',
     'convert_pdf_to_json',
     'PlayerBattingStats',
     'PitcherStats',

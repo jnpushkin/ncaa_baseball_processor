@@ -582,6 +582,57 @@ def _pioneer_stats_boxes_by_table_header(soup: BeautifulSoup, header: str) -> Li
     return matches
 
 
+def _pitch_count_from_description(description: str) -> Optional[str]:
+    match = re.search(r"\((\d+-\d+[^)]*)\)", description)
+    return match.group(1).strip() if match else None
+
+
+def _rbi_from_description(description: str) -> int:
+    match = re.search(r"(\d+)\s*RBI", description, flags=re.IGNORECASE)
+    if match:
+        return int(match.group(1))
+    return 1 if re.search(r"\bRBI\b", description, flags=re.IGNORECASE) else 0
+
+
+def parse_pioneer_play_by_play(soup: BeautifulSoup) -> Dict[int, Dict[str, List[Dict[str, Any]]]]:
+    """Parse Pioneer/PrestoSports half-inning play tables."""
+    innings: Dict[int, Dict[str, List[Dict[str, Any]]]] = {}
+    section = soup.select_one("section.plays") or soup.select_one("#pbp-tabpanel")
+    if not section:
+        return innings
+
+    for table in section.find_all("table"):
+        rows = table.find_all("tr")
+        if not rows:
+            continue
+        header = re.sub(r"\s+", " ", rows[0].get_text(" ", strip=True)).strip()
+        match = re.search(
+            r"\b(?P<half>Top|Bottom)\s+of\s+(?P<inning>\d+)(?:st|nd|rd|th)?\b",
+            header,
+            flags=re.IGNORECASE,
+        )
+        if not match:
+            continue
+
+        inning = int(match.group("inning"))
+        half = "top" if match.group("half").lower() == "top" else "bottom"
+        bucket = innings.setdefault(inning, {"top": [], "bottom": []})[half]
+
+        for row in rows[1:]:
+            row_text = re.sub(r"\s+", " ", row.get_text(" ", strip=True)).strip()
+            if not row_text or "inning summary:" in row_text.lower():
+                continue
+            bucket.append(
+                {
+                    "description": row_text,
+                    "pitch_count": _pitch_count_from_description(row_text),
+                    "rbi": _rbi_from_description(row_text),
+                }
+            )
+
+    return innings
+
+
 def parse_pioneer_html(html_content: str, game_code: str = '') -> Dict[str, Any]:
     """
     Parse Pioneer League HTML box score (rendered via Playwright).
@@ -742,6 +793,7 @@ def parse_pioneer_html(html_content: str, game_code: str = '') -> Dict[str, Any]
             'home_pitching': home_pitchers,
         },
         'game_notes': game_notes,
+        'play_by_play': parse_pioneer_play_by_play(soup),
         'format': 'pioneer_html',
     }
 
@@ -1088,8 +1140,9 @@ def parse_pointstreak_html(html_content: str, game_id: int, league: str = 'atlan
         except ValueError:
             pass
 
-    # Parse stats tables - first 4 nova-stats-table with team name headers
-    # Tables 0,1 = batting (away, home), Tables 2,3 = pitching (away, home)
+    # Parse stats tables - first 4 nova-stats-table with team name headers.
+    # Pointstreak stat sections are the source of truth for team totals; score
+    # badges have appeared in different visual orders across leagues.
     stats_tables = soup.find_all('table', class_='nova-stats-table')
 
     away_batters = []
@@ -1097,8 +1150,8 @@ def parse_pointstreak_html(html_content: str, game_id: int, league: str = 'atlan
     away_pitchers = []
     home_pitchers = []
 
-    # Identify stats tables (have team name headers, 9-10 columns of stats)
-    # Table order: AWAY batting, HOME batting, AWAY pitching, HOME pitching
+    # Identify stats tables (have team name headers, 9-10 columns of stats).
+    # Fallback order is away batting, home batting, away pitching, home pitching.
     table_idx = 0
     for table in stats_tables:
         rows = table.find_all('tr')
@@ -1118,6 +1171,10 @@ def parse_pointstreak_html(html_content: str, game_id: int, league: str = 'atlan
                 table_idx += 1
                 if table_idx >= 4:
                     break
+
+    if away_batters and home_batters:
+        away_score = sum(_safe_int_text(row.get('r')) for row in away_batters)
+        home_score = sum(_safe_int_text(row.get('r')) for row in home_batters)
 
     # Look up team IDs and logos from partner team data
     away_team_lookup = get_partner_team_data(away_team) or {}

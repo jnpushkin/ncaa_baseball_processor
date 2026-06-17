@@ -8,8 +8,8 @@ import re
 from dataclasses import asdict
 from typing import Optional
 
-from .models import PlayerBattingStats
-from .format_a import VALID_POSITIONS, parse_side_by_side_pitching_line
+from .models import PlayerBattingStats, PitcherStats
+from .format_a import is_valid_position
 
 
 def parse_format_a_no_num_batting_line(line: str) -> tuple:
@@ -26,7 +26,7 @@ def parse_format_a_no_num_batting_line(line: str) -> tuple:
         # Find away player's position
         away_pos_idx = None
         for i in range(1, min(5, len(parts))):
-            if parts[i].lower() in VALID_POSITIONS:
+            if is_valid_position(parts[i]):
                 away_pos_idx = i
                 break
 
@@ -62,7 +62,7 @@ def parse_format_a_no_num_batting_line(line: str) -> tuple:
         # Find home player's position
         home_pos_idx = None
         for i in range(home_start + 1, min(home_start + 5, len(parts))):
-            if parts[i].lower() in VALID_POSITIONS:
+            if is_valid_position(parts[i]):
                 home_pos_idx = i
                 break
 
@@ -94,6 +94,73 @@ def parse_format_a_no_num_batting_line(line: str) -> tuple:
         )
 
         return (away_player, home_player)
+    except (ValueError, IndexError):
+        return (None, None)
+
+
+def parse_format_a_no_num_pitcher(parts: list[str]) -> Optional[PitcherStats]:
+    """Parse one no-jersey pitcher row.
+
+    Format A without jersey numbers uses ``ip h r er bb so ab bf np``. The
+    original shared parser expects ``bf ab`` order, so keep this variant local.
+    """
+    if len(parts) < 10:
+        return None
+
+    try:
+        ip_idx = None
+        for index, token in enumerate(parts[:4]):
+            try:
+                float(token)
+                ip_idx = index
+                break
+            except ValueError:
+                continue
+        if ip_idx is None:
+            return None
+
+        return PitcherStats(
+            number="",
+            name=" ".join(parts[:ip_idx]),
+            innings_pitched=float(parts[ip_idx]),
+            hits=int(parts[ip_idx + 1]),
+            runs=int(parts[ip_idx + 2]),
+            earned_runs=int(parts[ip_idx + 3]),
+            walks=int(parts[ip_idx + 4]),
+            strikeouts=int(parts[ip_idx + 5]),
+            at_bats=int(parts[ip_idx + 6]),
+            batters_faced=int(parts[ip_idx + 7]),
+            pitches=int(parts[ip_idx + 8]),
+        )
+    except (ValueError, IndexError):
+        return None
+
+
+def parse_format_a_no_num_pitching_line(line: str) -> tuple:
+    """Parse side-by-side no-jersey pitching rows."""
+    parts = line.strip().split()
+    if len(parts) < 10:
+        return (None, None)
+
+    try:
+        away_ip_idx = None
+        for index, token in enumerate(parts[:4]):
+            try:
+                float(token)
+                away_ip_idx = index
+                break
+            except ValueError:
+                continue
+        if away_ip_idx is None:
+            return (None, None)
+
+        away_end = away_ip_idx + 9
+        away_pitcher = parse_format_a_no_num_pitcher(parts[:away_end])
+        if away_end >= len(parts):
+            return (away_pitcher, None)
+
+        home_pitcher = parse_format_a_no_num_pitcher(parts[away_end:])
+        return (away_pitcher, home_pitcher)
     except (ValueError, IndexError):
         return (None, None)
 
@@ -141,7 +208,7 @@ def parse_format_a_no_num_box_score(pdf_page) -> dict:
             continue
 
         # Detect pitching header
-        if re.match(r'^[A-Z]{2,3}\s+ip\s+h\s+r', stripped, re.IGNORECASE):
+        if re.search(r'\bip\s+h\s+r\s+er\s+bb\s+(?:so|k)\s+ab\s+bf\s+np\b', stripped, re.IGNORECASE):
             in_batting_section = False
             in_pitching_section = True
             continue
@@ -168,7 +235,7 @@ def parse_format_a_no_num_box_score(pdf_page) -> dict:
                 in_pitching_section = False
                 continue
 
-            away_pitcher, home_pitcher = parse_side_by_side_pitching_line(stripped)
+            away_pitcher, home_pitcher = parse_format_a_no_num_pitching_line(stripped)
             if away_pitcher and home_pitcher:
                 result["away_pitching"].append(asdict(away_pitcher))
                 result["home_pitching"].append(asdict(home_pitcher))

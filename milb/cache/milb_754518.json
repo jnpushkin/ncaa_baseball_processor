@@ -27,7 +27,9 @@
       "home": "High-A"
     },
     "source": "milb",
-    "game_pk": 754518
+    "game_pk": 754518,
+    "source_feed_url": "https://statsapi.mlb.com/api/v1.1/game/754518/feed/live",
+    "source_box_score_url": "https://statsapi.mlb.com/api/v1/game/754518/boxscore"
   },
   "box_score": {
     "away_batting": [
@@ -616,6 +618,911 @@
     ]
   },
   "game_notes": {},
-  "play_by_play": {},
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Roc Riggio singles on a ground ball to right fielder Jeremy De La Rosa.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Roc Riggio",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Jared Serna singles on a ground ball to right fielder Jeremy De La Rosa, deflected by pitcher Jose Atencio. Roc Riggio to 3rd.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jared Serna",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Jesus Rodriguez pops out to first baseman Will Frizzell in foul territory.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Jesus Rodriguez",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Rafael Flores singles on a sharp line drive to right fielder Jeremy De La Rosa. Jared Serna to 3rd.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Rafael Flores Jr.",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Tyler Hardman out on a sacrifice fly to center fielder Daylen Lile. Jared Serna scores.",
+          "pitch_count": "0-0",
+          "rbi": 1,
+          "event": "Sac Fly",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Tyler Hardman",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Jace Avina pops out to second baseman Sammy Infante.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jace Avina",
+          "pitcher": "Jose Atencio"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Phillip Glasser singles on a ground ball to third baseman Jesus Rodriguez.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Phillip Glasser",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Viandel Pena grounds into a force out, second baseman Roc Riggio to shortstop Jared Serna. Phillip Glasser out at 2nd. Viandel Pena to 1st.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Forceout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Viandel Pena",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Daylen Lile walks.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Daylen Lile",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Jeremy De La Rosa called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jeremy De La Rosa",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Kevin Made called out on strikes.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Kevin Made",
+          "pitcher": "Cam Schlittler"
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Garrett Martin flies out to right fielder Jeremy De La Rosa.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Garrett Martin",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Josh Moylan singles on a ground ball to center fielder Daylen Lile.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Josh Moylan",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Nelson Medina strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Nelson Medina",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Roc Riggio grounds out, second baseman Sammy Infante to first baseman Will Frizzell.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Roc Riggio",
+          "pitcher": "Jose Atencio"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Will Frizzell singles on a ground ball to left fielder Nelson Medina.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Will Frizzell",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Sammy Infante strikes out swinging. Will Frizzell steals (2) 2nd base.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Sammy Infante",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "T.J. White strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "T.J. White",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Geraldi Diaz grounds out, second baseman Roc Riggio to first baseman Josh Moylan.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Geraldi Diaz",
+          "pitcher": "Cam Schlittler"
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Jared Serna lines out to second baseman Sammy Infante.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jared Serna",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Jesus Rodriguez singles on a line drive to right fielder Jeremy De La Rosa.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jesus Rodriguez",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Rafael Flores singles on a line drive to center fielder Daylen Lile. Jesus Rodriguez to 2nd.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Rafael Flores Jr.",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Tyler Hardman strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Tyler Hardman",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Jace Avina grounds out, third baseman Phillip Glasser to first baseman Will Frizzell.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Jace Avina",
+          "pitcher": "Jose Atencio"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Phillip Glasser homers (2) on a fly ball to right field.",
+          "pitch_count": "0-2",
+          "rbi": 1,
+          "event": "Home Run",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Phillip Glasser",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Viandel Pena strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Viandel Pena",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Daylen Lile walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Daylen Lile",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Jeremy De La Rosa singles on a sharp line drive to right fielder Garrett Martin. Daylen Lile to 2nd.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Jeremy De La Rosa",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Kevin Made flies out to right fielder Garrett Martin. Daylen Lile to 3rd. Jeremy De La Rosa to 2nd.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Kevin Made",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Will Frizzell walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Will Frizzell",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Sammy Infante grounds out, second baseman Roc Riggio to first baseman Josh Moylan.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Sammy Infante",
+          "pitcher": "Cam Schlittler"
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Garrett Martin strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Garrett Martin",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Josh Moylan walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Josh Moylan",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Nelson Medina strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Nelson Medina",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Roc Riggio singles on a fly ball to left fielder T. J. White. Josh Moylan to 3rd.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 2,
+          "home_score": 1,
+          "batter": "Roc Riggio",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Jared Serna doubles (17) on a sharp line drive to left fielder T. J. White. Josh Moylan scores. Roc Riggio to 3rd.",
+          "pitch_count": "0-0",
+          "rbi": 1,
+          "event": "Double",
+          "away_score": 3,
+          "home_score": 1,
+          "batter": "Jared Serna",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Jesus Rodriguez singles on a ground ball to left fielder T. J. White. Roc Riggio scores. Jared Serna scores.",
+          "pitch_count": "0-0",
+          "rbi": 2,
+          "event": "Single",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Jesus Rodriguez",
+          "pitcher": "Jose Atencio"
+        },
+        {
+          "description": "Rafael Flores grounds out, third baseman Phillip Glasser to first baseman Will Frizzell.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Rafael Flores Jr.",
+          "pitcher": "Jose Atencio"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "T.J. White strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "T.J. White",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Geraldi Diaz strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Geraldi Diaz",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Phillip Glasser grounds out, pitcher Cam Schlittler to first baseman Josh Moylan.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Phillip Glasser",
+          "pitcher": "Cam Schlittler"
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Tyler Hardman singles on a line drive to center fielder Daylen Lile.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Tyler Hardman",
+          "pitcher": "Zach Brzykcy"
+        },
+        {
+          "description": "Jace Avina flies out to right fielder Jeremy De La Rosa.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Jace Avina",
+          "pitcher": "Zach Brzykcy"
+        },
+        {
+          "description": "Garrett Martin walks. Tyler Hardman to 2nd.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Garrett Martin",
+          "pitcher": "Zach Brzykcy"
+        },
+        {
+          "description": "Josh Moylan walks. Tyler Hardman to 3rd. Garrett Martin to 2nd.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 5,
+          "home_score": 1,
+          "batter": "Josh Moylan",
+          "pitcher": "Zach Brzykcy"
+        },
+        {
+          "description": "Nelson Medina walks. Tyler Hardman scores. Garrett Martin to 3rd. Josh Moylan to 2nd.",
+          "pitch_count": "4-2",
+          "rbi": 1,
+          "event": "Walk",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Nelson Medina",
+          "pitcher": "Zach Brzykcy"
+        },
+        {
+          "description": "Roc Riggio flies out to center fielder Daylen Lile.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Roc Riggio",
+          "pitcher": "Dannel Diaz"
+        },
+        {
+          "description": "Jared Serna grounds into a force out, fielded by third baseman Phillip Glasser. Josh Moylan out at 3rd.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Forceout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Jared Serna",
+          "pitcher": "Dannel Diaz"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Viandel Pena singles on a line drive to right fielder Garrett Martin.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Viandel Pena",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Daylen Lile strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Daylen Lile",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Jeremy De La Rosa strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Jeremy De La Rosa",
+          "pitcher": "Cam Schlittler"
+        },
+        {
+          "description": "Kevin Made flies out to center fielder Jace Avina.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Kevin Made",
+          "pitcher": "Trent Sellers"
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Jesus Rodriguez grounds out, second baseman Sammy Infante to first baseman Will Frizzell.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Jesus Rodriguez",
+          "pitcher": "Dannel Diaz"
+        },
+        {
+          "description": "Rafael Flores grounds out, shortstop Kevin Made to first baseman Will Frizzell.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Rafael Flores Jr.",
+          "pitcher": "Dannel Diaz"
+        },
+        {
+          "description": "Tyler Hardman called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Tyler Hardman",
+          "pitcher": "Dannel Diaz"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Will Frizzell strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Will Frizzell",
+          "pitcher": "Trent Sellers"
+        },
+        {
+          "description": "Sammy Infante grounds out, second baseman Roc Riggio to first baseman Josh Moylan.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Sammy Infante",
+          "pitcher": "Trent Sellers"
+        },
+        {
+          "description": "T.J. White strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "T.J. White",
+          "pitcher": "Trent Sellers"
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Jace Avina grounds out, third baseman Phillip Glasser to first baseman Will Frizzell.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Jace Avina",
+          "pitcher": "Dannel Diaz"
+        },
+        {
+          "description": "Garrett Martin walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Garrett Martin",
+          "pitcher": "Dannel Diaz"
+        },
+        {
+          "description": "Josh Moylan called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Josh Moylan",
+          "pitcher": "Dannel Diaz"
+        },
+        {
+          "description": "Nelson Medina walks. Garrett Martin to 2nd.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Nelson Medina",
+          "pitcher": "Dannel Diaz"
+        },
+        {
+          "description": "Roc Riggio doubles (7) on a sharp line drive to left fielder T. J. White. Garrett Martin scores. Nelson Medina scores.",
+          "pitch_count": "1-2",
+          "rbi": 2,
+          "event": "Double",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Roc Riggio",
+          "pitcher": "Dannel Diaz"
+        },
+        {
+          "description": "Jared Serna strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Jared Serna",
+          "pitcher": "Wander Arias"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Geraldi Diaz pops out to shortstop Jared Serna in foul territory.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Geraldi Diaz",
+          "pitcher": "Trent Sellers"
+        },
+        {
+          "description": "Phillip Glasser doubles (9) on a line drive to left fielder Nelson Medina.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Phillip Glasser",
+          "pitcher": "Trent Sellers"
+        },
+        {
+          "description": "Viandel Pena strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Viandel Pena",
+          "pitcher": "Mason Vinyard"
+        },
+        {
+          "description": "Daylen Lile called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Daylen Lile",
+          "pitcher": "Mason Vinyard"
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Jesus Rodriguez walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Jesus Rodriguez",
+          "pitcher": "Wander Arias"
+        },
+        {
+          "description": "Rafael Flores flies out to right fielder Jeremy De La Rosa.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Rafael Flores Jr.",
+          "pitcher": "Wander Arias"
+        },
+        {
+          "description": "Tyler Hardman strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Tyler Hardman",
+          "pitcher": "Wander Arias"
+        },
+        {
+          "description": "Jace Avina singles on a ground ball to shortstop Kevin Made. Jesus Rodriguez to 2nd.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Jace Avina",
+          "pitcher": "Wander Arias"
+        },
+        {
+          "description": "Garrett Martin strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Garrett Martin",
+          "pitcher": "Wander Arias"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jeremy De La Rosa strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Jeremy De La Rosa",
+          "pitcher": "Mason Vinyard"
+        },
+        {
+          "description": "Kevin Made strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Kevin Made",
+          "pitcher": "Mason Vinyard"
+        },
+        {
+          "description": "Will Frizzell called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Will Frizzell",
+          "pitcher": "Mason Vinyard"
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Josh Moylan strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Josh Moylan",
+          "pitcher": "Marlon Perez"
+        },
+        {
+          "description": "Nelson Medina strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Nelson Medina",
+          "pitcher": "Marlon Perez"
+        },
+        {
+          "description": "Roc Riggio pops out to first baseman Will Frizzell in foul territory.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Roc Riggio",
+          "pitcher": "Marlon Perez"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Sammy Infante strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Sammy Infante",
+          "pitcher": "Joel Valdez"
+        },
+        {
+          "description": "T.J. White walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "T.J. White",
+          "pitcher": "Joel Valdez"
+        },
+        {
+          "description": "Geraldi Diaz reaches on a missed catch error by pitcher Joel Valdez, assist to first baseman Josh Moylan. T.J. White to 3rd.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Field Error",
+          "away_score": 8,
+          "home_score": 1,
+          "batter": "Geraldi Diaz",
+          "pitcher": "Joel Valdez"
+        },
+        {
+          "description": "Phillip Glasser singles on a ground ball to left fielder Nelson Medina. T.J. White scores. Geraldi Diaz to 2nd.",
+          "pitch_count": "0-1",
+          "rbi": 1,
+          "event": "Single",
+          "away_score": 8,
+          "home_score": 2,
+          "batter": "Phillip Glasser",
+          "pitcher": "Joel Valdez"
+        },
+        {
+          "description": "Viandel Pena grounds into a force out, shortstop Jared Serna to second baseman Roc Riggio. Geraldi Diaz to 3rd. Phillip Glasser out at 2nd. Viandel Pena to 1st.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Forceout",
+          "away_score": 8,
+          "home_score": 2,
+          "batter": "Viandel Pena",
+          "pitcher": "Joel Valdez"
+        },
+        {
+          "description": "Daylen Lile grounds out, pitcher Joel Valdez to first baseman Josh Moylan.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 8,
+          "home_score": 2,
+          "batter": "Daylen Lile",
+          "pitcher": "Joel Valdez"
+        }
+      ]
+    }
+  },
   "format": "milb_api"
 }

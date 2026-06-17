@@ -385,7 +385,8 @@ STADIUM_DATA = {
 }
 
 
-# NCAA Team Logos using ESPN team IDs
+# NCAA Team Logos using ESPN team IDs or direct image URLs for teams without
+# a working ESPN logo endpoint.
 # URL pattern: https://a.espncdn.com/i/teamlogos/ncaa/500/{id}.png
 NCAA_TEAM_LOGOS = {
     # ACC
@@ -488,7 +489,7 @@ NCAA_TEAM_LOGOS = {
 
     # Missouri Valley
     'Belmont': 2057,
-    'Bradley': 2080,
+    'Bradley': 'https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bradley.svg',
     'Evansville': 339,
     'Illinois State': 2287,
     'Indiana State': 282,
@@ -546,9 +547,9 @@ NCAA_TEAM_LOGOS = {
     'Fairleigh Dickinson': 161,
     'Le Moyne': 2329,
     'LIU': 2344,
-    'Mercyhurst': 2372,
+    'Mercyhurst': 'https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mercyhurst.svg',
     'New Haven': 2459,
-    'Stonehill': 2926,
+    'Stonehill': 'https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stonehill.svg',
     'UMES': 2627,
     'Wagner': 2681,
 
@@ -571,7 +572,7 @@ NCAA_TEAM_LOGOS = {
     'Sacramento State': 16,
     'Tarleton State': 2466,
     'UT Arlington': 250,
-    'Utah Tech': 3137,
+    'Utah Tech': 'https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/utah-tech.svg',
     'Utah Valley': 3084,
 
     # American
@@ -633,7 +634,7 @@ NCAA_TEAM_LOGOS = {
     'VCU': 2670,
 
     # Conference USA
-    'Dallas Baptist': 2162,
+    'Dallas Baptist': 'https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dallas-baptist.svg',
     'Delaware': 48,
     'FIU': 2229,
     'Jacksonville State': 55,
@@ -666,7 +667,7 @@ NCAA_TEAM_LOGOS = {
     'Morehead State': 2413,
     'SIU Edwardsville': 2565,
     'Southeast Missouri': 2546,
-    'Southern Indiana': 6916,
+    'Southern Indiana': 'https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-ind.svg',
     'Tennessee State': 2634,
     'Tennessee Tech': 2635,
     'UT Martin': 2630,
@@ -682,9 +683,9 @@ NCAA_TEAM_LOGOS = {
     'Lipscomb': 288,
     'North Alabama': 2453,
     'North Florida': 2454,
-    'Queens': 2761,
+    'Queens': 'https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/queens-nc.svg',
     'Stetson': 56,
-    'West Georgia': 20049,
+    'West Georgia': 'https://upload.wikimedia.org/wikipedia/commons/c/ca/West_Georgia_Wolves_logo.svg',
 
     # Southland
     'Houston Christian': 2277,
@@ -1054,17 +1055,19 @@ NCAA_TEAM_NICKNAMES = {
 
 
 def get_ncaa_logo_url(team: str) -> str:
-    """Get ESPN logo URL for an NCAA team.
+    """Get logo URL for an NCAA team.
 
     Args:
         team: Team name
 
     Returns:
-        ESPN logo URL or empty string if not found
+        Logo URL or empty string if not found
     """
-    espn_id = NCAA_TEAM_LOGOS.get(team)
-    if espn_id:
-        return f'https://a.espncdn.com/i/teamlogos/ncaa/500/{espn_id}.png'
+    logo = NCAA_TEAM_LOGOS.get(team)
+    if isinstance(logo, str) and logo.startswith(('http://', 'https://', '/')):
+        return logo
+    if logo:
+        return f'https://a.espncdn.com/i/teamlogos/ncaa/500/{logo}.png'
     return ''
 
 

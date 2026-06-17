@@ -518,18 +518,23 @@ def _is_pitcher_only_batting_artifact(
     if position != "p":
         return False
 
-    stat_groups = (
+    offensive_stat_groups = (
         ("AB", "ab", "at_bats"),
         ("R", "r", "runs"),
         ("H", "h", "hits"),
         ("RBI", "rbi"),
         ("BB", "bb", "walks"),
         ("SO", "so", "k", "strikeouts"),
-        ("PO", "po", "put_outs"),
-        ("A", "a", "assists"),
-        ("LOB", "lob", "left_on_base"),
+        ("2B", "2b", "doubles"),
+        ("3B", "3b", "triples"),
+        ("HR", "hr", "home_runs"),
+        ("SB", "sb", "stolen_bases"),
+        ("CS", "cs", "caught_stealing"),
+        ("HBP", "hbp", "hit_by_pitch"),
+        ("SF", "sf", "sac_flies"),
+        ("SH", "sh", "sac_bunts"),
     )
-    if not all(first_int(row, *keys) == 0 for keys in stat_groups):
+    if not all(first_int(row, *keys) == 0 for keys in offensive_stat_groups):
         return False
 
     identity = _row_identity(row)
@@ -622,6 +627,24 @@ def _batting_row_quality(row: Mapping[str, Any]) -> int:
     return score
 
 
+def _merge_missing_batting_context(
+    base: Mapping[str, Any],
+    supplemental: Mapping[str, Any],
+) -> Mapping[str, Any]:
+    """Carry non-stat identity/context fields through duplicate batting collapse."""
+    updated: Dict[str, Any] | None = None
+    for field in ("position", "bref_id", "register_id", "match_confidence"):
+        if first_present(base, field):
+            continue
+        value = first_present(supplemental, field)
+        if value in (None, ""):
+            continue
+        if updated is None:
+            updated = dict(base)
+        updated[field] = value
+    return updated or base
+
+
 def _dedupe_batting_rows(
     rows: List[Mapping[str, Any]],
     team: str,
@@ -636,8 +659,11 @@ def _dedupe_batting_rows(
             order.append(identity)
             by_key[identity] = row
             continue
-        if _batting_row_quality(row) > _batting_row_quality(by_key[identity]):
-            by_key[identity] = row
+        current = by_key[identity]
+        if _batting_row_quality(row) > _batting_row_quality(current):
+            by_key[identity] = _merge_missing_batting_context(row, current)
+        else:
+            by_key[identity] = _merge_missing_batting_context(current, row)
     return [by_key[identity] for identity in order]
 
 

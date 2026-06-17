@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { getTeamLogoUrl } from "@/lib/logos";
 import type {
   SiteData,
   StadiumLocation,
@@ -21,6 +22,26 @@ interface SchoolMapProps {
   partnerStadiums: Record<string, PartnerStadiumLocation>;
   partnerVenuesVisited: string[];
   data: SiteData;
+}
+
+function escapeHtml(value: string | number | null | undefined) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function getMarkerInitials(team: string) {
+  const initials = team
+    .split(/[\s-]+/)
+    .map((word) => word[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+  return initials || "N";
 }
 
 export default function SchoolMap({
@@ -118,17 +139,32 @@ export default function SchoolMap({
         const isHome = teamsSeenHome.includes(team);
         const isAway = teamsSeenAway.includes(team);
         const color = isHome ? "#28a745" : isAway ? "#007bff" : "#999";
+        const statusLabel = isHome ? "Visited" : isAway ? "Seen (Away)" : "Not Seen";
+        const logo = getTeamLogoUrl(team, data, { level: "NCAA" });
+        const size = isHome ? 30 : isAway ? 26 : 22;
+        const opacity = isHome || isAway ? 1.0 : 0.65;
+        const initials = escapeHtml(getMarkerInitials(team));
+        const safeLogo = logo ? escapeHtml(logo) : null;
+        const markerContent = safeLogo
+          ? `<img src="${safeLogo}" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <span style="display: none; font-weight: 800; font-size: ${Math.round(size * 0.36)}px; color: ${color}; align-items: center; justify-content: center; width: 100%; height: 100%; line-height: 1;">${initials}</span>`
+          : `<span style="display: flex; font-weight: 800; font-size: ${Math.round(size * 0.36)}px; color: ${color}; align-items: center; justify-content: center; width: 100%; height: 100%; line-height: 1;">${initials}</span>`;
 
         const icon = L.divIcon({
-          className: "custom-marker",
-          html: `<div style="width: 14px; height: 14px; background: ${color}; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
-          iconSize: [14, 14],
-          iconAnchor: [7, 7],
+          className: "logo-marker",
+          html: `<div style="width: ${size}px; height: ${size}px; box-sizing: border-box; opacity: ${opacity}; background: white; border-radius: 50%; padding: 3px; border: 2px solid ${color}; box-shadow: 0 2px 6px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">${markerContent}</div>`,
+          iconSize: [size, size],
+          iconAnchor: [size / 2, size / 2],
         });
 
+        const displayName = escapeHtml(getTeamDisplayName(team));
+        const stadiumName = escapeHtml(info.stadium);
+        const popupLogo = safeLogo
+          ? `<img src="${safeLogo}" style="width:50px;height:50px;object-fit:contain;margin-bottom:8px;" onerror="this.style.display='none';" /><br>`
+          : "";
         const marker = L.marker([info.lat, info.lng], { icon })
           .bindPopup(
-            `<strong>${team}</strong><br>${info.stadium}<br><em>${isHome ? "Visited" : isAway ? "Seen (Away)" : "Not Seen"}</em>`
+            `<div style="text-align:center;">${popupLogo}<strong>${displayName}</strong><br>${stadiumName}<br><em>NCAA - ${statusLabel}</em></div>`
           )
           .addTo(mapInstance.current!);
         markersRef.current.push(marker);
@@ -255,20 +291,20 @@ export default function SchoolMap({
         <div style={{ marginTop: "12px", display: "flex", gap: "16px", fontSize: "14px", color: "#666", flexWrap: "wrap", alignItems: "center" }}>
           {showNcaa && (
             <span>
-              <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#28a745", marginRight: "4px" }}></span>
-              NCAA Visited
+              <span style={{ display: "inline-block", width: "16px", height: "16px", borderRadius: "50%", border: "2px solid #28a745", background: "white", marginRight: "4px", boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }}></span>
+              NCAA Visited (logo)
             </span>
           )}
           {showNcaa && (
             <span>
-              <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#007bff", marginRight: "4px" }}></span>
-              NCAA Seen (Away)
+              <span style={{ display: "inline-block", width: "15px", height: "15px", borderRadius: "50%", border: "2px solid #007bff", background: "white", marginRight: "4px", boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }}></span>
+              NCAA Seen (Away, logo)
             </span>
           )}
           {showNcaa && (
             <span>
-              <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "50%", background: "#999", marginRight: "4px" }}></span>
-              NCAA Not Seen
+              <span style={{ display: "inline-block", width: "14px", height: "14px", borderRadius: "50%", border: "2px solid #999", background: "white", opacity: 0.65, marginRight: "4px", boxShadow: "0 1px 3px rgba(0,0,0,0.2)" }}></span>
+              NCAA Not Seen (logo)
             </span>
           )}
           {hasMilbData && (

@@ -656,5 +656,545 @@
       "T.J. McKenzie (3)"
     ]
   },
-  "format": "pioneer_html"
+  "format": "pioneer_html",
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Michael Koszewski flied out to lf (2-2 BKBFF). (1 out)",
+          "pitch_count": "2-2 BKBFF",
+          "rbi": 0
+        },
+        {
+          "description": "Nich Klemp singled (2-1 BSB).",
+          "pitch_count": "2-1 BSB",
+          "rbi": 0
+        },
+        {
+          "description": "Nich Klemp out at second c to ss, caught stealing. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "William Bermudez walked (3-2 KBKBBB).",
+          "pitch_count": "3-2 KBKBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Tyler Stone struck out swinging (1-2 KSBS). (3 out)",
+          "pitch_count": "1-2 KSBS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Tremayne Cobb singled (1-2 BKFF).",
+          "pitch_count": "1-2 BKFF",
+          "rbi": 0
+        },
+        {
+          "description": "Tremayne Cobb advanced to second on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jacoby Long grounded out p to ss to 1b (2-2 FBSB); Tremayne Cobb advanced to third. (1 out)",
+          "pitch_count": "2-2 FBSB",
+          "rbi": 0
+        },
+        {
+          "description": "Jeter Ybarra out at first 2b to p, RBI (2-1 BKB); Tremayne Cobb scored.",
+          "pitch_count": "2-1 BKB",
+          "rbi": 1
+        },
+        {
+          "description": "Noah Blythe struck out swinging (2-2 FBKFFBS). (3 out)",
+          "pitch_count": "2-2 FBKFFBS",
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Xavier Casserilla singled (1-1 BF).",
+          "pitch_count": "1-1 BF",
+          "rbi": 0
+        },
+        {
+          "description": "Enzo Apodaca homered, 2 RBI (2-2 BKKBF); Xavier Casserilla scored.",
+          "pitch_count": "2-2 BKKBF",
+          "rbi": 2
+        },
+        {
+          "description": "Joskar Feliciano grounded out to ss (3-2 BBKBF). (1 out)",
+          "pitch_count": "3-2 BBKBF",
+          "rbi": 0
+        },
+        {
+          "description": "Leyton Barry out at first 1b to p (1-2 BFF). (2 out)",
+          "pitch_count": "1-2 BFF",
+          "rbi": 0
+        },
+        {
+          "description": "Jeremy Piatkiewicz grounded out to c (1-0 B). (3 out)",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jaden Sheppard struck out swinging (1-2 KFFBFS). (1 out)",
+          "pitch_count": "1-2 KFFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Jake Allgeyer doubled (3-2 BSFBB).",
+          "pitch_count": "3-2 BSFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Nick Leehey popped up to ss (1-0 B). (2 out)",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Nick Poss struck out swinging (3-2 BFFBBFFS). (3 out)",
+          "pitch_count": "3-2 BFFBBFFS",
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Michael Koszewski singled (3-1 BBKB).",
+          "pitch_count": "3-1 BBKB",
+          "rbi": 0
+        },
+        {
+          "description": "Nich Klemp singled (0-0); Michael Koszewski advanced to second.",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "William Bermudez walked (3-2 BSKBBFFFB); Nich Klemp advanced to second; Michael Koszewski advanced to third.",
+          "pitch_count": "3-2 BSKBBFFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Tyler Stone grounded into double play 2b to ss to 1b (1-0 B); William Bermudez out on the play; Nich Klemp advanced to third; Michael Koszewski scored.",
+          "pitch_count": "1-0 B",
+          "rbi": 0
+        },
+        {
+          "description": "Xavier Casserilla doubled, RBI (1-1 FB); Nich Klemp scored.",
+          "pitch_count": "1-1 FB",
+          "rbi": 1
+        },
+        {
+          "description": "Enzo Apodaca homered, 2 RBI (2-0 BB); Xavier Casserilla scored.",
+          "pitch_count": "2-0 BB",
+          "rbi": 2
+        },
+        {
+          "description": "Joskar Feliciano flied out to rf (1-2 FFB). (3 out)",
+          "pitch_count": "1-2 FFB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "T.J. McKenzie walked (3-1 BFBBB).",
+          "pitch_count": "3-1 BFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Tremayne Cobb flied out to cf (0-0). (1 out)",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Jacoby Long walked (3-0 BBBB); T.J. McKenzie advanced to second.",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Jeter Ybarra singled, RBI (1-0 B); Jacoby Long advanced to third; T.J. McKenzie scored.",
+          "pitch_count": "1-0 B",
+          "rbi": 1
+        },
+        {
+          "description": "Noah Blythe homered, 3 RBI (3-2 FBBBFF); Jeter Ybarra scored; Jacoby Long scored.",
+          "pitch_count": "3-2 FBBBFF",
+          "rbi": 3
+        },
+        {
+          "description": "Jaden Sheppard walked (3-1 FBBBB).",
+          "pitch_count": "3-1 FBBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Jose Ballista to p for Jaren Jackson.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jake Allgeyer walked (3-0 BBBB); Jaden Sheppard advanced to second.",
+          "pitch_count": "3-0 BBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Nick Leehey grounded into double play p to ss to 1b (1-1 KB); Jake Allgeyer out on the play. (3 out)",
+          "pitch_count": "1-1 KB",
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Liam Rocha to p for Aidan Risse.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Leyton Barry struck out swinging (2-2 BKKBS). (1 out)",
+          "pitch_count": "2-2 BKKBS",
+          "rbi": 0
+        },
+        {
+          "description": "Jeremy Piatkiewicz walked (3-1 BFBBB).",
+          "pitch_count": "3-1 BFBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Michael Koszewski walked (3-2 BKBFBB); Jeremy Piatkiewicz advanced to second.",
+          "pitch_count": "3-2 BKBFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Nich Klemp singled (0-1 F); Michael Koszewski advanced to second; Jeremy Piatkiewicz advanced to third.",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "William Bermudez reached on a fielder's choice, RBI (3-1 BBSB); Nich Klemp advanced to second; Michael Koszewski scored on an error by 1b, unearned; Jeremy Piatkiewicz scored.",
+          "pitch_count": "3-1 BBSB",
+          "rbi": 1
+        },
+        {
+          "description": "Tyler Stone struck out swinging (0-2 SSS). (2 out)",
+          "pitch_count": "0-2 SSS",
+          "rbi": 0
+        },
+        {
+          "description": "Xavier Casserilla struck out looking (0-2 FFFFK). (3 out)",
+          "pitch_count": "0-2 FFFFK",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Nick Poss flied out to rf (0-1 F). (1 out)",
+          "pitch_count": "0-1 F",
+          "rbi": 0
+        },
+        {
+          "description": "T.J. McKenzie homered, RBI (3-2 KBBFB).",
+          "pitch_count": "3-2 KBBFB",
+          "rbi": 1
+        },
+        {
+          "description": "Tremayne Cobb grounded out to 2b (2-2 FBFB). (2 out)",
+          "pitch_count": "2-2 FBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Jacoby Long popped up to 1b (3-2 BBFFB). (3 out)",
+          "pitch_count": "3-2 BBFFB",
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Enzo Apodaca singled (0-0).",
+          "pitch_count": "0-0",
+          "rbi": 0
+        },
+        {
+          "description": "Joskar Feliciano grounded into double play 2b to ss to 1b (0-1 K); Enzo Apodaca out on the play. (2 out)",
+          "pitch_count": "0-1 K",
+          "rbi": 0
+        },
+        {
+          "description": "Leyton Barry grounded out to 2b (3-2 KBBSB). (3 out)",
+          "pitch_count": "3-2 KBBSB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jaydon Bishop to p for Jose Ballista.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jeter Ybarra grounded out to 3b (3-2 BFBBKF). (1 out)",
+          "pitch_count": "3-2 BFBBKF",
+          "rbi": 0
+        },
+        {
+          "description": "Noah Blythe walked (3-2 BBSBFB).",
+          "pitch_count": "3-2 BBSBFB",
+          "rbi": 0
+        },
+        {
+          "description": "Jaden Sheppard doubled (0-2 SK); Noah Blythe advanced to third.",
+          "pitch_count": "0-2 SK",
+          "rbi": 0
+        },
+        {
+          "description": "Jake Allgeyer grounded out to ss, RBI (1-1 BK); Jaden Sheppard advanced to third; Noah Blythe scored.",
+          "pitch_count": "1-1 BK",
+          "rbi": 1
+        },
+        {
+          "description": "Jaden Sheppard scored on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nick Leehey walked (3-2 BFBKBF).",
+          "pitch_count": "3-2 BFBKBF",
+          "rbi": 0
+        },
+        {
+          "description": "Nick Poss walked (3-2 BBKFBB); Nick Leehey advanced to second.",
+          "pitch_count": "3-2 BBKFBB",
+          "rbi": 0
+        },
+        {
+          "description": "Parker McMan to p for Jaydon Bishop.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T.J. McKenzie homered, 3 RBI (3-2 BKBFB); Nick Poss scored; Nick Leehey scored.",
+          "pitch_count": "3-2 BKBFB",
+          "rbi": 3
+        },
+        {
+          "description": "Tremayne Cobb singled (3-2 BBKBK).",
+          "pitch_count": "3-2 BBKBK",
+          "rbi": 0
+        },
+        {
+          "description": "Jacoby Long grounded out to 2b (0-0). (3 out)",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Jeremy Piatkiewicz struck out swinging (3-2 KSBFBBS). (1 out)",
+          "pitch_count": "3-2 KSBFBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Michael Koszewski struck out looking (3-2 KBBKBK). (2 out)",
+          "pitch_count": "3-2 KBBKBK",
+          "rbi": 0
+        },
+        {
+          "description": "Nich Klemp struck out swinging (0-2 SFS). (3 out)",
+          "pitch_count": "0-2 SFS",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jeter Ybarra struck out swinging (3-2 SBKBBS). (1 out)",
+          "pitch_count": "3-2 SBKBBS",
+          "rbi": 0
+        },
+        {
+          "description": "Noah Blythe struck out swinging (1-2 KBSS). (2 out)",
+          "pitch_count": "1-2 KBSS",
+          "rbi": 0
+        },
+        {
+          "description": "Jaden Sheppard flied out to rf (0-0). (3 out)",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Langston Burkett to p for Liam Rocha.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "William Bermudez struck out swinging (2-2 KBSBS). (1 out)",
+          "pitch_count": "2-2 KBSBS",
+          "rbi": 0
+        },
+        {
+          "description": "Tyler Stone grounded out to p (2-2 FBBFF). (2 out)",
+          "pitch_count": "2-2 FBBFF",
+          "rbi": 0
+        },
+        {
+          "description": "Xavier Casserilla grounded out to ss (3-2 BKBSB). (3 out)",
+          "pitch_count": "3-2 BKBSB",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Jake Allgeyer struck out swinging (2-2 BBKSFS). (1 out)",
+          "pitch_count": "2-2 BBKSFS",
+          "rbi": 0
+        },
+        {
+          "description": "Nick Leehey struck out swinging (1-2 BKFS). (2 out)",
+          "pitch_count": "1-2 BKFS",
+          "rbi": 0
+        },
+        {
+          "description": "Nick Poss walked (3-2 KBSBBB).",
+          "pitch_count": "3-2 KBSBBB",
+          "rbi": 0
+        },
+        {
+          "description": "T.J. McKenzie homered, 2 RBI (2-0 BB); Nick Poss scored.",
+          "pitch_count": "2-0 BB",
+          "rbi": 2
+        },
+        {
+          "description": "Tremayne Cobb singled (1-1 FB).",
+          "pitch_count": "1-1 FB",
+          "rbi": 0
+        },
+        {
+          "description": "Tremayne Cobb stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jacoby Long walked (3-2 BBKSBB).",
+          "pitch_count": "3-2 BBKSBB",
+          "rbi": 0
+        },
+        {
+          "description": "Jacoby Long stole second; Tremayne Cobb stole third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Jeter Ybarra grounded out to 2b (2-1 FBB). (3 out)",
+          "pitch_count": "2-1 FBB",
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Enzo Apodaca struck out swinging (3-2 BBKFFBFS). (1 out)",
+          "pitch_count": "3-2 BBKFFBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Joskar Feliciano walked (3-2 BKKBBB).",
+          "pitch_count": "3-2 BKKBBB",
+          "rbi": 0
+        },
+        {
+          "description": "Joskar Feliciano advanced to second on a wild pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Leyton Barry struck out swinging (2-2 KFBFBS). (2 out)",
+          "pitch_count": "2-2 KFBFBS",
+          "rbi": 0
+        },
+        {
+          "description": "Jeremy Piatkiewicz walked (3-2 BBFKBB).",
+          "pitch_count": "3-2 BBFKBB",
+          "rbi": 0
+        },
+        {
+          "description": "Michael Koszewski grounded out to 1b unassisted (0-0). (3 out)",
+          "pitch_count": "0-0",
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Noah Blythe struck out swinging (1-2 FBFS). (1 out)",
+          "pitch_count": "1-2 FBFS",
+          "rbi": 0
+        },
+        {
+          "description": "Jaden Sheppard grounded out to 2b (2-2 BFKFFB). (2 out)",
+          "pitch_count": "2-2 BFKFFB",
+          "rbi": 0
+        },
+        {
+          "description": "Jake Allgeyer doubled (2-0 BB).",
+          "pitch_count": "2-0 BB",
+          "rbi": 0
+        },
+        {
+          "description": "Nick Leehey struck out looking (3-2 BKSBBFK). (3 out)",
+          "pitch_count": "3-2 BKSBBFK",
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Braydon Nelson to p for Langston Burkett.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Nich Klemp grounded out to 2b (2-2 BKBFF). (1 out)",
+          "pitch_count": "2-2 BKBFF",
+          "rbi": 0
+        },
+        {
+          "description": "William Bermudez singled (2-2 FFBFBF).",
+          "pitch_count": "2-2 FFBFBF",
+          "rbi": 0
+        },
+        {
+          "description": "William Bermudez advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "Tyler Stone struck out swinging (3-2 BBSBKS). (2 out)",
+          "pitch_count": "3-2 BBSBKS",
+          "rbi": 0
+        },
+        {
+          "description": "Xavier Casserilla struck out swinging (0-2 FSS). (3 out)",
+          "pitch_count": "0-2 FSS",
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  }
 }

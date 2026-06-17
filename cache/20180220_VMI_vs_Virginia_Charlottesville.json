@@ -22,7 +22,9 @@
       "second_base": "Greg Howard",
       "third_base": "Mike Goleski"
     },
-    "_teams_swapped": false
+    "_teams_swapped": false,
+    "source_box_score_url": "https://vmi_ftp.sidearmsports.com/stats/2017-18/baseball/uva04.htm",
+    "source_box_score_format": "statcrew_html"
   },
   "box_score": {
     "away_batting": [
@@ -41,7 +43,8 @@
         "left_on_base": 5,
         "bref_id": "eaton-000nat",
         "full_name": "Nate Eaton",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "hit_by_pitch": 1
       },
       {
         "number": "33",
@@ -58,7 +61,9 @@
         "left_on_base": 0,
         "bref_id": "pita--000mat",
         "full_name": "Matt Pita",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "doubles": 2,
+        "stolen_bases": 1
       },
       {
         "number": "6",
@@ -298,7 +303,8 @@
         "left_on_base": 4,
         "bref_id": "eikhof000nat",
         "full_name": "Nate Eikhoff",
-        "match_confidence": 0.85
+        "match_confidence": 0.85,
+        "doubles": 1
       },
       {
         "number": "13",
@@ -366,6 +372,24 @@
         "left_on_base": 0,
         "bref_id": "ortiz-001dev",
         "full_name": "Devin Ortiz",
+        "match_confidence": 0.85,
+        "hit_by_pitch": 1
+      },
+      {
+        "number": "18",
+        "name": "Novak, J.",
+        "position": "3b",
+        "at_bats": 2,
+        "runs": 1,
+        "hits": 1,
+        "rbi": 0,
+        "walks": 2,
+        "strikeouts": 0,
+        "put_outs": 1,
+        "assists": 3,
+        "left_on_base": 0,
+        "bref_id": "novak-000jus",
+        "full_name": "Justin Novak",
         "match_confidence": 0.85
       }
     ],
@@ -573,20 +597,41 @@
         "player": "Pita",
         "game_count": 2,
         "season_total": 3
+      },
+      {
+        "player": "Eikhoff, N.",
+        "game_count": 1,
+        "season_total": 1
       }
     ],
     "triples": [],
     "home_runs": [],
-    "stolen_bases": [],
+    "stolen_bases": [
+      {
+        "player": "Pita",
+        "game_count": 1,
+        "season_total": 1
+      }
+    ],
     "caught_stealing": [],
-    "hit_by_pitch": [],
+    "hit_by_pitch": [
+      "Eaton",
+      "Ortiz, D."
+    ],
     "intentional_walks": [],
     "strikeouts_looking": [],
     "grounded_into_dp": [],
-    "wild_pitches": [],
-    "passed_balls": [],
+    "wild_pitches": [
+      "McGarry, G. (1)",
+      "Donahue, G.",
+      "Whitten, K. (1)"
+    ],
+    "passed_balls": [
+      "Knight, C. (1)"
+    ],
     "hit_batters": [
-      "Ewald (1)"
+      "Ewald (1)",
+      "Meyer, M. (1)"
     ],
     "balks": [],
     "win": {

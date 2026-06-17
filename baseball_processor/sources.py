@@ -727,79 +727,130 @@ def _with_unmerged_source_candidate_quality(
 
 
 def _merge_box_section(primary_rows: List[Dict[str, Any]], api_rows: List[Dict[str, Any]], section: str) -> List[Dict[str, Any]]:
-    """Merge API identity/side repairs with richer PDF stat rows."""
+    """Merge API identity/side repairs without letting it override source rows."""
     if not api_rows:
         return deepcopy(primary_rows)
 
-    primary_by_key = {
-        _row_identity_key(row): row
-        for row in primary_rows
+    api_by_key = {
+        _row_identity_key(row): index
+        for index, row in enumerate(api_rows)
+        if _row_identity_key(row) not in {"number:", "name:"}
+    }
+    api_by_last = {}
+    api_last_counts: Dict[str, int] = {}
+    for index, row in enumerate(api_rows):
+        last = _row_last_name_key(row)
+        if not last:
+            continue
+        api_last_counts[last] = api_last_counts.get(last, 0) + 1
+        api_by_last[last] = index
+
+    primary_by_key_for_api = {
+        _row_identity_key(row): index
+        for index, row in enumerate(primary_rows)
         if _row_identity_key(row) not in {"number:", "name:"}
     }
     primary_by_last = {}
     primary_last_counts: Dict[str, int] = {}
-    for row in primary_rows:
+    for index, row in enumerate(primary_rows):
         last = _row_last_name_key(row)
         if not last:
             continue
         primary_last_counts[last] = primary_last_counts.get(last, 0) + 1
-        primary_by_last[last] = row
+        primary_by_last[last] = index
 
-    def primary_row_for_clipped_api_name(api_row: Dict[str, Any]) -> Dict[str, Any] | None:
+    def api_row_for_clipped_primary_name(primary_row: Dict[str, Any]) -> int | None:
+        if any(primary_row.get(field) for field in ("bref_id", "register_id", "player_id")):
+            return None
+        matches = [
+            index
+            for index, row in enumerate(api_rows)
+            if _same_player_with_clipped_name(row, primary_row)
+        ]
+        return matches[0] if len(matches) == 1 else None
+
+    def primary_index_for_clipped_api_name(api_row: Dict[str, Any]) -> int | None:
         if any(api_row.get(field) for field in ("bref_id", "register_id", "player_id")):
             return None
         matches = [
-            row
-            for row in primary_rows
+            index
+            for index, row in enumerate(primary_rows)
             if _same_player_with_clipped_name(row, api_row)
         ]
         return matches[0] if len(matches) == 1 else None
 
-    merged_rows = []
-    matched_keys = set()
-    for api_row in api_rows:
-        row_key = _row_identity_key(api_row)
-        primary_row = primary_by_key.get(row_key)
-        if not primary_row:
-            last = _row_last_name_key(api_row)
-            if last and primary_last_counts.get(last) == 1:
-                primary_row = primary_by_last[last]
-                row_key = _row_identity_key(primary_row)
-        if not primary_row:
-            primary_row = primary_row_for_clipped_api_name(api_row)
-            if primary_row:
-                row_key = _row_identity_key(primary_row)
-        if primary_row:
-            row = deepcopy(primary_row)
-            matched_keys.add(row_key)
-            if _has_full_player_name(api_row) and not _same_player_with_clipped_name(primary_row, api_row):
-                row["name"] = api_row.get("name") or api_row.get("full_name")
-                row["full_name"] = api_row.get("full_name") or api_row.get("name")
-            for field in ("player_id", "register_id", "decision", "win", "loss", "save"):
-                if api_row.get(field) not in (None, ""):
-                    row[field] = api_row[field]
-            for field in ("bref_id", "match_confidence", "position"):
-                if not row.get(field) and api_row.get(field):
-                    row[field] = api_row[field]
-        else:
-            if primary_rows and _is_placeholder_name(api_row.get("full_name") or api_row.get("name")):
-                continue
-            row = deepcopy(api_row)
-        merged_rows.append(row)
-
-    for primary_row in primary_rows:
+    def api_index_for_primary_row(primary_row: Dict[str, Any]) -> int | None:
         row_key = _row_identity_key(primary_row)
-        if row_key in matched_keys:
-            continue
-        name = str(primary_row.get("full_name") or primary_row.get("name") or "").strip()
+        api_index = api_by_key.get(row_key)
+        if api_index is not None:
+            return api_index
+        last = _row_last_name_key(primary_row)
+        if last and api_last_counts.get(last) == 1:
+            return api_by_last[last]
+        return api_row_for_clipped_primary_name(primary_row)
+
+    def primary_index_for_api_row(api_row: Dict[str, Any]) -> int | None:
+        row_key = _row_identity_key(api_row)
+        primary_index = primary_by_key_for_api.get(row_key)
+        if primary_index is not None:
+            return primary_index
+        last = _row_last_name_key(api_row)
+        if last and primary_last_counts.get(last) == 1:
+            return primary_by_last[last]
+        return primary_index_for_clipped_api_name(api_row)
+
+    def enrich_primary_row(primary_row: Dict[str, Any], api_row: Dict[str, Any]) -> Dict[str, Any]:
+        row = deepcopy(primary_row)
+        api_has_better_name = (
+            _has_full_player_name(api_row)
+            and not _has_full_player_name(primary_row)
+            and not _same_player_with_clipped_name(primary_row, api_row)
+        )
+        if api_has_better_name:
+            row["name"] = api_row.get("name") or api_row.get("full_name")
+            row["full_name"] = api_row.get("full_name") or api_row.get("name")
+        for field in ("player_id", "register_id", "decision", "win", "loss", "save"):
+            if api_row.get(field) not in (None, ""):
+                row[field] = api_row[field]
+        for field in ("bref_id", "match_confidence", "position"):
+            if not row.get(field) and api_row.get(field):
+                row[field] = api_row[field]
+        return row
+
+    def should_keep_unmatched_primary(row: Dict[str, Any]) -> bool:
+        name = str(row.get("full_name") or row.get("name") or "").strip()
         is_weak_pitcher_row = (
             "pitching" in section
-            and not primary_row.get("bref_id")
-            and not primary_row.get("full_name")
+            and not row.get("bref_id")
+            and not row.get("full_name")
             and len(name.split()) < 2
         )
-        if not is_weak_pitcher_row:
+        return not is_weak_pitcher_row
+
+    def should_keep_api_gap_row(row: Dict[str, Any]) -> bool:
+        if primary_rows and _is_placeholder_name(row.get("full_name") or row.get("name")):
+            return False
+        if "batting" in section:
+            return _has_source_batting_signal(row) and not _has_impossible_batting_strikeout(row)
+        return True
+
+    merged_rows = []
+    matched_api_indexes: set[int] = set()
+    for primary_row in primary_rows:
+        api_index = api_index_for_primary_row(primary_row)
+        if api_index is not None and api_index not in matched_api_indexes:
+            matched_api_indexes.add(api_index)
+            merged_rows.append(enrich_primary_row(primary_row, api_rows[api_index]))
+        elif should_keep_unmatched_primary(primary_row):
             merged_rows.append(deepcopy(primary_row))
+
+    for index, api_row in enumerate(api_rows):
+        if index in matched_api_indexes:
+            continue
+        if primary_index_for_api_row(api_row) is not None:
+            continue
+        if should_keep_api_gap_row(api_row):
+            merged_rows.append(deepcopy(api_row))
     return merged_rows
 
 

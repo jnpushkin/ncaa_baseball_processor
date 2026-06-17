@@ -26,7 +26,12 @@
       "home": "Partner"
     },
     "source": "partner",
-    "game_code": "20240828_fhp1"
+    "game_code": "20240828_fhp1",
+    "source_urls": {
+      "boxscore": "https://www.pioneerleague.com/sports/bsb/2024/boxscores/20240828_fhp1.xml",
+      "print": "https://www.pioneerleague.com/sports/bsb/2024/boxscores/20240828_fhp1.xml?dec=printer-decorator",
+      "coach_view": "https://www.pioneerleague.com/sports/bsb/2024/boxscores/20240828_fhp1.xml?tmpl=bsxml-monospace-template"
+    }
   },
   "box_score": {
     "away_batting": [
@@ -218,7 +223,7 @@
         "bref_id": "dyball000tyl"
       },
       {
-        "name": "Nicol\u00f2 Pinazzi",
+        "name": "Nicolò Pinazzi",
         "player_id": "pinazz000nic",
         "position": "P",
         "ab": 0,
@@ -530,7 +535,7 @@
         "bref_id": "dyball000tyl"
       },
       {
-        "name": "Nicol\u00f2 Pinazzi",
+        "name": "Nicolò Pinazzi",
         "player_id": "pinazz000nic",
         "ip": "0.2",
         "h": 2,
@@ -651,5 +656,575 @@
       "Noah Martinez"
     ]
   },
-  "format": "pioneer_html"
+  "format": "pioneer_html",
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "A. Mata struck out swinging. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Jablonski grounded out to p. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "R. Mccarthy walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "G. Morgan grounded out to p. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "P. Harden singled to center field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. Harden stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D. Stuart hit by pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Martinez walked; D. Stuart advanced to second; P. Harden advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D. Hubbard flied out to rf, sacrifice fly, RBI; N. Martinez advanced to second; D. Stuart advanced to third; P. Harden scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "B. Barrera was intentionally walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Carson struck out looking. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Clark struck out looking. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "T. Wyatt doubled to left field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "C. Hanson struck out looking. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Rogers struck out swinging. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Wyatt stole third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. McCaffrey struck out swinging. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "J. Smith struck out swinging. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Burckel singled to left field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. Harden struck out looking; B. Burckel out at second c to ss, caught stealing. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "G. Ostrander struck out looking. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "A. Mata struck out looking. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Jablonski struck out looking. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "D. Stuart singled to left field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Martinez walked; D. Stuart advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D. Hubbard struck out looking; N. Martinez advanced to second; D. Stuart advanced to third. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Barrera was intentionally walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Carson walked, RBI; B. Barrera advanced to second; N. Martinez advanced to third; D. Stuart scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "T. Clark struck out swinging. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Smith reached on a fielder's choice; B. Carson out at second ss to 2b. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "J. Leslie to ss for B. Burckel.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "R. Mccarthy singled to shortstop.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "G. Morgan hit by pitch; R. Mccarthy advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Wyatt doubled to right field, RBI; G. Morgan out at second rf to ss to c; R. Mccarthy scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "C. Hanson struck out swinging. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Rogers flied out to cf. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "J. Leslie struck out swinging. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. Harden singled to first base.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. Harden stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. Harden stole third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D. Stuart walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Martinez singled to right field, RBI; D. Stuart advanced to third; P. Harden scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "D. Hubbard struck out swinging. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Barrera was intentionally walked; N. Martinez advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Carson reached on a fielder's choice; B. Barrera out at second 2b to ss. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "T. McCaffrey struck out swinging. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "G. Ostrander singled to left field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "A. Mata walked; G. Ostrander advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "C. Richardso to p for R. Butz.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Jablonski struck out swinging. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "R. Mccarthy homered to left center, 3 RBI; A. Mata scored; G. Ostrander scored.",
+          "pitch_count": null,
+          "rbi": 3
+        },
+        {
+          "description": "G. Morgan struck out swinging. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "T. Clark hit by pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Smith struck out looking. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Leslie grounded into double play ss to 2b to 1b; T. Clark out on the play. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "T. Wyatt struck out swinging. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "C. Hanson grounded out to 2b. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Rogers singled to right field.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. McCaffrey singled to left field; T. Rogers advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "G. Ostrander struck out looking. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "T. Dyball to p for O. Sharts.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. Harden walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. Harden stole second, advanced to third on an error by c.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D. Stuart walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D. Stuart stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Martinez homered to left center, 3 RBI; D. Stuart scored; P. Harden scored.",
+          "pitch_count": null,
+          "rbi": 3
+        },
+        {
+          "description": "D. Hubbard popped up to 2b. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Barrera singled to third base.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Pinazzi to p for T. Dyball.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Barrera stole second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Barrera stole third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Carson walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Clark grounded out to 2b, RBI; B. Carson advanced to second; B. Barrera scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "J. Smith singled to right field, RBI; B. Carson scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "J. Leslie singled to right field; J. Smith advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "P. Harden struck out swinging. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "C. Cosby to p for C. Richardso.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "A. Mata struck out swinging. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Jablonski struck out swinging. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "R. Mccarthy walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "G. Morgan doubled to right center; R. Mccarthy advanced to third.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Wyatt hit by pitch.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "C. Hanson struck out swinging. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "S. Ordorica to p for N. Pinazzi.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D. Stuart walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "N. Martinez out at first 1b to p; D. Stuart advanced to second. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "D. Hubbard grounded out to 3b. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "B. Barrera singled to right field, RBI; D. Stuart scored.",
+          "pitch_count": null,
+          "rbi": 1
+        },
+        {
+          "description": "B. Carson reached on a fielder's choice; B. Barrera out at second ss to 2b. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "C. Lambert to p for C. Cosby.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Rogers struck out swinging. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. McCaffrey walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "G. Ostrander walked; T. McCaffrey advanced to second.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "A. Mata struck out swinging. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Jablonski struck out swinging. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": [
+        {
+          "description": "T. Clark grounded out to 3b. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Smith singled to right center.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Leslie reached on a fielder's choice; J. Smith out at second 3b to 2b. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "J. Leslie out at second c to 2b, caught stealing. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "R. Mccarthy walked.",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "G. Morgan grounded out to p; R. Mccarthy advanced to second. (1 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "T. Wyatt lined out to cf. (2 out)",
+          "pitch_count": null,
+          "rbi": 0
+        },
+        {
+          "description": "C. Hanson struck out looking. (3 out)",
+          "pitch_count": null,
+          "rbi": 0
+        }
+      ],
+      "bottom": []
+    }
+  }
 }

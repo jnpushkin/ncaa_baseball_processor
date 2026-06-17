@@ -27,7 +27,9 @@
       "home": "High-A"
     },
     "source": "milb",
-    "game_pk": 822356
+    "game_pk": 822356,
+    "source_feed_url": "https://statsapi.mlb.com/api/v1.1/game/822356/feed/live",
+    "source_box_score_url": "https://statsapi.mlb.com/api/v1/game/822356/boxscore"
   },
   "box_score": {
     "away_batting": [
@@ -616,6 +618,740 @@
     ]
   },
   "game_notes": {},
-  "play_by_play": {},
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "Devin Fitz-Gerald lines out to second baseman Mitch Voit.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Devin Fitz-Gerald",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Yeremy Cabrera flies out to left fielder Trace Willhoite.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Yeremy Cabrera",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Ethan Petry singles on a sharp line drive to left fielder Trace Willhoite.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ethan Petry",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Angel Feliz lines out to right fielder JT Benson.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Angel Feliz",
+          "pitcher": "Daviel Hurtado"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Mitch Voit flies out to center fielder Yeremy Cabrera.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Mitch Voit",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Grae Kessinger grounds out, shortstop Angel Feliz to first baseman Hunter Hines.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Grae Kessinger",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Ronald Hernandez called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Ronald Hernandez",
+          "pitcher": "Alexander Meckley"
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Elijah Green strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Elijah Green",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Hunter Hines grounds out softly, pitcher Daviel Hurtado to first baseman Corey Collins.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Hunter Hines",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Caleb Farmer grounds out, shortstop Grae Kessinger to first baseman Corey Collins.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Caleb Farmer",
+          "pitcher": "Daviel Hurtado"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Corey Collins homers (4) on a fly ball to left field.",
+          "pitch_count": "0-0",
+          "rbi": 1,
+          "event": "Home Run",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Corey Collins",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Daiverson Gutierrez singles on a line drive to left fielder Elijah Green.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Daiverson Gutierrez",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "JT Benson pops out to shortstop Angel Feliz.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "JT Benson",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Colin Houck strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Colin Houck",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Trace Willhoite pops out to shortstop Angel Feliz.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Trace Willhoite",
+          "pitcher": "Alexander Meckley"
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Gavin Dugas strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Gavin Dugas",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Randal Diaz strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Randal Diaz",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Devin Fitz-Gerald grounds out, shortstop Grae Kessinger to first baseman Corey Collins.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Devin Fitz-Gerald",
+          "pitcher": "Daviel Hurtado"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Sam Biller called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Sam Biller",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Mitch Voit walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Mitch Voit",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Grae Kessinger flies out to center fielder Yeremy Cabrera.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Grae Kessinger",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Ronald Hernandez singles on a ground ball to right fielder Ethan Petry. Mitch Voit to 3rd.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Ronald Hernandez",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Corey Collins called out on strikes.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Corey Collins",
+          "pitcher": "Alexander Meckley"
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Yeremy Cabrera walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Yeremy Cabrera",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Ethan Petry grounds into a double play, shortstop Grae Kessinger to second baseman Mitch Voit to first baseman Corey Collins. Yeremy Cabrera out at 2nd. Ethan Petry out at 1st.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Grounded Into DP",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Ethan Petry",
+          "pitcher": "Daviel Hurtado"
+        },
+        {
+          "description": "Angel Feliz walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Angel Feliz",
+          "pitcher": "Bryce Jenkins"
+        },
+        {
+          "description": "Elijah Green walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Elijah Green",
+          "pitcher": "Bryce Jenkins"
+        },
+        {
+          "description": "Hunter Hines strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Hunter Hines",
+          "pitcher": "Bryce Jenkins"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Daiverson Gutierrez grounds out, third baseman Randal Diaz to first baseman Hunter Hines.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Daiverson Gutierrez",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "JT Benson pops out to second baseman Devin Fitz-Gerald.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "JT Benson",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Colin Houck flies out to center fielder Yeremy Cabrera.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Colin Houck",
+          "pitcher": "Alexander Meckley"
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Caleb Farmer lines out to second baseman Mitch Voit.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Caleb Farmer",
+          "pitcher": "Bryce Jenkins"
+        },
+        {
+          "description": "Gavin Dugas strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Gavin Dugas",
+          "pitcher": "Bryce Jenkins"
+        },
+        {
+          "description": "Randal Diaz flies out to right fielder JT Benson in foul territory.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Randal Diaz",
+          "pitcher": "Bryce Jenkins"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Trace Willhoite called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Trace Willhoite",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Sam Biller walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Sam Biller",
+          "pitcher": "Alexander Meckley"
+        },
+        {
+          "description": "Mitch Voit lines into a double play, shortstop Angel Feliz to first baseman Hunter Hines. Sam Biller out at 1st.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Double Play",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Mitch Voit",
+          "pitcher": "Alexander Meckley"
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "Devin Fitz-Gerald strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Devin Fitz-Gerald",
+          "pitcher": "Juan Arnaud"
+        },
+        {
+          "description": "Yeremy Cabrera walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Yeremy Cabrera",
+          "pitcher": "Juan Arnaud"
+        },
+        {
+          "description": "Ethan Petry strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Ethan Petry",
+          "pitcher": "Juan Arnaud"
+        },
+        {
+          "description": "Angel Feliz grounds out, shortstop Grae Kessinger to first baseman Corey Collins.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Angel Feliz",
+          "pitcher": "Juan Arnaud"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Grae Kessinger called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Grae Kessinger",
+          "pitcher": "Baron Stuart"
+        },
+        {
+          "description": "Ronald Hernandez flies out to right fielder Ethan Petry.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Ronald Hernandez",
+          "pitcher": "Baron Stuart"
+        },
+        {
+          "description": "Corey Collins walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Corey Collins",
+          "pitcher": "Baron Stuart"
+        },
+        {
+          "description": "Daiverson Gutierrez flies out to left fielder Elijah Green.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Daiverson Gutierrez",
+          "pitcher": "Baron Stuart"
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Elijah Green singles on a fly ball to center fielder Sam Biller.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Elijah Green",
+          "pitcher": "Juan Arnaud"
+        },
+        {
+          "description": "Hunter Hines pops out to third baseman Colin Houck in foul territory.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Hunter Hines",
+          "pitcher": "Juan Arnaud"
+        },
+        {
+          "description": "Caleb Farmer strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Caleb Farmer",
+          "pitcher": "Juan Arnaud"
+        },
+        {
+          "description": "Gavin Dugas walks. Elijah Green to 2nd.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Gavin Dugas",
+          "pitcher": "Juan Arnaud"
+        },
+        {
+          "description": "Randal Diaz strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Randal Diaz",
+          "pitcher": "Hunter Hodges"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "JT Benson doubles (5) on a sharp fly ball to center fielder Yeremy Cabrera.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "JT Benson",
+          "pitcher": "Yeuris Jimenez"
+        },
+        {
+          "description": "Colin Houck singles on a fly ball to left fielder Elijah Green.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 1,
+          "batter": "Colin Houck",
+          "pitcher": "Yeuris Jimenez"
+        },
+        {
+          "description": "Trace Willhoite doubles (6) on a fly ball to left fielder Elijah Green. JT Benson scores. Colin Houck to 3rd.",
+          "pitch_count": "0-1",
+          "rbi": 1,
+          "event": "Double",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Trace Willhoite",
+          "pitcher": "Yeuris Jimenez"
+        },
+        {
+          "description": "Sam Biller grounds out softly to first baseman Hunter Hines.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Sam Biller",
+          "pitcher": "Yeuris Jimenez"
+        },
+        {
+          "description": "Mitch Voit called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Mitch Voit",
+          "pitcher": "Yeuris Jimenez"
+        },
+        {
+          "description": "Grae Kessinger pops out to second baseman Devin Fitz-Gerald.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Grae Kessinger",
+          "pitcher": "Yeuris Jimenez"
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Devin Fitz-Gerald strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Devin Fitz-Gerald",
+          "pitcher": "Hunter Hodges"
+        },
+        {
+          "description": "Yeremy Cabrera singles on a ground ball to center fielder Sam Biller, deflected by pitcher Hunter Hodges.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Yeremy Cabrera",
+          "pitcher": "Hunter Hodges"
+        },
+        {
+          "description": "Ethan Petry flies out to right fielder JT Benson.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Ethan Petry",
+          "pitcher": "Hunter Hodges"
+        },
+        {
+          "description": "Angel Feliz pops out to second baseman Mitch Voit.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Angel Feliz",
+          "pitcher": "Hunter Hodges"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ronald Hernandez singles on a ground ball to shortstop Angel Feliz.",
+          "pitch_count": "2-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Ronald Hernandez",
+          "pitcher": "Brady Hill"
+        },
+        {
+          "description": "Corey Collins called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Corey Collins",
+          "pitcher": "Brady Hill"
+        },
+        {
+          "description": "Daiverson Gutierrez flies out to center fielder Yeremy Cabrera. Ronald Hernandez to 3rd.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Daiverson Gutierrez",
+          "pitcher": "Brady Hill"
+        },
+        {
+          "description": "JT Benson flies out to center fielder Yeremy Cabrera.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "JT Benson",
+          "pitcher": "Brady Hill"
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "Elijah Green strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Elijah Green",
+          "pitcher": "Cristofer Gomez"
+        },
+        {
+          "description": "Hunter Hines flies out to left fielder Trace Willhoite.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Hunter Hines",
+          "pitcher": "Cristofer Gomez"
+        },
+        {
+          "description": "Caleb Farmer doubles (3) on a pop up to first baseman Corey Collins.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Caleb Farmer",
+          "pitcher": "Cristofer Gomez"
+        },
+        {
+          "description": "Gavin Dugas strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 0,
+          "home_score": 2,
+          "batter": "Gavin Dugas",
+          "pitcher": "Cristofer Gomez"
+        }
+      ],
+      "bottom": []
+    }
+  },
   "format": "milb_api"
 }

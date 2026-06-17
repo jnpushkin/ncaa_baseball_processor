@@ -212,9 +212,12 @@ export default function UpcomingGames({ games, data }: UpcomingGamesProps) {
 
   const getTeamLogo = (team: { name?: string; logo_url?: string }) => {
     if (team.logo_url) return team.logo_url;
-    const espnId = data.ncaaTeamLogos?.[team.name || ""];
-    if (espnId)
-      return `https://a.espncdn.com/i/teamlogos/ncaa/500/${espnId}.png`;
+    const ncaaLogo = data.ncaaTeamLogos?.[team.name || ""];
+    if (typeof ncaaLogo === "string" && /^https?:\/\//.test(ncaaLogo)) {
+      return ncaaLogo;
+    }
+    if (ncaaLogo)
+      return `https://a.espncdn.com/i/teamlogos/ncaa/500/${ncaaLogo}.png`;
     return "";
   };
 

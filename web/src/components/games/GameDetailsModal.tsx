@@ -33,6 +33,8 @@ const num = (v: unknown) => {
   return Number.isFinite(n) ? n : 0;
 };
 
+const formatPosition = (v: unknown) => String(v ?? "").trim().toUpperCase();
+
 const pick = <T,>(...vals: (T | undefined | null)[]): T | undefined => {
   for (const v of vals) if (v !== undefined && v !== null) return v;
   return undefined;
@@ -139,7 +141,7 @@ function BatterTable({ rows }: { rows: BoxScoreBatter[] }) {
               <td style={{ textAlign: "left" }}>
                 {pick(r.full_name, r.name)}
               </td>
-              <td>{r.position ?? ""}</td>
+              <td>{formatPosition(r.position)}</td>
               <td>{num(pick(r.ab, r.at_bats))}</td>
               <td>{num(pick(r.r, r.runs))}</td>
               <td>{num(pick(r.h, r.hits))}</td>

@@ -1840,6 +1840,36 @@ tr:hover {
   background: #ccc;
 }
 
+.team-chip-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 2px;
+}
+
+.team-chip-logo--home {
+  border-color: #28a745;
+}
+
+.team-chip-logo--away {
+  border-color: #1976d2;
+}
+
+.team-chip-logo--none {
+  border-color: #d0d0d0;
+  opacity: 0.72;
+}
+
+.team-chip-logo .team-logo-fallback {
+  font-size: 0.55rem;
+}
+
 .team-chip-name {
   flex: 1;
   font-weight: 400;

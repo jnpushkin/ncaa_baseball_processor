@@ -336,6 +336,39 @@ def test_drops_zero_pitcher_batting_artifact_when_pitcher_uses_nickname_alias():
     assert [row["name"] for row in normalized["pitching"]["home"]] == ["Gabe Barrett"]
 
 
+def test_drops_zero_offense_pitcher_batting_artifact_with_fielding_stats():
+    game = {
+        "metadata": {
+            "date": "03/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+        },
+        "box_score": {
+            "home_batting": [
+                {"name": "Real Batter", "position": "1b", "at_bats": 4, "hits": 2},
+                {
+                    "name": "Pitcher Fielding Row",
+                    "position": "p",
+                    "at_bats": 0,
+                    "runs": 0,
+                    "hits": 0,
+                    "rbi": 0,
+                    "walks": 0,
+                    "strikeouts": 0,
+                    "assists": 2,
+                },
+            ],
+            "home_pitching": [
+                {"name": "Pitcher Fielding Row", "innings_pitched": 1.0, "hits": 0},
+            ],
+        },
+    }
+
+    normalized = normalize_game(game)
+
+    assert [row["name"] for row in normalized["batting"]["home"]] == ["Real Batter"]
+
+
 def test_drops_zero_contribution_batting_artifacts_without_stable_identity():
     game = {
         "metadata": {
@@ -386,7 +419,7 @@ def test_dedupes_batting_rows_by_roster_identity_without_merging_siblings():
                 {"name": "ja. Lewis", "number": "3", "ab": 1, "h": 1, "bb": 1, "k": 0},
                 {"name": "je. Lewis", "number": "0", "ab": 4, "h": 0, "bb": 0, "k": 0},
                 {"name": "LEWIS, Jeriah", "at_bats": 4, "hits": 0, "walks": 0, "strikeouts": 2, "bref_id": "lewis-008jer"},
-                {"name": "LEWIS, Jared", "at_bats": 1, "hits": 1, "walks": 1, "strikeouts": 0, "bref_id": "lewis-001jar"},
+                {"name": "LEWIS, Jared", "position": "dh", "at_bats": 1, "hits": 1, "walks": 1, "strikeouts": 0, "bref_id": "lewis-001jar"},
             ],
             "home_batting": [],
             "away_pitching": [],
@@ -398,9 +431,9 @@ def test_dedupes_batting_rows_by_roster_identity_without_merging_siblings():
     normalized = normalize_game(game, aliases)
 
     rows = normalized["batting"]["away"]
-    assert [(row["name"], row["bref_id"], row["AB"], row["SO"]) for row in rows] == [
-        ("Jared Lewis", "lewis-001jar", 1, 0),
-        ("Jeriah Lewis", "lewis-008jer", 4, 2),
+    assert [(row["name"], row["bref_id"], row.get("position", ""), row["AB"], row["SO"]) for row in rows] == [
+        ("Jared Lewis", "lewis-001jar", "dh", 1, 0),
+        ("Jeriah Lewis", "lewis-008jer", "", 4, 2),
     ]
 
 

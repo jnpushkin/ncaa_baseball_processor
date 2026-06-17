@@ -44,6 +44,14 @@ SOURCE_TRUTH_SECTIONS = {
     "home_pitching": SOURCE_TRUTH_PITCHING_FIELDS,
 }
 
+KNOWN_UNAVAILABLE_PLAY_BY_PLAY_GAME_IDS = {
+    # Pointstreak-origin games where the box score is preserved but current live
+    # / play-by-play endpoints redirect or 403 through Stack Sports.
+    "partner_american_association_497562",
+    "partner_american_association_497575",
+    "partner_atlantic_league_612414",
+}
+
 
 def _load_cache_entries() -> List[CacheEntry]:
     entries: List[CacheEntry] = []
@@ -367,6 +375,85 @@ def _detail_pitching_stat_issues(path: Path, detail: Dict[str, Any]) -> list[str
     return issues
 
 
+_PARTNER_ROSTER_RECORD_CACHE: dict[tuple[str, str], tuple[set[str], set[str]]] = {}
+
+
+def _partner_roster_team_key(value: Any) -> str:
+    text = re.sub(r"^\d{4}\s+", "", str(value or "").strip())
+    return re.sub(r"[^a-z0-9]", "", text.lower())
+
+
+def _partner_roster_records(team: str, year: str) -> tuple[set[str], set[str]]:
+    if not team or not year:
+        return set(), set()
+    cache_key = (_partner_roster_team_key(team), year)
+    if cache_key in _PARTNER_ROSTER_RECORD_CACHE:
+        return _PARTNER_ROSTER_RECORD_CACHE[cache_key]
+
+    data: Dict[str, Any] = {}
+    roster_dir = BASE_DIR / "partner" / "rosters"
+    for roster_path in roster_dir.glob("*.json"):
+        if year not in roster_path.stem:
+            continue
+        try:
+            candidate = json.loads(roster_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if _partner_roster_team_key(candidate.get("team_name") or candidate.get("team")) == cache_key[0]:
+            data = candidate
+            break
+    if not data:
+        _PARTNER_ROSTER_RECORD_CACHE[cache_key] = (set(), set())
+        return _PARTNER_ROSTER_RECORD_CACHE[cache_key]
+
+    names: set[str] = set()
+    bref_ids: set[str] = set()
+    for player in data.get("players", []) or []:
+        if not isinstance(player, dict):
+            continue
+        name = normalize_player_name(player.get("name"))
+        bref_id = str(player.get("bref_id") or "").strip()
+        if name:
+            names.add(name)
+        if bref_id:
+            bref_ids.add(bref_id)
+    _PARTNER_ROSTER_RECORD_CACHE[cache_key] = (names, bref_ids)
+    return _PARTNER_ROSTER_RECORD_CACHE[cache_key]
+
+
+def _partner_roster_assignment_issues(path: Path, detail: Dict[str, Any]) -> list[str]:
+    if detail.get("source") != "partner":
+        return []
+
+    year = str(detail.get("date_yyyymmdd") or "")[:4]
+    teams = {
+        "away": str(detail.get("away_team") or ""),
+        "home": str(detail.get("home_team") or ""),
+    }
+    rosters = {side: _partner_roster_records(team, year) for side, team in teams.items()}
+    if not all(names or bref_ids for names, bref_ids in rosters.values()):
+        return []
+
+    issues: list[str] = []
+    for side, other_side in (("away", "home"), ("home", "away")):
+        side_names, side_ids = rosters[side]
+        other_names, other_ids = rosters[other_side]
+        for section in ("batting", "pitching"):
+            key = f"{side}_{section}"
+            for index, row in enumerate(_detail_rows(detail, key)):
+                player = row.get("name") or row.get("full_name") or f"{key}[{index}]"
+                name = normalize_player_name(player)
+                bref_id = str(row.get("bref_id") or row.get("player_id") or "").strip()
+                assigned_match = (name and name in side_names) or (bref_id and bref_id in side_ids)
+                opposite_match = (name and name in other_names) or (bref_id and bref_id in other_ids)
+                if opposite_match and not assigned_match:
+                    issues.append(
+                        f"{path.name}:{key}[{index}] {player}: roster matches "
+                        f"{teams[other_side]}, not {teams[side]}"
+                    )
+    return issues
+
+
 def _find_detail_batter(detail: Dict[str, Any], player: Any) -> Dict[str, Any] | None:
     target = _person_key(player)
     if not target:
@@ -595,6 +682,7 @@ def audit_generated_website(
     expected_source_truth: Dict[str, Dict[str, Any]] | None = None,
     strict_cache_count: bool = False,
     strict_source_truth: bool = False,
+    require_play_by_play: bool = False,
 ) -> tuple[dict[str, Any], list[str], list[str]]:
     """Audit generated website data without requiring a specific architecture."""
     web_dir = web_dir or (BASE_DIR / "web")
@@ -720,6 +808,7 @@ def audit_generated_website(
     issues.extend(_unified_game_log_issues(site_data))
 
     detail_payloads: Dict[str, Dict[str, Any]] = {}
+    missing_play_by_play: list[str] = []
     for path in detail_files:
         try:
             detail = json.loads(path.read_text(encoding="utf-8"))
@@ -727,6 +816,9 @@ def audit_generated_website(
             issues.append(f"{path}: failed to load detail JSON ({exc})")
             continue
         detail_payloads[path.stem] = detail
+        if require_play_by_play and not detail.get("play_by_play"):
+            if path.stem not in KNOWN_UNAVAILABLE_PLAY_BY_PLAY_GAME_IDS:
+                missing_play_by_play.append(path.stem)
 
         for key in ("away_batting", "home_batting"):
             for index, row in enumerate(_detail_rows(detail, key)):
@@ -760,6 +852,13 @@ def audit_generated_website(
                     break
         issues.extend(_detail_batting_stat_issues(path, detail))
         issues.extend(_detail_pitching_stat_issues(path, detail))
+        issues.extend(_partner_roster_assignment_issues(path, detail))
+
+    if missing_play_by_play:
+        issues.append(
+            f"{len(missing_play_by_play)} generated detail file(s) missing play-by-play: "
+            + ", ".join(missing_play_by_play[:10])
+        )
 
     source_truth_findings: list[str] = []
     if expected_source_truth is not None:
@@ -788,6 +887,7 @@ def audit_generated_website(
         "source_truth_mismatches": len(source_truth_findings),
         "source_merge_warnings": source_merge_warnings,
         "unmerged_source_candidates": unmerged_source_candidates,
+        "unexpected_missing_play_by_play": len(missing_play_by_play),
     }
     return summary, issues, warnings
 
@@ -825,6 +925,7 @@ def run_integrity_audit(
         expected_source_truth=expected_source_truth,
         strict_cache_count=strict_generated_from_cache,
         strict_source_truth=strict_source_truth,
+        require_play_by_play=strict_generated_from_cache,
     )
     summary = {
         "cache": cache_summary,

@@ -27,7 +27,9 @@
       "home": "High-A"
     },
     "source": "milb",
-    "game_pk": 784595
+    "game_pk": 784595,
+    "source_feed_url": "https://statsapi.mlb.com/api/v1.1/game/784595/feed/live",
+    "source_box_score_url": "https://statsapi.mlb.com/api/v1/game/784595/boxscore"
   },
   "box_score": {
     "away_batting": [
@@ -76,7 +78,7 @@
         "lob": 0
       },
       {
-        "name": "Jes\u00fas  B\u00e1ez",
+        "name": "Jesús  Báez",
         "player_id": 800305,
         "position": "2B",
         "jersey_number": "23",
@@ -364,7 +366,7 @@
         "lob": 1
       },
       {
-        "name": "Aneudis Mord\u00e1n",
+        "name": "Aneudis Mordán",
         "player_id": 698937,
         "position": "C",
         "jersey_number": "58",
@@ -616,6 +618,791 @@
     ]
   },
   "game_notes": {},
-  "play_by_play": {},
+  "play_by_play": {
+    "1": {
+      "top": [
+        {
+          "description": "A.J. Ewing pops out to shortstop Griff O'Ferrall.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "A.J. Ewing",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Carson Benge walks.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Carson Benge",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Jesús Báez singles on a line drive to right fielder Vance Honeycutt. Carson Benge to 2nd.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jesús  Báez",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Jacob Reimer lines out to center fielder Austin Overn. Carson Benge to 3rd.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 0,
+          "home_score": 0,
+          "batter": "Jacob Reimer",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Eli Serrano III grounds out, shortstop Griff O'Ferrall to first baseman Cole Urman.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Eli Serrano III",
+          "pitcher": "Juan Rojas"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Austin Overn walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Austin Overn",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Griff O'Ferrall reaches on a fielding error by third baseman Boston Baro. Austin Overn to 2nd.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Field Error",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Griff O'Ferrall",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Aron Estrada flies out to left fielder Chris Suero.",
+          "pitch_count": "2-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Aron Estrada",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Vance Honeycutt called out on strikes and Austin Overn caught stealing 3rd, catcher Ronald Hernandez to third baseman Boston Baro to catcher Ronald Hernandez.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout Double Play",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Vance Honeycutt",
+          "pitcher": "Nate Dohm"
+        }
+      ]
+    },
+    "2": {
+      "top": [
+        {
+          "description": "Marco Vargas singles on a ground ball to center fielder Austin Overn.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 1,
+          "home_score": 0,
+          "batter": "Marco Vargas",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Chris Suero triples (1) on a ground ball to left fielder Jake Cunningham. Marco Vargas scores.",
+          "pitch_count": "1-2",
+          "rbi": 1,
+          "event": "Triple",
+          "away_score": 2,
+          "home_score": 0,
+          "batter": "Chris Suero",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Boston Baro lines out to right fielder Vance Honeycutt.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Boston Baro",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Ronald Hernandez flies out to left fielder Jake Cunningham.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Ronald Hernandez",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "A.J. Ewing grounds out to first baseman Cole Urman.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "A.J. Ewing",
+          "pitcher": "Juan Rojas"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Leandro Arias lines out to shortstop Marco Vargas.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Leandro Arias",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Jake Cunningham walks.",
+          "pitch_count": "4-2",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Jake Cunningham",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Aneudis Mordán strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Aneudis Mordán",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Ryan Stafford strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Ryan Stafford",
+          "pitcher": "Nate Dohm"
+        }
+      ]
+    },
+    "3": {
+      "top": [
+        {
+          "description": "Carson Benge grounds out, second baseman Aron Estrada to first baseman Cole Urman.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Carson Benge",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Jesús Báez grounds out, shortstop Griff O'Ferrall to first baseman Cole Urman.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Jesús  Báez",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Jacob Reimer singles on a ground ball to left fielder Jake Cunningham.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Jacob Reimer",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Eli Serrano III singles on a line drive to left fielder Jake Cunningham. Jacob Reimer to 2nd.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 3,
+          "home_score": 0,
+          "batter": "Eli Serrano III",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Marco Vargas doubles (3) on a ground ball to right fielder Vance Honeycutt. Jacob Reimer scores. Eli Serrano III scores.",
+          "pitch_count": "3-2",
+          "rbi": 2,
+          "event": "Double",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Marco Vargas",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Chris Suero pops out to first baseman Cole Urman in foul territory.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Chris Suero",
+          "pitcher": "Juan Rojas"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Cole Urman strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Cole Urman",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Austin Overn strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Austin Overn",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Griff O'Ferrall doubles (7) on a ground ball to left fielder Chris Suero.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Griff O'Ferrall",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Aron Estrada strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Aron Estrada",
+          "pitcher": "Nate Dohm"
+        }
+      ]
+    },
+    "4": {
+      "top": [
+        {
+          "description": "Boston Baro grounds out to first baseman Cole Urman.",
+          "pitch_count": "3-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Boston Baro",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Ronald Hernandez singles on a ground ball to center fielder Austin Overn.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Ronald Hernandez",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "A.J. Ewing grounds into a force out, first baseman Cole Urman to shortstop Griff O'Ferrall. Ronald Hernandez out at 2nd. A.J. Ewing to 1st.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Forceout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "A.J. Ewing",
+          "pitcher": "Juan Rojas"
+        },
+        {
+          "description": "Carson Benge walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Carson Benge",
+          "pitcher": "Trent Turzenski"
+        },
+        {
+          "description": "Jesús Báez pops out to first baseman Cole Urman.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Jesús  Báez",
+          "pitcher": "Trent Turzenski"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Vance Honeycutt called out on strikes.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Vance Honeycutt",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Leandro Arias grounds out, second baseman Jesús Báez to first baseman Jacob Reimer.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Leandro Arias",
+          "pitcher": "Nate Dohm"
+        },
+        {
+          "description": "Jake Cunningham strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Jake Cunningham",
+          "pitcher": "Nate Dohm"
+        }
+      ]
+    },
+    "5": {
+      "top": [
+        {
+          "description": "Jacob Reimer strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Jacob Reimer",
+          "pitcher": "Trent Turzenski"
+        },
+        {
+          "description": "Eli Serrano III doubles (11) on a fly ball to left fielder Jake Cunningham.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 5,
+          "home_score": 0,
+          "batter": "Eli Serrano III",
+          "pitcher": "Trent Turzenski"
+        },
+        {
+          "description": "Marco Vargas grounds out, shortstop Griff O'Ferrall to first baseman Cole Urman. Eli Serrano III scores.",
+          "pitch_count": "2-2",
+          "rbi": 1,
+          "event": "Groundout",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Marco Vargas",
+          "pitcher": "Trent Turzenski"
+        },
+        {
+          "description": "Chris Suero doubles (9) on a ground ball to left fielder Jake Cunningham.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Double",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Chris Suero",
+          "pitcher": "Trent Turzenski"
+        },
+        {
+          "description": "Boston Baro walks. Chris Suero to 3rd. Wild pitch by pitcher Trent Turzenski. Chris Suero to 3rd.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Boston Baro",
+          "pitcher": "Trent Turzenski"
+        },
+        {
+          "description": "Ronald Hernandez strikes out swinging.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Ronald Hernandez",
+          "pitcher": "Trent Turzenski"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Aneudis Mordán lines out to center fielder A.J. Ewing.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Aneudis Mordán",
+          "pitcher": "Raimon Gomez"
+        },
+        {
+          "description": "Ryan Stafford called out on strikes.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Ryan Stafford",
+          "pitcher": "Raimon Gomez"
+        },
+        {
+          "description": "Cole Urman lines out to left fielder Chris Suero.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Cole Urman",
+          "pitcher": "Raimon Gomez"
+        }
+      ]
+    },
+    "6": {
+      "top": [
+        {
+          "description": "A.J. Ewing called out on strikes.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "A.J. Ewing",
+          "pitcher": "Trent Turzenski"
+        },
+        {
+          "description": "Carson Benge pops out to shortstop Griff O'Ferrall.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Carson Benge",
+          "pitcher": "Carter Rustad"
+        },
+        {
+          "description": "Jesús Báez grounds out, third baseman Leandro Arias to first baseman Cole Urman.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Jesús  Báez",
+          "pitcher": "Carter Rustad"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Austin Overn walks.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Austin Overn",
+          "pitcher": "Raimon Gomez"
+        },
+        {
+          "description": "Griff O'Ferrall strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 0,
+          "batter": "Griff O'Ferrall",
+          "pitcher": "Raimon Gomez"
+        },
+        {
+          "description": "Aron Estrada singles on a ground ball to third baseman Boston Baro. Austin Overn scores. Throwing error by third baseman Boston Baro.",
+          "pitch_count": "0-2",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Aron Estrada",
+          "pitcher": "Raimon Gomez"
+        },
+        {
+          "description": "Vance Honeycutt strikes out swinging and Aron Estrada caught stealing 2nd, catcher Ronald Hernandez to second baseman Jesús Báez to catcher Ronald Hernandez.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout Double Play",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Vance Honeycutt",
+          "pitcher": "Raimon Gomez"
+        }
+      ]
+    },
+    "7": {
+      "top": [
+        {
+          "description": "Jacob Reimer grounds out, third baseman Leandro Arias to first baseman Cole Urman.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Jacob Reimer",
+          "pitcher": "Carter Rustad"
+        },
+        {
+          "description": "Eli Serrano III flies out to center fielder Austin Overn.",
+          "pitch_count": "1-1",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Eli Serrano III",
+          "pitcher": "Carter Rustad"
+        },
+        {
+          "description": "Marco Vargas pops out to third baseman Leandro Arias.",
+          "pitch_count": "1-0",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Marco Vargas",
+          "pitcher": "Carter Rustad"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Leandro Arias strikes out swinging.",
+          "pitch_count": "2-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Leandro Arias",
+          "pitcher": "Brian Metoyer"
+        },
+        {
+          "description": "Jake Cunningham walks.",
+          "pitch_count": "4-1",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Jake Cunningham",
+          "pitcher": "Brian Metoyer"
+        },
+        {
+          "description": "Aneudis Mordán strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Aneudis Mordán",
+          "pitcher": "Brian Metoyer"
+        },
+        {
+          "description": "Catcher Ronald Hernandez picks off Jake Cunningham at 3rd on throw to third baseman Boston Baro.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Pickoff 3B",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Ryan Stafford",
+          "pitcher": "Brian Metoyer"
+        }
+      ]
+    },
+    "8": {
+      "top": [
+        {
+          "description": "Chris Suero grounds out, third baseman Leandro Arias to first baseman Cole Urman.",
+          "pitch_count": "3-2",
+          "rbi": 0,
+          "event": "Groundout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Chris Suero",
+          "pitcher": "Carter Rustad"
+        },
+        {
+          "description": "Boston Baro strikes out on a foul tip.",
+          "pitch_count": "0-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Boston Baro",
+          "pitcher": "Carter Rustad"
+        },
+        {
+          "description": "Ronald Hernandez singles on a line drive to center fielder Austin Overn. Ronald Hernandez out at 2nd on the throw, center fielder Austin Overn to shortstop Griff O'Ferrall to second baseman Aron Estrada.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Single",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Ronald Hernandez",
+          "pitcher": "Carter Rustad"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Ryan Stafford strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Ryan Stafford",
+          "pitcher": "Jace Beck"
+        },
+        {
+          "description": "Cole Urman strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Cole Urman",
+          "pitcher": "Jace Beck"
+        },
+        {
+          "description": "Austin Overn walks.",
+          "pitch_count": "4-0",
+          "rbi": 0,
+          "event": "Walk",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Austin Overn",
+          "pitcher": "Jace Beck"
+        },
+        {
+          "description": "Griff O'Ferrall strikes out swinging.",
+          "pitch_count": "3-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Griff O'Ferrall",
+          "pitcher": "Jace Beck"
+        }
+      ]
+    },
+    "9": {
+      "top": [
+        {
+          "description": "A.J. Ewing called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "A.J. Ewing",
+          "pitcher": "Zane Barnhart"
+        },
+        {
+          "description": "Carson Benge lines out to third baseman Leandro Arias.",
+          "pitch_count": "0-1",
+          "rbi": 0,
+          "event": "Lineout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Carson Benge",
+          "pitcher": "Zane Barnhart"
+        },
+        {
+          "description": "Jesús Báez pops out to third baseman Leandro Arias in foul territory.",
+          "pitch_count": "2-2",
+          "rbi": 0,
+          "event": "Pop Out",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Jesús  Báez",
+          "pitcher": "Zane Barnhart"
+        }
+      ],
+      "bottom": [
+        {
+          "description": "Aron Estrada hit by pitch.",
+          "pitch_count": "1-2",
+          "rbi": 0,
+          "event": "Hit By Pitch",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Aron Estrada",
+          "pitcher": "Eduardo Herrera"
+        },
+        {
+          "description": "Vance Honeycutt called out on strikes.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Vance Honeycutt",
+          "pitcher": "Eduardo Herrera"
+        },
+        {
+          "description": "Leandro Arias strikes out swinging.",
+          "pitch_count": "1-3",
+          "rbi": 0,
+          "event": "Strikeout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Leandro Arias",
+          "pitcher": "Eduardo Herrera"
+        },
+        {
+          "description": "Jake Cunningham flies out to right fielder Carson Benge.",
+          "pitch_count": "0-0",
+          "rbi": 0,
+          "event": "Flyout",
+          "away_score": 6,
+          "home_score": 1,
+          "batter": "Jake Cunningham",
+          "pitcher": "Eduardo Herrera"
+        }
+      ]
+    }
+  },
   "format": "milb_api"
 }

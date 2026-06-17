@@ -5,6 +5,7 @@ Website generator for interactive HTML output.
 import os
 import json
 import base64
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any
@@ -159,6 +160,152 @@ def _player_name_lookup_key(value: Any) -> str:
     return normalize_name(normalize_player_name(str(value or "").strip()))
 
 
+_DEFENSIVE_POSITION_RE = re.compile(
+    r"(?:^|[.;]\s*)(?P<player>[A-Za-z][A-Za-z.'’ -]*(?:,\s*[A-Za-z.]+)?)\s+to\s+"
+    r"(?P<position>p|c|1b|2b|3b|ss|lf|cf|rf|dh)\b",
+    re.IGNORECASE,
+)
+_DEFENSIVE_REPLACEMENT_RE = re.compile(
+    r"(?:^|[.;]\s*)(?P<incoming>[A-Za-z][A-Za-z.'’ -]*(?:,\s*[A-Za-z.]+)?)\s+to\s+"
+    r"(?P<position>p|c|1b|2b|3b|ss|lf|cf|rf|dh)\s+for\s+"
+    r"(?P<outgoing>[A-Za-z][A-Za-z.'’ -]*(?:,\s*[A-Za-z.]+)?)\b",
+    re.IGNORECASE,
+)
+_OFFENSIVE_ROLE_RE = re.compile(
+    r"(?:^|[.;]\s*)(?P<player>[A-Za-z][A-Za-z.'’ -]*(?:,\s*[A-Za-z.]+)?)\s+pinch\s+"
+    r"(?P<role>ran|hit)\b",
+    re.IGNORECASE,
+)
+_OFFENSIVE_ROLE_CODES = {"ran": "PR", "hit": "PH"}
+_POSITION_ROLE_CODES = {"PH", "PR"}
+
+
+def _position_codes(value: Any) -> List[str]:
+    return [
+        code.strip().upper()
+        for code in str(value or "").split("/")
+        if code.strip()
+    ]
+
+
+def _merge_position_codes(*values: Any) -> str:
+    """Return uppercase position/role codes with pinch roles first."""
+    roles: List[str] = []
+    positions: List[str] = []
+
+    def add(code: str) -> None:
+        target = roles if code in _POSITION_ROLE_CODES else positions
+        if code not in target:
+            target.append(code)
+
+    for value in values:
+        for code in _position_codes(value):
+            add(code)
+    return "/".join(roles + positions)
+
+
+def _format_position(value: Any) -> str:
+    """Return a compact uppercase baseball position code for frontend display."""
+    return _merge_position_codes(value)
+
+
+def _player_name_match_keys(value: Any) -> List[str]:
+    """Return exact, initial+last, and last-name keys for conservative row matching."""
+    key = _player_name_lookup_key(value)
+    if not key:
+        return []
+
+    keys: List[str] = []
+
+    def add(candidate: str) -> None:
+        if candidate and candidate not in keys:
+            keys.append(candidate)
+
+    add(key)
+    parts = key.split()
+    if len(parts) >= 2:
+        first = parts[0].rstrip(".")
+        last = parts[-1]
+        if first:
+            add(f"{first[0]} {last}")
+        add(last)
+    return keys
+
+
+def _build_unique_batter_name_index(rows: List[Dict[str, Any]]) -> Dict[str, int]:
+    """Map unambiguous batter-name keys to row indexes."""
+    counts: Dict[str, int] = {}
+    indexes: Dict[str, int] = {}
+    for index, row in enumerate(rows):
+        for key in _player_name_match_keys(row.get("full_name") or row.get("name")):
+            counts[key] = counts.get(key, 0) + 1
+            indexes.setdefault(key, index)
+    return {key: index for key, index in indexes.items() if counts.get(key) == 1}
+
+
+def _infer_batter_positions_from_pbp(normalized_game: Dict[str, Any]) -> Dict[tuple[str, int], str]:
+    """Backfill blank batter positions from defensive substitution PBP lines."""
+    batting = normalized_game.get("batting", {}) or {}
+    play_by_play = normalized_game.get("play_by_play", {}) or {}
+    batting_rows = {side: batting.get(side, []) or [] for side in ("away", "home")}
+    side_indexes = {
+        side: _build_unique_batter_name_index(batting_rows[side])
+        for side in ("away", "home")
+    }
+    inferred: Dict[tuple[str, int], str] = {}
+
+    def add_inferred_position(
+        side: str,
+        player: str,
+        position: str,
+        *,
+        only_if_blank: bool = False,
+    ) -> None:
+        for key in _player_name_match_keys(player):
+            row_index = side_indexes[side].get(key)
+            if row_index is not None:
+                if only_if_blank and _format_position(batting_rows[side][row_index].get("position")):
+                    break
+                inferred[(side, row_index)] = _merge_position_codes(
+                    inferred.get((side, row_index)),
+                    position,
+                )
+                break
+
+    for inning in play_by_play.values():
+        if not isinstance(inning, dict):
+            continue
+        for half, offensive_side, defensive_side in (
+            ("top", "away", "home"),
+            ("bottom", "home", "away"),
+        ):
+            events = inning.get(half, []) or []
+            for event in events:
+                description = (
+                    event.get("description", "")
+                    if isinstance(event, dict)
+                    else str(event or "")
+                )
+                for match in _OFFENSIVE_ROLE_RE.finditer(description):
+                    role = _OFFENSIVE_ROLE_CODES.get(match.group("role").lower())
+                    if role:
+                        add_inferred_position(offensive_side, match.group("player"), role)
+                for match in _DEFENSIVE_REPLACEMENT_RE.finditer(description):
+                    position = _format_position(match.group("position"))
+                    if position:
+                        add_inferred_position(
+                            defensive_side,
+                            match.group("outgoing"),
+                            position,
+                            only_if_blank=True,
+                        )
+                for match in _DEFENSIVE_POSITION_RE.finditer(description):
+                    position = _format_position(match.group("position"))
+                    if position:
+                        add_inferred_position(defensive_side, match.group("player"), position)
+    return inferred
+
+
 def _ip_lookup_key(value: Any) -> str:
     text = str(value or "0").strip()
     try:
@@ -280,6 +427,7 @@ def _detail_batter_row(row: Dict[str, Any], extra_stats_lookup: Dict[str, Dict[s
         'full_name': row.get('full_name') or name,
         'player_id': row.get('player_id', ''),
         'bref_id': row.get('bref_id', ''),
+        'position': _format_position(row.get('position')),
         'ab': row.get('AB', 0),
         'r': row.get('R', 0),
         'h': row.get('H', 0),
@@ -342,12 +490,95 @@ def _serialize_detail_box_score(normalized_game: Dict[str, Any]) -> Dict[str, Li
             return True
         return bool(str(row.get('position') or '').strip())
 
+    inferred_positions = _infer_batter_positions_from_pbp(normalized_game)
+
+    def with_inferred_position(row: Dict[str, Any], side: str, index: int) -> Dict[str, Any]:
+        position = _merge_position_codes(
+            row.get('position'),
+            inferred_positions.get((side, index)),
+        )
+        if position == _format_position(row.get('position')):
+            return row
+        if not position:
+            return row
+        updated = dict(row)
+        updated['position'] = position
+        return updated
+
     return {
-        'away_batting': [_detail_batter_row(row, extra_stats_lookup) for row in batting.get('away', []) if has_batting_signal(row)],
-        'home_batting': [_detail_batter_row(row, extra_stats_lookup) for row in batting.get('home', []) if has_batting_signal(row)],
+        'away_batting': [
+            _detail_batter_row(with_inferred_position(row, 'away', index), extra_stats_lookup)
+            for index, row in enumerate(batting.get('away', []))
+            if has_batting_signal(row)
+        ],
+        'home_batting': [
+            _detail_batter_row(with_inferred_position(row, 'home', index), extra_stats_lookup)
+            for index, row in enumerate(batting.get('home', []))
+            if has_batting_signal(row)
+        ],
         'away_pitching': [_detail_pitcher_row(row) for row in pitching.get('away', []) if has_player_identity(row)],
         'home_pitching': [_detail_pitcher_row(row) for row in pitching.get('home', []) if has_player_identity(row)],
     }
+
+
+def _field_position_codes(value: Any) -> List[str]:
+    return [
+        code
+        for code in _position_codes(value)
+        if code and code not in _POSITION_ROLE_CODES
+    ]
+
+
+def _detail_position_lookup_keys(team: Any, row: Dict[str, Any]) -> List[str]:
+    keys: List[str] = []
+    bref_id = str(row.get('bref_id') or row.get('register_id') or '').strip()
+    if bref_id:
+        keys.append(f'id:{bref_id}')
+
+    team_key = _text_lookup_key(team)
+    name_key = _player_name_lookup_key(row.get('full_name') or row.get('name'))
+    if team_key and name_key:
+        keys.append(f'team:{team_key}:name:{name_key}')
+    return keys
+
+
+def _stable_detail_position_lookup(game_details: Dict[str, Dict[str, Any]]) -> Dict[str, str]:
+    candidates: Dict[str, set[str]] = {}
+    for detail in game_details.values():
+        box_score = detail.get('box_score', {}) or {}
+        for side in ('away', 'home'):
+            team = detail.get(f'{side}_team', '')
+            for row in box_score.get(f'{side}_batting', []) or []:
+                codes = _field_position_codes(row.get('position'))
+                if not codes:
+                    continue
+                for key in _detail_position_lookup_keys(team, row):
+                    candidates.setdefault(key, set()).update(codes)
+
+    return {
+        key: next(iter(codes))
+        for key, codes in candidates.items()
+        if len(codes) == 1
+    }
+
+
+def _apply_stable_detail_positions(game_details: Dict[str, Dict[str, Any]]) -> None:
+    stable_positions = _stable_detail_position_lookup(game_details)
+    if not stable_positions:
+        return
+
+    for detail in game_details.values():
+        box_score = detail.get('box_score', {}) or {}
+        for side in ('away', 'home'):
+            team = detail.get(f'{side}_team', '')
+            for row in box_score.get(f'{side}_batting', []) or []:
+                if _format_position(row.get('position')):
+                    continue
+                for key in _detail_position_lookup_keys(team, row):
+                    position = stable_positions.get(key)
+                    if position:
+                        row['position'] = position
+                        break
 
 
 def _resolve_quality_issue_player(
@@ -471,6 +702,7 @@ def _build_per_game_details(raw_game_index: Dict, player_name_aliases: Dict | No
                 ),
             }
             details[gid] = detail
+    _apply_stable_detail_positions(details)
     return details
 
 
