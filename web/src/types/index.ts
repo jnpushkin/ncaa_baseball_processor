@@ -34,6 +34,9 @@ export interface UnifiedGame {
 export interface BoxScoreBatter {
   name?: string;
   full_name?: string;
+  team?: string;
+  side?: string;
+  player_id?: string | number;
   position?: string;
   number?: string | number;
   jersey_number?: string | number;
@@ -60,6 +63,9 @@ export interface BoxScoreBatter {
 export interface BoxScorePitcher {
   name?: string;
   full_name?: string;
+  team?: string;
+  side?: string;
+  player_id?: string | number;
   number?: string | number;
   jersey_number?: string | number;
   ip?: number | string;
@@ -78,6 +84,7 @@ export interface BoxScorePitcher {
   wins?: number;
   losses?: number;
   saves?: number;
+  bref_id?: string;
 }
 
 export interface GameNoteEvent {

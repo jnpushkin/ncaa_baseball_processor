@@ -576,6 +576,10 @@ export default function App({ data: initialData }: AppProps) {
             hasPrev={gameLog.slice(selectedGameIndex + 1).some((g) => !!g.game_id)}
             hasNext={gameLog.slice(0, selectedGameIndex).some((g) => !!g.game_id)}
             data={data}
+            onPlayerClick={(player, type) => {
+              handlePlayerClick(player, type);
+              closeGame();
+            }}
           />
         )}
       </div>

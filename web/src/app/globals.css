@@ -869,15 +869,63 @@ tr:hover {
   margin: 12px 0 4px 0;
   font-weight: 600;
 }
+.gdm-table-container {
+  max-height: none;
+  border: 1px solid var(--color-border-light);
+  border-radius: 6px;
+}
+.gdm-box-table {
+  font-variant-numeric: tabular-nums;
+}
 .gdm-box-table th,
 .gdm-box-table td {
   text-align: center;
   font-size: 0.82rem;
-  padding: 4px 6px;
+  padding: 5px 7px;
+  white-space: nowrap;
 }
-.gdm-box-table th:first-child,
-.gdm-box-table td:first-child {
+.gdm-box-table th {
+  cursor: default;
+}
+.gdm-box-table .gdm-name-col {
   text-align: left;
+  min-width: 190px;
+}
+.gdm-box-table tbody tr:hover {
+  background: #eef5ff;
+}
+.gdm-box-table tfoot td {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  border-top: 2px solid var(--color-border);
+  background: #f5f7fa;
+  font-weight: 700;
+}
+.gdm-box-table tfoot td:first-child {
+  z-index: 2;
+}
+.gdm-score-stat {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+.gdm-player-link {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+}
+.gdm-player-link:hover {
+  text-decoration: underline;
+}
+.gdm-player-link:focus-visible {
+  outline: 2px solid rgba(30, 58, 95, 0.28);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 .gdm-plays-section h4 {
   margin: 12px 0 6px 0;

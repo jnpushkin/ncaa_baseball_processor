@@ -26,19 +26,86 @@ interface Props {
   hasPrev?: boolean;
   hasNext?: boolean;
   data: SiteData;
+  onPlayerClick?: (player: BoxScorePlayerClickRow, type: "batter" | "pitcher") => void;
 }
+
+type BoxScorePlayerClickRow = {
+  name?: string;
+  Player?: string;
+  Team?: string;
+  team?: string;
+  bref_id?: string;
+  Level?: string;
+  level?: string;
+  levels?: { level: string }[];
+};
 
 const num = (v: unknown) => {
   const n = parseInt(String(v ?? 0));
   return Number.isFinite(n) ? n : 0;
 };
 
-const formatPosition = (v: unknown) => String(v ?? "").trim().toUpperCase();
-
 const pick = <T,>(...vals: (T | undefined | null)[]): T | undefined => {
   for (const v of vals) if (v !== undefined && v !== null) return v;
   return undefined;
 };
+
+const playerName = (row: BoxScoreBatter | BoxScorePitcher) =>
+  String(pick(row.full_name, row.name, "") ?? "");
+
+const battingTotal = (rows: BoxScoreBatter[], field: keyof BoxScoreBatter) =>
+  rows.reduce((total, row) => total + num(row[field]), 0);
+
+const pitchingTotal = (rows: BoxScorePitcher[], field: keyof BoxScorePitcher) =>
+  rows.reduce((total, row) => total + num(row[field]), 0);
+
+function formatBatterPosition(row: BoxScoreBatter) {
+  const position = String(row.position ?? "").trim().toUpperCase();
+  const order = String(row.batting_order ?? "").trim();
+  if (position && order && order !== "0" && order !== "100") return `${order}-${position}`;
+  return position || "";
+}
+
+function PlayerNameButton({
+  name,
+  row,
+  teamName,
+  level,
+  type,
+  onPlayerClick,
+}: {
+  name: string;
+  row: BoxScoreBatter | BoxScorePitcher;
+  teamName: string;
+  level: string;
+  type: "batter" | "pitcher";
+  onPlayerClick?: Props["onPlayerClick"];
+}) {
+  if (!name) return null;
+  return (
+    <button
+      type="button"
+      className="gdm-player-link"
+      onClick={() =>
+        onPlayerClick?.(
+          {
+            name,
+            Player: name,
+            Team: row.team || teamName,
+            team: row.team || teamName,
+            bref_id: row.bref_id || "",
+            Level: level,
+            level,
+            levels: [{ level }],
+          },
+          type
+        )
+      }
+    >
+      {name}
+    </button>
+  );
+}
 
 const SOURCE_LABELS: Record<string, string> = {
   ncaa_pdf: "NCAA PDF",
@@ -113,62 +180,133 @@ function SourceQualityNote({ quality }: { quality: GameDetails["data_quality"] }
   );
 }
 
-function BatterTable({ rows }: { rows: BoxScoreBatter[] }) {
+function BatterTable({
+  rows,
+  teamName,
+  level,
+  onPlayerClick,
+}: {
+  rows: BoxScoreBatter[];
+  teamName: string;
+  level: string;
+  onPlayerClick?: Props["onPlayerClick"];
+}) {
   if (!rows || rows.length === 0)
     return <div className="gdm-empty">No batting data</div>;
+  const totals = {
+    ab: battingTotal(rows, "ab") || battingTotal(rows, "at_bats"),
+    r: battingTotal(rows, "r") || battingTotal(rows, "runs"),
+    h: battingTotal(rows, "h") || battingTotal(rows, "hits"),
+    rbi: battingTotal(rows, "rbi"),
+    bb: battingTotal(rows, "bb") || battingTotal(rows, "walks"),
+    k: battingTotal(rows, "k") || battingTotal(rows, "strikeouts"),
+    doubles: battingTotal(rows, "doubles"),
+    triples: battingTotal(rows, "triples"),
+    hr: battingTotal(rows, "hr"),
+    sb: battingTotal(rows, "sb"),
+    lob: battingTotal(rows, "lob"),
+  };
   return (
-    <div className="table-container">
+    <div className="table-container gdm-table-container">
       <table className="data-table gdm-box-table">
         <thead>
           <tr>
-            <th style={{ textAlign: "left" }}>Batter</th>
+            <th className="gdm-name-col">Hitters</th>
             <th>Pos</th>
             <th>AB</th>
             <th>R</th>
             <th>H</th>
-            <th>2B</th>
-            <th>3B</th>
-            <th>HR</th>
             <th>RBI</th>
             <th>BB</th>
             <th>K</th>
+            <th>2B</th>
+            <th>3B</th>
+            <th>HR</th>
             <th>SB</th>
+            <th>LOB</th>
           </tr>
         </thead>
         <tbody>
-          {rows.map((r, i) => (
-            <tr key={i}>
-              <td style={{ textAlign: "left" }}>
-                {pick(r.full_name, r.name)}
-              </td>
-              <td>{formatPosition(r.position)}</td>
-              <td>{num(pick(r.ab, r.at_bats))}</td>
-              <td>{num(pick(r.r, r.runs))}</td>
-              <td>{num(pick(r.h, r.hits))}</td>
-              <td>{num(r.doubles)}</td>
-              <td>{num(r.triples)}</td>
-              <td>{num(r.hr)}</td>
-              <td>{num(r.rbi)}</td>
-              <td>{num(pick(r.bb, r.walks))}</td>
-              <td>{num(pick(r.k, r.strikeouts))}</td>
-              <td>{num(r.sb)}</td>
-            </tr>
-          ))}
+          {rows.map((r, i) => {
+            const name = playerName(r);
+            return (
+              <tr key={`${name}-${i}`}>
+                <td className="gdm-name-col">
+                  <PlayerNameButton
+                    name={name}
+                    row={r}
+                    teamName={teamName}
+                    level={level}
+                    type="batter"
+                    onPlayerClick={onPlayerClick}
+                  />
+                </td>
+                <td>{formatBatterPosition(r)}</td>
+                <td>{num(pick(r.ab, r.at_bats))}</td>
+                <td className="gdm-score-stat">{num(pick(r.r, r.runs))}</td>
+                <td className="gdm-score-stat">{num(pick(r.h, r.hits))}</td>
+                <td className="gdm-score-stat">{num(r.rbi)}</td>
+                <td>{num(pick(r.bb, r.walks))}</td>
+                <td>{num(pick(r.k, r.strikeouts))}</td>
+                <td>{num(r.doubles)}</td>
+                <td>{num(r.triples)}</td>
+                <td className={num(r.hr) > 0 ? "gdm-score-stat" : ""}>{num(r.hr)}</td>
+                <td>{num(r.sb)}</td>
+                <td>{num(r.lob)}</td>
+              </tr>
+            );
+          })}
         </tbody>
+        <tfoot>
+          <tr>
+            <td className="gdm-name-col">Totals</td>
+            <td></td>
+            <td>{totals.ab}</td>
+            <td className="gdm-score-stat">{totals.r}</td>
+            <td className="gdm-score-stat">{totals.h}</td>
+            <td className="gdm-score-stat">{totals.rbi}</td>
+            <td>{totals.bb}</td>
+            <td>{totals.k}</td>
+            <td>{totals.doubles}</td>
+            <td>{totals.triples}</td>
+            <td className={totals.hr > 0 ? "gdm-score-stat" : ""}>{totals.hr}</td>
+            <td>{totals.sb}</td>
+            <td>{totals.lob}</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
 }
 
-function PitcherTable({ rows }: { rows: BoxScorePitcher[] }) {
+function PitcherTable({
+  rows,
+  teamName,
+  level,
+  onPlayerClick,
+}: {
+  rows: BoxScorePitcher[];
+  teamName: string;
+  level: string;
+  onPlayerClick?: Props["onPlayerClick"];
+}) {
   if (!rows || rows.length === 0)
     return <div className="gdm-empty">No pitching data</div>;
+  const totals = {
+    h: pitchingTotal(rows, "h"),
+    r: pitchingTotal(rows, "r"),
+    er: pitchingTotal(rows, "er"),
+    bb: pitchingTotal(rows, "bb"),
+    k: pitchingTotal(rows, "k"),
+    hr: pitchingTotal(rows, "hr"),
+    np: pitchingTotal(rows, "np"),
+  };
   return (
-    <div className="table-container">
-      <table className="data-table gdm-box-table">
+    <div className="table-container gdm-table-container">
+      <table className="data-table gdm-box-table gdm-pitching-table">
         <thead>
           <tr>
-            <th style={{ textAlign: "left" }}>Pitcher</th>
+            <th className="gdm-name-col">Pitchers</th>
             <th>IP</th>
             <th>H</th>
             <th>R</th>
@@ -180,22 +318,45 @@ function PitcherTable({ rows }: { rows: BoxScorePitcher[] }) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((r, i) => (
-            <tr key={i}>
-              <td style={{ textAlign: "left" }}>
-                {pick(r.full_name, r.name)}
-              </td>
-              <td>{String(r.ip ?? "")}</td>
-              <td>{num(r.h)}</td>
-              <td>{num(r.r)}</td>
-              <td>{num(r.er)}</td>
-              <td>{num(r.bb)}</td>
-              <td>{num(r.k)}</td>
-              <td>{num(r.hr)}</td>
-              <td>{num(r.np)}</td>
-            </tr>
-          ))}
+          {rows.map((r, i) => {
+            const name = playerName(r);
+            return (
+              <tr key={`${name}-${i}`}>
+                <td className="gdm-name-col">
+                  <PlayerNameButton
+                    name={name}
+                    row={r}
+                    teamName={teamName}
+                    level={level}
+                    type="pitcher"
+                    onPlayerClick={onPlayerClick}
+                  />
+                </td>
+                <td className="gdm-score-stat">{String(r.ip ?? "")}</td>
+                <td>{num(r.h)}</td>
+                <td>{num(r.r)}</td>
+                <td>{num(r.er)}</td>
+                <td>{num(r.bb)}</td>
+                <td className="gdm-score-stat">{num(r.k)}</td>
+                <td>{num(r.hr)}</td>
+                <td>{num(r.np)}</td>
+              </tr>
+            );
+          })}
         </tbody>
+        <tfoot>
+          <tr>
+            <td className="gdm-name-col">Totals</td>
+            <td></td>
+            <td>{totals.h}</td>
+            <td>{totals.r}</td>
+            <td>{totals.er}</td>
+            <td>{totals.bb}</td>
+            <td className="gdm-score-stat">{totals.k}</td>
+            <td>{totals.hr}</td>
+            <td>{totals.np}</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
@@ -209,6 +370,7 @@ function TeamBlock({
   batters,
   pitchers,
   data,
+  onPlayerClick,
 }: {
   label: string;
   teamName: string;
@@ -217,6 +379,7 @@ function TeamBlock({
   batters: BoxScoreBatter[];
   pitchers: BoxScorePitcher[];
   data: SiteData;
+  onPlayerClick?: Props["onPlayerClick"];
 }) {
   return (
     <div className="gdm-team-block">
@@ -226,9 +389,19 @@ function TeamBlock({
         <strong>{getTeamDisplayName(teamName, data)}</strong>
       </div>
       <div className="gdm-subhead">Batting</div>
-      <BatterTable rows={batters} />
+      <BatterTable
+        rows={batters}
+        teamName={teamName}
+        level={level}
+        onPlayerClick={onPlayerClick}
+      />
       <div className="gdm-subhead">Pitching</div>
-      <PitcherTable rows={pitchers} />
+      <PitcherTable
+        rows={pitchers}
+        teamName={teamName}
+        level={level}
+        onPlayerClick={onPlayerClick}
+      />
     </div>
   );
 }
@@ -321,6 +494,7 @@ export default function GameDetailsModal({
   hasPrev,
   hasNext,
   data,
+  onPlayerClick,
 }: Props) {
   const levelColors = data.levelColors ?? {};
   const [fetchedDetails, setFetchedDetails] = useState<{
@@ -543,6 +717,7 @@ export default function GameDetailsModal({
                         batters={box?.away_batting ?? []}
                         pitchers={box?.away_pitching ?? []}
                         data={data}
+                        onPlayerClick={onPlayerClick}
                       />
                       <TeamBlock
                         label="Home"
@@ -552,6 +727,7 @@ export default function GameDetailsModal({
                         batters={box?.home_batting ?? []}
                         pitchers={box?.home_pitching ?? []}
                         data={data}
+                        onPlayerClick={onPlayerClick}
                       />
                     </>
                   ) : (
