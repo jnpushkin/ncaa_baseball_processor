@@ -58,6 +58,13 @@ function levelDetails(player: CrossoverPlayer) {
   return player["Level Details"] ?? [];
 }
 
+function crossoverTeamsLine(player: CrossoverPlayer) {
+  return [player["NCAA Teams"], player["MiLB Teams"]]
+    .map((value) => String(value ?? "").trim())
+    .filter(Boolean)
+    .join(" / ");
+}
+
 function uniqueCount(values: string[]) {
   return new Set(values.filter(Boolean)).size;
 }
@@ -280,7 +287,7 @@ export default function Dashboard({
               >
                 <span className="dashboard-list-main">
                   <strong>{player.Name}</strong>
-                  <span>{player["NCAA Teams"]} / {player["MiLB Teams"]}</span>
+                  <span>{crossoverTeamsLine(player)}</span>
                 </span>
                 <span className="dashboard-level-stack">
                   {levelDetails(player).map((detail) => (
