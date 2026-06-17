@@ -426,6 +426,92 @@ def test_processing_games_records_source_merge_stat_disagreements():
     }
 
 
+def test_processing_games_treats_api_whole_inning_ip_as_info():
+    pdf_game = {
+        "metadata": {
+            "date": "3/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "home_pitching": [{"number": "28", "name": "Jake Andreas", "innings_pitched": 2.1, "hits": 3}],
+        },
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "game_id": "6412345",
+            "date": "03/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "home_pitching": [{"number": "28", "name": "Jake Andreas", "ip": "2", "h": 3}],
+        },
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+    source_merge = loaded.processing_games[0]["data_quality"]["source_merge"]
+
+    assert source_merge["confidence"] == "high"
+    assert source_merge["warning_count"] == 0
+    assert source_merge["info_count"] == 1
+    assert source_merge["issues"][0] == {
+        "code": "secondary_ip_partial_outs_unavailable",
+        "severity": "info",
+        "section": "home_pitching",
+        "category": "pitching",
+        "player": "Jake Andreas",
+        "field": "IP",
+        "primary_source": "ncaa_pdf",
+        "secondary_source": "ncaa_api",
+        "primary_value": 2.333,
+        "secondary_value": 2.0,
+        "match_method": "number",
+    }
+
+
+def test_processing_games_warns_on_non_partial_out_ip_disagreements():
+    pdf_game = {
+        "metadata": {
+            "date": "3/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "home_pitching": [{"number": "28", "name": "Jake Andreas", "innings_pitched": 3.0, "hits": 3}],
+        },
+    }
+    api_game = {
+        "metadata": {
+            "source": "ncaa_api",
+            "game_id": "6412345",
+            "date": "03/14/2025",
+            "away_team": "Virginia",
+            "home_team": "California",
+            "away_team_score": 1,
+            "home_team_score": 6,
+        },
+        "box_score": {
+            "home_pitching": [{"number": "28", "name": "Jake Andreas", "ip": "2", "h": 3}],
+        },
+    }
+
+    loaded = sources.SourceGames([pdf_game], [api_game], [], [])
+    source_merge = loaded.processing_games[0]["data_quality"]["source_merge"]
+
+    assert source_merge["confidence"] == "review"
+    assert source_merge["warning_count"] == 1
+    assert source_merge["issues"][0]["code"] == "source_stat_disagreement"
+    assert source_merge["issues"][0]["field"] == "IP"
+
+
 def test_processing_games_ignores_missing_secondary_stats_for_merge_quality():
     pdf_game = {
         "metadata": {

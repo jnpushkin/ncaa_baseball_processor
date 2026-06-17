@@ -421,6 +421,18 @@ def _compare_stat_value(field: str, value: Any) -> Any:
     return safe_int(value)
 
 
+def _is_api_ip_partial_outs_gap(primary_value: Any, api_value: Any) -> bool:
+    """Return True when NCAA API IP keeps only whole innings from a PDF line."""
+    if not isinstance(primary_value, (int, float)) or not isinstance(api_value, (int, float)):
+        return False
+    if primary_value <= api_value:
+        return False
+    if abs(api_value - int(primary_value)) > 0.001:
+        return False
+    partial_outs = round(primary_value - int(primary_value), 3)
+    return abs(partial_outs - 0.333) <= 0.002 or abs(partial_outs - 0.667) <= 0.002
+
+
 def _row_display_name(row: Dict[str, Any]) -> str:
     return str(row.get("full_name") or row.get("name") or "").strip() or "Unknown"
 
@@ -513,6 +525,21 @@ def _source_stat_disagreements(
             primary_value = _compare_stat_value(field, primary_raw)
             api_value = _compare_stat_value(field, api_raw)
             if primary_value is None or api_value is None or primary_value == api_value:
+                continue
+            if category == "pitching" and field == "IP" and _is_api_ip_partial_outs_gap(primary_value, api_value):
+                issues.append({
+                    "code": "secondary_ip_partial_outs_unavailable",
+                    "severity": "info",
+                    "section": section,
+                    "category": category,
+                    "player": player,
+                    "field": field,
+                    "primary_source": "ncaa_pdf",
+                    "secondary_source": "ncaa_api",
+                    "primary_value": primary_value,
+                    "secondary_value": api_value,
+                    "match_method": match_method,
+                })
                 continue
             issues.append({
                 "code": "source_stat_disagreement",
