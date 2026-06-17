@@ -22,6 +22,12 @@ import DataQualityPanel from "@/components/quality/DataQualityPanel";
 import PlayerModal from "@/components/shared/PlayerModal";
 import GameDetailsModal from "@/components/games/GameDetailsModal";
 import { fetchJsonWithRetry } from "@/lib/fetchJson";
+import {
+  getMilestoneLabel,
+  getMilestonePriority,
+  isMajorMilestoneKey,
+  milestoneDateSortValue,
+} from "@/lib/milestones";
 
 const DynamicSchoolMap = dynamic(
   () => import("@/components/maps/DynamicSchoolMap"),
@@ -356,32 +362,23 @@ export default function App({ data: initialData }: AppProps) {
     if (!selectedPlayer) return [];
     const name = selectedPlayer.name;
     const brefId = selectedPlayer.bref_id;
-    const results: (MilestoneEntry & { milestoneType: string })[] = [];
-    const milestoneLabels: Record<string, string> = {
-      threeHrGames: "3+ HR", multiHrGames: "Multi-HR", fiveHitGames: "5+ Hits",
-      fourHitGames: "4+ Hits", cycles: "Cycle", cycleWatch: "Cycle Watch",
-      sixRbiGames: "6+ RBI", fiveRbiGames: "5+ RBI", fourRbiGames: "4+ RBI",
-      multiDoubleGames: "Multi-2B", multiTripleGames: "Multi-3B", multiSbGames: "Multi-SB",
-      fourWalkGames: "4+ BB", perfectBattingGames: "Perfect Batting",
-      fourRunGames: "4+ Runs", threeTotalBasesGames: "8+ TB",
-      perfectGames: "Perfect Game", noHitters: "No-Hitter", oneHitters: "1-Hitter",
-      twoHitters: "2-Hitter", shutouts: "Shutout", cgsoNoWalks: "CGSO No BB",
-      completeGames: "Complete Game", lowHitCg: "Low-Hit CG",
-      sevenInningShutouts: "7+ IP SO", madduxGames: "Maddux",
-      fifteenKGames: "15+ K", twelveKGames: "12+ K", tenKGames: "10+ K",
-      dominantStarts: "Dominant Start",
-    };
+    const results: (MilestoneEntry & { milestoneKey: string; milestoneType: string })[] = [];
     Object.entries(data.milestones || {}).forEach(([key, arr]) => {
+      if (!isMajorMilestoneKey(key)) return;
       if (!Array.isArray(arr)) return;
       arr.forEach((entry) => {
         const entryName = entry.Player || (entry as Record<string, unknown>).name || "";
         const entryBref = entry.bref_id || "";
         if ((brefId && entryBref === brefId) || entryName === name) {
-          results.push({ ...entry, milestoneType: milestoneLabels[key] || key });
+          results.push({ ...entry, milestoneKey: key, milestoneType: getMilestoneLabel(key) });
         }
       });
     });
-    return results;
+    return results.sort((a, b) => {
+      const dateDelta = milestoneDateSortValue(b.Date) - milestoneDateSortValue(a.Date);
+      if (dateDelta) return dateDelta;
+      return getMilestonePriority(a.milestoneKey) - getMilestonePriority(b.milestoneKey);
+    });
   }, [selectedPlayer, data.milestones]);
 
   const selectedUnifiedStats = useMemo(() => {

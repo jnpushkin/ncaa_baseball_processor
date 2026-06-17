@@ -30,6 +30,7 @@ def test_serialize_milestones_uses_frontend_keys():
 def test_count_notable_milestones_handles_dataframes_and_lists():
     milestones = {
         "perfect_games": pd.DataFrame([{"Player": "Perfect Pete"}]),
+        "no_hitters": [{"Player": "No Hit Nora"}],
         "multi_hr_games": [{"Player": "Slugger"}],
         "hr_games": [{"Player": "Common HR"}],
     }

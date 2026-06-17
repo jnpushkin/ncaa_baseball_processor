@@ -991,6 +991,11 @@ tr:hover {
   font-weight: 600;
 }
 
+.milestone-chip .chip-stat {
+  color: #8a6200;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ===== Milestones ===== */
 .milestones-page {
   display: flex;

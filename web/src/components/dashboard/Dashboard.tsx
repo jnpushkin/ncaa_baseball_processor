@@ -6,6 +6,13 @@ import LevelBadge from "@/components/shared/LevelBadge";
 import TeamLogo from "@/components/shared/TeamLogo";
 import { formatDate } from "@/lib/baseball";
 import { getTeamDisplayName } from "@/lib/data";
+import {
+  getMilestoneLabel,
+  getMilestonePlayerType,
+  getMilestonePriority,
+  isMajorMilestoneKey,
+  milestoneDateSortValue,
+} from "@/lib/milestones";
 
 type DashboardPlayer = CrossoverPlayer | MilestoneEntry;
 
@@ -22,71 +29,6 @@ type DashboardMilestone = {
   row: MilestoneEntry;
   playerType: "batter" | "pitcher";
 };
-
-const MILESTONE_LABELS: Record<string, string> = {
-  threeHrGames: "3 HR",
-  multiHrGames: "Multi-HR",
-  fiveHitGames: "5 Hits",
-  fourHitGames: "4 Hits",
-  cycles: "Cycle",
-  cycleWatch: "Cycle Watch",
-  sixRbiGames: "6 RBI",
-  fiveRbiGames: "5 RBI",
-  fourRbiGames: "4 RBI",
-  multiDoubleGames: "Multi-2B",
-  multiTripleGames: "Multi-3B",
-  multiSbGames: "Multi-SB",
-  fourWalkGames: "4 BB",
-  perfectBattingGames: "Perfect Batting",
-  fourRunGames: "4 Runs",
-  threeTotalBasesGames: "8 TB",
-  perfectGames: "Perfect Game",
-  noHitters: "No-Hitter",
-  oneHitters: "1-Hitter",
-  twoHitters: "2-Hitter",
-  shutouts: "Shutout",
-  cgsoNoWalks: "CGSO No BB",
-  completeGames: "Complete Game",
-  lowHitCg: "Low-Hit CG",
-  sevenInningShutouts: "7+ IP SO",
-  madduxGames: "Maddux",
-  fifteenKGames: "15 K",
-  twelveKGames: "12 K",
-  tenKGames: "10 K",
-  dominantStarts: "Dominant Start",
-};
-
-const MILESTONE_PRIORITY: Record<string, number> = {
-  perfectGames: 1,
-  noHitters: 2,
-  threeHrGames: 3,
-  cycles: 4,
-  fifteenKGames: 5,
-  fiveHitGames: 6,
-  madduxGames: 7,
-  sixRbiGames: 8,
-  twelveKGames: 9,
-  multiHrGames: 10,
-  shutouts: 11,
-  tenKGames: 12,
-};
-
-const PITCHING_MILESTONES = new Set([
-  "perfectGames",
-  "noHitters",
-  "oneHitters",
-  "twoHitters",
-  "shutouts",
-  "cgsoNoWalks",
-  "completeGames",
-  "lowHitCg",
-  "sevenInningShutouts",
-  "madduxGames",
-  "fifteenKGames",
-  "twelveKGames",
-  "tenKGames",
-  "dominantStarts",
-]);
 
 function dateSortValue(value?: string) {
   if (!value) return 0;
@@ -140,17 +82,17 @@ export default function Dashboard({
     () =>
       Object.entries(data.milestones ?? {})
         .flatMap(([key, rows]) =>
-          (rows ?? []).map((row) => ({
+          isMajorMilestoneKey(key) ? (rows ?? []).map((row) => ({
             key,
-            label: MILESTONE_LABELS[key] ?? key,
+            label: getMilestoneLabel(key),
             row,
-            playerType: PITCHING_MILESTONES.has(key) ? ("pitcher" as const) : ("batter" as const),
-          }))
+            playerType: getMilestonePlayerType(key),
+          })) : []
         )
         .sort((a, b) => {
-          const dateDelta = dateSortValue(b.row.Date) - dateSortValue(a.row.Date);
+          const dateDelta = milestoneDateSortValue(b.row.Date) - milestoneDateSortValue(a.row.Date);
           if (dateDelta) return dateDelta;
-          return (MILESTONE_PRIORITY[a.key] ?? 99) - (MILESTONE_PRIORITY[b.key] ?? 99);
+          return getMilestonePriority(a.key) - getMilestonePriority(b.key);
         })
         .slice(0, 7),
     [data.milestones]

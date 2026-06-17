@@ -5,6 +5,7 @@ import { NormalizedPlayer, PlayerGame, MilestoneEntry, SiteData, UnifiedBatter, 
 import { addIP, ipToInnings, formatDate } from "@/lib/baseball";
 import { getTeamDisplayName } from "@/lib/data";
 import { BREF_BASE } from "@/lib/constants";
+import { milestoneStatChips } from "@/lib/milestones";
 import LevelBadge from "./LevelBadge";
 
 interface PlayerModalProps {
@@ -198,11 +199,16 @@ export default function PlayerModal({
 
           {milestones && milestones.length > 0 && (
             <div style={{ marginBottom: "16px" }}>
-              <h4 style={{ marginBottom: "8px" }}>Milestones</h4>
+              <h4 style={{ marginBottom: "8px" }}>Major milestones</h4>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                 {milestones.map((m, i) => (
                   <span key={i} className="milestone-chip">
                     <span className="chip-type">{m.milestoneType}</span>
+                    {milestoneStatChips(m, 3).map((chip) => (
+                      <span key={chip.key} className="chip-stat">
+                        {chip.key} {chip.value}
+                      </span>
+                    ))}
                     {m.Date && <span>{formatDate(m.Date)}</span>}
                     {m.Opponent && <span>vs {m.Opponent}</span>}
                   </span>

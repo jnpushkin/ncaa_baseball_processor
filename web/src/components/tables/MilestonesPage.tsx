@@ -7,6 +7,14 @@ import { formatDate } from "@/lib/baseball";
 import LevelLeagueFilter from "@/components/shared/LevelLeagueFilter";
 import LevelBadge from "@/components/shared/LevelBadge";
 import MilestonesTable from "@/components/tables/MilestonesTable";
+import {
+  MAJOR_MILESTONE_KEYS,
+  getMilestoneLabel,
+  getMilestonePlayerType,
+  getMilestonePriority,
+  milestoneDateSortValue,
+  milestoneStatChips,
+} from "@/lib/milestones";
 
 type MilestoneTableConfig = {
   key: string;
@@ -47,149 +55,23 @@ const MILESTONE_SECTIONS: MilestoneSection[] = [
     tables: [
       { key: "perfectGames", title: "Perfect Games", columns: ["Date", "Player", "Team", "Opponent", "IP", "K", "Score"] },
       { key: "noHitters", title: "No-Hitters", columns: ["Date", "Player", "Team", "Opponent", "IP", "K", "BB", "Score"] },
-      { key: "oneHitters", title: "One-Hitters", columns: ["Date", "Player", "Team", "Opponent", "IP", "H", "K", "ER"] },
-      { key: "twoHitters", title: "Two-Hitters", columns: ["Date", "Player", "Team", "Opponent", "IP", "H", "K", "ER"] },
+      { key: "fifteenKGames", title: "15+ K Games", columns: ["Date", "Player", "Team", "Opponent", "K", "IP", "H", "ER"] },
       { key: "madduxGames", title: "Maddux Games", columns: ["Date", "Player", "Team", "Opponent", "IP", "H", "K", "ER"] },
-    ],
-  },
-  {
-    id: "complete-games",
-    label: "CG & Shutouts",
-    tables: [
       { key: "cgsoNoWalks", title: "CGSO No Walks", columns: ["Date", "Player", "Team", "Opponent", "IP", "H", "K"] },
       { key: "shutouts", title: "Shutouts", columns: ["Date", "Player", "Team", "Opponent", "IP", "K", "H", "BB"] },
-      { key: "sevenInningShutouts", title: "7+ IP Shutouts", columns: ["Date", "Player", "Team", "Opponent", "IP", "K", "H", "BB"] },
-      { key: "completeGames", title: "Complete Games", columns: ["Date", "Player", "Team", "Opponent", "IP", "K", "H", "ER"] },
-      { key: "lowHitCg", title: "Low-Hit CG", columns: ["Date", "Player", "Team", "Opponent", "IP", "H", "K", "ER"] },
     ],
   },
   {
-    id: "strikeouts",
-    label: "Strikeouts",
+    id: "elite-batting",
+    label: "Elite Batting",
     tables: [
-      { key: "fifteenKGames", title: "15+ K Games", columns: ["Date", "Player", "Team", "Opponent", "K", "IP", "H", "ER"] },
-      { key: "twelveKGames", title: "12+ K Games", columns: ["Date", "Player", "Team", "Opponent", "K", "IP", "H", "ER"] },
-      { key: "tenKGames", title: "10+ K Games", columns: ["Date", "Player", "Team", "Opponent", "K", "IP", "H", "ER"] },
-      { key: "dominantStarts", title: "Dominant Starts", columns: ["Date", "Player", "Team", "Opponent", "IP", "K", "H", "ER"] },
-    ],
-  },
-  {
-    id: "power",
-    label: "Power",
-    tables: [
-      { key: "threeHrGames", title: "3+ HR Games", columns: ["Date", "Player", "Team", "Opponent", "HR", "H", "RBI", "R"] },
-      { key: "multiHrGames", title: "Multi-HR Games", columns: ["Date", "Player", "Team", "Opponent", "HR", "H", "RBI"] },
       { key: "cycles", title: "Cycles", columns: ["Date", "Player", "Team", "Opponent", "1B", "2B", "3B", "HR"] },
-      { key: "cycleWatch", title: "Cycle Watch", columns: ["Date", "Player", "Team", "Opponent", "1B", "2B", "3B", "HR"] },
-      { key: "threeTotalBasesGames", title: "8+ Total Bases", columns: ["Date", "Player", "Team", "Opponent", "TB", "H", "HR", "RBI"] },
-    ],
-  },
-  {
-    id: "hits",
-    label: "Hits",
-    tables: [
+      { key: "threeHrGames", title: "3+ HR Games", columns: ["Date", "Player", "Team", "Opponent", "HR", "H", "RBI", "R"] },
       { key: "fiveHitGames", title: "5+ Hit Games", columns: ["Date", "Player", "Team", "Opponent", "H", "R", "RBI"] },
-      { key: "fourHitGames", title: "4+ Hit Games", columns: ["Date", "Player", "Team", "Opponent", "H", "R", "RBI"] },
-      { key: "multiDoubleGames", title: "Multi-Double Games", columns: ["Date", "Player", "Team", "Opponent", "2B", "H", "RBI"] },
-      { key: "multiTripleGames", title: "Multi-Triple Games", columns: ["Date", "Player", "Team", "Opponent", "3B", "H", "RBI"] },
-      { key: "perfectBattingGames", title: "Perfect Batting Games", columns: ["Date", "Player", "Team", "Opponent", "AB", "H", "K", "RBI"] },
-    ],
-  },
-  {
-    id: "run-production",
-    label: "Run Production",
-    tables: [
       { key: "sixRbiGames", title: "6+ RBI Games", columns: ["Date", "Player", "Team", "Opponent", "RBI", "H", "HR"] },
-      { key: "fiveRbiGames", title: "5+ RBI Games", columns: ["Date", "Player", "Team", "Opponent", "RBI", "H", "HR"] },
-      { key: "fourRbiGames", title: "4+ RBI Games", columns: ["Date", "Player", "Team", "Opponent", "RBI", "H", "HR"] },
-      { key: "fourRunGames", title: "4+ Run Games", columns: ["Date", "Player", "Team", "Opponent", "R", "H", "RBI"] },
-    ],
-  },
-  {
-    id: "approach",
-    label: "Speed & Patience",
-    tables: [
-      { key: "multiSbGames", title: "Multi-SB Games", columns: ["Date", "Player", "Team", "Opponent", "SB", "H", "R"] },
-      { key: "fourWalkGames", title: "4+ Walk Games", columns: ["Date", "Player", "Team", "Opponent", "BB", "H", "R"] },
     ],
   },
 ];
-
-const MILESTONE_LABELS: Record<string, string> = {
-  threeHrGames: "3 HR",
-  multiHrGames: "Multi-HR",
-  fiveHitGames: "5 Hits",
-  fourHitGames: "4 Hits",
-  cycles: "Cycle",
-  cycleWatch: "Cycle Watch",
-  sixRbiGames: "6 RBI",
-  fiveRbiGames: "5 RBI",
-  fourRbiGames: "4 RBI",
-  multiDoubleGames: "Multi-2B",
-  multiTripleGames: "Multi-3B",
-  multiSbGames: "Multi-SB",
-  fourWalkGames: "4 BB",
-  perfectBattingGames: "Perfect Batting",
-  fourRunGames: "4 Runs",
-  threeTotalBasesGames: "8 TB",
-  perfectGames: "Perfect Game",
-  noHitters: "No-Hitter",
-  oneHitters: "1-Hitter",
-  twoHitters: "2-Hitter",
-  shutouts: "Shutout",
-  cgsoNoWalks: "CGSO No BB",
-  completeGames: "Complete Game",
-  lowHitCg: "Low-Hit CG",
-  sevenInningShutouts: "7+ IP SO",
-  madduxGames: "Maddux",
-  fifteenKGames: "15 K",
-  twelveKGames: "12 K",
-  tenKGames: "10 K",
-  dominantStarts: "Dominant Start",
-};
-
-const MILESTONE_PRIORITY: Record<string, number> = {
-  perfectGames: 1,
-  noHitters: 2,
-  cycles: 3,
-  threeHrGames: 4,
-  fifteenKGames: 5,
-  fiveHitGames: 6,
-  sixRbiGames: 7,
-  shutouts: 8,
-  twelveKGames: 9,
-  multiHrGames: 10,
-  tenKGames: 11,
-};
-
-const RARE_MILESTONE_KEYS = new Set([
-  "perfectGames",
-  "noHitters",
-  "cycles",
-  "threeHrGames",
-  "fifteenKGames",
-  "fiveHitGames",
-  "sixRbiGames",
-  "shutouts",
-  "twelveKGames",
-]);
-
-const PITCHING_MILESTONE_KEYS = new Set([
-  "perfectGames",
-  "noHitters",
-  "oneHitters",
-  "twoHitters",
-  "shutouts",
-  "cgsoNoWalks",
-  "completeGames",
-  "lowHitCg",
-  "sevenInningShutouts",
-  "madduxGames",
-  "fifteenKGames",
-  "twelveKGames",
-  "tenKGames",
-  "dominantStarts",
-]);
 
 const SECTION_BY_TABLE_KEY = MILESTONE_SECTIONS.reduce<Record<string, MilestoneSection>>(
   (lookup, section) => {
@@ -239,24 +121,6 @@ function filterMilestones(
   );
 }
 
-function dateSortValue(value?: string | number) {
-  if (!value) return 0;
-  const raw = String(value);
-  const parts = raw.split(/[/-]/).map((part) => Number(part));
-  if (parts.length === 3) {
-    const [month, day, year] = parts;
-    if (month && day && year) return year * 10000 + month * 100 + day;
-  }
-  return Number(raw.replace(/\D/g, "")) || 0;
-}
-
-function statChips(row: MilestoneEntry, limit = 5) {
-  return ["1B", "2B", "3B", "HR", "H", "RBI", "K", "IP", "BB", "SB", "TB", "ER", "R"]
-    .filter((key) => row[key] !== undefined && row[key] !== "")
-    .slice(0, limit)
-    .map((key) => ({ key, value: row[key] }));
-}
-
 function shortMatchup(row: MilestoneEntry) {
   const opponent = row.Opponent ? `vs ${row.Opponent}` : "";
   return [row.Team, opponent].filter(Boolean).join(" ");
@@ -301,7 +165,7 @@ function buildPerformances(cards: MilestoneCard[]) {
 }
 
 function comparePerformances(a: MilestonePerformance, b: MilestonePerformance) {
-  const dateDelta = dateSortValue(b.row.Date) - dateSortValue(a.row.Date);
+  const dateDelta = milestoneDateSortValue(b.row.Date) - milestoneDateSortValue(a.row.Date);
   if (dateDelta) return dateDelta;
   return a.priority - b.priority;
 }
@@ -309,7 +173,7 @@ function comparePerformances(a: MilestonePerformance, b: MilestonePerformance) {
 function performanceChips(performance: MilestonePerformance, limit = 5) {
   const chips = new Map<string, string | number | undefined>();
   performance.cards.forEach((card) => {
-    statChips(card.row, 10).forEach((chip) => {
+    milestoneStatChips(card.row, 10).forEach((chip) => {
       if (!chips.has(chip.key)) chips.set(chip.key, chip.value);
     });
   });
@@ -335,7 +199,8 @@ export default function MilestonesPage({
   const [showDetailedTables, setShowDetailedTables] = useState(false);
   const allMilestoneData = useMemo(() => {
     const all: MilestoneEntry[] = [];
-    Object.values(data.milestones || {}).forEach((arr) => {
+    MILESTONE_SECTIONS.flatMap((section) => section.tables).forEach((table) => {
+      const arr = data.milestones[table.key] ?? [];
       if (Array.isArray(arr)) all.push(...arr);
     });
     return all;
@@ -378,15 +243,16 @@ export default function MilestonesPage({
     return Object.entries(data.milestones ?? {})
       .flatMap(([key, rows]) => {
         const section = SECTION_BY_TABLE_KEY[key];
+        if (!MAJOR_MILESTONE_KEYS.has(key)) return [];
         if (!section) return [];
         return (rows ?? []).map((row) => ({
           key,
-          label: MILESTONE_LABELS[key] ?? key,
+          label: getMilestoneLabel(key),
           row,
           sectionId: section?.id ?? "other",
           sectionLabel: section?.label ?? "Other",
-          priority: MILESTONE_PRIORITY[key] ?? 99,
-          playerType: PITCHING_MILESTONE_KEYS.has(key) ? ("pitcher" as const) : ("batter" as const),
+          priority: getMilestonePriority(key),
+          playerType: getMilestonePlayerType(key),
         }));
       })
       .filter((card) => filterMilestones([card.row], levelFilter, leagueFilter, searchTerm).length > 0);
@@ -422,7 +288,7 @@ export default function MilestonesPage({
   const featuredPerformance = useMemo(() => {
     const rareLatest = visiblePerformances
       .filter((performance) =>
-        performance.cards.some((card) => RARE_MILESTONE_KEYS.has(card.key))
+        performance.cards.some((card) => MAJOR_MILESTONE_KEYS.has(card.key))
       )
       .sort(comparePerformances);
     return rareLatest[0] ?? visiblePerformances[0];
@@ -437,19 +303,6 @@ export default function MilestonesPage({
     () => visiblePerformances.slice(0, 12),
     [visiblePerformances]
   );
-
-  const rarePerformances = useMemo(() => {
-    const seen = new Set<string>();
-    return visiblePerformances
-      .filter((performance) =>
-        performance.cards.some((card) => RARE_MILESTONE_KEYS.has(card.key))
-      )
-      .filter((performance) => {
-        if (seen.has(performance.id)) return false;
-        seen.add(performance.id);
-        return true;
-      });
-  }, [visiblePerformances]);
 
   const boardStats = useMemo(() => {
     const players = new Set(visiblePerformances.map((performance) => performance.row.Player).filter(Boolean));
@@ -472,7 +325,7 @@ export default function MilestonesPage({
             className="milestone-feature-card"
             onClick={() => onPlayerClick?.(featuredPerformance.row, featuredPerformance.playerType)}
           >
-            <span className="milestone-board-kicker">Featured feat</span>
+            <span className="milestone-board-kicker">Featured milestone</span>
             <span className="milestone-feature-topline">
               <LevelBadge
                 level={String(featuredPerformance.row.Level ?? featuredPerformance.row.level ?? "")}
@@ -498,15 +351,15 @@ export default function MilestonesPage({
           <section className="milestone-board-panel">
             <div className="milestone-board-header">
               <div>
-                <span className="milestone-board-kicker">Current view</span>
-                <h2>Milestone Board</h2>
+                <span className="milestone-board-kicker">Curated view</span>
+                <h2>Major Milestones</h2>
               </div>
-              <span>{boardStats.performances.toLocaleString()} performances</span>
+              <span>{boardStats.performances.toLocaleString()} player games</span>
             </div>
             <div className="milestone-kpi-grid">
               <div>
                 <strong>{boardStats.tags.toLocaleString()}</strong>
-                <span>Tags</span>
+                <span>Events</span>
               </div>
               <div>
                 <strong>{boardStats.players.toLocaleString()}</strong>
@@ -541,43 +394,11 @@ export default function MilestonesPage({
         </div>
       )}
 
-      {rarePerformances.length > 0 && (
-        <section className="milestone-rare-panel">
-          <div className="milestone-board-header">
-            <div>
-              <span className="milestone-board-kicker">Rare feats</span>
-              <h2>Biggest Signals</h2>
-            </div>
-          </div>
-          <div className="milestone-rare-grid">
-            {rarePerformances.slice(0, 4).map((performance) => (
-              <button
-                key={performance.id}
-                type="button"
-                className="milestone-rare-card"
-                onClick={() => onPlayerClick?.(performance.row, performance.playerType)}
-              >
-                <span>{labelSummary(performance, 2)}</span>
-                <strong>{performance.row.Player}</strong>
-                <em>{shortMatchup(performance.row)}</em>
-                <span className="milestone-stat-chips">
-                  {performanceChips(performance, 3).map((chip) => (
-                    <span key={chip.key}>
-                      {chip.key} <strong>{chip.value}</strong>
-                    </span>
-                  ))}
-                </span>
-              </button>
-            ))}
-          </div>
-        </section>
-      )}
-
       <section className="milestone-performance-panel">
         <div className="milestone-board-header">
           <div>
-            <span className="milestone-board-kicker">Condensed view</span>
-            <h2>Player-Game Performances</h2>
+            <span className="milestone-board-kicker">Latest</span>
+            <h2>Milestone Games</h2>
           </div>
           <span>
             {performanceList.length.toLocaleString()} latest of{" "}
@@ -635,10 +456,10 @@ export default function MilestonesPage({
           searchPlaceholder="Search players, teams, opponents..."
         />
         <div className="milestones-summary-strip">
-          <span>{visiblePerformances.length.toLocaleString()} performances</span>
-          <span>{visibleMilestoneCards.length.toLocaleString()} milestone tags</span>
-          <span>{filteredPerformances.length.toLocaleString()} total performances</span>
-          <span>{totalMilestones.toLocaleString()} total tags</span>
+          <span>{visiblePerformances.length.toLocaleString()} player games</span>
+          <span>{visibleMilestoneCards.length.toLocaleString()} milestone events</span>
+          <span>{filteredPerformances.length.toLocaleString()} total player games</span>
+          <span>{totalMilestones.toLocaleString()} total events</span>
           <span className={sourceWarnings ? "source-review-warning" : ""}>
             {sourceWarnings
               ? `${sourceReviewGames.toLocaleString()} source-review games`
@@ -686,11 +507,11 @@ export default function MilestonesPage({
 
       <div className="milestone-detail-toggle panel">
         <div>
-          <span className="milestone-board-kicker">Detailed tags</span>
+          <span className="milestone-board-kicker">Detailed view</span>
           <strong>Category tables</strong>
           <p>
-            {visibleMilestoneCards.length.toLocaleString()} filtered milestone tags across{" "}
-            {visiblePerformances.length.toLocaleString()} condensed performances.
+            {visibleMilestoneCards.length.toLocaleString()} filtered milestone events across{" "}
+            {visiblePerformances.length.toLocaleString()} player games.
           </p>
         </div>
         <button
@@ -713,7 +534,7 @@ export default function MilestonesPage({
             <section key={section.id} className="milestone-section">
               <div className="milestone-section-heading">
                 <h3>{section.label}</h3>
-                <span>{sectionCounts[section.id].toLocaleString()} tags</span>
+                <span>{sectionCounts[section.id].toLocaleString()} events</span>
               </div>
               {visibleTables.map((table) => (
                 <MilestonesTable

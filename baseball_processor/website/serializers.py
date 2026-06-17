@@ -55,18 +55,16 @@ MILESTONE_JSON_KEYS = {
 }
 
 NOTABLE_MILESTONE_KEYS = [
-    "three_hr_games", "multi_hr_games",
-    "five_hit_games", "four_hit_games",
-    "cycles", "cycle_watch",
-    "six_rbi_games", "five_rbi_games", "four_rbi_games",
-    "multi_double_games", "multi_triple_games", "multi_sb_games",
-    "four_walk_games", "perfect_batting_games",
-    "four_run_games", "three_total_bases_games",
-    "perfect_games", "no_hitters", "one_hitters", "two_hitters",
-    "shutouts", "cgso_no_walks", "complete_games", "low_hit_cg",
-    "seven_inning_shutouts", "maddux_games",
-    "fifteen_k_games", "twelve_k_games", "ten_k_games",
-    "dominant_starts",
+    "three_hr_games",
+    "five_hit_games",
+    "cycles",
+    "six_rbi_games",
+    "perfect_games",
+    "no_hitters",
+    "shutouts",
+    "cgso_no_walks",
+    "maddux_games",
+    "fifteen_k_games",
 ]
 
 
@@ -101,7 +99,7 @@ def tabular_count(value: Any) -> int:
 
 
 def count_notable_milestones(milestones: Mapping[str, Any]) -> int:
-    """Count milestone rows that should contribute to the headline total."""
+    """Count major milestone rows that should contribute to the headline total."""
     return sum(tabular_count(milestones.get(key)) for key in NOTABLE_MILESTONE_KEYS)
 
 
