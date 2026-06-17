@@ -30,6 +30,16 @@ type MilestoneCard = {
   playerType: "batter" | "pitcher";
 };
 
+type MilestonePerformance = {
+  id: string;
+  row: MilestoneEntry;
+  cards: MilestoneCard[];
+  labels: string[];
+  sectionIds: string[];
+  priority: number;
+  playerType: "batter" | "pitcher";
+};
+
 const MILESTONE_SECTIONS: MilestoneSection[] = [
   {
     id: "elite-pitching",
@@ -240,22 +250,76 @@ function dateSortValue(value?: string | number) {
   return Number(raw.replace(/\D/g, "")) || 0;
 }
 
-function compareMilestoneCards(a: MilestoneCard, b: MilestoneCard) {
-  const dateDelta = dateSortValue(b.row.Date) - dateSortValue(a.row.Date);
-  if (dateDelta) return dateDelta;
-  return a.priority - b.priority;
-}
-
-function statChips(row: MilestoneEntry) {
+function statChips(row: MilestoneEntry, limit = 5) {
   return ["1B", "2B", "3B", "HR", "H", "RBI", "K", "IP", "BB", "SB", "TB", "ER", "R"]
     .filter((key) => row[key] !== undefined && row[key] !== "")
-    .slice(0, 5)
+    .slice(0, limit)
     .map((key) => ({ key, value: row[key] }));
 }
 
 function shortMatchup(row: MilestoneEntry) {
   const opponent = row.Opponent ? `vs ${row.Opponent}` : "";
   return [row.Team, opponent].filter(Boolean).join(" ");
+}
+
+function performanceKey(card: MilestoneCard) {
+  const row = card.row;
+  return [
+    row.GameID,
+    row.Date,
+    row.Player,
+    row.Team,
+    row.Opponent,
+  ]
+    .filter((part) => part !== undefined && part !== "")
+    .join("|");
+}
+
+function buildPerformances(cards: MilestoneCard[]) {
+  const grouped = new Map<string, MilestoneCard[]>();
+  cards.forEach((card) => {
+    const key = performanceKey(card);
+    const current = grouped.get(key) ?? [];
+    current.push(card);
+    grouped.set(key, current);
+  });
+  return [...grouped.entries()].map(([id, group]) => {
+    const sorted = [...group].sort((a, b) => a.priority - b.priority);
+    const labels = [...new Set(sorted.map((card) => card.label))];
+    const sectionIds = [...new Set(sorted.map((card) => card.sectionId))];
+    const primary = sorted[0];
+    return {
+      id,
+      row: primary.row,
+      cards: sorted,
+      labels,
+      sectionIds,
+      priority: primary.priority,
+      playerType: primary.playerType,
+    };
+  });
+}
+
+function comparePerformances(a: MilestonePerformance, b: MilestonePerformance) {
+  const dateDelta = dateSortValue(b.row.Date) - dateSortValue(a.row.Date);
+  if (dateDelta) return dateDelta;
+  return a.priority - b.priority;
+}
+
+function performanceChips(performance: MilestonePerformance, limit = 5) {
+  const chips = new Map<string, string | number | undefined>();
+  performance.cards.forEach((card) => {
+    statChips(card.row, 10).forEach((chip) => {
+      if (!chips.has(chip.key)) chips.set(chip.key, chip.value);
+    });
+  });
+  return [...chips.entries()].slice(0, limit).map(([key, value]) => ({ key, value }));
+}
+
+function labelSummary(performance: MilestonePerformance, limit = 3) {
+  const visible = performance.labels.slice(0, limit);
+  const hidden = performance.labels.length - visible.length;
+  return hidden > 0 ? `${visible.join(" + ")} +${hidden}` : visible.join(" + ");
 }
 
 export default function MilestonesPage({
@@ -268,6 +332,7 @@ export default function MilestonesPage({
 }: MilestonesPageProps) {
   const [activeSection, setActiveSection] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [showDetailedTables, setShowDetailedTables] = useState(false);
   const allMilestoneData = useMemo(() => {
     const all: MilestoneEntry[] = [];
     Object.values(data.milestones || {}).forEach((arr) => {
@@ -287,7 +352,6 @@ export default function MilestonesPage({
     return counts;
   }, [data.milestones, levelFilter, leagueFilter, searchTerm]);
 
-  const filteredTotal = Object.values(sectionCounts).reduce((sum, count) => sum + count, 0);
   const totalMilestones = useMemo(
     () =>
       MILESTONE_SECTIONS.reduce(
@@ -328,65 +392,102 @@ export default function MilestonesPage({
       .filter((card) => filterMilestones([card.row], levelFilter, leagueFilter, searchTerm).length > 0);
   }, [data.milestones, levelFilter, leagueFilter, searchTerm]);
 
-  const featuredMilestone = useMemo(() => {
-    const rareLatest = filteredMilestoneCards
-      .filter((card) => RARE_MILESTONE_KEYS.has(card.key))
-      .sort(compareMilestoneCards);
-    return rareLatest[0] ?? [...filteredMilestoneCards].sort(compareMilestoneCards)[0];
-  }, [filteredMilestoneCards]);
-
-  const recentMilestones = useMemo(
-    () => [...filteredMilestoneCards].sort(compareMilestoneCards).slice(0, 5),
+  const filteredPerformances = useMemo(
+    () => buildPerformances(filteredMilestoneCards).sort(comparePerformances),
     [filteredMilestoneCards]
   );
 
-  const rareMilestones = useMemo(() => {
-    const latestByKey = new Map<string, MilestoneCard>();
-    [...filteredMilestoneCards]
-      .filter((card) => RARE_MILESTONE_KEYS.has(card.key))
-      .sort(compareMilestoneCards)
-      .forEach((card) => {
-        if (!latestByKey.has(card.key)) latestByKey.set(card.key, card);
-      });
-    return [...latestByKey.values()].sort((a, b) => a.priority - b.priority).slice(0, 4);
+  const visibleMilestoneCards = useMemo(
+    () =>
+      activeSection === "all"
+        ? filteredMilestoneCards
+        : filteredMilestoneCards.filter((card) => card.sectionId === activeSection),
+    [activeSection, filteredMilestoneCards]
+  );
+
+  const visiblePerformances = useMemo(
+    () => buildPerformances(visibleMilestoneCards).sort(comparePerformances),
+    [visibleMilestoneCards]
+  );
+
+  const sectionPerformanceCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    MILESTONE_SECTIONS.forEach((section) => {
+      const cards = filteredMilestoneCards.filter((card) => card.sectionId === section.id);
+      counts[section.id] = buildPerformances(cards).length;
+    });
+    return counts;
   }, [filteredMilestoneCards]);
 
+  const featuredPerformance = useMemo(() => {
+    const rareLatest = visiblePerformances
+      .filter((performance) =>
+        performance.cards.some((card) => RARE_MILESTONE_KEYS.has(card.key))
+      )
+      .sort(comparePerformances);
+    return rareLatest[0] ?? visiblePerformances[0];
+  }, [visiblePerformances]);
+
+  const recentPerformances = useMemo(
+    () => visiblePerformances.slice(0, 5),
+    [visiblePerformances]
+  );
+
+  const performanceList = useMemo(
+    () => visiblePerformances.slice(0, 12),
+    [visiblePerformances]
+  );
+
+  const rarePerformances = useMemo(() => {
+    const seen = new Set<string>();
+    return visiblePerformances
+      .filter((performance) =>
+        performance.cards.some((card) => RARE_MILESTONE_KEYS.has(card.key))
+      )
+      .filter((performance) => {
+        if (seen.has(performance.id)) return false;
+        seen.add(performance.id);
+        return true;
+      });
+  }, [visiblePerformances]);
+
   const boardStats = useMemo(() => {
-    const players = new Set(filteredMilestoneCards.map((card) => card.row.Player).filter(Boolean));
-    const pitching = filteredMilestoneCards.filter((card) => card.playerType === "pitcher").length;
+    const players = new Set(visiblePerformances.map((performance) => performance.row.Player).filter(Boolean));
+    const pitching = visiblePerformances.filter((performance) => performance.playerType === "pitcher").length;
     return {
-      shown: filteredMilestoneCards.length,
+      performances: visiblePerformances.length,
+      tags: visibleMilestoneCards.length,
       players: players.size,
-      batting: filteredMilestoneCards.length - pitching,
+      batting: visiblePerformances.length - pitching,
       pitching,
     };
-  }, [filteredMilestoneCards]);
+  }, [visibleMilestoneCards, visiblePerformances]);
 
   return (
     <div className="milestones-page">
-      {featuredMilestone && (
+      {featuredPerformance && (
         <div className="milestone-board">
           <button
             type="button"
             className="milestone-feature-card"
-            onClick={() => onPlayerClick?.(featuredMilestone.row, featuredMilestone.playerType)}
+            onClick={() => onPlayerClick?.(featuredPerformance.row, featuredPerformance.playerType)}
           >
             <span className="milestone-board-kicker">Featured feat</span>
             <span className="milestone-feature-topline">
               <LevelBadge
-                level={String(featuredMilestone.row.Level ?? featuredMilestone.row.level ?? "")}
+                level={String(featuredPerformance.row.Level ?? featuredPerformance.row.level ?? "")}
                 levelColors={data.levelColors ?? {}}
               />
-              <span>{formatDate(String(featuredMilestone.row.Date ?? ""))}</span>
+              <span>{formatDate(String(featuredPerformance.row.Date ?? ""))}</span>
             </span>
-            <strong>{featuredMilestone.row.Player}</strong>
-            <span className="milestone-feature-title">{featuredMilestone.label}</span>
+            <strong>{featuredPerformance.row.Player}</strong>
+            <span className="milestone-feature-title">{labelSummary(featuredPerformance)}</span>
             <span className="milestone-feature-matchup">
-              {shortMatchup(featuredMilestone.row)}
-              {featuredMilestone.row.Score && <em>{featuredMilestone.row.Score}</em>}
+              {shortMatchup(featuredPerformance.row)}
+              {featuredPerformance.row.Score && <em>{featuredPerformance.row.Score}</em>}
             </span>
             <span className="milestone-stat-chips">
-              {statChips(featuredMilestone.row).map((chip) => (
+              {performanceChips(featuredPerformance).map((chip) => (
                 <span key={chip.key}>
                   {chip.key} <strong>{chip.value}</strong>
                 </span>
@@ -400,9 +501,13 @@ export default function MilestonesPage({
                 <span className="milestone-board-kicker">Current view</span>
                 <h2>Milestone Board</h2>
               </div>
-              <span>{boardStats.shown.toLocaleString()} shown</span>
+              <span>{boardStats.performances.toLocaleString()} performances</span>
             </div>
             <div className="milestone-kpi-grid">
+              <div>
+                <strong>{boardStats.tags.toLocaleString()}</strong>
+                <span>Tags</span>
+              </div>
               <div>
                 <strong>{boardStats.players.toLocaleString()}</strong>
                 <span>Players</span>
@@ -415,24 +520,20 @@ export default function MilestonesPage({
                 <strong>{boardStats.pitching.toLocaleString()}</strong>
                 <span>Pitching</span>
               </div>
-              <div>
-                <strong>{rareMilestones.length.toLocaleString()}</strong>
-                <span>Rare types</span>
-              </div>
             </div>
             <div className="milestone-recent-list">
-              {recentMilestones.map((card, index) => (
+              {recentPerformances.map((performance, index) => (
                 <button
-                  key={`${card.key}-${card.row.Date}-${card.row.Player}-${index}`}
+                  key={`${performance.id}-${index}`}
                   type="button"
-                  onClick={() => onPlayerClick?.(card.row, card.playerType)}
+                  onClick={() => onPlayerClick?.(performance.row, performance.playerType)}
                 >
-                  <span className="milestone-mini-label">{card.label}</span>
+                  <span className="milestone-mini-label">{labelSummary(performance, 1)}</span>
                   <span>
-                    <strong>{card.row.Player}</strong>
-                    <em>{shortMatchup(card.row)}</em>
+                    <strong>{performance.row.Player}</strong>
+                    <em>{shortMatchup(performance.row)}</em>
                   </span>
-                  <time>{formatDate(String(card.row.Date ?? ""))}</time>
+                  <time>{formatDate(String(performance.row.Date ?? ""))}</time>
                 </button>
               ))}
             </div>
@@ -440,7 +541,7 @@ export default function MilestonesPage({
         </div>
       )}
 
-      {rareMilestones.length > 0 && (
+      {rarePerformances.length > 0 && (
         <section className="milestone-rare-panel">
           <div className="milestone-board-header">
             <div>
@@ -449,18 +550,18 @@ export default function MilestonesPage({
             </div>
           </div>
           <div className="milestone-rare-grid">
-            {rareMilestones.map((card) => (
+            {rarePerformances.slice(0, 4).map((performance) => (
               <button
-                key={`${card.key}-${card.row.Player}`}
+                key={performance.id}
                 type="button"
                 className="milestone-rare-card"
-                onClick={() => onPlayerClick?.(card.row, card.playerType)}
+                onClick={() => onPlayerClick?.(performance.row, performance.playerType)}
               >
-                <span>{card.label}</span>
-                <strong>{card.row.Player}</strong>
-                <em>{shortMatchup(card.row)}</em>
+                <span>{labelSummary(performance, 2)}</span>
+                <strong>{performance.row.Player}</strong>
+                <em>{shortMatchup(performance.row)}</em>
                 <span className="milestone-stat-chips">
-                  {statChips(card.row).slice(0, 3).map((chip) => (
+                  {performanceChips(performance, 3).map((chip) => (
                     <span key={chip.key}>
                       {chip.key} <strong>{chip.value}</strong>
                     </span>
@@ -471,6 +572,54 @@ export default function MilestonesPage({
           </div>
         </section>
       )}
+
+      <section className="milestone-performance-panel">
+        <div className="milestone-board-header">
+          <div>
+            <span className="milestone-board-kicker">Condensed view</span>
+            <h2>Player-Game Performances</h2>
+          </div>
+          <span>
+            {performanceList.length.toLocaleString()} latest of{" "}
+            {visiblePerformances.length.toLocaleString()}
+          </span>
+        </div>
+        <div className="milestone-performance-grid">
+          {performanceList.map((performance) => (
+            <button
+              key={performance.id}
+              type="button"
+              className="milestone-performance-card"
+              onClick={() => onPlayerClick?.(performance.row, performance.playerType)}
+            >
+              <span className="milestone-performance-topline">
+                <LevelBadge
+                  level={String(performance.row.Level ?? performance.row.level ?? "")}
+                  levelColors={data.levelColors ?? {}}
+                />
+                <time>{formatDate(String(performance.row.Date ?? ""))}</time>
+              </span>
+              <strong>{performance.row.Player}</strong>
+              <em>{shortMatchup(performance.row)}</em>
+              <span className="milestone-label-stack">
+                {performance.labels.slice(0, 4).map((label) => (
+                  <span key={label}>{label}</span>
+                ))}
+                {performance.labels.length > 4 && (
+                  <span>+{performance.labels.length - 4}</span>
+                )}
+              </span>
+              <span className="milestone-stat-chips">
+                {performanceChips(performance, 4).map((chip) => (
+                  <span key={chip.key}>
+                    {chip.key} <strong>{chip.value}</strong>
+                  </span>
+                ))}
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
 
       <div className="milestones-toolbar panel">
         <LevelLeagueFilter
@@ -486,8 +635,10 @@ export default function MilestonesPage({
           searchPlaceholder="Search players, teams, opponents..."
         />
         <div className="milestones-summary-strip">
-          <span>{filteredTotal.toLocaleString()} shown</span>
-          <span>{totalMilestones.toLocaleString()} total</span>
+          <span>{visiblePerformances.length.toLocaleString()} performances</span>
+          <span>{visibleMilestoneCards.length.toLocaleString()} milestone tags</span>
+          <span>{filteredPerformances.length.toLocaleString()} total performances</span>
+          <span>{totalMilestones.toLocaleString()} total tags</span>
           <span className={sourceWarnings ? "source-review-warning" : ""}>
             {sourceWarnings
               ? `${sourceReviewGames.toLocaleString()} source-review games`
@@ -508,7 +659,7 @@ export default function MilestonesPage({
           onClick={() => setActiveSection("all")}
         >
           All
-          <span>{filteredTotal.toLocaleString()}</span>
+          <span>{filteredPerformances.length.toLocaleString()}</span>
         </button>
         {MILESTONE_SECTIONS.map((section) => (
           <button
@@ -518,7 +669,7 @@ export default function MilestonesPage({
             onClick={() => setActiveSection(section.id)}
           >
             {section.label}
-            <span>{sectionCounts[section.id].toLocaleString()}</span>
+            <span>{sectionPerformanceCounts[section.id].toLocaleString()}</span>
           </button>
         ))}
       </div>
@@ -533,34 +684,53 @@ export default function MilestonesPage({
         </div>
       )}
 
-      {visibleSections.map((section) => {
-        const visibleTables = section.tables.filter((table) => {
-          const rows = data.milestones[table.key] ?? [];
-          return filterMilestones(rows, levelFilter, leagueFilter, searchTerm).length > 0;
-        });
-        if (!visibleTables.length) return null;
-        return (
-          <section key={section.id} className="milestone-section">
-            <div className="milestone-section-heading">
-              <h3>{section.label}</h3>
-              <span>{sectionCounts[section.id].toLocaleString()}</span>
-            </div>
-            {visibleTables.map((table) => (
-              <MilestonesTable
-                key={table.key}
-                title={table.title}
-                data={data.milestones[table.key] ?? []}
-                columns={table.columns}
-                levelFilter={levelFilter}
-                leagueFilter={leagueFilter}
-                searchTerm={searchTerm}
-                onPlayerClick={onPlayerClick}
-                siteData={data}
-              />
-            ))}
-          </section>
-        );
-      })}
+      <div className="milestone-detail-toggle panel">
+        <div>
+          <span className="milestone-board-kicker">Detailed tags</span>
+          <strong>Category tables</strong>
+          <p>
+            {visibleMilestoneCards.length.toLocaleString()} filtered milestone tags across{" "}
+            {visiblePerformances.length.toLocaleString()} condensed performances.
+          </p>
+        </div>
+        <button
+          type="button"
+          className="dashboard-link-button"
+          onClick={() => setShowDetailedTables((value) => !value)}
+        >
+          {showDetailedTables ? "Hide tables" : "Show tables"}
+        </button>
+      </div>
+
+      {showDetailedTables &&
+        visibleSections.map((section) => {
+          const visibleTables = section.tables.filter((table) => {
+            const rows = data.milestones[table.key] ?? [];
+            return filterMilestones(rows, levelFilter, leagueFilter, searchTerm).length > 0;
+          });
+          if (!visibleTables.length) return null;
+          return (
+            <section key={section.id} className="milestone-section">
+              <div className="milestone-section-heading">
+                <h3>{section.label}</h3>
+                <span>{sectionCounts[section.id].toLocaleString()} tags</span>
+              </div>
+              {visibleTables.map((table) => (
+                <MilestonesTable
+                  key={table.key}
+                  title={table.title}
+                  data={data.milestones[table.key] ?? []}
+                  columns={table.columns}
+                  levelFilter={levelFilter}
+                  leagueFilter={leagueFilter}
+                  searchTerm={searchTerm}
+                  onPlayerClick={onPlayerClick}
+                  siteData={data}
+                />
+              ))}
+            </section>
+          );
+        })}
     </div>
   );
 }

@@ -1332,6 +1332,113 @@ tr:hover {
   font-style: normal;
 }
 
+.milestone-performance-panel {
+  overflow: hidden;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.milestone-performance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 0;
+}
+
+.milestone-performance-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 164px;
+  padding: 14px 16px;
+  border: 0;
+  border-right: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+  background: transparent;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.milestone-performance-card:hover {
+  background: var(--color-hover);
+}
+
+.milestone-performance-topline {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--color-text-muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.milestone-performance-card > strong,
+.milestone-performance-card > em {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.milestone-performance-card > strong {
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.milestone-performance-card > em {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.milestone-label-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.milestone-label-stack span {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: #edf2f7;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.milestone-detail-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+}
+
+.milestone-detail-toggle strong {
+  display: block;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.milestone-detail-toggle p {
+  margin: 2px 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
 .milestones-toolbar {
   overflow: visible;
 }
@@ -3062,6 +3169,11 @@ select:focus-visible {
 
   .milestone-recent-list time {
     justify-self: start;
+  }
+
+  .milestone-detail-toggle {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .milestone-rare-grid {
