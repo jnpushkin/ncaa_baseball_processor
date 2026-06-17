@@ -44,6 +44,7 @@ python3 -m baseball_processor [input_path]
 - MiLB venues can host multiple active teams; keep unique internal venue keys separate from display venue names rather than assuming the stadium-map dict key is always the public stadium label
 - Pro venue checklist/dashboard totals should use physical venue identity, not display name alone: same-name parks such as the Kansas City and Lexington `Legends Field` entries are separate venues, true shared parks such as Roger Dean Chevrolet Stadium count once, and road-only partner teams do not count as physical venues
 - Pioneer League HTML hitter tables omit XBH/SB columns; parse `.stats-summary` batting notes and merge them back into player rows before processing
+- Website player modal entry points from generic crossover rows should resolve to the player's stronger batting/pitching profile; do not default to batter when pitchers have incidental batting rows from pitcher-at-bat games
 - NCAA API pitching `np` is currently a strikes proxy and pitcher `hr` is fabricated as zero; do not treat those as authoritative source-disagreement fields against PDF box scores
 - NCAA API batting `k` can be unavailable even when placeholder or pitcher-echo rows have strikeout values; ignore placeholder rows and impossible `AB=0, K>0` batting echoes when deciding source-disagreement authority
 - NCAA API names can be initial-only or lowercase-clipped (`A. Anderson`, `aide Taurek`); do not let those overwrite better PDF/roster display names or source-quality labels

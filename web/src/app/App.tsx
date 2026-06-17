@@ -50,6 +50,7 @@ type PlayerClickRow = {
   level?: string;
   levels?: ({ level: string } | string)[];
   "Level Details"?: ({ level: string } | string)[];
+  "Total Games"?: number;
 };
 
 type PlayerType = "batter" | "pitcher";
@@ -189,15 +190,40 @@ function findPlayerGames(data: SiteData, player: NormalizedPlayer, type: PlayerT
   return games.filter((g) => (g.Name || g.name) === player.name);
 }
 
-function findUnifiedStats(data: SiteData, player: NormalizedPlayer, type: PlayerType) {
-  if (type === "batter") {
-    return player.bref_id
-      ? data.unifiedBatters.find((b) => b.bref_id === player.bref_id) ?? null
-      : data.unifiedBatters.find((b) => b.name === player.name) ?? null;
+function findUnifiedStatRows(data: SiteData, player: NormalizedPlayer, type: PlayerType) {
+  const rows = type === "batter" ? data.unifiedBatters : data.unifiedPitchers;
+  if (player.bref_id) {
+    const byId = rows.filter((row) => row.bref_id === player.bref_id);
+    if (byId.length > 0) return byId;
   }
-  return player.bref_id
-    ? data.unifiedPitchers.find((p) => p.bref_id === player.bref_id) ?? null
-    : data.unifiedPitchers.find((p) => p.name === player.name) ?? null;
+  return rows.filter((row) => row.name === player.name);
+}
+
+function findUnifiedStats(data: SiteData, player: NormalizedPlayer, type: PlayerType) {
+  return findUnifiedStatRows(data, player, type)[0] ?? null;
+}
+
+function numericStat(value: unknown) {
+  const parsed = Number.parseFloat(String(value ?? 0));
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function playerProfileScore(data: SiteData, player: NormalizedPlayer, type: PlayerType) {
+  const games = findPlayerGames(data, player, type);
+  const stats = findUnifiedStatRows(data, player, type);
+  const statGames = stats.reduce((sum, row) => sum + numericStat(row.g), 0);
+  const volume = stats.reduce((sum, row) => {
+    const statRow = row as unknown as Record<string, unknown>;
+    if (type === "batter") {
+      return sum + numericStat(statRow.ab) + numericStat(statRow.bb);
+    }
+    return sum + numericStat(statRow.ip);
+  }, 0);
+  return games.length * 20 + statGames * 10 + volume;
+}
+
+function shouldAutoResolvePlayerType(player: PlayerClickRow) {
+  return player["Total Games"] !== undefined || player["Level Details"] !== undefined;
 }
 
 export default function App({ data: initialData }: AppProps) {
@@ -364,12 +390,18 @@ export default function App({ data: initialData }: AppProps) {
     const alternateType: PlayerType = type === "batter" ? "pitcher" : "batter";
     const alternateGames = findPlayerGames(data, normalized, alternateType);
     const alternateStats = findUnifiedStats(data, normalized, alternateType);
-    const resolvedType =
+    let resolvedType: PlayerType = type;
+    if (
       requestedGames.length === 0 &&
       !requestedStats &&
       (alternateGames.length > 0 || alternateStats)
-        ? alternateType
-        : type;
+    ) {
+      resolvedType = alternateType;
+    } else if (shouldAutoResolvePlayerType(player)) {
+      const requestedScore = playerProfileScore(data, normalized, type);
+      const alternateScore = playerProfileScore(data, normalized, alternateType);
+      if (alternateScore > requestedScore) resolvedType = alternateType;
+    }
     setSelectedPlayer(normalized);
     setPlayerType(resolvedType);
   };
