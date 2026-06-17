@@ -52,6 +52,8 @@ type PlayerClickRow = {
   "Level Details"?: ({ level: string } | string)[];
 };
 
+type PlayerType = "batter" | "pitcher";
+
 const EMPTY_SITE_DATA: SiteData = {
   summary: {
     totalGames: 0,
@@ -178,6 +180,26 @@ function normalizeMatchName(value?: string) {
   return String(value ?? "").trim().toLowerCase();
 }
 
+function findPlayerGames(data: SiteData, player: NormalizedPlayer, type: PlayerType) {
+  const games = type === "batter" ? data.batterGames : data.pitcherGames;
+  if (player.bref_id) {
+    const byId = games.filter((g) => g.bref_id === player.bref_id);
+    if (byId.length > 0) return byId;
+  }
+  return games.filter((g) => (g.Name || g.name) === player.name);
+}
+
+function findUnifiedStats(data: SiteData, player: NormalizedPlayer, type: PlayerType) {
+  if (type === "batter") {
+    return player.bref_id
+      ? data.unifiedBatters.find((b) => b.bref_id === player.bref_id) ?? null
+      : data.unifiedBatters.find((b) => b.name === player.name) ?? null;
+  }
+  return player.bref_id
+    ? data.unifiedPitchers.find((p) => p.bref_id === player.bref_id) ?? null
+    : data.unifiedPitchers.find((p) => p.name === player.name) ?? null;
+}
+
 export default function App({ data: initialData }: AppProps) {
   const [data, setData] = useState<SiteData>(initialData ?? EMPTY_SITE_DATA);
   const [isLoadingData, setIsLoadingData] = useState(!initialData);
@@ -212,7 +234,7 @@ export default function App({ data: initialData }: AppProps) {
 
   const [activeTab, setActiveTab] = useState(getInitialTab);
   const [selectedPlayer, setSelectedPlayer] = useState<NormalizedPlayer | null>(null);
-  const [playerType, setPlayerType] = useState<"batter" | "pitcher" | null>(null);
+  const [playerType, setPlayerType] = useState<PlayerType | null>(null);
   const [selectedGameIndex, setSelectedGameIndex] = useState<number | null>(null);
   const [milestoneLevelFilter, setMilestoneLevelFilter] = useState("All");
   const [milestoneLeagueFilter, setMilestoneLeagueFilter] = useState("All");
@@ -324,7 +346,7 @@ export default function App({ data: initialData }: AppProps) {
     };
   }, [gameLog]);
 
-  const handlePlayerClick = (player: PlayerClickRow, type: "batter" | "pitcher") => {
+  const handlePlayerClick = (player: PlayerClickRow, type: PlayerType) => {
     const rawLevels = player.levels ||
       player["Level Details"] ||
       (player.Level || player.level ? [player.Level || player.level || ""] : []);
@@ -337,8 +359,19 @@ export default function App({ data: initialData }: AppProps) {
         typeof entry === "string" ? { level: entry } : entry
       ),
     };
+    const requestedGames = findPlayerGames(data, normalized, type);
+    const requestedStats = findUnifiedStats(data, normalized, type);
+    const alternateType: PlayerType = type === "batter" ? "pitcher" : "batter";
+    const alternateGames = findPlayerGames(data, normalized, alternateType);
+    const alternateStats = findUnifiedStats(data, normalized, alternateType);
+    const resolvedType =
+      requestedGames.length === 0 &&
+      !requestedStats &&
+      (alternateGames.length > 0 || alternateStats)
+        ? alternateType
+        : type;
     setSelectedPlayer(normalized);
-    setPlayerType(type);
+    setPlayerType(resolvedType);
   };
 
   const closeModal = () => {
@@ -348,15 +381,8 @@ export default function App({ data: initialData }: AppProps) {
 
   const selectedPlayerGames = useMemo(() => {
     if (!selectedPlayer) return [];
-    const brefId = selectedPlayer.bref_id;
-    const name = selectedPlayer.name;
-    const games = playerType === "batter" ? data.batterGames : data.pitcherGames;
-    if (brefId) {
-      const byId = games.filter((g) => g.bref_id === brefId);
-      if (byId.length > 0) return byId;
-    }
-    return games.filter((g) => (g.Name || g.name) === name);
-  }, [selectedPlayer, playerType, data.batterGames, data.pitcherGames]);
+    return findPlayerGames(data, selectedPlayer, playerType ?? "batter");
+  }, [selectedPlayer, playerType, data]);
 
   const selectedPlayerMilestones = useMemo(() => {
     if (!selectedPlayer) return [];
@@ -383,20 +409,8 @@ export default function App({ data: initialData }: AppProps) {
 
   const selectedUnifiedStats = useMemo(() => {
     if (!selectedPlayer) return null;
-    const brefId = selectedPlayer.bref_id;
-    const name = selectedPlayer.name;
-    if (playerType === "batter") {
-      const found = brefId
-        ? data.unifiedBatters.find((b) => b.bref_id === brefId)
-        : data.unifiedBatters.find((b) => b.name === name);
-      return found ?? null;
-    } else {
-      const found = brefId
-        ? data.unifiedPitchers.find((p) => p.bref_id === brefId)
-        : data.unifiedPitchers.find((p) => p.name === name);
-      return found ?? null;
-    }
-  }, [selectedPlayer, playerType, data.unifiedBatters, data.unifiedPitchers]);
+    return findUnifiedStats(data, selectedPlayer, playerType ?? "batter");
+  }, [selectedPlayer, playerType, data]);
 
   const hasCrossover = data.crossoverPlayers && data.crossoverPlayers.length > 0;
   const hasSchedule =
