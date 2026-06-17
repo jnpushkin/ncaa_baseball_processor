@@ -879,28 +879,6 @@ tr:hover {
 .gdm-box-table td:first-child {
   text-align: left;
 }
-.gdm-decisions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-}
-.gdm-decision-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  background: var(--color-bg-alt, #f5f7fa);
-  border-radius: 12px;
-  font-size: 0.85rem;
-}
-.gdm-decision-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #888;
-}
 .gdm-plays-section h4 {
   margin: 12px 0 6px 0;
   font-size: 0.9rem;

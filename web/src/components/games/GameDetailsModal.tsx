@@ -175,34 +175,24 @@ function PitcherTable({ rows }: { rows: BoxScorePitcher[] }) {
             <th>K</th>
             <th>HR</th>
             <th>NP</th>
-            <th>Dec</th>
           </tr>
         </thead>
         <tbody>
-          {rows.map((r, i) => {
-            const win = r.win || (r as { wins?: number }).wins;
-            const loss = r.loss || (r as { losses?: number }).losses;
-            const save = r.save || (r as { saves?: number }).saves;
-            const dec = win ? "W" : loss ? "L" : save ? "S" : "";
-            return (
-              <tr key={i}>
-                <td style={{ textAlign: "left" }}>
-                  {pick(r.full_name, r.name)}
-                </td>
-                <td>{String(r.ip ?? "")}</td>
-                <td>{num(r.h)}</td>
-                <td>{num(r.r)}</td>
-                <td>{num(r.er)}</td>
-                <td>{num(r.bb)}</td>
-                <td>{num(r.k)}</td>
-                <td>{num(r.hr)}</td>
-                <td>{num(r.np)}</td>
-                <td>
-                  <strong>{dec}</strong>
-                </td>
-              </tr>
-            );
-          })}
+          {rows.map((r, i) => (
+            <tr key={i}>
+              <td style={{ textAlign: "left" }}>
+                {pick(r.full_name, r.name)}
+              </td>
+              <td>{String(r.ip ?? "")}</td>
+              <td>{num(r.h)}</td>
+              <td>{num(r.r)}</td>
+              <td>{num(r.er)}</td>
+              <td>{num(r.bb)}</td>
+              <td>{num(r.k)}</td>
+              <td>{num(r.hr)}</td>
+              <td>{num(r.np)}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
@@ -252,29 +242,11 @@ function KeyPlays({ notes }: { notes: GameDetails["game_notes"] }) {
     { label: "Stolen Bases", rows: notes.stolen_bases ?? [] },
   ].filter((s) => s.rows.length > 0);
 
-  const decisions: { label: string; value: string }[] = [];
-  if (notes.win?.player)
-    decisions.push({ label: "Win", value: `${notes.win.player}${notes.win.record ? ` (${notes.win.record})` : ""}` });
-  if (notes.loss?.player)
-    decisions.push({ label: "Loss", value: `${notes.loss.player}${notes.loss.record ? ` (${notes.loss.record})` : ""}` });
-  if (notes.save?.player)
-    decisions.push({ label: "Save", value: notes.save.player });
-
-  if (sections.length === 0 && decisions.length === 0)
+  if (sections.length === 0)
     return <div className="gdm-empty">No key plays recorded for this game.</div>;
 
   return (
     <div>
-      {decisions.length > 0 && (
-        <div className="gdm-decisions">
-          {decisions.map((d, i) => (
-            <div key={i} className="gdm-decision-chip">
-              <span className="gdm-decision-label">{d.label}</span>
-              <span>{d.value}</span>
-            </div>
-          ))}
-        </div>
-      )}
       {sections.map((s) => (
         <div key={s.label} className="gdm-plays-section">
           <h4>{s.label}</h4>
@@ -411,10 +383,8 @@ export default function GameDetailsModal({
       (notes.home_runs?.length || 0) +
         (notes.doubles?.length || 0) +
         (notes.triples?.length || 0) +
-        (notes.stolen_bases?.length || 0) > 0 ||
-      !!notes.win?.player ||
-      !!notes.loss?.player ||
-      !!notes.save?.player
+        (notes.stolen_bases?.length || 0) >
+        0
     );
   }, [notes]);
 
