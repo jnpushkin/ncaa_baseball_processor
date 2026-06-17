@@ -184,6 +184,8 @@ def normalize_venue_name(name: Any) -> str:
         "Dante Benedetti Diamond": "Dante Benedetti Diamond",
         "Charles Schwab Field (Omaha, Neb.)": "Charles Schwab Field Omaha",
         "Charles Schwab Field": "Charles Schwab Field Omaha",
+        "Charles Schwab Stad. (Omaha, Neb.)": "Charles Schwab Field Omaha",
+        "Charles Schwab Stad.": "Charles Schwab Field Omaha",
         "Charles Schwab Field Omaha": "Charles Schwab Field Omaha",
         "Evans Diamond at Stu Gordon Stadium": "Stu Gordon Stadium",
         "Stu Gordon Stadium (Berkeley, CA)": "Stu Gordon Stadium",

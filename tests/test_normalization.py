@@ -455,6 +455,7 @@ def test_normalizes_source_specific_venue_aliases():
     assert normalize_venue_name("Phoenix Muni Stadium") == "Phoenix Municipal Stadium"
     assert normalize_venue_name("Br. Ronald Gallagher") == "Louis Guisto Field at Br. Ronald Gallagher Stadium"
     assert normalize_venue_name("Davenport Field") == "Disharoon Park"
+    assert normalize_venue_name("Charles Schwab Stad. (Omaha, Neb.)") == "Charles Schwab Field Omaha"
 
 
 def test_resolves_known_api_only_venue_overrides():
